@@ -1,0 +1,10 @@
+citHeader("To cite shinyintro in publications use:")
+
+citEntry(
+  entry    = "Manual",
+  title    = "Building Web Apps with R Shiny",
+  author   = "DeBruine, Lisa M.",
+  year     = 2021,
+  url      = "https://debruine.github.io/shinyintro",
+  textVersion = "DeBruine, Lisa M. (2021). Building Web Apps with R Shiny."
+)

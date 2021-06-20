@@ -1,0 +1,30 @@
+Package: shinyintro
+Title: Building Web Apps with R Shiny
+Version: 0.0.0.9000
+Authors@R: 
+    c(person(given = "Lisa",
+           family = "DeBruine",
+           role = c("cre", "aut"),
+           email = "debruine@gmail.com",
+           comment = c(ORCID = "0000-0002-7523-5539")))
+Description: This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports.
+License: CC BY 4.0
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    dplyr,
+    ggplot2,
+    tidyr,
+    readr,
+    knitr,
+    webex,
+    glossary,
+    shiny,
+    shinyjs,
+    shinydashboard
+Depends: 
+    R (>= 2.10)
+Remotes:
+    psyteachr/glossary
