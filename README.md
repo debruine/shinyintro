@@ -8,7 +8,7 @@
 
 This package installs all of the packages you need for Lisa DeBruine’s
 course on Building Web Apps with R Shiny. It also gives you local access
-to the [book](https://debruine/github.io/shinyintro) and example Shiny
+to the [book](https://debruine.github.io/shinyintro) and example Shiny
 apps.
 
 ## Installation
