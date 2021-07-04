@@ -32,10 +32,16 @@ This class will teach you the basics of Shiny app programming, giving you skills
 
 The following are some diverse examples of Shiny apps that the instructor has made.
 
-* [Word Cloud](https://shiny.psy.gla.ac.uk/debruine/wordcloud/){target="_blank"} Create a word cloud from text and customize its appearance. Created during the live-coding event at [Hack Your Data Beautiful](https://psyteachr.github.io/hack-your-data/){target="_blank"}.
 * [Plot Demo](https://shiny.psy.gla.ac.uk/debruine/plotdemo/){target="_blank"} Simulate data from a 2×2 factorial design and visualize it with 6 different plot styles.
 * [Simulating for LMEM](https://shiny.psy.gla.ac.uk/lmem_sim/){target="_blank"} companion to Understanding mixed effects models through data simulation (DeBruine & Barr, AMPPS 2021)
 * [Scienceverse](http://shiny.ieis.tue.nl/scienceverse/){target="_blank"} is an ambitious (but in-progress) app for creating machine-readable descriptions of studies and human-readable summaries.
+* [Word Cloud](https://shiny.psy.gla.ac.uk/debruine/wordcloud/){target="_blank"} Create a word cloud from text and customize its appearance. Created during the live-coding event at [Hack Your Data Beautiful](https://psyteachr.github.io/hack-your-data/){target="_blank"}.
+
+```{r word-cloud-app, echo=FALSE, fig.cap="Word Cloud App"}
+knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/wordcloud/",
+  height = "600px")
+```
+
 
 ## Code Horizons Course (27-30 July 2021)
 

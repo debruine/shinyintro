@@ -1,0 +1,44 @@
+:root {
+  --purple: rgb(96, 92, 168);
+  --red: rgb(221, 75, 57);
+  --blue: rgb(60, 141, 188);
+  --green: rgb(0, 166, 90);
+  --yellow: rgb(243, 156, 18);
+  --grey: rgb(34,45,50);
+  
+  --tpurple: rgba(96, 92, 168,.5);
+  --tred: rgba(221, 75, 57,.5);
+  --tblue: rgba(60, 141, 188,.5);
+  --tgreen: rgba(0, 166, 90,.5);
+  --tyellow: rgba(243, 156, 18,.5);
+  --tgrey: rgba(34,45,50,.5);
+}
+
+ul.sidebar-menu {
+  font-size: 1.5em;
+}
+
+/* fix bug with 100% textArea width */
+.shiny-input-container:not(.shiny-input-container-inline) {
+  width: 100%;
+}
+
+.box-header {
+  padding: 0 10px 0 0;
+}
+
+.box-header h3 {
+  width: 100%;
+  padding: 10px;
+}
+
+.action-button {
+  background-color: var(--grey);
+  color: white;
+  font-weight: bold;
+}
+.skin-purple .action-button { background-color: var(--purple); }
+.skin-red .action-button { background-color: var(--red); }
+.skin-blue .action-button { background-color: var(--blue); }
+.skin-green .action-button { background-color: var(--green); }
+.skin-yellow .action-button { background-color: var(--yellow); }

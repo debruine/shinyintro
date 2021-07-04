@@ -23,7 +23,8 @@ Imports:
     glossary,
     shiny,
     shinyjs,
-    shinydashboard
+    shinydashboard,
+    googlesheets4
 Depends: 
     R (>= 2.10)
 Remotes:

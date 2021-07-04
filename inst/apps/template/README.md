@@ -1,1 +1,0 @@
-Fork this project or download it to start a shiny app from a template that uses shinydashboard.

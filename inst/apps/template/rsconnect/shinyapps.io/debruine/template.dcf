@@ -1,0 +1,11 @@
+name: template
+title:
+username:
+account: debruine
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4351096
+bundleId: 4785949
+url: https://debruine.shinyapps.io/template/
+when: 1625414603.99609
+lastSyncTime: 1625414603.9961

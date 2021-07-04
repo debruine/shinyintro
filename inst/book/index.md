@@ -1,7 +1,7 @@
 --- 
 title: "Building Web Apps with R Shiny"
 author: "Lisa DeBruine"
-date: "2021-06-20"
+date: "2021-07-05"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -25,10 +25,16 @@ This class will teach you the basics of Shiny app programming, giving you skills
 
 The following are some diverse examples of Shiny apps that the instructor has made.
 
-* [Word Cloud](https://shiny.psy.gla.ac.uk/debruine/wordcloud/){target="_blank"} Create a word cloud from text and customize its appearance. Created during the live-coding event at [Hack Your Data Beautiful](https://psyteachr.github.io/hack-your-data/){target="_blank"}.
 * [Plot Demo](https://shiny.psy.gla.ac.uk/debruine/plotdemo/){target="_blank"} Simulate data from a 2×2 factorial design and visualize it with 6 different plot styles.
 * [Simulating for LMEM](https://shiny.psy.gla.ac.uk/lmem_sim/){target="_blank"} companion to Understanding mixed effects models through data simulation (DeBruine & Barr, AMPPS 2021)
 * [Scienceverse](http://shiny.ieis.tue.nl/scienceverse/){target="_blank"} is an ambitious (but in-progress) app for creating machine-readable descriptions of studies and human-readable summaries.
+* [Word Cloud](https://shiny.psy.gla.ac.uk/debruine/wordcloud/){target="_blank"} Create a word cloud from text and customize its appearance. Created during the live-coding event at [Hack Your Data Beautiful](https://psyteachr.github.io/hack-your-data/){target="_blank"}.
+
+<div class="figure" style="text-align: center">
+<iframe src="https://shiny.psy.gla.ac.uk/debruine/wordcloud/?showcase=0" width="100%" height="600px"></iframe>
+<p class="caption">(\#fig:word-cloud-app)Word Cloud App</p>
+</div>
+
 
 ## Code Horizons Course (27-30 July 2021)
 
