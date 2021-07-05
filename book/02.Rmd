@@ -1,12 +1,21 @@
 # Basic Patterns
 
+Welcome to Day 2!. Today we'll expand on what we learned in Day 1 to cover input and output in more depth. We'll also learn how to read and write data to and from files.
+
+In the second half of Day 2, we'll expand what we've learned about reactivity and practice some common reactive patterns.
+
 ## Different input types {#input_functions}
 
-The examples below are only a rough approximation of the input types in a shiny app, which will apply styles to the inputs.
+Inputs are ways that users can communicate information to the Shiny app. Explore some different input types in the embedded app below before you read about how to set up each type. You can run this app locally with `shinyintro::app("input_demo")`.
+
+```{r input-demo-app, echo=FALSE, fig.cap="Input Demo App"}
+knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/input_demo/",
+  height = "800px")
+```
 
 ### textInput
 
-`textInput()` creates a box for short text input.
+`textInput()` creates a one-line box for short text input.
 
 ```{r}
 demo_text <- 
@@ -19,7 +28,7 @@ demo_text <-
 
 ### textAreaInput
 
-`textAreaInput()` creates a box for short text input.
+`textAreaInput()` creates a multi-line box for longer text input.
 
 ```{r}
 demo_textarea <- 
@@ -33,7 +42,7 @@ demo_textarea <-
 
 ### selectInput
 
-This creates a drop-down menu. Set the first choice to `""` to default to `NA`. If your choices are a named list, the names are what is shown and the values are what is recorded. If the choices aren't named, the displayed and recorded values are the same.
+`sekectInput()` creates a drop-down menu. Set the first choice to `""` to default to `NA`. If your choices are a named list, the names are what is shown and the values are what is recorded. If the choices aren't named, the displayed and recorded values are the same.
 
 ```{r}
 demo_select <- 
@@ -118,16 +127,17 @@ updateSliderInput(session, "demo_slider", value = 0)
 Note that select inputs and checkbox groups use the argument `selected` and not `value`. If you want to set all the values in a checkbox group to unchecked, set `selected = character(0)`.
 ```
 
-### Demo inputs app
-
-You can run this app locally with `shinyintro::app("input_demo")`.
-
-```{r input-demo-app, echo=FALSE, fig.cap="Input Demo App"}
-knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/input_demo/",
-  height = "800px")
-```
 
 ## Different output types {#output_functions}
+
+Output are ways that the Shiny app can dynamically display information to the user. In the user interface (UI), you create outputs with IDs that you reference in and associated rendering function inside the server function.
+
+Explore some different output types in the embedded app below before you read about how to set up each type. You can run this app locally with `shinyintro::app("output_demo")`.
+
+```{r output-demo-app, echo=FALSE, fig.cap="Output Demo App"}
+knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/output_demo/",
+  height = "800px")
+```
 
 ### textOutput
 
@@ -191,7 +201,8 @@ plotOutput("demo_plot")
 output$demo_plot <- renderPlot({
   ggplot(iris, aes(x = Species, y = .data[[input$y]], color = Species)) +
     geom_violin(show.legend = FALSE) +
-    stat_summary(show.legend = FALSE)
+    stat_summary(show.legend = FALSE) +
+    ylab(input$y)
 })
 ```
 
@@ -225,14 +236,14 @@ output$demo_image <- renderImage({
   # make the plot
   g <- ggplot(iris, aes(x = Species, y = .data[[input$y]], color = Species)) +
     geom_violin(show.legend = FALSE) +
-    stat_summary(show.legend = FALSE)
+    stat_summary(show.legend = FALSE) +
+    ylab(input$y)
   
-  # save to a temporay file
+  # save to a temporary file
   plot_file <- tempfile(fileext = ".png")
-  ggsave(plot_file, g, 
-         units = "px",
-         width = 1000, 
-         height = 1500)
+
+  ggsave(plot_file, demo_plot(), units = "in",
+         dpi = 72, width = 7, height = 5)
     
   # Return a list containing the filename
   list(src = plot_file,
@@ -268,20 +279,19 @@ If you have a long table to show, or one that you want users to be able to sort 
 
 ```{r, eval = FALSE}
 # in the UI
-dataTableOutput("demo_datatable")
+DT::dataTableOutput("demo_datatable")
 
 # in the server function
-output$demo_datatable <- renderDataTable({
+output$demo_datatable <- DT::renderDataTable({
     iris
 }, options = list(pageLength = 10))
 ```
 
-### Demo output app
-
-```{r output-demo-app, echo=FALSE, fig.cap="Output Demo App"}
-knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/output_demo/",
-  height = "800px")
+```{block, type="warning"}
+The basic `shiny` package has `dataTableOutput()` and `renderDataTable()` functions, but they can be buggy. The version in the `DT` package are better and have some additional functions, so I use those.
 ```
+
+
 
 ## Reading and saving data
 

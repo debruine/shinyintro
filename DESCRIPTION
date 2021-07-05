@@ -24,7 +24,8 @@ Imports:
     shiny,
     shinyjs,
     shinydashboard,
-    googlesheets4
+    googlesheets4,
+    DT
 Depends: 
     R (>= 2.10)
 Remotes:

@@ -4,7 +4,20 @@ suppressPackageStartupMessages({
     library(shinydashboard)
     library(ggplot2)
     library(dplyr)
+    library(DT)
 })
+
+# display debugging messages in R if local, 
+# or in the console log if remote
+debug_msg <- function(...) {
+    is_local <- Sys.getenv('SHINY_PORT') == ""
+    txt <- toString(list(...))
+    if (is_local) {
+        message(txt)
+    } else {
+        shinyjs::logjs(txt)
+    }
+}
 
 # user interface ----
 
@@ -26,7 +39,7 @@ main_tab <- tabItem(
         tabPanel("tableOutput",
                  tableOutput("demo_table")),
         tabPanel("dataTableOutput",
-                 dataTableOutput("demo_datatable"))
+                 DT::dataTableOutput("demo_datatable"))
     )
 )
 
@@ -36,6 +49,7 @@ ui <- dashboardPage(
     dashboardHeader(title = "Output Demo"),
     dashboardSidebar(disable = TRUE),
     dashboardBody(
+        shinyjs::useShinyjs(),
         tags$head(
             tags$link(rel = "stylesheet", type = "text/css", href = "custom.css")
         ), 
@@ -52,7 +66,8 @@ server <- function(input, output, session) {
         
         ggplot(iris, aes(x = Species, y = .data[[input$y]], color = Species)) +
             geom_violin(show.legend = FALSE) +
-            stat_summary(fun.data = mean_cl_normal, show.legend = FALSE)
+            stat_summary(fun.data = mean_cl_normal, show.legend = FALSE) +
+            ylab(input$y)
     })
 
     # demo_ui ----
@@ -89,9 +104,13 @@ ggsave('plot.png', units = \"px\", width = %d, height = %d)"
     # demo_image ----
     output$demo_image <- renderImage({
         plot_file <- tempfile(fileext = ".png")
-        ggsave(plot_file, demo_plot(), units = "px",
-               width = input$img_width, 
-               height = round(input$img_width/1.62))
+        
+        dpi <- 72
+        w <- round(input$img_width / 72)
+        h <- round(input$img_width / 1.62 / 72)
+
+        ggsave(plot_file, demo_plot(), units = "in",
+               dpi = dpi, width = w, height = h)
         
         # Return a list containing the filename
         list(src = plot_file,
@@ -110,7 +129,7 @@ ggsave('plot.png', units = \"px\", width = %d, height = %d)"
     })
     
     # demo_datatable ----
-    output$demo_datatable <- renderDataTable({
+    output$demo_datatable <- DT::renderDataTable({
         iris
     }, options = list(pageLength = 10))
     
