@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>C Symbols | Building Web Apps with R Shiny</title>
+  <meta name="description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="C Symbols | Building Web Apps with R Shiny" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="C Symbols | Building Web Apps with R Shiny" />
+  
+  <meta name="twitter:description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
+  
+
+<meta name="author" content="Lisa DeBruine" />
+
+
+<meta name="date" content="2021-07-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="setup-git.html"/>
+
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<meta property="og:title" content="IntroDataViz">
+<meta property="og:description" content="Data Visualisation Using R, For Researchers Who Don’t Use R.">
+<meta property="og:image" content="https://psyteachr.github.io/images/twitter/psyteachr.png">
+<meta property="og:url" content="https://psyteachr.github.io/introdataviz/">
+<meta property="twitter:card" content="summary_large_image">
+
+<link rel="shortcut icon" href="https://psyteachr.github.io/images/logo.png">
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="include/psyteachr.css" type="text/css" />
+<link rel="stylesheet" href="include/webex.css" type="text/css" />
+<link rel="stylesheet" href="include/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Building Web Apps with R Shiny</a></li>
+<li><a href="https://zenodo.org/badge/latestdoi/166559207"><img src="https://zenodo.org/badge/166559207.svg" alt="DOI"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#example-apps"><i class="fa fa-check"></i><b>0.1</b> Example Apps</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#code-horizons-course-27-30-july-2021"><i class="fa fa-check"></i><b>0.2</b> Code Horizons Course (27-30 July 2021)</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#computing"><i class="fa fa-check"></i><b>0.3</b> Computing</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#who-should-register"><i class="fa fa-check"></i><b>0.4</b> Who Should Register?</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#glossary-intro"><i class="fa fa-check"></i><b>0.5</b> Glossary</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#your-first-shiny-app"><i class="fa fa-check"></i><b>1.1</b> Your First Shiny App</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="getting-started.html"><a href="getting-started.html#overview-of-the-uiserver-structure"><i class="fa fa-check"></i><b>1.1.1</b> Overview of the UI/server structure</a></li>
+<li class="chapter" data-level="1.1.2" data-path="getting-started.html"><a href="getting-started.html#inputs-outputs-and-action-buttons"><i class="fa fa-check"></i><b>1.1.2</b> Inputs, outputs, and action buttons</a></li>
+<li class="chapter" data-level="1.1.3" data-path="getting-started.html"><a href="getting-started.html#reactive-functions"><i class="fa fa-check"></i><b>1.1.3</b> Reactive functions</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#shinydashboard"><i class="fa fa-check"></i><b>1.2</b> ShinyDashboard</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="getting-started.html"><a href="getting-started.html#basic-template-for-shinydashboard-projects"><i class="fa fa-check"></i><b>1.2.1</b> Basic template for shinydashboard projects</a></li>
+<li class="chapter" data-level="1.2.2" data-path="getting-started.html"><a href="getting-started.html#sidebar-menu-navigation-and-tabs"><i class="fa fa-check"></i><b>1.2.2</b> Sidebar, menu navigation, and tabs</a></li>
+<li class="chapter" data-level="1.2.3" data-path="getting-started.html"><a href="getting-started.html#row--and-column-based-layouts"><i class="fa fa-check"></i><b>1.2.3</b> Row- and column-based layouts</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basic-patterns.html"><a href="basic-patterns.html"><i class="fa fa-check"></i><b>2</b> Basic Patterns</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="basic-patterns.html"><a href="basic-patterns.html#input_functions"><i class="fa fa-check"></i><b>2.1</b> Different input types</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="basic-patterns.html"><a href="basic-patterns.html#textinput"><i class="fa fa-check"></i><b>2.1.1</b> textInput</a></li>
+<li class="chapter" data-level="2.1.2" data-path="basic-patterns.html"><a href="basic-patterns.html#textareainput"><i class="fa fa-check"></i><b>2.1.2</b> textAreaInput</a></li>
+<li class="chapter" data-level="2.1.3" data-path="basic-patterns.html"><a href="basic-patterns.html#selectinput"><i class="fa fa-check"></i><b>2.1.3</b> selectInput</a></li>
+<li class="chapter" data-level="2.1.4" data-path="basic-patterns.html"><a href="basic-patterns.html#checkboxgroupinput"><i class="fa fa-check"></i><b>2.1.4</b> checkboxGroupInput</a></li>
+<li class="chapter" data-level="2.1.5" data-path="basic-patterns.html"><a href="basic-patterns.html#checkboxinput"><i class="fa fa-check"></i><b>2.1.5</b> checkboxInput</a></li>
+<li class="chapter" data-level="2.1.6" data-path="basic-patterns.html"><a href="basic-patterns.html#setting-inputs-programatically"><i class="fa fa-check"></i><b>2.1.6</b> Setting inputs programatically</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="basic-patterns.html"><a href="basic-patterns.html#output_functions"><i class="fa fa-check"></i><b>2.2</b> Different output types</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="basic-patterns.html"><a href="basic-patterns.html#textoutput"><i class="fa fa-check"></i><b>2.2.1</b> textOutput</a></li>
+<li class="chapter" data-level="2.2.2" data-path="basic-patterns.html"><a href="basic-patterns.html#uioutput"><i class="fa fa-check"></i><b>2.2.2</b> uiOutput</a></li>
+<li class="chapter" data-level="2.2.3" data-path="basic-patterns.html"><a href="basic-patterns.html#plotoutput"><i class="fa fa-check"></i><b>2.2.3</b> plotOutput</a></li>
+<li class="chapter" data-level="2.2.4" data-path="basic-patterns.html"><a href="basic-patterns.html#imageoutput"><i class="fa fa-check"></i><b>2.2.4</b> imageOutput</a></li>
+<li class="chapter" data-level="2.2.5" data-path="basic-patterns.html"><a href="basic-patterns.html#tableoutput"><i class="fa fa-check"></i><b>2.2.5</b> tableOutput</a></li>
+<li class="chapter" data-level="2.2.6" data-path="basic-patterns.html"><a href="basic-patterns.html#datatableoutput"><i class="fa fa-check"></i><b>2.2.6</b> dataTableOutput</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="basic-patterns.html"><a href="basic-patterns.html#reading-and-saving-data"><i class="fa fa-check"></i><b>2.3</b> Reading and saving data</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="basic-patterns.html"><a href="basic-patterns.html#local-data"><i class="fa fa-check"></i><b>2.3.1</b> Local Data</a></li>
+<li class="chapter" data-level="2.3.2" data-path="basic-patterns.html"><a href="basic-patterns.html#google_sheets"><i class="fa fa-check"></i><b>2.3.2</b> Google Sheets</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="basic-patterns.html"><a href="basic-patterns.html#reactive-functions-1"><i class="fa fa-check"></i><b>2.4</b> Reactive functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="more-complex-apps.html"><a href="more-complex-apps.html"><i class="fa fa-check"></i><b>3</b> More Complex Apps</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="more-complex-apps.html"><a href="more-complex-apps.html#customizing-your-apps"><i class="fa fa-check"></i><b>3.1</b> Customizing Your Apps</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="more-complex-apps.html"><a href="more-complex-apps.html#css-html-and-javascript"><i class="fa fa-check"></i><b>3.1.1</b> CSS, HTML, and Javascript</a></li>
+<li class="chapter" data-level="3.1.2" data-path="more-complex-apps.html"><a href="more-complex-apps.html#structuring-a-complex-app"><i class="fa fa-check"></i><b>3.1.2</b> Structuring a complex app</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="more-complex-apps.html"><a href="more-complex-apps.html#intermediate-patterns"><i class="fa fa-check"></i><b>3.2</b> Intermediate Patterns</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="more-complex-apps.html"><a href="more-complex-apps.html#debugging-and-error-handling"><i class="fa fa-check"></i><b>3.2.1</b> Debugging and error handling</a></li>
+<li class="chapter" data-level="3.2.2" data-path="more-complex-apps.html"><a href="more-complex-apps.html#displaying-elements-contingent-on-the-state-of-other-elements"><i class="fa fa-check"></i><b>3.2.2</b> Displaying elements contingent on the state of other elements</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="sharing-download-and-repeating.html"><a href="sharing-download-and-repeating.html"><i class="fa fa-check"></i><b>4</b> Sharing, Download and Repeating</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="sharing-download-and-repeating.html"><a href="sharing-download-and-repeating.html#sharing-your-apps"><i class="fa fa-check"></i><b>4.1</b> Sharing your Apps</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="sharing-download-and-repeating.html"><a href="sharing-download-and-repeating.html#shinyapps.io"><i class="fa fa-check"></i><b>4.1.1</b> shinyapps.io</a></li>
+<li class="chapter" data-level="4.1.2" data-path="sharing-download-and-repeating.html"><a href="sharing-download-and-repeating.html#self-hosting-a-shiny-server"><i class="fa fa-check"></i><b>4.1.2</b> Self-hosting a shiny server</a></li>
+<li class="chapter" data-level="4.1.3" data-path="sharing-download-and-repeating.html"><a href="sharing-download-and-repeating.html#github"><i class="fa fa-check"></i><b>4.1.3</b> GitHub</a></li>
+<li class="chapter" data-level="4.1.4" data-path="sharing-download-and-repeating.html"><a href="sharing-download-and-repeating.html#in-an-r-package"><i class="fa fa-check"></i><b>4.1.4</b> In an R package</a></li>
+<li class="chapter" data-level="4.1.5" data-path="sharing-download-and-repeating.html"><a href="sharing-download-and-repeating.html#exercises"><i class="fa fa-check"></i><b>4.1.5</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="sharing-download-and-repeating.html"><a href="sharing-download-and-repeating.html#creating-and-downloading-a-customized-report"><i class="fa fa-check"></i><b>4.2</b> Creating and downloading a customized report</a></li>
+<li class="chapter" data-level="4.3" data-path="sharing-download-and-repeating.html"><a href="sharing-download-and-repeating.html#shiny-modules-for-repeated-structures"><i class="fa fa-check"></i><b>4.3</b> Shiny modules for repeated structures</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="sharing-download-and-repeating.html"><a href="sharing-download-and-repeating.html#modularizing-the-ui"><i class="fa fa-check"></i><b>4.3.1</b> Modularizing the UI</a></li>
+<li class="chapter" data-level="4.3.2" data-path="sharing-download-and-repeating.html"><a href="sharing-download-and-repeating.html#modularizing-server-functions"><i class="fa fa-check"></i><b>4.3.2</b> Modularizing server functions</a></li>
+<li class="chapter" data-level="4.3.3" data-path="sharing-download-and-repeating.html"><a href="sharing-download-and-repeating.html#exercises-1"><i class="fa fa-check"></i><b>4.3.3</b> Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="appendix"><span><b>Appendices</b></span></li>
+<li class="chapter" data-level="A" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i><b>A</b> Installing <code>R</code></a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="installing-r.html"><a href="installing-r.html#installing-base-r"><i class="fa fa-check"></i><b>A.1</b> Installing Base R</a></li>
+<li class="chapter" data-level="A.2" data-path="installing-r.html"><a href="installing-r.html#installing-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing RStudio</a></li>
+<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.3</b> Installing LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="setup-git.html"><a href="setup-git.html"><i class="fa fa-check"></i><b>B</b> Git and GitHub</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="setup-git.html"><a href="setup-git.html#get-a-github-account"><i class="fa fa-check"></i><b>B.1</b> Get a GitHub account</a></li>
+<li class="chapter" data-level="B.2" data-path="setup-git.html"><a href="setup-git.html#set-up-rstudio"><i class="fa fa-check"></i><b>B.2</b> Set up RStudio</a>
+<ul>
+<li class="chapter" data-level="B.2.1" data-path="setup-git.html"><a href="setup-git.html#install-git"><i class="fa fa-check"></i><b>B.2.1</b> Install git</a></li>
+<li class="chapter" data-level="B.2.2" data-path="setup-git.html"><a href="setup-git.html#enable-version-control-in-rstudio"><i class="fa fa-check"></i><b>B.2.2</b> Enable version control in RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="B.3" data-path="setup-git.html"><a href="setup-git.html#github-info"><i class="fa fa-check"></i><b>B.3</b> Set your GitHub info</a></li>
+<li class="chapter" data-level="B.4" data-path="setup-git.html"><a href="setup-git.html#create-an-ssh-key-on-rstudio"><i class="fa fa-check"></i><b>B.4</b> Create an SSH Key on RStudio</a></li>
+<li class="chapter" data-level="B.5" data-path="setup-git.html"><a href="setup-git.html#create-an-ssh-key-on-github"><i class="fa fa-check"></i><b>B.5</b> Create an SSH Key on GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="symbols.html"><a href="symbols.html"><i class="fa fa-check"></i><b>C</b> Symbols</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
+    target="blank"><img alt="Creative Commons License" 
+    style="border-width:0" 
+    src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></li>
+<li><a href="https://psyteachr.github.io/books" target="blank">PsyTeachR Books</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Building Web Apps with R Shiny</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="symbols" class="section level1" number="7">
+<h1><span class="header-section-number">C</span> Symbols</h1>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Symbol</th>
+<th align="left">Book Term</th>
+<th align="left">Also Known As</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">()</td>
+<td align="left">(round) brackets</td>
+<td align="left">parentheses</td>
+</tr>
+<tr class="even">
+<td align="center">[]</td>
+<td align="left">square brackets</td>
+<td align="left">brackets</td>
+</tr>
+<tr class="odd">
+<td align="center">{}</td>
+<td align="left">curly brackets</td>
+<td align="left">squiggly brackets</td>
+</tr>
+<tr class="even">
+<td align="center">&lt;&gt;</td>
+<td align="left">chevrons</td>
+<td align="left">angled brackets / guillemets</td>
+</tr>
+<tr class="odd">
+<td align="center">&lt;</td>
+<td align="left">less than</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="center">&gt;</td>
+<td align="left">greater than</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="center">&amp;</td>
+<td align="left">ampersand</td>
+<td align="left">“and” symbol</td>
+</tr>
+<tr class="even">
+<td align="center">#</td>
+<td align="left">hash</td>
+<td align="left">pound / octothorpe</td>
+</tr>
+<tr class="odd">
+<td align="center">/</td>
+<td align="left">slash</td>
+<td align="left">forward slash</td>
+</tr>
+<tr class="even">
+<td align="center">\</td>
+<td align="left">backslash</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="center">-</td>
+<td align="left">dash</td>
+<td align="left">hyphen / minus</td>
+</tr>
+<tr class="even">
+<td align="center">_</td>
+<td align="left">underscore</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="center">*</td>
+<td align="left">asterisk</td>
+<td align="left">star</td>
+</tr>
+<tr class="even">
+<td align="center">^</td>
+<td align="left">caret</td>
+<td align="left">power symbol</td>
+</tr>
+<tr class="odd">
+<td align="center">~</td>
+<td align="left">tilde</td>
+<td align="left">twiddle / squiggle</td>
+</tr>
+<tr class="even">
+<td align="center">=</td>
+<td align="left">equal sign</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="center">==</td>
+<td align="left">double equal sign</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="center">.</td>
+<td align="left">full stop</td>
+<td align="left">period / point</td>
+</tr>
+<tr class="odd">
+<td align="center">!</td>
+<td align="left">exclamation mark</td>
+<td align="left">bang / not</td>
+</tr>
+<tr class="even">
+<td align="center">?</td>
+<td align="left">question mark</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="center">’</td>
+<td align="left">single quote</td>
+<td align="left">quote / apostrophe</td>
+</tr>
+<tr class="even">
+<td align="center">"</td>
+<td align="left">double quote</td>
+<td align="left">quote</td>
+</tr>
+<tr class="odd">
+<td align="center">%&gt;%</td>
+<td align="left">pipe</td>
+<td align="left">magrittr pipe</td>
+</tr>
+<tr class="even">
+<td align="center">|</td>
+<td align="left">vertical bar</td>
+<td align="left">pipe</td>
+</tr>
+<tr class="odd">
+<td align="center">,</td>
+<td align="left">comma</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="center">;</td>
+<td align="left">semi-colon</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="center">:</td>
+<td align="left">colon</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="center">@</td>
+<td align="left">“at” symbol</td>
+<td align="left"><a href="https://www.theguardian.com/notesandqueries/query/0,5753,-1773,00.html">various hilarious regional terms</a></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<div class="psyteachr_footer">
+  
+</div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("webex-total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("webex-correct").length + " of " +
+      document.getElementsByClassName("webex-solveme").length + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+  
+  if (my_answer !== "" & real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+  } else {
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);  
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }  
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }  
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+  
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off"); 
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+    
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+    
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="setup-git.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"],
+"google": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": {},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>

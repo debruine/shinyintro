@@ -24,7 +24,7 @@
 <meta name="author" content="Lisa DeBruine" />
 
 
-<meta name="date" content="2021-07-05" />
+<meta name="date" content="2021-07-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -274,7 +274,253 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="shiny-modules-for-repeated-structures" class="section level3" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> Shiny modules for repeated structures</h3>
+<p>If you find yourself making nearly identical UIs or functions over and over in the same app, you might benefit from modules. This is a way to</p>
+<p>You can run this app locally with <code>shinyintro::app("modules_demo")</code> or view it in a separate tab with the [showcase interface](&lt;<a href="https://shiny.psy.gla.ac.uk/debruine/modules_demo/" class="uri">https://shiny.psy.gla.ac.uk/debruine/modules_demo/</a>({target="_blank"}.</p>
+<div class="figure" style="text-align: center"><span id="fig:modules-demo-app"></span>
+<iframe src="https://shiny.psy.gla.ac.uk/debruine/modules_demo/?showcase=0" width="100%" height="800px">
+</iframe>
+<p class="caption">
+Figure 4.1: Modules Demo App
+</p>
+</div>
+<div id="modularizing-the-ui" class="section level4" number="4.2.2.1">
+<h4><span class="header-section-number">4.2.2.1</span> Modularizing the UI</h4>
+<p>The two tabPanels below follow nearly identical patterns. You can often identify a place where modules might be useful when you use a naming convention like {base}_{type} for the ids.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="sharing-your-apps.html#cb1-1" aria-hidden="true" tabindex="-1"></a>iris_tab <span class="ot">&lt;-</span> <span class="fu">tabPanel</span>(</span>
+<span id="cb1-2"><a href="sharing-your-apps.html#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;iris&quot;</span>,</span>
+<span id="cb1-3"><a href="sharing-your-apps.html#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;iris_dv&quot;</span>, <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> <span class="fu">names</span>(iris)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]),</span>
+<span id="cb1-4"><a href="sharing-your-apps.html#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">&quot;iris_plot&quot;</span>),</span>
+<span id="cb1-5"><a href="sharing-your-apps.html#cb1-5" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="st">&quot;iris_table&quot;</span>)</span>
+<span id="cb1-6"><a href="sharing-your-apps.html#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-7"><a href="sharing-your-apps.html#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="sharing-your-apps.html#cb1-8" aria-hidden="true" tabindex="-1"></a>mtcars_tab <span class="ot">&lt;-</span> <span class="fu">tabPanel</span>(</span>
+<span id="cb1-9"><a href="sharing-your-apps.html#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;mtcars&quot;</span>,</span>
+<span id="cb1-10"><a href="sharing-your-apps.html#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;mtcars_dv&quot;</span>, <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;disp&quot;</span>, <span class="st">&quot;hp&quot;</span>, <span class="st">&quot;drat&quot;</span>)),</span>
+<span id="cb1-11"><a href="sharing-your-apps.html#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">&quot;mtcars_plot&quot;</span>),</span>
+<span id="cb1-12"><a href="sharing-your-apps.html#cb1-12" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="st">&quot;mtcars_table&quot;</span>)</span>
+<span id="cb1-13"><a href="sharing-your-apps.html#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>The first step in modularising your code is to make a function that creates the UIs above from the base ID and any other changing aspects. In the example above, the choices are different for each selectInput, so we’ll make a function that has the arguments <code>id</code> and <code>choices</code>.</p>
+<p>The first line of a UI module function is always <code>ns &lt;- NS(id)</code>, which creates a shorthand way to add the base id to the id type. So instead of the selectInput’s name being “iris_dv” or “mtcars_dv,” we set it as <code>ns("dv")</code>. All ids need to use this <code>ns()</code> function.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="sharing-your-apps.html#cb2-1" aria-hidden="true" tabindex="-1"></a>tabPanelUI <span class="ot">&lt;-</span> <span class="cf">function</span>(id, choices) {</span>
+<span id="cb2-2"><a href="sharing-your-apps.html#cb2-2" aria-hidden="true" tabindex="-1"></a>    ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(id)</span>
+<span id="cb2-3"><a href="sharing-your-apps.html#cb2-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-4"><a href="sharing-your-apps.html#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(</span>
+<span id="cb2-5"><a href="sharing-your-apps.html#cb2-5" aria-hidden="true" tabindex="-1"></a>        id,</span>
+<span id="cb2-6"><a href="sharing-your-apps.html#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">selectInput</span>(<span class="fu">ns</span>(<span class="st">&quot;dv&quot;</span>), <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> choices),</span>
+<span id="cb2-7"><a href="sharing-your-apps.html#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">plotOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;plot&quot;</span>)),</span>
+<span id="cb2-8"><a href="sharing-your-apps.html#cb2-8" aria-hidden="true" tabindex="-1"></a>        DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;table&quot;</span>))</span>
+<span id="cb2-9"><a href="sharing-your-apps.html#cb2-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-10"><a href="sharing-your-apps.html#cb2-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Now, you can replace two tabPanel definitions with just the following code.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="sharing-your-apps.html#cb3-1" aria-hidden="true" tabindex="-1"></a>iris_tab <span class="ot">&lt;-</span> <span class="fu">tabPanelUI</span>(<span class="st">&quot;iris&quot;</span>, <span class="fu">names</span>(iris)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span>
+<span id="cb3-2"><a href="sharing-your-apps.html#cb3-2" aria-hidden="true" tabindex="-1"></a>mtcars_tab <span class="ot">&lt;-</span> <span class="fu">tabPanelUI</span>(<span class="st">&quot;mtcars&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;disp&quot;</span>, <span class="st">&quot;hp&quot;</span>, <span class="st">&quot;drat&quot;</span>))</span></code></pre></div>
+</div>
+<div id="modularizing-server-functions" class="section level4" number="4.2.2.2">
+<h4><span class="header-section-number">4.2.2.2</span> Modularizing server functions</h4>
+<p>In our original code, we have four functions that create the two output tables and two output plots, but these are also largely redundant.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="sharing-your-apps.html#cb4-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>iris_table <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
+<span id="cb4-2"><a href="sharing-your-apps.html#cb4-2" aria-hidden="true" tabindex="-1"></a>    iris</span>
+<span id="cb4-3"><a href="sharing-your-apps.html#cb4-3" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb4-4"><a href="sharing-your-apps.html#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="sharing-your-apps.html#cb4-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>iris_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb4-6"><a href="sharing-your-apps.html#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, </span>
+<span id="cb4-7"><a href="sharing-your-apps.html#cb4-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> .data[[input<span class="sc">$</span>iris_dv]],</span>
+<span id="cb4-8"><a href="sharing-your-apps.html#cb4-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb4-9"><a href="sharing-your-apps.html#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb4-10"><a href="sharing-your-apps.html#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_fill_viridis_d</span>()</span>
+<span id="cb4-11"><a href="sharing-your-apps.html#cb4-11" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb4-12"><a href="sharing-your-apps.html#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="sharing-your-apps.html#cb4-13" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>mtcars_table <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
+<span id="cb4-14"><a href="sharing-your-apps.html#cb4-14" aria-hidden="true" tabindex="-1"></a>    mtcars</span>
+<span id="cb4-15"><a href="sharing-your-apps.html#cb4-15" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb4-16"><a href="sharing-your-apps.html#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="sharing-your-apps.html#cb4-17" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>mtcars_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb4-18"><a href="sharing-your-apps.html#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># handle non-string grouping</span></span>
+<span id="cb4-19"><a href="sharing-your-apps.html#cb4-19" aria-hidden="true" tabindex="-1"></a>    mtcars<span class="sc">$</span>vs <span class="ot">&lt;-</span> <span class="fu">factor</span>(mtcars<span class="sc">$</span>vs)</span>
+<span id="cb4-20"><a href="sharing-your-apps.html#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> vs, </span>
+<span id="cb4-21"><a href="sharing-your-apps.html#cb4-21" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> .data[[input<span class="sc">$</span>mtcars_dv]],</span>
+<span id="cb4-22"><a href="sharing-your-apps.html#cb4-22" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill =</span> vs)) <span class="sc">+</span></span>
+<span id="cb4-23"><a href="sharing-your-apps.html#cb4-23" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb4-24"><a href="sharing-your-apps.html#cb4-24" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_fill_viridis_d</span>()</span>
+<span id="cb4-25"><a href="sharing-your-apps.html#cb4-25" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<p>The second step to modularising code is creating a server function. You can put all the functions the relate to the inputs and outputs in the UI function here, so we will include one to make the output table and one to make the output plot.</p>
+<p>The server function takes the base id as the first argument, and then any arguments you need to specify things that change between base implementations. Above, the tables show different data and the plots use different groupings for the x axis and fill, so we’ll add arguments for <code>data</code> and <code>group_by</code>.</p>
+<p>A server function <strong>always</strong> contains a <code>moduleServer()</code> function set up like below.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="sharing-your-apps.html#cb5-1" aria-hidden="true" tabindex="-1"></a>tabPanelServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, data, group_by) {</span>
+<span id="cb5-2"><a href="sharing-your-apps.html#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb5-3"><a href="sharing-your-apps.html#cb5-3" aria-hidden="true" tabindex="-1"></a>      <span class="co"># code ...</span></span>
+<span id="cb5-4"><a href="sharing-your-apps.html#cb5-4" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb5-5"><a href="sharing-your-apps.html#cb5-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>No you can copy in one set of server functions above, remove the base name (e.g., “iris_” or “mtcars_”) from and inputs or outputs, and replace specific instances of the data or grouping columns with <code>data</code> and <code>group_by</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="sharing-your-apps.html#cb6-1" aria-hidden="true" tabindex="-1"></a>tabPanelServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, data, group_by) {</span>
+<span id="cb6-2"><a href="sharing-your-apps.html#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb6-3"><a href="sharing-your-apps.html#cb6-3" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>table <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
+<span id="cb6-4"><a href="sharing-your-apps.html#cb6-4" aria-hidden="true" tabindex="-1"></a>            data</span>
+<span id="cb6-5"><a href="sharing-your-apps.html#cb6-5" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb6-6"><a href="sharing-your-apps.html#cb6-6" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb6-7"><a href="sharing-your-apps.html#cb6-7" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb6-8"><a href="sharing-your-apps.html#cb6-8" aria-hidden="true" tabindex="-1"></a>            <span class="co"># handle non-string groupings</span></span>
+<span id="cb6-9"><a href="sharing-your-apps.html#cb6-9" aria-hidden="true" tabindex="-1"></a>            data[[group_by]] <span class="ot">&lt;-</span> <span class="fu">factor</span>(data[[group_by]])</span>
+<span id="cb6-10"><a href="sharing-your-apps.html#cb6-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> .data[[group_by]], </span>
+<span id="cb6-11"><a href="sharing-your-apps.html#cb6-11" aria-hidden="true" tabindex="-1"></a>                             <span class="at">y =</span> .data[[input<span class="sc">$</span>dv]],</span>
+<span id="cb6-12"><a href="sharing-your-apps.html#cb6-12" aria-hidden="true" tabindex="-1"></a>                             <span class="at">fill =</span> .data[[group_by]])) <span class="sc">+</span></span>
+<span id="cb6-13"><a href="sharing-your-apps.html#cb6-13" aria-hidden="true" tabindex="-1"></a>                <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb6-14"><a href="sharing-your-apps.html#cb6-14" aria-hidden="true" tabindex="-1"></a>                <span class="fu">scale_fill_viridis_d</span>()</span>
+<span id="cb6-15"><a href="sharing-your-apps.html#cb6-15" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb6-16"><a href="sharing-your-apps.html#cb6-16" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb6-17"><a href="sharing-your-apps.html#cb6-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="warning">
+<p>
+In the original code, the grouping variables were unquoted, but it’s tricky to pass unquoted variable names to custom functions, and we already know how to refer to columns by a character object using <code>.data[[char_obj]]</code>.
+</p>
+<p>
+The grouping column <code>Species</code> in <code>iris</code> is already a factor, but recasting it as a factor won’t hurt, and is required for the <code>mtcars</code> grouping column <code>vs</code>.
+</p>
+</div>
+<p>Now, you can replace the four functions inside the server function with these two lines of code.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="sharing-your-apps.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabPanelServer</span>(<span class="st">&quot;iris&quot;</span>, <span class="at">data =</span> iris, <span class="at">group_by =</span> <span class="st">&quot;Species&quot;</span>)</span>
+<span id="cb7-2"><a href="sharing-your-apps.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tabPanelServer</span>(<span class="st">&quot;mtcars&quot;</span>, <span class="at">data =</span> mtcars, <span class="at">group_by =</span> <span class="st">&quot;vs&quot;</span>)</span></code></pre></div>
+<p>Our example only reduced our code by 4 lines, but it can save a lot of time, effort, and debugging on projects with many similar modules. For example, if you want to change the plots in your app to use a different geom, now you only have to change one function instead of two.</p>
+</div>
+<div id="exercises" class="section level4" number="4.2.2.3">
+<h4><span class="header-section-number">4.2.2.3</span> Exercises</h4>
+<div id="tabs">
+<ul>
+<li>
+<a href="sharing-your-apps.html#module-1">Repeat Example</a>
+</li>
+<li>
+<a href="sharing-your-apps.html#module-2">New Instance</a>
+</li>
+<li>
+<a href="sharing-your-apps.html#module-3">Altering modules</a>
+</li>
+<li>
+<a href="#module-4">New module</a>
+</li>
+</ul>
+<div id="module-1">
+<p>Try to implement the code above on your own.</p>
+<ul>
+<li>Create a copy of the “no_modules_demo” <code>shinyintro::newapp("my_no_modules", "no_modules_demo")</code></li>
+<li>Run the app and see how it works</li>
+<li>Create the UI module function and use it to replace <code>iris_tab</code> and <code>mtcars_tab</code></li>
+<li>Create the server function and use it to replace the server functions</li>
+</ul>
+</div>
+<div id="module-2">
+<p>Add a new tab called “diamonds” that visualises the <code>diamonds</code> dataset. Choose the columns you want as choices in the <code>selectInput()</code> and the grouping column.</p>
+<div class="webex-solution">
+<button>
+UI Solution
+</button>
+<p>You can choose any of the numeric columns for the choices.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="sharing-your-apps.html#cb8-1" aria-hidden="true" tabindex="-1"></a>diamonds_tab <span class="ot">&lt;-</span> <span class="fu">tabPanelUI</span>(<span class="st">&quot;diamonds&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;carat&quot;</span>, <span class="st">&quot;depth&quot;</span>, <span class="st">&quot;table&quot;</span>, <span class="st">&quot;price&quot;</span>))</span></code></pre></div>
+</div>
+<div class="webex-solution">
+<button>
+Server Solution
+</button>
+<p>You can group by any of the categorical columns: cut, color, or clarity.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="sharing-your-apps.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabPanelServer</span>(<span class="st">&quot;diamonds&quot;</span>, <span class="at">data =</span> diamonds, <span class="at">group_by =</span> <span class="st">&quot;cut&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="module-3">
+<ul>
+<li>Add another <code>selectInput()</code> to the UI that allows the user to select the grouping variable. (<code>iris</code> only has one possibility, but <code>mtcars</code> and <code>diamonds</code> should have several)</li>
+</ul>
+<div class="webex-solution">
+<button>
+UI Solution
+</button>
+<p>You need to add a new selectInput() to the tabPanel. Remember to use the <code>ns()</code> function for the id. The choices for this select will also differ by data set, so you need to add <code>group_choices</code> to the arguments of this function.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="sharing-your-apps.html#cb10-1" aria-hidden="true" tabindex="-1"></a>tabPanelUI <span class="ot">&lt;-</span> <span class="cf">function</span>(id, choices, group_choices) {</span>
+<span id="cb10-2"><a href="sharing-your-apps.html#cb10-2" aria-hidden="true" tabindex="-1"></a>   ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(id)</span>
+<span id="cb10-3"><a href="sharing-your-apps.html#cb10-3" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb10-4"><a href="sharing-your-apps.html#cb10-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">tabPanel</span>(</span>
+<span id="cb10-5"><a href="sharing-your-apps.html#cb10-5" aria-hidden="true" tabindex="-1"></a>       id,</span>
+<span id="cb10-6"><a href="sharing-your-apps.html#cb10-6" aria-hidden="true" tabindex="-1"></a>       <span class="fu">selectInput</span>(<span class="fu">ns</span>(<span class="st">&quot;dv&quot;</span>), <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> choices),</span>
+<span id="cb10-7"><a href="sharing-your-apps.html#cb10-7" aria-hidden="true" tabindex="-1"></a>       <span class="fu">selectInput</span>(<span class="fu">ns</span>(<span class="st">&quot;group_by&quot;</span>), <span class="st">&quot;Group By&quot;</span>, <span class="at">choices =</span> group_choices),</span>
+<span id="cb10-8"><a href="sharing-your-apps.html#cb10-8" aria-hidden="true" tabindex="-1"></a>       <span class="fu">plotOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;plot&quot;</span>)),</span>
+<span id="cb10-9"><a href="sharing-your-apps.html#cb10-9" aria-hidden="true" tabindex="-1"></a>       DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;table&quot;</span>))</span>
+<span id="cb10-10"><a href="sharing-your-apps.html#cb10-10" aria-hidden="true" tabindex="-1"></a>   )</span>
+<span id="cb10-11"><a href="sharing-your-apps.html#cb10-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<ul>
+<li>Update the plot function to use the value of this new input instead of “Species,” “vs,” and whatever you chose for <code>diamonds</code>.</li>
+</ul>
+<div class="webex-solution">
+<button>
+Server Solution
+</button>
+<p>You no longer need <code>group_by</code> in the arguments for this function because you are getting that info from an input.</p>
+<p>Instead of changing <code>group_by</code> to <code>input$group_by</code> in three places in the code below, I just added the line <code>group_by &lt;- input$group_by</code> at the top of the <code>moduleServer()</code> function.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="sharing-your-apps.html#cb11-1" aria-hidden="true" tabindex="-1"></a>tabPanelServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, data) {</span>
+<span id="cb11-2"><a href="sharing-your-apps.html#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb11-3"><a href="sharing-your-apps.html#cb11-3" aria-hidden="true" tabindex="-1"></a>        group_by <span class="ot">&lt;-</span> input<span class="sc">$</span>group_by</span>
+<span id="cb11-4"><a href="sharing-your-apps.html#cb11-4" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb11-5"><a href="sharing-your-apps.html#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># rest of the code is the same ...</span></span>
+<span id="cb11-6"><a href="sharing-your-apps.html#cb11-6" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb11-7"><a href="sharing-your-apps.html#cb11-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+</div>
+<div id="module-3">
+<p>There is a fluidRow() before the tabsetPanel() in the ui that contains three <code>infoBoxOutput()</code> and three renderInfoBoxOutput() functions in the server function.</p>
+<p>Modularise the info boxes and their associated server functions.</p>
+<div class="webex-solution">
+<button>
+UI Function
+</button>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="sharing-your-apps.html#cb12-1" aria-hidden="true" tabindex="-1"></a>infoBoxUI <span class="ot">&lt;-</span> <span class="cf">function</span>(id, <span class="at">width =</span> <span class="dv">4</span>) {</span>
+<span id="cb12-2"><a href="sharing-your-apps.html#cb12-2" aria-hidden="true" tabindex="-1"></a>    ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(id)</span>
+<span id="cb12-3"><a href="sharing-your-apps.html#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="sharing-your-apps.html#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">infoBoxOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;box&quot;</span>), width)</span>
+<span id="cb12-5"><a href="sharing-your-apps.html#cb12-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div class="webex-solution">
+<button>
+Server Function
+</button>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="sharing-your-apps.html#cb13-1" aria-hidden="true" tabindex="-1"></a>infoBoxServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, title, fmt, icon, <span class="at">color =</span> <span class="st">&quot;purple&quot;</span>) {</span>
+<span id="cb13-2"><a href="sharing-your-apps.html#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb13-3"><a href="sharing-your-apps.html#cb13-3" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>box <span class="ot">&lt;-</span> <span class="fu">renderInfoBox</span>({</span>
+<span id="cb13-4"><a href="sharing-your-apps.html#cb13-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">infoBox</span>(<span class="at">title =</span> title,</span>
+<span id="cb13-5"><a href="sharing-your-apps.html#cb13-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">value =</span> <span class="fu">format</span>(<span class="fu">Sys.Date</span>(), fmt),</span>
+<span id="cb13-6"><a href="sharing-your-apps.html#cb13-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">icon =</span> <span class="fu">icon</span>(icon),</span>
+<span id="cb13-7"><a href="sharing-your-apps.html#cb13-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">color =</span> color)</span>
+<span id="cb13-8"><a href="sharing-your-apps.html#cb13-8" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb13-9"><a href="sharing-your-apps.html#cb13-9" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb13-10"><a href="sharing-your-apps.html#cb13-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div class="webex-solution">
+<button>
+UI Code
+</button>
+<p>In the <code>ui</code>, replace the <code>fluidRow()</code> with this:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="sharing-your-apps.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fluidRow</span>(</span>
+<span id="cb14-2"><a href="sharing-your-apps.html#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">infoBoxUI</span>(<span class="st">&quot;day&quot;</span>),</span>
+<span id="cb14-3"><a href="sharing-your-apps.html#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">infoBoxUI</span>(<span class="st">&quot;month&quot;</span>),</span>
+<span id="cb14-4"><a href="sharing-your-apps.html#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">infoBoxUI</span>(<span class="st">&quot;year&quot;</span>)</span>
+<span id="cb14-5"><a href="sharing-your-apps.html#cb14-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+<div class="webex-solution">
+<button>
+Server Code
+</button>
+<p>In the <code>server()</code> function, replace the <code>renderInfoBox()</code> functions with this:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="sharing-your-apps.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">infoBoxServer</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;Year&quot;</span>, <span class="st">&quot;%Y&quot;</span>, <span class="st">&quot;calendar&quot;</span>)</span>
+<span id="cb15-2"><a href="sharing-your-apps.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">infoBoxServer</span>(<span class="st">&quot;month&quot;</span>, <span class="st">&quot;Month&quot;</span>, <span class="st">&quot;%m&quot;</span>, <span class="st">&quot;calendar-alt&quot;</span>)</span>
+<span id="cb15-3"><a href="sharing-your-apps.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">infoBoxServer</span>(<span class="st">&quot;day&quot;</span>, <span class="st">&quot;Day&quot;</span>, <span class="st">&quot;%d&quot;</span>, <span class="st">&quot;calendar-day&quot;</span>)<span class="er">)</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+</script>
 
+</div>
 </div>
 </div>
 </div>

@@ -21,23 +21,25 @@ app <- function(name = "template", ...) {
   shiny::runApp(appDir, ...)
 }
 
-#' Set up a new shiny app from the template
+#' Set up a new shiny app from a template
 #'
 #' @param dir the app directory to create
+#' @param app the template app to copy
 #'
 #' @return boolean (if the directory was copied)
 #' @export
 #'
-newapp <- function(dir = "myapp") {
+newapp <- function(dir = "myapp", app = "input_demo") {
   if (dir.exists(dir)) {
     stop("The directory ", dir, " already exists.")
   }
   
-  tmpDir <- system.file("apps/template", package = "shinyintro")
+  tmpDir <- system.file("apps", app, package = "shinyintro")
   
   R.utils::copyDirectory(
     from = tmpDir,
     to = dir, 
+    private = FALSE,
     overwrite = FALSE, 
     recursive = TRUE)
   

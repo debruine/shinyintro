@@ -1,0 +1,98 @@
+:root {
+  --grey: rgb(34,45,50);
+  --red: rgb(221, 75, 57);
+  --yellow: rgb(243, 156, 18);
+  --green: rgb(0, 166, 90);
+  --blue: rgb(60, 141, 188);
+  --purple: rgb(96, 92, 168);
+  
+  --tgrey: rgba(34,45,50,.5);
+  --tred: rgba(221, 75, 57,.5);
+  --tyellow: rgba(243, 156, 18,.5);
+  --tgreen: rgba(0, 166, 90,.5);
+  --tblue: rgba(60, 141, 188,.5);
+  --tpurple: rgba(96, 92, 168,.5);
+}
+
+body {
+  font-size: 16px;
+}
+
+ul.sidebar-menu {
+  font-size: 120%;
+}
+
+/* colored menu icons */
+.fa { color: var(--grey); }
+.skin-red .fa { color: var(--red); }
+.skin-yellow .fa { color: var(--yellow); }
+.skin-green .fa { color: var(--green); }
+.skin-blue .fa { color: var(--blue); }
+.skin-purple .fa { color: var(--purple); }
+
+/* better collapsible box headers */
+.box-header {
+  padding: 0 10px 0 0;
+  border-left-color: var(--grey);
+  background-color: var(--grey);
+}
+
+.box-header h3 {
+  width: 100%;
+  padding: 10px;
+  background-color: inherit;
+  border-left-color: inherit;
+}
+
+h3.box-title,
+.box-header,
+.btn-box-tool,
+.btn-box-tool:hover,
+.open .btn-box-tool {
+  color: white;
+  font-weight: 800;
+}
+
+.skin-purple .box-header {
+  border-left-color: var(--purple);
+  background-color: var(--purple);
+}
+.skin-red .box-header  {
+  border-left-color: var(--red);
+  background-color: var(--red);
+}
+.skin-blue .box-header {
+  border-left-color: var(--blue);
+  background-color: var(--blue);
+}
+.skin-green .box-header {
+  border-left-color: var(--green);
+  background-color: var(--green);
+}
+.skin-yellow .box-header {
+  border-left-color: var(--yellow);
+  background-color: var(--yellow);
+}
+
+/* action button skins */
+.action-button {
+  background-color: var(--grey);
+  color: white;
+  font-weight: bold;
+}
+.skin-purple .action-button { background-color: var(--purple); }
+.skin-red .action-button { background-color: var(--red); }
+.skin-blue .action-button { background-color: var(--blue); }
+.skin-green .action-button { background-color: var(--green); }
+.skin-yellow .action-button { background-color: var(--yellow); }
+
+/* fix bug with 100% textArea width */
+.shiny-input-container:not(.shiny-input-container-inline) {
+  width: 100%;
+}
+
+/* app-specific css */
+
+#pet_table th+th {
+  font-size: 30px;
+}
