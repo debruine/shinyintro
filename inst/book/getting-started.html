@@ -24,7 +24,7 @@
 <meta name="author" content="Lisa DeBruine" />
 
 
-<meta name="date" content="2021-07-06" />
+<meta name="date" content="2021-07-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -159,9 +159,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#your-first-shiny-app"><i class="fa fa-check"></i><b>1.1</b> Your First Shiny App</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="getting-started.html"><a href="getting-started.html#overview-of-the-uiserver-structure"><i class="fa fa-check"></i><b>1.1.1</b> Overview of the UI/server structure</a></li>
-<li class="chapter" data-level="1.1.2" data-path="getting-started.html"><a href="getting-started.html#inputs-outputs-and-action-buttons"><i class="fa fa-check"></i><b>1.1.2</b> Inputs, outputs, and action buttons</a></li>
-<li class="chapter" data-level="1.1.3" data-path="getting-started.html"><a href="getting-started.html#reactive-functions"><i class="fa fa-check"></i><b>1.1.3</b> Reactive functions</a></li>
+<li class="chapter" data-level="1.1.1" data-path="getting-started.html"><a href="getting-started.html#the-demo-app"><i class="fa fa-check"></i><b>1.1.1</b> The Demo App</a></li>
+<li class="chapter" data-level="1.1.2" data-path="getting-started.html"><a href="getting-started.html#overview-of-the-uiserver-structure"><i class="fa fa-check"></i><b>1.1.2</b> Overview of the UI/server structure</a></li>
+<li class="chapter" data-level="1.1.3" data-path="getting-started.html"><a href="getting-started.html#inputs-outputs-and-action-buttons"><i class="fa fa-check"></i><b>1.1.3</b> Inputs, outputs, and action buttons</a></li>
+<li class="chapter" data-level="1.1.4" data-path="getting-started.html"><a href="getting-started.html#reactive-functions"><i class="fa fa-check"></i><b>1.1.4</b> Reactive functions</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#shinydashboard"><i class="fa fa-check"></i><b>1.2</b> ShinyDashboard</a>
 <ul>
@@ -169,6 +170,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2.2" data-path="getting-started.html"><a href="getting-started.html#sidebar-menu-navigation-and-tabs"><i class="fa fa-check"></i><b>1.2.2</b> Sidebar, menu navigation, and tabs</a></li>
 <li class="chapter" data-level="1.2.3" data-path="getting-started.html"><a href="getting-started.html#row--and-column-based-layouts"><i class="fa fa-check"></i><b>1.2.3</b> Row- and column-based layouts</a></li>
 </ul></li>
+<li class="chapter" data-level="1.3" data-path="getting-started.html"><a href="getting-started.html#glossary-01"><i class="fa fa-check"></i><b>1.3</b> Glossary</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="basic-patterns.html"><a href="basic-patterns.html"><i class="fa fa-check"></i><b>2</b> Basic Patterns</a>
 <ul>
@@ -276,14 +278,232 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Day 1</span> Getting Started</h1>
 <div id="your-first-shiny-app" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Your First Shiny App</h2>
-<div id="overview-of-the-uiserver-structure" class="section level3" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> Overview of the UI/server structure</h3>
+<div id="the-demo-app" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> The Demo App</h3>
+<p>To start, let’s walk through the basics of setting up a <a class='glossary' target='_blank' title='An R package that builds interactive web apps' href='https://psyteachr.github.io/glossary/s#shiny'>shiny</a> app, starting with the example built into <a class='glossary' target='_blank' title='An integrated development environment (IDE) that helps you process R code.' href='https://psyteachr.github.io/glossary/r#rstudio'>RStudio</a> I won’t explain yet how shiny apps are structured; the goal is to just get something up and running, and give you some familiarity with the layout of a fairly simple app.</p>
+<div id="set-up-the-demo-app" class="section level4" number="1.1.1.1">
+<h4><span class="header-section-number">1.1.1.1</span> Set Up the Demo App</h4>
+<div class="figure" style="text-align: center"><span id="fig:first-demo"></span>
+<img src="images/demo_app/01-create-project.png" alt="Creating a demo app." width="30%" /><img src="images/demo_app/02-project-type.png" alt="Creating a demo app." width="30%" /><img src="images/demo_app/03-project-directory.png" alt="Creating a demo app." width="30%" />
+<p class="caption">
+Figure 1.1: Creating a demo app.
+</p>
 </div>
-<div id="inputs-outputs-and-action-buttons" class="section level3" number="1.1.2">
-<h3><span class="header-section-number">1.1.2</span> Inputs, outputs, and action buttons</h3>
+<ol style="list-style-type: decimal">
+<li><p>Under the <code>File</code> menu, choose <code>New Project...</code>. You will see a popup window like the one above. Choose <code>New Directory</code>.</p></li>
+<li><p>Choose <code>Shiny Web Application</code> as the project type.</p></li>
+<li><p>I like to put all of my apps in the same directory`, but it doesn’t matter where you save it.</p></li>
+<li><p>Your RStudio interface should look like this now. You don’t have to do anything else at this step.</p></li>
+</ol>
+<p><img src="images/demo_app/04-rstudio-interface.png" /></p>
+<div class="warning">
+<p>If RStudio has changed their demo app and your source code doesn’t look like this, replace it with the code below:</p>
+<div class="webex-solution">
+<button>
+View Code
+</button>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="getting-started.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-2"><a href="getting-started.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a Shiny web application. You can run the application by clicking</span></span>
+<span id="cb1-3"><a href="getting-started.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the &#39;Run App&#39; button above.</span></span>
+<span id="cb1-4"><a href="getting-started.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-5"><a href="getting-started.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Find out more about building applications with Shiny here:</span></span>
+<span id="cb1-6"><a href="getting-started.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-7"><a href="getting-started.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#    http://shiny.rstudio.com/</span></span>
+<span id="cb1-8"><a href="getting-started.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-9"><a href="getting-started.html#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="getting-started.html#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb1-11"><a href="getting-started.html#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="getting-started.html#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Define UI for application that draws a histogram</span></span>
+<span id="cb1-13"><a href="getting-started.html#cb1-13" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb1-14"><a href="getting-started.html#cb1-14" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb1-15"><a href="getting-started.html#cb1-15" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Application title</span></span>
+<span id="cb1-16"><a href="getting-started.html#cb1-16" aria-hidden="true" tabindex="-1"></a>   <span class="fu">titlePanel</span>(<span class="st">&quot;Old Faithful Geyser Data&quot;</span>),</span>
+<span id="cb1-17"><a href="getting-started.html#cb1-17" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb1-18"><a href="getting-started.html#cb1-18" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Sidebar with a slider input for number of bins </span></span>
+<span id="cb1-19"><a href="getting-started.html#cb1-19" aria-hidden="true" tabindex="-1"></a>   <span class="fu">sidebarLayout</span>(</span>
+<span id="cb1-20"><a href="getting-started.html#cb1-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sidebarPanel</span>(</span>
+<span id="cb1-21"><a href="getting-started.html#cb1-21" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sliderInput</span>(<span class="st">&quot;bins&quot;</span>,</span>
+<span id="cb1-22"><a href="getting-started.html#cb1-22" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Number of bins:&quot;</span>,</span>
+<span id="cb1-23"><a href="getting-started.html#cb1-23" aria-hidden="true" tabindex="-1"></a>                     <span class="at">min =</span> <span class="dv">1</span>,</span>
+<span id="cb1-24"><a href="getting-started.html#cb1-24" aria-hidden="true" tabindex="-1"></a>                     <span class="at">max =</span> <span class="dv">50</span>,</span>
+<span id="cb1-25"><a href="getting-started.html#cb1-25" aria-hidden="true" tabindex="-1"></a>                     <span class="at">value =</span> <span class="dv">30</span>)</span>
+<span id="cb1-26"><a href="getting-started.html#cb1-26" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb1-27"><a href="getting-started.html#cb1-27" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb1-28"><a href="getting-started.html#cb1-28" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Show a plot of the generated distribution</span></span>
+<span id="cb1-29"><a href="getting-started.html#cb1-29" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mainPanel</span>(</span>
+<span id="cb1-30"><a href="getting-started.html#cb1-30" aria-hidden="true" tabindex="-1"></a>         <span class="fu">plotOutput</span>(<span class="st">&quot;distPlot&quot;</span>)</span>
+<span id="cb1-31"><a href="getting-started.html#cb1-31" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb1-32"><a href="getting-started.html#cb1-32" aria-hidden="true" tabindex="-1"></a>   )</span>
+<span id="cb1-33"><a href="getting-started.html#cb1-33" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-34"><a href="getting-started.html#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="getting-started.html#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Define server logic required to draw a histogram</span></span>
+<span id="cb1-36"><a href="getting-started.html#cb1-36" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb1-37"><a href="getting-started.html#cb1-37" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb1-38"><a href="getting-started.html#cb1-38" aria-hidden="true" tabindex="-1"></a>   output<span class="sc">$</span>distPlot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb1-39"><a href="getting-started.html#cb1-39" aria-hidden="true" tabindex="-1"></a>      <span class="co"># generate bins based on input$bins from ui.R</span></span>
+<span id="cb1-40"><a href="getting-started.html#cb1-40" aria-hidden="true" tabindex="-1"></a>      x    <span class="ot">&lt;-</span> faithful[, <span class="dv">2</span>] </span>
+<span id="cb1-41"><a href="getting-started.html#cb1-41" aria-hidden="true" tabindex="-1"></a>      bins <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(x), <span class="fu">max</span>(x), <span class="at">length.out =</span> input<span class="sc">$</span>bins <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb1-42"><a href="getting-started.html#cb1-42" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb1-43"><a href="getting-started.html#cb1-43" aria-hidden="true" tabindex="-1"></a>      <span class="co"># draw the histogram with the specified number of bins</span></span>
+<span id="cb1-44"><a href="getting-started.html#cb1-44" aria-hidden="true" tabindex="-1"></a>      <span class="fu">hist</span>(x, <span class="at">breaks =</span> bins, <span class="at">col =</span> <span class="st">&#39;darkgray&#39;</span>, <span class="at">border =</span> <span class="st">&#39;white&#39;</span>)</span>
+<span id="cb1-45"><a href="getting-started.html#cb1-45" aria-hidden="true" tabindex="-1"></a>   })</span>
+<span id="cb1-46"><a href="getting-started.html#cb1-46" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-47"><a href="getting-started.html#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="getting-started.html#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the application </span></span>
+<span id="cb1-49"><a href="getting-started.html#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code></pre></div>
 </div>
-<div id="reactive-functions" class="section level3" number="1.1.3">
-<h3><span class="header-section-number">1.1.3</span> Reactive functions</h3>
+</div>
+<p>Click on <code>Run App</code> in the top right corner of the <a class='glossary' target='_blank' title='RStudio is arranged with four window “panes.”' href='https://psyteachr.github.io/glossary/p#panes'>source pane</a>. The app will open up in a new window. Play with the slider and watch the histogram change.</p>
+<p><img src="images/demo_app/05-app-interface.png" /></p>
+<div class="info">
+<p>
+You can also open up the app in a web browser by clicking on <code>Open in Browser</code>.
+</p>
+</div>
+</div>
+<div id="modify-the-demo-app" class="section level4" number="1.1.1.2">
+<h4><span class="header-section-number">1.1.1.2</span> Modify the Demo App</h4>
+<p>Now we’re going to make a series of changes to the demo app until it’s all your own.</p>
+<div class="info">
+<p>
+You can close the app by closing the window or browser tab it’s running in, or leave it running while you edit the code. If you have multiple screens, it’s useful to have the app open on one screen and the code on another.
+</p>
+</div>
+<p>Find the application title. It is the first <a href="defs.html#argument">argument</a> to the <a href="defs.html#function">function</a> <code>titlePanel</code>. Change the title to <code>"My First App"</code>. Make sure the title is inside quotes and the whole quoted <a class='glossary' target='_blank' title='A piece of text inside of quotes.' href='https://psyteachr.github.io/glossary/s#string'>string</a> is inside the parentheses. Save the file (<code>cmd-S</code> or <code>File &gt; Save</code>).</p>
+<p><img src="images/demo_app/06-change-title.png" /></p>
+<p>Click <code>Run App</code> (or <code>Reload App</code> if you haven’t closed the app window) in the <a href="defs.html#panes">source pane</a>. If you haven’t saved your changes, it will prompt you to do so. Check that the app title has changed.</p>
+<p>Now let’s change the input. Find the function <code>sliderInput</code> (line 21). The first <a class='glossary' target='_blank' title='A variable that provides input to a function.' href='https://psyteachr.github.io/glossary/a#argument'>argument</a> is the name you can use in the code to find the value of this input, so don’t change it just yet. The second argument is the text that displays before the slider. Change this to something else and re-run the app.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="getting-started.html#cb2-1" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sliderInput</span>(<span class="st">&quot;bins&quot;</span>,</span>
+<span id="cb2-2"><a href="getting-started.html#cb2-2" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Number of bins:&quot;</span>,</span>
+<span id="cb2-3"><a href="getting-started.html#cb2-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">min =</span> <span class="dv">0</span>,</span>
+<span id="cb2-4"><a href="getting-started.html#cb2-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">max =</span> <span class="dv">50</span>,</span>
+<span id="cb2-5"><a href="getting-started.html#cb2-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">value =</span> <span class="dv">30</span>)</span></code></pre></div>
+<div class="try">
+<p>See if you can figure out what the next three arguments to <code>sliderInput</code> do. Change them to different <a class='glossary' target='_blank' title='A data type representing whole numbers.' href='https://psyteachr.github.io/glossary/i#integer'>integers</a>, then re-run the app to see what’s changed.</p>
+</div>
+<p>The arguments to the function <code>sidebarPanel</code> are just a list of things you want to display in the sidebar. To add some explanatory text in a paragraph before the <code>sliderInput</code>, just use the paragraph function <code>p("My text")</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="getting-started.html#cb3-1" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sidebarPanel</span>(</span>
+<span id="cb3-2"><a href="getting-started.html#cb3-2" aria-hidden="true" tabindex="-1"></a>         <span class="fu">p</span>(<span class="st">&quot;I am explaining this perfectly&quot;</span>),</span>
+<span id="cb3-3"><a href="getting-started.html#cb3-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sliderInput</span>(<span class="st">&quot;bins&quot;</span>,</span>
+<span id="cb3-4"><a href="getting-started.html#cb3-4" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Choose the best bin number:&quot;</span>,</span>
+<span id="cb3-5"><a href="getting-started.html#cb3-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">min =</span> <span class="dv">10</span>,</span>
+<span id="cb3-6"><a href="getting-started.html#cb3-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">max =</span> <span class="dv">40</span>,</span>
+<span id="cb3-7"><a href="getting-started.html#cb3-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">value =</span> <span class="dv">25</span>)</span>
+<span id="cb3-8"><a href="getting-started.html#cb3-8" aria-hidden="true" tabindex="-1"></a>      )</span></code></pre></div>
+<p><img src="images/demo_app/07-app-sidebar-p.png" /></p>
+<div class="info">
+<p>
+The sidebar shows up on the left if your window is wide enough, but moves to the top of the screen if it’s too narrow.
+</p>
+</div>
+<p>I don’t like it there, so we can move this text out of the sidebar and to the top of the page, just under the title. Try this and re-run the app.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="getting-started.html#cb4-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Application title</span></span>
+<span id="cb4-2"><a href="getting-started.html#cb4-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">titlePanel</span>(<span class="st">&quot;My First App&quot;</span>),</span>
+<span id="cb4-3"><a href="getting-started.html#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="getting-started.html#cb4-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">p</span>(<span class="st">&quot;I am explaining this perfectly&quot;</span>),</span>
+<span id="cb4-5"><a href="getting-started.html#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="getting-started.html#cb4-6" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Sidebar with a slider input for number of bins</span></span>
+<span id="cb4-7"><a href="getting-started.html#cb4-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">sidebarLayout</span>(...)</span></code></pre></div>
+<div class="try">
+<p>
+See where you can move the text in the layout of the page and where causes errors.
+</p>
+</div>
+<p>I’m also not keen on the grey plot. We can change the plot colour inside the <code>hist</code> function.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="getting-started.html#cb5-1" aria-hidden="true" tabindex="-1"></a>      <span class="co"># draw the histogram with the specified number of bins</span></span>
+<span id="cb5-2"><a href="getting-started.html#cb5-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">hist</span>(x, <span class="at">breaks =</span> bins, <span class="at">col =</span> <span class="st">&#39;steelblue3&#39;</span>, <span class="at">border =</span> <span class="st">&#39;grey30&#39;</span>)</span></code></pre></div>
+<p>There are a lot of ways to represent colour in R. The easiest three are:</p>
+<ol style="list-style-type: decimal">
+<li>hexadecimal colours like <code>#0066CC</code>,</li>
+<li>the <code>rgb</code> or <code>hsl</code> functions,</li>
+<li>colour names (type <code>colours()</code> in the console)</li>
+</ol>
+<p>I like <code>steelblue3</code>, as it’s pretty close to the shiny interface default colour, but feel free to choose whatever you like.</p>
+<p>I prefer <code>ggplot</code> graphs, so let’s make the plot with <code>geom_histogram</code> instead of <code>hist</code> (which is a great function for really quick plots). Since we need several functions from the <code>ggplot2</code> <a class='glossary' target='_blank' title='A group of R functions.' href='https://psyteachr.github.io/glossary/p#package'>package</a>, we’ll need to load that package at the top of the script, just under where the <code>shiny</code> package is loaded:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="getting-started.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb6-2"><a href="getting-started.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<p>You can replace all of the code in the <code>renderPlot</code> function with the code below.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="getting-started.html#cb7-1" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>distPlot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb7-2"><a href="getting-started.html#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create plot</span></span>
+<span id="cb7-3"><a href="getting-started.html#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(faithful, <span class="fu">aes</span>(waiting)) <span class="sc">+</span></span>
+<span id="cb7-4"><a href="getting-started.html#cb7-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_histogram</span>(<span class="at">bins =</span> input<span class="sc">$</span>bins,</span>
+<span id="cb7-5"><a href="getting-started.html#cb7-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill =</span> <span class="st">&quot;steelblue3&quot;</span>,</span>
+<span id="cb7-6"><a href="getting-started.html#cb7-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">colour =</span> <span class="st">&quot;grey30&quot;</span>) <span class="sc">+</span></span>
+<span id="cb7-7"><a href="getting-started.html#cb7-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">xlab</span>(<span class="st">&quot;What are we even plotting here?&quot;</span>) <span class="sc">+</span></span>
+<span id="cb7-8"><a href="getting-started.html#cb7-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme_minimal</span>()</span>
+<span id="cb7-9"><a href="getting-started.html#cb7-9" aria-hidden="true" tabindex="-1"></a>  })</span></code></pre></div>
+<div class="info">
+<p>
+You can set the <code>fill</code> and <code>colour</code> to whatever colours you like, and change <code>theme_minimal()</code> to one of the other <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html#examples" target="_blank">built-in ggplot themes</a>.
+</p>
+</div>
+<div class="try">
+<p>
+What <em>are</em> we even plotting here? Type <code>?faithful</code> into the console pane to see what the <code>waiting</code> column represents (<code>faithful</code> is a built-in demo dataset). Change the label on the x-axis to something more sensible.
+</p>
+</div>
+</div>
+<div id="add-new-things" class="section level4" number="1.1.1.3">
+<h4><span class="header-section-number">1.1.1.3</span> Add New Things</h4>
+<p>The <code>faithful</code> dataset includes two columns:<code>eruptions</code> and <code>waiting</code>. We’ve been plotting the <code>waiting</code> variable, but what if you wanted to plot the <code>eruptions</code> variable instead?</p>
+<div class="try">
+<p>
+Try plotting the eruption time (<code>eruptions</code>) instead of the waiting time. You just have to change one word in the <code>ggplot</code> function and update the x-axis label.
+</p>
+</div>
+<p>We can add another input <a class='glossary' target='_blank' title='A interactive web element, like a dropdown menu or a slider.' href='https://psyteachr.github.io/glossary/w#widget'>widget</a> to let the user switch between plotting eruption time and wait time. The <a href="https://shiny.rstudio.com/tutorial/written-tutorial/lesson3/">RStudio Shiny tutorial</a> has a great overview of the different input options. We need to toggle between two options, so we can use either radio buttons or a select box. Radio buttons are probably best if you have only a few options and the user will want to see them all at the same time to decide.</p>
+<p>Add the following code as the first argument to <code>sidebarPanel()</code>, which just takes a list of different widgets. <code>radioButtons</code> is the widget we’re using. The first argument is <code>display_var</code>, which we will use later in the code to find the value of this widget. The second argument is the label to display to the user. The next argument is <code>choices</code>, which is a list of choices in the format <code>c("label1" = "value1", "label2 = "value2", ...)</code>. The label is what gets shown to the user and the value is what gets used by the code (these can be the same, but you often want the user label to be more descriptive). The last argument is <code>selected</code>, which is the value of the default choice. Save this and re-run the app.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="getting-started.html#cb8-1" aria-hidden="true" tabindex="-1"></a>         <span class="fu">radioButtons</span>(<span class="st">&quot;display_var&quot;</span>,</span>
+<span id="cb8-2"><a href="getting-started.html#cb8-2" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&quot;Which variable to display&quot;</span>,</span>
+<span id="cb8-3"><a href="getting-started.html#cb8-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">&quot;Waiting time to next eruption&quot;</span> <span class="ot">=</span> <span class="st">&quot;waiting&quot;</span>,</span>
+<span id="cb8-4"><a href="getting-started.html#cb8-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;Eruption time&quot;</span> <span class="ot">=</span> <span class="st">&quot;eruptions&quot;</span>),</span>
+<span id="cb8-5"><a href="getting-started.html#cb8-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">selected =</span> <span class="st">&quot;waiting&quot;</span></span>
+<span id="cb8-6"><a href="getting-started.html#cb8-6" aria-hidden="true" tabindex="-1"></a>         ),</span></code></pre></div>
+<p><img src="images/demo_app/08-radiobutton-widget.png" /></p>
+<p>You should have a radio button interface now. You can click on the options to switch the button, but it won’t do anything to your plot yet. We need to edit the plot-generating code to make that happen.</p>
+<p>First, we need to change the x-axis label depending on what we’re graphing. We use an if/else statement to set the variable <code>xlabel</code> to one thing if <code>input$display_var</code> is equivalent to <code>"eruptions"</code>, and to something else if it’s equivalent to <code>"waiting"</code>. Put this code at the very beginning of the code block for the <code>renderPlot</code> function (after the line <code>output$distPlot &lt;- renderPlot({</code>).</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="getting-started.html#cb9-1" aria-hidden="true" tabindex="-1"></a>      <span class="co"># set x-axis label depending on the value of display_var</span></span>
+<span id="cb9-2"><a href="getting-started.html#cb9-2" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (input<span class="sc">$</span>display_var <span class="sc">==</span> <span class="st">&quot;eruptions&quot;</span>) {</span>
+<span id="cb9-3"><a href="getting-started.html#cb9-3" aria-hidden="true" tabindex="-1"></a>        xlabel <span class="ot">&lt;-</span> <span class="st">&quot;Eruption Time (in minutes)&quot;</span></span>
+<span id="cb9-4"><a href="getting-started.html#cb9-4" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> <span class="cf">if</span> (input<span class="sc">$</span>display_var <span class="sc">==</span> <span class="st">&quot;waiting&quot;</span>) {</span>
+<span id="cb9-5"><a href="getting-started.html#cb9-5" aria-hidden="true" tabindex="-1"></a>        xlabel <span class="ot">&lt;-</span> <span class="st">&quot;Waiting Time to Next Eruption (in minutes)&quot;</span></span>
+<span id="cb9-6"><a href="getting-started.html#cb9-6" aria-hidden="true" tabindex="-1"></a>      }</span></code></pre></div>
+<div class="warning">
+<p>
+The double-equal-signs <code>==</code> means "equivalent to and is how you check if two things are the same; if you only use one equal sign, you set the variable on the left to the value on the right.
+</p>
+</div>
+<p>Then we have to edit the <code>ggplot</code> function to use the new label and to plot the correct column. The variable <code>input$display_var</code> gives you the user-input value of the widget called <code>display_var</code>.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="getting-started.html#cb10-1" aria-hidden="true" tabindex="-1"></a>      <span class="co"># create plot</span></span>
+<span id="cb10-2"><a href="getting-started.html#cb10-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ggplot</span>(faithful, <span class="fu">aes</span>(.data[[input<span class="sc">$</span>display_var]])) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="getting-started.html#cb10-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_histogram</span>(<span class="at">bins =</span> input<span class="sc">$</span>bins,</span>
+<span id="cb10-4"><a href="getting-started.html#cb10-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">fill =</span> <span class="st">&quot;steelblue3&quot;</span>,</span>
+<span id="cb10-5"><a href="getting-started.html#cb10-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">colour =</span> <span class="st">&quot;grey30&quot;</span>) <span class="sc">+</span></span>
+<span id="cb10-6"><a href="getting-started.html#cb10-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">xlab</span>(xlabel) <span class="sc">+</span></span>
+<span id="cb10-7"><a href="getting-started.html#cb10-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="warning">
+<p>
+Notice that the function <code>aes(waiting)</code> from before has changed to <code>aes(.data[[input$display_var]])</code>. Because <code>input$display_var</code> is a <code>r glossary(“string”)</code>, we have to select it from the <code>.data</code> placeholder (which refers to the <code>faithful</code> data table) using double brackets.
+</p>
+</div>
+<p>Re-run your app and see if you can change the data and x-axis label with your new widget. If not, check that your code against the code in <code>shinyintro::newapp("first_demo")</code>.</p>
+<div class="figure" style="text-align: center"><span id="fig:first-demo-app"></span>
+<iframe src="https://shiny.psy.gla.ac.uk/debruine/first_demo/?showcase=0" width="100%" height="800px">
+</iframe>
+<p class="caption">
+Figure 1.2: First Demo App
+</p>
+</div>
+</div>
+</div>
+<div id="overview-of-the-uiserver-structure" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Overview of the UI/server structure</h3>
+</div>
+<div id="inputs-outputs-and-action-buttons" class="section level3" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Inputs, outputs, and action buttons</h3>
+</div>
+<div id="reactive-functions" class="section level3" number="1.1.4">
+<h3><span class="header-section-number">1.1.4</span> Reactive functions</h3>
 </div>
 </div>
 <div id="shinydashboard" class="section level2" number="1.2">
@@ -296,8 +516,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="row--and-column-based-layouts" class="section level3" number="1.2.3">
 <h3><span class="header-section-number">1.2.3</span> Row- and column-based layouts</h3>
-
 </div>
+</div>
+<div id="glossary-01" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Glossary</h2>
+<table>
+<colgroup>
+<col width="58%" />
+<col width="41%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="left">definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/a#argument'>argument</a></td>
+<td align="left">A variable that provides input to a function.</td>
+</tr>
+<tr class="even">
+<td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/i#integer'>integer</a></td>
+<td align="left">A data type representing whole numbers.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/p#package'>package</a></td>
+<td align="left">A group of R functions.</td>
+</tr>
+<tr class="even">
+<td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/p#panes'>panes</a></td>
+<td align="left">RStudio is arranged with four window “panes.”</td>
+</tr>
+<tr class="odd">
+<td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/r#rstudio'>rstudio</a></td>
+<td align="left">An integrated development environment (IDE) that helps you process R code.</td>
+</tr>
+<tr class="even">
+<td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/s#shiny'>shiny</a></td>
+<td align="left">An R package that builds interactive web apps</td>
+</tr>
+<tr class="odd">
+<td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/s#string'>string</a></td>
+<td align="left">A piece of text inside of quotes.</td>
+</tr>
+<tr class="even">
+<td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/w#widget'>widget</a></td>
+<td align="left">A interactive web element, like a dropdown menu or a slider.</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
 <div class="psyteachr_footer">

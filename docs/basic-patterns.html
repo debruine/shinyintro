@@ -24,7 +24,7 @@
 <meta name="author" content="Lisa DeBruine" />
 
 
-<meta name="date" content="2021-07-06" />
+<meta name="date" content="2021-07-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -159,9 +159,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#your-first-shiny-app"><i class="fa fa-check"></i><b>1.1</b> Your First Shiny App</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="getting-started.html"><a href="getting-started.html#overview-of-the-uiserver-structure"><i class="fa fa-check"></i><b>1.1.1</b> Overview of the UI/server structure</a></li>
-<li class="chapter" data-level="1.1.2" data-path="getting-started.html"><a href="getting-started.html#inputs-outputs-and-action-buttons"><i class="fa fa-check"></i><b>1.1.2</b> Inputs, outputs, and action buttons</a></li>
-<li class="chapter" data-level="1.1.3" data-path="getting-started.html"><a href="getting-started.html#reactive-functions"><i class="fa fa-check"></i><b>1.1.3</b> Reactive functions</a></li>
+<li class="chapter" data-level="1.1.1" data-path="getting-started.html"><a href="getting-started.html#create-a-demo-app"><i class="fa fa-check"></i><b>1.1.1</b> Create a Demo App</a></li>
+<li class="chapter" data-level="1.1.2" data-path="getting-started.html"><a href="getting-started.html#run-the-app"><i class="fa fa-check"></i><b>1.1.2</b> Run the app</a></li>
+<li class="chapter" data-level="1.1.3" data-path="getting-started.html"><a href="getting-started.html#modify-the-demo-app"><i class="fa fa-check"></i><b>1.1.3</b> Modify the Demo App</a></li>
+<li class="chapter" data-level="1.1.4" data-path="getting-started.html"><a href="getting-started.html#adding-new-things"><i class="fa fa-check"></i><b>1.1.4</b> Adding New Things</a></li>
+<li class="chapter" data-level="1.1.5" data-path="getting-started.html"><a href="getting-started.html#overview-of-the-uiserver-structure"><i class="fa fa-check"></i><b>1.1.5</b> Overview of the UI/server structure</a></li>
+<li class="chapter" data-level="1.1.6" data-path="getting-started.html"><a href="getting-started.html#inputs-outputs-and-action-buttons"><i class="fa fa-check"></i><b>1.1.6</b> Inputs, outputs, and action buttons</a></li>
+<li class="chapter" data-level="1.1.7" data-path="getting-started.html"><a href="getting-started.html#reactive-functions"><i class="fa fa-check"></i><b>1.1.7</b> Reactive functions</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#shinydashboard"><i class="fa fa-check"></i><b>1.2</b> ShinyDashboard</a>
 <ul>
@@ -169,6 +173,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2.2" data-path="getting-started.html"><a href="getting-started.html#sidebar-menu-navigation-and-tabs"><i class="fa fa-check"></i><b>1.2.2</b> Sidebar, menu navigation, and tabs</a></li>
 <li class="chapter" data-level="1.2.3" data-path="getting-started.html"><a href="getting-started.html#row--and-column-based-layouts"><i class="fa fa-check"></i><b>1.2.3</b> Row- and column-based layouts</a></li>
 </ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#glossary-intro"><i class="fa fa-check"></i><b>1.3</b> Glossary</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="basic-patterns.html"><a href="basic-patterns.html"><i class="fa fa-check"></i><b>2</b> Basic Patterns</a>
 <ul>
@@ -289,85 +294,85 @@ Figure 2.1: Input Demo App
 <div id="textinput" class="section level3" number="2.1.1">
 <h3><span class="header-section-number">2.1.1</span> textInput</h3>
 <p><code>textInput()</code> creates a one-line box for short text input.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="basic-patterns.html#cb2-1" aria-hidden="true" tabindex="-1"></a>demo_text <span class="ot">&lt;-</span> </span>
-<span id="cb2-2"><a href="basic-patterns.html#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textInput</span>(<span class="st">&quot;demo_text&quot;</span>, </span>
-<span id="cb2-3"><a href="basic-patterns.html#cb2-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">label =</span> <span class="st">&quot;Name&quot;</span>, </span>
-<span id="cb2-4"><a href="basic-patterns.html#cb2-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">value =</span> <span class="st">&quot;&quot;</span>, </span>
-<span id="cb2-5"><a href="basic-patterns.html#cb2-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">width =</span> <span class="st">&quot;100%&quot;</span>,</span>
-<span id="cb2-6"><a href="basic-patterns.html#cb2-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">placeholder =</span> <span class="st">&quot;Your Name&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="basic-patterns.html#cb12-1" aria-hidden="true" tabindex="-1"></a>demo_text <span class="ot">&lt;-</span> </span>
+<span id="cb12-2"><a href="basic-patterns.html#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textInput</span>(<span class="st">&quot;demo_text&quot;</span>, </span>
+<span id="cb12-3"><a href="basic-patterns.html#cb12-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">label =</span> <span class="st">&quot;Name&quot;</span>, </span>
+<span id="cb12-4"><a href="basic-patterns.html#cb12-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">value =</span> <span class="st">&quot;&quot;</span>, </span>
+<span id="cb12-5"><a href="basic-patterns.html#cb12-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">width =</span> <span class="st">&quot;100%&quot;</span>,</span>
+<span id="cb12-6"><a href="basic-patterns.html#cb12-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">placeholder =</span> <span class="st">&quot;Your Name&quot;</span>)</span></code></pre></div>
 </div>
 <div id="textareainput" class="section level3" number="2.1.2">
 <h3><span class="header-section-number">2.1.2</span> textAreaInput</h3>
 <p><code>textAreaInput()</code> creates a multi-line box for longer text input.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="basic-patterns.html#cb3-1" aria-hidden="true" tabindex="-1"></a>demo_textarea <span class="ot">&lt;-</span> </span>
-<span id="cb3-2"><a href="basic-patterns.html#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textAreaInput</span>(<span class="st">&quot;demo_textarea&quot;</span>, </span>
-<span id="cb3-3"><a href="basic-patterns.html#cb3-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">label =</span> <span class="st">&quot;Biography&quot;</span>, </span>
-<span id="cb3-4"><a href="basic-patterns.html#cb3-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">value =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb3-5"><a href="basic-patterns.html#cb3-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="st">&quot;100%&quot;</span>,</span>
-<span id="cb3-6"><a href="basic-patterns.html#cb3-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">rows =</span> <span class="dv">5</span>, </span>
-<span id="cb3-7"><a href="basic-patterns.html#cb3-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">placeholder =</span> <span class="st">&quot;Tell us something interesting about you.&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="basic-patterns.html#cb13-1" aria-hidden="true" tabindex="-1"></a>demo_textarea <span class="ot">&lt;-</span> </span>
+<span id="cb13-2"><a href="basic-patterns.html#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textAreaInput</span>(<span class="st">&quot;demo_textarea&quot;</span>, </span>
+<span id="cb13-3"><a href="basic-patterns.html#cb13-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">label =</span> <span class="st">&quot;Biography&quot;</span>, </span>
+<span id="cb13-4"><a href="basic-patterns.html#cb13-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">value =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb13-5"><a href="basic-patterns.html#cb13-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="st">&quot;100%&quot;</span>,</span>
+<span id="cb13-6"><a href="basic-patterns.html#cb13-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">rows =</span> <span class="dv">5</span>, </span>
+<span id="cb13-7"><a href="basic-patterns.html#cb13-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">placeholder =</span> <span class="st">&quot;Tell us something interesting about you.&quot;</span>)</span></code></pre></div>
 </div>
 <div id="selectinput" class="section level3" number="2.1.3">
 <h3><span class="header-section-number">2.1.3</span> selectInput</h3>
 <p><code>sekectInput()</code> creates a drop-down menu. Set the first choice to <code>""</code> to default to <code>NA</code>. If your choices are a named list, the names are what is shown and the values are what is recorded. If the choices aren’t named, the displayed and recorded values are the same.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="basic-patterns.html#cb4-1" aria-hidden="true" tabindex="-1"></a>demo_select <span class="ot">&lt;-</span> </span>
-<span id="cb4-2"><a href="basic-patterns.html#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;demo_select&quot;</span>, </span>
-<span id="cb4-3"><a href="basic-patterns.html#cb4-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="st">&quot;Do you like Shiny?&quot;</span>, </span>
-<span id="cb4-4"><a href="basic-patterns.html#cb4-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">choices =</span> <span class="fu">list</span>(<span class="st">&quot;&quot;</span>, </span>
-<span id="cb4-5"><a href="basic-patterns.html#cb4-5" aria-hidden="true" tabindex="-1"></a>                             <span class="st">&quot;Yes, I do&quot;</span> <span class="ot">=</span> <span class="st">&quot;y&quot;</span>, </span>
-<span id="cb4-6"><a href="basic-patterns.html#cb4-6" aria-hidden="true" tabindex="-1"></a>                             <span class="st">&quot;No, I don&#39;t&quot;</span> <span class="ot">=</span> <span class="st">&quot;n&quot;</span>),</span>
-<span id="cb4-7"><a href="basic-patterns.html#cb4-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">selected =</span> <span class="cn">NULL</span>,</span>
-<span id="cb4-8"><a href="basic-patterns.html#cb4-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="st">&quot;100%&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="basic-patterns.html#cb14-1" aria-hidden="true" tabindex="-1"></a>demo_select <span class="ot">&lt;-</span> </span>
+<span id="cb14-2"><a href="basic-patterns.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;demo_select&quot;</span>, </span>
+<span id="cb14-3"><a href="basic-patterns.html#cb14-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="st">&quot;Do you like Shiny?&quot;</span>, </span>
+<span id="cb14-4"><a href="basic-patterns.html#cb14-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">choices =</span> <span class="fu">list</span>(<span class="st">&quot;&quot;</span>, </span>
+<span id="cb14-5"><a href="basic-patterns.html#cb14-5" aria-hidden="true" tabindex="-1"></a>                             <span class="st">&quot;Yes, I do&quot;</span> <span class="ot">=</span> <span class="st">&quot;y&quot;</span>, </span>
+<span id="cb14-6"><a href="basic-patterns.html#cb14-6" aria-hidden="true" tabindex="-1"></a>                             <span class="st">&quot;No, I don&#39;t&quot;</span> <span class="ot">=</span> <span class="st">&quot;n&quot;</span>),</span>
+<span id="cb14-7"><a href="basic-patterns.html#cb14-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">selected =</span> <span class="cn">NULL</span>,</span>
+<span id="cb14-8"><a href="basic-patterns.html#cb14-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="st">&quot;100%&quot;</span>)</span></code></pre></div>
 <p>You can also make a select where users can choose multiple options.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="basic-patterns.html#cb5-1" aria-hidden="true" tabindex="-1"></a>genders <span class="ot">&lt;-</span> <span class="fu">list</span>( <span class="co"># no blank needed</span></span>
-<span id="cb5-2"><a href="basic-patterns.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Non-binary&quot;</span> <span class="ot">=</span> <span class="st">&quot;nb&quot;</span>,</span>
-<span id="cb5-3"><a href="basic-patterns.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Male&quot;</span> <span class="ot">=</span> <span class="st">&quot;m&quot;</span>,</span>
-<span id="cb5-4"><a href="basic-patterns.html#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Female&quot;</span> <span class="ot">=</span> <span class="st">&quot;f&quot;</span>,</span>
-<span id="cb5-5"><a href="basic-patterns.html#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Agender&quot;</span> <span class="ot">=</span> <span class="st">&quot;a&quot;</span>,</span>
-<span id="cb5-6"><a href="basic-patterns.html#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Gender Fluid&quot;</span> <span class="ot">=</span> <span class="st">&quot;gf&quot;</span></span>
-<span id="cb5-7"><a href="basic-patterns.html#cb5-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-8"><a href="basic-patterns.html#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="basic-patterns.html#cb5-9" aria-hidden="true" tabindex="-1"></a>demo_select_multi <span class="ot">&lt;-</span> </span>
-<span id="cb5-10"><a href="basic-patterns.html#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;demo_select2&quot;</span>, </span>
-<span id="cb5-11"><a href="basic-patterns.html#cb5-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="st">&quot;Gender (select all that apply)&quot;</span>, </span>
-<span id="cb5-12"><a href="basic-patterns.html#cb5-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">choices =</span> genders,</span>
-<span id="cb5-13"><a href="basic-patterns.html#cb5-13" aria-hidden="true" tabindex="-1"></a>              <span class="at">selected =</span> <span class="cn">NULL</span>,</span>
-<span id="cb5-14"><a href="basic-patterns.html#cb5-14" aria-hidden="true" tabindex="-1"></a>              <span class="at">multiple =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb5-15"><a href="basic-patterns.html#cb5-15" aria-hidden="true" tabindex="-1"></a>              <span class="at">selectize =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb5-16"><a href="basic-patterns.html#cb5-16" aria-hidden="true" tabindex="-1"></a>              <span class="at">size =</span> <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="basic-patterns.html#cb15-1" aria-hidden="true" tabindex="-1"></a>genders <span class="ot">&lt;-</span> <span class="fu">list</span>( <span class="co"># no blank needed</span></span>
+<span id="cb15-2"><a href="basic-patterns.html#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Non-binary&quot;</span> <span class="ot">=</span> <span class="st">&quot;nb&quot;</span>,</span>
+<span id="cb15-3"><a href="basic-patterns.html#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Male&quot;</span> <span class="ot">=</span> <span class="st">&quot;m&quot;</span>,</span>
+<span id="cb15-4"><a href="basic-patterns.html#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Female&quot;</span> <span class="ot">=</span> <span class="st">&quot;f&quot;</span>,</span>
+<span id="cb15-5"><a href="basic-patterns.html#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Agender&quot;</span> <span class="ot">=</span> <span class="st">&quot;a&quot;</span>,</span>
+<span id="cb15-6"><a href="basic-patterns.html#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Gender Fluid&quot;</span> <span class="ot">=</span> <span class="st">&quot;gf&quot;</span></span>
+<span id="cb15-7"><a href="basic-patterns.html#cb15-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-8"><a href="basic-patterns.html#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="basic-patterns.html#cb15-9" aria-hidden="true" tabindex="-1"></a>demo_select_multi <span class="ot">&lt;-</span> </span>
+<span id="cb15-10"><a href="basic-patterns.html#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;demo_select2&quot;</span>, </span>
+<span id="cb15-11"><a href="basic-patterns.html#cb15-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="st">&quot;Gender (select all that apply)&quot;</span>, </span>
+<span id="cb15-12"><a href="basic-patterns.html#cb15-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">choices =</span> genders,</span>
+<span id="cb15-13"><a href="basic-patterns.html#cb15-13" aria-hidden="true" tabindex="-1"></a>              <span class="at">selected =</span> <span class="cn">NULL</span>,</span>
+<span id="cb15-14"><a href="basic-patterns.html#cb15-14" aria-hidden="true" tabindex="-1"></a>              <span class="at">multiple =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb15-15"><a href="basic-patterns.html#cb15-15" aria-hidden="true" tabindex="-1"></a>              <span class="at">selectize =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb15-16"><a href="basic-patterns.html#cb15-16" aria-hidden="true" tabindex="-1"></a>              <span class="at">size =</span> <span class="dv">5</span>)</span></code></pre></div>
 </div>
 <div id="checkboxgroupinput" class="section level3" number="2.1.4">
 <h3><span class="header-section-number">2.1.4</span> checkboxGroupInput</h3>
 <p>However, this interface almost always looks better with a checkbox group.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="basic-patterns.html#cb6-1" aria-hidden="true" tabindex="-1"></a>demo_cbgi <span class="ot">&lt;-</span></span>
-<span id="cb6-2"><a href="basic-patterns.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">checkboxGroupInput</span>(<span class="st">&quot;demo_cbgi&quot;</span>,</span>
-<span id="cb6-3"><a href="basic-patterns.html#cb6-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">label =</span> <span class="st">&quot;Gender (select all that apply)&quot;</span>,</span>
-<span id="cb6-4"><a href="basic-patterns.html#cb6-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">choices =</span> genders)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="basic-patterns.html#cb16-1" aria-hidden="true" tabindex="-1"></a>demo_cbgi <span class="ot">&lt;-</span></span>
+<span id="cb16-2"><a href="basic-patterns.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">checkboxGroupInput</span>(<span class="st">&quot;demo_cbgi&quot;</span>,</span>
+<span id="cb16-3"><a href="basic-patterns.html#cb16-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">label =</span> <span class="st">&quot;Gender (select all that apply)&quot;</span>,</span>
+<span id="cb16-4"><a href="basic-patterns.html#cb16-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">choices =</span> genders)</span></code></pre></div>
 </div>
 <div id="checkboxinput" class="section level3" number="2.1.5">
 <h3><span class="header-section-number">2.1.5</span> checkboxInput</h3>
 <p>You can also make a single checkbox. The value is <code>TRUE</code> when checked and <code>FALSE</code> when not.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="basic-patterns.html#cb7-1" aria-hidden="true" tabindex="-1"></a>demo_cb <span class="ot">&lt;-</span> <span class="fu">checkboxInput</span>(<span class="st">&quot;demo_cb&quot;</span>,</span>
-<span id="cb7-2"><a href="basic-patterns.html#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">label =</span> <span class="st">&quot;I love R&quot;</span>,</span>
-<span id="cb7-3"><a href="basic-patterns.html#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="basic-patterns.html#cb17-1" aria-hidden="true" tabindex="-1"></a>demo_cb <span class="ot">&lt;-</span> <span class="fu">checkboxInput</span>(<span class="st">&quot;demo_cb&quot;</span>,</span>
+<span id="cb17-2"><a href="basic-patterns.html#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">label =</span> <span class="st">&quot;I love R&quot;</span>,</span>
+<span id="cb17-3"><a href="basic-patterns.html#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>Sliders allow you to choose numbers between a minimum and maximum.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="basic-patterns.html#cb8-1" aria-hidden="true" tabindex="-1"></a>demo_slider <span class="ot">&lt;-</span> <span class="fu">sliderInput</span>(<span class="st">&quot;demo_slider&quot;</span>,</span>
-<span id="cb8-2"><a href="basic-patterns.html#cb8-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">label =</span> <span class="st">&quot;Age&quot;</span>,</span>
-<span id="cb8-3"><a href="basic-patterns.html#cb8-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">min =</span> <span class="dv">0</span>,</span>
-<span id="cb8-4"><a href="basic-patterns.html#cb8-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">max =</span> <span class="dv">100</span>,</span>
-<span id="cb8-5"><a href="basic-patterns.html#cb8-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">value =</span> <span class="dv">0</span>,</span>
-<span id="cb8-6"><a href="basic-patterns.html#cb8-6" aria-hidden="true" tabindex="-1"></a>                           <span class="at">step =</span> <span class="dv">1</span>,</span>
-<span id="cb8-7"><a href="basic-patterns.html#cb8-7" aria-hidden="true" tabindex="-1"></a>                           <span class="at">width =</span> <span class="st">&quot;100%&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="basic-patterns.html#cb18-1" aria-hidden="true" tabindex="-1"></a>demo_slider <span class="ot">&lt;-</span> <span class="fu">sliderInput</span>(<span class="st">&quot;demo_slider&quot;</span>,</span>
+<span id="cb18-2"><a href="basic-patterns.html#cb18-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">label =</span> <span class="st">&quot;Age&quot;</span>,</span>
+<span id="cb18-3"><a href="basic-patterns.html#cb18-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">min =</span> <span class="dv">0</span>,</span>
+<span id="cb18-4"><a href="basic-patterns.html#cb18-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">max =</span> <span class="dv">100</span>,</span>
+<span id="cb18-5"><a href="basic-patterns.html#cb18-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">value =</span> <span class="dv">0</span>,</span>
+<span id="cb18-6"><a href="basic-patterns.html#cb18-6" aria-hidden="true" tabindex="-1"></a>                           <span class="at">step =</span> <span class="dv">1</span>,</span>
+<span id="cb18-7"><a href="basic-patterns.html#cb18-7" aria-hidden="true" tabindex="-1"></a>                           <span class="at">width =</span> <span class="st">&quot;100%&quot;</span>)</span></code></pre></div>
 </div>
 <div id="setting-inputs-programatically" class="section level3" number="2.1.6">
 <h3><span class="header-section-number">2.1.6</span> Setting inputs programatically</h3>
 <p>Sometimes you need to change the value of an input with code, such as when resetting a questionnaire or in response to an answer on another item. The following code reseats all of the inputs above.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="basic-patterns.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">updateTextInput</span>(session, <span class="st">&quot;demo_text&quot;</span>, <span class="at">value =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb9-2"><a href="basic-patterns.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">updateTextAreaInput</span>(session, <span class="st">&quot;demo_textarea&quot;</span>, <span class="at">value =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb9-3"><a href="basic-patterns.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">updateSelectInput</span>(session, <span class="st">&quot;demo_select&quot;</span>, <span class="at">selected =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb9-4"><a href="basic-patterns.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">updateCheckboxGroupInput</span>(session, <span class="st">&quot;demo_cbgi&quot;</span>, <span class="at">selected =</span> <span class="fu">character</span>(<span class="dv">0</span>))</span>
-<span id="cb9-5"><a href="basic-patterns.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">updateCheckboxInput</span>(session, <span class="st">&quot;demo_cb&quot;</span>, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb9-6"><a href="basic-patterns.html#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">updateSliderInput</span>(session, <span class="st">&quot;demo_slider&quot;</span>, <span class="at">value =</span> <span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="basic-patterns.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">updateTextInput</span>(session, <span class="st">&quot;demo_text&quot;</span>, <span class="at">value =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb19-2"><a href="basic-patterns.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">updateTextAreaInput</span>(session, <span class="st">&quot;demo_textarea&quot;</span>, <span class="at">value =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb19-3"><a href="basic-patterns.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">updateSelectInput</span>(session, <span class="st">&quot;demo_select&quot;</span>, <span class="at">selected =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb19-4"><a href="basic-patterns.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">updateCheckboxGroupInput</span>(session, <span class="st">&quot;demo_cbgi&quot;</span>, <span class="at">selected =</span> <span class="fu">character</span>(<span class="dv">0</span>))</span>
+<span id="cb19-5"><a href="basic-patterns.html#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">updateCheckboxInput</span>(session, <span class="st">&quot;demo_cb&quot;</span>, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-6"><a href="basic-patterns.html#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">updateSliderInput</span>(session, <span class="st">&quot;demo_slider&quot;</span>, <span class="at">value =</span> <span class="dv">0</span>)</span></code></pre></div>
 <div class="warning">
 <p>
 Note that select inputs and checkbox groups use the argument <code>selected</code> and not <code>value</code>. If you want to set all the values in a checkbox group to unchecked, set <code>selected = character(0)</code>.
@@ -389,38 +394,38 @@ Figure 2.2: Output Demo App
 <div id="textoutput" class="section level3" number="2.2.1">
 <h3><span class="header-section-number">2.2.1</span> textOutput</h3>
 <p>The function <code>textOutput()</code> defaults to text inside a <code>&lt;span&gt;</code> or <code>&lt;div&gt;</code> element, but you can use a different element with the <code>container</code> argument.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="basic-patterns.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
-<span id="cb10-2"><a href="basic-patterns.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">textOutput</span>(<span class="st">&quot;demo_text&quot;</span>, <span class="at">container =</span> tags<span class="sc">$</span>h3)</span>
-<span id="cb10-3"><a href="basic-patterns.html#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="basic-patterns.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
-<span id="cb10-5"><a href="basic-patterns.html#cb10-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_text <span class="ot">&lt;-</span> <span class="fu">renderText</span>({</span>
-<span id="cb10-6"><a href="basic-patterns.html#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sprintf</span>(<span class="st">&quot;Plot of %s&quot;</span>, input<span class="sc">$</span>y)</span>
-<span id="cb10-7"><a href="basic-patterns.html#cb10-7" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="basic-patterns.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
+<span id="cb20-2"><a href="basic-patterns.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">textOutput</span>(<span class="st">&quot;demo_text&quot;</span>, <span class="at">container =</span> tags<span class="sc">$</span>h3)</span>
+<span id="cb20-3"><a href="basic-patterns.html#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="basic-patterns.html#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
+<span id="cb20-5"><a href="basic-patterns.html#cb20-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_text <span class="ot">&lt;-</span> <span class="fu">renderText</span>({</span>
+<span id="cb20-6"><a href="basic-patterns.html#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sprintf</span>(<span class="st">&quot;Plot of %s&quot;</span>, input<span class="sc">$</span>y)</span>
+<span id="cb20-7"><a href="basic-patterns.html#cb20-7" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <p>If you use <code>verbatimTextOutput()</code> in the UI (no change to the server function), it will show the output in a fixed-width font. This can be good for code or text you want the user to copy.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="basic-patterns.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
-<span id="cb11-2"><a href="basic-patterns.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">verbatimTextOutput</span>(<span class="st">&quot;demo_verbatim&quot;</span>)</span>
-<span id="cb11-3"><a href="basic-patterns.html#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="basic-patterns.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
-<span id="cb11-5"><a href="basic-patterns.html#cb11-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_verbatim <span class="ot">&lt;-</span> <span class="fu">renderText</span>({</span>
-<span id="cb11-6"><a href="basic-patterns.html#cb11-6" aria-hidden="true" tabindex="-1"></a>        code <span class="ot">&lt;-</span> </span>
-<span id="cb11-7"><a href="basic-patterns.html#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;ggplot(iris, aes(x = Species, y = %s, color = Species)) +</span></span>
-<span id="cb11-8"><a href="basic-patterns.html#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="st">    geom_violin(show.legend = FALSE) +</span></span>
-<span id="cb11-9"><a href="basic-patterns.html#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="st">    stat_summary(show.legend = FALSE)&quot;</span></span>
-<span id="cb11-10"><a href="basic-patterns.html#cb11-10" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb11-11"><a href="basic-patterns.html#cb11-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sprintf</span>(code, input<span class="sc">$</span>y)</span>
-<span id="cb11-12"><a href="basic-patterns.html#cb11-12" aria-hidden="true" tabindex="-1"></a>    })</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="basic-patterns.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
+<span id="cb21-2"><a href="basic-patterns.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">verbatimTextOutput</span>(<span class="st">&quot;demo_verbatim&quot;</span>)</span>
+<span id="cb21-3"><a href="basic-patterns.html#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="basic-patterns.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
+<span id="cb21-5"><a href="basic-patterns.html#cb21-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_verbatim <span class="ot">&lt;-</span> <span class="fu">renderText</span>({</span>
+<span id="cb21-6"><a href="basic-patterns.html#cb21-6" aria-hidden="true" tabindex="-1"></a>        code <span class="ot">&lt;-</span> </span>
+<span id="cb21-7"><a href="basic-patterns.html#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;ggplot(iris, aes(x = Species, y = %s, color = Species)) +</span></span>
+<span id="cb21-8"><a href="basic-patterns.html#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="st">    geom_violin(show.legend = FALSE) +</span></span>
+<span id="cb21-9"><a href="basic-patterns.html#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="st">    stat_summary(show.legend = FALSE)&quot;</span></span>
+<span id="cb21-10"><a href="basic-patterns.html#cb21-10" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb21-11"><a href="basic-patterns.html#cb21-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sprintf</span>(code, input<span class="sc">$</span>y)</span>
+<span id="cb21-12"><a href="basic-patterns.html#cb21-12" aria-hidden="true" tabindex="-1"></a>    })</span></code></pre></div>
 </div>
 <div id="uioutput" class="section level3" number="2.2.2">
 <h3><span class="header-section-number">2.2.2</span> uiOutput</h3>
 <p>If you want to dynamically create parts of the user interface (UI), you can use <code>uiOutput()</code>. You can create the user interface using the <a href="basic-patterns.html#input_functions">input functions</a></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="basic-patterns.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
-<span id="cb12-2"><a href="basic-patterns.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">uiOutput</span>(<span class="st">&quot;demo_ui&quot;</span>)</span>
-<span id="cb12-3"><a href="basic-patterns.html#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="basic-patterns.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
-<span id="cb12-5"><a href="basic-patterns.html#cb12-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_ui <span class="ot">&lt;-</span> <span class="fu">renderUI</span>({</span>
-<span id="cb12-6"><a href="basic-patterns.html#cb12-6" aria-hidden="true" tabindex="-1"></a>  cols <span class="ot">&lt;-</span> <span class="fu">names</span>(iris)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span>
-<span id="cb12-7"><a href="basic-patterns.html#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;y&quot;</span>, <span class="st">&quot;Column to plot&quot;</span>, cols, <span class="st">&quot;Sepal.Length&quot;</span>)</span>
-<span id="cb12-8"><a href="basic-patterns.html#cb12-8" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="basic-patterns.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
+<span id="cb22-2"><a href="basic-patterns.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">uiOutput</span>(<span class="st">&quot;demo_ui&quot;</span>)</span>
+<span id="cb22-3"><a href="basic-patterns.html#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="basic-patterns.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
+<span id="cb22-5"><a href="basic-patterns.html#cb22-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_ui <span class="ot">&lt;-</span> <span class="fu">renderUI</span>({</span>
+<span id="cb22-6"><a href="basic-patterns.html#cb22-6" aria-hidden="true" tabindex="-1"></a>  cols <span class="ot">&lt;-</span> <span class="fu">names</span>(iris)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span>
+<span id="cb22-7"><a href="basic-patterns.html#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;y&quot;</span>, <span class="st">&quot;Column to plot&quot;</span>, cols, <span class="st">&quot;Sepal.Length&quot;</span>)</span>
+<span id="cb22-8"><a href="basic-patterns.html#cb22-8" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <div class="info">
 <p>
 The function <code>htmlOutput()</code> is exactly the same as <code>uiOutput()</code>, so you might see that in some code examples, but I use <code>uiOutput()</code> to make the connection with <code>renderUI()</code> clearer, since there is no <code>renderHTML()</code>.
@@ -429,16 +434,16 @@ The function <code>htmlOutput()</code> is exactly the same as <code>uiOutput()</
 </div>
 <div id="plotoutput" class="section level3" number="2.2.3">
 <h3><span class="header-section-number">2.2.3</span> plotOutput</h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="basic-patterns.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
-<span id="cb13-2"><a href="basic-patterns.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotOutput</span>(<span class="st">&quot;demo_plot&quot;</span>)</span>
-<span id="cb13-3"><a href="basic-patterns.html#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="basic-patterns.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
-<span id="cb13-5"><a href="basic-patterns.html#cb13-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb13-6"><a href="basic-patterns.html#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> .data[[input<span class="sc">$</span>y]], <span class="at">color =</span> Species)) <span class="sc">+</span></span>
-<span id="cb13-7"><a href="basic-patterns.html#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_violin</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb13-8"><a href="basic-patterns.html#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_summary</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb13-9"><a href="basic-patterns.html#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(input<span class="sc">$</span>y)</span>
-<span id="cb13-10"><a href="basic-patterns.html#cb13-10" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="basic-patterns.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
+<span id="cb23-2"><a href="basic-patterns.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotOutput</span>(<span class="st">&quot;demo_plot&quot;</span>)</span>
+<span id="cb23-3"><a href="basic-patterns.html#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="basic-patterns.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
+<span id="cb23-5"><a href="basic-patterns.html#cb23-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb23-6"><a href="basic-patterns.html#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> .data[[input<span class="sc">$</span>y]], <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb23-7"><a href="basic-patterns.html#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_violin</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb23-8"><a href="basic-patterns.html#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_summary</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb23-9"><a href="basic-patterns.html#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(input<span class="sc">$</span>y)</span>
+<span id="cb23-10"><a href="basic-patterns.html#cb23-10" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <div class="warning">
 <p>
 If you want to create dynamic plots that change with input, note how you need to use <code>y = .data[[input$y]]</code> inside the <code>aes()</code> function, instead of just <code>y = input$y</code>.
@@ -447,53 +452,53 @@ If you want to create dynamic plots that change with input, note how you need to
 </div>
 <div id="imageoutput" class="section level3" number="2.2.4">
 <h3><span class="header-section-number">2.2.4</span> imageOutput</h3>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="basic-patterns.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
-<span id="cb14-2"><a href="basic-patterns.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">imageOutput</span>(<span class="st">&quot;demo_image&quot;</span>)</span>
-<span id="cb14-3"><a href="basic-patterns.html#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="basic-patterns.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
-<span id="cb14-5"><a href="basic-patterns.html#cb14-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_image <span class="ot">&lt;-</span> <span class="fu">renderImage</span>({</span>
-<span id="cb14-6"><a href="basic-patterns.html#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(<span class="at">src =</span> <span class="st">&quot;images/flower.jpg&quot;</span>,</span>
-<span id="cb14-7"><a href="basic-patterns.html#cb14-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">width =</span> <span class="dv">100</span>,</span>
-<span id="cb14-8"><a href="basic-patterns.html#cb14-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">height =</span> <span class="dv">100</span>,</span>
-<span id="cb14-9"><a href="basic-patterns.html#cb14-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">alt =</span> <span class="st">&quot;A flower&quot;</span>)</span>
-<span id="cb14-10"><a href="basic-patterns.html#cb14-10" aria-hidden="true" tabindex="-1"></a>}, <span class="at">deleteFile =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="basic-patterns.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
+<span id="cb24-2"><a href="basic-patterns.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">imageOutput</span>(<span class="st">&quot;demo_image&quot;</span>)</span>
+<span id="cb24-3"><a href="basic-patterns.html#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="basic-patterns.html#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
+<span id="cb24-5"><a href="basic-patterns.html#cb24-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_image <span class="ot">&lt;-</span> <span class="fu">renderImage</span>({</span>
+<span id="cb24-6"><a href="basic-patterns.html#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(<span class="at">src =</span> <span class="st">&quot;images/flower.jpg&quot;</span>,</span>
+<span id="cb24-7"><a href="basic-patterns.html#cb24-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">width =</span> <span class="dv">100</span>,</span>
+<span id="cb24-8"><a href="basic-patterns.html#cb24-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">height =</span> <span class="dv">100</span>,</span>
+<span id="cb24-9"><a href="basic-patterns.html#cb24-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">alt =</span> <span class="st">&quot;A flower&quot;</span>)</span>
+<span id="cb24-10"><a href="basic-patterns.html#cb24-10" aria-hidden="true" tabindex="-1"></a>}, <span class="at">deleteFile =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p>You can dynamically display images of any type, but one of the most useful ways to use image outputs is to control the aspect ratio and relative size of plots. When you save a temporary file, you should set <code>deleteFile = TRUE</code> in the <code>renderImage()</code> function (this stops unneeded plots using memory).</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="basic-patterns.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
-<span id="cb15-2"><a href="basic-patterns.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">imageOutput</span>(<span class="st">&quot;demo_image&quot;</span>)</span>
-<span id="cb15-3"><a href="basic-patterns.html#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="basic-patterns.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
-<span id="cb15-5"><a href="basic-patterns.html#cb15-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_image <span class="ot">&lt;-</span> <span class="fu">renderImage</span>({</span>
-<span id="cb15-6"><a href="basic-patterns.html#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># make the plot</span></span>
-<span id="cb15-7"><a href="basic-patterns.html#cb15-7" aria-hidden="true" tabindex="-1"></a>  g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> .data[[input<span class="sc">$</span>y]], <span class="at">color =</span> Species)) <span class="sc">+</span></span>
-<span id="cb15-8"><a href="basic-patterns.html#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_violin</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb15-9"><a href="basic-patterns.html#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_summary</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb15-10"><a href="basic-patterns.html#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(input<span class="sc">$</span>y)</span>
-<span id="cb15-11"><a href="basic-patterns.html#cb15-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb15-12"><a href="basic-patterns.html#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># save to a temporary file</span></span>
-<span id="cb15-13"><a href="basic-patterns.html#cb15-13" aria-hidden="true" tabindex="-1"></a>  plot_file <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">&quot;.png&quot;</span>)</span>
-<span id="cb15-14"><a href="basic-patterns.html#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-15"><a href="basic-patterns.html#cb15-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggsave</span>(plot_file, <span class="fu">demo_plot</span>(), <span class="at">units =</span> <span class="st">&quot;in&quot;</span>,</span>
-<span id="cb15-16"><a href="basic-patterns.html#cb15-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">dpi =</span> <span class="dv">72</span>, <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="dv">5</span>)</span>
-<span id="cb15-17"><a href="basic-patterns.html#cb15-17" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb15-18"><a href="basic-patterns.html#cb15-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return a list containing the filename</span></span>
-<span id="cb15-19"><a href="basic-patterns.html#cb15-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">src =</span> plot_file,</span>
-<span id="cb15-20"><a href="basic-patterns.html#cb15-20" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="st">&quot;100%&quot;</span>, <span class="co"># don&#39;t set the height to keep aspect ratio</span></span>
-<span id="cb15-21"><a href="basic-patterns.html#cb15-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">alt =</span> <span class="st">&quot;The plot&quot;</span>)</span>
-<span id="cb15-22"><a href="basic-patterns.html#cb15-22" aria-hidden="true" tabindex="-1"></a>}, <span class="at">deleteFile =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="basic-patterns.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
+<span id="cb25-2"><a href="basic-patterns.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">imageOutput</span>(<span class="st">&quot;demo_image&quot;</span>)</span>
+<span id="cb25-3"><a href="basic-patterns.html#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="basic-patterns.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
+<span id="cb25-5"><a href="basic-patterns.html#cb25-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_image <span class="ot">&lt;-</span> <span class="fu">renderImage</span>({</span>
+<span id="cb25-6"><a href="basic-patterns.html#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># make the plot</span></span>
+<span id="cb25-7"><a href="basic-patterns.html#cb25-7" aria-hidden="true" tabindex="-1"></a>  g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> .data[[input<span class="sc">$</span>y]], <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb25-8"><a href="basic-patterns.html#cb25-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_violin</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb25-9"><a href="basic-patterns.html#cb25-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_summary</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb25-10"><a href="basic-patterns.html#cb25-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(input<span class="sc">$</span>y)</span>
+<span id="cb25-11"><a href="basic-patterns.html#cb25-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-12"><a href="basic-patterns.html#cb25-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># save to a temporary file</span></span>
+<span id="cb25-13"><a href="basic-patterns.html#cb25-13" aria-hidden="true" tabindex="-1"></a>  plot_file <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">&quot;.png&quot;</span>)</span>
+<span id="cb25-14"><a href="basic-patterns.html#cb25-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-15"><a href="basic-patterns.html#cb25-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggsave</span>(plot_file, <span class="fu">demo_plot</span>(), <span class="at">units =</span> <span class="st">&quot;in&quot;</span>,</span>
+<span id="cb25-16"><a href="basic-patterns.html#cb25-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">dpi =</span> <span class="dv">72</span>, <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="dv">5</span>)</span>
+<span id="cb25-17"><a href="basic-patterns.html#cb25-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb25-18"><a href="basic-patterns.html#cb25-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return a list containing the filename</span></span>
+<span id="cb25-19"><a href="basic-patterns.html#cb25-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">src =</span> plot_file,</span>
+<span id="cb25-20"><a href="basic-patterns.html#cb25-20" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="st">&quot;100%&quot;</span>, <span class="co"># don&#39;t set the height to keep aspect ratio</span></span>
+<span id="cb25-21"><a href="basic-patterns.html#cb25-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">alt =</span> <span class="st">&quot;The plot&quot;</span>)</span>
+<span id="cb25-22"><a href="basic-patterns.html#cb25-22" aria-hidden="true" tabindex="-1"></a>}, <span class="at">deleteFile =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 </div>
 <div id="tableoutput" class="section level3" number="2.2.5">
 <h3><span class="header-section-number">2.2.5</span> tableOutput</h3>
 <p>The <code>reanderTable()</code> function will display a table from any data frame it returns.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="basic-patterns.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
-<span id="cb16-2"><a href="basic-patterns.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tableOutput</span>(<span class="st">&quot;demo_table&quot;</span>)</span>
-<span id="cb16-3"><a href="basic-patterns.html#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="basic-patterns.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
-<span id="cb16-5"><a href="basic-patterns.html#cb16-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_table <span class="ot">&lt;-</span> <span class="fu">renderTable</span>({</span>
-<span id="cb16-6"><a href="basic-patterns.html#cb16-6" aria-hidden="true" tabindex="-1"></a>  iris <span class="sc">%&gt;%</span></span>
-<span id="cb16-7"><a href="basic-patterns.html#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
-<span id="cb16-8"><a href="basic-patterns.html#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(.data[[input<span class="sc">$</span>y]]),</span>
-<span id="cb16-9"><a href="basic-patterns.html#cb16-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">sd =</span> <span class="fu">sd</span>(.data[[input<span class="sc">$</span>y]]))</span>
-<span id="cb16-10"><a href="basic-patterns.html#cb16-10" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="basic-patterns.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
+<span id="cb26-2"><a href="basic-patterns.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tableOutput</span>(<span class="st">&quot;demo_table&quot;</span>)</span>
+<span id="cb26-3"><a href="basic-patterns.html#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="basic-patterns.html#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
+<span id="cb26-5"><a href="basic-patterns.html#cb26-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_table <span class="ot">&lt;-</span> <span class="fu">renderTable</span>({</span>
+<span id="cb26-6"><a href="basic-patterns.html#cb26-6" aria-hidden="true" tabindex="-1"></a>  iris <span class="sc">%&gt;%</span></span>
+<span id="cb26-7"><a href="basic-patterns.html#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb26-8"><a href="basic-patterns.html#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(.data[[input<span class="sc">$</span>y]]),</span>
+<span id="cb26-9"><a href="basic-patterns.html#cb26-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">sd =</span> <span class="fu">sd</span>(.data[[input<span class="sc">$</span>y]]))</span>
+<span id="cb26-10"><a href="basic-patterns.html#cb26-10" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <div class="warning">
 <p>
 Note how you need to use <code>.data[[input$y]]</code> inside the <code>dplyr::summarise()</code> function, instead of just <code>input$y</code> to dynamically choose which variable to summarise.
@@ -503,13 +508,13 @@ Note how you need to use <code>.data[[input$y]]</code> inside the <code>dplyr::s
 <div id="datatableoutput" class="section level3" number="2.2.6">
 <h3><span class="header-section-number">2.2.6</span> dataTableOutput</h3>
 <p>If you have a long table to show, or one that you want users to be able to sort or search, use <code>dataTableOutput()</code>. You can customise data tables in many ways, but we’ll stick with a basic example here.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="basic-patterns.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
-<span id="cb17-2"><a href="basic-patterns.html#cb17-2" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="st">&quot;demo_datatable&quot;</span>)</span>
-<span id="cb17-3"><a href="basic-patterns.html#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="basic-patterns.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
-<span id="cb17-5"><a href="basic-patterns.html#cb17-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_datatable <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
-<span id="cb17-6"><a href="basic-patterns.html#cb17-6" aria-hidden="true" tabindex="-1"></a>    iris</span>
-<span id="cb17-7"><a href="basic-patterns.html#cb17-7" aria-hidden="true" tabindex="-1"></a>}, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="dv">10</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="basic-patterns.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
+<span id="cb27-2"><a href="basic-patterns.html#cb27-2" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="st">&quot;demo_datatable&quot;</span>)</span>
+<span id="cb27-3"><a href="basic-patterns.html#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="basic-patterns.html#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
+<span id="cb27-5"><a href="basic-patterns.html#cb27-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_datatable <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
+<span id="cb27-6"><a href="basic-patterns.html#cb27-6" aria-hidden="true" tabindex="-1"></a>    iris</span>
+<span id="cb27-7"><a href="basic-patterns.html#cb27-7" aria-hidden="true" tabindex="-1"></a>}, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="dv">10</span>))</span></code></pre></div>
 <div class="warning">
 <p>
 The basic <code>shiny</code> package has <code>dataTableOutput()</code> and <code>renderDataTable()</code> functions, but they can be buggy. The version in the <code>DT</code> package are better and have some additional functions, so I use those.
@@ -523,21 +528,21 @@ The basic <code>shiny</code> package has <code>dataTableOutput()</code> and <cod
 <h3><span class="header-section-number">2.3.1</span> Local Data</h3>
 <p>You can read and write data from a Shiny app the same way you do from any R script. We will focus on reading data, since writing data locally can cause problems and is better done with <a href="basic-patterns.html#google_sheets">Google Sheets</a>.</p>
 <p>The base directory for a Shiny app is the directory that app.R is in. I recommend keeping your data in a directory called “data” to keep things tidy.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="basic-patterns.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read local data</span></span>
-<span id="cb18-2"><a href="basic-patterns.html#cb18-2" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xls</span>(<span class="st">&quot;data/my_data.xls&quot;</span>)</span>
-<span id="cb18-3"><a href="basic-patterns.html#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="basic-patterns.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># read data on the web</span></span>
-<span id="cb18-5"><a href="basic-patterns.html#cb18-5" aria-hidden="true" tabindex="-1"></a>countries <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;https://datahub.io/core/country-list/r/data.csv&quot;</span>)</span>
-<span id="cb18-6"><a href="basic-patterns.html#cb18-6" aria-hidden="true" tabindex="-1"></a>languages <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">read_json</span>(<span class="st">&quot;https://datahub.io/core/language-codes/r/language-codes.json&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="basic-patterns.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read local data</span></span>
+<span id="cb28-2"><a href="basic-patterns.html#cb28-2" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xls</span>(<span class="st">&quot;data/my_data.xls&quot;</span>)</span>
+<span id="cb28-3"><a href="basic-patterns.html#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="basic-patterns.html#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># read data on the web</span></span>
+<span id="cb28-5"><a href="basic-patterns.html#cb28-5" aria-hidden="true" tabindex="-1"></a>countries <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;https://datahub.io/core/country-list/r/data.csv&quot;</span>)</span>
+<span id="cb28-6"><a href="basic-patterns.html#cb28-6" aria-hidden="true" tabindex="-1"></a>languages <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">read_json</span>(<span class="st">&quot;https://datahub.io/core/language-codes/r/language-codes.json&quot;</span>)</span></code></pre></div>
 </div>
 <div id="google_sheets" class="section level3" number="2.3.2">
 <h3><span class="header-section-number">2.3.2</span> Google Sheets</h3>
 <p>One of the best ways to start collecting data with a Shiny app is with Google Sheets. This allows you to collect data to the same place from multiple servers, which might happen if you’re running the app locally on more than one computer or through a service like <a href="https://shinyapps.io" target="_blank">shinyapps.io</a>. The R package <code>googlesheets4</code> makes it easy to work with Google Sheets from R.</p>
 <p>If you just want to read data from a public Google Sheet, you don’t need any authorisation. Just start your code with <code>gs4_deauth()</code> after you load the <code>googlesheets4</code> library (otherwise you’ll be prompted to log in). Then you can read data like this:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="basic-patterns.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(googlesheets4)</span>
-<span id="cb19-2"><a href="basic-patterns.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gs4_deauth</span>()</span>
-<span id="cb19-3"><a href="basic-patterns.html#cb19-3" aria-hidden="true" tabindex="-1"></a>sheet_id <span class="ot">&lt;-</span> <span class="st">&quot;https://docs.google.com/spreadsheets/d/1tQCYQrI4xITlPyxb9dQ-JpMDYeADovIeiZZRNHkctGA/&quot;</span></span>
-<span id="cb19-4"><a href="basic-patterns.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(sheet_id)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="basic-patterns.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(googlesheets4)</span>
+<span id="cb29-2"><a href="basic-patterns.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gs4_deauth</span>()</span>
+<span id="cb29-3"><a href="basic-patterns.html#cb29-3" aria-hidden="true" tabindex="-1"></a>sheet_id <span class="ot">&lt;-</span> <span class="st">&quot;https://docs.google.com/spreadsheets/d/1tQCYQrI4xITlPyxb9dQ-JpMDYeADovIeiZZRNHkctGA/&quot;</span></span>
+<span id="cb29-4"><a href="basic-patterns.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(sheet_id)</span></code></pre></div>
 <div class="kable-table">
 <table>
 <thead>
@@ -563,22 +568,22 @@ The basic <code>shiny</code> package has <code>dataTableOutput()</code> and <cod
 </table>
 </div>
 <p>However, even if a Google Sheet is publicly editable, you can’t add data to it without authorising your account.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="basic-patterns.html#cb20-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">number =</span> <span class="dv">4</span>, <span class="at">letter =</span> <span class="st">&quot;D&quot;</span>)</span>
-<span id="cb20-2"><a href="basic-patterns.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sheet_append</span>(sheet_id, data)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="basic-patterns.html#cb30-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">number =</span> <span class="dv">4</span>, <span class="at">letter =</span> <span class="st">&quot;D&quot;</span>)</span>
+<span id="cb30-2"><a href="basic-patterns.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sheet_append</span>(sheet_id, data)</span></code></pre></div>
 <pre><code>## Error: Client error: (401) UNAUTHENTICATED
 ## * Request not authenticated due to missing, invalid, or expired OAuth token.
 ## * Request is missing required authentication credential. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.</code></pre>
 <p>You can authorise interactively using the following code (and your own email), which will prompt you to authorise “Tidyverse API Packages” the first time you do this.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="basic-patterns.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gs4_auth</span>(<span class="at">email =</span> <span class="st">&quot;debruine@gmail.com&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="basic-patterns.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gs4_auth</span>(<span class="at">email =</span> <span class="st">&quot;debruine@gmail.com&quot;</span>)</span></code></pre></div>
 <p>However, this won’t work if you want your Shiny apps to be able to access your Google Sheets.</p>
 <div id="authorisation-for-apps" class="section level4" number="2.3.2.1">
 <h4><span class="header-section-number">2.3.2.1</span> Authorisation for Apps</h4>
 <p>First, you need to get a token and store it in a cache folder in your app directory. We’re going to call that directory “.secrets.” Run the following code in your console (NOT in an Rmd file). This will open up a web browser window and prompt you to choose your Google account and authorise “Tidyverse API Packages.”</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="basic-patterns.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(app_directory)</span>
-<span id="cb23-2"><a href="basic-patterns.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gs4_auth</span>(<span class="at">email =</span> <span class="st">&quot;debruine@gmail.com&quot;</span>, <span class="at">cache =</span> <span class="st">&quot;.secrets&quot;</span>)</span>
-<span id="cb23-3"><a href="basic-patterns.html#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="basic-patterns.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># optionally, authorise google drive to search your drive</span></span>
-<span id="cb23-5"><a href="basic-patterns.html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># googledrive::drive_auth(email = &quot;debruine@gmail.com&quot;, cache = &quot;.secrets&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="basic-patterns.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(app_directory)</span>
+<span id="cb33-2"><a href="basic-patterns.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gs4_auth</span>(<span class="at">email =</span> <span class="st">&quot;debruine@gmail.com&quot;</span>, <span class="at">cache =</span> <span class="st">&quot;.secrets&quot;</span>)</span>
+<span id="cb33-3"><a href="basic-patterns.html#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="basic-patterns.html#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># optionally, authorise google drive to search your drive</span></span>
+<span id="cb33-5"><a href="basic-patterns.html#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># googledrive::drive_auth(email = &quot;debruine@gmail.com&quot;, cache = &quot;.secrets&quot;)</span></span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:gs4-auth"></span>
 <img src="images/gs4_choose_account.png" alt="Prompts to choose an account, grant permissions, and confirm." width="30%" /><img src="images/gs4_auth.png" alt="Prompts to choose an account, grant permissions, and confirm." width="30%" /><img src="images/gs4_confirm_auth.png" alt="Prompts to choose an account, grant permissions, and confirm." width="30%" />
 <p class="caption">
@@ -587,18 +592,18 @@ Figure 2.3: Prompts to choose an account, grant permissions, and confirm.
 </div>
 <p>When you have finished, you will see a page that says something like, “Authentication complete. Please close this page and return to R.” In the file pane in RStudio, you should now see a directory. called “.secrets” in the app directory.</p>
 <p>If you are using GitHub, you don’t want to save your secret info to a public repository, so run the following code to ignore any directories called “.secrets” (so they will only exist on your computer and not on GitHub).</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="basic-patterns.html#cb24-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_ignore</span>(<span class="st">&quot;.secrets&quot;</span>)</span>
-<span id="cb24-2"><a href="basic-patterns.html#cb24-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_ignore</span>(<span class="st">&quot;*/.secrets&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="basic-patterns.html#cb34-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_ignore</span>(<span class="st">&quot;.secrets&quot;</span>)</span>
+<span id="cb34-2"><a href="basic-patterns.html#cb34-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_ignore</span>(<span class="st">&quot;*/.secrets&quot;</span>)</span></code></pre></div>
 <p>Now, you can include the following code at the top of your app.R script to authorise the app to read from and write to your files.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="basic-patterns.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gs4_auth</span>(<span class="at">cache =</span> <span class="st">&quot;.secrets&quot;</span>, <span class="at">email =</span> <span class="st">&quot;debruine@gmail.com&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="basic-patterns.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gs4_auth</span>(<span class="at">cache =</span> <span class="st">&quot;.secrets&quot;</span>, <span class="at">email =</span> <span class="st">&quot;debruine@gmail.com&quot;</span>)</span></code></pre></div>
 </div>
 <div id="accessing-an-existing-sheet" class="section level4" number="2.3.2.2">
 <h4><span class="header-section-number">2.3.2.2</span> Accessing an existing sheet</h4>
 <p>If you have an existing <a href="https://docs.google.com/spreadsheets/u/0/" target="_blank">Google Sheet</a>, you can access it by URL.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="basic-patterns.html#cb26-1" aria-hidden="true" tabindex="-1"></a>sheet_id <span class="ot">&lt;-</span> <span class="st">&quot;https://docs.google.com/spreadsheets/d/1tQCYQrI4xITlPyxb9dQ-JpMDYeADovIeiZZRNHkctGA/&quot;</span></span>
-<span id="cb26-2"><a href="basic-patterns.html#cb26-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">number =</span> <span class="dv">4</span>, <span class="at">letter =</span> <span class="st">&quot;D&quot;</span>)</span>
-<span id="cb26-3"><a href="basic-patterns.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sheet_append</span>(sheet_id, data)</span>
-<span id="cb26-4"><a href="basic-patterns.html#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(sheet_id)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="basic-patterns.html#cb36-1" aria-hidden="true" tabindex="-1"></a>sheet_id <span class="ot">&lt;-</span> <span class="st">&quot;https://docs.google.com/spreadsheets/d/1tQCYQrI4xITlPyxb9dQ-JpMDYeADovIeiZZRNHkctGA/&quot;</span></span>
+<span id="cb36-2"><a href="basic-patterns.html#cb36-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">number =</span> <span class="dv">4</span>, <span class="at">letter =</span> <span class="st">&quot;D&quot;</span>)</span>
+<span id="cb36-3"><a href="basic-patterns.html#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sheet_append</span>(sheet_id, data)</span>
+<span id="cb36-4"><a href="basic-patterns.html#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(sheet_id)</span></code></pre></div>
 <div class="kable-table">
 <table>
 <thead>
@@ -631,10 +636,10 @@ Figure 2.3: Prompts to choose an account, grant permissions, and confirm.
 <div id="make-a-new-sheet" class="section level4" number="2.3.2.3">
 <h4><span class="header-section-number">2.3.2.3</span> Make a new sheet</h4>
 <p>You can set up a new Google Sheet with code. You only need to do this once for a sheet that you will use with a Shiny app, and you will need to save the sheet ID. If you don’t specify the tab name(s), the sheet will be created with one tab called “Sheet1.” I recommend making only one sheet per app and saving each table in a separate tab.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="basic-patterns.html#cb27-1" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="fu">gs4_create</span>(<span class="st">&quot;demo2&quot;</span>, <span class="at">sheets =</span> <span class="fu">c</span>(<span class="st">&quot;demographics&quot;</span>, <span class="st">&quot;questionnaire&quot;</span>))</span>
-<span id="cb27-2"><a href="basic-patterns.html#cb27-2" aria-hidden="true" tabindex="-1"></a>id</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="basic-patterns.html#cb37-1" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="fu">gs4_create</span>(<span class="st">&quot;demo2&quot;</span>, <span class="at">sheets =</span> <span class="fu">c</span>(<span class="st">&quot;demographics&quot;</span>, <span class="st">&quot;questionnaire&quot;</span>))</span>
+<span id="cb37-2"><a href="basic-patterns.html#cb37-2" aria-hidden="true" tabindex="-1"></a>id</span></code></pre></div>
 <pre><code>## Spreadsheet name: demo2
-##               ID: 1bwXa-eTlCX9Zg2nG1L4iC6Zh1TPZKLjp5zw-LY-HuAU
+##               ID: 1zJzJM3SWcjYK8CoOg248asL3fJKZbQCMQ66GTD8SoCE
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -643,31 +648,31 @@ Figure 2.3: Prompts to choose an account, grant permissions, and confirm.
 ##  demographics: 1000 x 26
 ## questionnaire: 1000 x 26</code></pre>
 <p>Include the ID at the top of your app like this:</p>
-<pre><code>SHEET_ID <- "1bwXa-eTlCX9Zg2nG1L4iC6Zh1TPZKLjp5zw-LY-HuAU"</code></pre>
+<pre><code>SHEET_ID <- "1zJzJM3SWcjYK8CoOg248asL3fJKZbQCMQ66GTD8SoCE"</code></pre>
 </div>
 <div id="add-data" class="section level4" number="2.3.2.4">
 <h4><span class="header-section-number">2.3.2.4</span> Add data</h4>
 <p>You can add an empty data structure to your sheet by specifying the data types of each column like this:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="basic-patterns.html#cb29-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb29-2"><a href="basic-patterns.html#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="fu">character</span>(<span class="dv">0</span>),</span>
-<span id="cb29-3"><a href="basic-patterns.html#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">birthyear =</span> <span class="fu">integer</span>(<span class="dv">0</span>),</span>
-<span id="cb29-4"><a href="basic-patterns.html#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">parent =</span> <span class="fu">logical</span>(<span class="dv">0</span>),</span>
-<span id="cb29-5"><a href="basic-patterns.html#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="fu">double</span>(<span class="dv">0</span>)</span>
-<span id="cb29-6"><a href="basic-patterns.html#cb29-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb29-7"><a href="basic-patterns.html#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-8"><a href="basic-patterns.html#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write_sheet</span>(data, SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span>
-<span id="cb29-9"><a href="basic-patterns.html#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(SHEET_ID, <span class="st">&quot;demographics&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">names</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="basic-patterns.html#cb39-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb39-2"><a href="basic-patterns.html#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="fu">character</span>(<span class="dv">0</span>),</span>
+<span id="cb39-3"><a href="basic-patterns.html#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">birthyear =</span> <span class="fu">integer</span>(<span class="dv">0</span>),</span>
+<span id="cb39-4"><a href="basic-patterns.html#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">parent =</span> <span class="fu">logical</span>(<span class="dv">0</span>),</span>
+<span id="cb39-5"><a href="basic-patterns.html#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="fu">double</span>(<span class="dv">0</span>)</span>
+<span id="cb39-6"><a href="basic-patterns.html#cb39-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb39-7"><a href="basic-patterns.html#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-8"><a href="basic-patterns.html#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write_sheet</span>(data, SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span>
+<span id="cb39-9"><a href="basic-patterns.html#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(SHEET_ID, <span class="st">&quot;demographics&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">names</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;name&quot;      &quot;birthyear&quot; &quot;parent&quot;    &quot;score&quot;</code></pre>
 <p>Or you can populate the table with starting data.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="basic-patterns.html#cb31-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb31-2"><a href="basic-patterns.html#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">&quot;Lisa&quot;</span>,</span>
-<span id="cb31-3"><a href="basic-patterns.html#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">birthyear =</span> 1976L,</span>
-<span id="cb31-4"><a href="basic-patterns.html#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">R_user =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb31-5"><a href="basic-patterns.html#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="fl">10.2</span></span>
-<span id="cb31-6"><a href="basic-patterns.html#cb31-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb31-7"><a href="basic-patterns.html#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-8"><a href="basic-patterns.html#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write_sheet</span>(data, SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span>
-<span id="cb31-9"><a href="basic-patterns.html#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="basic-patterns.html#cb41-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb41-2"><a href="basic-patterns.html#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">&quot;Lisa&quot;</span>,</span>
+<span id="cb41-3"><a href="basic-patterns.html#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">birthyear =</span> 1976L,</span>
+<span id="cb41-4"><a href="basic-patterns.html#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">R_user =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb41-5"><a href="basic-patterns.html#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="fl">10.2</span></span>
+<span id="cb41-6"><a href="basic-patterns.html#cb41-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb41-7"><a href="basic-patterns.html#cb41-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-8"><a href="basic-patterns.html#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write_sheet</span>(data, SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span>
+<span id="cb41-9"><a href="basic-patterns.html#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span></code></pre></div>
 <div class="kable-table">
 <table>
 <thead>
@@ -697,15 +702,15 @@ Notice that <code>birthyear</code> is a double, not an integer. Google Sheets on
 <div id="appending-data" class="section level4" number="2.3.2.5">
 <h4><span class="header-section-number">2.3.2.5</span> Appending Data</h4>
 <p>Then you can append new rows of data to the sheet.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="basic-patterns.html#cb32-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb32-2"><a href="basic-patterns.html#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">&quot;Robbie&quot;</span>,</span>
-<span id="cb32-3"><a href="basic-patterns.html#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">birthyear =</span> <span class="dv">2007</span>,</span>
-<span id="cb32-4"><a href="basic-patterns.html#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">R_user =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb32-5"><a href="basic-patterns.html#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="fl">12.1</span></span>
-<span id="cb32-6"><a href="basic-patterns.html#cb32-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb32-7"><a href="basic-patterns.html#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-8"><a href="basic-patterns.html#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sheet_append</span>(SHEET_ID, data, <span class="st">&quot;demographics&quot;</span>)</span>
-<span id="cb32-9"><a href="basic-patterns.html#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="basic-patterns.html#cb42-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb42-2"><a href="basic-patterns.html#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">&quot;Robbie&quot;</span>,</span>
+<span id="cb42-3"><a href="basic-patterns.html#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">birthyear =</span> <span class="dv">2007</span>,</span>
+<span id="cb42-4"><a href="basic-patterns.html#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">R_user =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb42-5"><a href="basic-patterns.html#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="fl">12.1</span></span>
+<span id="cb42-6"><a href="basic-patterns.html#cb42-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb42-7"><a href="basic-patterns.html#cb42-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-8"><a href="basic-patterns.html#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sheet_append</span>(SHEET_ID, data, <span class="st">&quot;demographics&quot;</span>)</span>
+<span id="cb42-9"><a href="basic-patterns.html#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span></code></pre></div>
 <div class="kable-table">
 <table>
 <thead>
@@ -733,15 +738,15 @@ Notice that <code>birthyear</code> is a double, not an integer. Google Sheets on
 </table>
 </div>
 <p>If you try to append data of a different type, some weird things can happen. Logical values added to a numeric column are cast as 0 (FALSE) and 1 (TRUE), while numeric values added to a logical column change the column to numeric. If you mix character and numeric values in a column, the resulting column is a column of one-item lists so that each list can have the appropriate data type. (Data frames in R cannot mix data types in the same column.)</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="basic-patterns.html#cb33-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb33-2"><a href="basic-patterns.html#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="dv">1</span>,</span>
-<span id="cb33-3"><a href="basic-patterns.html#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">birthyear =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb33-4"><a href="basic-patterns.html#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">R_user =</span> <span class="dv">0</span>,</span>
-<span id="cb33-5"><a href="basic-patterns.html#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="st">&quot;No&quot;</span></span>
-<span id="cb33-6"><a href="basic-patterns.html#cb33-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb33-7"><a href="basic-patterns.html#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-8"><a href="basic-patterns.html#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sheet_append</span>(SHEET_ID, data, <span class="st">&quot;demographics&quot;</span>)</span>
-<span id="cb33-9"><a href="basic-patterns.html#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="basic-patterns.html#cb43-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb43-2"><a href="basic-patterns.html#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="dv">1</span>,</span>
+<span id="cb43-3"><a href="basic-patterns.html#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">birthyear =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb43-4"><a href="basic-patterns.html#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">R_user =</span> <span class="dv">0</span>,</span>
+<span id="cb43-5"><a href="basic-patterns.html#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="st">&quot;No&quot;</span></span>
+<span id="cb43-6"><a href="basic-patterns.html#cb43-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb43-7"><a href="basic-patterns.html#cb43-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-8"><a href="basic-patterns.html#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sheet_append</span>(SHEET_ID, data, <span class="st">&quot;demographics&quot;</span>)</span>
+<span id="cb43-9"><a href="basic-patterns.html#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span></code></pre></div>
 <div class="kable-table">
 <table>
 <thead>

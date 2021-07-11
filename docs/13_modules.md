@@ -1,89 +1,20 @@
-# Sharing, Download and Repeating
-
-Welcome to Day 4! Today we'll learn one of the most important aspects of Shiny coding: how to share your apps with other people.
-
-In the second half of Day 4, we'll learn how to create customized reports to show your users in the Shiny app and how to download them. We'll also learn about modules, which can help you avoid repeating chunks of very similar code.
-
-## Sharing your Apps
-
-### shinyapps.io
-
-![](images/saio_connect.png){style="max-width:300px; float: right;"}
-
-1. Open **`Tools > Global Options ...`**
-2. Go to the **Publishing** tab 
-3. Click the **Connect** button and choose ShinyApps.io
-4. Click on the link to [go to your account](https://www.shinyapps.io/){target="_blank"}
-5. Click the **Sign Up** button and **Sign up with GitHub** 
-6. You should now be in your shinyapps.io dashboard; click on your name in the upper right and choose **Tokens**
-7. Add a token
-8. Click **Show** next to the token and copy the text to the clipboard
-    ![](images/saio_secret.png)
-9. Go back to RStudio and paste the text in the box and click **Connect Account**
-10. Make sure the box next to "Enable publishing..." is ticked, click **Apply**, and close the options window
-˙
-You can test this by creating a simple app. If you have the shinyintro package, use the code below.
-
-```{r, eval = FALSE}
-shinyintro::newapp("mytestapp", "input_demo")
-```
-
-![](images/saio_publish.png){style="max-width:300px; float: right;"}
-
-Open the app.R file and go to **`File > Publish...`** in the menu (or click on the blue icon in the upper right corner of the source pane). Make sure these are the right files for your app, edit the title if you want, and click **Publish**. A web browser window will open after a few seconds showing your app online! You can now share it with your friends and colleagues.
-
-```{block, type = "info"}
-If publishing fails, check the Console pane. If you already have too many apps on shinyapps.io, you'll see the message, "You have reached the maximum number of applications allowed for your account." You can archive some of your apps from the shinyapps.io dashboard if this is the problem.
-```
-
-### Self-hosting a shiny server
-
-Setting up a shiny server is beyond the scope of this class, but if you have access to one, you can ask the administrator how to access the correct directories and upload your app directories there.
-
-This solution is good if you want to save data locally and do not want to use Google Sheets. You can't save data locally on shinyapps.io.
-
-```{block, type = "info"}
-If you save data locally on a shiny server, you may need to change the owner or permissions of the directory you save data in so that the web user can write to it. Ask the administrator of the server for help if this doesn't make any sense to you.
-```
-
-### GitHub
-
-GitHub is a great place to organise and share your code using `r glossary("version control")`. You can also use it to host Shiny app code for others to download and run on their own computer with RStudio.
-
-See [Appendix B](#setup-git) for instructions on how to set up git and a GitHub account.
-
-### In an R package
-
-### Exercises
-
-#### 1. Shinyapps.io
-
-* Upload another demo app to shinyapps.io.
-* Check that you can access it online.
-* Archive the app in the shinyapps.io dashboard.
-
-
-## Creating and downloading a customized report
-
-
-
-## Shiny modules for repeated structures
+# Shiny modules for repeated structures {#modules}
 
 If you find yourself making nearly identical UIs or functions over and over in the same app, you might benefit from modules. This is a way to 
 
 You can run this app locally with `shinyintro::app("modules_demo")` or view it in a separate tab with the [showcase interface](<https://shiny.psy.gla.ac.uk/debruine/modules_demo/({target="_blank"}.
 
-```{r modules-demo-app, echo=FALSE, fig.cap="Modules Demo App"}
-knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/modules_demo/",
-  height = "800px")
-```
+<div class="figure" style="text-align: center">
+<iframe src="https://shiny.psy.gla.ac.uk/debruine/modules_demo/?showcase=0" width="100%" height="800px"></iframe>
+<p class="caption">(\#fig:modules-demo-app)Modules Demo App</p>
+</div>
 
-### Modularizing the UI
+## Modularizing the UI
 
 The two tabPanels below follow nearly identical patterns. You can often identify a place where modules might be useful when you use a naming convention like {base}_{type} for the ids. 
 
-```{r, eval = FALSE}
 
+```r
 iris_tab <- tabPanel(
   "iris",
   selectInput("iris_dv", "DV", choices = names(iris)[1:4]),
@@ -97,14 +28,14 @@ mtcars_tab <- tabPanel(
   plotOutput("mtcars_plot"),
   DT::dataTableOutput("mtcars_table")
 )
-
 ```
 
 The first step in modularising your code is to make a function that creates the UIs above from the base ID and any other changing aspects. In the example above, the choices are different for each selectInput, so we'll make a function that has the arguments `id` and `choices`.
 
 The first line of a UI module function is always `ns <- NS(id)`, which creates a shorthand way to add the base id to the id type. So instead of the selectInput's name being "iris_dv" or "mtcars_dv", we set it as `ns("dv")`. All ids need to use this `ns()` function.
 
-```{r, eval = FALSE}
+
+```r
 tabPanelUI <- function(id, choices) {
     ns <- NS(id)
     
@@ -119,17 +50,19 @@ tabPanelUI <- function(id, choices) {
 
 Now, you can replace two tabPanel definitions with just the following code.
 
-```{r, eval = FALSE}
+
+```r
 iris_tab <- tabPanelUI("iris", names(iris)[1:4])
 mtcars_tab <- tabPanelUI("mtcars", c("mpg", "disp", "hp", "drat"))
 ```
 
 
-### Modularizing server functions
+## Modularizing server functions
 
 In our original code, we have four functions that create the two output tables and two output plots, but these are also largely redundant.
 
-```{r, eval = FALSE}
+
+```r
 output$iris_table <- DT::renderDataTable({
     iris
 })
@@ -164,7 +97,8 @@ The server function takes the base id as the first argument, and then any argume
 
 A server function **always** contains a `moduleServer()` function set up like below.
 
-```{r, eval = FALSE}
+
+```r
 tabPanelServer <- function(id, data, group_by) {
     moduleServer(id, function(input, output, session) {
       # code ...
@@ -174,7 +108,8 @@ tabPanelServer <- function(id, data, group_by) {
 
 No you can copy in one set of server functions above, remove the base name (e.g., "iris_" or "mtcars_") from and inputs or outputs, and replace specific instances of the data or grouping columns with `data` and `group_by`.
 
-```{r, eval = FALSE}
+
+```r
 tabPanelServer <- function(id, data, group_by) {
     moduleServer(id, function(input, output, session) {
         output$table <- DT::renderDataTable({
@@ -194,24 +129,29 @@ tabPanelServer <- function(id, data, group_by) {
 }
 ```
 
-```{block, type="warning"}
-In the original code, the grouping variables were unquoted, but it's tricky to pass unquoted variable names to custom functions, and we already know how to refer to columns by a character object using `.data[[char_obj]]`. 
-
-The grouping column `Species` in `iris` is already a factor, but recasting it as a factor won't hurt, and is required for the `mtcars` grouping column `vs`.
-```
+<div class="warning">
+<p>In the original code, the grouping variables were unquoted, but it’s tricky to pass unquoted variable names to custom functions, and we already know how to refer to columns by a character object using <code>.data[[char_obj]]</code>.</p>
+<p>The grouping column <code>Species</code> in <code>iris</code> is already a factor, but recasting it as a factor won’t hurt, and is required for the <code>mtcars</code> grouping column <code>vs</code>.</p>
+</div>
 
 Now, you can replace the four functions inside the server function with these two lines of code.
 
-```{r, eval = FALSE}
+
+```r
 tabPanelServer("iris", data = iris, group_by = "Species")
 tabPanelServer("mtcars", data = mtcars, group_by = "vs")
 ```
 
 Our example only reduced our code by 4 lines, but it can save a lot of time, effort, and debugging on projects with many similar modules. For example, if you want to change the plots in your app to use a different geom, now you only have to change one function instead of two.
 
-### Exercises
+## Glossary {#glossary-modules}
 
-#### 1. Repeat Example
+
+
+
+## Exercises {#exercises-modules}
+
+### 1. Repeat Example
 
 Try to implement the code above on your own.
 
@@ -221,38 +161,51 @@ Try to implement the code above on your own.
 * Create the UI module function and use it to replace `iris_tab` and `mtcars_tab`
 * Create the server function and use it to replace the server functions
 
-#### 2. New Instance
+### 2. New Instance
 
 Add a new tab called "diamonds" that visualises the `diamonds` dataset. Choose the columns you want as choices in the `selectInput()` and the grouping column.
 
-`r hide("UI Solution")`
+
+<div class='webex-solution'><button>UI Solution</button>
+
 
 You can choose any of the numeric columns for the choices.
 
-```{r, eval = FALSE}
+
+```r
 diamonds_tab <- tabPanelUI("diamonds", c("carat", "depth", "table", "price"))
 ```
-`r unhide()`
 
-`r hide("Server Solution")`
+</div>
+
+
+
+<div class='webex-solution'><button>Server Solution</button>
+
 
 You can group by any of the categorical columns: cut, color, or clarity.
 
-```{r, eval = FALSE}
+
+```r
 tabPanelServer("diamonds", data = diamonds, group_by = "cut")
 ```
-`r unhide()`
 
-#### 3. Altering modules
+</div>
+
+
+### 3. Altering modules
 
 * Add another `selectInput()` to the UI that allows the user to select the grouping variable. (`iris` only has one possibility, but `mtcars` and `diamonds` should have several)
 
-`r hide("UI Solution")`
+
+<div class='webex-solution'><button>UI Solution</button>
+
 
 You need to add a new selectInput() to the tabPanel. Remember to use the `ns()` function for the id. The choices for this select will also differ by data set, so you need to add `group_choices` to the arguments of this function.
 
- ```{r, eval = FALSE}
-tabPanelUI <- function(id, choices, group_choices) {
+ 
+ ```r
+ tabPanelUI <- function(id, choices, group_choices) {
     ns <- NS(id)
     
     tabPanel(
@@ -262,19 +215,24 @@ tabPanelUI <- function(id, choices, group_choices) {
         plotOutput(ns("plot")),
         DT::dataTableOutput(ns("table"))
     )
-}
-```
-`r unhide()`
+ }
+ ```
+
+</div>
+
 
 * Update the plot function to use the value of this new input instead of "Species", "vs", and whatever you chose for `diamonds`.
 
-`r hide("Server Solution")`
+
+<div class='webex-solution'><button>Server Solution</button>
+
 
 You no longer need `group_by` in the arguments for this function because you are getting that info from an input.
 
 Instead of changing `group_by` to `input$group_by` in three places in the code below, I just added the line `group_by <- input$group_by` at the top of the `moduleServer()` function.
 
-```{r, eval = FALSE}
+
+```r
 tabPanelServer <- function(id, data) {
     moduleServer(id, function(input, output, session) {
         group_by <- input$group_by
@@ -283,28 +241,38 @@ tabPanelServer <- function(id, data) {
     })
 }
 ```
-`r unhide()`
 
-#### 4. New module
+</div>
+
+
+### 4. New module
 
 There is a fluidRow() before the tabsetPanel() in the ui that contains three `infoBoxOutput()` and three renderInfoBoxOutput() functions in the server function.
 
 Modularise the info boxes and their associated server functions. 
 
-`r hide("UI Function")`
 
-```{r, eval = FALSE}
+<div class='webex-solution'><button>UI Function</button>
+
+
+
+```r
 infoBoxUI <- function(id, width = 4) {
     ns <- NS(id)
 
     infoBoxOutput(ns("box"), width)
 }
 ```
-`r unhide()`
 
-`r hide("Server Function")`
+</div>
 
-```{r, eval = FALSE}
+
+
+<div class='webex-solution'><button>Server Function</button>
+
+
+
+```r
 infoBoxServer <- function(id, title, fmt, icon, color = "purple") {
     moduleServer(id, function(input, output, session) {
         output$box <- renderInfoBox({
@@ -316,32 +284,41 @@ infoBoxServer <- function(id, title, fmt, icon, color = "purple") {
     })
 }
 ```
-`r unhide()`
 
-`r hide("UI Code")`
+</div>
+
+
+
+<div class='webex-solution'><button>UI Code</button>
+
 
 In the `ui`, replace the `fluidRow()` with this:
 
-```{r, eval = FALSE}
+
+```r
 fluidRow(
     infoBoxUI("day"),
     infoBoxUI("month"),
     infoBoxUI("year")
 )
 ```
-`r unhide()`
+
+</div>
 
 
-`r hide("Server Code")`
+
+
+<div class='webex-solution'><button>Server Code</button>
+
 
 In the `server()` function, replace the `renderInfoBox()` functions with this:
 
-```{r, eval = FALSE}
+
+```r
 infoBoxServer("year", "Year", "%Y", "calendar")
 infoBoxServer("month", "Month", "%m", "calendar-alt")
 infoBoxServer("day", "Day", "%d", "calendar-day"))
 ```
-`r unhide()`
 
-
+</div>
 

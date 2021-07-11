@@ -1,0 +1,7 @@
+# Reactive functions {#reactives}
+
+## Glossary {#glossary-reactives}
+
+```{r, echo = FALSE, results='asis'}
+#glossary::glossary_table()
+```

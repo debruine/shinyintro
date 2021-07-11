@@ -1,0 +1,7 @@
+# CSS, HTML, and Javascript {#web}
+
+## Glossary {#glossary-web}
+
+```{r, echo = FALSE, results='asis'}
+#glossary::glossary_table()
+```

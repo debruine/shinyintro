@@ -1,2 +1,8 @@
 /* (edit style.css for your own book styles) */
 
+.figure img, p img {
+  min-width: 200px;
+}
+.figure img + img, p img + img {
+  margin-left: 1em;
+}

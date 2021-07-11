@@ -1,0 +1,7 @@
+# Structuring a complex app {#structure}
+
+## Glossary {#glossary-structure}
+
+```{r, echo = FALSE, results='asis'}
+#glossary::glossary_table()
+```

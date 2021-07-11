@@ -1,0 +1,7 @@
+# Customized reports {#reports}
+
+## Glossary {#glossary-reports}
+
+```{r, echo = FALSE, results='asis'}
+#glossary::glossary_table()
+```

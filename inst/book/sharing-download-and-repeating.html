@@ -24,7 +24,7 @@
 <meta name="author" content="Lisa DeBruine" />
 
 
-<meta name="date" content="2021-07-06" />
+<meta name="date" content="2021-07-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -159,9 +159,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#your-first-shiny-app"><i class="fa fa-check"></i><b>1.1</b> Your First Shiny App</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="getting-started.html"><a href="getting-started.html#overview-of-the-uiserver-structure"><i class="fa fa-check"></i><b>1.1.1</b> Overview of the UI/server structure</a></li>
-<li class="chapter" data-level="1.1.2" data-path="getting-started.html"><a href="getting-started.html#inputs-outputs-and-action-buttons"><i class="fa fa-check"></i><b>1.1.2</b> Inputs, outputs, and action buttons</a></li>
-<li class="chapter" data-level="1.1.3" data-path="getting-started.html"><a href="getting-started.html#reactive-functions"><i class="fa fa-check"></i><b>1.1.3</b> Reactive functions</a></li>
+<li class="chapter" data-level="1.1.1" data-path="getting-started.html"><a href="getting-started.html#create-a-demo-app"><i class="fa fa-check"></i><b>1.1.1</b> Create a Demo App</a></li>
+<li class="chapter" data-level="1.1.2" data-path="getting-started.html"><a href="getting-started.html#run-the-app"><i class="fa fa-check"></i><b>1.1.2</b> Run the app</a></li>
+<li class="chapter" data-level="1.1.3" data-path="getting-started.html"><a href="getting-started.html#modify-the-demo-app"><i class="fa fa-check"></i><b>1.1.3</b> Modify the Demo App</a></li>
+<li class="chapter" data-level="1.1.4" data-path="getting-started.html"><a href="getting-started.html#adding-new-things"><i class="fa fa-check"></i><b>1.1.4</b> Adding New Things</a></li>
+<li class="chapter" data-level="1.1.5" data-path="getting-started.html"><a href="getting-started.html#overview-of-the-uiserver-structure"><i class="fa fa-check"></i><b>1.1.5</b> Overview of the UI/server structure</a></li>
+<li class="chapter" data-level="1.1.6" data-path="getting-started.html"><a href="getting-started.html#inputs-outputs-and-action-buttons"><i class="fa fa-check"></i><b>1.1.6</b> Inputs, outputs, and action buttons</a></li>
+<li class="chapter" data-level="1.1.7" data-path="getting-started.html"><a href="getting-started.html#reactive-functions"><i class="fa fa-check"></i><b>1.1.7</b> Reactive functions</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#shinydashboard"><i class="fa fa-check"></i><b>1.2</b> ShinyDashboard</a>
 <ul>
@@ -169,6 +173,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2.2" data-path="getting-started.html"><a href="getting-started.html#sidebar-menu-navigation-and-tabs"><i class="fa fa-check"></i><b>1.2.2</b> Sidebar, menu navigation, and tabs</a></li>
 <li class="chapter" data-level="1.2.3" data-path="getting-started.html"><a href="getting-started.html#row--and-column-based-layouts"><i class="fa fa-check"></i><b>1.2.3</b> Row- and column-based layouts</a></li>
 </ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#glossary-intro"><i class="fa fa-check"></i><b>1.3</b> Glossary</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="basic-patterns.html"><a href="basic-patterns.html"><i class="fa fa-check"></i><b>2</b> Basic Patterns</a>
 <ul>
@@ -296,7 +301,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ˙
 You can test this by creating a simple app. If you have the shinyintro package, use the code below.</li>
 </ol>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="sharing-download-and-repeating.html#cb36-1" aria-hidden="true" tabindex="-1"></a>shinyintro<span class="sc">::</span><span class="fu">newapp</span>(<span class="st">&quot;mytestapp&quot;</span>, <span class="st">&quot;input_demo&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="sharing-download-and-repeating.html#cb46-1" aria-hidden="true" tabindex="-1"></a>shinyintro<span class="sc">::</span><span class="fu">newapp</span>(<span class="st">&quot;mytestapp&quot;</span>, <span class="st">&quot;input_demo&quot;</span>)</span></code></pre></div>
 <p><img src="images/saio_publish.png" style="max-width:300px; float: right;" /></p>
 <p>Open the app.R file and go to <strong><code>File &gt; Publish...</code></strong> in the menu (or click on the blue icon in the upper right corner of the source pane). Make sure these are the right files for your app, edit the title if you want, and click <strong>Publish</strong>. A web browser window will open after a few seconds showing your app online! You can now share it with your friends and colleagues.</p>
 <div class="info">
@@ -352,89 +357,89 @@ Figure 4.1: Modules Demo App
 <div id="modularizing-the-ui" class="section level3" number="4.3.1">
 <h3><span class="header-section-number">4.3.1</span> Modularizing the UI</h3>
 <p>The two tabPanels below follow nearly identical patterns. You can often identify a place where modules might be useful when you use a naming convention like {base}_{type} for the ids.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="sharing-download-and-repeating.html#cb37-1" aria-hidden="true" tabindex="-1"></a>iris_tab <span class="ot">&lt;-</span> <span class="fu">tabPanel</span>(</span>
-<span id="cb37-2"><a href="sharing-download-and-repeating.html#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;iris&quot;</span>,</span>
-<span id="cb37-3"><a href="sharing-download-and-repeating.html#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;iris_dv&quot;</span>, <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> <span class="fu">names</span>(iris)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]),</span>
-<span id="cb37-4"><a href="sharing-download-and-repeating.html#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">&quot;iris_plot&quot;</span>),</span>
-<span id="cb37-5"><a href="sharing-download-and-repeating.html#cb37-5" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="st">&quot;iris_table&quot;</span>)</span>
-<span id="cb37-6"><a href="sharing-download-and-repeating.html#cb37-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb37-7"><a href="sharing-download-and-repeating.html#cb37-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-8"><a href="sharing-download-and-repeating.html#cb37-8" aria-hidden="true" tabindex="-1"></a>mtcars_tab <span class="ot">&lt;-</span> <span class="fu">tabPanel</span>(</span>
-<span id="cb37-9"><a href="sharing-download-and-repeating.html#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;mtcars&quot;</span>,</span>
-<span id="cb37-10"><a href="sharing-download-and-repeating.html#cb37-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;mtcars_dv&quot;</span>, <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;disp&quot;</span>, <span class="st">&quot;hp&quot;</span>, <span class="st">&quot;drat&quot;</span>)),</span>
-<span id="cb37-11"><a href="sharing-download-and-repeating.html#cb37-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">&quot;mtcars_plot&quot;</span>),</span>
-<span id="cb37-12"><a href="sharing-download-and-repeating.html#cb37-12" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="st">&quot;mtcars_table&quot;</span>)</span>
-<span id="cb37-13"><a href="sharing-download-and-repeating.html#cb37-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="sharing-download-and-repeating.html#cb47-1" aria-hidden="true" tabindex="-1"></a>iris_tab <span class="ot">&lt;-</span> <span class="fu">tabPanel</span>(</span>
+<span id="cb47-2"><a href="sharing-download-and-repeating.html#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;iris&quot;</span>,</span>
+<span id="cb47-3"><a href="sharing-download-and-repeating.html#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;iris_dv&quot;</span>, <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> <span class="fu">names</span>(iris)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]),</span>
+<span id="cb47-4"><a href="sharing-download-and-repeating.html#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">&quot;iris_plot&quot;</span>),</span>
+<span id="cb47-5"><a href="sharing-download-and-repeating.html#cb47-5" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="st">&quot;iris_table&quot;</span>)</span>
+<span id="cb47-6"><a href="sharing-download-and-repeating.html#cb47-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb47-7"><a href="sharing-download-and-repeating.html#cb47-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-8"><a href="sharing-download-and-repeating.html#cb47-8" aria-hidden="true" tabindex="-1"></a>mtcars_tab <span class="ot">&lt;-</span> <span class="fu">tabPanel</span>(</span>
+<span id="cb47-9"><a href="sharing-download-and-repeating.html#cb47-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;mtcars&quot;</span>,</span>
+<span id="cb47-10"><a href="sharing-download-and-repeating.html#cb47-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;mtcars_dv&quot;</span>, <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;disp&quot;</span>, <span class="st">&quot;hp&quot;</span>, <span class="st">&quot;drat&quot;</span>)),</span>
+<span id="cb47-11"><a href="sharing-download-and-repeating.html#cb47-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">&quot;mtcars_plot&quot;</span>),</span>
+<span id="cb47-12"><a href="sharing-download-and-repeating.html#cb47-12" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="st">&quot;mtcars_table&quot;</span>)</span>
+<span id="cb47-13"><a href="sharing-download-and-repeating.html#cb47-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>The first step in modularising your code is to make a function that creates the UIs above from the base ID and any other changing aspects. In the example above, the choices are different for each selectInput, so we’ll make a function that has the arguments <code>id</code> and <code>choices</code>.</p>
 <p>The first line of a UI module function is always <code>ns &lt;- NS(id)</code>, which creates a shorthand way to add the base id to the id type. So instead of the selectInput’s name being “iris_dv” or “mtcars_dv,” we set it as <code>ns("dv")</code>. All ids need to use this <code>ns()</code> function.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="sharing-download-and-repeating.html#cb38-1" aria-hidden="true" tabindex="-1"></a>tabPanelUI <span class="ot">&lt;-</span> <span class="cf">function</span>(id, choices) {</span>
-<span id="cb38-2"><a href="sharing-download-and-repeating.html#cb38-2" aria-hidden="true" tabindex="-1"></a>    ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(id)</span>
-<span id="cb38-3"><a href="sharing-download-and-repeating.html#cb38-3" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb38-4"><a href="sharing-download-and-repeating.html#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(</span>
-<span id="cb38-5"><a href="sharing-download-and-repeating.html#cb38-5" aria-hidden="true" tabindex="-1"></a>        id,</span>
-<span id="cb38-6"><a href="sharing-download-and-repeating.html#cb38-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">selectInput</span>(<span class="fu">ns</span>(<span class="st">&quot;dv&quot;</span>), <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> choices),</span>
-<span id="cb38-7"><a href="sharing-download-and-repeating.html#cb38-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">plotOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;plot&quot;</span>)),</span>
-<span id="cb38-8"><a href="sharing-download-and-repeating.html#cb38-8" aria-hidden="true" tabindex="-1"></a>        DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;table&quot;</span>))</span>
-<span id="cb38-9"><a href="sharing-download-and-repeating.html#cb38-9" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb38-10"><a href="sharing-download-and-repeating.html#cb38-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="sharing-download-and-repeating.html#cb48-1" aria-hidden="true" tabindex="-1"></a>tabPanelUI <span class="ot">&lt;-</span> <span class="cf">function</span>(id, choices) {</span>
+<span id="cb48-2"><a href="sharing-download-and-repeating.html#cb48-2" aria-hidden="true" tabindex="-1"></a>    ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(id)</span>
+<span id="cb48-3"><a href="sharing-download-and-repeating.html#cb48-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb48-4"><a href="sharing-download-and-repeating.html#cb48-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(</span>
+<span id="cb48-5"><a href="sharing-download-and-repeating.html#cb48-5" aria-hidden="true" tabindex="-1"></a>        id,</span>
+<span id="cb48-6"><a href="sharing-download-and-repeating.html#cb48-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">selectInput</span>(<span class="fu">ns</span>(<span class="st">&quot;dv&quot;</span>), <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> choices),</span>
+<span id="cb48-7"><a href="sharing-download-and-repeating.html#cb48-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">plotOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;plot&quot;</span>)),</span>
+<span id="cb48-8"><a href="sharing-download-and-repeating.html#cb48-8" aria-hidden="true" tabindex="-1"></a>        DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;table&quot;</span>))</span>
+<span id="cb48-9"><a href="sharing-download-and-repeating.html#cb48-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb48-10"><a href="sharing-download-and-repeating.html#cb48-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Now, you can replace two tabPanel definitions with just the following code.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="sharing-download-and-repeating.html#cb39-1" aria-hidden="true" tabindex="-1"></a>iris_tab <span class="ot">&lt;-</span> <span class="fu">tabPanelUI</span>(<span class="st">&quot;iris&quot;</span>, <span class="fu">names</span>(iris)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span>
-<span id="cb39-2"><a href="sharing-download-and-repeating.html#cb39-2" aria-hidden="true" tabindex="-1"></a>mtcars_tab <span class="ot">&lt;-</span> <span class="fu">tabPanelUI</span>(<span class="st">&quot;mtcars&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;disp&quot;</span>, <span class="st">&quot;hp&quot;</span>, <span class="st">&quot;drat&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="sharing-download-and-repeating.html#cb49-1" aria-hidden="true" tabindex="-1"></a>iris_tab <span class="ot">&lt;-</span> <span class="fu">tabPanelUI</span>(<span class="st">&quot;iris&quot;</span>, <span class="fu">names</span>(iris)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span>
+<span id="cb49-2"><a href="sharing-download-and-repeating.html#cb49-2" aria-hidden="true" tabindex="-1"></a>mtcars_tab <span class="ot">&lt;-</span> <span class="fu">tabPanelUI</span>(<span class="st">&quot;mtcars&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;disp&quot;</span>, <span class="st">&quot;hp&quot;</span>, <span class="st">&quot;drat&quot;</span>))</span></code></pre></div>
 </div>
 <div id="modularizing-server-functions" class="section level3" number="4.3.2">
 <h3><span class="header-section-number">4.3.2</span> Modularizing server functions</h3>
 <p>In our original code, we have four functions that create the two output tables and two output plots, but these are also largely redundant.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="sharing-download-and-repeating.html#cb40-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>iris_table <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
-<span id="cb40-2"><a href="sharing-download-and-repeating.html#cb40-2" aria-hidden="true" tabindex="-1"></a>    iris</span>
-<span id="cb40-3"><a href="sharing-download-and-repeating.html#cb40-3" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb40-4"><a href="sharing-download-and-repeating.html#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-5"><a href="sharing-download-and-repeating.html#cb40-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>iris_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb40-6"><a href="sharing-download-and-repeating.html#cb40-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, </span>
-<span id="cb40-7"><a href="sharing-download-and-repeating.html#cb40-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> .data[[input<span class="sc">$</span>iris_dv]],</span>
-<span id="cb40-8"><a href="sharing-download-and-repeating.html#cb40-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb40-9"><a href="sharing-download-and-repeating.html#cb40-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb40-10"><a href="sharing-download-and-repeating.html#cb40-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_fill_viridis_d</span>()</span>
-<span id="cb40-11"><a href="sharing-download-and-repeating.html#cb40-11" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb40-12"><a href="sharing-download-and-repeating.html#cb40-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-13"><a href="sharing-download-and-repeating.html#cb40-13" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>mtcars_table <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
-<span id="cb40-14"><a href="sharing-download-and-repeating.html#cb40-14" aria-hidden="true" tabindex="-1"></a>    mtcars</span>
-<span id="cb40-15"><a href="sharing-download-and-repeating.html#cb40-15" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb40-16"><a href="sharing-download-and-repeating.html#cb40-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-17"><a href="sharing-download-and-repeating.html#cb40-17" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>mtcars_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb40-18"><a href="sharing-download-and-repeating.html#cb40-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># handle non-string grouping</span></span>
-<span id="cb40-19"><a href="sharing-download-and-repeating.html#cb40-19" aria-hidden="true" tabindex="-1"></a>    mtcars<span class="sc">$</span>vs <span class="ot">&lt;-</span> <span class="fu">factor</span>(mtcars<span class="sc">$</span>vs)</span>
-<span id="cb40-20"><a href="sharing-download-and-repeating.html#cb40-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> vs, </span>
-<span id="cb40-21"><a href="sharing-download-and-repeating.html#cb40-21" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> .data[[input<span class="sc">$</span>mtcars_dv]],</span>
-<span id="cb40-22"><a href="sharing-download-and-repeating.html#cb40-22" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill =</span> vs)) <span class="sc">+</span></span>
-<span id="cb40-23"><a href="sharing-download-and-repeating.html#cb40-23" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb40-24"><a href="sharing-download-and-repeating.html#cb40-24" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_fill_viridis_d</span>()</span>
-<span id="cb40-25"><a href="sharing-download-and-repeating.html#cb40-25" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="sharing-download-and-repeating.html#cb50-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>iris_table <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
+<span id="cb50-2"><a href="sharing-download-and-repeating.html#cb50-2" aria-hidden="true" tabindex="-1"></a>    iris</span>
+<span id="cb50-3"><a href="sharing-download-and-repeating.html#cb50-3" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb50-4"><a href="sharing-download-and-repeating.html#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-5"><a href="sharing-download-and-repeating.html#cb50-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>iris_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb50-6"><a href="sharing-download-and-repeating.html#cb50-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, </span>
+<span id="cb50-7"><a href="sharing-download-and-repeating.html#cb50-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> .data[[input<span class="sc">$</span>iris_dv]],</span>
+<span id="cb50-8"><a href="sharing-download-and-repeating.html#cb50-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb50-9"><a href="sharing-download-and-repeating.html#cb50-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb50-10"><a href="sharing-download-and-repeating.html#cb50-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_fill_viridis_d</span>()</span>
+<span id="cb50-11"><a href="sharing-download-and-repeating.html#cb50-11" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb50-12"><a href="sharing-download-and-repeating.html#cb50-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-13"><a href="sharing-download-and-repeating.html#cb50-13" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>mtcars_table <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
+<span id="cb50-14"><a href="sharing-download-and-repeating.html#cb50-14" aria-hidden="true" tabindex="-1"></a>    mtcars</span>
+<span id="cb50-15"><a href="sharing-download-and-repeating.html#cb50-15" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb50-16"><a href="sharing-download-and-repeating.html#cb50-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-17"><a href="sharing-download-and-repeating.html#cb50-17" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>mtcars_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb50-18"><a href="sharing-download-and-repeating.html#cb50-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># handle non-string grouping</span></span>
+<span id="cb50-19"><a href="sharing-download-and-repeating.html#cb50-19" aria-hidden="true" tabindex="-1"></a>    mtcars<span class="sc">$</span>vs <span class="ot">&lt;-</span> <span class="fu">factor</span>(mtcars<span class="sc">$</span>vs)</span>
+<span id="cb50-20"><a href="sharing-download-and-repeating.html#cb50-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> vs, </span>
+<span id="cb50-21"><a href="sharing-download-and-repeating.html#cb50-21" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> .data[[input<span class="sc">$</span>mtcars_dv]],</span>
+<span id="cb50-22"><a href="sharing-download-and-repeating.html#cb50-22" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill =</span> vs)) <span class="sc">+</span></span>
+<span id="cb50-23"><a href="sharing-download-and-repeating.html#cb50-23" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb50-24"><a href="sharing-download-and-repeating.html#cb50-24" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_fill_viridis_d</span>()</span>
+<span id="cb50-25"><a href="sharing-download-and-repeating.html#cb50-25" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <p>The second step to modularising code is creating a server function. You can put all the functions the relate to the inputs and outputs in the UI function here, so we will include one to make the output table and one to make the output plot.</p>
 <p>The server function takes the base id as the first argument, and then any arguments you need to specify things that change between base implementations. Above, the tables show different data and the plots use different groupings for the x axis and fill, so we’ll add arguments for <code>data</code> and <code>group_by</code>.</p>
 <p>A server function <strong>always</strong> contains a <code>moduleServer()</code> function set up like below.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="sharing-download-and-repeating.html#cb41-1" aria-hidden="true" tabindex="-1"></a>tabPanelServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, data, group_by) {</span>
-<span id="cb41-2"><a href="sharing-download-and-repeating.html#cb41-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
-<span id="cb41-3"><a href="sharing-download-and-repeating.html#cb41-3" aria-hidden="true" tabindex="-1"></a>      <span class="co"># code ...</span></span>
-<span id="cb41-4"><a href="sharing-download-and-repeating.html#cb41-4" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb41-5"><a href="sharing-download-and-repeating.html#cb41-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="sharing-download-and-repeating.html#cb51-1" aria-hidden="true" tabindex="-1"></a>tabPanelServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, data, group_by) {</span>
+<span id="cb51-2"><a href="sharing-download-and-repeating.html#cb51-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb51-3"><a href="sharing-download-and-repeating.html#cb51-3" aria-hidden="true" tabindex="-1"></a>      <span class="co"># code ...</span></span>
+<span id="cb51-4"><a href="sharing-download-and-repeating.html#cb51-4" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb51-5"><a href="sharing-download-and-repeating.html#cb51-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>No you can copy in one set of server functions above, remove the base name (e.g., “iris_” or “mtcars_”) from and inputs or outputs, and replace specific instances of the data or grouping columns with <code>data</code> and <code>group_by</code>.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="sharing-download-and-repeating.html#cb42-1" aria-hidden="true" tabindex="-1"></a>tabPanelServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, data, group_by) {</span>
-<span id="cb42-2"><a href="sharing-download-and-repeating.html#cb42-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
-<span id="cb42-3"><a href="sharing-download-and-repeating.html#cb42-3" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>table <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
-<span id="cb42-4"><a href="sharing-download-and-repeating.html#cb42-4" aria-hidden="true" tabindex="-1"></a>            data</span>
-<span id="cb42-5"><a href="sharing-download-and-repeating.html#cb42-5" aria-hidden="true" tabindex="-1"></a>        })</span>
-<span id="cb42-6"><a href="sharing-download-and-repeating.html#cb42-6" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb42-7"><a href="sharing-download-and-repeating.html#cb42-7" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb42-8"><a href="sharing-download-and-repeating.html#cb42-8" aria-hidden="true" tabindex="-1"></a>            <span class="co"># handle non-string groupings</span></span>
-<span id="cb42-9"><a href="sharing-download-and-repeating.html#cb42-9" aria-hidden="true" tabindex="-1"></a>            data[[group_by]] <span class="ot">&lt;-</span> <span class="fu">factor</span>(data[[group_by]])</span>
-<span id="cb42-10"><a href="sharing-download-and-repeating.html#cb42-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> .data[[group_by]], </span>
-<span id="cb42-11"><a href="sharing-download-and-repeating.html#cb42-11" aria-hidden="true" tabindex="-1"></a>                             <span class="at">y =</span> .data[[input<span class="sc">$</span>dv]],</span>
-<span id="cb42-12"><a href="sharing-download-and-repeating.html#cb42-12" aria-hidden="true" tabindex="-1"></a>                             <span class="at">fill =</span> .data[[group_by]])) <span class="sc">+</span></span>
-<span id="cb42-13"><a href="sharing-download-and-repeating.html#cb42-13" aria-hidden="true" tabindex="-1"></a>                <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb42-14"><a href="sharing-download-and-repeating.html#cb42-14" aria-hidden="true" tabindex="-1"></a>                <span class="fu">scale_fill_viridis_d</span>()</span>
-<span id="cb42-15"><a href="sharing-download-and-repeating.html#cb42-15" aria-hidden="true" tabindex="-1"></a>        })</span>
-<span id="cb42-16"><a href="sharing-download-and-repeating.html#cb42-16" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb42-17"><a href="sharing-download-and-repeating.html#cb42-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="sharing-download-and-repeating.html#cb52-1" aria-hidden="true" tabindex="-1"></a>tabPanelServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, data, group_by) {</span>
+<span id="cb52-2"><a href="sharing-download-and-repeating.html#cb52-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb52-3"><a href="sharing-download-and-repeating.html#cb52-3" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>table <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
+<span id="cb52-4"><a href="sharing-download-and-repeating.html#cb52-4" aria-hidden="true" tabindex="-1"></a>            data</span>
+<span id="cb52-5"><a href="sharing-download-and-repeating.html#cb52-5" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb52-6"><a href="sharing-download-and-repeating.html#cb52-6" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb52-7"><a href="sharing-download-and-repeating.html#cb52-7" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb52-8"><a href="sharing-download-and-repeating.html#cb52-8" aria-hidden="true" tabindex="-1"></a>            <span class="co"># handle non-string groupings</span></span>
+<span id="cb52-9"><a href="sharing-download-and-repeating.html#cb52-9" aria-hidden="true" tabindex="-1"></a>            data[[group_by]] <span class="ot">&lt;-</span> <span class="fu">factor</span>(data[[group_by]])</span>
+<span id="cb52-10"><a href="sharing-download-and-repeating.html#cb52-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> .data[[group_by]], </span>
+<span id="cb52-11"><a href="sharing-download-and-repeating.html#cb52-11" aria-hidden="true" tabindex="-1"></a>                             <span class="at">y =</span> .data[[input<span class="sc">$</span>dv]],</span>
+<span id="cb52-12"><a href="sharing-download-and-repeating.html#cb52-12" aria-hidden="true" tabindex="-1"></a>                             <span class="at">fill =</span> .data[[group_by]])) <span class="sc">+</span></span>
+<span id="cb52-13"><a href="sharing-download-and-repeating.html#cb52-13" aria-hidden="true" tabindex="-1"></a>                <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb52-14"><a href="sharing-download-and-repeating.html#cb52-14" aria-hidden="true" tabindex="-1"></a>                <span class="fu">scale_fill_viridis_d</span>()</span>
+<span id="cb52-15"><a href="sharing-download-and-repeating.html#cb52-15" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb52-16"><a href="sharing-download-and-repeating.html#cb52-16" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb52-17"><a href="sharing-download-and-repeating.html#cb52-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <div class="warning">
 <p>
 In the original code, the grouping variables were unquoted, but it’s tricky to pass unquoted variable names to custom functions, and we already know how to refer to columns by a character object using <code>.data[[char_obj]]</code>.
@@ -444,8 +449,8 @@ The grouping column <code>Species</code> in <code>iris</code> is already a facto
 </p>
 </div>
 <p>Now, you can replace the four functions inside the server function with these two lines of code.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="sharing-download-and-repeating.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabPanelServer</span>(<span class="st">&quot;iris&quot;</span>, <span class="at">data =</span> iris, <span class="at">group_by =</span> <span class="st">&quot;Species&quot;</span>)</span>
-<span id="cb43-2"><a href="sharing-download-and-repeating.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tabPanelServer</span>(<span class="st">&quot;mtcars&quot;</span>, <span class="at">data =</span> mtcars, <span class="at">group_by =</span> <span class="st">&quot;vs&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="sharing-download-and-repeating.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabPanelServer</span>(<span class="st">&quot;iris&quot;</span>, <span class="at">data =</span> iris, <span class="at">group_by =</span> <span class="st">&quot;Species&quot;</span>)</span>
+<span id="cb53-2"><a href="sharing-download-and-repeating.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tabPanelServer</span>(<span class="st">&quot;mtcars&quot;</span>, <span class="at">data =</span> mtcars, <span class="at">group_by =</span> <span class="st">&quot;vs&quot;</span>)</span></code></pre></div>
 <p>Our example only reduced our code by 4 lines, but it can save a lot of time, effort, and debugging on projects with many similar modules. For example, if you want to change the plots in your app to use a different geom, now you only have to change one function instead of two.</p>
 </div>
 <div id="exercises-1" class="section level3" number="4.3.3">
@@ -469,14 +474,14 @@ The grouping column <code>Species</code> in <code>iris</code> is already a facto
 UI Solution
 </button>
 <p>You can choose any of the numeric columns for the choices.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="sharing-download-and-repeating.html#cb44-1" aria-hidden="true" tabindex="-1"></a>diamonds_tab <span class="ot">&lt;-</span> <span class="fu">tabPanelUI</span>(<span class="st">&quot;diamonds&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;carat&quot;</span>, <span class="st">&quot;depth&quot;</span>, <span class="st">&quot;table&quot;</span>, <span class="st">&quot;price&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="sharing-download-and-repeating.html#cb54-1" aria-hidden="true" tabindex="-1"></a>diamonds_tab <span class="ot">&lt;-</span> <span class="fu">tabPanelUI</span>(<span class="st">&quot;diamonds&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;carat&quot;</span>, <span class="st">&quot;depth&quot;</span>, <span class="st">&quot;table&quot;</span>, <span class="st">&quot;price&quot;</span>))</span></code></pre></div>
 </div>
 <div class="webex-solution">
 <button>
 Server Solution
 </button>
 <p>You can group by any of the categorical columns: cut, color, or clarity.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="sharing-download-and-repeating.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabPanelServer</span>(<span class="st">&quot;diamonds&quot;</span>, <span class="at">data =</span> diamonds, <span class="at">group_by =</span> <span class="st">&quot;cut&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="sharing-download-and-repeating.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabPanelServer</span>(<span class="st">&quot;diamonds&quot;</span>, <span class="at">data =</span> diamonds, <span class="at">group_by =</span> <span class="st">&quot;cut&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="altering-modules" class="section level4" number="4.3.3.3">
@@ -489,17 +494,17 @@ Server Solution
 UI Solution
 </button>
 <p>You need to add a new selectInput() to the tabPanel. Remember to use the <code>ns()</code> function for the id. The choices for this select will also differ by data set, so you need to add <code>group_choices</code> to the arguments of this function.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="sharing-download-and-repeating.html#cb46-1" aria-hidden="true" tabindex="-1"></a>tabPanelUI <span class="ot">&lt;-</span> <span class="cf">function</span>(id, choices, group_choices) {</span>
-<span id="cb46-2"><a href="sharing-download-and-repeating.html#cb46-2" aria-hidden="true" tabindex="-1"></a>   ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(id)</span>
-<span id="cb46-3"><a href="sharing-download-and-repeating.html#cb46-3" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb46-4"><a href="sharing-download-and-repeating.html#cb46-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">tabPanel</span>(</span>
-<span id="cb46-5"><a href="sharing-download-and-repeating.html#cb46-5" aria-hidden="true" tabindex="-1"></a>       id,</span>
-<span id="cb46-6"><a href="sharing-download-and-repeating.html#cb46-6" aria-hidden="true" tabindex="-1"></a>       <span class="fu">selectInput</span>(<span class="fu">ns</span>(<span class="st">&quot;dv&quot;</span>), <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> choices),</span>
-<span id="cb46-7"><a href="sharing-download-and-repeating.html#cb46-7" aria-hidden="true" tabindex="-1"></a>       <span class="fu">selectInput</span>(<span class="fu">ns</span>(<span class="st">&quot;group_by&quot;</span>), <span class="st">&quot;Group By&quot;</span>, <span class="at">choices =</span> group_choices),</span>
-<span id="cb46-8"><a href="sharing-download-and-repeating.html#cb46-8" aria-hidden="true" tabindex="-1"></a>       <span class="fu">plotOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;plot&quot;</span>)),</span>
-<span id="cb46-9"><a href="sharing-download-and-repeating.html#cb46-9" aria-hidden="true" tabindex="-1"></a>       DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;table&quot;</span>))</span>
-<span id="cb46-10"><a href="sharing-download-and-repeating.html#cb46-10" aria-hidden="true" tabindex="-1"></a>   )</span>
-<span id="cb46-11"><a href="sharing-download-and-repeating.html#cb46-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="sharing-download-and-repeating.html#cb56-1" aria-hidden="true" tabindex="-1"></a>tabPanelUI <span class="ot">&lt;-</span> <span class="cf">function</span>(id, choices, group_choices) {</span>
+<span id="cb56-2"><a href="sharing-download-and-repeating.html#cb56-2" aria-hidden="true" tabindex="-1"></a>   ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(id)</span>
+<span id="cb56-3"><a href="sharing-download-and-repeating.html#cb56-3" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb56-4"><a href="sharing-download-and-repeating.html#cb56-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">tabPanel</span>(</span>
+<span id="cb56-5"><a href="sharing-download-and-repeating.html#cb56-5" aria-hidden="true" tabindex="-1"></a>       id,</span>
+<span id="cb56-6"><a href="sharing-download-and-repeating.html#cb56-6" aria-hidden="true" tabindex="-1"></a>       <span class="fu">selectInput</span>(<span class="fu">ns</span>(<span class="st">&quot;dv&quot;</span>), <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> choices),</span>
+<span id="cb56-7"><a href="sharing-download-and-repeating.html#cb56-7" aria-hidden="true" tabindex="-1"></a>       <span class="fu">selectInput</span>(<span class="fu">ns</span>(<span class="st">&quot;group_by&quot;</span>), <span class="st">&quot;Group By&quot;</span>, <span class="at">choices =</span> group_choices),</span>
+<span id="cb56-8"><a href="sharing-download-and-repeating.html#cb56-8" aria-hidden="true" tabindex="-1"></a>       <span class="fu">plotOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;plot&quot;</span>)),</span>
+<span id="cb56-9"><a href="sharing-download-and-repeating.html#cb56-9" aria-hidden="true" tabindex="-1"></a>       DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;table&quot;</span>))</span>
+<span id="cb56-10"><a href="sharing-download-and-repeating.html#cb56-10" aria-hidden="true" tabindex="-1"></a>   )</span>
+<span id="cb56-11"><a href="sharing-download-and-repeating.html#cb56-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <ul>
 <li>Update the plot function to use the value of this new input instead of “Species,” “vs,” and whatever you chose for <code>diamonds</code>.</li>
@@ -510,13 +515,13 @@ Server Solution
 </button>
 <p>You no longer need <code>group_by</code> in the arguments for this function because you are getting that info from an input.</p>
 <p>Instead of changing <code>group_by</code> to <code>input$group_by</code> in three places in the code below, I just added the line <code>group_by &lt;- input$group_by</code> at the top of the <code>moduleServer()</code> function.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="sharing-download-and-repeating.html#cb47-1" aria-hidden="true" tabindex="-1"></a>tabPanelServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, data) {</span>
-<span id="cb47-2"><a href="sharing-download-and-repeating.html#cb47-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
-<span id="cb47-3"><a href="sharing-download-and-repeating.html#cb47-3" aria-hidden="true" tabindex="-1"></a>        group_by <span class="ot">&lt;-</span> input<span class="sc">$</span>group_by</span>
-<span id="cb47-4"><a href="sharing-download-and-repeating.html#cb47-4" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb47-5"><a href="sharing-download-and-repeating.html#cb47-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># rest of the code is the same ...</span></span>
-<span id="cb47-6"><a href="sharing-download-and-repeating.html#cb47-6" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb47-7"><a href="sharing-download-and-repeating.html#cb47-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="sharing-download-and-repeating.html#cb57-1" aria-hidden="true" tabindex="-1"></a>tabPanelServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, data) {</span>
+<span id="cb57-2"><a href="sharing-download-and-repeating.html#cb57-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb57-3"><a href="sharing-download-and-repeating.html#cb57-3" aria-hidden="true" tabindex="-1"></a>        group_by <span class="ot">&lt;-</span> input<span class="sc">$</span>group_by</span>
+<span id="cb57-4"><a href="sharing-download-and-repeating.html#cb57-4" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb57-5"><a href="sharing-download-and-repeating.html#cb57-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># rest of the code is the same ...</span></span>
+<span id="cb57-6"><a href="sharing-download-and-repeating.html#cb57-6" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb57-7"><a href="sharing-download-and-repeating.html#cb57-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 </div>
 <div id="new-module" class="section level4" number="4.3.3.4">
@@ -527,46 +532,46 @@ Server Solution
 <button>
 UI Function
 </button>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="sharing-download-and-repeating.html#cb48-1" aria-hidden="true" tabindex="-1"></a>infoBoxUI <span class="ot">&lt;-</span> <span class="cf">function</span>(id, <span class="at">width =</span> <span class="dv">4</span>) {</span>
-<span id="cb48-2"><a href="sharing-download-and-repeating.html#cb48-2" aria-hidden="true" tabindex="-1"></a>    ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(id)</span>
-<span id="cb48-3"><a href="sharing-download-and-repeating.html#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-4"><a href="sharing-download-and-repeating.html#cb48-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">infoBoxOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;box&quot;</span>), width)</span>
-<span id="cb48-5"><a href="sharing-download-and-repeating.html#cb48-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="sharing-download-and-repeating.html#cb58-1" aria-hidden="true" tabindex="-1"></a>infoBoxUI <span class="ot">&lt;-</span> <span class="cf">function</span>(id, <span class="at">width =</span> <span class="dv">4</span>) {</span>
+<span id="cb58-2"><a href="sharing-download-and-repeating.html#cb58-2" aria-hidden="true" tabindex="-1"></a>    ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(id)</span>
+<span id="cb58-3"><a href="sharing-download-and-repeating.html#cb58-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-4"><a href="sharing-download-and-repeating.html#cb58-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">infoBoxOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;box&quot;</span>), width)</span>
+<span id="cb58-5"><a href="sharing-download-and-repeating.html#cb58-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div class="webex-solution">
 <button>
 Server Function
 </button>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="sharing-download-and-repeating.html#cb49-1" aria-hidden="true" tabindex="-1"></a>infoBoxServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, title, fmt, icon, <span class="at">color =</span> <span class="st">&quot;purple&quot;</span>) {</span>
-<span id="cb49-2"><a href="sharing-download-and-repeating.html#cb49-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
-<span id="cb49-3"><a href="sharing-download-and-repeating.html#cb49-3" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>box <span class="ot">&lt;-</span> <span class="fu">renderInfoBox</span>({</span>
-<span id="cb49-4"><a href="sharing-download-and-repeating.html#cb49-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">infoBox</span>(<span class="at">title =</span> title,</span>
-<span id="cb49-5"><a href="sharing-download-and-repeating.html#cb49-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">value =</span> <span class="fu">format</span>(<span class="fu">Sys.Date</span>(), fmt),</span>
-<span id="cb49-6"><a href="sharing-download-and-repeating.html#cb49-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">icon =</span> <span class="fu">icon</span>(icon),</span>
-<span id="cb49-7"><a href="sharing-download-and-repeating.html#cb49-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">color =</span> color)</span>
-<span id="cb49-8"><a href="sharing-download-and-repeating.html#cb49-8" aria-hidden="true" tabindex="-1"></a>        })</span>
-<span id="cb49-9"><a href="sharing-download-and-repeating.html#cb49-9" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb49-10"><a href="sharing-download-and-repeating.html#cb49-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="sharing-download-and-repeating.html#cb59-1" aria-hidden="true" tabindex="-1"></a>infoBoxServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, title, fmt, icon, <span class="at">color =</span> <span class="st">&quot;purple&quot;</span>) {</span>
+<span id="cb59-2"><a href="sharing-download-and-repeating.html#cb59-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb59-3"><a href="sharing-download-and-repeating.html#cb59-3" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>box <span class="ot">&lt;-</span> <span class="fu">renderInfoBox</span>({</span>
+<span id="cb59-4"><a href="sharing-download-and-repeating.html#cb59-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">infoBox</span>(<span class="at">title =</span> title,</span>
+<span id="cb59-5"><a href="sharing-download-and-repeating.html#cb59-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">value =</span> <span class="fu">format</span>(<span class="fu">Sys.Date</span>(), fmt),</span>
+<span id="cb59-6"><a href="sharing-download-and-repeating.html#cb59-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">icon =</span> <span class="fu">icon</span>(icon),</span>
+<span id="cb59-7"><a href="sharing-download-and-repeating.html#cb59-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">color =</span> color)</span>
+<span id="cb59-8"><a href="sharing-download-and-repeating.html#cb59-8" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb59-9"><a href="sharing-download-and-repeating.html#cb59-9" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb59-10"><a href="sharing-download-and-repeating.html#cb59-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div class="webex-solution">
 <button>
 UI Code
 </button>
 <p>In the <code>ui</code>, replace the <code>fluidRow()</code> with this:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="sharing-download-and-repeating.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fluidRow</span>(</span>
-<span id="cb50-2"><a href="sharing-download-and-repeating.html#cb50-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">infoBoxUI</span>(<span class="st">&quot;day&quot;</span>),</span>
-<span id="cb50-3"><a href="sharing-download-and-repeating.html#cb50-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">infoBoxUI</span>(<span class="st">&quot;month&quot;</span>),</span>
-<span id="cb50-4"><a href="sharing-download-and-repeating.html#cb50-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">infoBoxUI</span>(<span class="st">&quot;year&quot;</span>)</span>
-<span id="cb50-5"><a href="sharing-download-and-repeating.html#cb50-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="sharing-download-and-repeating.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fluidRow</span>(</span>
+<span id="cb60-2"><a href="sharing-download-and-repeating.html#cb60-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">infoBoxUI</span>(<span class="st">&quot;day&quot;</span>),</span>
+<span id="cb60-3"><a href="sharing-download-and-repeating.html#cb60-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">infoBoxUI</span>(<span class="st">&quot;month&quot;</span>),</span>
+<span id="cb60-4"><a href="sharing-download-and-repeating.html#cb60-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">infoBoxUI</span>(<span class="st">&quot;year&quot;</span>)</span>
+<span id="cb60-5"><a href="sharing-download-and-repeating.html#cb60-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 <div class="webex-solution">
 <button>
 Server Code
 </button>
 <p>In the <code>server()</code> function, replace the <code>renderInfoBox()</code> functions with this:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="sharing-download-and-repeating.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">infoBoxServer</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;Year&quot;</span>, <span class="st">&quot;%Y&quot;</span>, <span class="st">&quot;calendar&quot;</span>)</span>
-<span id="cb51-2"><a href="sharing-download-and-repeating.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">infoBoxServer</span>(<span class="st">&quot;month&quot;</span>, <span class="st">&quot;Month&quot;</span>, <span class="st">&quot;%m&quot;</span>, <span class="st">&quot;calendar-alt&quot;</span>)</span>
-<span id="cb51-3"><a href="sharing-download-and-repeating.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">infoBoxServer</span>(<span class="st">&quot;day&quot;</span>, <span class="st">&quot;Day&quot;</span>, <span class="st">&quot;%d&quot;</span>, <span class="st">&quot;calendar-day&quot;</span>)<span class="er">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="sharing-download-and-repeating.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">infoBoxServer</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;Year&quot;</span>, <span class="st">&quot;%Y&quot;</span>, <span class="st">&quot;calendar&quot;</span>)</span>
+<span id="cb61-2"><a href="sharing-download-and-repeating.html#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">infoBoxServer</span>(<span class="st">&quot;month&quot;</span>, <span class="st">&quot;Month&quot;</span>, <span class="st">&quot;%m&quot;</span>, <span class="st">&quot;calendar-alt&quot;</span>)</span>
+<span id="cb61-3"><a href="sharing-download-and-repeating.html#cb61-3" aria-hidden="true" tabindex="-1"></a><span class="fu">infoBoxServer</span>(<span class="st">&quot;day&quot;</span>, <span class="st">&quot;Day&quot;</span>, <span class="st">&quot;%d&quot;</span>, <span class="st">&quot;calendar-day&quot;</span>)<span class="er">)</span></span></code></pre></div>
 </div>
 
 </div>

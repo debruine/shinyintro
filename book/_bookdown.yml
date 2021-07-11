@@ -6,7 +6,7 @@ delete_merged_file: true
 clean: []
 language:
   ui:
-    chapter_name: "Day "
+    chapter_name: "Chapter "
   label:
     fig: 'Figure '
     tab: 'Table '

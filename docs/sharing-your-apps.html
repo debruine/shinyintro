@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Day 4 Sharing your Apps | Building Web Apps with R Shiny</title>
+  <title>Chapter 11 Sharing your Apps | Building Web Apps with R Shiny</title>
   <meta name="description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Day 4 Sharing your Apps | Building Web Apps with R Shiny" />
+  <meta property="og:title" content="Chapter 11 Sharing your Apps | Building Web Apps with R Shiny" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Day 4 Sharing your Apps | Building Web Apps with R Shiny" />
+  <meta name="twitter:title" content="Chapter 11 Sharing your Apps | Building Web Apps with R Shiny" />
   
   <meta name="twitter:description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Lisa DeBruine" />
 
 
-<meta name="date" content="2021-07-06" />
+<meta name="date" content="2021-07-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="more-complex-apps.html"/>
-
+<link rel="prev" href="contingency.html"/>
+<link rel="next" href="customized-reports.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -153,79 +153,116 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#code-horizons-course-27-30-july-2021"><i class="fa fa-check"></i><b>0.2</b> Code Horizons Course (27-30 July 2021)</a></li>
 <li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#computing"><i class="fa fa-check"></i><b>0.3</b> Computing</a></li>
 <li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#who-should-register"><i class="fa fa-check"></i><b>0.4</b> Who Should Register?</a></li>
-<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#glossary-intro"><i class="fa fa-check"></i><b>0.5</b> Glossary</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i><b>0.5</b> Schedule</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#glossary-intro"><i class="fa fa-check"></i><b>0.6</b> Glossary</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1</b> Getting Started</a>
+<li class="chapter" data-level="1" data-path="first-app.html"><a href="first-app.html"><i class="fa fa-check"></i><b>1</b> Your First Shiny App</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#your-first-shiny-app"><i class="fa fa-check"></i><b>1.1</b> Your First Shiny App</a>
+<li class="chapter" data-level="1.1" data-path="first-app.html"><a href="first-app.html#the-demo-app"><i class="fa fa-check"></i><b>1.1</b> The Demo App</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="getting-started.html"><a href="getting-started.html#overview-of-the-uiserver-structure"><i class="fa fa-check"></i><b>1.1.1</b> Overview of the UI/server structure</a></li>
-<li class="chapter" data-level="1.1.2" data-path="getting-started.html"><a href="getting-started.html#inputs-outputs-and-action-buttons"><i class="fa fa-check"></i><b>1.1.2</b> Inputs, outputs, and action buttons</a></li>
-<li class="chapter" data-level="1.1.3" data-path="getting-started.html"><a href="getting-started.html#reactive-functions"><i class="fa fa-check"></i><b>1.1.3</b> Reactive functions</a></li>
+<li class="chapter" data-level="1.1.1" data-path="first-app.html"><a href="first-app.html#set-up-the-demo-app"><i class="fa fa-check"></i><b>1.1.1</b> Set Up the Demo App</a></li>
+<li class="chapter" data-level="1.1.2" data-path="first-app.html"><a href="first-app.html#modify-the-demo-app"><i class="fa fa-check"></i><b>1.1.2</b> Modify the Demo App</a></li>
+<li class="chapter" data-level="1.1.3" data-path="first-app.html"><a href="first-app.html#add-new-things"><i class="fa fa-check"></i><b>1.1.3</b> Add New Things</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#shinydashboard"><i class="fa fa-check"></i><b>1.2</b> ShinyDashboard</a>
-<ul>
-<li class="chapter" data-level="1.2.1" data-path="getting-started.html"><a href="getting-started.html#basic-template-for-shinydashboard-projects"><i class="fa fa-check"></i><b>1.2.1</b> Basic template for shinydashboard projects</a></li>
-<li class="chapter" data-level="1.2.2" data-path="getting-started.html"><a href="getting-started.html#sidebar-menu-navigation-and-tabs"><i class="fa fa-check"></i><b>1.2.2</b> Sidebar, menu navigation, and tabs</a></li>
-<li class="chapter" data-level="1.2.3" data-path="getting-started.html"><a href="getting-started.html#row--and-column-based-layouts"><i class="fa fa-check"></i><b>1.2.3</b> Row- and column-based layouts</a></li>
+<li class="chapter" data-level="1.2" data-path="first-app.html"><a href="first-app.html#overview-of-the-uiserver-structure"><i class="fa fa-check"></i><b>1.2</b> Overview of the UI/server structure</a></li>
+<li class="chapter" data-level="1.3" data-path="first-app.html"><a href="first-app.html#inputs-outputs-and-action-buttons"><i class="fa fa-check"></i><b>1.3</b> Inputs, outputs, and action buttons</a></li>
+<li class="chapter" data-level="1.4" data-path="first-app.html"><a href="first-app.html#reactive-functions"><i class="fa fa-check"></i><b>1.4</b> Reactive functions</a></li>
+<li class="chapter" data-level="1.5" data-path="first-app.html"><a href="first-app.html#glossary-01"><i class="fa fa-check"></i><b>1.5</b> Glossary</a></li>
 </ul></li>
+<li class="chapter" data-level="2" data-path="shinydashboard.html"><a href="shinydashboard.html"><i class="fa fa-check"></i><b>2</b> ShinyDashboard</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="shinydashboard.html"><a href="shinydashboard.html#basic-template-for-shinydashboard-projects"><i class="fa fa-check"></i><b>2.1</b> Basic template for shinydashboard projects</a></li>
+<li class="chapter" data-level="2.2" data-path="shinydashboard.html"><a href="shinydashboard.html#sidebar-menu-navigation-and-tabs"><i class="fa fa-check"></i><b>2.2</b> Sidebar, menu navigation, and tabs</a></li>
+<li class="chapter" data-level="2.3" data-path="shinydashboard.html"><a href="shinydashboard.html#row--and-column-based-layouts"><i class="fa fa-check"></i><b>2.3</b> Row- and column-based layouts</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="basic-patterns.html"><a href="basic-patterns.html"><i class="fa fa-check"></i><b>2</b> Basic Patterns</a>
+<li class="chapter" data-level="3" data-path="input-functions.html"><a href="input-functions.html"><i class="fa fa-check"></i><b>3</b> Inputs</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="basic-patterns.html"><a href="basic-patterns.html#input_functions"><i class="fa fa-check"></i><b>2.1</b> Different input types</a>
+<li class="chapter" data-level="3.1" data-path="input-functions.html"><a href="input-functions.html#input-functions-1"><i class="fa fa-check"></i><b>3.1</b> Input functions</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="basic-patterns.html"><a href="basic-patterns.html#textinput"><i class="fa fa-check"></i><b>2.1.1</b> textInput</a></li>
-<li class="chapter" data-level="2.1.2" data-path="basic-patterns.html"><a href="basic-patterns.html#textareainput"><i class="fa fa-check"></i><b>2.1.2</b> textAreaInput</a></li>
-<li class="chapter" data-level="2.1.3" data-path="basic-patterns.html"><a href="basic-patterns.html#selectinput"><i class="fa fa-check"></i><b>2.1.3</b> selectInput</a></li>
-<li class="chapter" data-level="2.1.4" data-path="basic-patterns.html"><a href="basic-patterns.html#checkboxgroupinput"><i class="fa fa-check"></i><b>2.1.4</b> checkboxGroupInput</a></li>
-<li class="chapter" data-level="2.1.5" data-path="basic-patterns.html"><a href="basic-patterns.html#checkboxinput"><i class="fa fa-check"></i><b>2.1.5</b> checkboxInput</a></li>
-<li class="chapter" data-level="2.1.6" data-path="basic-patterns.html"><a href="basic-patterns.html#setting-inputs-programatically"><i class="fa fa-check"></i><b>2.1.6</b> Setting inputs programatically</a></li>
-</ul></li>
-<li class="chapter" data-level="2.2" data-path="basic-patterns.html"><a href="basic-patterns.html#output_functions"><i class="fa fa-check"></i><b>2.2</b> Different output types</a>
-<ul>
-<li class="chapter" data-level="2.2.1" data-path="basic-patterns.html"><a href="basic-patterns.html#textoutput"><i class="fa fa-check"></i><b>2.2.1</b> textOutput</a></li>
-<li class="chapter" data-level="2.2.2" data-path="basic-patterns.html"><a href="basic-patterns.html#uioutput"><i class="fa fa-check"></i><b>2.2.2</b> uiOutput</a></li>
-<li class="chapter" data-level="2.2.3" data-path="basic-patterns.html"><a href="basic-patterns.html#plotoutput"><i class="fa fa-check"></i><b>2.2.3</b> plotOutput</a></li>
-<li class="chapter" data-level="2.2.4" data-path="basic-patterns.html"><a href="basic-patterns.html#imageoutput"><i class="fa fa-check"></i><b>2.2.4</b> imageOutput</a></li>
-<li class="chapter" data-level="2.2.5" data-path="basic-patterns.html"><a href="basic-patterns.html#tableoutput"><i class="fa fa-check"></i><b>2.2.5</b> tableOutput</a></li>
-<li class="chapter" data-level="2.2.6" data-path="basic-patterns.html"><a href="basic-patterns.html#datatableoutput"><i class="fa fa-check"></i><b>2.2.6</b> dataTableOutput</a></li>
-</ul></li>
-<li class="chapter" data-level="2.3" data-path="basic-patterns.html"><a href="basic-patterns.html#reading-and-saving-data"><i class="fa fa-check"></i><b>2.3</b> Reading and saving data</a>
-<ul>
-<li class="chapter" data-level="2.3.1" data-path="basic-patterns.html"><a href="basic-patterns.html#local-data"><i class="fa fa-check"></i><b>2.3.1</b> Local Data</a></li>
-<li class="chapter" data-level="2.3.2" data-path="basic-patterns.html"><a href="basic-patterns.html#google_sheets"><i class="fa fa-check"></i><b>2.3.2</b> Google Sheets</a></li>
-</ul></li>
-<li class="chapter" data-level="2.4" data-path="basic-patterns.html"><a href="basic-patterns.html#reactive-functions-1"><i class="fa fa-check"></i><b>2.4</b> Reactive functions</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="more-complex-apps.html"><a href="more-complex-apps.html"><i class="fa fa-check"></i><b>3</b> More Complex Apps</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="more-complex-apps.html"><a href="more-complex-apps.html#customizing-your-apps"><i class="fa fa-check"></i><b>3.1</b> Customizing Your Apps</a>
-<ul>
-<li class="chapter" data-level="3.1.1" data-path="more-complex-apps.html"><a href="more-complex-apps.html#css-html-and-javascript"><i class="fa fa-check"></i><b>3.1.1</b> CSS, HTML, and Javascript</a></li>
-<li class="chapter" data-level="3.1.2" data-path="more-complex-apps.html"><a href="more-complex-apps.html#structuring-a-complex-app"><i class="fa fa-check"></i><b>3.1.2</b> Structuring a complex app</a></li>
-</ul></li>
-<li class="chapter" data-level="3.2" data-path="more-complex-apps.html"><a href="more-complex-apps.html#intermediate-patterns"><i class="fa fa-check"></i><b>3.2</b> Intermediate Patterns</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="more-complex-apps.html"><a href="more-complex-apps.html#debugging-and-error-handling"><i class="fa fa-check"></i><b>3.2.1</b> Debugging and error handling</a></li>
-<li class="chapter" data-level="3.2.2" data-path="more-complex-apps.html"><a href="more-complex-apps.html#displaying-elements-contingent-on-the-state-of-other-elements"><i class="fa fa-check"></i><b>3.2.2</b> Displaying elements contingent on the state of other elements</a></li>
+<li class="chapter" data-level="3.1.1" data-path="input-functions.html"><a href="input-functions.html#textinput"><i class="fa fa-check"></i><b>3.1.1</b> textInput</a></li>
+<li class="chapter" data-level="3.1.2" data-path="input-functions.html"><a href="input-functions.html#textareainput"><i class="fa fa-check"></i><b>3.1.2</b> textAreaInput</a></li>
+<li class="chapter" data-level="3.1.3" data-path="input-functions.html"><a href="input-functions.html#selectinput"><i class="fa fa-check"></i><b>3.1.3</b> selectInput</a></li>
+<li class="chapter" data-level="3.1.4" data-path="input-functions.html"><a href="input-functions.html#checkboxgroupinput"><i class="fa fa-check"></i><b>3.1.4</b> checkboxGroupInput</a></li>
+<li class="chapter" data-level="3.1.5" data-path="input-functions.html"><a href="input-functions.html#checkboxinput"><i class="fa fa-check"></i><b>3.1.5</b> checkboxInput</a></li>
+<li class="chapter" data-level="3.1.6" data-path="input-functions.html"><a href="input-functions.html#setting-inputs-programatically"><i class="fa fa-check"></i><b>3.1.6</b> Setting inputs programatically</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="sharing-your-apps.html"><a href="sharing-your-apps.html"><i class="fa fa-check"></i><b>4</b> Sharing your Apps</a>
+<li class="chapter" data-level="4" data-path="output-functions.html"><a href="output-functions.html"><i class="fa fa-check"></i><b>4</b> Different output types</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="sharing-your-apps.html"><a href="sharing-your-apps.html#sharing-platforms"><i class="fa fa-check"></i><b>4.1</b> Sharing Platforms</a>
-<ul>
-<li class="chapter" data-level="4.1.1" data-path="sharing-your-apps.html"><a href="sharing-your-apps.html#shinyapps.io"><i class="fa fa-check"></i><b>4.1.1</b> shinyapps.io</a></li>
-<li class="chapter" data-level="4.1.2" data-path="sharing-your-apps.html"><a href="sharing-your-apps.html#self-hosting-a-shiny-server"><i class="fa fa-check"></i><b>4.1.2</b> Self-hosting a shiny server</a></li>
-<li class="chapter" data-level="4.1.3" data-path="sharing-your-apps.html"><a href="sharing-your-apps.html#github"><i class="fa fa-check"></i><b>4.1.3</b> GitHub</a></li>
-<li class="chapter" data-level="4.1.4" data-path="sharing-your-apps.html"><a href="sharing-your-apps.html#in-an-r-package"><i class="fa fa-check"></i><b>4.1.4</b> In an R package</a></li>
+<li class="chapter" data-level="4.0.1" data-path="output-functions.html"><a href="output-functions.html#textoutput"><i class="fa fa-check"></i><b>4.0.1</b> textOutput</a></li>
+<li class="chapter" data-level="4.0.2" data-path="output-functions.html"><a href="output-functions.html#uioutput"><i class="fa fa-check"></i><b>4.0.2</b> uiOutput</a></li>
+<li class="chapter" data-level="4.0.3" data-path="output-functions.html"><a href="output-functions.html#plotoutput"><i class="fa fa-check"></i><b>4.0.3</b> plotOutput</a></li>
+<li class="chapter" data-level="4.0.4" data-path="output-functions.html"><a href="output-functions.html#imageoutput"><i class="fa fa-check"></i><b>4.0.4</b> imageOutput</a></li>
+<li class="chapter" data-level="4.0.5" data-path="output-functions.html"><a href="output-functions.html#tableoutput"><i class="fa fa-check"></i><b>4.0.5</b> tableOutput</a></li>
+<li class="chapter" data-level="4.0.6" data-path="output-functions.html"><a href="output-functions.html#datatableoutput"><i class="fa fa-check"></i><b>4.0.6</b> dataTableOutput</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="sharing-your-apps.html"><a href="sharing-your-apps.html#advanced-patterns"><i class="fa fa-check"></i><b>4.2</b> Advanced Patterns</a>
+<li class="chapter" data-level="5" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>5</b> Reading and saving data</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="sharing-your-apps.html"><a href="sharing-your-apps.html#creating-and-downloading-a-customized-report"><i class="fa fa-check"></i><b>4.2.1</b> Creating and downloading a customized report</a></li>
-<li class="chapter" data-level="4.2.2" data-path="sharing-your-apps.html"><a href="sharing-your-apps.html#shiny-modules-for-repeated-structures"><i class="fa fa-check"></i><b>4.2.2</b> Shiny modules for repeated structures</a></li>
+<li class="chapter" data-level="5.1" data-path="data.html"><a href="data.html#local-data"><i class="fa fa-check"></i><b>5.1</b> Local Data</a></li>
+<li class="chapter" data-level="5.2" data-path="data.html"><a href="data.html#google_sheets"><i class="fa fa-check"></i><b>5.2</b> Google Sheets</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="data.html"><a href="data.html#authorisation-for-apps"><i class="fa fa-check"></i><b>5.2.1</b> Authorisation for Apps</a></li>
+<li class="chapter" data-level="5.2.2" data-path="data.html"><a href="data.html#accessing-an-existing-sheet"><i class="fa fa-check"></i><b>5.2.2</b> Accessing an existing sheet</a></li>
+<li class="chapter" data-level="5.2.3" data-path="data.html"><a href="data.html#make-a-new-sheet"><i class="fa fa-check"></i><b>5.2.3</b> Make a new sheet</a></li>
+<li class="chapter" data-level="5.2.4" data-path="data.html"><a href="data.html#add-data"><i class="fa fa-check"></i><b>5.2.4</b> Add data</a></li>
+<li class="chapter" data-level="5.2.5" data-path="data.html"><a href="data.html#appending-data"><i class="fa fa-check"></i><b>5.2.5</b> Appending data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="first-app.html"><a href="first-app.html#reactive-functions"><i class="fa fa-check"></i><b>6</b> Reactive functions</a></li>
+<li class="chapter" data-level="7" data-path="web-languages.html"><a href="web-languages.html"><i class="fa fa-check"></i><b>7</b> CSS, HTML, and Javascript</a></li>
+<li class="chapter" data-level="8" data-path="structure.html"><a href="structure.html"><i class="fa fa-check"></i><b>8</b> Structuring a complex app</a></li>
+<li class="chapter" data-level="9" data-path="debugging.html"><a href="debugging.html"><i class="fa fa-check"></i><b>9</b> Debugging and error handling</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="debugging.html"><a href="debugging.html#rstudio-console-messages"><i class="fa fa-check"></i><b>9.1</b> RStudio Console Messages</a></li>
+<li class="chapter" data-level="9.2" data-path="debugging.html"><a href="debugging.html#javascript-console"><i class="fa fa-check"></i><b>9.2</b> JavaScript Console</a></li>
+<li class="chapter" data-level="9.3" data-path="debugging.html"><a href="debugging.html#showcase-mode"><i class="fa fa-check"></i><b>9.3</b> Showcase Mode</a></li>
+<li class="chapter" data-level="9.4" data-path="debugging.html"><a href="debugging.html#trycatch"><i class="fa fa-check"></i><b>9.4</b> tryCatch</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="contingency.html"><a href="contingency.html"><i class="fa fa-check"></i><b>10</b> Contingent Display</a></li>
+<li class="chapter" data-level="11" data-path="sharing-your-apps.html"><a href="sharing-your-apps.html"><i class="fa fa-check"></i><b>11</b> Sharing your Apps</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="sharing-your-apps.html"><a href="sharing-your-apps.html#shinyapps.io"><i class="fa fa-check"></i><b>11.1</b> shinyapps.io</a></li>
+<li class="chapter" data-level="11.2" data-path="sharing-your-apps.html"><a href="sharing-your-apps.html#self-hosting-a-shiny-server"><i class="fa fa-check"></i><b>11.2</b> Self-hosting a shiny server</a></li>
+<li class="chapter" data-level="11.3" data-path="sharing-your-apps.html"><a href="sharing-your-apps.html#github"><i class="fa fa-check"></i><b>11.3</b> GitHub</a></li>
+<li class="chapter" data-level="11.4" data-path="sharing-your-apps.html"><a href="sharing-your-apps.html#in-an-r-package"><i class="fa fa-check"></i><b>11.4</b> In an R package</a></li>
+<li class="chapter" data-level="11.5" data-path="sharing-your-apps.html"><a href="sharing-your-apps.html#exercises"><i class="fa fa-check"></i><b>11.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="sharing-your-apps.html"><a href="sharing-your-apps.html#shinyapps.io-1"><i class="fa fa-check"></i><b>11.5.1</b> 1. Shinyapps.io</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="customized-reports.html"><a href="customized-reports.html"><i class="fa fa-check"></i><b>12</b> Customized reports</a></li>
+<li class="chapter" data-level="13" data-path="modules.html"><a href="modules.html"><i class="fa fa-check"></i><b>13</b> Shiny modules for repeated structures</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="modules.html"><a href="modules.html#modularizing-the-ui"><i class="fa fa-check"></i><b>13.1</b> Modularizing the UI</a></li>
+<li class="chapter" data-level="13.2" data-path="modules.html"><a href="modules.html#modularizing-server-functions"><i class="fa fa-check"></i><b>13.2</b> Modularizing server functions</a></li>
+<li class="chapter" data-level="13.3" data-path="modules.html"><a href="modules.html#exercises-1"><i class="fa fa-check"></i><b>13.3</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="modules.html"><a href="modules.html#repeat-example"><i class="fa fa-check"></i><b>13.3.1</b> 1. Repeat Example</a></li>
+<li class="chapter" data-level="13.3.2" data-path="modules.html"><a href="modules.html#new-instance"><i class="fa fa-check"></i><b>13.3.2</b> 2. New Instance</a></li>
+<li class="chapter" data-level="13.3.3" data-path="modules.html"><a href="modules.html#altering-modules"><i class="fa fa-check"></i><b>13.3.3</b> 3. Altering modules</a></li>
+<li class="chapter" data-level="13.3.4" data-path="modules.html"><a href="modules.html#new-module"><i class="fa fa-check"></i><b>13.3.4</b> 4. New module</a></li>
 </ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
+<li class="chapter" data-level="A" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i><b>A</b> Installing <code>R</code></a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="installing-r.html"><a href="installing-r.html#installing-base-r"><i class="fa fa-check"></i><b>A.1</b> Installing Base R</a></li>
+<li class="chapter" data-level="A.2" data-path="installing-r.html"><a href="installing-r.html#installing-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing RStudio</a></li>
+<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.3</b> Installing LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="setup-git.html"><a href="setup-git.html"><i class="fa fa-check"></i><b>B</b> Git and GitHub</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="setup-git.html"><a href="setup-git.html#get-a-github-account"><i class="fa fa-check"></i><b>B.1</b> Get a GitHub account</a></li>
+<li class="chapter" data-level="B.2" data-path="setup-git.html"><a href="setup-git.html#set-up-rstudio"><i class="fa fa-check"></i><b>B.2</b> Set up RStudio</a>
+<ul>
+<li class="chapter" data-level="B.2.1" data-path="setup-git.html"><a href="setup-git.html#install-git"><i class="fa fa-check"></i><b>B.2.1</b> Install git</a></li>
+<li class="chapter" data-level="B.2.2" data-path="setup-git.html"><a href="setup-git.html#enable-version-control-in-rstudio"><i class="fa fa-check"></i><b>B.2.2</b> Enable version control in RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="B.3" data-path="setup-git.html"><a href="setup-git.html#github-info"><i class="fa fa-check"></i><b>B.3</b> Set your GitHub info</a></li>
+<li class="chapter" data-level="B.4" data-path="setup-git.html"><a href="setup-git.html#create-an-ssh-key-on-rstudio"><i class="fa fa-check"></i><b>B.4</b> Create an SSH Key on RStudio</a></li>
+<li class="chapter" data-level="B.5" data-path="setup-git.html"><a href="setup-git.html#create-an-ssh-key-on-github"><i class="fa fa-check"></i><b>B.5</b> Create an SSH Key on GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="symbols.html"><a href="symbols.html"><i class="fa fa-check"></i><b>C</b> Symbols</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -250,283 +287,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="sharing-your-apps" class="section level1" number="4">
-<h1><span class="header-section-number">Day 4</span> Sharing your Apps</h1>
-<div id="sharing-platforms" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Sharing Platforms</h2>
-<div id="shinyapps.io" class="section level3" number="4.1.1">
-<h3><span class="header-section-number">4.1.1</span> shinyapps.io</h3>
-</div>
-<div id="self-hosting-a-shiny-server" class="section level3" number="4.1.2">
-<h3><span class="header-section-number">4.1.2</span> Self-hosting a shiny server</h3>
-</div>
-<div id="github" class="section level3" number="4.1.3">
-<h3><span class="header-section-number">4.1.3</span> GitHub</h3>
-</div>
-<div id="in-an-r-package" class="section level3" number="4.1.4">
-<h3><span class="header-section-number">4.1.4</span> In an R package</h3>
-</div>
-</div>
-<div id="advanced-patterns" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Advanced Patterns</h2>
-<div id="creating-and-downloading-a-customized-report" class="section level3" number="4.2.1">
-<h3><span class="header-section-number">4.2.1</span> Creating and downloading a customized report</h3>
-</div>
-<div id="shiny-modules-for-repeated-structures" class="section level3" number="4.2.2">
-<h3><span class="header-section-number">4.2.2</span> Shiny modules for repeated structures</h3>
-<p>If you find yourself making nearly identical UIs or functions over and over in the same app, you might benefit from modules. This is a way to</p>
-<p>You can run this app locally with <code>shinyintro::app("modules_demo")</code> or view it in a separate tab with the [showcase interface](&lt;<a href="https://shiny.psy.gla.ac.uk/debruine/modules_demo/" class="uri">https://shiny.psy.gla.ac.uk/debruine/modules_demo/</a>({target="_blank"}.</p>
-<div class="figure" style="text-align: center"><span id="fig:modules-demo-app"></span>
-<iframe src="https://shiny.psy.gla.ac.uk/debruine/modules_demo/?showcase=0" width="100%" height="800px">
-</iframe>
-<p class="caption">
-Figure 4.1: Modules Demo App
-</p>
-</div>
-<div id="modularizing-the-ui" class="section level4" number="4.2.2.1">
-<h4><span class="header-section-number">4.2.2.1</span> Modularizing the UI</h4>
-<p>The two tabPanels below follow nearly identical patterns. You can often identify a place where modules might be useful when you use a naming convention like {base}_{type} for the ids.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="sharing-your-apps.html#cb1-1" aria-hidden="true" tabindex="-1"></a>iris_tab <span class="ot">&lt;-</span> <span class="fu">tabPanel</span>(</span>
-<span id="cb1-2"><a href="sharing-your-apps.html#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;iris&quot;</span>,</span>
-<span id="cb1-3"><a href="sharing-your-apps.html#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;iris_dv&quot;</span>, <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> <span class="fu">names</span>(iris)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]),</span>
-<span id="cb1-4"><a href="sharing-your-apps.html#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">&quot;iris_plot&quot;</span>),</span>
-<span id="cb1-5"><a href="sharing-your-apps.html#cb1-5" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="st">&quot;iris_table&quot;</span>)</span>
-<span id="cb1-6"><a href="sharing-your-apps.html#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-7"><a href="sharing-your-apps.html#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="sharing-your-apps.html#cb1-8" aria-hidden="true" tabindex="-1"></a>mtcars_tab <span class="ot">&lt;-</span> <span class="fu">tabPanel</span>(</span>
-<span id="cb1-9"><a href="sharing-your-apps.html#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;mtcars&quot;</span>,</span>
-<span id="cb1-10"><a href="sharing-your-apps.html#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;mtcars_dv&quot;</span>, <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;disp&quot;</span>, <span class="st">&quot;hp&quot;</span>, <span class="st">&quot;drat&quot;</span>)),</span>
-<span id="cb1-11"><a href="sharing-your-apps.html#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">&quot;mtcars_plot&quot;</span>),</span>
-<span id="cb1-12"><a href="sharing-your-apps.html#cb1-12" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="st">&quot;mtcars_table&quot;</span>)</span>
-<span id="cb1-13"><a href="sharing-your-apps.html#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p>The first step in modularising your code is to make a function that creates the UIs above from the base ID and any other changing aspects. In the example above, the choices are different for each selectInput, so we’ll make a function that has the arguments <code>id</code> and <code>choices</code>.</p>
-<p>The first line of a UI module function is always <code>ns &lt;- NS(id)</code>, which creates a shorthand way to add the base id to the id type. So instead of the selectInput’s name being “iris_dv” or “mtcars_dv,” we set it as <code>ns("dv")</code>. All ids need to use this <code>ns()</code> function.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="sharing-your-apps.html#cb2-1" aria-hidden="true" tabindex="-1"></a>tabPanelUI <span class="ot">&lt;-</span> <span class="cf">function</span>(id, choices) {</span>
-<span id="cb2-2"><a href="sharing-your-apps.html#cb2-2" aria-hidden="true" tabindex="-1"></a>    ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(id)</span>
-<span id="cb2-3"><a href="sharing-your-apps.html#cb2-3" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-4"><a href="sharing-your-apps.html#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(</span>
-<span id="cb2-5"><a href="sharing-your-apps.html#cb2-5" aria-hidden="true" tabindex="-1"></a>        id,</span>
-<span id="cb2-6"><a href="sharing-your-apps.html#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">selectInput</span>(<span class="fu">ns</span>(<span class="st">&quot;dv&quot;</span>), <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> choices),</span>
-<span id="cb2-7"><a href="sharing-your-apps.html#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">plotOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;plot&quot;</span>)),</span>
-<span id="cb2-8"><a href="sharing-your-apps.html#cb2-8" aria-hidden="true" tabindex="-1"></a>        DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;table&quot;</span>))</span>
-<span id="cb2-9"><a href="sharing-your-apps.html#cb2-9" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-10"><a href="sharing-your-apps.html#cb2-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>Now, you can replace two tabPanel definitions with just the following code.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="sharing-your-apps.html#cb3-1" aria-hidden="true" tabindex="-1"></a>iris_tab <span class="ot">&lt;-</span> <span class="fu">tabPanelUI</span>(<span class="st">&quot;iris&quot;</span>, <span class="fu">names</span>(iris)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span>
-<span id="cb3-2"><a href="sharing-your-apps.html#cb3-2" aria-hidden="true" tabindex="-1"></a>mtcars_tab <span class="ot">&lt;-</span> <span class="fu">tabPanelUI</span>(<span class="st">&quot;mtcars&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;disp&quot;</span>, <span class="st">&quot;hp&quot;</span>, <span class="st">&quot;drat&quot;</span>))</span></code></pre></div>
-</div>
-<div id="modularizing-server-functions" class="section level4" number="4.2.2.2">
-<h4><span class="header-section-number">4.2.2.2</span> Modularizing server functions</h4>
-<p>In our original code, we have four functions that create the two output tables and two output plots, but these are also largely redundant.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="sharing-your-apps.html#cb4-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>iris_table <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
-<span id="cb4-2"><a href="sharing-your-apps.html#cb4-2" aria-hidden="true" tabindex="-1"></a>    iris</span>
-<span id="cb4-3"><a href="sharing-your-apps.html#cb4-3" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb4-4"><a href="sharing-your-apps.html#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="sharing-your-apps.html#cb4-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>iris_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb4-6"><a href="sharing-your-apps.html#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, </span>
-<span id="cb4-7"><a href="sharing-your-apps.html#cb4-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> .data[[input<span class="sc">$</span>iris_dv]],</span>
-<span id="cb4-8"><a href="sharing-your-apps.html#cb4-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb4-9"><a href="sharing-your-apps.html#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb4-10"><a href="sharing-your-apps.html#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_fill_viridis_d</span>()</span>
-<span id="cb4-11"><a href="sharing-your-apps.html#cb4-11" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb4-12"><a href="sharing-your-apps.html#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="sharing-your-apps.html#cb4-13" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>mtcars_table <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
-<span id="cb4-14"><a href="sharing-your-apps.html#cb4-14" aria-hidden="true" tabindex="-1"></a>    mtcars</span>
-<span id="cb4-15"><a href="sharing-your-apps.html#cb4-15" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb4-16"><a href="sharing-your-apps.html#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-17"><a href="sharing-your-apps.html#cb4-17" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>mtcars_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb4-18"><a href="sharing-your-apps.html#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># handle non-string grouping</span></span>
-<span id="cb4-19"><a href="sharing-your-apps.html#cb4-19" aria-hidden="true" tabindex="-1"></a>    mtcars<span class="sc">$</span>vs <span class="ot">&lt;-</span> <span class="fu">factor</span>(mtcars<span class="sc">$</span>vs)</span>
-<span id="cb4-20"><a href="sharing-your-apps.html#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> vs, </span>
-<span id="cb4-21"><a href="sharing-your-apps.html#cb4-21" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> .data[[input<span class="sc">$</span>mtcars_dv]],</span>
-<span id="cb4-22"><a href="sharing-your-apps.html#cb4-22" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill =</span> vs)) <span class="sc">+</span></span>
-<span id="cb4-23"><a href="sharing-your-apps.html#cb4-23" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb4-24"><a href="sharing-your-apps.html#cb4-24" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_fill_viridis_d</span>()</span>
-<span id="cb4-25"><a href="sharing-your-apps.html#cb4-25" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
-<p>The second step to modularising code is creating a server function. You can put all the functions the relate to the inputs and outputs in the UI function here, so we will include one to make the output table and one to make the output plot.</p>
-<p>The server function takes the base id as the first argument, and then any arguments you need to specify things that change between base implementations. Above, the tables show different data and the plots use different groupings for the x axis and fill, so we’ll add arguments for <code>data</code> and <code>group_by</code>.</p>
-<p>A server function <strong>always</strong> contains a <code>moduleServer()</code> function set up like below.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="sharing-your-apps.html#cb5-1" aria-hidden="true" tabindex="-1"></a>tabPanelServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, data, group_by) {</span>
-<span id="cb5-2"><a href="sharing-your-apps.html#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
-<span id="cb5-3"><a href="sharing-your-apps.html#cb5-3" aria-hidden="true" tabindex="-1"></a>      <span class="co"># code ...</span></span>
-<span id="cb5-4"><a href="sharing-your-apps.html#cb5-4" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb5-5"><a href="sharing-your-apps.html#cb5-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>No you can copy in one set of server functions above, remove the base name (e.g., “iris_” or “mtcars_”) from and inputs or outputs, and replace specific instances of the data or grouping columns with <code>data</code> and <code>group_by</code>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="sharing-your-apps.html#cb6-1" aria-hidden="true" tabindex="-1"></a>tabPanelServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, data, group_by) {</span>
-<span id="cb6-2"><a href="sharing-your-apps.html#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
-<span id="cb6-3"><a href="sharing-your-apps.html#cb6-3" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>table <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
-<span id="cb6-4"><a href="sharing-your-apps.html#cb6-4" aria-hidden="true" tabindex="-1"></a>            data</span>
-<span id="cb6-5"><a href="sharing-your-apps.html#cb6-5" aria-hidden="true" tabindex="-1"></a>        })</span>
-<span id="cb6-6"><a href="sharing-your-apps.html#cb6-6" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb6-7"><a href="sharing-your-apps.html#cb6-7" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb6-8"><a href="sharing-your-apps.html#cb6-8" aria-hidden="true" tabindex="-1"></a>            <span class="co"># handle non-string groupings</span></span>
-<span id="cb6-9"><a href="sharing-your-apps.html#cb6-9" aria-hidden="true" tabindex="-1"></a>            data[[group_by]] <span class="ot">&lt;-</span> <span class="fu">factor</span>(data[[group_by]])</span>
-<span id="cb6-10"><a href="sharing-your-apps.html#cb6-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> .data[[group_by]], </span>
-<span id="cb6-11"><a href="sharing-your-apps.html#cb6-11" aria-hidden="true" tabindex="-1"></a>                             <span class="at">y =</span> .data[[input<span class="sc">$</span>dv]],</span>
-<span id="cb6-12"><a href="sharing-your-apps.html#cb6-12" aria-hidden="true" tabindex="-1"></a>                             <span class="at">fill =</span> .data[[group_by]])) <span class="sc">+</span></span>
-<span id="cb6-13"><a href="sharing-your-apps.html#cb6-13" aria-hidden="true" tabindex="-1"></a>                <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb6-14"><a href="sharing-your-apps.html#cb6-14" aria-hidden="true" tabindex="-1"></a>                <span class="fu">scale_fill_viridis_d</span>()</span>
-<span id="cb6-15"><a href="sharing-your-apps.html#cb6-15" aria-hidden="true" tabindex="-1"></a>        })</span>
-<span id="cb6-16"><a href="sharing-your-apps.html#cb6-16" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb6-17"><a href="sharing-your-apps.html#cb6-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<div class="warning">
+<div id="sharing-your-apps" class="section level1" number="11">
+<h1><span class="header-section-number">Chapter 11</span> Sharing your Apps</h1>
+<div id="shinyapps.io" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> shinyapps.io</h2>
+<p><img src="images/saio_connect.png" style="max-width:300px; float: right;" /></p>
+<ol style="list-style-type: decimal">
+<li>Open <strong><code>Tools &gt; Global Options ...</code></strong></li>
+<li>Go to the <strong>Publishing</strong> tab</li>
+<li>Click the <strong>Connect</strong> button and choose ShinyApps.io</li>
+<li>Click on the link to <a href="https://www.shinyapps.io/" target="_blank">go to your account</a></li>
+<li>Click the <strong>Sign Up</strong> button and <strong>Sign up with GitHub</strong></li>
+<li>You should now be in your shinyapps.io dashboard; click on your name in the upper right and choose <strong>Tokens</strong></li>
+<li>Add a token</li>
+<li>Click <strong>Show</strong> next to the token and copy the text to the clipboard
+<img src="images/saio_secret.png" /></li>
+<li>Go back to RStudio and paste the text in the box and click <strong>Connect Account</strong></li>
+<li>Make sure the box next to “Enable publishing…” is ticked, click <strong>Apply</strong>, and close the options window
+˙
+You can test this by creating a simple app. If you have the shinyintro package, use the code below.</li>
+</ol>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="sharing-your-apps.html#cb46-1" aria-hidden="true" tabindex="-1"></a>shinyintro<span class="sc">::</span><span class="fu">newapp</span>(<span class="st">&quot;mytestapp&quot;</span>, <span class="st">&quot;input_demo&quot;</span>)</span></code></pre></div>
+<p><img src="images/saio_publish.png" style="max-width:300px; float: right;" /></p>
+<p>Open the app.R file and go to <strong><code>File &gt; Publish...</code></strong> in the menu (or click on the blue icon in the upper right corner of the source pane). Make sure these are the right files for your app, edit the title if you want, and click <strong>Publish</strong>. A web browser window will open after a few seconds showing your app online! You can now share it with your friends and colleagues.</p>
+<div class="info">
 <p>
-In the original code, the grouping variables were unquoted, but it’s tricky to pass unquoted variable names to custom functions, and we already know how to refer to columns by a character object using <code>.data[[char_obj]]</code>.
+If publishing fails, check the Console pane. If you already have too many apps on shinyapps.io, you’ll see the message, “You have reached the maximum number of applications allowed for your account.” You can archive some of your apps from the shinyapps.io dashboard if this is the problem.
 </p>
+</div>
+</div>
+<div id="self-hosting-a-shiny-server" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> Self-hosting a shiny server</h2>
+<p>Setting up a shiny server is beyond the scope of this class, but if you have access to one, you can ask the administrator how to access the correct directories and upload your app directories there.</p>
+<p>This solution is good if you want to save data locally and do not want to use Google Sheets. You can’t save data locally on shinyapps.io.</p>
+<div class="info">
 <p>
-The grouping column <code>Species</code> in <code>iris</code> is already a factor, but recasting it as a factor won’t hurt, and is required for the <code>mtcars</code> grouping column <code>vs</code>.
+If you save data locally on a shiny server, you may need to change the owner or permissions of the directory you save data in so that the web user can write to it. Ask the administrator of the server for help if this doesn’t make any sense to you.
 </p>
 </div>
-<p>Now, you can replace the four functions inside the server function with these two lines of code.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="sharing-your-apps.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabPanelServer</span>(<span class="st">&quot;iris&quot;</span>, <span class="at">data =</span> iris, <span class="at">group_by =</span> <span class="st">&quot;Species&quot;</span>)</span>
-<span id="cb7-2"><a href="sharing-your-apps.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tabPanelServer</span>(<span class="st">&quot;mtcars&quot;</span>, <span class="at">data =</span> mtcars, <span class="at">group_by =</span> <span class="st">&quot;vs&quot;</span>)</span></code></pre></div>
-<p>Our example only reduced our code by 4 lines, but it can save a lot of time, effort, and debugging on projects with many similar modules. For example, if you want to change the plots in your app to use a different geom, now you only have to change one function instead of two.</p>
 </div>
-<div id="exercises" class="section level4" number="4.2.2.3">
-<h4><span class="header-section-number">4.2.2.3</span> Exercises</h4>
-<div id="tabs">
+<div id="github" class="section level2" number="11.3">
+<h2><span class="header-section-number">11.3</span> GitHub</h2>
+<p>GitHub is a great place to organise and share your code using <a class='glossary' target='_blank' title='A way to save a record of changes to your files.' href='https://psyteachr.github.io/glossary/v#version-control'>version control</a>. You can also use it to host Shiny app code for others to download and run on their own computer with RStudio.</p>
+<p>See <a href="setup-git.html#setup-git">Appendix B</a> for instructions on how to set up git and a GitHub account.</p>
+</div>
+<div id="in-an-r-package" class="section level2" number="11.4">
+<h2><span class="header-section-number">11.4</span> In an R package</h2>
+</div>
+<div id="exercises" class="section level2" number="11.5">
+<h2><span class="header-section-number">11.5</span> Exercises</h2>
+<div id="shinyapps.io-1" class="section level3" number="11.5.1">
+<h3><span class="header-section-number">11.5.1</span> 1. Shinyapps.io</h3>
 <ul>
-<li>
-<a href="sharing-your-apps.html#module-1">Repeat Example</a>
-</li>
-<li>
-<a href="sharing-your-apps.html#module-2">New Instance</a>
-</li>
-<li>
-<a href="sharing-your-apps.html#module-3">Altering modules</a>
-</li>
-<li>
-<a href="#module-4">New module</a>
-</li>
+<li>Upload another demo app to shinyapps.io.</li>
+<li>Check that you can access it online.</li>
+<li>Archive the app in the shinyapps.io dashboard.</li>
 </ul>
-<div id="module-1">
-<p>Try to implement the code above on your own.</p>
-<ul>
-<li>Create a copy of the “no_modules_demo” <code>shinyintro::newapp("my_no_modules", "no_modules_demo")</code></li>
-<li>Run the app and see how it works</li>
-<li>Create the UI module function and use it to replace <code>iris_tab</code> and <code>mtcars_tab</code></li>
-<li>Create the server function and use it to replace the server functions</li>
-</ul>
-</div>
-<div id="module-2">
-<p>Add a new tab called “diamonds” that visualises the <code>diamonds</code> dataset. Choose the columns you want as choices in the <code>selectInput()</code> and the grouping column.</p>
-<div class="webex-solution">
-<button>
-UI Solution
-</button>
-<p>You can choose any of the numeric columns for the choices.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="sharing-your-apps.html#cb8-1" aria-hidden="true" tabindex="-1"></a>diamonds_tab <span class="ot">&lt;-</span> <span class="fu">tabPanelUI</span>(<span class="st">&quot;diamonds&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;carat&quot;</span>, <span class="st">&quot;depth&quot;</span>, <span class="st">&quot;table&quot;</span>, <span class="st">&quot;price&quot;</span>))</span></code></pre></div>
-</div>
-<div class="webex-solution">
-<button>
-Server Solution
-</button>
-<p>You can group by any of the categorical columns: cut, color, or clarity.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="sharing-your-apps.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabPanelServer</span>(<span class="st">&quot;diamonds&quot;</span>, <span class="at">data =</span> diamonds, <span class="at">group_by =</span> <span class="st">&quot;cut&quot;</span>)</span></code></pre></div>
-</div>
-</div>
-<div id="module-3">
-<ul>
-<li>Add another <code>selectInput()</code> to the UI that allows the user to select the grouping variable. (<code>iris</code> only has one possibility, but <code>mtcars</code> and <code>diamonds</code> should have several)</li>
-</ul>
-<div class="webex-solution">
-<button>
-UI Solution
-</button>
-<p>You need to add a new selectInput() to the tabPanel. Remember to use the <code>ns()</code> function for the id. The choices for this select will also differ by data set, so you need to add <code>group_choices</code> to the arguments of this function.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="sharing-your-apps.html#cb10-1" aria-hidden="true" tabindex="-1"></a>tabPanelUI <span class="ot">&lt;-</span> <span class="cf">function</span>(id, choices, group_choices) {</span>
-<span id="cb10-2"><a href="sharing-your-apps.html#cb10-2" aria-hidden="true" tabindex="-1"></a>   ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(id)</span>
-<span id="cb10-3"><a href="sharing-your-apps.html#cb10-3" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb10-4"><a href="sharing-your-apps.html#cb10-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">tabPanel</span>(</span>
-<span id="cb10-5"><a href="sharing-your-apps.html#cb10-5" aria-hidden="true" tabindex="-1"></a>       id,</span>
-<span id="cb10-6"><a href="sharing-your-apps.html#cb10-6" aria-hidden="true" tabindex="-1"></a>       <span class="fu">selectInput</span>(<span class="fu">ns</span>(<span class="st">&quot;dv&quot;</span>), <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> choices),</span>
-<span id="cb10-7"><a href="sharing-your-apps.html#cb10-7" aria-hidden="true" tabindex="-1"></a>       <span class="fu">selectInput</span>(<span class="fu">ns</span>(<span class="st">&quot;group_by&quot;</span>), <span class="st">&quot;Group By&quot;</span>, <span class="at">choices =</span> group_choices),</span>
-<span id="cb10-8"><a href="sharing-your-apps.html#cb10-8" aria-hidden="true" tabindex="-1"></a>       <span class="fu">plotOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;plot&quot;</span>)),</span>
-<span id="cb10-9"><a href="sharing-your-apps.html#cb10-9" aria-hidden="true" tabindex="-1"></a>       DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;table&quot;</span>))</span>
-<span id="cb10-10"><a href="sharing-your-apps.html#cb10-10" aria-hidden="true" tabindex="-1"></a>   )</span>
-<span id="cb10-11"><a href="sharing-your-apps.html#cb10-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-</div>
-<ul>
-<li>Update the plot function to use the value of this new input instead of “Species,” “vs,” and whatever you chose for <code>diamonds</code>.</li>
-</ul>
-<div class="webex-solution">
-<button>
-Server Solution
-</button>
-<p>You no longer need <code>group_by</code> in the arguments for this function because you are getting that info from an input.</p>
-<p>Instead of changing <code>group_by</code> to <code>input$group_by</code> in three places in the code below, I just added the line <code>group_by &lt;- input$group_by</code> at the top of the <code>moduleServer()</code> function.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="sharing-your-apps.html#cb11-1" aria-hidden="true" tabindex="-1"></a>tabPanelServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, data) {</span>
-<span id="cb11-2"><a href="sharing-your-apps.html#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
-<span id="cb11-3"><a href="sharing-your-apps.html#cb11-3" aria-hidden="true" tabindex="-1"></a>        group_by <span class="ot">&lt;-</span> input<span class="sc">$</span>group_by</span>
-<span id="cb11-4"><a href="sharing-your-apps.html#cb11-4" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb11-5"><a href="sharing-your-apps.html#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># rest of the code is the same ...</span></span>
-<span id="cb11-6"><a href="sharing-your-apps.html#cb11-6" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb11-7"><a href="sharing-your-apps.html#cb11-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-</div>
-</div>
-<div id="module-3">
-<p>There is a fluidRow() before the tabsetPanel() in the ui that contains three <code>infoBoxOutput()</code> and three renderInfoBoxOutput() functions in the server function.</p>
-<p>Modularise the info boxes and their associated server functions.</p>
-<div class="webex-solution">
-<button>
-UI Function
-</button>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="sharing-your-apps.html#cb12-1" aria-hidden="true" tabindex="-1"></a>infoBoxUI <span class="ot">&lt;-</span> <span class="cf">function</span>(id, <span class="at">width =</span> <span class="dv">4</span>) {</span>
-<span id="cb12-2"><a href="sharing-your-apps.html#cb12-2" aria-hidden="true" tabindex="-1"></a>    ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(id)</span>
-<span id="cb12-3"><a href="sharing-your-apps.html#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="sharing-your-apps.html#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">infoBoxOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;box&quot;</span>), width)</span>
-<span id="cb12-5"><a href="sharing-your-apps.html#cb12-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-</div>
-<div class="webex-solution">
-<button>
-Server Function
-</button>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="sharing-your-apps.html#cb13-1" aria-hidden="true" tabindex="-1"></a>infoBoxServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, title, fmt, icon, <span class="at">color =</span> <span class="st">&quot;purple&quot;</span>) {</span>
-<span id="cb13-2"><a href="sharing-your-apps.html#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
-<span id="cb13-3"><a href="sharing-your-apps.html#cb13-3" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>box <span class="ot">&lt;-</span> <span class="fu">renderInfoBox</span>({</span>
-<span id="cb13-4"><a href="sharing-your-apps.html#cb13-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">infoBox</span>(<span class="at">title =</span> title,</span>
-<span id="cb13-5"><a href="sharing-your-apps.html#cb13-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">value =</span> <span class="fu">format</span>(<span class="fu">Sys.Date</span>(), fmt),</span>
-<span id="cb13-6"><a href="sharing-your-apps.html#cb13-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">icon =</span> <span class="fu">icon</span>(icon),</span>
-<span id="cb13-7"><a href="sharing-your-apps.html#cb13-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">color =</span> color)</span>
-<span id="cb13-8"><a href="sharing-your-apps.html#cb13-8" aria-hidden="true" tabindex="-1"></a>        })</span>
-<span id="cb13-9"><a href="sharing-your-apps.html#cb13-9" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb13-10"><a href="sharing-your-apps.html#cb13-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-</div>
-<div class="webex-solution">
-<button>
-UI Code
-</button>
-<p>In the <code>ui</code>, replace the <code>fluidRow()</code> with this:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="sharing-your-apps.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fluidRow</span>(</span>
-<span id="cb14-2"><a href="sharing-your-apps.html#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">infoBoxUI</span>(<span class="st">&quot;day&quot;</span>),</span>
-<span id="cb14-3"><a href="sharing-your-apps.html#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">infoBoxUI</span>(<span class="st">&quot;month&quot;</span>),</span>
-<span id="cb14-4"><a href="sharing-your-apps.html#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">infoBoxUI</span>(<span class="st">&quot;year&quot;</span>)</span>
-<span id="cb14-5"><a href="sharing-your-apps.html#cb14-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-</div>
-<div class="webex-solution">
-<button>
-Server Code
-</button>
-<p>In the <code>server()</code> function, replace the <code>renderInfoBox()</code> functions with this:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="sharing-your-apps.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">infoBoxServer</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;Year&quot;</span>, <span class="st">&quot;%Y&quot;</span>, <span class="st">&quot;calendar&quot;</span>)</span>
-<span id="cb15-2"><a href="sharing-your-apps.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">infoBoxServer</span>(<span class="st">&quot;month&quot;</span>, <span class="st">&quot;Month&quot;</span>, <span class="st">&quot;%m&quot;</span>, <span class="st">&quot;calendar-alt&quot;</span>)</span>
-<span id="cb15-3"><a href="sharing-your-apps.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">infoBoxServer</span>(<span class="st">&quot;day&quot;</span>, <span class="st">&quot;Day&quot;</span>, <span class="st">&quot;%d&quot;</span>, <span class="st">&quot;calendar-day&quot;</span>)<span class="er">)</span></span></code></pre></div>
-</div>
-</div>
-</div>
-<script>
-  $( function() {
-    $( "#tabs" ).tabs();
-  } );
-</script>
 
 </div>
 </div>
-</div>
-</div>
-
-
-
 </div>
 <div class="psyteachr_footer">
   
@@ -638,8 +457,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="more-complex-apps.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="contingency.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="customized-reports.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

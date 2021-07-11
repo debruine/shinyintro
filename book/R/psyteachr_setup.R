@@ -9,11 +9,12 @@ library(glossary)
 knitr::opts_chunk$set(
   echo       = TRUE,
   results    = "hold",
+  fig.show   = "hold",
   out.width  = '100%',
   fig.width  = 8, 
   fig.height = 5, 
   fig.align  = 'center',
-  fig.cap    = TRUE
+  fig.cap    = NULL
 )
 
 ## set global theme options for figures

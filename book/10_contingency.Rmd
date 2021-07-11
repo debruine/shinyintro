@@ -1,0 +1,7 @@
+# Contingent Display {#contingency}
+
+## Glossary {#glossary-contingency}
+
+```{r, echo = FALSE, results='asis'}
+#glossary::glossary_table()
+```

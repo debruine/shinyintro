@@ -24,7 +24,7 @@
 <meta name="author" content="Lisa DeBruine" />
 
 
-<meta name="date" content="2021-07-06" />
+<meta name="date" content="2021-07-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -159,9 +159,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#your-first-shiny-app"><i class="fa fa-check"></i><b>1.1</b> Your First Shiny App</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="getting-started.html"><a href="getting-started.html#overview-of-the-uiserver-structure"><i class="fa fa-check"></i><b>1.1.1</b> Overview of the UI/server structure</a></li>
-<li class="chapter" data-level="1.1.2" data-path="getting-started.html"><a href="getting-started.html#inputs-outputs-and-action-buttons"><i class="fa fa-check"></i><b>1.1.2</b> Inputs, outputs, and action buttons</a></li>
-<li class="chapter" data-level="1.1.3" data-path="getting-started.html"><a href="getting-started.html#reactive-functions"><i class="fa fa-check"></i><b>1.1.3</b> Reactive functions</a></li>
+<li class="chapter" data-level="1.1.1" data-path="getting-started.html"><a href="getting-started.html#create-a-demo-app"><i class="fa fa-check"></i><b>1.1.1</b> Create a Demo App</a></li>
+<li class="chapter" data-level="1.1.2" data-path="getting-started.html"><a href="getting-started.html#run-the-app"><i class="fa fa-check"></i><b>1.1.2</b> Run the app</a></li>
+<li class="chapter" data-level="1.1.3" data-path="getting-started.html"><a href="getting-started.html#modify-the-demo-app"><i class="fa fa-check"></i><b>1.1.3</b> Modify the Demo App</a></li>
+<li class="chapter" data-level="1.1.4" data-path="getting-started.html"><a href="getting-started.html#adding-new-things"><i class="fa fa-check"></i><b>1.1.4</b> Adding New Things</a></li>
+<li class="chapter" data-level="1.1.5" data-path="getting-started.html"><a href="getting-started.html#overview-of-the-uiserver-structure"><i class="fa fa-check"></i><b>1.1.5</b> Overview of the UI/server structure</a></li>
+<li class="chapter" data-level="1.1.6" data-path="getting-started.html"><a href="getting-started.html#inputs-outputs-and-action-buttons"><i class="fa fa-check"></i><b>1.1.6</b> Inputs, outputs, and action buttons</a></li>
+<li class="chapter" data-level="1.1.7" data-path="getting-started.html"><a href="getting-started.html#reactive-functions"><i class="fa fa-check"></i><b>1.1.7</b> Reactive functions</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#shinydashboard"><i class="fa fa-check"></i><b>1.2</b> ShinyDashboard</a>
 <ul>
@@ -169,6 +173,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2.2" data-path="getting-started.html"><a href="getting-started.html#sidebar-menu-navigation-and-tabs"><i class="fa fa-check"></i><b>1.2.2</b> Sidebar, menu navigation, and tabs</a></li>
 <li class="chapter" data-level="1.2.3" data-path="getting-started.html"><a href="getting-started.html#row--and-column-based-layouts"><i class="fa fa-check"></i><b>1.2.3</b> Row- and column-based layouts</a></li>
 </ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#glossary-intro"><i class="fa fa-check"></i><b>1.3</b> Glossary</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="basic-patterns.html"><a href="basic-patterns.html"><i class="fa fa-check"></i><b>2</b> Basic Patterns</a>
 <ul>
@@ -292,10 +297,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">3.2.1.1</span> RStudio Console Messages</h4>
 <p>Sending messages to the console is a simple way to debug your code.</p>
 <p>I like to keep track of what functions are being called by starting every function inside the server function with a message. The template includes a custom message logging function that helps you use this with both development and deployed apps: <code>debug_msg()</code>. For example, the code below prints “questionnaire submitted” every time the action button <code>q_submit</code> is pressed. It prints to the RStudio console when you’re developing and to the javascript console for deployed apps.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="more-complex-apps.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">observeEvent</span>(input<span class="sc">$</span>q_submit, {</span>
-<span id="cb34-2"><a href="more-complex-apps.html#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">debug_msg</span>(<span class="st">&quot;questionnaire submitted&quot;</span>)</span>
-<span id="cb34-3"><a href="more-complex-apps.html#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># rest of code ...</span></span>
-<span id="cb34-4"><a href="more-complex-apps.html#cb34-4" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="more-complex-apps.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">observeEvent</span>(input<span class="sc">$</span>q_submit, {</span>
+<span id="cb44-2"><a href="more-complex-apps.html#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">debug_msg</span>(<span class="st">&quot;questionnaire submitted&quot;</span>)</span>
+<span id="cb44-3"><a href="more-complex-apps.html#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># rest of code ...</span></span>
+<span id="cb44-4"><a href="more-complex-apps.html#cb44-4" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 </div>
 <div id="javascript-console" class="section level4" number="3.2.1.2">
 <h4><span class="header-section-number">3.2.1.2</span> JavaScript Console</h4>

@@ -1,7 +1,7 @@
 --- 
 title: "Building Web Apps with R Shiny"
 author: "Lisa DeBruine"
-date: "2021-07-06"
+date: "2021-07-11"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -42,6 +42,42 @@ Starting July 27, we are offering this seminar as a 4-day synchronous*, remote w
 
 Each lecture session will conclude with a hands-on exercise reviewing the content covered, to be completed on your own. An additional lab session will be held Tuesday and Thursday afternoons, where you can review the exercise results with the instructor and ask any questions.
 
+### Schedule
+
+#### Day 1
+    * [Your First Shiny App](#first-app)
+        * Overview of the UI/server structure
+        * Inputs, outputs, and action buttons
+        * Reactive functions
+    * [ShinyDashboard](#shinydashboard)
+        * Basic template for shinydashboard projects
+        * Sidebar, menu navigation, and tabs
+        * Row- and column-based layouts
+
+#### Day 2
+    * [Different input types](#inputs)
+    * [Different output types](#outputs)
+    * [Reading and saving data](#data)
+    * [Reactive functions](#reactives)
+
+#### Day 3
+    * Customizing Your Apps
+        * [CSS, HTML, and Javascript](#web)
+        * [Structuring a complex app](#structure)
+    * Intermediate Patterns
+        * [Debugging and error handling](#debugging)
+        * [Displaying elements contingent on the state of other elements](#contingency)
+
+#### Day 4
+    * [Sharing Your Apps](#sharing)
+        * shinyapps.io
+        * Self-hosting a shiny server
+        * GitHub
+        * In an R package
+    * Advanced Patterns
+        * [Creating and downloading a customized report](#reports)
+        * [Shiny modules for repeated structures](#modules)
+
 We understand that scheduling is difficult during this unpredictable time. If you prefer, you may take all or part of the course asynchronously. The video recordings will be made available within 24 hours of each session and will be accessible for two weeks after the seminar, meaning that you will get all of the class content and discussions even if you cannot participate synchronously.
 
 Closed captioning is available for all live and recorded sessions.
@@ -75,7 +111,12 @@ r + geom_violin(alpha = 0.5)
 
 If you want to brush up on your R (especially <a class='glossary' target='_blank' title='A set of R packages that help you create and work with tidy data' href='https://psyteachr.github.io/glossary/t#tidyverse'>tidyverse</a>), and also gain familiarity with the instructor's teaching style, the first seven chapters of [Data Skills for Reproducible Science](https://psyteachr.github.io/msc-data-skills/){target="_blank"} provide a good overview.
 
+## Further Resources
 
+There are a lot of great resources online to reinforce or continue your learning about Shiny.
+
+* [RStudio Shiny Tutorials](https://shiny.rstudio.com/tutorial/)
+        
 ## Glossary {#glossary-intro}
 
 
