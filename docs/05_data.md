@@ -138,7 +138,7 @@ id
 
 ```
 ## Spreadsheet name: demo2
-##               ID: 1sHDhXcUcUp61ONc7ZpfEzpRLJeOD96pG8IGKbg-DAQY
+##               ID: 10izVmZXpZfOehRJw28JuwwXvzZcm5iChlCSCC4HZWeU
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -153,7 +153,7 @@ id
 
 Include the ID at the top of your app like this:
 
-<pre><code>SHEET_ID <- "1sHDhXcUcUp61ONc7ZpfEzpRLJeOD96pG8IGKbg-DAQY"</code></pre>
+<pre><code>SHEET_ID <- "10izVmZXpZfOehRJw28JuwwXvzZcm5iChlCSCC4HZWeU"</code></pre>
 
 ### Add data
 
