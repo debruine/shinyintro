@@ -167,3 +167,8 @@ installing-rstudio
 installing-shinyintro
 installing-latex
 symbols
+external-server-functions
+external-ui-files
+exercises-exercises-structure
+server-functions
+ui-files

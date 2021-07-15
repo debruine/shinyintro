@@ -1,10 +1,10 @@
 # Structuring a complex app {#structure}
 
-So far, we've been mostly structuring our app entirely in the `app.R` file, apart from some of the web helper files for CSS and JavaScript. However, once your apps start getting relatively complex, you might find it easier to move some of the code into external `.R` files and using `source()` to include them. There are a few things to watch out for when you do this.
+So far, we've been mostly structuring our app entirely in the `app.R` file, apart from some of the web helper files for <a class='glossary' target='_blank' title='Cascading Style Sheet: A system for controlling the visual presentation of HTML in web pages.' href='https://psyteachr.github.io/glossary/c#css'>CSS</a> and <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/j#javascript'>JavaScript</a>. However, once your apps start getting relatively complex, you might find it easier to move some of the code into external `.R` files and using `source()` to include them. There are a few things to watch out for when you do this.
 
-## External Functions
+## External Server Functions
 
-You can define functions you want to use in your app at the top of the `app.R` file, but that can make that file difficult to parse pretty quickly. The basic template includes external functions with the line:
+You can define <a class='glossary' target='_blank' title='A named section of code that can be reused.' href='https://psyteachr.github.io/glossary/f#function'>functions</a> you want to use in your app at the top of the `app.R` file, but that can make that file difficult to parse pretty quickly. The basic template includes external functions with the line:
 
 
 ```r
@@ -30,7 +30,7 @@ server <- function(input, output, session) {
 
 You'll get an error like: "Error in output$logo <- renderImage({ : object 'output' not found". This is because the input and output objects only work like you'd expect when they are inside the `server()` function. 
 
-However, you can source in external code inside `server()` by setting the `local` argument to TRUE. 
+However, you can source in external code inside `server()` by setting the `local` <a class='glossary' target='_blank' title='A variable that provides input to a function.' href='https://psyteachr.github.io/glossary/a#argument'>argument</a> to TRUE. 
 
 
 ```r
@@ -39,7 +39,7 @@ server <- function(input, output, session) {
 } 
 ```
 
-You might find it useful to break up parts of the server logic for a very big app into separate files like this, but it's more common to keep any code that uses reactive functions inside `server()` in the `app.R` file, and move large chunks of code inside those functions to externally defined functions.
+You might find it useful to break up parts of the server logic for a very big app into separate files like this, but it's more common to keep any code that uses reactive functions inside `server()` in the `app.R` file, and move large sections of code inside those functions to externally defined functions.
 
 For example, you could define the function `logo_image()` in the external file `scripts/logo.R` like this:
 
@@ -85,7 +85,7 @@ logo_image <- function() {
 }
 ```
 
-If you try to run this, you'll get an error message like, "Error in logo_image: object 'input' not found". This is because the external function doesn't ave access to reactive objects like `input`, `output`, `session`, or any `reactiveValues()`.
+If you try to run this, you'll get an error message like, "Error in logo_image: object 'input' not found". This is because the external function doesn't have access to reactive objects like `input`, `output`, `session`, or any `reactiveValues()`.
 
 The best solution is to pass any variables to the function that you need. In some circumstances, you can pass the whole `input` object, but that's seldom necessary.
 
@@ -119,7 +119,7 @@ server <- function(input, output, session) {
 
 Don't worry too much if this isn't making a lot of sense yet. The main thing I want you to take away from this section is that when you try to move some server code to external files, you might get errors (I frequently do). I hope that will remind you of this lesson and you'll have a better idea about where to start looking for the solution.
 
-## External UI
+## External UI Files
 
 Defining a complex UI can be very challenging. The basic template uses a pattern that I find helpful with apps that have multiple tab items. I assign each tab to an object and then include the tabs of the app in `dashboardBody()`  like this:
 
@@ -169,3 +169,22 @@ select_box <- do.call(box, select_inputs)
 ## Glossary {#glossary-structure}
 
 
+
+|term                                                                                                        |definition                                                                                    |
+|:-----------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------|
+|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/a#argument'>argument</a>     |A variable that provides input to a function.                                                 |
+|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/c#css'>css</a>               |Cascading Style Sheet: A system for controlling the visual presentation of HTML in web pages. |
+|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/f#function'>function</a>     |A named section of code that can be reused.                                                   |
+|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/j#javascript'>javascript</a> |                                                                                              |
+
+
+
+## Exercises {exercises-structure}
+
+### server functions
+
+In the app you're developing, see if there are any long functions inside reactive functions in `server()` that can be moved to `scripts/func.R` or another external file.
+
+### UI files
+
+In the app you're developing, move each tab into an external file and source it into `app.R`.
