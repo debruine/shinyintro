@@ -1,0 +1,7 @@
+/* app-specific css */
+
+.notice-me {
+  color: red;
+  text-decoration: underline;
+  font-weight: 800;
+}

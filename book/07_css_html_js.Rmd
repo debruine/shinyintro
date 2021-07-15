@@ -230,7 +230,7 @@ Shiny apps use [jQuery](https://jquery.com/){target="_blank"}, a framework for m
 Here is some example code from the custom.js file in the template.
 
 ``` js
-$(function() {
+$(document).on("shiny:connected", function() {
   // send window width to shiny
   shiny_size = function() {
     Shiny.setInputValue("window_width", window.innerWidth);
@@ -244,7 +244,7 @@ $(function() {
 
 JavaScript is similar to R in some ways, and maddeningly different in others. One big difference is that lines of code have to end with a semi-colon.
 
-In the code above, the function `$(function() { ... })` is jQuery shorthand for making sure that the code inside doesn't run until the whole webpage has been downloaded. Otherwise, you might try to run some code that references an element that hasn't been created yet (HTML pages don't always download all in one go).
+In the code above, the function `$(document).on("shiny:connected", function() { ... })` is jQuery shorthand for making sure that the code inside doesn't run until the whole webpage has been downloaded and the extra javascript for shiny is available. Otherwise, you might try to run some code that references an element that hasn't been created yet (HTML pages don't always download all in one go) or uses a Shiny function that isn't available yet.
 
 The we create a new function called `shiny_size`, which creates two new Shiny input variables, "window_width" and "window_height", and sets then to the values of the window dimensions (in pixels). The line `window.onresize = shiny_size;` sets this function to run every time the window is resized and the function is run once at the start to initialise those values.
 

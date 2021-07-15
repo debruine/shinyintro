@@ -172,3 +172,11 @@ external-ui-files
 exercises-exercises-structure
 server-functions
 ui-files
+fig:contingency-demo-app
+hide-and-show
+groups
+toggle
+changing-styles
+changing-non-shiny-elements
+changing-input-options
+exercises-contingency
