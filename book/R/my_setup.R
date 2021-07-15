@@ -1,6 +1,7 @@
 # book-specific code to include on every page
 
 library(shiny)
+library(shinydashboard)
 
 knitr::opts_chunk$set(
   warning = FALSE,
@@ -8,3 +9,5 @@ knitr::opts_chunk$set(
 )
 
 theme_set(theme_minimal())
+
+is_pdf <- knitr::opts_knit$get("rmarkdown.pandoc.to") == "latex"

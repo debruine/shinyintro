@@ -1,13 +1,13 @@
 # Shiny modules for repeated structures {#modules}
 
-If you find yourself making nearly identical UIs or functions over and over in the same app, you might benefit from modules. This is a way to 
-
-You can run this app locally with `shinyintro::app("modules_demo")` or view it in a separate tab with the [showcase interface](<https://shiny.psy.gla.ac.uk/debruine/modules_demo/({target="_blank"}.
+If you find yourself making nearly identical <a class='glossary' target='_blank' title='The User Interface. This usually refers to a Shiny App as the user will see it.' href='https://psyteachr.github.io/glossary/u#ui'>UIs</a> or server functions over and over in the same app, you might benefit from modules. This is a way to define a pattern to use repeatedly.
 
 <div class="figure" style="text-align: center">
 <iframe src="https://shiny.psy.gla.ac.uk/debruine/modules_demo/?showcase=0" width="100%" height="800px"></iframe>
 <p class="caption">(\#fig:modules-demo-app)Modules Demo App</p>
 </div>
+
+Run locally with `shinyintro::app("modules_demo")` or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/modules_demo/){target=\"_blank\"}.
 
 ## Modularizing the UI
 
@@ -32,7 +32,7 @@ mtcars_tab <- tabPanel(
 
 The first step in modularising your code is to make a function that creates the UIs above from the base ID and any other changing aspects. In the example above, the choices are different for each selectInput, so we'll make a function that has the arguments `id` and `choices`.
 
-The first line of a UI module function is always `ns <- NS(id)`, which creates a shorthand way to add the base id to the id type. So instead of the selectInput's name being "iris_dv" or "mtcars_dv", we set it as `ns("dv")`. All ids need to use this `ns()` function.
+The first line of a UI module function is always `ns <- NS(id)`, which creates a shorthand way to add the base id to the id type. So instead of the selectInput's name being "iris_dv" or "mtcars_dv", we set it as `ns("dv")`. All ids need to use `ns()` to add the namespace to thier ID.
 
 
 ```r
@@ -95,7 +95,7 @@ The second step to modularising code is creating a server function. You can put 
 
 The server function takes the base id as the first argument, and then any arguments you need to specify things that change between base implementations. Above, the tables show different data and the plots use different groupings for the x axis and fill, so we'll add arguments for `data` and `group_by`.
 
-A server function **always** contains a `moduleServer()` function set up like below.
+A server function **always** contains `moduleServer()` set up like below.
 
 
 ```r
@@ -129,10 +129,11 @@ tabPanelServer <- function(id, data, group_by) {
 }
 ```
 
-<div class="warning">
-<p>In the original code, the grouping variables were unquoted, but it’s tricky to pass unquoted variable names to custom functions, and we already know how to refer to columns by a character object using <code>.data[[char_obj]]</code>.</p>
-<p>The grouping column <code>Species</code> in <code>iris</code> is already a factor, but recasting it as a factor won’t hurt, and is required for the <code>mtcars</code> grouping column <code>vs</code>.</p>
-</div>
+::: {.warning}
+In the original code, the grouping variables were unquoted, but it's tricky to pass unquoted variable names to custom functions, and we already know how to refer to columns by a character object using `.data[[char_obj]]`. 
+
+The grouping column `Species` in `iris` is already a factor, but recasting it as a factor won't hurt, and is required for the `mtcars` grouping column `vs`.
+:::
 
 Now, you can replace the four functions inside the server function with these two lines of code.
 
@@ -148,6 +149,12 @@ Our example only reduced our code by 4 lines, but it can save a lot of time, eff
 
 
 
+|term                                                                                        |definition                                                                      |
+|:-------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/u#ui'>ui</a> |The User Interface. This usually refers to a Shiny App as the user will see it. |
+
+
+
 
 ## Exercises {#exercises-modules}
 
@@ -155,8 +162,7 @@ Our example only reduced our code by 4 lines, but it can save a lot of time, eff
 
 Try to implement the code above on your own.
 
-* Create a copy of the "no_modules_demo"
-    `shinyintro::newapp("my_no_modules", "no_modules_demo")`
+* Clone "no_modules_demo" `shinyintro::clone("no_modules_demo")`
 * Run the app and see how it works
 * Create the UI module function and use it to replace `iris_tab` and `mtcars_tab`
 * Create the server function and use it to replace the server functions
@@ -201,7 +207,7 @@ tabPanelServer("diamonds", data = diamonds, group_by = "cut")
 <div class='webex-solution'><button>UI Solution</button>
 
 
-You need to add a new selectInput() to the tabPanel. Remember to use the `ns()` function for the id. The choices for this select will also differ by data set, so you need to add `group_choices` to the arguments of this function.
+You need to add a new selectInput() to the tabPanel. Remember to use `ns()` for the id. The choices for this select will also differ by data set, so you need to add `group_choices` to the arguments of this function.
 
  
  ```r
@@ -229,7 +235,7 @@ You need to add a new selectInput() to the tabPanel. Remember to use the `ns()` 
 
 You no longer need `group_by` in the arguments for this function because you are getting that info from an input.
 
-Instead of changing `group_by` to `input$group_by` in three places in the code below, I just added the line `group_by <- input$group_by` at the top of the `moduleServer()` function.
+Instead of changing `group_by` to `input$group_by` in three places in the code below, I just added the line `group_by <- input$group_by` at the top of `moduleServer()`.
 
 
 ```r
@@ -311,7 +317,7 @@ fluidRow(
 <div class='webex-solution'><button>Server Code</button>
 
 
-In the `server()` function, replace the `renderInfoBox()` functions with this:
+In `server()`, replace `renderInfoBox()` with this:
 
 
 ```r

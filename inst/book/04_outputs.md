@@ -1,6 +1,6 @@
 # Outputs {#outputa}
 
-Output are ways that the Shiny app can dynamically display information to the user. In the user interface (UI), you create outputs with IDs that you reference in and associated rendering function inside the server function.
+Output are ways that the Shiny app can dynamically display information to the user. In the user interface (<a class='glossary' target='_blank' title='The User Interface. This usually refers to a Shiny App as the user will see it.' href='https://psyteachr.github.io/glossary/u#ui'>UI</a>), you create outputs with IDs that you reference in an associated rendering function inside the <a class='glossary' target='_blank' title='This is the part of a Shiny app that works with logic.' href='https://psyteachr.github.io/glossary/s#server'>server</a> function.
 
 Explore some different output types in the embedded app below before you read about how to set up each type. You can run this app locally with `shinyintro::app("output_demo")` or view it in a separate tab with the [showcase interface](<https://shiny.psy.gla.ac.uk/debruine/output_demo/({target="_blank"}.
 
@@ -44,7 +44,7 @@ output$demo_verbatim <- renderText({
 
 ### uiOutput
 
-If you want to dynamically create parts of the user interface (UI), you can use `uiOutput()`. You can create the user interface using the [input functions](#input_functions)
+If you want to dynamically create parts of the UI, you can use `uiOutput()`. You can create the UI using the [input functions](#input_functions)
 
 
 ```r
@@ -58,9 +58,9 @@ output$demo_ui <- renderUI({
 })
 ```
 
-<div class="info">
-<p>The function <code>htmlOutput()</code> is exactly the same as <code>uiOutput()</code>, so you might see that in some code examples, but I use <code>uiOutput()</code> to make the connection with <code>renderUI()</code> clearer, since there is no <code>renderHTML()</code>.</p>
-</div>
+::: {.info}
+The function `htmlOutput()` is exactly the same as `uiOutput()`, so you might see that in some code examples, but I use `uiOutput()` to make the connection with `renderUI()` clearer, since there is no `renderHTML()`.
+:::
 
 
 
@@ -80,9 +80,9 @@ output$demo_plot <- renderPlot({
 })
 ```
 
-<div class="warning">
-<p>If you want to create dynamic plots that change with input, note how you need to use <code>y = .data[[input$y]]</code> inside the <code>aes()</code> function, instead of just <code>y = input$y</code>.</p>
-</div>
+::: {.warning}
+If you want to create dynamic plots that change with input, note how you need to use `y = .data[[input$y]]` inside `aes()`, instead of just `y = input$y`.
+:::
 
 ### imageOutput
 
@@ -100,7 +100,7 @@ output$demo_image <- renderImage({
 }, deleteFile = FALSE)
 ```
 
-You can dynamically display images of any type, but one of the most useful ways to use image outputs is to control the aspect ratio and relative size of plots. When you save a temporary file, you should set `deleteFile = TRUE` in the `renderImage()` function (this stops unneeded plots using memory).
+You can dynamically display images of any type, but one of the most useful ways to use image outputs is to control the aspect ratio and relative size of plots. When you save a temporary file, you should set `deleteFile = TRUE` in `renderImage()` (this stops unneeded plots using memory).
 
 
 ```r
@@ -130,7 +130,7 @@ output$demo_image <- renderImage({
 
 ### tableOutput
 
-The `reanderTable()` function will display a table from any data frame it returns.
+Display a table using `renderTable()`, which makes a table out of any data frame it returns.
 
 
 ```r
@@ -146,9 +146,9 @@ output$demo_table <- renderTable({
 })
 ```
 
-<div class="warning">
-<p>Note how you need to use <code>.data[[input$y]]</code> inside the <code>dplyr::summarise()</code> function, instead of just <code>input$y</code> to dynamically choose which variable to summarise.</p>
-</div>
+::: {.warning}
+Note how you need to use `.data[[input$y]]` inside `dplyr::summarise()`, instead of just `input$y` to dynamically choose which variable to summarise.
+:::
 
 ### dataTableOutput
 
@@ -165,11 +165,18 @@ output$demo_datatable <- DT::renderDataTable({
 }, options = list(pageLength = 10))
 ```
 
-<div class="warning">
-<p>The basic <code>shiny</code> package has <code>dataTableOutput()</code> and <code>renderDataTable()</code> functions, but they can be buggy. The version in the <code>DT</code> package are better and have some additional functions, so I use those.</p>
-</div>
+::: {.warning}
+The basic `shiny` package has `dataTableOutput()` and `renderDataTable()` functions, but they can be buggy. The versions in the `DT` package are better and have some additional functions, so I use those.
+:::
 
 ## Glossary {#glossary-outputs}
+
+
+
+|term                                                                                                |definition                                                                      |
+|:---------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/s#server'>server</a> |This is the part of a Shiny app that works with logic.                          |
+|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/u#ui'>ui</a>         |The User Interface. This usually refers to a Shiny App as the user will see it. |
 
 
 

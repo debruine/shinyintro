@@ -9,8 +9,11 @@ suppressPackageStartupMessages({
 # setup ----
 theme_set(theme_minimal(base_size = 16)) # ggplot theme
 
+# functions ----
+source("scripts/func.R") # helper functions
+
 # modules ----
-tabPanelUI <- function(id, choices) {
+tabPanelUI <- function(id, choices) { 
     ns <- NS(id)
     
     tabPanel(
@@ -21,7 +24,7 @@ tabPanelUI <- function(id, choices) {
     )
 }
 
-tabPanelServer <- function(id, data, group_by) {
+tabPanelServer <- function(id, data, group_by) { 
     moduleServer(id, function(input, output, session) {
         output$table <- DT::renderDataTable({
             data

@@ -8,6 +8,7 @@ library(glossary)
 # default knitr options
 knitr::opts_chunk$set(
   echo       = TRUE,
+  eval       = FALSE,
   results    = "hold",
   fig.show   = "hold",
   out.width  = '100%',

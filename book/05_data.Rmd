@@ -4,9 +4,9 @@
 
 You can read and write data from a Shiny app the same way you do from any R script. We will focus on reading data, since writing data locally can cause problems and is better done with [Google Sheets](#google_sheets).
 
-The base directory for a Shiny app is the directory that app.R is in. I recommend keeping your data in a directory called "data" to keep things tidy.
+The `r glossary("working directory")` for a Shiny app is the directory that app.R is in. I recommend keeping your data in a directory called "data" to keep things tidy.
 
-```{r, eval = FALSE}
+```{r}
 # read local data
 my_data <- readxl::read_xls("data/my_data.xls")
 
@@ -20,7 +20,7 @@ languages <- jsonlite::read_json("https://datahub.io/core/language-codes/r/langu
 
 One of the best ways to start collecting data with a Shiny app is with Google Sheets. This allows you to collect data to the same place from multiple servers, which might happen if you're running the app locally on more than one computer or through a service like [shinyapps.io](https://shinyapps.io){target="_blank"}. The R package `googlesheets4` makes it easy to work with Google Sheets from R.
 
-```{r, include = FALSE}
+```{r, eval = TRUE, include = FALSE}
 # make sure demo is set up right
 library(googlesheets4)
 googledrive::drive_auth(cache = ".secrets", email = "debruine@gmail.com")
@@ -35,7 +35,7 @@ gs4_find("demo2") %>% googledrive::drive_trash()
 
 If you just want to read data from a public Google Sheet, you don't need any authorisation. Just start your code with `gs4_deauth()` after you load the `googlesheets4` library (otherwise you'll be prompted to log in). Then you can read data like this:
 
-```{r}
+```{r, eval = TRUE}
 library(googlesheets4)
 gs4_deauth()
 sheet_id <- "https://docs.google.com/spreadsheets/d/1tQCYQrI4xITlPyxb9dQ-JpMDYeADovIeiZZRNHkctGA/"
@@ -44,14 +44,14 @@ read_sheet(sheet_id)
 
 However, even if a Google Sheet is publicly editable, you can't add data to it without authorising your account.
 
-```{r, error = TRUE}
+```{r, eval = TRUE, error = TRUE}
 data <- data.frame(number = 4, letter = "D")
 sheet_append(sheet_id, data)
 ```
 
 You can authorise interactively using the following code (and your own email), which will prompt you to authorise "Tidyverse API Packages" the first time you do this.
 
-```{r, eval = FALSE}
+```{r}
 gs4_auth(email = "debruine@gmail.com")
 ```
 
@@ -61,7 +61,7 @@ However, this won't work if you want your Shiny apps to be able to access your G
 
 First, you need to get a token and store it in a cache folder in your app directory. We're going to call that directory ".secrets". Run the following code in your console (NOT in an Rmd file). This will open up a web browser window and prompt you to choose your Google account and authorise "Tidyverse API Packages".
 
-```{r, eval = FALSE}
+```{r}
 setwd(app_directory)
 gs4_auth(email = "debruine@gmail.com", cache = ".secrets")
 
@@ -69,7 +69,7 @@ gs4_auth(email = "debruine@gmail.com", cache = ".secrets")
 # googledrive::drive_auth(email = "debruine@gmail.com", cache = ".secrets")
 ```
 
-```{r gs4-auth, echo=FALSE, out.width="30%", fig.align='center', fig.show="hold", fig.cap="Prompts to choose an account, grant permissions, and confirm."}
+```{r gs4-auth, eval = TRUE, echo=FALSE, out.width="30%", fig.align='center', fig.show="hold", fig.cap="Prompts to choose an account, grant permissions, and confirm."}
 knitr::include_graphics(c("images/gs4_choose_account.png",
                           "images/gs4_auth.png",
                           "images/gs4_confirm_auth.png"))
@@ -79,14 +79,14 @@ When you have finished, you will see a page that says something like, "Authentic
 
 If you are using GitHub, you don't want to save your secret info to a public repository, so run the following code to ignore any directories called ".secrets" (so they will only exist on your computer and not on GitHub).
 
-```{r, eval = FALSE}
+```{r}
 usethis::use_git_ignore(".secrets")
 usethis::use_git_ignore("*/.secrets")
 ```
 
 Now, you can include the following code at the top of your app.R script to authorise the app to read from and write to your files.
 
-```{r}
+```{r, eval = TRUE}
 gs4_auth(cache = ".secrets", email = "debruine@gmail.com")
 ```
 
@@ -94,7 +94,7 @@ gs4_auth(cache = ".secrets", email = "debruine@gmail.com")
 
 If you have an existing [Google Sheet](https://docs.google.com/spreadsheets/u/0/){target="_blank"}, you can access it by URL.
 
-```{r}
+```{r, eval = TRUE}
 sheet_id <- "https://docs.google.com/spreadsheets/d/1tQCYQrI4xITlPyxb9dQ-JpMDYeADovIeiZZRNHkctGA/"
 data <- data.frame(number = 4, letter = "D")
 sheet_append(sheet_id, data)
@@ -106,12 +106,12 @@ read_sheet(sheet_id)
 You can set up a new Google Sheet with code. You only need to do this once for a sheet that you will use with a Shiny app, and you will need to save the sheet ID. If you don't specify the tab name(s), the sheet will be created with one tab called "Sheet1". I recommend making only one sheet per app and saving each table in a separate tab.
 
 
-```{r}
+```{r, eval = TRUE}
 id <- gs4_create("demo2", sheets = c("demographics", "questionnaire"))
 id
 ```
 
-```{r, include = FALSE}
+```{r, eval = TRUE, include = FALSE}
 SHEET_ID <- as.character(id)
 ```
 
@@ -124,7 +124,7 @@ Include the ID at the top of your app like this:
 
 You can add an empty data structure to your sheet by specifying the data types of each column like this:
 
-```{r}
+```{r, eval = TRUE}
 data <- data.frame(
   name = character(0),
   birthyear = integer(0),
@@ -137,7 +137,7 @@ read_sheet(SHEET_ID, "demographics") %>% names()
 ```
 Or you can populate the table with starting data.
 
-```{r}
+```{r, eval = TRUE}
 data <- data.frame(
   name = "Lisa",
   birthyear = 1976L,
@@ -149,15 +149,15 @@ write_sheet(data, SHEET_ID, "demographics")
 read_sheet(SHEET_ID, "demographics")
 ```
 
-```{block, type = "info"}
+::: {.info}
 Notice that `birthyear` is a double, not an integer. Google Sheets only have one numeric type, so both doubles and integers are coerced to doubles.
-```
+:::
 
 ### Appending data
 
 Then you can append new rows of data to the sheet.
 
-```{r}
+```{r, eval = TRUE}
 data <- data.frame(
   name = "Robbie",
   birthyear = 2007,
@@ -171,7 +171,7 @@ read_sheet(SHEET_ID, "demographics")
 
 If you try to append data of a different type, some weird things can happen. Logical values added to a numeric column are cast as 0 (FALSE) and 1 (TRUE), while numeric values added to a logical column change the column to numeric. If you mix character and numeric values in a column, the resulting column is a column of one-item lists so that each list can have the appropriate data type. (Data frames in R cannot mix data types in the same column.)
 
-```{r}
+```{r, eval = TRUE}
 data <- data.frame(
   name = 1,
   birthyear = FALSE,
@@ -182,9 +182,10 @@ data <- data.frame(
 sheet_append(SHEET_ID, data, "demographics")
 read_sheet(SHEET_ID, "demographics")
 ```
-```{block type="danger"}
+
+::: {.danger}
 You must append data that has the same number and order of columns as the Google Sheet. If you send columns out of order, they will be recorded in the order you sent them, not in the order of the column names. If you send extra columns, the append will fail.
-```
+:::
 
 
 The Shiny template we're working with has a safer version of `sheet_append()` that you can access by uncommenting the line:
@@ -195,7 +196,5 @@ This version gracefully handles data with new columns, missing columns, columns 
 
 ## Glossary {#glossary-data}
 
-```{r, echo = FALSE, results='asis'}
-#glossary::glossary_table()
-```
+`r glossary::glossary_table()`
 

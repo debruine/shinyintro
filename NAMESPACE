@@ -2,4 +2,4 @@
 
 export(app)
 export(book)
-export(newapp)
+export(clone)

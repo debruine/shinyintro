@@ -55,7 +55,9 @@ demo_slider <- sliderInput("demo_slider",
                            step = 1,
                            width = "100%")
                            
-            
+demo_radio <- radioButtons("demo_radio",
+                           label = "Choose one",
+                           choices = c("Cats", "Dogs"))
 
 main_tab <- tabItem(
     tabName = "main_tab",
@@ -68,7 +70,8 @@ main_tab <- tabItem(
         column(width = 6,
                 demo_cbgi,
                 demo_slider,
-                demo_cb)
+                demo_cb,
+                demo_radio)
     ),
     actionButton("reset", "Reset")
 )

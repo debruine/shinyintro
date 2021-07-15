@@ -1,0 +1,503 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Building Web Apps with R Shiny},
+  pdfauthor={Lisa DeBruine},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+
+\newenvironment{danger}
+    {
+    \hline\\
+    }
+    { 
+    \\\\\hline
+    }
+    
+\newenvironment{warning}
+    {
+    \hline\\
+    }
+    { 
+    \\\\\hline
+    }
+    
+\newenvironment{info}
+    {
+    \hline\\
+    }
+    { 
+    \\\\\hline
+    }
+    
+\newenvironment{try}
+    {
+    \hline\\
+    }
+    { 
+    \\\\\hline
+    }
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\title{Building Web Apps with R Shiny}
+\author{Lisa DeBruine}
+\date{2021-07-11}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{overview}{%
+\chapter*{Overview}\label{overview}}
+\addcontentsline{toc}{chapter}{Overview}
+
+Placeholder
+
+\hypertarget{example-apps}{%
+\section{Example Apps}\label{example-apps}}
+
+\hypertarget{code-horizons-course-27-30-july-2021}{%
+\section{Code Horizons Course (27-30 July 2021)}\label{code-horizons-course-27-30-july-2021}}
+
+\hypertarget{schedule}{%
+\subsection{Schedule}\label{schedule}}
+
+\hypertarget{day-1}{%
+\subsubsection{Day 1}\label{day-1}}
+
+\hypertarget{day-2}{%
+\subsubsection{Day 2}\label{day-2}}
+
+\hypertarget{day-3}{%
+\subsubsection{Day 3}\label{day-3}}
+
+\hypertarget{day-4}{%
+\subsubsection{Day 4}\label{day-4}}
+
+\hypertarget{computing}{%
+\section{Computing}\label{computing}}
+
+\hypertarget{who-should-register}{%
+\section{Who Should Register?}\label{who-should-register}}
+
+\hypertarget{further-resources}{%
+\section{Further Resources}\label{further-resources}}
+
+\hypertarget{glossary-intro}{%
+\section{Glossary}\label{glossary-intro}}
+
+\hypertarget{first-app}{%
+\chapter{Your First Shiny App}\label{first-app}}
+
+Placeholder
+
+\hypertarget{the-demo-app}{%
+\section{The Demo App}\label{the-demo-app}}
+
+\hypertarget{set-up-the-demo-app}{%
+\subsection{Set Up the Demo App}\label{set-up-the-demo-app}}
+
+\hypertarget{modify-the-demo-app}{%
+\subsection{Modify the Demo App}\label{modify-the-demo-app}}
+
+\hypertarget{add-new-things}{%
+\subsection{Add New Things}\label{add-new-things}}
+
+\hypertarget{overview-of-the-uiserver-structure}{%
+\section{Overview of the UI/server structure}\label{overview-of-the-uiserver-structure}}
+
+\hypertarget{ui}{%
+\subsection{UI}\label{ui}}
+
+\hypertarget{tags}{%
+\subsubsection{Tags}\label{tags}}
+
+\hypertarget{page-layout}{%
+\subsubsection{Page Layout}\label{page-layout}}
+
+\hypertarget{inputs-outputs-and-action-buttons}{%
+\section{Inputs, outputs, and action buttons}\label{inputs-outputs-and-action-buttons}}
+
+\hypertarget{inputs-intro}{%
+\subsection{Inputs}\label{inputs-intro}}
+
+\hypertarget{outputs-intro}{%
+\subsection{Outputs}\label{outputs-intro}}
+
+\hypertarget{action-buttons}{%
+\subsection{Action buttons}\label{action-buttons}}
+
+\hypertarget{reactive-functions}{%
+\section{Reactive functions}\label{reactive-functions}}
+
+\hypertarget{glossary-first-app}{%
+\section{Glossary}\label{glossary-first-app}}
+
+\hypertarget{exercises-first-app}{%
+\section{Exercises}\label{exercises-first-app}}
+
+\hypertarget{addition-app}{%
+\subsection{1. Addition App}\label{addition-app}}
+
+\hypertarget{shinydashboard}{%
+\chapter{ShinyDashboard}\label{shinydashboard}}
+
+\hypertarget{basic-template-for-shinydashboard-projects}{%
+\section{Basic template for shinydashboard projects}\label{basic-template-for-shinydashboard-projects}}
+
+\hypertarget{sidebar-menu-navigation-and-tabs}{%
+\section{Sidebar, menu navigation, and tabs}\label{sidebar-menu-navigation-and-tabs}}
+
+\hypertarget{row--and-column-based-layouts}{%
+\section{Row- and column-based layouts}\label{row--and-column-based-layouts}}
+
+\hypertarget{glossary-shinydashboard}{%
+\section{Glossary}\label{glossary-shinydashboard}}
+
+\hypertarget{inputs}{%
+\chapter{Inputs}\label{inputs}}
+
+Placeholder
+
+\hypertarget{input-functions}{%
+\section{Input functions}\label{input-functions}}
+
+\hypertarget{textinput}{%
+\subsection{textInput}\label{textinput}}
+
+\hypertarget{textareainput}{%
+\subsection{textAreaInput}\label{textareainput}}
+
+\hypertarget{selectinput}{%
+\subsection{selectInput}\label{selectinput}}
+
+\hypertarget{checkboxgroupinput}{%
+\subsection{checkboxGroupInput}\label{checkboxgroupinput}}
+
+\hypertarget{checkboxinput}{%
+\subsection{checkboxInput}\label{checkboxinput}}
+
+\hypertarget{setting-inputs-programatically}{%
+\section{Setting inputs programatically}\label{setting-inputs-programatically}}
+
+\hypertarget{glossary-inputs}{%
+\section{Glossary}\label{glossary-inputs}}
+
+\hypertarget{outputa}{%
+\chapter{Outputs}\label{outputa}}
+
+Placeholder
+
+\hypertarget{textoutput}{%
+\subsection{textOutput}\label{textoutput}}
+
+\hypertarget{uioutput}{%
+\subsection{uiOutput}\label{uioutput}}
+
+\hypertarget{plotoutput}{%
+\subsection{plotOutput}\label{plotoutput}}
+
+\hypertarget{imageoutput}{%
+\subsection{imageOutput}\label{imageoutput}}
+
+\hypertarget{tableoutput}{%
+\subsection{tableOutput}\label{tableoutput}}
+
+\hypertarget{datatableoutput}{%
+\subsection{dataTableOutput}\label{datatableoutput}}
+
+\hypertarget{glossary-outputs}{%
+\section{Glossary}\label{glossary-outputs}}
+
+\hypertarget{data}{%
+\chapter{Reading and saving data}\label{data}}
+
+Placeholder
+
+\hypertarget{local-data}{%
+\section{Local Data}\label{local-data}}
+
+\hypertarget{google_sheets}{%
+\section{Google Sheets}\label{google_sheets}}
+
+\hypertarget{authorisation-for-apps}{%
+\subsection{Authorisation for Apps}\label{authorisation-for-apps}}
+
+\hypertarget{accessing-an-existing-sheet}{%
+\subsection{Accessing an existing sheet}\label{accessing-an-existing-sheet}}
+
+\hypertarget{make-a-new-sheet}{%
+\subsection{Make a new sheet}\label{make-a-new-sheet}}
+
+\hypertarget{add-data}{%
+\subsection{Add data}\label{add-data}}
+
+\hypertarget{appending-data}{%
+\subsection{Appending data}\label{appending-data}}
+
+\hypertarget{glossary-data}{%
+\section{Glossary}\label{glossary-data}}
+
+\hypertarget{reactives}{%
+\chapter{Reactive functions}\label{reactives}}
+
+\textbackslash begin\{figure\}
+
+\{\centering \href{https://shiny.psy.gla.ac.uk/debruine/add_demo/}{\includegraphics[width=1\linewidth]{06_reactive_files/figure-latex/add-demo-app-1} }
+
+\hypertarget{glossary-reactives}{%
+\section{Glossary}\label{glossary-reactives}}
+
+\hypertarget{web}{%
+\chapter{CSS, HTML, and Javascript}\label{web}}
+
+\hypertarget{glossary-web}{%
+\section{Glossary}\label{glossary-web}}
+
+\hypertarget{structure}{%
+\chapter{Structuring a complex app}\label{structure}}
+
+\hypertarget{glossary-structure}{%
+\section{Glossary}\label{glossary-structure}}
+
+\hypertarget{debugging}{%
+\chapter{Debugging and error handling}\label{debugging}}
+
+Placeholder
+
+\hypertarget{rstudio-console-messages}{%
+\section{RStudio Console Messages}\label{rstudio-console-messages}}
+
+\hypertarget{javascript-console}{%
+\section{JavaScript Console}\label{javascript-console}}
+
+\hypertarget{showcase-mode}{%
+\section{Showcase Mode}\label{showcase-mode}}
+
+\hypertarget{trycatch}{%
+\section{tryCatch}\label{trycatch}}
+
+\hypertarget{glossary-debugging}{%
+\section{Glossary}\label{glossary-debugging}}
+
+\hypertarget{contingency}{%
+\chapter{Contingent Display}\label{contingency}}
+
+\hypertarget{glossary-contingency}{%
+\section{Glossary}\label{glossary-contingency}}
+
+\hypertarget{sharing}{%
+\chapter{Sharing your Apps}\label{sharing}}
+
+Placeholder
+
+\hypertarget{shinyapps.io}{%
+\section{shinyapps.io}\label{shinyapps.io}}
+
+\hypertarget{self-hosting-a-shiny-server}{%
+\section{Self-hosting a shiny server}\label{self-hosting-a-shiny-server}}
+
+\hypertarget{github}{%
+\section{GitHub}\label{github}}
+
+\hypertarget{in-an-r-package}{%
+\section{In an R package}\label{in-an-r-package}}
+
+\hypertarget{glossary-sharing}{%
+\section{Glossary}\label{glossary-sharing}}
+
+\hypertarget{exercises-sharing}{%
+\section{Exercises}\label{exercises-sharing}}
+
+\hypertarget{shinyapps.io-1}{%
+\subsection{1. Shinyapps.io}\label{shinyapps.io-1}}
+
+\hypertarget{reports}{%
+\chapter{Customized reports}\label{reports}}
+
+\hypertarget{glossary-reports}{%
+\section{Glossary}\label{glossary-reports}}
+
+\hypertarget{modules}{%
+\chapter{Shiny modules for repeated structures}\label{modules}}
+
+Placeholder
+
+\hypertarget{modularizing-the-ui}{%
+\section{Modularizing the UI}\label{modularizing-the-ui}}
+
+\hypertarget{modularizing-server-functions}{%
+\section{Modularizing server functions}\label{modularizing-server-functions}}
+
+\hypertarget{glossary-modules}{%
+\section{Glossary}\label{glossary-modules}}
+
+\hypertarget{exercises-modules}{%
+\section{Exercises}\label{exercises-modules}}
+
+\hypertarget{repeat-example}{%
+\subsection{1. Repeat Example}\label{repeat-example}}
+
+\hypertarget{new-instance}{%
+\subsection{2. New Instance}\label{new-instance}}
+
+\hypertarget{altering-modules}{%
+\subsection{3. Altering modules}\label{altering-modules}}
+
+\hypertarget{new-module}{%
+\subsection{4. New module}\label{new-module}}
+
+\hypertarget{appendix-appendices}{%
+\appendix}
+
+
+\hypertarget{installing-r}{%
+\chapter{\texorpdfstring{Installing \texttt{R}}{Installing R}}\label{installing-r}}
+
+Installing R and RStudio is usually straightforward. The sections below explain how and \href{https://www.youtube.com/watch?v=lVKMsaWju8w}{there is a helpful YouTube video here}.
+
+\hypertarget{installing-base-r}{%
+\section{Installing Base R}\label{installing-base-r}}
+
+Install base R from \url{https://cran.rstudio.com/}. Choose the download link for your operating system (Linux, Mac OS X, or Windows).
+
+If you have a Mac, install the latest release from the newest \texttt{R-x.x.x.pkg} link (or a legacy version if you have an older operating system). After you install R, you should also install \href{http://xquartz.macosforge.org/}{XQuartz} to be able to use some visualisation packages.
+
+If you are installing the Windows version, choose the ``\href{https://cran.rstudio.com/bin/windows/base/}{base}'' subdirectory and click on the download link at the top of the page. After you install R, you should also install \href{https://cran.rstudio.com/bin/windows/Rtools/}{RTools}; use the ``recommended'' version highlighted near the top of the list.
+
+If you are using Linux, choose your specific operating system and follow the installation instructions.
+
+\hypertarget{installing-rstudio}{%
+\section{Installing RStudio}\label{installing-rstudio}}
+
+Go to \href{https://www.rstudio.com/products/rstudio/download/\#download}{rstudio.com} and download the RStudio Desktop (Open Source License) version for your operating system under the list titled \textbf{Installers for Supported Platforms}.
+
+\hypertarget{installing-latex}{%
+\section{Installing LaTeX}\label{installing-latex}}
+
+You can install the LaTeX typesetting system to produce PDF reports from RStudio. Without this additional installation, you will be able to produce reports in HTML but not PDF. To generate PDF reports, you will additionally need:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{http://pandoc.org/installing.html}{pandoc}, and
+\item
+  LaTeX, a typesetting language, available for
+
+  \begin{itemize}
+  \tightlist
+  \item
+    WINDOWS: \href{http://miktex.org/}{MikTeX}
+  \item
+    Mac OS: \href{https://tug.org/mactex/downloading.html}{MacTex} (3.2GB download) or \href{http://ww.tug.org/mactex/morepackages.html}{BasicTeX} (78MB download, but should work fine)
+  \item
+    Linux: \href{https://www.tug.org/texlive/}{TeX Live}
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{setup-git}{%
+\chapter{Git and GitHub}\label{setup-git}}
+
+Placeholder
+
+\hypertarget{get-a-github-account}{%
+\section{Get a GitHub account}\label{get-a-github-account}}
+
+\hypertarget{set-up-rstudio}{%
+\section{Set up RStudio}\label{set-up-rstudio}}
+
+\hypertarget{install-git}{%
+\subsection{Install git}\label{install-git}}
+
+\hypertarget{enable-version-control-in-rstudio}{%
+\subsection{Enable version control in RStudio}\label{enable-version-control-in-rstudio}}
+
+\hypertarget{github-info}{%
+\section{Set your GitHub info}\label{github-info}}
+
+\hypertarget{create-an-ssh-key-on-rstudio}{%
+\section{Create an SSH Key on RStudio}\label{create-an-ssh-key-on-rstudio}}
+
+\hypertarget{create-an-ssh-key-on-github}{%
+\section{Create an SSH Key on GitHub}\label{create-an-ssh-key-on-github}}
+
+\hypertarget{symbols}{%
+\chapter{Symbols}\label{symbols}}
+
+Placeholder
+
+  \bibliography{book.bib,packages.bib}
+
+\end{document}

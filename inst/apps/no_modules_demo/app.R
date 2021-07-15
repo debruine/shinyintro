@@ -2,6 +2,7 @@
 suppressPackageStartupMessages({
     library(shiny)
     library(shinydashboard)
+    library(shinyjs)
     library(ggplot2)
     library(DT)
 })

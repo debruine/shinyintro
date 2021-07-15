@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 CSS, HTML, and Javascript | Building Web Apps with R Shiny</title>
+  <title>Chapter 7 HTML, CSS, and JavaScript | Building Web Apps with R Shiny</title>
   <meta name="description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 CSS, HTML, and Javascript | Building Web Apps with R Shiny" />
+  <meta property="og:title" content="Chapter 7 HTML, CSS, and JavaScript | Building Web Apps with R Shiny" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 CSS, HTML, and Javascript | Building Web Apps with R Shiny" />
+  <meta name="twitter:title" content="Chapter 7 HTML, CSS, and JavaScript | Building Web Apps with R Shiny" />
   
   <meta name="twitter:description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Lisa DeBruine" />
 
 
-<meta name="date" content="2021-07-11" />
+<meta name="date" content="2021-07-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -177,19 +177,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3.2" data-path="first-app.html"><a href="first-app.html#outputs-intro"><i class="fa fa-check"></i><b>1.3.2</b> Outputs</a></li>
 <li class="chapter" data-level="1.3.3" data-path="first-app.html"><a href="first-app.html#action-buttons"><i class="fa fa-check"></i><b>1.3.3</b> Action buttons</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="first-app.html"><a href="first-app.html#reactive-functions"><i class="fa fa-check"></i><b>1.4</b> Reactive functions</a></li>
-<li class="chapter" data-level="1.5" data-path="first-app.html"><a href="first-app.html#glossary-first-app"><i class="fa fa-check"></i><b>1.5</b> Glossary</a></li>
-<li class="chapter" data-level="1.6" data-path="first-app.html"><a href="first-app.html#exercises-first-app"><i class="fa fa-check"></i><b>1.6</b> Exercises</a>
+<li class="chapter" data-level="1.4" data-path="first-app.html"><a href="first-app.html#first-reactive"><i class="fa fa-check"></i><b>1.4</b> Reactive functions</a></li>
+<li class="chapter" data-level="1.5" data-path="first-app.html"><a href="first-app.html#resources-first-app"><i class="fa fa-check"></i><b>1.5</b> Further Resources</a></li>
+<li class="chapter" data-level="1.6" data-path="first-app.html"><a href="first-app.html#glossary-first-app"><i class="fa fa-check"></i><b>1.6</b> Glossary</a></li>
+<li class="chapter" data-level="1.7" data-path="first-app.html"><a href="first-app.html#exercises-first-app"><i class="fa fa-check"></i><b>1.7</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="1.6.1" data-path="first-app.html"><a href="first-app.html#addition-app"><i class="fa fa-check"></i><b>1.6.1</b> 1. Addition App</a></li>
+<li class="chapter" data-level="1.7.1" data-path="first-app.html"><a href="first-app.html#addition-app---ui"><i class="fa fa-check"></i><b>1.7.1</b> Addition App - UI</a></li>
+<li class="chapter" data-level="1.7.2" data-path="first-app.html"><a href="first-app.html#observeevent"><i class="fa fa-check"></i><b>1.7.2</b> observeEvent</a></li>
+<li class="chapter" data-level="1.7.3" data-path="first-app.html"><a href="first-app.html#reactive"><i class="fa fa-check"></i><b>1.7.3</b> reactive</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="shinydashboard.html"><a href="shinydashboard.html"><i class="fa fa-check"></i><b>2</b> ShinyDashboard</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="shinydashboard.html"><a href="shinydashboard.html#basic-template-for-shinydashboard-projects"><i class="fa fa-check"></i><b>2.1</b> Basic template for shinydashboard projects</a></li>
-<li class="chapter" data-level="2.2" data-path="shinydashboard.html"><a href="shinydashboard.html#sidebar-menu-navigation-and-tabs"><i class="fa fa-check"></i><b>2.2</b> Sidebar, menu navigation, and tabs</a></li>
-<li class="chapter" data-level="2.3" data-path="shinydashboard.html"><a href="shinydashboard.html#row--and-column-based-layouts"><i class="fa fa-check"></i><b>2.3</b> Row- and column-based layouts</a></li>
-<li class="chapter" data-level="2.4" data-path="shinydashboard.html"><a href="shinydashboard.html#glossary-shinydashboard"><i class="fa fa-check"></i><b>2.4</b> Glossary</a></li>
+<li class="chapter" data-level="2.2" data-path="shinydashboard.html"><a href="shinydashboard.html#dashboard-structure"><i class="fa fa-check"></i><b>2.2</b> Dashboard Structure</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="shinydashboard.html"><a href="shinydashboard.html#dashboardheader"><i class="fa fa-check"></i><b>2.2.1</b> dashboardHeader</a></li>
+<li class="chapter" data-level="2.2.2" data-path="shinydashboard.html"><a href="shinydashboard.html#dashboardsidebar"><i class="fa fa-check"></i><b>2.2.2</b> dashboardSidebar</a></li>
+<li class="chapter" data-level="2.2.3" data-path="shinydashboard.html"><a href="shinydashboard.html#dashboardbody"><i class="fa fa-check"></i><b>2.2.3</b> dashboardBody</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="shinydashboard.html"><a href="shinydashboard.html#body-structure"><i class="fa fa-check"></i><b>2.3</b> Body Structure</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="shinydashboard.html"><a href="shinydashboard.html#boxes"><i class="fa fa-check"></i><b>2.3.1</b> Boxes</a></li>
+<li class="chapter" data-level="2.3.2" data-path="shinydashboard.html"><a href="shinydashboard.html#info-and-value-boxes"><i class="fa fa-check"></i><b>2.3.2</b> Info and Value Boxes</a></li>
+<li class="chapter" data-level="2.3.3" data-path="shinydashboard.html"><a href="shinydashboard.html#tab-boxes"><i class="fa fa-check"></i><b>2.3.3</b> Tab Boxes</a></li>
+<li class="chapter" data-level="2.3.4" data-path="shinydashboard.html"><a href="shinydashboard.html#row-layout"><i class="fa fa-check"></i><b>2.3.4</b> Row Layout</a></li>
+<li class="chapter" data-level="2.3.5" data-path="shinydashboard.html"><a href="shinydashboard.html#column-layout"><i class="fa fa-check"></i><b>2.3.5</b> Column Layout</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="shinydashboard.html"><a href="shinydashboard.html#resources-shinydashboard"><i class="fa fa-check"></i><b>2.4</b> Further Resources</a></li>
+<li class="chapter" data-level="2.5" data-path="shinydashboard.html"><a href="shinydashboard.html#glossary-shinydashboard"><i class="fa fa-check"></i><b>2.5</b> Glossary</a></li>
+<li class="chapter" data-level="2.6" data-path="shinydashboard.html"><a href="shinydashboard.html#exercises-shinydashboard"><i class="fa fa-check"></i><b>2.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="shinydashboard.html"><a href="shinydashboard.html#create-an-app-from-the-basic-template"><i class="fa fa-check"></i><b>2.6.1</b> Create an app from the basic template</a></li>
+<li class="chapter" data-level="2.6.2" data-path="shinydashboard.html"><a href="shinydashboard.html#customise-the-header"><i class="fa fa-check"></i><b>2.6.2</b> Customise the header</a></li>
+<li class="chapter" data-level="2.6.3" data-path="shinydashboard.html"><a href="shinydashboard.html#customise-the-sidebar"><i class="fa fa-check"></i><b>2.6.3</b> Customise the sidebar</a></li>
+<li class="chapter" data-level="2.6.4" data-path="shinydashboard.html"><a href="shinydashboard.html#customise-the-body"><i class="fa fa-check"></i><b>2.6.4</b> Customise the body</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="inputs.html"><a href="inputs.html"><i class="fa fa-check"></i><b>3</b> Inputs</a>
 <ul>
@@ -200,9 +223,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.3" data-path="inputs.html"><a href="inputs.html#selectinput"><i class="fa fa-check"></i><b>3.1.3</b> selectInput</a></li>
 <li class="chapter" data-level="3.1.4" data-path="inputs.html"><a href="inputs.html#checkboxgroupinput"><i class="fa fa-check"></i><b>3.1.4</b> checkboxGroupInput</a></li>
 <li class="chapter" data-level="3.1.5" data-path="inputs.html"><a href="inputs.html#checkboxinput"><i class="fa fa-check"></i><b>3.1.5</b> checkboxInput</a></li>
-<li class="chapter" data-level="3.1.6" data-path="inputs.html"><a href="inputs.html#setting-inputs-programatically"><i class="fa fa-check"></i><b>3.1.6</b> Setting inputs programatically</a></li>
+<li class="chapter" data-level="3.1.6" data-path="inputs.html"><a href="inputs.html#radiobuttons"><i class="fa fa-check"></i><b>3.1.6</b> radioButtons</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="inputs.html"><a href="inputs.html#glossary-inputs"><i class="fa fa-check"></i><b>3.2</b> Glossary</a></li>
+<li class="chapter" data-level="3.2" data-path="inputs.html"><a href="inputs.html#setting-inputs-programatically"><i class="fa fa-check"></i><b>3.2</b> Setting inputs programatically</a></li>
+<li class="chapter" data-level="3.3" data-path="inputs.html"><a href="inputs.html#glossary-inputs"><i class="fa fa-check"></i><b>3.3</b> Glossary</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="outputa.html"><a href="outputa.html"><i class="fa fa-check"></i><b>4</b> Outputs</a>
 <ul>
@@ -229,15 +253,67 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="reactives.html"><a href="reactives.html"><i class="fa fa-check"></i><b>6</b> Reactive functions</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="reactives.html"><a href="reactives.html#glossary-reactives"><i class="fa fa-check"></i><b>6.1</b> Glossary</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="web.html"><a href="web.html"><i class="fa fa-check"></i><b>7</b> CSS, HTML, and Javascript</a>
+<li class="chapter" data-level="6.1" data-path="reactives.html"><a href="reactives.html#observeevent-1"><i class="fa fa-check"></i><b>6.1</b> observeEvent()</a></li>
+<li class="chapter" data-level="6.2" data-path="reactives.html"><a href="reactives.html#render-functions"><i class="fa fa-check"></i><b>6.2</b> Render functions</a></li>
+<li class="chapter" data-level="6.3" data-path="reactives.html"><a href="reactives.html#reactive-1"><i class="fa fa-check"></i><b>6.3</b> reactive()</a></li>
+<li class="chapter" data-level="6.4" data-path="reactives.html"><a href="reactives.html#eventreactive"><i class="fa fa-check"></i><b>6.4</b> eventReactive()</a></li>
+<li class="chapter" data-level="6.5" data-path="reactives.html"><a href="reactives.html#reactiveval"><i class="fa fa-check"></i><b>6.5</b> reactiveVal()</a></li>
+<li class="chapter" data-level="6.6" data-path="reactives.html"><a href="reactives.html#reactivevalue"><i class="fa fa-check"></i><b>6.6</b> reactiveValue()</a></li>
+<li class="chapter" data-level="6.7" data-path="reactives.html"><a href="reactives.html#isolate"><i class="fa fa-check"></i><b>6.7</b> isolate()</a></li>
+<li class="chapter" data-level="6.8" data-path="reactives.html"><a href="reactives.html#further-resources-resources-reactive"><i class="fa fa-check"></i><b>6.8</b> Further Resources {#resources-reactive)</a></li>
+<li class="chapter" data-level="6.9" data-path="reactives.html"><a href="reactives.html#glossary-reactives"><i class="fa fa-check"></i><b>6.9</b> Glossary</a></li>
+<li class="chapter" data-level="6.10" data-path="reactives.html"><a href="reactives.html#exercises-reactive"><i class="fa fa-check"></i><b>6.10</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="web.html"><a href="web.html#glossary-web"><i class="fa fa-check"></i><b>7.1</b> Glossary</a></li>
+<li class="chapter" data-level="6.10.1" data-path="reactives.html"><a href="reactives.html#observeevent-2"><i class="fa fa-check"></i><b>6.10.1</b> observeEvent</a></li>
+<li class="chapter" data-level="6.10.2" data-path="reactives.html"><a href="reactives.html#render"><i class="fa fa-check"></i><b>6.10.2</b> render</a></li>
+<li class="chapter" data-level="6.10.3" data-path="reactives.html"><a href="reactives.html#reactive-2"><i class="fa fa-check"></i><b>6.10.3</b> reactive</a></li>
+<li class="chapter" data-level="6.10.4" data-path="reactives.html"><a href="reactives.html#eventreactive-1"><i class="fa fa-check"></i><b>6.10.4</b> eventReactive</a></li>
+<li class="chapter" data-level="6.10.5" data-path="reactives.html"><a href="reactives.html#reactiveval-1"><i class="fa fa-check"></i><b>6.10.5</b> reactiveVal</a></li>
+<li class="chapter" data-level="6.10.6" data-path="reactives.html"><a href="reactives.html#reactivevalues"><i class="fa fa-check"></i><b>6.10.6</b> reactiveValues</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="web.html"><a href="web.html"><i class="fa fa-check"></i><b>7</b> HTML, CSS, and JavaScript</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="web.html"><a href="web.html#html"><i class="fa fa-check"></i><b>7.1</b> HTML</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="web.html"><a href="web.html#html-tags"><i class="fa fa-check"></i><b>7.1.1</b> HTML Tags</a></li>
+<li class="chapter" data-level="7.1.2" data-path="web.html"><a href="web.html#viewing-html"><i class="fa fa-check"></i><b>7.1.2</b> Viewing HTML</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="web.html"><a href="web.html#css"><i class="fa fa-check"></i><b>7.2</b> CSS</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="web.html"><a href="web.html#css-basics"><i class="fa fa-check"></i><b>7.2.1</b> CSS Basics</a></li>
+<li class="chapter" data-level="7.2.2" data-path="web.html"><a href="web.html#styling-a-single-element"><i class="fa fa-check"></i><b>7.2.2</b> Styling a single element</a></li>
+<li class="chapter" data-level="7.2.3" data-path="web.html"><a href="web.html#inline-css"><i class="fa fa-check"></i><b>7.2.3</b> Inline CSS</a></li>
+<li class="chapter" data-level="7.2.4" data-path="web.html"><a href="web.html#external-css"><i class="fa fa-check"></i><b>7.2.4</b> External CSS</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="web.html"><a href="web.html#javascript"><i class="fa fa-check"></i><b>7.3</b> JavaScript</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="web.html"><a href="web.html#shinyjs"><i class="fa fa-check"></i><b>7.3.1</b> shinyjs</a></li>
+<li class="chapter" data-level="7.3.2" data-path="web.html"><a href="web.html#external-js"><i class="fa fa-check"></i><b>7.3.2</b> External JS</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="web.html"><a href="web.html#resources-web"><i class="fa fa-check"></i><b>7.4</b> Further Resources</a></li>
+<li class="chapter" data-level="7.5" data-path="web.html"><a href="web.html#glossary-web"><i class="fa fa-check"></i><b>7.5</b> Glossary</a></li>
+<li class="chapter" data-level="7.6" data-path="web.html"><a href="web.html#exercises-web"><i class="fa fa-check"></i><b>7.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="web.html"><a href="web.html#add-html"><i class="fa fa-check"></i><b>7.6.1</b> Add HTML</a></li>
+<li class="chapter" data-level="7.6.2" data-path="web.html"><a href="web.html#class-html"><i class="fa fa-check"></i><b>7.6.2</b> Class HTML</a></li>
+<li class="chapter" data-level="7.6.3" data-path="web.html"><a href="web.html#style-links"><i class="fa fa-check"></i><b>7.6.3</b> Style links</a></li>
+<li class="chapter" data-level="7.6.4" data-path="web.html"><a href="web.html#style-a-single-link-directly"><i class="fa fa-check"></i><b>7.6.4</b> Style a single link directly</a></li>
+<li class="chapter" data-level="7.6.5" data-path="web.html"><a href="web.html#external-css-1"><i class="fa fa-check"></i><b>7.6.5</b> External CSS</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="structure.html"><a href="structure.html"><i class="fa fa-check"></i><b>8</b> Structuring a complex app</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="structure.html"><a href="structure.html#glossary-structure"><i class="fa fa-check"></i><b>8.1</b> Glossary</a></li>
+<li class="chapter" data-level="8.1" data-path="structure.html"><a href="structure.html#external-functions"><i class="fa fa-check"></i><b>8.1</b> External Functions</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="structure.html"><a href="structure.html#sourcing-locally"><i class="fa fa-check"></i><b>8.1.1</b> Sourcing Locally</a></li>
+<li class="chapter" data-level="8.1.2" data-path="structure.html"><a href="structure.html#inputs-and-outputs"><i class="fa fa-check"></i><b>8.1.2</b> Inputs and Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="structure.html"><a href="structure.html#external-ui"><i class="fa fa-check"></i><b>8.2</b> External UI</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="structure.html"><a href="structure.html#ui-lists"><i class="fa fa-check"></i><b>8.2.1</b> UI Lists</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="structure.html"><a href="structure.html#glossary-structure"><i class="fa fa-check"></i><b>8.3</b> Glossary</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="debugging.html"><a href="debugging.html"><i class="fa fa-check"></i><b>9</b> Debugging and error handling</a>
 <ul>
@@ -245,7 +321,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2" data-path="debugging.html"><a href="debugging.html#javascript-console"><i class="fa fa-check"></i><b>9.2</b> JavaScript Console</a></li>
 <li class="chapter" data-level="9.3" data-path="debugging.html"><a href="debugging.html#showcase-mode"><i class="fa fa-check"></i><b>9.3</b> Showcase Mode</a></li>
 <li class="chapter" data-level="9.4" data-path="debugging.html"><a href="debugging.html#trycatch"><i class="fa fa-check"></i><b>9.4</b> tryCatch</a></li>
-<li class="chapter" data-level="9.5" data-path="debugging.html"><a href="debugging.html#glossary-debugging"><i class="fa fa-check"></i><b>9.5</b> Glossary</a></li>
+<li class="chapter" data-level="9.5" data-path="debugging.html"><a href="debugging.html#input-checking"><i class="fa fa-check"></i><b>9.5</b> Input Checking</a></li>
+<li class="chapter" data-level="9.6" data-path="debugging.html"><a href="debugging.html#glossary-debugging"><i class="fa fa-check"></i><b>9.6</b> Glossary</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="contingency.html"><a href="contingency.html"><i class="fa fa-check"></i><b>10</b> Contingent Display</a>
 <ul>
@@ -260,7 +337,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.5" data-path="sharing.html"><a href="sharing.html#glossary-sharing"><i class="fa fa-check"></i><b>11.5</b> Glossary</a></li>
 <li class="chapter" data-level="11.6" data-path="sharing.html"><a href="sharing.html#exercises-sharing"><i class="fa fa-check"></i><b>11.6</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="11.6.1" data-path="sharing.html"><a href="sharing.html#shinyapps.io-1"><i class="fa fa-check"></i><b>11.6.1</b> 1. Shinyapps.io</a></li>
+<li class="chapter" data-level="11.6.1" data-path="sharing.html"><a href="sharing.html#shinyapps.io-1"><i class="fa fa-check"></i><b>11.6.1</b> Shinyapps.io</a></li>
+<li class="chapter" data-level="11.6.2" data-path="sharing.html"><a href="sharing.html#github-1"><i class="fa fa-check"></i><b>11.6.2</b> GitHub</a></li>
+<li class="chapter" data-level="11.6.3" data-path="sharing.html"><a href="sharing.html#r-package"><i class="fa fa-check"></i><b>11.6.3</b> R Package</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="reports.html"><a href="reports.html"><i class="fa fa-check"></i><b>12</b> Customized reports</a>
@@ -325,10 +404,370 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="web" class="section level1" number="7">
-<h1><span class="header-section-number">Chapter 7</span> CSS, HTML, and Javascript</h1>
-<div id="glossary-web" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> Glossary</h2>
+<h1><span class="header-section-number">Chapter 7</span> HTML, CSS, and JavaScript</h1>
+<p>You don’t need to know anything about HTML, CSS and JavaScript to make basic Shiny apps, but a little knowledge can really help you customise your apps. This chapter will cover some of the basics so you have enough vocabulary to get started.</p>
+<div id="html" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> HTML</h2>
+<p><a class='glossary' target='_blank' title='Hyper-Text Markup Language: A system for semantically tagging structure and information on web pages.' href='https://psyteachr.github.io/glossary/h#html'>HTML</a> stands for Hyper-Text Markup Language, a system for semantically tagging structure and information on web pages. The term “semantically” is important here; HTML should tell you <strong>what</strong> something is, not <strong>how</strong> to display it (that’s handled by CSS). This separation helps your apps be accessible to people who use screen readers.</p>
+<div id="html-tags" class="section level3" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> HTML Tags</h3>
+<p>We learned about the <code>tags()</code> function in <a href="first-app.html#tags">Chapter 1</a> and how it is linked to <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/t#tags-html'>HTML tags</a>. For example, the R code <code>tags$h2("Methods")</code> creates the HTML <code>&lt;h2&gt;Methods&lt;/h2&gt;</code>. It surrounds the text content with a starting tag <code>&lt;h2&gt;</code> and an ending tag <code>&lt;/h2&gt;</code>.</p>
+<p>Tags create <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/e#element-html'>elements</a>, which can be thought of kind of like boxes. An element can contain one or more elements. Elements can have <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/a#attribute-html'>attributes</a> that provide more information such as the element’s ID or class, which can be used by CSS or JavaScript to refer to the element or a group of elements.</p>
+<p>For example, the following code creates an unordered list (<code>&lt;ul&gt;</code>) with the class “animals.” It contains three list item elements (<code>&lt;li&gt;</code>), each with its own id.</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb87-1"><a href="web.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;ul</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;animals&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb87-2"><a href="web.html#cb87-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;li</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;aardvark&quot;</span><span class="kw">&gt;</span>Aardvarks<span class="kw">&lt;/li&gt;</span></span>
+<span id="cb87-3"><a href="web.html#cb87-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;li</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;bee&quot;</span><span class="kw">&gt;</span>Bees<span class="kw">&lt;/li&gt;</span></span>
+<span id="cb87-4"><a href="web.html#cb87-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;li</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;capybara&quot;</span><span class="kw">&gt;</span>Capybaras<span class="kw">&lt;/li&gt;</span></span>
+<span id="cb87-5"><a href="web.html#cb87-5" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/ul&gt;</span></span></code></pre></div>
+<p>You seldom <em>have to</em> write HTML directly in Shiny, but if you have experience with HTML, it can sometimes be easier to create something in HTML than with the relevant Shiny functions. For example, the code above in Shiny would be:</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="web.html#cb88-1" aria-hidden="true" tabindex="-1"></a>tags<span class="sc">$</span><span class="fu">ul</span>(<span class="at">class =</span> <span class="st">&quot;animals&quot;</span>,</span>
+<span id="cb88-2"><a href="web.html#cb88-2" aria-hidden="true" tabindex="-1"></a>        tags<span class="sc">$</span><span class="fu">li</span>(<span class="st">&quot;aardvark&quot;</span>, <span class="st">&quot;Aardvark&quot;</span>),</span>
+<span id="cb88-3"><a href="web.html#cb88-3" aria-hidden="true" tabindex="-1"></a>        tags<span class="sc">$</span><span class="fu">li</span>(<span class="st">&quot;bee&quot;</span>, <span class="st">&quot;Bee&quot;</span>),</span>
+<span id="cb88-4"><a href="web.html#cb88-4" aria-hidden="true" tabindex="-1"></a>        tags<span class="sc">$</span><span class="fu">li</span>(<span class="st">&quot;capybara&quot;</span>, <span class="st">&quot;Capybara&quot;</span>)</span>
+<span id="cb88-5"><a href="web.html#cb88-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>Alternatively, you can use <code>HTML()</code> to include raw HTML in a ui function.</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="web.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">HTML</span>(<span class="st">&#39;&lt;ul class=&quot;animals&quot;&gt;</span></span>
+<span id="cb89-2"><a href="web.html#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="st">    &lt;li id=&quot;aardvark&quot;&gt;Aardvarks&lt;/li&gt;</span></span>
+<span id="cb89-3"><a href="web.html#cb89-3" aria-hidden="true" tabindex="-1"></a><span class="st">    &lt;li id=&quot;bee&quot;&gt;Bees&lt;/li&gt;</span></span>
+<span id="cb89-4"><a href="web.html#cb89-4" aria-hidden="true" tabindex="-1"></a><span class="st">    &lt;li id=&quot;capybara&quot;&gt;Capybaras&lt;/li&gt;</span></span>
+<span id="cb89-5"><a href="web.html#cb89-5" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/ul&gt;&#39;</span>)</span></code></pre></div>
+</div>
+<div id="viewing-html" class="section level3" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Viewing HTML</h3>
+<p>But the main reason for you to learn a little about HTML is that it can help you to customise the appearance of your Shiny apps using CSS and their behaviour using JavaScript.</p>
+<p>Often, you’ll need to find out how to refer to a specific element or group of elements that were created by a shiny ui function. For example, it isn’t obvious how you’d refer to the sidebar tab for <code>x_tab</code> in the following code:</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="web.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sidebarMenu</span>(</span>
+<span id="cb90-2"><a href="web.html#cb90-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">&quot;tabs&quot;</span>,</span>
+<span id="cb90-3"><a href="web.html#cb90-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">menuItem</span>(<span class="st">&quot;Tab Title&quot;</span>, <span class="at">tabName =</span> <span class="st">&quot;x_tab&quot;</span>, <span class="at">icon =</span> <span class="fu">icon</span>(<span class="st">&quot;dragon&quot;</span>))</span>
+<span id="cb90-4"><a href="web.html#cb90-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>If you right click on the resulting app and choose “View Page Source,” you’ll (eventually) find that the code above created the HTML below.</p>
+<pre><code>&lt;ul class=&quot;sidebar-menu&quot;&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;#shiny-tab-x_tab&quot; data-toggle=&quot;tab&quot; data-value=&quot;x_tab&quot;&gt;
+      &lt;i class=&quot;fa fa-dragon&quot; role=&quot;presentation&quot; aria-label=&quot;dragon icon&quot;&gt;&lt;/i&gt;
+      &lt;span&gt;Tab Title&lt;/span&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;div id=&quot;tabs&quot; class=&quot;sidebarMenuSelectedTabItem&quot; data-value=&quot;null&quot;&gt;&lt;/div&gt;
+&lt;/ul&gt;</code></pre>
+<p>Now you know that the dragon icon is made by an italics tag (<code>&lt;i&gt;</code>) that’s inside an anchor (<code>&lt;a&gt;</code>) with the id “#shiny-tab-x_tab.” Therefore, you can change the colour of this icon using the following CSS:</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb92-1"><a href="web.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#shiny-tab-x_tab</span> i { <span class="kw">color</span>: <span class="cn">red</span><span class="op">;</span> }</span></code></pre></div>
+<p>It can be tricky to find what code you’re looking for, but developer tools can help. I use <a href="https://www.mozilla.org/en-US/firefox/developer/" target="_blank">FireFox Developer Edition</a> when I’m developing web apps, but Chrome also has developer tools. In FireFox, go to <strong><code>Tools &gt; Browser Tools &gt; Web Developer Tools</code></strong> (opt-cmd-I). In Chrome, go to <strong><code>View &gt; Developer &gt; Developer Tools</code></strong> (opt-cmd-I). You can dock the tools to the bottom, right , or left of the window, or as a separate window.</p>
+<p>Open the Inspector (FireFox) or Elements (Chrome) tab of the tools and click on the icon that looks like an arrow pointing into a box. When you hover over parts of the web page, not you will see boxes outlining each element. You can click on an element to highlight its HTML in the tools.</p>
+<div class="figure" style="text-align: center"><span id="fig:inspector"></span>
+<img src="images/inspector.png" alt="Viewing the HTML with the inspector." width="100%" />
+<p class="caption">
+Figure 7.1: Viewing the HTML with the inspector.
+</p>
+</div>
+</div>
+</div>
+<div id="css" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> CSS</h2>
+<p><a class='glossary' target='_blank' title='Cascading Style Sheet: A system for controlling the visual presentation of HTML in web pages.' href='https://psyteachr.github.io/glossary/c#css'>CSS</a> stands for Cascading Style Sheets and is a way to control the visual presentation of HTML on web pages. You can use CSS to change the default appearance of anything on a web page.</p>
+<div id="css-basics" class="section level3" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> CSS Basics</h3>
+<p>CSS is structured as follows:</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb93-1"><a href="web.html#cb93-1" aria-hidden="true" tabindex="-1"></a>selector { property: value<span class="op">;</span> }</span></code></pre></div>
+<p>Selectors are how you refer to the parts of the HTML you want to style. There are dozens of <a href="https://www.w3schools.com/cssref/css_selectors.asp" target="_blank">selectors</a> and they can get very complex. We’ll focus on some basic examples below.</p>
+<p>Properties are aspects of the visual style that you want to change, such as “color” (text color), “background-color,” or “border.” Values have specific formats for each property, such as “1px” or “0.5em” to describe lengths, or “red” or “#FF0000” to describe colours.</p>
+<div class="info">
+<p>There are hundreds of <a href="https://www.w3schools.com/cssref/default.asp" target="_blank">properties</a> and you can’t memorise them all. I usually Google something like “css font type” or “css underline text” and choose the first link from <a href="https://www.w3schools.com" target="_blank">ww3schools</a>.</p>
+</div>
+<p>For example, if you have HTML that looks like this:</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb94-1"><a href="web.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;ul</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;animals&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb94-2"><a href="web.html#cb94-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;li</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;aardvark&quot;</span><span class="kw">&gt;</span>Aardvarks<span class="kw">&lt;/li&gt;</span></span>
+<span id="cb94-3"><a href="web.html#cb94-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;li</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;bee&quot;</span><span class="kw">&gt;</span>Bees<span class="kw">&lt;/li&gt;</span></span>
+<span id="cb94-4"><a href="web.html#cb94-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;li</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;capybara&quot;</span><span class="kw">&gt;</span>Capybaras<span class="kw">&lt;/li&gt;</span></span>
+<span id="cb94-5"><a href="web.html#cb94-5" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/ul&gt;</span></span></code></pre></div>
+<p>You can refer to different parts of the list in many ways:</p>
+<table>
+<colgroup>
+<col width="35%" />
+<col width="64%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">CSS</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>.animals { border: 1px solid green; }</code></td>
+<td align="left">any element with the class “animals” will get a 1-pixel green border</td>
+</tr>
+<tr class="even">
+<td align="left"><code>ul.animals { border: 1px solid green; }</code></td>
+<td align="left">any unordered list with the class “animals” will get a 1-pixel green border</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>.animals li { color: blue; }</code></td>
+<td align="left">any list item element inside an element with the class “animals” will have blue text</td>
+</tr>
+<tr class="even">
+<td align="left"><code>#bee { font-style: italic; }</code></td>
+<td align="left">the element with the id “bee” will be in italics</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>.animals li + li { background-color: grey; }</code></td>
+<td align="left">inside an element with the class “animals,” any list item that follows another list item will have a grey background</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="styling-a-single-element" class="section level3" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Styling a single element</h3>
+<p>You can add styles to most elements that you make with shiny ui functions by adding an <a class='glossary' target='_blank' title='A variable that provides input to a function.' href='https://psyteachr.github.io/glossary/a#argument'>argument</a> called <code>style</code>.</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="web.html#cb95-1" aria-hidden="true" tabindex="-1"></a>tags<span class="sc">$</span><span class="fu">ul</span>(<span class="at">class =</span> <span class="st">&quot;animals&quot;</span>, <span class="at">style=</span><span class="st">&quot;width: 10em;&quot;</span>,</span>
+<span id="cb95-2"><a href="web.html#cb95-2" aria-hidden="true" tabindex="-1"></a>        tags<span class="sc">$</span><span class="fu">li</span>(<span class="st">&quot;Aardvark&quot;</span>),</span>
+<span id="cb95-3"><a href="web.html#cb95-3" aria-hidden="true" tabindex="-1"></a>        tags<span class="sc">$</span><span class="fu">li</span>(<span class="st">&quot;Bee&quot;</span>, <span class="at">style=</span><span class="st">&quot;background-color: yellow;&quot;</span>),</span>
+<span id="cb95-4"><a href="web.html#cb95-4" aria-hidden="true" tabindex="-1"></a>        tags<span class="sc">$</span><span class="fu">li</span>(<span class="st">&quot;Capybara&quot;</span>)</span>
+<span id="cb95-5"><a href="web.html#cb95-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+<div id="inline-css" class="section level3" number="7.2.3">
+<h3><span class="header-section-number">7.2.3</span> Inline CSS</h3>
+<p>You can add a small amount of CSS to an app inside the header using the style tag. The code below makes the element with the class “animal” 10em wide (<em>em</em> is a unit of size that is proportional to text size). It also makes the element with the id “bee” italic and gives it a black background with yellow text. If the element is a list item, it makes the marker a bee emoji.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="web.html#cb96-1" aria-hidden="true" tabindex="-1"></a>mystyle <span class="ot">&lt;-</span> <span class="st">&#39;</span></span>
+<span id="cb96-2"><a href="web.html#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="st">  .animal { width: 10em; }</span></span>
+<span id="cb96-3"><a href="web.html#cb96-3" aria-hidden="true" tabindex="-1"></a><span class="st">  #bee {</span></span>
+<span id="cb96-4"><a href="web.html#cb96-4" aria-hidden="true" tabindex="-1"></a><span class="st">    font-style: italic; </span></span>
+<span id="cb96-5"><a href="web.html#cb96-5" aria-hidden="true" tabindex="-1"></a><span class="st">    color: yellow;</span></span>
+<span id="cb96-6"><a href="web.html#cb96-6" aria-hidden="true" tabindex="-1"></a><span class="st">    background-color: black;</span></span>
+<span id="cb96-7"><a href="web.html#cb96-7" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
+<span id="cb96-8"><a href="web.html#cb96-8" aria-hidden="true" tabindex="-1"></a><span class="st">  li#bee::marker { content: &quot;🐝 &quot;; }</span></span>
+<span id="cb96-9"><a href="web.html#cb96-9" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span>
+<span id="cb96-10"><a href="web.html#cb96-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-11"><a href="web.html#cb96-11" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb96-12"><a href="web.html#cb96-12" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">head</span>(</span>
+<span id="cb96-13"><a href="web.html#cb96-13" aria-hidden="true" tabindex="-1"></a>    tags<span class="sc">$</span><span class="fu">style</span>(mystyle)</span>
+<span id="cb96-14"><a href="web.html#cb96-14" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb96-15"><a href="web.html#cb96-15" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">ul</span>(<span class="at">class =</span> <span class="st">&quot;animals&quot;</span>,</span>
+<span id="cb96-16"><a href="web.html#cb96-16" aria-hidden="true" tabindex="-1"></a>        tags<span class="sc">$</span><span class="fu">li</span>(<span class="st">&quot;Aardvark&quot;</span>, <span class="at">class =</span> <span class="st">&quot;aardvark&quot;</span>),</span>
+<span id="cb96-17"><a href="web.html#cb96-17" aria-hidden="true" tabindex="-1"></a>        tags<span class="sc">$</span><span class="fu">li</span>(<span class="st">&quot;Bee&quot;</span>, <span class="at">class =</span> <span class="st">&quot;bee&quot;</span>),</span>
+<span id="cb96-18"><a href="web.html#cb96-18" aria-hidden="true" tabindex="-1"></a>        tags<span class="sc">$</span><span class="fu">li</span>(<span class="st">&quot;Capybara&quot;</span>, <span class="at">class =</span> <span class="st">&quot;capybara&quot;</span>)</span>
+<span id="cb96-19"><a href="web.html#cb96-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb96-20"><a href="web.html#cb96-20" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<style>
+  .animal { width: 10em; }
+  #bee {
+    font-style: italic; 
+    color: yellow;
+    background-color: black;
+  }
+  li#bee::marker { content: "🐝 "; }
+</style>
+<ul class="animals">
+<li id="aardvark">
+Aardvarks
+</li>
+<li id="bee">
+Bees
+</li>
+<li id="capybara">
+Capybaras
+</li>
+</ul>
+</div>
+<div id="external-css" class="section level3" number="7.2.4">
+<h3><span class="header-section-number">7.2.4</span> External CSS</h3>
+<p>For anything longer than a few lines, you can see how this can get tedious. You can put all of your CSS in an external file and reference that in the header instead using <code>tags$link()</code>. The CSS file needs to be inside the <code>www</code> directory to let Shiny know that it’s meant to be included like this. The template we’re using in this class comes with a CSS file called <code>custom.css</code>.</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="web.html#cb97-1" aria-hidden="true" tabindex="-1"></a>tags<span class="sc">$</span><span class="fu">head</span>(</span>
+<span id="cb97-2"><a href="web.html#cb97-2" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">link</span>(<span class="at">rel =</span> <span class="st">&quot;stylesheet&quot;</span>, <span class="at">type =</span> <span class="st">&quot;text/css&quot;</span>, <span class="at">href =</span> <span class="st">&quot;custom.css&quot;</span>)</span>
+<span id="cb97-3"><a href="web.html#cb97-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="warning">
+<p>Sometimes when you change external files, they don’t seem to update when you test the app. This can be because of <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/c#cache'>caching</a>. You can usually solve this by reloading the app in your web browser, reloading in the web browser with the shift key pressed, stopping the app from running in RStudio with the stop sign icon and starting it up again, and, finally, restarting R.</p>
+</div>
+</div>
+</div>
+<div id="javascript" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> JavaScript</h2>
+<p><a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/j#javascript'>JavaScript</a> is a coding language that is very useful for adding dynamic behaviour to web pages. For simple apps, you don’t need to understand any JavaScript, but a little bit can be really helpful for adding advanced behaviour.</p>
+<div id="shinyjs" class="section level3" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> shinyjs</h3>
+<p>The R package shinyjs provides several ways to work with JavaScript in a Shiny app. In orde to set it up so that your server function can use shinyjs function, you need to add <code>shinyjs::useShinyjs()</code> somewhere in your ui function.</p>
+<p>Here is a list of the shinyjs functions that I find most useful (<code>id</code> refers to an element with the specified ID):</p>
+<ul>
+<li><code>hide(id)</code>: hide the element</li>
+<li><code>show(id)</code>: show the element</li>
+<li><code>toggle(id)</code>: change the visibility of the element (hide it if it’s visible, and show it if it’s not)</li>
+<li><code>alert(text)</code>: create an alert popup; this is useful for debugging</li>
+<li><code>addClass(id, class)</code>: adds a CSS class to the element</li>
+<li><code>removeClass(id, class)</code>: removes a CSS class from the element</li>
+<li><code>click(id)</code>: simulates a click on the action button</li>
+<li><code>disable(id)</code>: disable an input</li>
+<li><code>enable(id)</code>: enables an input</li>
+<li><code>reset(id)</code>: resets an input (much easier than the update* functions)</li>
+</ul>
+</div>
+<div id="external-js" class="section level3" number="7.3.2">
+<h3><span class="header-section-number">7.3.2</span> External JS</h3>
+<p>To do anything more complicated, it’s best to put your JavaScript in an external file in the <code>www</code> directory. You can include a link to this script in the header. The template we’re using in this class comes with a JavaScript file called “custom.js.”</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="web.html#cb98-1" aria-hidden="true" tabindex="-1"></a>tags<span class="sc">$</span><span class="fu">head</span>(</span>
+<span id="cb98-2"><a href="web.html#cb98-2" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">script</span>(<span class="at">src =</span> <span class="st">&quot;custom.js&quot;</span>)</span>
+<span id="cb98-3"><a href="web.html#cb98-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>Shiny apps use <a href="https://jquery.com/" target="_blank">jQuery</a>, a framework for making JavaScript easier to write. It lets you refer to elements using their CSS selectors.</p>
+<p>Here is some example code from the custom.js file in the template.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb99-1"><a href="web.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$</span>(<span class="kw">function</span>() {</span>
+<span id="cb99-2"><a href="web.html#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// send window width to shiny</span></span>
+<span id="cb99-3"><a href="web.html#cb99-3" aria-hidden="true" tabindex="-1"></a>  shiny_size <span class="op">=</span> <span class="kw">function</span>() {</span>
+<span id="cb99-4"><a href="web.html#cb99-4" aria-hidden="true" tabindex="-1"></a>    Shiny<span class="op">.</span><span class="fu">setInputValue</span>(<span class="st">&quot;window_width&quot;</span><span class="op">,</span> <span class="bu">window</span><span class="op">.</span><span class="at">innerWidth</span>)<span class="op">;</span></span>
+<span id="cb99-5"><a href="web.html#cb99-5" aria-hidden="true" tabindex="-1"></a>    Shiny<span class="op">.</span><span class="fu">setInputValue</span>(<span class="st">&quot;window_height&quot;</span><span class="op">,</span> <span class="bu">window</span><span class="op">.</span><span class="at">innerHeight</span>)<span class="op">;</span></span>
+<span id="cb99-6"><a href="web.html#cb99-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb99-7"><a href="web.html#cb99-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb99-8"><a href="web.html#cb99-8" aria-hidden="true" tabindex="-1"></a>  <span class="bu">window</span><span class="op">.</span><span class="at">onresize</span> <span class="op">=</span> shiny_size<span class="op">;</span></span>
+<span id="cb99-9"><a href="web.html#cb99-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shiny_size</span>()<span class="op">;</span> <span class="co">// trigger once at start</span></span>
+<span id="cb99-10"><a href="web.html#cb99-10" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<p>JavaScript is similar to R in some ways, and maddeningly different in others. One big difference is that lines of code have to end with a semi-colon.</p>
+<p>In the code above, the function <code>$(function() { ... })</code> is jQuery shorthand for making sure that the code inside doesn’t run until the whole webpage has been downloaded. Otherwise, you might try to run some code that references an element that hasn’t been created yet (HTML pages don’t always download all in one go).</p>
+<p>The we create a new function called <code>shiny_size</code>, which creates two new Shiny input variables, “window_width” and “window_height,” and sets then to the values of the window dimensions (in pixels). The line <code>window.onresize = shiny_size;</code> sets this function to run every time the window is resized and the function is run once at the start to initialise those values.</p>
+<p>The javaScript function <code>Shiny.setInputValue(input_id, value)</code> is a way for you to communicate things that happen on the web page to the Shiny app by changing or creating inputs. You can use this inside <code>server()</code> to, for example, change a plot style if <code>input$window_width &lt; 600</code>.</p>
+</div>
+</div>
+<div id="resources-web" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Further Resources</h2>
+<ul>
+<li><a href="https://www.w3schools.com/html/" target="_blank">W3 Schools HTML Tutorial</a></li>
+<li><a href="https://shiny.rstudio.com/articles/css.html" target="_blank">Using Custom CSS in your App</a></li>
+<li><a href="https://www.w3schools.com/cssref/css_selectors.asp" target="_blank">CSS Selectors Reference</a></li>
+<li><a href="https://shiny.rstudio.com/articles/packaging-javascript.html" target="_blank">Packaging JavaScript Code for Shiny</a></li>
+<li><a href="https://www.w3schools.com/jquERy/default.asp" target="_blank">W3 Schools jQuery Tutorial</a></li>
+<li><a href="https://www.codecademy.com/en/tracks/htmlcss" target="_blank">Codeacademy interactive tutorials</a></li>
+</ul>
+</div>
+<div id="glossary-web" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Glossary</h2>
+<table>
+<colgroup>
+<col width="53%" />
+<col width="46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="left">definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/a#argument'>argument</a></td>
+<td align="left">A variable that provides input to a function.</td>
+</tr>
+<tr class="even">
+<td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/a#attribute-html'>attribute-html</a></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/c#cache'>cache</a></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/c#css'>css</a></td>
+<td align="left">Cascading Style Sheet: A system for controlling the visual presentation of HTML in web pages.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/e#element-html'>element-html</a></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/h#html'>html</a></td>
+<td align="left">Hyper-Text Markup Language: A system for semantically tagging structure and information on web pages.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/j#javascript'>javascript</a></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/t#tags-html'>tags-html</a></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="exercises-web" class="section level2" number="7.6">
+<h2><span class="header-section-number">7.6</span> Exercises</h2>
+<p>Clone the basic template for these exercises.</p>
+<div id="add-html" class="section level3" number="7.6.1">
+<h3><span class="header-section-number">7.6.1</span> Add HTML</h3>
+<p>Add the following HTML before the image in <code>x_tab</code> using <code>HTML()</code>:</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb100-1"><a href="web.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;p</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;help&quot;</span><span class="kw">&gt;</span>For more help, you can go to <span class="kw">&lt;a</span> <span class="er">href</span><span class="ot">=</span><span class="st">&quot;https://shiny.rstudio.com/articles/html-tags.html&quot;</span><span class="kw">&gt;</span>Customize your UI with HTML<span class="kw">&lt;/a&gt;</span>.<span class="kw">&lt;/p&gt;</span></span></code></pre></div>
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>Since the HTML has double quotes in it, you either need to escape them or surround the string in single quotes instead.</p>
+</div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="web.html#cb101-1" aria-hidden="true" tabindex="-1"></a>x_tab <span class="ot">&lt;-</span> <span class="fu">tabItem</span>(</span>
+<span id="cb101-2"><a href="web.html#cb101-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">tabName =</span> <span class="st">&quot;x_tab&quot;</span>,</span>
+<span id="cb101-3"><a href="web.html#cb101-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">HTML</span>(<span class="st">&#39;&lt;p class=&quot;help&quot;&gt;For more help, you can go to &lt;a href=&quot;https://shiny.rstudio.com/articles/html-tags.html&quot;&gt;Customize your UI with HTML&lt;/a&gt;.&lt;/p&gt;&#39;</span>),</span>
+<span id="cb101-4"><a href="web.html#cb101-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">imageOutput</span>(<span class="st">&quot;logo&quot;</span>)</span>
+<span id="cb101-5"><a href="web.html#cb101-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+</div>
+<div id="class-html" class="section level3" number="7.6.2">
+<h3><span class="header-section-number">7.6.2</span> Class HTML</h3>
+<p>Add an unordered list under the paragraph that contains the following text and links:</p>
+<ul>
+<li><a href="https://shiny.rstudio.com/articles/tag-glossary.html">Tags Glossary</a></li>
+<li><a href="https://www.w3schools.com/html/">HTML Tutorial</a></li>
+</ul>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="web.html#cb102-1" aria-hidden="true" tabindex="-1"></a>x_tab <span class="ot">&lt;-</span> <span class="fu">tabItem</span>(</span>
+<span id="cb102-2"><a href="web.html#cb102-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">tabName =</span> <span class="st">&quot;x_tab&quot;</span>,</span>
+<span id="cb102-3"><a href="web.html#cb102-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">HTML</span>(<span class="st">&#39;&lt;p class=&quot;help&quot;&gt;For more help, you can go to &lt;a href=&quot;https://shiny.rstudio.com/articles/html-tags.html&quot;&gt;Customize your UI with HTML&lt;/a&gt;.&lt;/p&gt;&#39;</span>),</span>
+<span id="cb102-4"><a href="web.html#cb102-4" aria-hidden="true" tabindex="-1"></a>    tags<span class="sc">$</span><span class="fu">ul</span>(</span>
+<span id="cb102-5"><a href="web.html#cb102-5" aria-hidden="true" tabindex="-1"></a>        tags<span class="sc">$</span><span class="fu">li</span>(tags<span class="sc">$</span><span class="fu">a</span>(<span class="at">href =</span> <span class="st">&quot;https://shiny.rstudio.com/articles/tag-glossary.html&quot;</span>, <span class="st">&quot;Tags Glossary&quot;</span>)),</span>
+<span id="cb102-6"><a href="web.html#cb102-6" aria-hidden="true" tabindex="-1"></a>        tags<span class="sc">$</span><span class="fu">li</span>(tags<span class="sc">$</span><span class="fu">a</span>(<span class="at">href =</span> <span class="st">&quot;https://www.w3schools.com/html/&quot;</span>, <span class="st">&quot;HTML Tutorial&quot;</span>))</span>
+<span id="cb102-7"><a href="web.html#cb102-7" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb102-8"><a href="web.html#cb102-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">imageOutput</span>(<span class="st">&quot;logo&quot;</span>)</span>
+<span id="cb102-9"><a href="web.html#cb102-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+</div>
+<div id="style-links" class="section level3" number="7.6.3">
+<h3><span class="header-section-number">7.6.3</span> Style links</h3>
+<p>Change the style of all the links to make them hotpink. Use the inline CSS method. As a bonus, change the colour of links when you hover over them, too.</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="web.html#cb103-1" aria-hidden="true" tabindex="-1"></a>tags<span class="sc">$</span><span class="fu">head</span>(</span>
+<span id="cb103-2"><a href="web.html#cb103-2" aria-hidden="true" tabindex="-1"></a>    tags<span class="sc">$</span><span class="fu">style</span>(<span class="st">&quot;a { color: hotpink; }</span></span>
+<span id="cb103-3"><a href="web.html#cb103-3" aria-hidden="true" tabindex="-1"></a><span class="st">                a:hover { color: red; }&quot;</span>)</span>
+<span id="cb103-4"><a href="web.html#cb103-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+</div>
+<div id="style-a-single-link-directly" class="section level3" number="7.6.4">
+<h3><span class="header-section-number">7.6.4</span> Style a single link directly</h3>
+<p>Change the style of just the first link in the list to make it green.</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="web.html#cb104-1" aria-hidden="true" tabindex="-1"></a>tags<span class="sc">$</span><span class="fu">ul</span>(</span>
+<span id="cb104-2"><a href="web.html#cb104-2" aria-hidden="true" tabindex="-1"></a>        tags<span class="sc">$</span><span class="fu">li</span>(tags<span class="sc">$</span><span class="fu">a</span>(<span class="at">href =</span> <span class="st">&quot;https://shiny.rstudio.com/articles/tag-glossary.html&quot;</span>, <span class="st">&quot;Tags Glossary&quot;</span>), <span class="at">style=</span><span class="st">&quot;color: green;&quot;</span>),</span>
+<span id="cb104-3"><a href="web.html#cb104-3" aria-hidden="true" tabindex="-1"></a>        tags<span class="sc">$</span><span class="fu">li</span>(tags<span class="sc">$</span><span class="fu">a</span>(<span class="at">href =</span> <span class="st">&quot;https://www.w3schools.com/html/&quot;</span>, <span class="st">&quot;HTML Tutorial&quot;</span>))</span>
+<span id="cb104-4"><a href="web.html#cb104-4" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+</div>
+</div>
+<div id="external-css-1" class="section level3" number="7.6.5">
+<h3><span class="header-section-number">7.6.5</span> External CSS</h3>
+<p>Change the style of just the links inside paragraphs with the class “help” to have an underline. Use external CSS.</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>Add the following to <code>www/custom.css</code>:</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb105-1"><a href="web.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.help</span> a { <span class="kw">text-decoration</span>: <span class="dv">underline</span><span class="op">;</span> }</span></code></pre></div>
+</div>
 
+</div>
 </div>
 </div>
 <div class="psyteachr_footer">

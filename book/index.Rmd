@@ -52,38 +52,42 @@ Each lecture session will conclude with a hands-on exercise reviewing the conten
 ### Schedule
 
 #### Day 1
-    * [Your First Shiny App](#first-app)
-        * Overview of the UI/server structure
-        * Inputs, outputs, and action buttons
-        * Reactive functions
-    * [ShinyDashboard](#shinydashboard)
-        * Basic template for shinydashboard projects
-        * Sidebar, menu navigation, and tabs
-        * Row- and column-based layouts
+
+* [Your First Shiny App](#first-app)
+    * Overview of the UI/server structure
+    * Inputs, outputs, and action buttons
+    * Reactive functions
+* [ShinyDashboard](#shinydashboard)
+    * Basic template for shinydashboard projects
+    * Sidebar, menu navigation, and tabs
+    * Row- and column-based layouts
 
 #### Day 2
-    * [Different input types](#inputs)
-    * [Different output types](#outputs)
-    * [Reading and saving data](#data)
-    * [Reactive functions](#reactives)
+
+* [Different input types](#inputs)
+* [Different output types](#outputs)
+* [Reading and saving data](#data)
+* [Reactive functions](#reactives)
 
 #### Day 3
-    * Customizing Your Apps
-        * [CSS, HTML, and Javascript](#web)
-        * [Structuring a complex app](#structure)
-    * Intermediate Patterns
-        * [Debugging and error handling](#debugging)
-        * [Displaying elements contingent on the state of other elements](#contingency)
+
+* Customizing Your Apps
+    * [CSS, HTML, and Javascript](#web)
+    * [Structuring a complex app](#structure)
+* Intermediate Patterns
+    * [Debugging and error handling](#debugging)
+    * [Displaying elements contingent on the state of other elements](#contingency)
 
 #### Day 4
-    * [Sharing Your Apps](#sharing)
-        * shinyapps.io
-        * Self-hosting a shiny server
-        * GitHub
-        * In an R package
-    * Advanced Patterns
-        * [Creating and downloading a customized report](#reports)
-        * [Shiny modules for repeated structures](#modules)
+
+* [Sharing Your Apps](#sharing)
+    * shinyapps.io
+    * Self-hosting a shiny server
+    * GitHub
+    * In an R package
+* Advanced Patterns
+    * [Creating and downloading a customized report](#reports)
+    * [Shiny modules for repeated structures](#modules)
 
 We understand that scheduling is difficult during this unpredictable time. If you prefer, you may take all or part of the course asynchronously. The video recordings will be made available within 24 hours of each session and will be accessible for two weeks after the seminar, meaning that you will get all of the class content and discussions even if you cannot participate synchronously.
 
@@ -112,7 +116,7 @@ if (dv == "score") {
   g <- ggplot(pets, aes(pet, weight, fill = country))
 }
 
-r + geom_violin(alpha = 0.5)
+g + geom_violin(alpha = 0.5)
 
 ```
 

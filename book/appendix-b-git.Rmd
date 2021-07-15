@@ -33,13 +33,13 @@ Run `usethis::edit_git_config()` in the console pane; it will open a file called
 
 ```
 [user]
-	email = GITHUB_EMAIL
-	name = GITHUB_USERNAME
+    email = GITHUB_EMAIL
+    name = GITHUB_USERNAME
 ```
 
-```{block, type="warning"}
+::: {.warning}
 You can skip the rest of the steps if you are using your own computer because you can use **`https`** to access github. If you are using an RStudio server or just want to use **`SSH`**, follow the steps below.
-```
+:::
 
 ## Create an SSH Key on RStudio
 

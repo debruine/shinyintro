@@ -1,7 +1,7 @@
 --- 
 title: "Building Web Apps with R Shiny"
 author: "Lisa DeBruine"
-date: "2021-07-11"
+date: "2021-07-15"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -30,10 +30,7 @@ The following are some diverse examples of Shiny apps that the instructor has ma
 * [Scienceverse](http://shiny.ieis.tue.nl/scienceverse/){target="_blank"} is an ambitious (but in-progress) app for creating machine-readable descriptions of studies and human-readable summaries.
 * [Word Cloud](https://shiny.psy.gla.ac.uk/debruine/wordcloud/){target="_blank"} Create a word cloud from text and customize its appearance. Created during the live-coding event at [Hack Your Data Beautiful](https://psyteachr.github.io/hack-your-data/){target="_blank"}.
 
-<div class="figure" style="text-align: center">
-<iframe src="https://shiny.psy.gla.ac.uk/debruine/wordcloud/?showcase=0" width="100%" height="600px"></iframe>
-<p class="caption">(\#fig:word-cloud-app)Word Cloud App</p>
-</div>
+
 
 
 ## Code Horizons Course (27-30 July 2021)
@@ -45,38 +42,42 @@ Each lecture session will conclude with a hands-on exercise reviewing the conten
 ### Schedule
 
 #### Day 1
-    * [Your First Shiny App](#first-app)
-        * Overview of the UI/server structure
-        * Inputs, outputs, and action buttons
-        * Reactive functions
-    * [ShinyDashboard](#shinydashboard)
-        * Basic template for shinydashboard projects
-        * Sidebar, menu navigation, and tabs
-        * Row- and column-based layouts
+
+* [Your First Shiny App](#first-app)
+    * Overview of the UI/server structure
+    * Inputs, outputs, and action buttons
+    * Reactive functions
+* [ShinyDashboard](#shinydashboard)
+    * Basic template for shinydashboard projects
+    * Sidebar, menu navigation, and tabs
+    * Row- and column-based layouts
 
 #### Day 2
-    * [Different input types](#inputs)
-    * [Different output types](#outputs)
-    * [Reading and saving data](#data)
-    * [Reactive functions](#reactives)
+
+* [Different input types](#inputs)
+* [Different output types](#outputs)
+* [Reading and saving data](#data)
+* [Reactive functions](#reactives)
 
 #### Day 3
-    * Customizing Your Apps
-        * [CSS, HTML, and Javascript](#web)
-        * [Structuring a complex app](#structure)
-    * Intermediate Patterns
-        * [Debugging and error handling](#debugging)
-        * [Displaying elements contingent on the state of other elements](#contingency)
+
+* Customizing Your Apps
+    * [CSS, HTML, and Javascript](#web)
+    * [Structuring a complex app](#structure)
+* Intermediate Patterns
+    * [Debugging and error handling](#debugging)
+    * [Displaying elements contingent on the state of other elements](#contingency)
 
 #### Day 4
-    * [Sharing Your Apps](#sharing)
-        * shinyapps.io
-        * Self-hosting a shiny server
-        * GitHub
-        * In an R package
-    * Advanced Patterns
-        * [Creating and downloading a customized report](#reports)
-        * [Shiny modules for repeated structures](#modules)
+
+* [Sharing Your Apps](#sharing)
+    * shinyapps.io
+    * Self-hosting a shiny server
+    * GitHub
+    * In an R package
+* Advanced Patterns
+    * [Creating and downloading a customized report](#reports)
+    * [Shiny modules for repeated structures](#modules)
 
 We understand that scheduling is difficult during this unpredictable time. If you prefer, you may take all or part of the course asynchronously. The video recordings will be made available within 24 hours of each session and will be accessible for two weeks after the seminar, meaning that you will get all of the class content and discussions even if you cannot participate synchronously.
 
@@ -105,7 +106,7 @@ if (dv == "score") {
   g <- ggplot(pets, aes(pet, weight, fill = country))
 }
 
-r + geom_violin(alpha = 0.5)
+g + geom_violin(alpha = 0.5)
 ```
 
 
@@ -120,11 +121,4 @@ There are a lot of great resources online to reinforce or continue your learning
 ## Glossary {#glossary-intro}
 
 
-|term                                                                                                                |definition                                                                 |
-|:-------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------|
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/d#data-wrangling'>data-wrangling</a> |The process of preparing data for visualisation and statistical analysis.  |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/f#function'>function</a>             |A named section of code that can be reused.                                |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/r#rstudio'>rstudio</a>               |An integrated development environment (IDE) that helps you process R code. |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/s#shiny'>shiny</a>                   |An R package that builds interactive web apps                              |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/t#tidyverse'>tidyverse</a>           |A set of R packages that help you create and work with tidy data           |
 

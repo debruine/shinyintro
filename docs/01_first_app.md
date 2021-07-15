@@ -15,7 +15,7 @@ To start, let's walk through the basics of setting up a <a class='glossary' targ
 
 2.  Choose `Shiny Web Application` as the project type.
 
-3.  I like to put all of my apps in the same directory\`, but it doesn't matter where you save it.
+3.  I like to put all of my apps in the same <a class='glossary' target='_blank' title='A collection or “folder” of files on a computer.' href='https://psyteachr.github.io/glossary/d#directory'>directory</a>, but it doesn't matter where you save it.
 
 4.  Your RStudio interface should look like this now. You don't have to do anything else at this step.
 
@@ -90,17 +90,17 @@ Click on `Run App` in the top right corner of the <a class='glossary' target='_b
 
 ![](images/demo_app/05-app-interface.png)
 
-<div class="info">
-<p>You can also open up the app in a web browser by clicking on <code>Open in Browser</code>.</p>
-</div>
+::: {.info}
+You can also open up the app in a web browser by clicking on `Open in Browser`.
+:::
 
 ### Modify the Demo App
 
 Now we're going to make a series of changes to the demo app until it's all your own.
 
-<div class="info">
-<p>You can close the app by closing the window or browser tab it’s running in, or leave it running while you edit the code. If you have multiple screens, it’s useful to have the app open on one screen and the code on another.</p>
-</div>
+::: {.info}
+You can close the app by closing the window or browser tab it's running in, or leave it running while you edit the code. If you have multiple screens, it's useful to have the app open on one screen and the code on another.
+:::
 
 Find the application title. It is the first [argument](defs.html#argument) to the [function](defs.html#function) `titlePanel`. Change the title to `"My First App"`. Make sure the title is inside quotes and the whole quoted <a class='glossary' target='_blank' title='A piece of text inside of quotes.' href='https://psyteachr.github.io/glossary/s#string'>string</a> is inside the parentheses. Save the file (`cmd-S` or `File > Save`).
 
@@ -139,9 +139,9 @@ The arguments to the function `sidebarPanel` are just a list of things you want 
 
 ![](images/demo_app/07-app-sidebar-p.png)
 
-<div class="info">
-<p>The sidebar shows up on the left if your window is wide enough, but moves to the top of the screen if it’s too narrow.</p>
-</div>
+::: {.info}
+The sidebar shows up on the left if your window is wide enough, but moves to the top of the screen if it's too narrow.
+:::
 
 I don't like it there, so we can move this text out of the sidebar and to the top of the page, just under the title. Try this and re-run the app.
 
@@ -156,9 +156,9 @@ I don't like it there, so we can move this text out of the sidebar and to the to
    sidebarLayout(...)
 ```
 
-<div class="try">
-<p>See where you can move the text in the layout of the page and where causes errors.</p>
-</div>
+::: {.try}
+See where you can move the text in the layout of the page and where causes errors.
+:::
 
 I'm also not keen on the grey plot. We can change the plot colour inside the `hist` function.
 
@@ -199,21 +199,21 @@ You can replace all of the code in the `renderPlot` function with the code below
   })
 ```
 
-<div class="info">
-<p>You can set the <code>fill</code> and <code>colour</code> to whatever colours you like, and change <code>theme_minimal()</code> to one of the other <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html#examples" target="_blank">built-in ggplot themes</a>.</p>
-</div>
+::: {.info}
+You can set the `fill` and `colour` to whatever colours you like, and change `theme_minimal()` to one of the other [built-in ggplot themes](https://ggplot2.tidyverse.org/reference/ggtheme.html#examples){target="_blank"}.
+:::
 
-<div class="try">
-<p>What <em>are</em> we even plotting here? Type <code>?faithful</code> into the console pane to see what the <code>waiting</code> column represents (<code>faithful</code> is a built-in demo dataset). Change the label on the x-axis to something more sensible.</p>
-</div>
+::: {.try}
+What *are* we even plotting here? Type `?faithful` into the console pane to see what the `waiting` column represents (`faithful` is a built-in demo dataset). Change the label on the x-axis to something more sensible.
+:::
 
 ### Add New Things
 
 The `faithful` dataset includes two columns:`eruptions` and `waiting`. We've been plotting the `waiting` variable, but what if you wanted to plot the `eruptions` variable instead?
 
-<div class="try">
-<p>Try plotting the eruption time (<code>eruptions</code>) instead of the waiting time. You just have to change one word in the <code>ggplot</code> function and update the x-axis label.</p>
-</div>
+::: {.try}
+Try plotting the eruption time (`eruptions`) instead of the waiting time. You just have to change one word in the `ggplot` function and update the x-axis label.
+:::
 
 We can add another input <a class='glossary' target='_blank' title='A interactive web element, like a dropdown menu or a slider.' href='https://psyteachr.github.io/glossary/w#widget'>widget</a> to let the user switch between plotting eruption time and wait time. The [RStudio Shiny tutorial](https://shiny.rstudio.com/tutorial/written-tutorial/lesson3/) has a great overview of the different input options. We need to toggle between two options, so we can use either radio buttons or a select box. Radio buttons are probably best if you have only a few options and the user will want to see them all at the same time to decide.
 
@@ -245,9 +245,9 @@ First, we need to change the x-axis label depending on what we're graphing. We u
       }
 ```
 
-<div class="warning">
-<p>The double-equal-signs <code>==</code> means "equivalent to and is how you check if two things are the same; if you only use one equal sign, you set the variable on the left to the value on the right.</p>
-</div>
+::: {.warning}
+The double-equal-signs `==` means "equivalent to and is how you check if two things are the same; if you only use one equal sign, you set the variable on the left to the value on the right.
+:::
 
 Then we have to edit the `ggplot` function to use the new label and to plot the correct column. The variable `input$display_var` gives you the user-input value of the widget called `display_var`.
 
@@ -262,11 +262,11 @@ Then we have to edit the `ggplot` function to use the new label and to plot the 
         theme_minimal()
 ```
 
-<div class="warning">
-<p>Notice that the function <code>aes(waiting)</code> from before has changed to <code>aes(.data[[input$display_var]])</code>. Because <code>input$display_var</code> is a <code>r glossary("string")</code>, we have to select it from the <code>.data</code> placeholder (which refers to the <code>faithful</code> data table) using double brackets.</p>
-</div>
+::: {.warning}
+Notice that the function `aes(waiting)` from before has changed to `aes(.data[[input$display_var]])`. Because `input$display_var` is a <a class='glossary' target='_blank' title='A piece of text inside of quotes.' href='https://psyteachr.github.io/glossary/s#string'>string</a>, we have to select it from the `.data` placeholder (which refers to the `faithful` data table) using double brackets.
+:::
 
-Re-run your app and see if you can change the data and x-axis label with your new widget. If not, check that your code against the code in `shinyintro::newapp("first_demo")`.
+Re-run your app and see if you can change the data and x-axis label with your new widget. If not, check your code against [the code](https://shiny.psy.gla.ac.uk/debruine/first_demo/){target="_blank"}.
 
 <div class="figure" style="text-align: center">
 <iframe src="https://shiny.psy.gla.ac.uk/debruine/first_demo/?showcase=0" width="100%" height="800px"></iframe>
@@ -295,9 +295,9 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)
 ```
 
-<div class="try">
-<p>Create a new app called “basic_demo” and replace all the text in app.R with the code above. You should be able to run the app and see just a blank page.</p>
-</div>
+::: {.try}
+Create a new app called "basic_demo" and replace all the text in app.R with the code above. You should be able to run the app and see just a blank page.
+:::
 
 ### UI
 
@@ -329,11 +329,11 @@ ui <- fluidPage(
 )
 ```
 
-Many of the functions used to create parts of the website are the same as <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/h#html-tags'>HTML tags</a>, which are ways to mark the beginning and end of different types of text. Most HTML tags are available in shiny by using the `tags$tag-name()` function, but some of the more common tags, like `p()` or h1()`-`h6()`also have a version where you can omit the`tags\$\` part. You can see a list of all of the tags available in Shiny at the [tag glossary](https://shiny.rstudio.com/articles/tag-glossary.html){target="_blank"}
+Many of the functions used to create parts of the website are the same as <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/h#html-tags'>HTML tags</a>, which are ways to mark the beginning and end of different types of text. Most HTML tags are available in shiny by using one of the `tags()` sub-functions, but some of the more common tags, like `p()` or h1()`-`h6()`also have a version where you can omit the`tags\$\` part. You can see a list of all of the tags available in Shiny at the [tag glossary](https://shiny.rstudio.com/articles/tag-glossary.html){target="_blank"}
 
-<div class="try">
-<p>Add the code above to your basic_demo" app and replace my favourite things with yours. Make the list an ordered list (instead of unordered) and change the image size.</p>
-</div>
+::: {.try}
+Add the code above to your basic_demo" app and replace my favourite things with yours. Make the list an ordered list (instead of unordered) and change the image size.
+:::
 
 #### Page Layout
 
@@ -359,9 +359,9 @@ ui <- fluidPage(
 )
 ```
 
-<div class="try">
-<p>Replace the ui code in your basic_demo" app with the code above and run it in a web browser. What happens when you change the width of the web browser? Change <code>flowLayout</code> to <code>verticalLayout</code> or <code>splitLayout</code> and see what changes.</p>
-</div>
+::: {.try}
+Replace the ui code in your basic_demo" app with the code above and run it in a web browser. What happens when you change the width of the web browser? Change `flowLayout` to `verticalLayout` or `splitLayout` and see what changes.
+:::
 
 You can use a `sidebarLayout()` to arrange your elements into a `sidebarPanel()` and a `mainPanel()`. If the browser width is too narrow, the sidebar will display on top of the main panel.
 
@@ -389,6 +389,7 @@ ui <- fluidPage(
 )
 ```
 
+
 ## Inputs, outputs, and action buttons
 
 So far, we've just put <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/s#static'>static</a> elements into our UI. What makes Shiny apps work is <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/d#dynamic'>dynamic</a> elements like inputs, outputs, and action buttons. 
@@ -409,7 +410,7 @@ Most inputs are structured like this, with an inputId, which needs to be a uniqu
 
 ### Outputs {#outputs-intro}
 
-Outputs are placeholders for things that the `server()` function will create. There are different output functions for different types of outputs, like text, plots, and tables. We'll go into the different types of outputs in detail in the [Outputs chapter](#outputs). Below, we'll make a placeholder for some text that we'll display after counting the number of favourite things.
+Outputs are placeholders for things that `server()` will create. There are different output functions for different types of outputs, like text, plots, and tables. We'll go into the different types of outputs in detail in the [Outputs chapter](#outputs). Below, we'll make a placeholder for some text that we'll display after counting the number of favourite things.
 
 
 ```r
@@ -433,7 +434,7 @@ actionButton(inputId = "count_fav_things",
 
 Action buttons require a unique inputId and a label for the button text. You can also add an icon. Choose a free icon from [fontawesome](https://fontawesome.com/icons?d=gallery&m=free){target="_blank"}.
 
-Put the input, output, and action button into the ui and run it. You can see that the input checkboxes are selectable and the button is clickable, but nothing is displayed in the text output. We need some code in the `server()` function to handle that.
+Put the input, output, and action button into the ui and run it. You can see that the input checkboxes are selectable and the button is clickable, but nothing is displayed in the text output. We need some code in `server()` to handle that.
 
 
 ```r
@@ -457,7 +458,7 @@ ui <- fluidPage(
 )
 ```
 
-## Reactive functions
+## Reactive functions {#first-reactive}
 
 Reactive functions are functions that run when their inputs change. Inside the server function, the <a class='glossary' target='_blank' title='A word that identifies and stores the value of some data for later use.' href='https://psyteachr.github.io/glossary/o#object'>object</a> `input` is a named <a class='glossary' target='_blank' title='A container data type that allows items with different data types to be grouped together.' href='https://psyteachr.github.io/glossary/l#list'>list</a> of the values of all of the inputs. For example, if you want to know which items in the select input named "fav_things" were selected, you would use `input$fav_things`.
 
@@ -474,7 +475,7 @@ server <- function(input, output) {
 }
 ```
 
-Now we want to display this text in the output "n_fav_things". We need to use a render function that is paired with our output function. Since "n_fav_things" was made with `textOutput()`, we fill it with the `renderText()` function. 
+Now we want to display this text in the output "n_fav_things". We need to use a render function that is paired with our output function. Since "n_fav_things" was made with `textOutput()`, we fill it with `renderText()`. 
 
 
 ```r
@@ -490,7 +491,7 @@ server <- function(input, output) {
 
 As always in coding, there are many ways to accomplish the same thing. These methods have different pros and cons that we'll learn more about in the [Reactive chapter](#reactives). Here is another pattern that does that same as above.
 
-This pattern uses the `reactive()` function to update the value of a new function called `count_text()` whenever any inputs inside the reactive function change. We use the `isolate()` function to prevent `count_text()` from changing when users click the checkboxes. 
+This pattern uses `reactive()` to update the value of a new function called `count_text()` whenever any inputs inside the reactive function change. We use `isolate()` to prevent `count_text()` from changing when users click the checkboxes. 
 
 Whenever the returned value of `count_text()` changes, this triggers an update of the "n_fav_things" output.
 
@@ -510,18 +511,23 @@ server <- function(input, output) {
 }
 ```
 
-<div class="try">
-<p>Compare the app behaviour with the first pattern versus the second. How are they different? What happens if you remove the <code>isolate()</code> function from around <code>input$fav_things</code>?</p>
-</div>
+::: {.try}
+Compare the app behaviour with the first pattern versus the second. How are they different? What happens if you remove `isolate()` from around `input$fav_things`?
+:::
 
+## Further Resources {#resources-first-app}
+
+* [Application layout guide](https://shiny.rstudio.com/articles/layout-guide.html){target="_blank"}
 
 
 ## Glossary {#glossary-first-app}
 
 
+
 |term                                                                                                      |definition                                                                                |
 |:---------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------|
 |<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/a#argument'>argument</a>   |A variable that provides input to a function.                                             |
+|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/d#directory'>directory</a> |A collection or “folder” of files on a computer.                                          |
 |<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/d#dynamic'>dynamic</a>     |                                                                                          |
 |<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/h#html-tags'>html-tags</a> |                                                                                          |
 |<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/i#integer'>integer</a>     |A data type representing whole numbers.                                                   |
@@ -537,11 +543,14 @@ server <- function(input, output) {
 |<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/u#ui'>ui</a>               |The User Interface. This usually refers to a Shiny App as the user will see it.           |
 |<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/w#widget'>widget</a>       |A interactive web element, like a dropdown menu or a slider.                              |
 
+
+
 ## Exercises {#exercises-first-app}
 
-### 1. Addition App
+### Addition App - UI
 
-Create the following app. Use the `numericInput()` function to create the inputs.
+Create the UI for following [addition app](https://shiny.psy.gla.ac.uk/debruine/add_demo/){target="_blank"}. Use `numericInput()` to create the inputs.
+
 
 <div class="figure" style="text-align: center">
 <iframe src="https://shiny.psy.gla.ac.uk/debruine/add_demo/?showcase=0" width="100%" height="400px"></iframe>
@@ -549,8 +558,7 @@ Create the following app. Use the `numericInput()` function to create the inputs
 </div>
 
 
-
-<div class='webex-solution'><button>UI</button>
+<div class='webex-solution'><button>Solution</button>
 
 
 
@@ -574,8 +582,12 @@ ui <- fluidPage(
 </div>
 
 
+### observeEvent
 
-<div class='webex-solution'><button>Server observeEvent pattern</button>
+Use `observeEvent()` to write a server function that displays "n1 + n2 = sum" when you click the action button.
+
+
+<div class='webex-solution'><button>Solution</button>
 
 
 
@@ -594,8 +606,12 @@ server <- function(input, output) {
 </div>
 
 
+### reactive
 
-<div class='webex-solution'><button>Server reactive pattern</button>
+Use `reactive()` to accomplish the same behaviour.
+
+
+<div class='webex-solution'><button>Solution</button>
 
 
 

@@ -4,7 +4,7 @@
 
 You can read and write data from a Shiny app the same way you do from any R script. We will focus on reading data, since writing data locally can cause problems and is better done with [Google Sheets](#google_sheets).
 
-The base directory for a Shiny app is the directory that app.R is in. I recommend keeping your data in a directory called "data" to keep things tidy.
+The <a class='glossary' target='_blank' title='The filepath where R is currently reading and writing files.' href='https://psyteachr.github.io/glossary/w#working-directory'>working directory</a> for a Shiny app is the directory that app.R is in. I recommend keeping your data in a directory called "data" to keep things tidy.
 
 
 ```r
@@ -138,7 +138,7 @@ id
 
 ```
 ## Spreadsheet name: demo2
-##               ID: 1E54Z6heGXSUxg0CHM9U9bZ1dDc7nV3U_tHwVR813qJU
+##               ID: 1sHDhXcUcUp61ONc7ZpfEzpRLJeOD96pG8IGKbg-DAQY
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -153,7 +153,7 @@ id
 
 Include the ID at the top of your app like this:
 
-<pre><code>SHEET_ID <- "1E54Z6heGXSUxg0CHM9U9bZ1dDc7nV3U_tHwVR813qJU"</code></pre>
+<pre><code>SHEET_ID <- "1sHDhXcUcUp61ONc7ZpfEzpRLJeOD96pG8IGKbg-DAQY"</code></pre>
 
 ### Add data
 
@@ -198,9 +198,9 @@ read_sheet(SHEET_ID, "demographics")
 
 </div>
 
-<div class="info">
-<p>Notice that <code>birthyear</code> is a double, not an integer. Google Sheets only have one numeric type, so both doubles and integers are coerced to doubles.</p>
-</div>
+::: {.info}
+Notice that `birthyear` is a double, not an integer. Google Sheets only have one numeric type, so both doubles and integers are coerced to doubles.
+:::
 
 ### Appending data
 
@@ -252,9 +252,10 @@ read_sheet(SHEET_ID, "demographics")
 |1      |         0|      0|No    |
 
 </div>
-<div class="danger">
-<p>You must append data that has the same number and order of columns as the Google Sheet. If you send columns out of order, they will be recorded in the order you sent them, not in the order of the column names. If you send extra columns, the append will fail.</p>
-</div>
+
+::: {.danger}
+You must append data that has the same number and order of columns as the Google Sheet. If you send columns out of order, they will be recorded in the order you sent them, not in the order of the column names. If you send extra columns, the append will fail.
+:::
 
 
 The Shiny template we're working with has a safer version of `sheet_append()` that you can access by uncommenting the line:
@@ -264,6 +265,12 @@ The Shiny template we're working with has a safer version of `sheet_append()` th
 This version gracefully handles data with new columns, missing columns, columns in a different order, and columns with a different data type. However, it reads the whole data sheet before deciding whether to append or overwrite the data, which can slow down your app, so is best used only during development when you're changing things a lot. Once you have the final structure of your data, it's better to use the original `googlesheets4::sheet_append()` function.
 
 ## Glossary {#glossary-data}
+
+
+
+|term                                                                                                                      |definition                                                   |
+|:-------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------|
+|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/w#working-directory'>working-directory</a> |The filepath where R is currently reading and writing files. |
 
 
 

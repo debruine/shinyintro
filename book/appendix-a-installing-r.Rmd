@@ -16,9 +16,21 @@ If you are using Linux, choose your specific operating system and follow the ins
 
 Go to [rstudio.com](https://www.rstudio.com/products/rstudio/download/#download) and download the RStudio Desktop (Open Source License) version for your operating system under the list titled **Installers for Supported Platforms**.
 
+## Installing shinyintro
+
+To install the class package, which will provide you with a copy of all of the shiny apps we'll use for demos and the basic template, paste the following code into the console in RStudio.
+
+```{r}
+# you may have to install devtools first with 
+# install.packages("devtools")
+
+devtools::install_github("debruine/shinyintro")
+```
+
+
 ## Installing LaTeX
 
-You can install the LaTeX typesetting system to produce PDF reports from RStudio. Without this additional installation, you will be able to produce reports in HTML but not PDF. To generate PDF reports, you will additionally need: 
+You can install the LaTeX typesetting system to produce PDF reports from RStudio. Without this additional installation, you will be able to produce reports in HTML but not PDF. This course will not require you to make PDFs. To generate PDF reports, you will additionally need: 
 
 1.  [pandoc](http://pandoc.org/installing.html), and
 2.  LaTeX, a typesetting language, available for

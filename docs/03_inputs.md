@@ -95,8 +95,8 @@ You can also make a single checkbox. The value is `TRUE` when checked and `FALSE
 
 ```r
 demo_cb <- checkboxInput("demo_cb",
-  label = "I love R",
-  value = TRUE)
+                         label = "I love R",
+                         value = TRUE)
 ```
 
 Sliders allow you to choose numbers between a minimum and maximum.
@@ -110,6 +110,15 @@ demo_slider <- sliderInput("demo_slider",
                            value = 0,
                            step = 1,
                            width = "100%")
+```
+
+### radioButtons
+
+
+```r
+demo_radio <- radioButtons("demo_radio",
+                           label = "Choose one",
+                           choices = c("Cats", "Dogs"))
 ```
 
 
@@ -127,14 +136,17 @@ updateCheckboxInput(session, "demo_cb", value = TRUE)
 updateSliderInput(session, "demo_slider", value = 0)
 ```
 
-<div class="warning">
-<p>Note that select inputs and checkbox groups use the argument <code>selected</code> and not <code>value</code>. If you want to set all the values in a checkbox group to unchecked, set <code>selected = character(0)</code>.</p>
-</div>
+::: {.warning}
+Note that select inputs and checkbox groups use the argument `selected` and not `value`. If you want to set all the values in a checkbox group to unchecked, set `selected = character(0)`.
+:::
 
 ## Glossary {#glossary-inputs}
+
 
 
 |term                                                                                                |definition                                                                                        |
 |:---------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------|
 |<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/l#list'>list</a>     |A container data type that allows items with different data types to be grouped together.         |
 |<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/v#vector'>vector</a> |A type of data structure that is basically a list of things like T/F values, numbers, or strings. |
+
+

@@ -2,6 +2,6 @@
 
 ## Glossary {#glossary-reports}
 
-```{r, echo = FALSE, results='asis'}
+```{r, eval = TRUE, echo = FALSE, results='asis'}
 #glossary::glossary_table()
 ```
