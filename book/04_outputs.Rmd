@@ -1,4 +1,4 @@
-# Outputs {#outputa}
+# Outputs {#outputs}
 
 Output are ways that the Shiny app can dynamically display information to the user. In the user interface (`r glossary("UI")`), you create outputs with IDs that you reference in an associated rendering function inside the `r glossary("server")` function.
 
@@ -9,7 +9,7 @@ knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/output_demo/",
   height = "800px")
 ```
 
-### textOutput
+## textOutput
 
 The function `textOutput()` defaults to text inside a `<span>` or `<div>` element, but you can use a different element with the `container` argument.
 
@@ -40,7 +40,7 @@ output$demo_verbatim <- renderText({
     })
 ```
 
-### uiOutput
+## uiOutput
 
 If you want to dynamically create parts of the UI, you can use `uiOutput()`. You can create the UI using the [input functions](#input_functions)
 
@@ -61,7 +61,7 @@ The function `htmlOutput()` is exactly the same as `uiOutput()`, so you might se
 
 
 
-### plotOutput
+## plotOutput
 
 ```{r}
 # in the UI
@@ -80,7 +80,7 @@ output$demo_plot <- renderPlot({
 If you want to create dynamic plots that change with input, note how you need to use `y = .data[[input$y]]` inside `aes()`, instead of just `y = input$y`.
 :::
 
-### imageOutput
+## imageOutput
 
 ```{r}
 # in the UI
@@ -122,7 +122,7 @@ output$demo_image <- renderImage({
 }, deleteFile = TRUE)
 ```
 
-### tableOutput
+## tableOutput
 
 Display a table using `renderTable()`, which makes a table out of any data frame it returns.
 
@@ -143,7 +143,7 @@ output$demo_table <- renderTable({
 Note how you need to use `.data[[input$y]]` inside `dplyr::summarise()`, instead of just `input$y` to dynamically choose which variable to summarise.
 :::
 
-### dataTableOutput
+## dataTableOutput
 
 If you have a long table to show, or one that you want users to be able to sort or search, use `dataTableOutput()`. You can customise data tables in many ways, but we'll stick with a basic example here.
 
@@ -161,3 +161,12 @@ output$demo_datatable <- DT::renderDataTable({
 The basic `shiny` package has `dataTableOutput()` and `renderDataTable()` functions, but they can be buggy. The versions in the `DT` package are better and have some additional functions, so I use those.
 :::
 
+## Exercises {#exercises-outputs}
+
+### UI
+
+In the app you're developing, add relevant outputs, such as for plots or tables.
+
+### Server
+
+In the app you're developing, add the appropriate render function for each output. You can leave the contents blank for now or add in some code to create output.

@@ -128,22 +128,6 @@ devtools::install_github("myaccountname/mypackagename")
 
 
 
-
-
-## Glossary {#glossary-sharing}
-
-
-
-|term                                                                                                                  |definition                                                                    |
-|:---------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/c#commit'>commit</a>                   |The action of storing a new snapshot of a project’s state in the git history. |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/g#github'>github</a>                   |A cloud-based service for storing and sharing your version controlled files.  |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/p#push'>push</a>                       |Updating the remote git project from the local project.                       |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/v#version-control'>version-control</a> |A way to save a record of changes to your files.                              |
-
-
-
-
 ## Exercises {#exercises-sharing}
 
 ### Shinyapps.io

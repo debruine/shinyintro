@@ -28,6 +28,17 @@ While there is a wealth of material available on the internet to help you get st
 
 This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports.
 
+## Installing shinyintro
+
+To install the class package, which will provide you with a copy of all of the shiny apps we'll use for demos and the basic template, paste the following code into the console in RStudio. See [Appendix A](#installing-r) for help installing R and RStudio.
+
+```{r}
+# you may have to install devtools first with 
+# install.packages("devtools")
+
+devtools::install_github("debruine/shinyintro")
+```
+
 ## Example Apps
 
 The following are some diverse examples of Shiny apps that the instructor has made.

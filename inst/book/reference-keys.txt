@@ -12,6 +12,7 @@ fig:showcase-mode
 fig:contingency-demo-app
 fig:reports-demo-app
 fig:modules-demo-app
+installing-shinyintro
 example-apps
 code-horizons-course-27-30-july-2021
 schedule
@@ -22,7 +23,6 @@ day-4
 computing
 who-should-register
 further-resources
-glossary-intro
 first-app
 the-demo-app
 set-up-the-demo-app
@@ -38,7 +38,6 @@ outputs-intro
 action-buttons
 first-reactive
 resources-first-app
-glossary-first-app
 exercises-first-app
 addition-app---ui
 observeevent
@@ -56,7 +55,6 @@ tab-boxes
 row-layout
 column-layout
 resources-shinydashboard
-glossary-shinydashboard
 exercises-shinydashboard
 create-an-app-from-the-basic-template
 customise-the-header
@@ -71,15 +69,16 @@ checkboxgroupinput
 checkboxinput
 radiobuttons
 setting-inputs-programatically
-glossary-inputs
-outputa
+outputs
 textoutput
 uioutput
 plotoutput
 imageoutput
 tableoutput
 datatableoutput
-glossary-outputs
+exercises-outputs
+ui-1
+server
 data
 local-data
 google_sheets
@@ -89,7 +88,11 @@ make-a-new-sheet
 add-data
 appending-data
 gs4_save
-glossary-data
+exercises-data
+read-others-data
+read-your-own-data
+write-data
+shiny-app
 reactives
 observeevent-1
 render-functions
@@ -99,7 +102,6 @@ reactiveval
 reactivevalue
 isolate
 further-resources-resources-reactive
-glossary-reactives
 exercises-reactive
 observeevent-2
 render
@@ -120,7 +122,6 @@ javascript
 shinyjs
 external-js
 resources-web
-glossary-web
 exercises-web
 add-html
 class-html
@@ -133,7 +134,6 @@ sourcing-locally
 inputs-and-outputs
 external-ui-files
 ui-lists
-glossary-structure
 exercises-structure
 server-functions
 ui-files
@@ -143,7 +143,6 @@ javascript-console
 showcase-mode
 trycatch
 input-checking
-glossary-debugging
 contingency
 hide-and-show
 groups
@@ -151,14 +150,12 @@ toggle
 changing-styles
 changing-non-shiny-elements
 changing-input-options
-glossary-contingency
 exercises-contingency
 sharing
 shinyapps.io
 self-hosting-a-shiny-server
 github
 in-an-r-package
-glossary-sharing
 exercises-sharing
 shinyapps.io-1
 github-1
@@ -167,7 +164,6 @@ reports
 download-data
 download-images
 r-markdown
-glossary-reports
 exercises-reports
 food-data
 food-image
@@ -175,7 +171,6 @@ food-report
 modules
 modularizing-the-ui
 modularizing-server-functions
-glossary-modules
 exercises-modules
 repeat-example
 new-instance
@@ -184,6 +179,7 @@ new-module
 installing-r
 installing-base-r
 installing-rstudio
-installing-shinyintro
+installing-shinyintro-1
 installing-latex
 symbols
+glossary

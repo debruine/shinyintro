@@ -267,23 +267,6 @@ The javaScript function `Shiny.setInputValue(input_id, value)` is a way for you 
 * [W3 Schools jQuery Tutorial](https://www.w3schools.com/jquERy/default.asp){target="_blank"}
 * [Codeacademy interactive tutorials](https://www.codecademy.com/en/tracks/htmlcss){target="_blank"}
 
-## Glossary {#glossary-web}
-
-
-
-|term                                                                                                                |definition                                                                                                                                |
-|:-------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/a#argument'>argument</a>             |A variable that provides input to a function.                                                                                             |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/a#attribute-html'>attribute-html</a> |Extra information about an HTML element                                                                                                   |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/c#cache-web'>cache-web</a>           |In a web browser, external files like CSS, JavaScript, and images are usually cached so that they don’t have to be repeatedly downloaded. |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/c#css'>css</a>                       |Cascading Style Sheet: A system for controlling the visual presentation of HTML in web pages.                                             |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/e#element-html'>element-html</a>     |A unit of HTML, such as a header, paragraph, or image.                                                                                    |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/h#html'>html</a>                     |Hyper-Text Markup Language: A system for semantically tagging structure and information on web pages.                                     |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/j#javascript'>javascript</a>         |An object-oriented computer programming language commonly used to create interactive effects in web browsers.                             |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/t#tag'>tag</a>                       |A way to mark the start and end of HTML elements.                                                                                         |
-
-
-
 ## Exercises {#exercises-web}
 
 Clone the basic template for these exercises.

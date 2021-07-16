@@ -140,13 +140,3 @@ updateSliderInput(session, "demo_slider", value = 0)
 Note that select inputs and checkbox groups use the argument `selected` and not `value`. If you want to set all the values in a checkbox group to unchecked, set `selected = character(0)`.
 :::
 
-## Glossary {#glossary-inputs}
-
-
-
-|term                                                                                                |definition                                                                                        |
-|:---------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------|
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/l#list'>list</a>     |A container data type that allows items with different data types to be grouped together.         |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/v#vector'>vector</a> |A type of data structure that is basically a list of things like T/F values, numbers, or strings. |
-
-

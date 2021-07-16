@@ -275,20 +275,6 @@ tabItem(
 * [ShinyDashboard](https://rstudio.github.io/shinydashboard/){target="_blank"}
 
 
-## Glossary {#glossary-shinydashboard}
-
-
-
-|term                                                                                                                      |definition                                                                                                    |
-|:-------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------|
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/c#css'>css</a>                             |Cascading Style Sheet: A system for controlling the visual presentation of HTML in web pages.                 |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/j#javascript'>javascript</a>               |An object-oriented computer programming language commonly used to create interactive effects in web browsers. |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/p#package'>package</a>                     |A group of R functions.                                                                                       |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/s#server'>server</a>                       |This is the part of a Shiny app that works with logic.                                                        |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/u#ui'>ui</a>                               |The User Interface. This usually refers to a Shiny App as the user will see it.                               |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/w#working-directory'>working-directory</a> |The filepath where R is currently reading and writing files.                                                  |
-
-
 
 ## Exercises {#exercises-shinydashboard}
 

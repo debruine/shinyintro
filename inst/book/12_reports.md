@@ -172,18 +172,6 @@ output$pet_report_dl <- downloadHandler(
 On your own computer, you don't need to set `intermediates_dir = tempdir()`, but you will need to do this if you want to deploy your app on a shiny server. When rmarkdown renders an Rmd file, it creates several intermediate files in the working directory and then deletes them. you have permission to write to the app's working directory on your own computer, but might not on a shiny server. `tempdir()` is almost always a safe place to write temporary files to.
 :::
 
-## Glossary {#glossary-reports}
-
-
-
-|term                                                                                                        |definition                                                                                                                                                       |
-|:-----------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/l#latex'>latex</a>           |A typesetting program needed to create PDF files from R Markdown documents.                                                                                      |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/o#object'>object</a>         |A word that identifies and stores the value of some data for later use.                                                                                          |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/p#pandoc'>pandoc</a>         |A universal document convertor, used by R to make PDF or Word documents from R Markdown                                                                          |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/r#r-markdown'>r-markdown</a> |The R-specific version of markdown: a way to specify formatting, such as headers, paragraphs, lists, bolding, and links, as well as code blocks and inline code. |
-
-
 
 ## Exercises {#exercises-reports}
 

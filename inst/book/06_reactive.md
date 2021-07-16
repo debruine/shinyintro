@@ -345,15 +345,6 @@ Which inputs will trigger `renderText()` to run and produce a new title?
 * [ Use reactive expressions ](https://shiny.rstudio.com/tutorial/written-tutorial/lesson6/){target="_blank"}
 
 
-## Glossary {#glossary-reactives}
-
-
-
-|term                                                                                                |definition                                                              |
-|:---------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/o#object'>object</a> |A word that identifies and stores the value of some data for later use. |
-
-
 
 ## Exercises {#exercises-reactive}
 

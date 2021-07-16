@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Outputs | Building Web Apps with R Shiny</title>
+  <meta name="description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Outputs | Building Web Apps with R Shiny" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Outputs | Building Web Apps with R Shiny" />
+  
+  <meta name="twitter:description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
+  
+
+<meta name="author" content="Lisa DeBruine" />
+
+
+<meta name="date" content="2021-07-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="inputs.html"/>
+<link rel="next" href="data.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<meta property="og:title" content="IntroDataViz">
+<meta property="og:description" content="Data Visualisation Using R, For Researchers Who Don’t Use R.">
+<meta property="og:image" content="https://psyteachr.github.io/images/twitter/psyteachr.png">
+<meta property="og:url" content="https://psyteachr.github.io/introdataviz/">
+<meta property="twitter:card" content="summary_large_image">
+
+<link rel="shortcut icon" href="https://psyteachr.github.io/images/logo.png">
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="include/psyteachr.css" type="text/css" />
+<link rel="stylesheet" href="include/webex.css" type="text/css" />
+<link rel="stylesheet" href="include/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Building Web Apps with R Shiny</a></li>
+<li><a href="https://zenodo.org/badge/latestdoi/166559207"><img src="https://zenodo.org/badge/166559207.svg" alt="DOI"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#installing-shinyintro"><i class="fa fa-check"></i><b>0.1</b> Installing shinyintro</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#example-apps"><i class="fa fa-check"></i><b>0.2</b> Example Apps</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#code-horizons-course-27-30-july-2021"><i class="fa fa-check"></i><b>0.3</b> Code Horizons Course (27-30 July 2021)</a>
+<ul>
+<li class="chapter" data-level="0.3.1" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i><b>0.3.1</b> Schedule</a></li>
+</ul></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#computing"><i class="fa fa-check"></i><b>0.4</b> Computing</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#who-should-register"><i class="fa fa-check"></i><b>0.5</b> Who Should Register?</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#further-resources"><i class="fa fa-check"></i><b>0.6</b> Further Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="first-app.html"><a href="first-app.html"><i class="fa fa-check"></i><b>1</b> Your First Shiny App</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="first-app.html"><a href="first-app.html#the-demo-app"><i class="fa fa-check"></i><b>1.1</b> The Demo App</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="first-app.html"><a href="first-app.html#set-up-the-demo-app"><i class="fa fa-check"></i><b>1.1.1</b> Set Up the Demo App</a></li>
+<li class="chapter" data-level="1.1.2" data-path="first-app.html"><a href="first-app.html#modify-the-demo-app"><i class="fa fa-check"></i><b>1.1.2</b> Modify the Demo App</a></li>
+<li class="chapter" data-level="1.1.3" data-path="first-app.html"><a href="first-app.html#add-new-things"><i class="fa fa-check"></i><b>1.1.3</b> Add New Things</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="first-app.html"><a href="first-app.html#overview-of-the-uiserver-structure"><i class="fa fa-check"></i><b>1.2</b> Overview of the UI/server structure</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="first-app.html"><a href="first-app.html#ui"><i class="fa fa-check"></i><b>1.2.1</b> UI</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="first-app.html"><a href="first-app.html#inputs-outputs-and-action-buttons"><i class="fa fa-check"></i><b>1.3</b> Inputs, outputs, and action buttons</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="first-app.html"><a href="first-app.html#inputs-intro"><i class="fa fa-check"></i><b>1.3.1</b> Inputs</a></li>
+<li class="chapter" data-level="1.3.2" data-path="first-app.html"><a href="first-app.html#outputs-intro"><i class="fa fa-check"></i><b>1.3.2</b> Outputs</a></li>
+<li class="chapter" data-level="1.3.3" data-path="first-app.html"><a href="first-app.html#action-buttons"><i class="fa fa-check"></i><b>1.3.3</b> Action buttons</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="first-app.html"><a href="first-app.html#first-reactive"><i class="fa fa-check"></i><b>1.4</b> Reactive functions</a></li>
+<li class="chapter" data-level="1.5" data-path="first-app.html"><a href="first-app.html#resources-first-app"><i class="fa fa-check"></i><b>1.5</b> Further Resources</a></li>
+<li class="chapter" data-level="1.6" data-path="first-app.html"><a href="first-app.html#exercises-first-app"><i class="fa fa-check"></i><b>1.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="first-app.html"><a href="first-app.html#addition-app---ui"><i class="fa fa-check"></i><b>1.6.1</b> Addition App - UI</a></li>
+<li class="chapter" data-level="1.6.2" data-path="first-app.html"><a href="first-app.html#observeevent"><i class="fa fa-check"></i><b>1.6.2</b> observeEvent</a></li>
+<li class="chapter" data-level="1.6.3" data-path="first-app.html"><a href="first-app.html#reactive"><i class="fa fa-check"></i><b>1.6.3</b> reactive</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="shinydashboard.html"><a href="shinydashboard.html"><i class="fa fa-check"></i><b>2</b> ShinyDashboard</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="shinydashboard.html"><a href="shinydashboard.html#basic-template-for-shinydashboard-projects"><i class="fa fa-check"></i><b>2.1</b> Basic template for shinydashboard projects</a></li>
+<li class="chapter" data-level="2.2" data-path="shinydashboard.html"><a href="shinydashboard.html#dashboard-structure"><i class="fa fa-check"></i><b>2.2</b> Dashboard Structure</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="shinydashboard.html"><a href="shinydashboard.html#dashboardheader"><i class="fa fa-check"></i><b>2.2.1</b> dashboardHeader</a></li>
+<li class="chapter" data-level="2.2.2" data-path="shinydashboard.html"><a href="shinydashboard.html#dashboardsidebar"><i class="fa fa-check"></i><b>2.2.2</b> dashboardSidebar</a></li>
+<li class="chapter" data-level="2.2.3" data-path="shinydashboard.html"><a href="shinydashboard.html#dashboardbody"><i class="fa fa-check"></i><b>2.2.3</b> dashboardBody</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="shinydashboard.html"><a href="shinydashboard.html#body-structure"><i class="fa fa-check"></i><b>2.3</b> Body Structure</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="shinydashboard.html"><a href="shinydashboard.html#boxes"><i class="fa fa-check"></i><b>2.3.1</b> Boxes</a></li>
+<li class="chapter" data-level="2.3.2" data-path="shinydashboard.html"><a href="shinydashboard.html#info-and-value-boxes"><i class="fa fa-check"></i><b>2.3.2</b> Info and Value Boxes</a></li>
+<li class="chapter" data-level="2.3.3" data-path="shinydashboard.html"><a href="shinydashboard.html#tab-boxes"><i class="fa fa-check"></i><b>2.3.3</b> Tab Boxes</a></li>
+<li class="chapter" data-level="2.3.4" data-path="shinydashboard.html"><a href="shinydashboard.html#row-layout"><i class="fa fa-check"></i><b>2.3.4</b> Row Layout</a></li>
+<li class="chapter" data-level="2.3.5" data-path="shinydashboard.html"><a href="shinydashboard.html#column-layout"><i class="fa fa-check"></i><b>2.3.5</b> Column Layout</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="shinydashboard.html"><a href="shinydashboard.html#resources-shinydashboard"><i class="fa fa-check"></i><b>2.4</b> Further Resources</a></li>
+<li class="chapter" data-level="2.5" data-path="shinydashboard.html"><a href="shinydashboard.html#exercises-shinydashboard"><i class="fa fa-check"></i><b>2.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="shinydashboard.html"><a href="shinydashboard.html#create-an-app-from-the-basic-template"><i class="fa fa-check"></i><b>2.5.1</b> Create an app from the basic template</a></li>
+<li class="chapter" data-level="2.5.2" data-path="shinydashboard.html"><a href="shinydashboard.html#customise-the-header"><i class="fa fa-check"></i><b>2.5.2</b> Customise the header</a></li>
+<li class="chapter" data-level="2.5.3" data-path="shinydashboard.html"><a href="shinydashboard.html#customise-the-sidebar"><i class="fa fa-check"></i><b>2.5.3</b> Customise the sidebar</a></li>
+<li class="chapter" data-level="2.5.4" data-path="shinydashboard.html"><a href="shinydashboard.html#customise-the-body"><i class="fa fa-check"></i><b>2.5.4</b> Customise the body</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="inputs.html"><a href="inputs.html"><i class="fa fa-check"></i><b>3</b> Inputs</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="inputs.html"><a href="inputs.html#input-functions"><i class="fa fa-check"></i><b>3.1</b> Input functions</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="inputs.html"><a href="inputs.html#textinput"><i class="fa fa-check"></i><b>3.1.1</b> textInput</a></li>
+<li class="chapter" data-level="3.1.2" data-path="inputs.html"><a href="inputs.html#textareainput"><i class="fa fa-check"></i><b>3.1.2</b> textAreaInput</a></li>
+<li class="chapter" data-level="3.1.3" data-path="inputs.html"><a href="inputs.html#selectinput"><i class="fa fa-check"></i><b>3.1.3</b> selectInput</a></li>
+<li class="chapter" data-level="3.1.4" data-path="inputs.html"><a href="inputs.html#checkboxgroupinput"><i class="fa fa-check"></i><b>3.1.4</b> checkboxGroupInput</a></li>
+<li class="chapter" data-level="3.1.5" data-path="inputs.html"><a href="inputs.html#checkboxinput"><i class="fa fa-check"></i><b>3.1.5</b> checkboxInput</a></li>
+<li class="chapter" data-level="3.1.6" data-path="inputs.html"><a href="inputs.html#radiobuttons"><i class="fa fa-check"></i><b>3.1.6</b> radioButtons</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="inputs.html"><a href="inputs.html#setting-inputs-programatically"><i class="fa fa-check"></i><b>3.2</b> Setting inputs programatically</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="outputs.html"><a href="outputs.html"><i class="fa fa-check"></i><b>4</b> Outputs</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="outputs.html"><a href="outputs.html#textoutput"><i class="fa fa-check"></i><b>4.1</b> textOutput</a></li>
+<li class="chapter" data-level="4.2" data-path="outputs.html"><a href="outputs.html#uioutput"><i class="fa fa-check"></i><b>4.2</b> uiOutput</a></li>
+<li class="chapter" data-level="4.3" data-path="outputs.html"><a href="outputs.html#plotoutput"><i class="fa fa-check"></i><b>4.3</b> plotOutput</a></li>
+<li class="chapter" data-level="4.4" data-path="outputs.html"><a href="outputs.html#imageoutput"><i class="fa fa-check"></i><b>4.4</b> imageOutput</a></li>
+<li class="chapter" data-level="4.5" data-path="outputs.html"><a href="outputs.html#tableoutput"><i class="fa fa-check"></i><b>4.5</b> tableOutput</a></li>
+<li class="chapter" data-level="4.6" data-path="outputs.html"><a href="outputs.html#datatableoutput"><i class="fa fa-check"></i><b>4.6</b> dataTableOutput</a></li>
+<li class="chapter" data-level="4.7" data-path="outputs.html"><a href="outputs.html#exercises-outputs"><i class="fa fa-check"></i><b>4.7</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="outputs.html"><a href="outputs.html#ui-1"><i class="fa fa-check"></i><b>4.7.1</b> UI</a></li>
+<li class="chapter" data-level="4.7.2" data-path="outputs.html"><a href="outputs.html#server"><i class="fa fa-check"></i><b>4.7.2</b> Server</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>5</b> Reading and saving data</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data.html"><a href="data.html#local-data"><i class="fa fa-check"></i><b>5.1</b> Local Data</a></li>
+<li class="chapter" data-level="5.2" data-path="data.html"><a href="data.html#google_sheets"><i class="fa fa-check"></i><b>5.2</b> Google Sheets</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="data.html"><a href="data.html#authorisation-for-apps"><i class="fa fa-check"></i><b>5.2.1</b> Authorisation for Apps</a></li>
+<li class="chapter" data-level="5.2.2" data-path="data.html"><a href="data.html#accessing-an-existing-sheet"><i class="fa fa-check"></i><b>5.2.2</b> Accessing an existing sheet</a></li>
+<li class="chapter" data-level="5.2.3" data-path="data.html"><a href="data.html#make-a-new-sheet"><i class="fa fa-check"></i><b>5.2.3</b> Make a new sheet</a></li>
+<li class="chapter" data-level="5.2.4" data-path="data.html"><a href="data.html#add-data"><i class="fa fa-check"></i><b>5.2.4</b> Add data</a></li>
+<li class="chapter" data-level="5.2.5" data-path="data.html"><a href="data.html#appending-data"><i class="fa fa-check"></i><b>5.2.5</b> Appending data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data.html"><a href="data.html#gs4_save"><i class="fa fa-check"></i><b>5.3</b> Saving Googlesheet data</a></li>
+<li class="chapter" data-level="5.4" data-path="data.html"><a href="data.html#exercises-data"><i class="fa fa-check"></i><b>5.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="data.html"><a href="data.html#read-others-data"><i class="fa fa-check"></i><b>5.4.1</b> Read others’ data</a></li>
+<li class="chapter" data-level="5.4.2" data-path="data.html"><a href="data.html#read-your-own-data"><i class="fa fa-check"></i><b>5.4.2</b> Read your own data</a></li>
+<li class="chapter" data-level="5.4.3" data-path="data.html"><a href="data.html#write-data"><i class="fa fa-check"></i><b>5.4.3</b> Write data</a></li>
+<li class="chapter" data-level="5.4.4" data-path="data.html"><a href="data.html#shiny-app"><i class="fa fa-check"></i><b>5.4.4</b> Shiny app</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="reactives.html"><a href="reactives.html"><i class="fa fa-check"></i><b>6</b> Reactive functions</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="reactives.html"><a href="reactives.html#observeevent-1"><i class="fa fa-check"></i><b>6.1</b> observeEvent()</a></li>
+<li class="chapter" data-level="6.2" data-path="reactives.html"><a href="reactives.html#render-functions"><i class="fa fa-check"></i><b>6.2</b> Render functions</a></li>
+<li class="chapter" data-level="6.3" data-path="reactives.html"><a href="reactives.html#reactive-1"><i class="fa fa-check"></i><b>6.3</b> reactive()</a></li>
+<li class="chapter" data-level="6.4" data-path="reactives.html"><a href="reactives.html#eventreactive"><i class="fa fa-check"></i><b>6.4</b> eventReactive()</a></li>
+<li class="chapter" data-level="6.5" data-path="reactives.html"><a href="reactives.html#reactiveval"><i class="fa fa-check"></i><b>6.5</b> reactiveVal()</a></li>
+<li class="chapter" data-level="6.6" data-path="reactives.html"><a href="reactives.html#reactivevalue"><i class="fa fa-check"></i><b>6.6</b> reactiveValue()</a></li>
+<li class="chapter" data-level="6.7" data-path="reactives.html"><a href="reactives.html#isolate"><i class="fa fa-check"></i><b>6.7</b> isolate()</a></li>
+<li class="chapter" data-level="6.8" data-path="reactives.html"><a href="reactives.html#further-resources-resources-reactive"><i class="fa fa-check"></i><b>6.8</b> Further Resources {#resources-reactive)</a></li>
+<li class="chapter" data-level="6.9" data-path="reactives.html"><a href="reactives.html#exercises-reactive"><i class="fa fa-check"></i><b>6.9</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="6.9.1" data-path="reactives.html"><a href="reactives.html#observeevent-2"><i class="fa fa-check"></i><b>6.9.1</b> observeEvent</a></li>
+<li class="chapter" data-level="6.9.2" data-path="reactives.html"><a href="reactives.html#render"><i class="fa fa-check"></i><b>6.9.2</b> render</a></li>
+<li class="chapter" data-level="6.9.3" data-path="reactives.html"><a href="reactives.html#reactive-2"><i class="fa fa-check"></i><b>6.9.3</b> reactive</a></li>
+<li class="chapter" data-level="6.9.4" data-path="reactives.html"><a href="reactives.html#eventreactive-1"><i class="fa fa-check"></i><b>6.9.4</b> eventReactive</a></li>
+<li class="chapter" data-level="6.9.5" data-path="reactives.html"><a href="reactives.html#reactiveval-1"><i class="fa fa-check"></i><b>6.9.5</b> reactiveVal</a></li>
+<li class="chapter" data-level="6.9.6" data-path="reactives.html"><a href="reactives.html#reactivevalues"><i class="fa fa-check"></i><b>6.9.6</b> reactiveValues</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="web.html"><a href="web.html"><i class="fa fa-check"></i><b>7</b> HTML, CSS, and JavaScript</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="web.html"><a href="web.html#html"><i class="fa fa-check"></i><b>7.1</b> HTML</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="web.html"><a href="web.html#html-tags"><i class="fa fa-check"></i><b>7.1.1</b> HTML Tags</a></li>
+<li class="chapter" data-level="7.1.2" data-path="web.html"><a href="web.html#viewing-html"><i class="fa fa-check"></i><b>7.1.2</b> Viewing HTML</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="web.html"><a href="web.html#css"><i class="fa fa-check"></i><b>7.2</b> CSS</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="web.html"><a href="web.html#css-basics"><i class="fa fa-check"></i><b>7.2.1</b> CSS Basics</a></li>
+<li class="chapter" data-level="7.2.2" data-path="web.html"><a href="web.html#styling-a-single-element"><i class="fa fa-check"></i><b>7.2.2</b> Styling a single element</a></li>
+<li class="chapter" data-level="7.2.3" data-path="web.html"><a href="web.html#inline-css"><i class="fa fa-check"></i><b>7.2.3</b> Inline CSS</a></li>
+<li class="chapter" data-level="7.2.4" data-path="web.html"><a href="web.html#external-css"><i class="fa fa-check"></i><b>7.2.4</b> External CSS</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="web.html"><a href="web.html#javascript"><i class="fa fa-check"></i><b>7.3</b> JavaScript</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="web.html"><a href="web.html#shinyjs"><i class="fa fa-check"></i><b>7.3.1</b> shinyjs</a></li>
+<li class="chapter" data-level="7.3.2" data-path="web.html"><a href="web.html#external-js"><i class="fa fa-check"></i><b>7.3.2</b> External JS</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="web.html"><a href="web.html#resources-web"><i class="fa fa-check"></i><b>7.4</b> Further Resources</a></li>
+<li class="chapter" data-level="7.5" data-path="web.html"><a href="web.html#exercises-web"><i class="fa fa-check"></i><b>7.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="web.html"><a href="web.html#add-html"><i class="fa fa-check"></i><b>7.5.1</b> Add HTML</a></li>
+<li class="chapter" data-level="7.5.2" data-path="web.html"><a href="web.html#class-html"><i class="fa fa-check"></i><b>7.5.2</b> Class HTML</a></li>
+<li class="chapter" data-level="7.5.3" data-path="web.html"><a href="web.html#style-links"><i class="fa fa-check"></i><b>7.5.3</b> Style links</a></li>
+<li class="chapter" data-level="7.5.4" data-path="web.html"><a href="web.html#style-a-single-link-directly"><i class="fa fa-check"></i><b>7.5.4</b> Style a single link directly</a></li>
+<li class="chapter" data-level="7.5.5" data-path="web.html"><a href="web.html#external-css-1"><i class="fa fa-check"></i><b>7.5.5</b> External CSS</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="structure.html"><a href="structure.html"><i class="fa fa-check"></i><b>8</b> Structuring a complex app</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="structure.html"><a href="structure.html#external-server-functions"><i class="fa fa-check"></i><b>8.1</b> External Server Functions</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="structure.html"><a href="structure.html#sourcing-locally"><i class="fa fa-check"></i><b>8.1.1</b> Sourcing Locally</a></li>
+<li class="chapter" data-level="8.1.2" data-path="structure.html"><a href="structure.html#inputs-and-outputs"><i class="fa fa-check"></i><b>8.1.2</b> Inputs and Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="structure.html"><a href="structure.html#external-ui-files"><i class="fa fa-check"></i><b>8.2</b> External UI Files</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="structure.html"><a href="structure.html#ui-lists"><i class="fa fa-check"></i><b>8.2.1</b> UI Lists</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="structure.html"><a href="structure.html#exercises-structure"><i class="fa fa-check"></i><b>8.3</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="structure.html"><a href="structure.html#server-functions"><i class="fa fa-check"></i><b>8.3.1</b> server functions</a></li>
+<li class="chapter" data-level="8.3.2" data-path="structure.html"><a href="structure.html#ui-files"><i class="fa fa-check"></i><b>8.3.2</b> UI files</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="debugging.html"><a href="debugging.html"><i class="fa fa-check"></i><b>9</b> Debugging and error handling</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="debugging.html"><a href="debugging.html#rstudio-console-messages"><i class="fa fa-check"></i><b>9.1</b> RStudio Console Messages</a></li>
+<li class="chapter" data-level="9.2" data-path="debugging.html"><a href="debugging.html#javascript-console"><i class="fa fa-check"></i><b>9.2</b> JavaScript Console</a></li>
+<li class="chapter" data-level="9.3" data-path="debugging.html"><a href="debugging.html#showcase-mode"><i class="fa fa-check"></i><b>9.3</b> Showcase Mode</a></li>
+<li class="chapter" data-level="9.4" data-path="debugging.html"><a href="debugging.html#trycatch"><i class="fa fa-check"></i><b>9.4</b> tryCatch</a></li>
+<li class="chapter" data-level="9.5" data-path="debugging.html"><a href="debugging.html#input-checking"><i class="fa fa-check"></i><b>9.5</b> Input Checking</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="contingency.html"><a href="contingency.html"><i class="fa fa-check"></i><b>10</b> Contingent Display</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="contingency.html"><a href="contingency.html#hide-and-show"><i class="fa fa-check"></i><b>10.1</b> Hide and Show</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="contingency.html"><a href="contingency.html#groups"><i class="fa fa-check"></i><b>10.1.1</b> Groups</a></li>
+<li class="chapter" data-level="10.1.2" data-path="contingency.html"><a href="contingency.html#toggle"><i class="fa fa-check"></i><b>10.1.2</b> Toggle</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="contingency.html"><a href="contingency.html#changing-styles"><i class="fa fa-check"></i><b>10.2</b> Changing Styles</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="contingency.html"><a href="contingency.html#changing-non-shiny-elements"><i class="fa fa-check"></i><b>10.2.1</b> Changing non-shiny elements</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="contingency.html"><a href="contingency.html#changing-input-options"><i class="fa fa-check"></i><b>10.3</b> Changing input options</a></li>
+<li class="chapter" data-level="10.4" data-path="contingency.html"><a href="contingency.html#exercises-contingency"><i class="fa fa-check"></i><b>10.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="sharing.html"><a href="sharing.html"><i class="fa fa-check"></i><b>11</b> Sharing your Apps</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="sharing.html"><a href="sharing.html#shinyapps.io"><i class="fa fa-check"></i><b>11.1</b> shinyapps.io</a></li>
+<li class="chapter" data-level="11.2" data-path="sharing.html"><a href="sharing.html#self-hosting-a-shiny-server"><i class="fa fa-check"></i><b>11.2</b> Self-hosting a shiny server</a></li>
+<li class="chapter" data-level="11.3" data-path="sharing.html"><a href="sharing.html#github"><i class="fa fa-check"></i><b>11.3</b> GitHub</a></li>
+<li class="chapter" data-level="11.4" data-path="sharing.html"><a href="sharing.html#in-an-r-package"><i class="fa fa-check"></i><b>11.4</b> In an R package</a></li>
+<li class="chapter" data-level="11.5" data-path="sharing.html"><a href="sharing.html#exercises-sharing"><i class="fa fa-check"></i><b>11.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="sharing.html"><a href="sharing.html#shinyapps.io-1"><i class="fa fa-check"></i><b>11.5.1</b> Shinyapps.io</a></li>
+<li class="chapter" data-level="11.5.2" data-path="sharing.html"><a href="sharing.html#github-1"><i class="fa fa-check"></i><b>11.5.2</b> GitHub</a></li>
+<li class="chapter" data-level="11.5.3" data-path="sharing.html"><a href="sharing.html#r-package"><i class="fa fa-check"></i><b>11.5.3</b> R Package</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="reports.html"><a href="reports.html"><i class="fa fa-check"></i><b>12</b> Customized reports</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="reports.html"><a href="reports.html#download-data"><i class="fa fa-check"></i><b>12.1</b> Download Data</a></li>
+<li class="chapter" data-level="12.2" data-path="reports.html"><a href="reports.html#download-images"><i class="fa fa-check"></i><b>12.2</b> Download Images</a></li>
+<li class="chapter" data-level="12.3" data-path="reports.html"><a href="reports.html#r-markdown"><i class="fa fa-check"></i><b>12.3</b> R Markdown</a></li>
+<li class="chapter" data-level="12.4" data-path="reports.html"><a href="reports.html#exercises-reports"><i class="fa fa-check"></i><b>12.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="reports.html"><a href="reports.html#food-data"><i class="fa fa-check"></i><b>12.4.1</b> Food Data</a></li>
+<li class="chapter" data-level="12.4.2" data-path="reports.html"><a href="reports.html#food-image"><i class="fa fa-check"></i><b>12.4.2</b> Food Image</a></li>
+<li class="chapter" data-level="12.4.3" data-path="reports.html"><a href="reports.html#food-report"><i class="fa fa-check"></i><b>12.4.3</b> Food Report</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="modules.html"><a href="modules.html"><i class="fa fa-check"></i><b>13</b> Shiny modules for repeated structures</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="modules.html"><a href="modules.html#modularizing-the-ui"><i class="fa fa-check"></i><b>13.1</b> Modularizing the UI</a></li>
+<li class="chapter" data-level="13.2" data-path="modules.html"><a href="modules.html#modularizing-server-functions"><i class="fa fa-check"></i><b>13.2</b> Modularizing server functions</a></li>
+<li class="chapter" data-level="13.3" data-path="modules.html"><a href="modules.html#exercises-modules"><i class="fa fa-check"></i><b>13.3</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="modules.html"><a href="modules.html#repeat-example"><i class="fa fa-check"></i><b>13.3.1</b> 1. Repeat Example</a></li>
+<li class="chapter" data-level="13.3.2" data-path="modules.html"><a href="modules.html#new-instance"><i class="fa fa-check"></i><b>13.3.2</b> 2. New Instance</a></li>
+<li class="chapter" data-level="13.3.3" data-path="modules.html"><a href="modules.html#altering-modules"><i class="fa fa-check"></i><b>13.3.3</b> 3. Altering modules</a></li>
+<li class="chapter" data-level="13.3.4" data-path="modules.html"><a href="modules.html#new-module"><i class="fa fa-check"></i><b>13.3.4</b> 4. New module</a></li>
+</ul></li>
+</ul></li>
+<li class="appendix"><span><b>Appendices</b></span></li>
+<li class="chapter" data-level="A" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i><b>A</b> Installing <code>R</code></a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="installing-r.html"><a href="installing-r.html#installing-base-r"><i class="fa fa-check"></i><b>A.1</b> Installing Base R</a></li>
+<li class="chapter" data-level="A.2" data-path="installing-r.html"><a href="installing-r.html#installing-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing RStudio</a></li>
+<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-shinyintro-1"><i class="fa fa-check"></i><b>A.3</b> Installing shinyintro</a></li>
+<li class="chapter" data-level="A.4" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.4</b> Installing LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="symbols.html"><a href="symbols.html"><i class="fa fa-check"></i><b>B</b> Symbols</a></li>
+<li class="chapter" data-level="C" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>C</b> Glossary</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
+    target="blank"><img alt="Creative Commons License" 
+    style="border-width:0" 
+    src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></li>
+<li><a href="https://psyteachr.github.io/books" target="blank">PsyTeachR Books</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Building Web Apps with R Shiny</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="outputs" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Outputs</h1>
+<p>Output are ways that the Shiny app can dynamically display information to the user. In the user interface (<a class='glossary' target='_blank' title='The User Interface. This usually refers to a Shiny App as the user will see it.' href='https://psyteachr.github.io/glossary/u#ui'>UI</a>), you create outputs with IDs that you reference in an associated rendering function inside the <a class='glossary' target='_blank' title='This is the part of a Shiny app that works with logic.' href='https://psyteachr.github.io/glossary/s#server'>server</a> function.</p>
+<p>Explore some different output types in the embedded app below before you read about how to set up each type. You can run this app locally with <code>shinyintro::app("output_demo")</code> or view it in a separate tab with the [showcase interface](&lt;<a href="https://shiny.psy.gla.ac.uk/debruine/output_demo/" class="uri">https://shiny.psy.gla.ac.uk/debruine/output_demo/</a>({target="_blank"}.</p>
+<div class="figure" style="text-align: center"><span id="fig:output-demo-app"></span>
+<iframe src="https://shiny.psy.gla.ac.uk/debruine/output_demo/?showcase=0" width="100%" height="800px">
+</iframe>
+<p class="caption">
+Figure 4.1: Output Demo App
+</p>
+</div>
+<div id="textoutput" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> textOutput</h2>
+<p>The function <code>textOutput()</code> defaults to text inside a <code>&lt;span&gt;</code> or <code>&lt;div&gt;</code> element, but you can use a different element with the <code>container</code> argument.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="outputs.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
+<span id="cb48-2"><a href="outputs.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">textOutput</span>(<span class="st">&quot;demo_text&quot;</span>, <span class="at">container =</span> tags<span class="sc">$</span>h3)</span>
+<span id="cb48-3"><a href="outputs.html#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="outputs.html#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
+<span id="cb48-5"><a href="outputs.html#cb48-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_text <span class="ot">&lt;-</span> <span class="fu">renderText</span>({</span>
+<span id="cb48-6"><a href="outputs.html#cb48-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sprintf</span>(<span class="st">&quot;Plot of %s&quot;</span>, input<span class="sc">$</span>y)</span>
+<span id="cb48-7"><a href="outputs.html#cb48-7" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<p>If you use <code>verbatimTextOutput()</code> in the UI (no change to the server function), it will show the output in a fixed-width font. This can be good for code or text you want the user to copy.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="outputs.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
+<span id="cb49-2"><a href="outputs.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">verbatimTextOutput</span>(<span class="st">&quot;demo_verbatim&quot;</span>)</span>
+<span id="cb49-3"><a href="outputs.html#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-4"><a href="outputs.html#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
+<span id="cb49-5"><a href="outputs.html#cb49-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_verbatim <span class="ot">&lt;-</span> <span class="fu">renderText</span>({</span>
+<span id="cb49-6"><a href="outputs.html#cb49-6" aria-hidden="true" tabindex="-1"></a>        code <span class="ot">&lt;-</span> </span>
+<span id="cb49-7"><a href="outputs.html#cb49-7" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;ggplot(iris, aes(x = Species, y = %s, color = Species)) +</span></span>
+<span id="cb49-8"><a href="outputs.html#cb49-8" aria-hidden="true" tabindex="-1"></a><span class="st">    geom_violin(show.legend = FALSE) +</span></span>
+<span id="cb49-9"><a href="outputs.html#cb49-9" aria-hidden="true" tabindex="-1"></a><span class="st">    stat_summary(show.legend = FALSE)&quot;</span></span>
+<span id="cb49-10"><a href="outputs.html#cb49-10" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb49-11"><a href="outputs.html#cb49-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sprintf</span>(code, input<span class="sc">$</span>y)</span>
+<span id="cb49-12"><a href="outputs.html#cb49-12" aria-hidden="true" tabindex="-1"></a>    })</span></code></pre></div>
+</div>
+<div id="uioutput" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> uiOutput</h2>
+<p>If you want to dynamically create parts of the UI, you can use <code>uiOutput()</code>. You can create the UI using the <a href="#input_functions">input functions</a></p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="outputs.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
+<span id="cb50-2"><a href="outputs.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">uiOutput</span>(<span class="st">&quot;demo_ui&quot;</span>)</span>
+<span id="cb50-3"><a href="outputs.html#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="outputs.html#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
+<span id="cb50-5"><a href="outputs.html#cb50-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_ui <span class="ot">&lt;-</span> <span class="fu">renderUI</span>({</span>
+<span id="cb50-6"><a href="outputs.html#cb50-6" aria-hidden="true" tabindex="-1"></a>  cols <span class="ot">&lt;-</span> <span class="fu">names</span>(iris)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span>
+<span id="cb50-7"><a href="outputs.html#cb50-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;y&quot;</span>, <span class="st">&quot;Column to plot&quot;</span>, cols, <span class="st">&quot;Sepal.Length&quot;</span>)</span>
+<span id="cb50-8"><a href="outputs.html#cb50-8" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="info">
+<p>The function <code>htmlOutput()</code> is exactly the same as <code>uiOutput()</code>, so you might see that in some code examples, but I use <code>uiOutput()</code> to make the connection with <code>renderUI()</code> clearer, since there is no <code>renderHTML()</code>.</p>
+</div>
+</div>
+<div id="plotoutput" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> plotOutput</h2>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="outputs.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
+<span id="cb51-2"><a href="outputs.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotOutput</span>(<span class="st">&quot;demo_plot&quot;</span>)</span>
+<span id="cb51-3"><a href="outputs.html#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="outputs.html#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
+<span id="cb51-5"><a href="outputs.html#cb51-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb51-6"><a href="outputs.html#cb51-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> .data[[input<span class="sc">$</span>y]], <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb51-7"><a href="outputs.html#cb51-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_violin</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb51-8"><a href="outputs.html#cb51-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_summary</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb51-9"><a href="outputs.html#cb51-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(input<span class="sc">$</span>y)</span>
+<span id="cb51-10"><a href="outputs.html#cb51-10" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="warning">
+<p>If you want to create dynamic plots that change with input, note how you need to use <code>y = .data[[input$y]]</code> inside <code>aes()</code>, instead of just <code>y = input$y</code>.</p>
+</div>
+</div>
+<div id="imageoutput" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> imageOutput</h2>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="outputs.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
+<span id="cb52-2"><a href="outputs.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">imageOutput</span>(<span class="st">&quot;demo_image&quot;</span>)</span>
+<span id="cb52-3"><a href="outputs.html#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="outputs.html#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
+<span id="cb52-5"><a href="outputs.html#cb52-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_image <span class="ot">&lt;-</span> <span class="fu">renderImage</span>({</span>
+<span id="cb52-6"><a href="outputs.html#cb52-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(<span class="at">src =</span> <span class="st">&quot;images/flower.jpg&quot;</span>,</span>
+<span id="cb52-7"><a href="outputs.html#cb52-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">width =</span> <span class="dv">100</span>,</span>
+<span id="cb52-8"><a href="outputs.html#cb52-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">height =</span> <span class="dv">100</span>,</span>
+<span id="cb52-9"><a href="outputs.html#cb52-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">alt =</span> <span class="st">&quot;A flower&quot;</span>)</span>
+<span id="cb52-10"><a href="outputs.html#cb52-10" aria-hidden="true" tabindex="-1"></a>}, <span class="at">deleteFile =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>You can dynamically display images of any type, but one of the most useful ways to use image outputs is to control the aspect ratio and relative size of plots. When you save a temporary file, you should set <code>deleteFile = TRUE</code> in <code>renderImage()</code> (this stops unneeded plots using memory).</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="outputs.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
+<span id="cb53-2"><a href="outputs.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">imageOutput</span>(<span class="st">&quot;demo_image&quot;</span>)</span>
+<span id="cb53-3"><a href="outputs.html#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-4"><a href="outputs.html#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
+<span id="cb53-5"><a href="outputs.html#cb53-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_image <span class="ot">&lt;-</span> <span class="fu">renderImage</span>({</span>
+<span id="cb53-6"><a href="outputs.html#cb53-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># make the plot</span></span>
+<span id="cb53-7"><a href="outputs.html#cb53-7" aria-hidden="true" tabindex="-1"></a>  g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> .data[[input<span class="sc">$</span>y]], <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb53-8"><a href="outputs.html#cb53-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_violin</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb53-9"><a href="outputs.html#cb53-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_summary</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb53-10"><a href="outputs.html#cb53-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(input<span class="sc">$</span>y)</span>
+<span id="cb53-11"><a href="outputs.html#cb53-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb53-12"><a href="outputs.html#cb53-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># save to a temporary file</span></span>
+<span id="cb53-13"><a href="outputs.html#cb53-13" aria-hidden="true" tabindex="-1"></a>  plot_file <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">&quot;.png&quot;</span>)</span>
+<span id="cb53-14"><a href="outputs.html#cb53-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-15"><a href="outputs.html#cb53-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggsave</span>(plot_file, <span class="fu">demo_plot</span>(), <span class="at">units =</span> <span class="st">&quot;in&quot;</span>,</span>
+<span id="cb53-16"><a href="outputs.html#cb53-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">dpi =</span> <span class="dv">72</span>, <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="dv">5</span>)</span>
+<span id="cb53-17"><a href="outputs.html#cb53-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb53-18"><a href="outputs.html#cb53-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return a list containing the filename</span></span>
+<span id="cb53-19"><a href="outputs.html#cb53-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">src =</span> plot_file,</span>
+<span id="cb53-20"><a href="outputs.html#cb53-20" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="st">&quot;100%&quot;</span>, <span class="co"># don&#39;t set the height to keep aspect ratio</span></span>
+<span id="cb53-21"><a href="outputs.html#cb53-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">alt =</span> <span class="st">&quot;The plot&quot;</span>)</span>
+<span id="cb53-22"><a href="outputs.html#cb53-22" aria-hidden="true" tabindex="-1"></a>}, <span class="at">deleteFile =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+</div>
+<div id="tableoutput" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> tableOutput</h2>
+<p>Display a table using <code>renderTable()</code>, which makes a table out of any data frame it returns.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="outputs.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
+<span id="cb54-2"><a href="outputs.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tableOutput</span>(<span class="st">&quot;demo_table&quot;</span>)</span>
+<span id="cb54-3"><a href="outputs.html#cb54-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-4"><a href="outputs.html#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
+<span id="cb54-5"><a href="outputs.html#cb54-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_table <span class="ot">&lt;-</span> <span class="fu">renderTable</span>({</span>
+<span id="cb54-6"><a href="outputs.html#cb54-6" aria-hidden="true" tabindex="-1"></a>  iris <span class="sc">%&gt;%</span></span>
+<span id="cb54-7"><a href="outputs.html#cb54-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb54-8"><a href="outputs.html#cb54-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(.data[[input<span class="sc">$</span>y]]),</span>
+<span id="cb54-9"><a href="outputs.html#cb54-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">sd =</span> <span class="fu">sd</span>(.data[[input<span class="sc">$</span>y]]))</span>
+<span id="cb54-10"><a href="outputs.html#cb54-10" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="warning">
+<p>Note how you need to use <code>.data[[input$y]]</code> inside <code>dplyr::summarise()</code>, instead of just <code>input$y</code> to dynamically choose which variable to summarise.</p>
+</div>
+</div>
+<div id="datatableoutput" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> dataTableOutput</h2>
+<p>If you have a long table to show, or one that you want users to be able to sort or search, use <code>dataTableOutput()</code>. You can customise data tables in many ways, but we’ll stick with a basic example here.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="outputs.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
+<span id="cb55-2"><a href="outputs.html#cb55-2" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="st">&quot;demo_datatable&quot;</span>)</span>
+<span id="cb55-3"><a href="outputs.html#cb55-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-4"><a href="outputs.html#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
+<span id="cb55-5"><a href="outputs.html#cb55-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_datatable <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
+<span id="cb55-6"><a href="outputs.html#cb55-6" aria-hidden="true" tabindex="-1"></a>    iris</span>
+<span id="cb55-7"><a href="outputs.html#cb55-7" aria-hidden="true" tabindex="-1"></a>}, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="dv">10</span>))</span></code></pre></div>
+<div class="warning">
+<p>The basic <code>shiny</code> package has <code>dataTableOutput()</code> and <code>renderDataTable()</code> functions, but they can be buggy. The versions in the <code>DT</code> package are better and have some additional functions, so I use those.</p>
+</div>
+</div>
+<div id="exercises-outputs" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Exercises</h2>
+<div id="ui-1" class="section level3" number="4.7.1">
+<h3><span class="header-section-number">4.7.1</span> UI</h3>
+<p>In the app you’re developing, add relevant outputs, such as for plots or tables.</p>
+</div>
+<div id="server" class="section level3" number="4.7.2">
+<h3><span class="header-section-number">4.7.2</span> Server</h3>
+<p>In the app you’re developing, add the appropriate render function for each output. You can leave the contents blank for now or add in some code to create output.</p>
+
+</div>
+</div>
+</div>
+<div class="psyteachr_footer">
+  
+</div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("webex-total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("webex-correct").length + " of " +
+      document.getElementsByClassName("webex-solveme").length + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+  
+  if (my_answer !== "" & real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+  } else {
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);  
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }  
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }  
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+  
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off"); 
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+    
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+    
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="inputs.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"],
+"google": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["shinyintro.pdf", "PDF"]],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>

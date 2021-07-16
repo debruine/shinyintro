@@ -138,7 +138,7 @@ id
 
 ```
 ## Spreadsheet name: demo2
-##               ID: 1N5W9wevtWnTiNAyOc5yb98Sw0_WYF6BWSFlPeNEi3lM
+##               ID: 1DW6GX_Q5nygsVOBEIRijSRZsI54KBU8gm1vucl1_2a0
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -153,7 +153,7 @@ id
 
 Include the ID at the top of your app like this:
 
-<pre><code>SHEET_ID <- "1N5W9wevtWnTiNAyOc5yb98Sw0_WYF6BWSFlPeNEi3lM"</code></pre>
+<pre><code>SHEET_ID <- "1DW6GX_Q5nygsVOBEIRijSRZsI54KBU8gm1vucl1_2a0"</code></pre>
 
 ### Add data
 
@@ -274,14 +274,53 @@ string_data <- lapply(data, sapply, toString) %>% as.data.frame()
 readr::write_csv(string_data, "data.csv")
 ```
 
+## Exercises {#exercises-data}
 
-## Glossary {#glossary-data}
+### Read others' data
 
-
-
-|term                                                                                                                      |definition                                                   |
-|:-------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------|
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/w#working-directory'>working-directory</a> |The filepath where R is currently reading and writing files. |
+Read in data from the public google sheet at <https://docs.google.com/spreadsheets/d/1QjpRZPNOOL0pfRO6IVT5WiafnyNdahsch1A03iHdv7s/>. Find the sheet ID and figure out which sheet has data on US states (assign this to the object `states`) and which has data on eutherian mammals (assign this to `mammals`).
 
 
+<div class='webex-solution'><button>Solution</button>
 
+
+```r
+library(googlesheets4)
+
+gs4_deauth()
+
+sheet_url <- "https://docs.google.com/spreadsheets/d/1QjpRZPNOOL0pfRO6IVT5WiafnyNdahsch1A03iHdv7s/"
+sheet_id <- as_sheets_id(sheet_url)
+
+states <- read_sheet(sheet_id, 1)
+mammals <- read_sheet(sheet_id, 2)
+```
+
+</div>
+
+
+
+### Read your own data
+
+Create a google sheet online and read its contents in R. You will need to either make it public first (click on the green Share icon in the upper right) or authorise googlesheets to access your account.
+
+
+<div class='webex-solution'><button>Solution</button>
+
+
+```r
+gs4_auth()
+my_sheet_url <- ""
+mydata <- read_sheet(my_sheet_url)
+```
+
+</div>
+
+
+### Write data
+
+Append some data to your google sheet
+
+### Shiny app
+
+In the app you're developing, determine what data need to be saved and set up a google sheet (or local data if you're having trouble with google). Write the server function to save data from your app when an action button is pressed.

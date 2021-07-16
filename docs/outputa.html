@@ -149,14 +149,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#example-apps"><i class="fa fa-check"></i><b>0.1</b> Example Apps</a></li>
-<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#code-horizons-course-27-30-july-2021"><i class="fa fa-check"></i><b>0.2</b> Code Horizons Course (27-30 July 2021)</a>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#installing-shinyintro"><i class="fa fa-check"></i><b>0.1</b> Installing shinyintro</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#example-apps"><i class="fa fa-check"></i><b>0.2</b> Example Apps</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#code-horizons-course-27-30-july-2021"><i class="fa fa-check"></i><b>0.3</b> Code Horizons Course (27-30 July 2021)</a>
 <ul>
-<li class="chapter" data-level="0.2.1" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i><b>0.2.1</b> Schedule</a></li>
+<li class="chapter" data-level="0.3.1" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i><b>0.3.1</b> Schedule</a></li>
 </ul></li>
-<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#computing"><i class="fa fa-check"></i><b>0.3</b> Computing</a></li>
-<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#who-should-register"><i class="fa fa-check"></i><b>0.4</b> Who Should Register?</a></li>
-<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#further-resources"><i class="fa fa-check"></i><b>0.5</b> Further Resources</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#computing"><i class="fa fa-check"></i><b>0.4</b> Computing</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#who-should-register"><i class="fa fa-check"></i><b>0.5</b> Who Should Register?</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#further-resources"><i class="fa fa-check"></i><b>0.6</b> Further Resources</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="first-app.html"><a href="first-app.html"><i class="fa fa-check"></i><b>1</b> Your First Shiny App</a>
 <ul>
@@ -383,7 +384,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="A.1" data-path="installing-r.html"><a href="installing-r.html#installing-base-r"><i class="fa fa-check"></i><b>A.1</b> Installing Base R</a></li>
 <li class="chapter" data-level="A.2" data-path="installing-r.html"><a href="installing-r.html#installing-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing RStudio</a></li>
-<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-shinyintro"><i class="fa fa-check"></i><b>A.3</b> Installing shinyintro</a></li>
+<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-shinyintro-1"><i class="fa fa-check"></i><b>A.3</b> Installing shinyintro</a></li>
 <li class="chapter" data-level="A.4" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.4</b> Installing LaTeX</a></li>
 </ul></li>
 <li class="chapter" data-level="B" data-path="symbols.html"><a href="symbols.html"><i class="fa fa-check"></i><b>B</b> Symbols</a></li>
@@ -426,107 +427,107 @@ Figure 4.1: Output Demo App
 <div id="textoutput" class="section level3" number="4.0.1">
 <h3><span class="header-section-number">4.0.1</span> textOutput</h3>
 <p>The function <code>textOutput()</code> defaults to text inside a <code>&lt;span&gt;</code> or <code>&lt;div&gt;</code> element, but you can use a different element with the <code>container</code> argument.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="outputa.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
-<span id="cb47-2"><a href="outputa.html#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">textOutput</span>(<span class="st">&quot;demo_text&quot;</span>, <span class="at">container =</span> tags<span class="sc">$</span>h3)</span>
-<span id="cb47-3"><a href="outputa.html#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-4"><a href="outputa.html#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
-<span id="cb47-5"><a href="outputa.html#cb47-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_text <span class="ot">&lt;-</span> <span class="fu">renderText</span>({</span>
-<span id="cb47-6"><a href="outputa.html#cb47-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sprintf</span>(<span class="st">&quot;Plot of %s&quot;</span>, input<span class="sc">$</span>y)</span>
-<span id="cb47-7"><a href="outputa.html#cb47-7" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
-<p>If you use <code>verbatimTextOutput()</code> in the UI (no change to the server function), it will show the output in a fixed-width font. This can be good for code or text you want the user to copy.</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="outputa.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
-<span id="cb48-2"><a href="outputa.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">verbatimTextOutput</span>(<span class="st">&quot;demo_verbatim&quot;</span>)</span>
+<span id="cb48-2"><a href="outputa.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">textOutput</span>(<span class="st">&quot;demo_text&quot;</span>, <span class="at">container =</span> tags<span class="sc">$</span>h3)</span>
 <span id="cb48-3"><a href="outputa.html#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-4"><a href="outputa.html#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
-<span id="cb48-5"><a href="outputa.html#cb48-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_verbatim <span class="ot">&lt;-</span> <span class="fu">renderText</span>({</span>
-<span id="cb48-6"><a href="outputa.html#cb48-6" aria-hidden="true" tabindex="-1"></a>        code <span class="ot">&lt;-</span> </span>
-<span id="cb48-7"><a href="outputa.html#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;ggplot(iris, aes(x = Species, y = %s, color = Species)) +</span></span>
-<span id="cb48-8"><a href="outputa.html#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="st">    geom_violin(show.legend = FALSE) +</span></span>
-<span id="cb48-9"><a href="outputa.html#cb48-9" aria-hidden="true" tabindex="-1"></a><span class="st">    stat_summary(show.legend = FALSE)&quot;</span></span>
-<span id="cb48-10"><a href="outputa.html#cb48-10" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb48-11"><a href="outputa.html#cb48-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sprintf</span>(code, input<span class="sc">$</span>y)</span>
-<span id="cb48-12"><a href="outputa.html#cb48-12" aria-hidden="true" tabindex="-1"></a>    })</span></code></pre></div>
+<span id="cb48-5"><a href="outputa.html#cb48-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_text <span class="ot">&lt;-</span> <span class="fu">renderText</span>({</span>
+<span id="cb48-6"><a href="outputa.html#cb48-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sprintf</span>(<span class="st">&quot;Plot of %s&quot;</span>, input<span class="sc">$</span>y)</span>
+<span id="cb48-7"><a href="outputa.html#cb48-7" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<p>If you use <code>verbatimTextOutput()</code> in the UI (no change to the server function), it will show the output in a fixed-width font. This can be good for code or text you want the user to copy.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="outputa.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
+<span id="cb49-2"><a href="outputa.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">verbatimTextOutput</span>(<span class="st">&quot;demo_verbatim&quot;</span>)</span>
+<span id="cb49-3"><a href="outputa.html#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-4"><a href="outputa.html#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
+<span id="cb49-5"><a href="outputa.html#cb49-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_verbatim <span class="ot">&lt;-</span> <span class="fu">renderText</span>({</span>
+<span id="cb49-6"><a href="outputa.html#cb49-6" aria-hidden="true" tabindex="-1"></a>        code <span class="ot">&lt;-</span> </span>
+<span id="cb49-7"><a href="outputa.html#cb49-7" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;ggplot(iris, aes(x = Species, y = %s, color = Species)) +</span></span>
+<span id="cb49-8"><a href="outputa.html#cb49-8" aria-hidden="true" tabindex="-1"></a><span class="st">    geom_violin(show.legend = FALSE) +</span></span>
+<span id="cb49-9"><a href="outputa.html#cb49-9" aria-hidden="true" tabindex="-1"></a><span class="st">    stat_summary(show.legend = FALSE)&quot;</span></span>
+<span id="cb49-10"><a href="outputa.html#cb49-10" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb49-11"><a href="outputa.html#cb49-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sprintf</span>(code, input<span class="sc">$</span>y)</span>
+<span id="cb49-12"><a href="outputa.html#cb49-12" aria-hidden="true" tabindex="-1"></a>    })</span></code></pre></div>
 </div>
 <div id="uioutput" class="section level3" number="4.0.2">
 <h3><span class="header-section-number">4.0.2</span> uiOutput</h3>
 <p>If you want to dynamically create parts of the UI, you can use <code>uiOutput()</code>. You can create the UI using the <a href="#input_functions">input functions</a></p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="outputa.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
-<span id="cb49-2"><a href="outputa.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">uiOutput</span>(<span class="st">&quot;demo_ui&quot;</span>)</span>
-<span id="cb49-3"><a href="outputa.html#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-4"><a href="outputa.html#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
-<span id="cb49-5"><a href="outputa.html#cb49-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_ui <span class="ot">&lt;-</span> <span class="fu">renderUI</span>({</span>
-<span id="cb49-6"><a href="outputa.html#cb49-6" aria-hidden="true" tabindex="-1"></a>  cols <span class="ot">&lt;-</span> <span class="fu">names</span>(iris)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span>
-<span id="cb49-7"><a href="outputa.html#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;y&quot;</span>, <span class="st">&quot;Column to plot&quot;</span>, cols, <span class="st">&quot;Sepal.Length&quot;</span>)</span>
-<span id="cb49-8"><a href="outputa.html#cb49-8" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="outputa.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
+<span id="cb50-2"><a href="outputa.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">uiOutput</span>(<span class="st">&quot;demo_ui&quot;</span>)</span>
+<span id="cb50-3"><a href="outputa.html#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="outputa.html#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
+<span id="cb50-5"><a href="outputa.html#cb50-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_ui <span class="ot">&lt;-</span> <span class="fu">renderUI</span>({</span>
+<span id="cb50-6"><a href="outputa.html#cb50-6" aria-hidden="true" tabindex="-1"></a>  cols <span class="ot">&lt;-</span> <span class="fu">names</span>(iris)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span>
+<span id="cb50-7"><a href="outputa.html#cb50-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;y&quot;</span>, <span class="st">&quot;Column to plot&quot;</span>, cols, <span class="st">&quot;Sepal.Length&quot;</span>)</span>
+<span id="cb50-8"><a href="outputa.html#cb50-8" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <div class="info">
 <p>The function <code>htmlOutput()</code> is exactly the same as <code>uiOutput()</code>, so you might see that in some code examples, but I use <code>uiOutput()</code> to make the connection with <code>renderUI()</code> clearer, since there is no <code>renderHTML()</code>.</p>
 </div>
 </div>
 <div id="plotoutput" class="section level3" number="4.0.3">
 <h3><span class="header-section-number">4.0.3</span> plotOutput</h3>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="outputa.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
-<span id="cb50-2"><a href="outputa.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotOutput</span>(<span class="st">&quot;demo_plot&quot;</span>)</span>
-<span id="cb50-3"><a href="outputa.html#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-4"><a href="outputa.html#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
-<span id="cb50-5"><a href="outputa.html#cb50-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb50-6"><a href="outputa.html#cb50-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> .data[[input<span class="sc">$</span>y]], <span class="at">color =</span> Species)) <span class="sc">+</span></span>
-<span id="cb50-7"><a href="outputa.html#cb50-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_violin</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb50-8"><a href="outputa.html#cb50-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_summary</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb50-9"><a href="outputa.html#cb50-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(input<span class="sc">$</span>y)</span>
-<span id="cb50-10"><a href="outputa.html#cb50-10" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="outputa.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
+<span id="cb51-2"><a href="outputa.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotOutput</span>(<span class="st">&quot;demo_plot&quot;</span>)</span>
+<span id="cb51-3"><a href="outputa.html#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="outputa.html#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
+<span id="cb51-5"><a href="outputa.html#cb51-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb51-6"><a href="outputa.html#cb51-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> .data[[input<span class="sc">$</span>y]], <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb51-7"><a href="outputa.html#cb51-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_violin</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb51-8"><a href="outputa.html#cb51-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_summary</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb51-9"><a href="outputa.html#cb51-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(input<span class="sc">$</span>y)</span>
+<span id="cb51-10"><a href="outputa.html#cb51-10" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <div class="warning">
 <p>If you want to create dynamic plots that change with input, note how you need to use <code>y = .data[[input$y]]</code> inside <code>aes()</code>, instead of just <code>y = input$y</code>.</p>
 </div>
 </div>
 <div id="imageoutput" class="section level3" number="4.0.4">
 <h3><span class="header-section-number">4.0.4</span> imageOutput</h3>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="outputa.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
-<span id="cb51-2"><a href="outputa.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">imageOutput</span>(<span class="st">&quot;demo_image&quot;</span>)</span>
-<span id="cb51-3"><a href="outputa.html#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-4"><a href="outputa.html#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
-<span id="cb51-5"><a href="outputa.html#cb51-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_image <span class="ot">&lt;-</span> <span class="fu">renderImage</span>({</span>
-<span id="cb51-6"><a href="outputa.html#cb51-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(<span class="at">src =</span> <span class="st">&quot;images/flower.jpg&quot;</span>,</span>
-<span id="cb51-7"><a href="outputa.html#cb51-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">width =</span> <span class="dv">100</span>,</span>
-<span id="cb51-8"><a href="outputa.html#cb51-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">height =</span> <span class="dv">100</span>,</span>
-<span id="cb51-9"><a href="outputa.html#cb51-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">alt =</span> <span class="st">&quot;A flower&quot;</span>)</span>
-<span id="cb51-10"><a href="outputa.html#cb51-10" aria-hidden="true" tabindex="-1"></a>}, <span class="at">deleteFile =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p>You can dynamically display images of any type, but one of the most useful ways to use image outputs is to control the aspect ratio and relative size of plots. When you save a temporary file, you should set <code>deleteFile = TRUE</code> in <code>renderImage()</code> (this stops unneeded plots using memory).</p>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="outputa.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
 <span id="cb52-2"><a href="outputa.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">imageOutput</span>(<span class="st">&quot;demo_image&quot;</span>)</span>
 <span id="cb52-3"><a href="outputa.html#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb52-4"><a href="outputa.html#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
 <span id="cb52-5"><a href="outputa.html#cb52-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_image <span class="ot">&lt;-</span> <span class="fu">renderImage</span>({</span>
-<span id="cb52-6"><a href="outputa.html#cb52-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># make the plot</span></span>
-<span id="cb52-7"><a href="outputa.html#cb52-7" aria-hidden="true" tabindex="-1"></a>  g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> .data[[input<span class="sc">$</span>y]], <span class="at">color =</span> Species)) <span class="sc">+</span></span>
-<span id="cb52-8"><a href="outputa.html#cb52-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_violin</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb52-9"><a href="outputa.html#cb52-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_summary</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb52-10"><a href="outputa.html#cb52-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(input<span class="sc">$</span>y)</span>
-<span id="cb52-11"><a href="outputa.html#cb52-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb52-12"><a href="outputa.html#cb52-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># save to a temporary file</span></span>
-<span id="cb52-13"><a href="outputa.html#cb52-13" aria-hidden="true" tabindex="-1"></a>  plot_file <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">&quot;.png&quot;</span>)</span>
-<span id="cb52-14"><a href="outputa.html#cb52-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-15"><a href="outputa.html#cb52-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggsave</span>(plot_file, <span class="fu">demo_plot</span>(), <span class="at">units =</span> <span class="st">&quot;in&quot;</span>,</span>
-<span id="cb52-16"><a href="outputa.html#cb52-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">dpi =</span> <span class="dv">72</span>, <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="dv">5</span>)</span>
-<span id="cb52-17"><a href="outputa.html#cb52-17" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb52-18"><a href="outputa.html#cb52-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return a list containing the filename</span></span>
-<span id="cb52-19"><a href="outputa.html#cb52-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">src =</span> plot_file,</span>
-<span id="cb52-20"><a href="outputa.html#cb52-20" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="st">&quot;100%&quot;</span>, <span class="co"># don&#39;t set the height to keep aspect ratio</span></span>
-<span id="cb52-21"><a href="outputa.html#cb52-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">alt =</span> <span class="st">&quot;The plot&quot;</span>)</span>
-<span id="cb52-22"><a href="outputa.html#cb52-22" aria-hidden="true" tabindex="-1"></a>}, <span class="at">deleteFile =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<span id="cb52-6"><a href="outputa.html#cb52-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(<span class="at">src =</span> <span class="st">&quot;images/flower.jpg&quot;</span>,</span>
+<span id="cb52-7"><a href="outputa.html#cb52-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">width =</span> <span class="dv">100</span>,</span>
+<span id="cb52-8"><a href="outputa.html#cb52-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">height =</span> <span class="dv">100</span>,</span>
+<span id="cb52-9"><a href="outputa.html#cb52-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">alt =</span> <span class="st">&quot;A flower&quot;</span>)</span>
+<span id="cb52-10"><a href="outputa.html#cb52-10" aria-hidden="true" tabindex="-1"></a>}, <span class="at">deleteFile =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>You can dynamically display images of any type, but one of the most useful ways to use image outputs is to control the aspect ratio and relative size of plots. When you save a temporary file, you should set <code>deleteFile = TRUE</code> in <code>renderImage()</code> (this stops unneeded plots using memory).</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="outputa.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
+<span id="cb53-2"><a href="outputa.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">imageOutput</span>(<span class="st">&quot;demo_image&quot;</span>)</span>
+<span id="cb53-3"><a href="outputa.html#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-4"><a href="outputa.html#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
+<span id="cb53-5"><a href="outputa.html#cb53-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_image <span class="ot">&lt;-</span> <span class="fu">renderImage</span>({</span>
+<span id="cb53-6"><a href="outputa.html#cb53-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># make the plot</span></span>
+<span id="cb53-7"><a href="outputa.html#cb53-7" aria-hidden="true" tabindex="-1"></a>  g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> .data[[input<span class="sc">$</span>y]], <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb53-8"><a href="outputa.html#cb53-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_violin</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb53-9"><a href="outputa.html#cb53-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_summary</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb53-10"><a href="outputa.html#cb53-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(input<span class="sc">$</span>y)</span>
+<span id="cb53-11"><a href="outputa.html#cb53-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb53-12"><a href="outputa.html#cb53-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># save to a temporary file</span></span>
+<span id="cb53-13"><a href="outputa.html#cb53-13" aria-hidden="true" tabindex="-1"></a>  plot_file <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">&quot;.png&quot;</span>)</span>
+<span id="cb53-14"><a href="outputa.html#cb53-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-15"><a href="outputa.html#cb53-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggsave</span>(plot_file, <span class="fu">demo_plot</span>(), <span class="at">units =</span> <span class="st">&quot;in&quot;</span>,</span>
+<span id="cb53-16"><a href="outputa.html#cb53-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">dpi =</span> <span class="dv">72</span>, <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="dv">5</span>)</span>
+<span id="cb53-17"><a href="outputa.html#cb53-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb53-18"><a href="outputa.html#cb53-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return a list containing the filename</span></span>
+<span id="cb53-19"><a href="outputa.html#cb53-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">src =</span> plot_file,</span>
+<span id="cb53-20"><a href="outputa.html#cb53-20" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="st">&quot;100%&quot;</span>, <span class="co"># don&#39;t set the height to keep aspect ratio</span></span>
+<span id="cb53-21"><a href="outputa.html#cb53-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">alt =</span> <span class="st">&quot;The plot&quot;</span>)</span>
+<span id="cb53-22"><a href="outputa.html#cb53-22" aria-hidden="true" tabindex="-1"></a>}, <span class="at">deleteFile =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 </div>
 <div id="tableoutput" class="section level3" number="4.0.5">
 <h3><span class="header-section-number">4.0.5</span> tableOutput</h3>
 <p>Display a table using <code>renderTable()</code>, which makes a table out of any data frame it returns.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="outputa.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
-<span id="cb53-2"><a href="outputa.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tableOutput</span>(<span class="st">&quot;demo_table&quot;</span>)</span>
-<span id="cb53-3"><a href="outputa.html#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-4"><a href="outputa.html#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
-<span id="cb53-5"><a href="outputa.html#cb53-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_table <span class="ot">&lt;-</span> <span class="fu">renderTable</span>({</span>
-<span id="cb53-6"><a href="outputa.html#cb53-6" aria-hidden="true" tabindex="-1"></a>  iris <span class="sc">%&gt;%</span></span>
-<span id="cb53-7"><a href="outputa.html#cb53-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
-<span id="cb53-8"><a href="outputa.html#cb53-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(.data[[input<span class="sc">$</span>y]]),</span>
-<span id="cb53-9"><a href="outputa.html#cb53-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">sd =</span> <span class="fu">sd</span>(.data[[input<span class="sc">$</span>y]]))</span>
-<span id="cb53-10"><a href="outputa.html#cb53-10" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="outputa.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
+<span id="cb54-2"><a href="outputa.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tableOutput</span>(<span class="st">&quot;demo_table&quot;</span>)</span>
+<span id="cb54-3"><a href="outputa.html#cb54-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-4"><a href="outputa.html#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
+<span id="cb54-5"><a href="outputa.html#cb54-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_table <span class="ot">&lt;-</span> <span class="fu">renderTable</span>({</span>
+<span id="cb54-6"><a href="outputa.html#cb54-6" aria-hidden="true" tabindex="-1"></a>  iris <span class="sc">%&gt;%</span></span>
+<span id="cb54-7"><a href="outputa.html#cb54-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb54-8"><a href="outputa.html#cb54-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(.data[[input<span class="sc">$</span>y]]),</span>
+<span id="cb54-9"><a href="outputa.html#cb54-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">sd =</span> <span class="fu">sd</span>(.data[[input<span class="sc">$</span>y]]))</span>
+<span id="cb54-10"><a href="outputa.html#cb54-10" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <div class="warning">
 <p>Note how you need to use <code>.data[[input$y]]</code> inside <code>dplyr::summarise()</code>, instead of just <code>input$y</code> to dynamically choose which variable to summarise.</p>
 </div>
@@ -534,13 +535,13 @@ Figure 4.1: Output Demo App
 <div id="datatableoutput" class="section level3" number="4.0.6">
 <h3><span class="header-section-number">4.0.6</span> dataTableOutput</h3>
 <p>If you have a long table to show, or one that you want users to be able to sort or search, use <code>dataTableOutput()</code>. You can customise data tables in many ways, but we’ll stick with a basic example here.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="outputa.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
-<span id="cb54-2"><a href="outputa.html#cb54-2" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="st">&quot;demo_datatable&quot;</span>)</span>
-<span id="cb54-3"><a href="outputa.html#cb54-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-4"><a href="outputa.html#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
-<span id="cb54-5"><a href="outputa.html#cb54-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_datatable <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
-<span id="cb54-6"><a href="outputa.html#cb54-6" aria-hidden="true" tabindex="-1"></a>    iris</span>
-<span id="cb54-7"><a href="outputa.html#cb54-7" aria-hidden="true" tabindex="-1"></a>}, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="dv">10</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="outputa.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI</span></span>
+<span id="cb55-2"><a href="outputa.html#cb55-2" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="st">&quot;demo_datatable&quot;</span>)</span>
+<span id="cb55-3"><a href="outputa.html#cb55-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-4"><a href="outputa.html#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
+<span id="cb55-5"><a href="outputa.html#cb55-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_datatable <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
+<span id="cb55-6"><a href="outputa.html#cb55-6" aria-hidden="true" tabindex="-1"></a>    iris</span>
+<span id="cb55-7"><a href="outputa.html#cb55-7" aria-hidden="true" tabindex="-1"></a>}, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="dv">10</span>))</span></code></pre></div>
 <div class="warning">
 <p>The basic <code>shiny</code> package has <code>dataTableOutput()</code> and <code>renderDataTable()</code> functions, but they can be buggy. The versions in the <code>DT</code> package are better and have some additional functions, so I use those.</p>
 </div>
@@ -702,7 +703,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": {},
+"download": [["shinyintro.pdf", "PDF"]],
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

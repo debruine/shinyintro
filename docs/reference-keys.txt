@@ -12,6 +12,7 @@ fig:showcase-mode
 fig:contingency-demo-app
 fig:reports-demo-app
 fig:modules-demo-app
+installing-shinyintro
 example-apps
 code-horizons-course-27-30-july-2021
 schedule
@@ -68,13 +69,16 @@ checkboxgroupinput
 checkboxinput
 radiobuttons
 setting-inputs-programatically
-outputa
+outputs
 textoutput
 uioutput
 plotoutput
 imageoutput
 tableoutput
 datatableoutput
+exercises-outputs
+ui-1
+server
 data
 local-data
 google_sheets
@@ -175,7 +179,7 @@ new-module
 installing-r
 installing-base-r
 installing-rstudio
-installing-shinyintro
+installing-shinyintro-1
 installing-latex
 symbols
 glossary

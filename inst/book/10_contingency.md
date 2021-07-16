@@ -251,16 +251,6 @@ What happens when you unselect all the columns? How can you fix this?
 :::
 
 
-## Glossary {#glossary-contingency}
-
-
-
-|term                                                                                                |definition                                          |
-|:---------------------------------------------------------------------------------------------------|:---------------------------------------------------|
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/j#jquery'>jquery</a> |A library that makes it easier to write JavaScript. |
-
-
-
 ## Exercises {#exercises-contingency}
 
 

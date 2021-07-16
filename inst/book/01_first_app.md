@@ -520,31 +520,6 @@ Compare the app behaviour with the first pattern versus the second. How are they
 * [Application layout guide](https://shiny.rstudio.com/articles/layout-guide.html){target="_blank"}
 
 
-## Glossary {#glossary-first-app}
-
-
-
-|term                                                                                                      |definition                                                                                |
-|:---------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------|
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/a#argument'>argument</a>   |A variable that provides input to a function.                                             |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/d#directory'>directory</a> |A collection or “folder” of files on a computer.                                          |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/d#dynamic'>dynamic</a>     |Something that can change in response to user actions                                     |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/i#integer'>integer</a>     |A data type representing whole numbers.                                                   |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/l#list'>list</a>           |A container data type that allows items with different data types to be grouped together. |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/o#object'>object</a>       |A word that identifies and stores the value of some data for later use.                   |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/p#package'>package</a>     |A group of R functions.                                                                   |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/p#panes'>panes</a>         |RStudio is arranged with four window “panes.”                                             |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/r#rstudio'>rstudio</a>     |An integrated development environment (IDE) that helps you process R code.                |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/s#server'>server</a>       |This is the part of a Shiny app that works with logic.                                    |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/s#shiny'>shiny</a>         |An R package that builds interactive web apps                                             |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/s#static'>static</a>       |Something that does not change in response to user actions                                |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/s#string'>string</a>       |A piece of text inside of quotes.                                                         |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/t#tag'>tag</a>             |A way to mark the start and end of HTML elements.                                         |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/u#ui'>ui</a>               |The User Interface. This usually refers to a Shiny App as the user will see it.           |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/w#widget'>widget</a>       |A interactive web element, like a dropdown menu or a slider.                              |
-
-
-
 ## Exercises {#exercises-first-app}
 
 ### Addition App - UI
