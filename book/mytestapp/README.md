@@ -1,1 +1,0 @@
-Demonstrate different input types
