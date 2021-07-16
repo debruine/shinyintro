@@ -24,7 +24,7 @@
 <meta name="author" content="Lisa DeBruine" />
 
 
-<meta name="date" content="2021-07-15" />
+<meta name="date" content="2021-07-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -249,13 +249,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.4" data-path="data.html"><a href="data.html#add-data"><i class="fa fa-check"></i><b>5.2.4</b> Add data</a></li>
 <li class="chapter" data-level="5.2.5" data-path="data.html"><a href="data.html#appending-data"><i class="fa fa-check"></i><b>5.2.5</b> Appending data</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="data.html"><a href="data.html#glossary-data"><i class="fa fa-check"></i><b>5.3</b> Glossary</a></li>
+<li class="chapter" data-level="5.3" data-path="data.html"><a href="data.html#gs4_save"><i class="fa fa-check"></i><b>5.3</b> Saving Googlesheet data</a></li>
+<li class="chapter" data-level="5.4" data-path="data.html"><a href="data.html#glossary-data"><i class="fa fa-check"></i><b>5.4</b> Glossary</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="reactives.html"><a href="reactives.html"><i class="fa fa-check"></i><b>6</b> Reactive functions</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="reactives.html"><a href="reactives.html#observeevent-1"><i class="fa fa-check"></i><b>6.1</b> observeEvent()</a></li>
+<li class="chapter" data-level="6.1" data-path="first-app.html"><a href="first-app.html#observeevent"><i class="fa fa-check"></i><b>6.1</b> observeEvent()</a></li>
 <li class="chapter" data-level="6.2" data-path="reactives.html"><a href="reactives.html#render-functions"><i class="fa fa-check"></i><b>6.2</b> Render functions</a></li>
-<li class="chapter" data-level="6.3" data-path="reactives.html"><a href="reactives.html#reactive-1"><i class="fa fa-check"></i><b>6.3</b> reactive()</a></li>
+<li class="chapter" data-level="6.3" data-path="first-app.html"><a href="first-app.html#reactive"><i class="fa fa-check"></i><b>6.3</b> reactive()</a></li>
 <li class="chapter" data-level="6.4" data-path="reactives.html"><a href="reactives.html#eventreactive"><i class="fa fa-check"></i><b>6.4</b> eventReactive()</a></li>
 <li class="chapter" data-level="6.5" data-path="reactives.html"><a href="reactives.html#reactiveval"><i class="fa fa-check"></i><b>6.5</b> reactiveVal()</a></li>
 <li class="chapter" data-level="6.6" data-path="reactives.html"><a href="reactives.html#reactivevalue"><i class="fa fa-check"></i><b>6.6</b> reactiveValue()</a></li>
@@ -264,9 +265,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.9" data-path="reactives.html"><a href="reactives.html#glossary-reactives"><i class="fa fa-check"></i><b>6.9</b> Glossary</a></li>
 <li class="chapter" data-level="6.10" data-path="reactives.html"><a href="reactives.html#exercises-reactive"><i class="fa fa-check"></i><b>6.10</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="6.10.1" data-path="reactives.html"><a href="reactives.html#observeevent-2"><i class="fa fa-check"></i><b>6.10.1</b> observeEvent</a></li>
+<li class="chapter" data-level="6.10.1" data-path="reactives.html"><a href="reactives.html#observeevent-1"><i class="fa fa-check"></i><b>6.10.1</b> observeEvent</a></li>
 <li class="chapter" data-level="6.10.2" data-path="reactives.html"><a href="reactives.html#render"><i class="fa fa-check"></i><b>6.10.2</b> render</a></li>
-<li class="chapter" data-level="6.10.3" data-path="reactives.html"><a href="reactives.html#reactive-2"><i class="fa fa-check"></i><b>6.10.3</b> reactive</a></li>
+<li class="chapter" data-level="6.10.3" data-path="reactives.html"><a href="reactives.html#reactive-1"><i class="fa fa-check"></i><b>6.10.3</b> reactive</a></li>
 <li class="chapter" data-level="6.10.4" data-path="reactives.html"><a href="reactives.html#eventreactive-1"><i class="fa fa-check"></i><b>6.10.4</b> eventReactive</a></li>
 <li class="chapter" data-level="6.10.5" data-path="reactives.html"><a href="reactives.html#reactiveval-1"><i class="fa fa-check"></i><b>6.10.5</b> reactiveVal</a></li>
 <li class="chapter" data-level="6.10.6" data-path="reactives.html"><a href="reactives.html#reactivevalues"><i class="fa fa-check"></i><b>6.10.6</b> reactiveValues</a></li>
@@ -304,16 +305,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8" data-path="structure.html"><a href="structure.html"><i class="fa fa-check"></i><b>8</b> Structuring a complex app</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="structure.html"><a href="structure.html#external-functions"><i class="fa fa-check"></i><b>8.1</b> External Functions</a>
+<li class="chapter" data-level="8.1" data-path="structure.html"><a href="structure.html#external-server-functions"><i class="fa fa-check"></i><b>8.1</b> External Server Functions</a>
 <ul>
 <li class="chapter" data-level="8.1.1" data-path="structure.html"><a href="structure.html#sourcing-locally"><i class="fa fa-check"></i><b>8.1.1</b> Sourcing Locally</a></li>
 <li class="chapter" data-level="8.1.2" data-path="structure.html"><a href="structure.html#inputs-and-outputs"><i class="fa fa-check"></i><b>8.1.2</b> Inputs and Outputs</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="structure.html"><a href="structure.html#external-ui"><i class="fa fa-check"></i><b>8.2</b> External UI</a>
+<li class="chapter" data-level="8.2" data-path="structure.html"><a href="structure.html#external-ui-files"><i class="fa fa-check"></i><b>8.2</b> External UI Files</a>
 <ul>
 <li class="chapter" data-level="8.2.1" data-path="structure.html"><a href="structure.html#ui-lists"><i class="fa fa-check"></i><b>8.2.1</b> UI Lists</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="structure.html"><a href="structure.html#glossary-structure"><i class="fa fa-check"></i><b>8.3</b> Glossary</a></li>
+<li class="chapter" data-level="8.4" data-path="structure.html"><a href="structure.html#exercises-structure"><i class="fa fa-check"></i><b>8.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="structure.html"><a href="structure.html#server-functions"><i class="fa fa-check"></i><b>8.4.1</b> server functions</a></li>
+<li class="chapter" data-level="8.4.2" data-path="structure.html"><a href="structure.html#ui-files"><i class="fa fa-check"></i><b>8.4.2</b> UI files</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="debugging.html"><a href="debugging.html"><i class="fa fa-check"></i><b>9</b> Debugging and error handling</a>
 <ul>
@@ -326,7 +332,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="10" data-path="contingency.html"><a href="contingency.html"><i class="fa fa-check"></i><b>10</b> Contingent Display</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="contingency.html"><a href="contingency.html#glossary-contingency"><i class="fa fa-check"></i><b>10.1</b> Glossary</a></li>
+<li class="chapter" data-level="10.1" data-path="contingency.html"><a href="contingency.html#hide-and-show"><i class="fa fa-check"></i><b>10.1</b> Hide and Show</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="contingency.html"><a href="contingency.html#groups"><i class="fa fa-check"></i><b>10.1.1</b> Groups</a></li>
+<li class="chapter" data-level="10.1.2" data-path="contingency.html"><a href="contingency.html#toggle"><i class="fa fa-check"></i><b>10.1.2</b> Toggle</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="contingency.html"><a href="contingency.html#changing-styles"><i class="fa fa-check"></i><b>10.2</b> Changing Styles</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="contingency.html"><a href="contingency.html#changing-non-shiny-elements"><i class="fa fa-check"></i><b>10.2.1</b> Changing non-shiny elements</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="contingency.html"><a href="contingency.html#changing-input-options"><i class="fa fa-check"></i><b>10.3</b> Changing input options</a></li>
+<li class="chapter" data-level="10.4" data-path="contingency.html"><a href="contingency.html#glossary-contingency"><i class="fa fa-check"></i><b>10.4</b> Glossary</a></li>
+<li class="chapter" data-level="10.5" data-path="contingency.html"><a href="contingency.html#exercises-contingency"><i class="fa fa-check"></i><b>10.5</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="sharing.html"><a href="sharing.html"><i class="fa fa-check"></i><b>11</b> Sharing your Apps</a>
 <ul>
@@ -344,7 +361,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="12" data-path="reports.html"><a href="reports.html"><i class="fa fa-check"></i><b>12</b> Customized reports</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="reports.html"><a href="reports.html#glossary-reports"><i class="fa fa-check"></i><b>12.1</b> Glossary</a></li>
+<li class="chapter" data-level="12.1" data-path="reports.html"><a href="reports.html#download-data"><i class="fa fa-check"></i><b>12.1</b> Download Data</a></li>
+<li class="chapter" data-level="12.2" data-path="reports.html"><a href="reports.html#download-images"><i class="fa fa-check"></i><b>12.2</b> Download Images</a></li>
+<li class="chapter" data-level="12.3" data-path="reports.html"><a href="reports.html#r-markdown"><i class="fa fa-check"></i><b>12.3</b> R Markdown</a></li>
+<li class="chapter" data-level="12.4" data-path="reports.html"><a href="reports.html#glossary-reports"><i class="fa fa-check"></i><b>12.4</b> Glossary</a></li>
+<li class="chapter" data-level="12.5" data-path="reports.html"><a href="reports.html#exercises-reports"><i class="fa fa-check"></i><b>12.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="reports.html"><a href="reports.html#food-data"><i class="fa fa-check"></i><b>12.5.1</b> Food Data</a></li>
+<li class="chapter" data-level="12.5.2" data-path="reports.html"><a href="reports.html#food-image"><i class="fa fa-check"></i><b>12.5.2</b> Food Image</a></li>
+<li class="chapter" data-level="12.5.3" data-path="reports.html"><a href="reports.html#food-report"><i class="fa fa-check"></i><b>12.5.3</b> Food Report</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="modules.html"><a href="modules.html"><i class="fa fa-check"></i><b>13</b> Shiny modules for repeated structures</a>
 <ul>
@@ -364,21 +390,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="A.1" data-path="installing-r.html"><a href="installing-r.html#installing-base-r"><i class="fa fa-check"></i><b>A.1</b> Installing Base R</a></li>
 <li class="chapter" data-level="A.2" data-path="installing-r.html"><a href="installing-r.html#installing-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing RStudio</a></li>
-<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.3</b> Installing LaTeX</a></li>
+<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-shinyintro"><i class="fa fa-check"></i><b>A.3</b> Installing shinyintro</a></li>
+<li class="chapter" data-level="A.4" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.4</b> Installing LaTeX</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="setup-git.html"><a href="setup-git.html"><i class="fa fa-check"></i><b>B</b> Git and GitHub</a>
-<ul>
-<li class="chapter" data-level="B.1" data-path="setup-git.html"><a href="setup-git.html#get-a-github-account"><i class="fa fa-check"></i><b>B.1</b> Get a GitHub account</a></li>
-<li class="chapter" data-level="B.2" data-path="setup-git.html"><a href="setup-git.html#set-up-rstudio"><i class="fa fa-check"></i><b>B.2</b> Set up RStudio</a>
-<ul>
-<li class="chapter" data-level="B.2.1" data-path="setup-git.html"><a href="setup-git.html#install-git"><i class="fa fa-check"></i><b>B.2.1</b> Install git</a></li>
-<li class="chapter" data-level="B.2.2" data-path="setup-git.html"><a href="setup-git.html#enable-version-control-in-rstudio"><i class="fa fa-check"></i><b>B.2.2</b> Enable version control in RStudio</a></li>
-</ul></li>
-<li class="chapter" data-level="B.3" data-path="setup-git.html"><a href="setup-git.html#github-info"><i class="fa fa-check"></i><b>B.3</b> Set your GitHub info</a></li>
-<li class="chapter" data-level="B.4" data-path="setup-git.html"><a href="setup-git.html#create-an-ssh-key-on-rstudio"><i class="fa fa-check"></i><b>B.4</b> Create an SSH Key on RStudio</a></li>
-<li class="chapter" data-level="B.5" data-path="setup-git.html"><a href="setup-git.html#create-an-ssh-key-on-github"><i class="fa fa-check"></i><b>B.5</b> Create an SSH Key on GitHub</a></li>
-</ul></li>
-<li class="chapter" data-level="C" data-path="symbols.html"><a href="symbols.html"><i class="fa fa-check"></i><b>C</b> Symbols</a></li>
+<li class="chapter" data-level="B" data-path="symbols.html"><a href="symbols.html"><i class="fa fa-check"></i><b>B</b> Symbols</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -423,7 +438,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ˙
 You can test this by creating a simple app. If you have the shinyintro package, use the code below.</li>
 </ol>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="sharing.html#cb124-1" aria-hidden="true" tabindex="-1"></a>shinyintro<span class="sc">::</span><span class="fu">clone</span>(<span class="st">&quot;input_demo&quot;</span>, <span class="st">&quot;mytestapp&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="sharing.html#cb141-1" aria-hidden="true" tabindex="-1"></a>shinyintro<span class="sc">::</span><span class="fu">clone</span>(<span class="st">&quot;input_demo&quot;</span>, <span class="st">&quot;mytestapp&quot;</span>)</span></code></pre></div>
 <p><img src="images/saio_publish.png" style="max-width:300px; float: right;" /></p>
 <p>Open the app.R file and go to <strong><code>File &gt; Publish...</code></strong> in the menu (or click on the blue icon in the upper right corner of the source pane). Make sure these are the right files for your app, edit the title if you want, and click <strong>Publish</strong>. A web browser window will open after a few seconds showing your app online! You can now share it with your friends and colleagues.</p>
 <div class="info">
@@ -441,12 +456,12 @@ You can test this by creating a simple app. If you have the shinyintro package, 
 <div id="github" class="section level2" number="11.3">
 <h2><span class="header-section-number">11.3</span> GitHub</h2>
 <p><a class='glossary' target='_blank' title='A cloud-based service for storing and sharing your version controlled files.' href='https://psyteachr.github.io/glossary/g#github'>GitHub</a> is a great place to organise and share your code using <a class='glossary' target='_blank' title='A way to save a record of changes to your files.' href='https://psyteachr.github.io/glossary/v#version-control'>version control</a>. You can also use it to host Shiny app code for others to download and run on their own computer.</p>
-<p>See <a href="setup-git.html#setup-git">Appendix B</a> for instructions on how to set up git and a GitHub account. Set up a github access token with <code>usethis::create_github_token()</code>. Your web browser will open and you’ll be asked to log into your GitHub account and then asked to authorise a new token. Accept the defaults and click OK at the bottom of the page. In RStudio, run <code>gitcreds::gitcreds_set()</code> and follow the instructions to save the token.</p>
+<p>See <a href="#setup-git">Appendix B</a> for instructions on how to set up git and a GitHub account. Set up a github access token with <code>usethis::create_github_token()</code>. Your web browser will open and you’ll be asked to log into your GitHub account and then asked to authorise a new token. Accept the defaults and click OK at the bottom of the page. In RStudio, run <code>gitcreds::gitcreds_set()</code> and follow the instructions to save the token.</p>
 <p>Then, to share an app with people who use R, make a project that contains your <code>app.R</code> file and any related files. If you aren’t already using version control for this project, make sure all of your files are saved and type <code>usethis::use_git()</code> into the console. Choose Yes to commit and Yes to restart R.</p>
 <p>Make a new GitHub repository with <code>usethis::use_github(protocol="https")</code>; check that the suggested title and description are OK. If you choose the affirmative response (not always the same number), you’ll see some messages and your web browser will open the github repository page.</p>
 <p>Now you can share your app with others by sending them the repository link. They can access your repository in RStudio by starting a New Project from version control, using the URL that is shown when you click on the green “Code” button on the repository page (something like “<a href="https://github.com/account/repository.git" class="uri">https://github.com/account/repository.git</a>”). They can run your app the same way you do when developing it, by opening the <code>app.R</code> file and clicking the Run button.</p>
-<p>To update your files on GitHub, you need to <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/c#commit'>commit</a> any changes you make using the Git tab in the upper right pane. Click on the checkbox of any files you want to update, click “Commit,” and write a message to yourself explaining the changes (this will be publicly viewable on GitHub, so try to be professional ;).</p>
-<p>Committing just creates a snapshot of the files on your computer so you can look at previous versions. To update the files on GitHub, you need to <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/p#push'>push</a> the updates using the green up arrow button.</p>
+<p>To update your files on GitHub, you need to <a class='glossary' target='_blank' title='The action of storing a new snapshot of a project’s state in the git history.' href='https://psyteachr.github.io/glossary/c#commit'>commit</a> any changes you make using the Git tab in the upper right pane. Click on the checkbox of any files you want to update, click “Commit,” and write a message to yourself explaining the changes (this will be publicly viewable on GitHub, so try to be professional ;).</p>
+<p>Committing just creates a snapshot of the files on your computer so you can look at previous versions. To update the files on GitHub, you need to <a class='glossary' target='_blank' title='Updating the remote git project from the local project.' href='https://psyteachr.github.io/glossary/p#push'>push</a> the updates using the green up arrow button.</p>
 <div class="info">
 <p>Git and GitHub can be tricky. <a href="https://happygitwithr.com/" target="_blank">Happy Git with R</a> by Jenny Bryan is a fantastic in-depth book anbout how to work with git in R and RStudio.</p>
 </div>
@@ -454,39 +469,39 @@ You can test this by creating a simple app. If you have the shinyintro package, 
 <div id="in-an-r-package" class="section level2" number="11.4">
 <h2><span class="header-section-number">11.4</span> In an R package</h2>
 <p>You can put your app in a custom R package to make it even easier for people to run the app. The usethis package is incredibly helpful for setting up packages.</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="sharing.html#cb125-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_package</span>(<span class="st">&quot;mypackagename&quot;</span>)</span>
-<span id="cb125-2"><a href="sharing.html#cb125-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_ccby_license</span>()</span>
-<span id="cb125-3"><a href="sharing.html#cb125-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb125-4"><a href="sharing.html#cb125-4" aria-hidden="true" tabindex="-1"></a><span class="co"># add packages your app uses</span></span>
-<span id="cb125-5"><a href="sharing.html#cb125-5" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">&quot;shiny&quot;</span>)</span>
-<span id="cb125-6"><a href="sharing.html#cb125-6" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">&quot;shinydashboard&quot;</span>)</span>
-<span id="cb125-7"><a href="sharing.html#cb125-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb125-8"><a href="sharing.html#cb125-8" aria-hidden="true" tabindex="-1"></a><span class="co"># add the directory for your apps</span></span>
-<span id="cb125-9"><a href="sharing.html#cb125-9" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;inst&quot;</span>)</span>
-<span id="cb125-10"><a href="sharing.html#cb125-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;inst/apps&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="sharing.html#cb142-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_package</span>(<span class="st">&quot;mypackagename&quot;</span>)</span>
+<span id="cb142-2"><a href="sharing.html#cb142-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_ccby_license</span>()</span>
+<span id="cb142-3"><a href="sharing.html#cb142-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb142-4"><a href="sharing.html#cb142-4" aria-hidden="true" tabindex="-1"></a><span class="co"># add packages your app uses</span></span>
+<span id="cb142-5"><a href="sharing.html#cb142-5" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">&quot;shiny&quot;</span>)</span>
+<span id="cb142-6"><a href="sharing.html#cb142-6" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">&quot;shinydashboard&quot;</span>)</span>
+<span id="cb142-7"><a href="sharing.html#cb142-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb142-8"><a href="sharing.html#cb142-8" aria-hidden="true" tabindex="-1"></a><span class="co"># add the directory for your apps</span></span>
+<span id="cb142-9"><a href="sharing.html#cb142-9" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;inst&quot;</span>)</span>
+<span id="cb142-10"><a href="sharing.html#cb142-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;inst/apps&quot;</span>)</span></code></pre></div>
 <p>Copy any apps you want to include in this package into the inst/apps directory.</p>
 <p>Now, create the app function by running <code>usethis::edit_file("R/app.R")</code> and copy the following text into the <code>app.R</code> file that just opened. Replace “default_app” with the directory name of the app that you want to open if a user doesn’t type any name in at all.</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="sharing.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; Launch Shiny App</span></span>
-<span id="cb126-2"><a href="sharing.html#cb126-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb126-3"><a href="sharing.html#cb126-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @param name The name of the app to run</span></span>
-<span id="cb126-4"><a href="sharing.html#cb126-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @param ... arguments to pass to shiny::runApp</span></span>
-<span id="cb126-5"><a href="sharing.html#cb126-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb126-6"><a href="sharing.html#cb126-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
-<span id="cb126-7"><a href="sharing.html#cb126-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb126-8"><a href="sharing.html#cb126-8" aria-hidden="true" tabindex="-1"></a>app <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">name =</span> <span class="st">&quot;default_app&quot;</span>, ...) {</span>
-<span id="cb126-9"><a href="sharing.html#cb126-9" aria-hidden="true" tabindex="-1"></a>  appDir <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="fu">paste0</span>(<span class="st">&quot;apps/&quot;</span>, name), <span class="at">package =</span> <span class="st">&quot;mypackagename&quot;</span>)</span>
-<span id="cb126-10"><a href="sharing.html#cb126-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (appDir <span class="sc">==</span> <span class="st">&quot;&quot;</span>) <span class="fu">stop</span>(<span class="st">&quot;The shiny app &quot;</span>, name, <span class="st">&quot; does not exist&quot;</span>)</span>
-<span id="cb126-11"><a href="sharing.html#cb126-11" aria-hidden="true" tabindex="-1"></a>  shiny<span class="sc">::</span><span class="fu">runApp</span>(appDir, ...)</span>
-<span id="cb126-12"><a href="sharing.html#cb126-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="sharing.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; Launch Shiny App</span></span>
+<span id="cb143-2"><a href="sharing.html#cb143-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb143-3"><a href="sharing.html#cb143-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @param name The name of the app to run</span></span>
+<span id="cb143-4"><a href="sharing.html#cb143-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @param ... arguments to pass to shiny::runApp</span></span>
+<span id="cb143-5"><a href="sharing.html#cb143-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb143-6"><a href="sharing.html#cb143-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
+<span id="cb143-7"><a href="sharing.html#cb143-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb143-8"><a href="sharing.html#cb143-8" aria-hidden="true" tabindex="-1"></a>app <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">name =</span> <span class="st">&quot;default_app&quot;</span>, ...) {</span>
+<span id="cb143-9"><a href="sharing.html#cb143-9" aria-hidden="true" tabindex="-1"></a>  appDir <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="fu">paste0</span>(<span class="st">&quot;apps/&quot;</span>, name), <span class="at">package =</span> <span class="st">&quot;mypackagename&quot;</span>)</span>
+<span id="cb143-10"><a href="sharing.html#cb143-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (appDir <span class="sc">==</span> <span class="st">&quot;&quot;</span>) <span class="fu">stop</span>(<span class="st">&quot;The shiny app &quot;</span>, name, <span class="st">&quot; does not exist&quot;</span>)</span>
+<span id="cb143-11"><a href="sharing.html#cb143-11" aria-hidden="true" tabindex="-1"></a>  shiny<span class="sc">::</span><span class="fu">runApp</span>(appDir, ...)</span>
+<span id="cb143-12"><a href="sharing.html#cb143-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Next, open the <code>DESCRIPTION</code> file and edit the title, author and description.</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="sharing.html#cb127-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">document</span>()</span>
-<span id="cb127-2"><a href="sharing.html#cb127-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="sharing.html#cb144-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">document</span>()</span>
+<span id="cb144-2"><a href="sharing.html#cb144-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install</span>()</span></code></pre></div>
 <p>You should now be able to run your app with <code>mypackagename::app()</code>.</p>
 <p>Set up git and save your package to GitHub to share it with others:</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="sharing.html#cb128-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git</span>()</span>
-<span id="cb128-2"><a href="sharing.html#cb128-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_github</span>(<span class="at">protocol=</span><span class="st">&quot;https&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="sharing.html#cb145-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git</span>()</span>
+<span id="cb145-2"><a href="sharing.html#cb145-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_github</span>(<span class="at">protocol=</span><span class="st">&quot;https&quot;</span>)</span></code></pre></div>
 <p>Once it’s uploaded to GitHub, other people can install it with the following code:</p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="sharing.html#cb129-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;myaccountname/mypackagename&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="sharing.html#cb146-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;myaccountname/mypackagename&quot;</span>)</span></code></pre></div>
 </div>
 <div id="glossary-sharing" class="section level2" number="11.5">
 <h2><span class="header-section-number">11.5</span> Glossary</h2>
@@ -504,7 +519,7 @@ You can test this by creating a simple app. If you have the shinyintro package, 
 <tbody>
 <tr class="odd">
 <td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/c#commit'>commit</a></td>
-<td align="left"></td>
+<td align="left">The action of storing a new snapshot of a project’s state in the git history.</td>
 </tr>
 <tr class="even">
 <td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/g#github'>github</a></td>
@@ -512,7 +527,7 @@ You can test this by creating a simple app. If you have the shinyintro package, 
 </tr>
 <tr class="odd">
 <td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/p#push'>push</a></td>
-<td align="left"></td>
+<td align="left">Updating the remote git project from the local project.</td>
 </tr>
 <tr class="even">
 <td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/v#version-control'>version-control</a></td>

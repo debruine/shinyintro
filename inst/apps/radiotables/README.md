@@ -1,3 +1,3 @@
-# Modular Questionnaires
+# Questionnaire Template
 
-This is the final version of the questionnaire app, using shiny modules to create each questionnaire.
+This is a version of the questionnaire app.

@@ -156,7 +156,7 @@ Add the following action button into the sidebar menu.
 actionButton("random_skin", "Random Skin")
 ```
 
-The <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/j#jquery'>jQuery</a> code below changes the skin of your app on a button press by removing all possible skin-color classes and adding a random one.
+The <a class='glossary' target='_blank' title='A library that makes it easier to write JavaScript.' href='https://psyteachr.github.io/glossary/j#jquery'>jQuery</a> code below changes the skin of your app on a button press by removing all possible skin-color classes and adding a random one.
 
 
 ```r
@@ -249,16 +249,6 @@ mydata <- reactive({
 ::: {.try}
 What happens when you unselect all the columns? How can you fix this?
 :::
-
-
-## Glossary {#glossary-contingency}
-
-
-
-|term                                                                                                |definition |
-|:---------------------------------------------------------------------------------------------------|:----------|
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/j#jquery'>jquery</a> |           |
-
 
 
 ## Exercises {#exercises-contingency}

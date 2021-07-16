@@ -145,16 +145,6 @@ tabPanelServer("mtcars", data = mtcars, group_by = "vs")
 
 Our example only reduced our code by 4 lines, but it can save a lot of time, effort, and debugging on projects with many similar modules. For example, if you want to change the plots in your app to use a different geom, now you only have to change one function instead of two.
 
-## Glossary {#glossary-modules}
-
-
-
-|term                                                                                        |definition                                                                      |
-|:-------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/u#ui'>ui</a> |The User Interface. This usually refers to a Shiny App as the user will see it. |
-
-
-
 
 ## Exercises {#exercises-modules}
 

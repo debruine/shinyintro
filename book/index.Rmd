@@ -128,10 +128,5 @@ If you want to brush up on your R (especially `r glossary("tidyverse")`), and al
 There are a lot of great resources online to reinforce or continue your learning about Shiny.
 
 * [RStudio Shiny Tutorials](https://shiny.rstudio.com/tutorial/)
-        
-## Glossary {#glossary-intro}
 
-```{r echo=FALSE}
-glossary::glossary_table()
-```
 

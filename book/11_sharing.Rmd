@@ -122,13 +122,6 @@ devtools::install_github("myaccountname/mypackagename")
 
 
 
-
-
-## Glossary {#glossary-sharing}
-
-`r glossary::glossary_table()`
-
-
 ## Exercises {#exercises-sharing}
 
 ### Shinyapps.io

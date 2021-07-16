@@ -53,9 +53,9 @@ Make a new GitHub repository with `usethis::use_github(protocol="https")`; check
 
 Now you can share your app with others by sending them the repository link. They can access your repository in RStudio by starting a New Project from version control, using the URL that is shown when you click on the green "Code" button on the repository page (something like "https://github.com/account/repository.git"). They can run your app the same way you do when developing it, by opening the `app.R` file and clicking the Run button.
 
-To update your files on GitHub, you need to <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/c#commit'>commit</a> any changes you make using the Git tab in the upper right pane. Click on the checkbox of any files you want to update, click "Commit", and write a message to yourself explaining the changes (this will be publicly viewable on GitHub, so try to be professional ;). 
+To update your files on GitHub, you need to <a class='glossary' target='_blank' title='The action of storing a new snapshot of a project’s state in the git history.' href='https://psyteachr.github.io/glossary/c#commit'>commit</a> any changes you make using the Git tab in the upper right pane. Click on the checkbox of any files you want to update, click "Commit", and write a message to yourself explaining the changes (this will be publicly viewable on GitHub, so try to be professional ;). 
 
-Committing just creates a snapshot of the files on your computer so you can look at previous versions. To update the files on GitHub, you need to <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/p#push'>push</a> the updates using the green up arrow button.
+Committing just creates a snapshot of the files on your computer so you can look at previous versions. To update the files on GitHub, you need to <a class='glossary' target='_blank' title='Updating the remote git project from the local project.' href='https://psyteachr.github.io/glossary/p#push'>push</a> the updates using the green up arrow button.
 
 ::: {.info}
 Git and GitHub can be tricky. [Happy Git with R](https://happygitwithr.com/){target="_blank"} by Jenny Bryan is a fantastic in-depth book anbout how to work with git in R and RStudio.
@@ -125,22 +125,6 @@ Once it's uploaded to GitHub, other people can install it with the following cod
 ```r
 devtools::install_github("myaccountname/mypackagename")
 ```
-
-
-
-
-
-## Glossary {#glossary-sharing}
-
-
-
-|term                                                                                                                  |definition                                                                   |
-|:---------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------|
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/c#commit'>commit</a>                   |                                                                             |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/g#github'>github</a>                   |A cloud-based service for storing and sharing your version controlled files. |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/p#push'>push</a>                       |                                                                             |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/v#version-control'>version-control</a> |A way to save a record of changes to your files.                             |
-
 
 
 

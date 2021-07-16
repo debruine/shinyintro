@@ -1,0 +1,34 @@
+---
+title: "Food Report"
+date: "`r format(Sys.time(), '%d %B, %Y')`" 
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 7,
+  fig.height = 5
+)
+
+library(dplyr)
+```
+
+```{r}
+n_responses <- nrow(v$food_summary_data)
+
+n_sessions <- v$food_summary_data$session_id %>%
+  unique() %>%
+  length()
+```
+
+
+We asked people to rate how much they like food We have obtained `r n_responses` responses from `r n_sessions` unique sessions.
+
+## Summary Plot
+
+```{r plot}
+food_summary_plot()
+```

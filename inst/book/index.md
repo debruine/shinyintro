@@ -1,7 +1,7 @@
 --- 
 title: "Building Web Apps with R Shiny"
 author: "Lisa DeBruine"
-date: "2021-07-15"
+date: "2021-07-16"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -119,6 +119,16 @@ There are a lot of great resources online to reinforce or continue your learning
 * [RStudio Shiny Tutorials](https://shiny.rstudio.com/tutorial/)
         
 ## Glossary {#glossary-intro}
+
+
+
+|term                                                                                                                |definition                                                                 |
+|:-------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------|
+|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/d#data-wrangling'>data-wrangling</a> |The process of preparing data for visualisation and statistical analysis.  |
+|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/f#function'>function</a>             |A named section of code that can be reused.                                |
+|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/r#rstudio'>rstudio</a>               |An integrated development environment (IDE) that helps you process R code. |
+|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/s#shiny'>shiny</a>                   |An R package that builds interactive web apps                              |
+|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/t#tidyverse'>tidyverse</a>           |A set of R packages that help you create and work with tidy data           |
 
 
 

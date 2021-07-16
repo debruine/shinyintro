@@ -24,7 +24,7 @@
 <meta name="author" content="Lisa DeBruine" />
 
 
-<meta name="date" content="2021-07-15" />
+<meta name="date" content="2021-07-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -249,13 +249,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.4" data-path="data.html"><a href="data.html#add-data"><i class="fa fa-check"></i><b>5.2.4</b> Add data</a></li>
 <li class="chapter" data-level="5.2.5" data-path="data.html"><a href="data.html#appending-data"><i class="fa fa-check"></i><b>5.2.5</b> Appending data</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="data.html"><a href="data.html#glossary-data"><i class="fa fa-check"></i><b>5.3</b> Glossary</a></li>
+<li class="chapter" data-level="5.3" data-path="data.html"><a href="data.html#gs4_save"><i class="fa fa-check"></i><b>5.3</b> Saving Googlesheet data</a></li>
+<li class="chapter" data-level="5.4" data-path="data.html"><a href="data.html#glossary-data"><i class="fa fa-check"></i><b>5.4</b> Glossary</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="reactives.html"><a href="reactives.html"><i class="fa fa-check"></i><b>6</b> Reactive functions</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="reactives.html"><a href="reactives.html#observeevent-1"><i class="fa fa-check"></i><b>6.1</b> observeEvent()</a></li>
+<li class="chapter" data-level="6.1" data-path="first-app.html"><a href="first-app.html#observeevent"><i class="fa fa-check"></i><b>6.1</b> observeEvent()</a></li>
 <li class="chapter" data-level="6.2" data-path="reactives.html"><a href="reactives.html#render-functions"><i class="fa fa-check"></i><b>6.2</b> Render functions</a></li>
-<li class="chapter" data-level="6.3" data-path="reactives.html"><a href="reactives.html#reactive-1"><i class="fa fa-check"></i><b>6.3</b> reactive()</a></li>
+<li class="chapter" data-level="6.3" data-path="first-app.html"><a href="first-app.html#reactive"><i class="fa fa-check"></i><b>6.3</b> reactive()</a></li>
 <li class="chapter" data-level="6.4" data-path="reactives.html"><a href="reactives.html#eventreactive"><i class="fa fa-check"></i><b>6.4</b> eventReactive()</a></li>
 <li class="chapter" data-level="6.5" data-path="reactives.html"><a href="reactives.html#reactiveval"><i class="fa fa-check"></i><b>6.5</b> reactiveVal()</a></li>
 <li class="chapter" data-level="6.6" data-path="reactives.html"><a href="reactives.html#reactivevalue"><i class="fa fa-check"></i><b>6.6</b> reactiveValue()</a></li>
@@ -264,9 +265,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.9" data-path="reactives.html"><a href="reactives.html#glossary-reactives"><i class="fa fa-check"></i><b>6.9</b> Glossary</a></li>
 <li class="chapter" data-level="6.10" data-path="reactives.html"><a href="reactives.html#exercises-reactive"><i class="fa fa-check"></i><b>6.10</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="6.10.1" data-path="reactives.html"><a href="reactives.html#observeevent-2"><i class="fa fa-check"></i><b>6.10.1</b> observeEvent</a></li>
+<li class="chapter" data-level="6.10.1" data-path="reactives.html"><a href="reactives.html#observeevent-1"><i class="fa fa-check"></i><b>6.10.1</b> observeEvent</a></li>
 <li class="chapter" data-level="6.10.2" data-path="reactives.html"><a href="reactives.html#render"><i class="fa fa-check"></i><b>6.10.2</b> render</a></li>
-<li class="chapter" data-level="6.10.3" data-path="reactives.html"><a href="reactives.html#reactive-2"><i class="fa fa-check"></i><b>6.10.3</b> reactive</a></li>
+<li class="chapter" data-level="6.10.3" data-path="reactives.html"><a href="reactives.html#reactive-1"><i class="fa fa-check"></i><b>6.10.3</b> reactive</a></li>
 <li class="chapter" data-level="6.10.4" data-path="reactives.html"><a href="reactives.html#eventreactive-1"><i class="fa fa-check"></i><b>6.10.4</b> eventReactive</a></li>
 <li class="chapter" data-level="6.10.5" data-path="reactives.html"><a href="reactives.html#reactiveval-1"><i class="fa fa-check"></i><b>6.10.5</b> reactiveVal</a></li>
 <li class="chapter" data-level="6.10.6" data-path="reactives.html"><a href="reactives.html#reactivevalues"><i class="fa fa-check"></i><b>6.10.6</b> reactiveValues</a></li>
@@ -304,16 +305,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8" data-path="structure.html"><a href="structure.html"><i class="fa fa-check"></i><b>8</b> Structuring a complex app</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="structure.html"><a href="structure.html#external-functions"><i class="fa fa-check"></i><b>8.1</b> External Functions</a>
+<li class="chapter" data-level="8.1" data-path="structure.html"><a href="structure.html#external-server-functions"><i class="fa fa-check"></i><b>8.1</b> External Server Functions</a>
 <ul>
 <li class="chapter" data-level="8.1.1" data-path="structure.html"><a href="structure.html#sourcing-locally"><i class="fa fa-check"></i><b>8.1.1</b> Sourcing Locally</a></li>
 <li class="chapter" data-level="8.1.2" data-path="structure.html"><a href="structure.html#inputs-and-outputs"><i class="fa fa-check"></i><b>8.1.2</b> Inputs and Outputs</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="structure.html"><a href="structure.html#external-ui"><i class="fa fa-check"></i><b>8.2</b> External UI</a>
+<li class="chapter" data-level="8.2" data-path="structure.html"><a href="structure.html#external-ui-files"><i class="fa fa-check"></i><b>8.2</b> External UI Files</a>
 <ul>
 <li class="chapter" data-level="8.2.1" data-path="structure.html"><a href="structure.html#ui-lists"><i class="fa fa-check"></i><b>8.2.1</b> UI Lists</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="structure.html"><a href="structure.html#glossary-structure"><i class="fa fa-check"></i><b>8.3</b> Glossary</a></li>
+<li class="chapter" data-level="8.4" data-path="structure.html"><a href="structure.html#exercises-structure"><i class="fa fa-check"></i><b>8.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="structure.html"><a href="structure.html#server-functions"><i class="fa fa-check"></i><b>8.4.1</b> server functions</a></li>
+<li class="chapter" data-level="8.4.2" data-path="structure.html"><a href="structure.html#ui-files"><i class="fa fa-check"></i><b>8.4.2</b> UI files</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="debugging.html"><a href="debugging.html"><i class="fa fa-check"></i><b>9</b> Debugging and error handling</a>
 <ul>
@@ -326,7 +332,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="10" data-path="contingency.html"><a href="contingency.html"><i class="fa fa-check"></i><b>10</b> Contingent Display</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="contingency.html"><a href="contingency.html#glossary-contingency"><i class="fa fa-check"></i><b>10.1</b> Glossary</a></li>
+<li class="chapter" data-level="10.1" data-path="contingency.html"><a href="contingency.html#hide-and-show"><i class="fa fa-check"></i><b>10.1</b> Hide and Show</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="contingency.html"><a href="contingency.html#groups"><i class="fa fa-check"></i><b>10.1.1</b> Groups</a></li>
+<li class="chapter" data-level="10.1.2" data-path="contingency.html"><a href="contingency.html#toggle"><i class="fa fa-check"></i><b>10.1.2</b> Toggle</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="contingency.html"><a href="contingency.html#changing-styles"><i class="fa fa-check"></i><b>10.2</b> Changing Styles</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="contingency.html"><a href="contingency.html#changing-non-shiny-elements"><i class="fa fa-check"></i><b>10.2.1</b> Changing non-shiny elements</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="contingency.html"><a href="contingency.html#changing-input-options"><i class="fa fa-check"></i><b>10.3</b> Changing input options</a></li>
+<li class="chapter" data-level="10.4" data-path="contingency.html"><a href="contingency.html#glossary-contingency"><i class="fa fa-check"></i><b>10.4</b> Glossary</a></li>
+<li class="chapter" data-level="10.5" data-path="contingency.html"><a href="contingency.html#exercises-contingency"><i class="fa fa-check"></i><b>10.5</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="sharing.html"><a href="sharing.html"><i class="fa fa-check"></i><b>11</b> Sharing your Apps</a>
 <ul>
@@ -344,7 +361,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="12" data-path="reports.html"><a href="reports.html"><i class="fa fa-check"></i><b>12</b> Customized reports</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="reports.html"><a href="reports.html#glossary-reports"><i class="fa fa-check"></i><b>12.1</b> Glossary</a></li>
+<li class="chapter" data-level="12.1" data-path="reports.html"><a href="reports.html#download-data"><i class="fa fa-check"></i><b>12.1</b> Download Data</a></li>
+<li class="chapter" data-level="12.2" data-path="reports.html"><a href="reports.html#download-images"><i class="fa fa-check"></i><b>12.2</b> Download Images</a></li>
+<li class="chapter" data-level="12.3" data-path="reports.html"><a href="reports.html#r-markdown"><i class="fa fa-check"></i><b>12.3</b> R Markdown</a></li>
+<li class="chapter" data-level="12.4" data-path="reports.html"><a href="reports.html#glossary-reports"><i class="fa fa-check"></i><b>12.4</b> Glossary</a></li>
+<li class="chapter" data-level="12.5" data-path="reports.html"><a href="reports.html#exercises-reports"><i class="fa fa-check"></i><b>12.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="reports.html"><a href="reports.html#food-data"><i class="fa fa-check"></i><b>12.5.1</b> Food Data</a></li>
+<li class="chapter" data-level="12.5.2" data-path="reports.html"><a href="reports.html#food-image"><i class="fa fa-check"></i><b>12.5.2</b> Food Image</a></li>
+<li class="chapter" data-level="12.5.3" data-path="reports.html"><a href="reports.html#food-report"><i class="fa fa-check"></i><b>12.5.3</b> Food Report</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="modules.html"><a href="modules.html"><i class="fa fa-check"></i><b>13</b> Shiny modules for repeated structures</a>
 <ul>
@@ -364,21 +390,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="A.1" data-path="installing-r.html"><a href="installing-r.html#installing-base-r"><i class="fa fa-check"></i><b>A.1</b> Installing Base R</a></li>
 <li class="chapter" data-level="A.2" data-path="installing-r.html"><a href="installing-r.html#installing-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing RStudio</a></li>
-<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.3</b> Installing LaTeX</a></li>
+<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-shinyintro"><i class="fa fa-check"></i><b>A.3</b> Installing shinyintro</a></li>
+<li class="chapter" data-level="A.4" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.4</b> Installing LaTeX</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="setup-git.html"><a href="setup-git.html"><i class="fa fa-check"></i><b>B</b> Git and GitHub</a>
-<ul>
-<li class="chapter" data-level="B.1" data-path="setup-git.html"><a href="setup-git.html#get-a-github-account"><i class="fa fa-check"></i><b>B.1</b> Get a GitHub account</a></li>
-<li class="chapter" data-level="B.2" data-path="setup-git.html"><a href="setup-git.html#set-up-rstudio"><i class="fa fa-check"></i><b>B.2</b> Set up RStudio</a>
-<ul>
-<li class="chapter" data-level="B.2.1" data-path="setup-git.html"><a href="setup-git.html#install-git"><i class="fa fa-check"></i><b>B.2.1</b> Install git</a></li>
-<li class="chapter" data-level="B.2.2" data-path="setup-git.html"><a href="setup-git.html#enable-version-control-in-rstudio"><i class="fa fa-check"></i><b>B.2.2</b> Enable version control in RStudio</a></li>
-</ul></li>
-<li class="chapter" data-level="B.3" data-path="setup-git.html"><a href="setup-git.html#github-info"><i class="fa fa-check"></i><b>B.3</b> Set your GitHub info</a></li>
-<li class="chapter" data-level="B.4" data-path="setup-git.html"><a href="setup-git.html#create-an-ssh-key-on-rstudio"><i class="fa fa-check"></i><b>B.4</b> Create an SSH Key on RStudio</a></li>
-<li class="chapter" data-level="B.5" data-path="setup-git.html"><a href="setup-git.html#create-an-ssh-key-on-github"><i class="fa fa-check"></i><b>B.5</b> Create an SSH Key on GitHub</a></li>
-</ul></li>
-<li class="chapter" data-level="C" data-path="symbols.html"><a href="symbols.html"><i class="fa fa-check"></i><b>C</b> Symbols</a></li>
+<li class="chapter" data-level="B" data-path="symbols.html"><a href="symbols.html"><i class="fa fa-check"></i><b>B</b> Symbols</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -649,7 +664,7 @@ Figure 1.2: First Demo App
 <span id="cb13-10"><a href="first-app.html#cb13-10" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">img</span>(<span class="at">src =</span> <span class="st">&quot;https://debruine.github.io/shinyintro/images/shinyintro.png&quot;</span>, </span>
 <span id="cb13-11"><a href="first-app.html#cb13-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">width =</span> <span class="st">&quot;100px&quot;</span>, <span class="at">height =</span> <span class="st">&quot;100px&quot;</span>)</span>
 <span id="cb13-12"><a href="first-app.html#cb13-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p>Many of the functions used to create parts of the website are the same as <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/h#html-tags'>HTML tags</a>, which are ways to mark the beginning and end of different types of text. Most HTML tags are available in shiny by using one of the <code>tags()</code> sub-functions, but some of the more common tags, like <code>p()</code> or h1()<code>-</code>h6()<code>also have a version where you can omit the</code>tags$` part. You can see a list of all of the tags available in Shiny at the <a href="https://shiny.rstudio.com/articles/tag-glossary.html" target="_blank">tag glossary</a></p>
+<p>Many of the functions used to create parts of the website are the same as <a class='glossary' target='_blank' title='A way to mark the start and end of HTML elements.' href='https://psyteachr.github.io/glossary/t#tag'>HTML tags</a>, which are ways to mark the beginning and end of different types of text. Most HTML tags are available in shiny by using one of the <code>tags()</code> sub-functions, but some of the more common tags, like <code>p()</code> or h1()<code>-</code>h6()<code>also have a version where you can omit the</code>tags$` part. You can see a list of all of the tags available in Shiny at the <a href="https://shiny.rstudio.com/articles/tag-glossary.html" target="_blank">tag glossary</a></p>
 <div class="try">
 <p>Add the code above to your basic_demo" app and replace my favourite things with yours. Make the list an ordered list (instead of unordered) and change the image size.</p>
 </div>
@@ -702,7 +717,7 @@ Figure 1.2: First Demo App
 </div>
 <div id="inputs-outputs-and-action-buttons" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> Inputs, outputs, and action buttons</h2>
-<p>So far, we’ve just put <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/s#static'>static</a> elements into our UI. What makes Shiny apps work is <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/d#dynamic'>dynamic</a> elements like inputs, outputs, and action buttons.</p>
+<p>So far, we’ve just put <a class='glossary' target='_blank' title='Something that does not change in response to user actions' href='https://psyteachr.github.io/glossary/s#static'>static</a> elements into our UI. What makes Shiny apps work is <a class='glossary' target='_blank' title='Something that can change in response to user actions' href='https://psyteachr.github.io/glossary/d#dynamic'>dynamic</a> elements like inputs, outputs, and action buttons.</p>
 <div id="inputs-intro" class="section level3" number="1.3.1">
 <h3><span class="header-section-number">1.3.1</span> Inputs</h3>
 <p>Inputs are ways for the users of your app to communicate with the app. They are things like drop-down menus or checkboxes. We’ll go into the different types of inputs in the <a href="inputs.html#inputs">Inputs chapter</a>. Below we’ll turn the list of favourite things into a checkbox list.</p>
@@ -816,51 +831,51 @@ Figure 1.2: First Demo App
 </tr>
 <tr class="odd">
 <td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/d#dynamic'>dynamic</a></td>
-<td align="left"></td>
+<td align="left">Something that can change in response to user actions</td>
 </tr>
 <tr class="even">
-<td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/h#html-tags'>html-tags</a></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
 <td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/i#integer'>integer</a></td>
 <td align="left">A data type representing whole numbers.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/l#list'>list</a></td>
 <td align="left">A container data type that allows items with different data types to be grouped together.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/o#object'>object</a></td>
 <td align="left">A word that identifies and stores the value of some data for later use.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/p#package'>package</a></td>
 <td align="left">A group of R functions.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/p#panes'>panes</a></td>
 <td align="left">RStudio is arranged with four window “panes.”</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/r#rstudio'>rstudio</a></td>
 <td align="left">An integrated development environment (IDE) that helps you process R code.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/s#server'>server</a></td>
 <td align="left">This is the part of a Shiny app that works with logic.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/s#shiny'>shiny</a></td>
 <td align="left">An R package that builds interactive web apps</td>
 </tr>
-<tr class="odd">
-<td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/s#static'>static</a></td>
-<td align="left"></td>
-</tr>
 <tr class="even">
+<td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/s#static'>static</a></td>
+<td align="left">Something that does not change in response to user actions</td>
+</tr>
+<tr class="odd">
 <td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/s#string'>string</a></td>
 <td align="left">A piece of text inside of quotes.</td>
+</tr>
+<tr class="even">
+<td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/t#tag'>tag</a></td>
+<td align="left">A way to mark the start and end of HTML elements.</td>
 </tr>
 <tr class="odd">
 <td align="left"><a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/u#ui'>ui</a></td>

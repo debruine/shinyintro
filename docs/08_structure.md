@@ -1,6 +1,6 @@
 # Structuring a complex app {#structure}
 
-So far, we've been mostly structuring our app entirely in the `app.R` file, apart from some of the web helper files for <a class='glossary' target='_blank' title='Cascading Style Sheet: A system for controlling the visual presentation of HTML in web pages.' href='https://psyteachr.github.io/glossary/c#css'>CSS</a> and <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/j#javascript'>JavaScript</a>. However, once your apps start getting relatively complex, you might find it easier to move some of the code into external `.R` files and using `source()` to include them. There are a few things to watch out for when you do this.
+So far, we've been mostly structuring our app entirely in the `app.R` file, apart from some of the web helper files for <a class='glossary' target='_blank' title='Cascading Style Sheet: A system for controlling the visual presentation of HTML in web pages.' href='https://psyteachr.github.io/glossary/c#css'>CSS</a> and <a class='glossary' target='_blank' title='An object-oriented computer programming language commonly used to create interactive effects in web browsers.' href='https://psyteachr.github.io/glossary/j#javascript'>JavaScript</a>. However, once your apps start getting relatively complex, you might find it easier to move some of the code into external `.R` files and using `source()` to include them. There are a few things to watch out for when you do this.
 
 ## External Server Functions
 
@@ -166,20 +166,7 @@ select_box <- do.call(box, select_inputs)
 ```
 
 
-## Glossary {#glossary-structure}
-
-
-
-|term                                                                                                        |definition                                                                                    |
-|:-----------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------|
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/a#argument'>argument</a>     |A variable that provides input to a function.                                                 |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/c#css'>css</a>               |Cascading Style Sheet: A system for controlling the visual presentation of HTML in web pages. |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/f#function'>function</a>     |A named section of code that can be reused.                                                   |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/j#javascript'>javascript</a> |                                                                                              |
-
-
-
-## Exercises {exercises-structure}
+## Exercises {#exercises-structure}
 
 ### server functions
 

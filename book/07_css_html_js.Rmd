@@ -8,7 +8,7 @@ You don't need to know anything about HTML, CSS and JavaScript to make basic Shi
 
 ### HTML Tags
 
-We learned about the `tags()` function in [Chapter 1](#tags) and how it is linked to `r glossary("tags-html", "HTML tags")`. For example, the R code `tags$h2("Methods")` creates the HTML `<h2>Methods</h2>`. It surrounds the text content with a starting tag `<h2>` and an ending tag `</h2>`. 
+We learned about the `tags()` function in [Chapter 1](#tags) and how it is linked to `r glossary("tag", "HTML tags")`. For example, the R code `tags$h2("Methods")` creates the HTML `<h2>Methods</h2>`. It surrounds the text content with a starting tag `<h2>` and an ending tag `</h2>`. 
 
 Tags create `r glossary("element-html", "elements")`, which can be thought of kind of like boxes. An element can contain one or more elements. Elements can have `r glossary("attribute-html", "attributes")` that provide more information such as the element's ID or class, which can be used by CSS or JavaScript to refer to the element or a group of elements.
 
@@ -191,7 +191,7 @@ tags$head(
 ```
 
 ::: {.warning}
-Sometimes when you change external files, they don't seem to update when you test the app. This can be because of `r glossary("cache", "caching")`. You can usually solve this by reloading the app in your web browser, reloading in the web browser with the shift key pressed, stopping the app from running in RStudio with the stop sign icon and starting it up again, and, finally, restarting R.
+Sometimes when you change external files, they don't seem to update when you test the app. This can be because of `r glossary("cache-web", "caching")`. You can usually solve this by reloading the app in your web browser, reloading in the web browser with the shift key pressed, stopping the app from running in RStudio with the stop sign icon and starting it up again, and, finally, restarting R.
 :::
 
 ## JavaScript
@@ -258,10 +258,6 @@ The javaScript function `Shiny.setInputValue(input_id, value)` is a way for you 
 * [Packaging JavaScript Code for Shiny](https://shiny.rstudio.com/articles/packaging-javascript.html){target="_blank"}
 * [W3 Schools jQuery Tutorial](https://www.w3schools.com/jquERy/default.asp){target="_blank"}
 * [Codeacademy interactive tutorials](https://www.codecademy.com/en/tracks/htmlcss){target="_blank"}
-
-## Glossary {#glossary-web}
-
-`r glossary::glossary_table()`
 
 ## Exercises {#exercises-web}
 

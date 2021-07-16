@@ -131,6 +131,3 @@ updateSliderInput(session, "demo_slider", value = 0)
 Note that select inputs and checkbox groups use the argument `selected` and not `value`. If you want to set all the values in a checkbox group to unchecked, set `selected = character(0)`.
 :::
 
-## Glossary {#glossary-inputs}
-
-`r glossary::glossary_table()`

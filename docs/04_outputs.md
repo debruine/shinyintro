@@ -169,14 +169,3 @@ output$demo_datatable <- DT::renderDataTable({
 The basic `shiny` package has `dataTableOutput()` and `renderDataTable()` functions, but they can be buggy. The versions in the `DT` package are better and have some additional functions, so I use those.
 :::
 
-## Glossary {#glossary-outputs}
-
-
-
-|term                                                                                                |definition                                                                      |
-|:---------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/s#server'>server</a> |This is the part of a Shiny app that works with logic.                          |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/u#ui'>ui</a>         |The User Interface. This usually refers to a Shiny App as the user will see it. |
-
-
-

@@ -161,7 +161,3 @@ output$demo_datatable <- DT::renderDataTable({
 The basic `shiny` package has `dataTableOutput()` and `renderDataTable()` functions, but they can be buggy. The versions in the `DT` package are better and have some additional functions, so I use those.
 :::
 
-## Glossary {#glossary-outputs}
-
-`r glossary::glossary_table()`
-

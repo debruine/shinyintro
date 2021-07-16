@@ -8,9 +8,9 @@ You don't need to know anything about HTML, CSS and JavaScript to make basic Shi
 
 ### HTML Tags
 
-We learned about the `tags()` function in [Chapter 1](#tags) and how it is linked to <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/t#tags-html'>HTML tags</a>. For example, the R code `tags$h2("Methods")` creates the HTML `<h2>Methods</h2>`. It surrounds the text content with a starting tag `<h2>` and an ending tag `</h2>`. 
+We learned about the `tags()` function in [Chapter 1](#tags) and how it is linked to <a class='glossary' target='_blank' title='A way to mark the start and end of HTML elements.' href='https://psyteachr.github.io/glossary/t#tag'>HTML tags</a>. For example, the R code `tags$h2("Methods")` creates the HTML `<h2>Methods</h2>`. It surrounds the text content with a starting tag `<h2>` and an ending tag `</h2>`. 
 
-Tags create <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/e#element-html'>elements</a>, which can be thought of kind of like boxes. An element can contain one or more elements. Elements can have <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/a#attribute-html'>attributes</a> that provide more information such as the element's ID or class, which can be used by CSS or JavaScript to refer to the element or a group of elements.
+Tags create <a class='glossary' target='_blank' title='A unit of HTML, such as a header, paragraph, or image.' href='https://psyteachr.github.io/glossary/e#element-html'>elements</a>, which can be thought of kind of like boxes. An element can contain one or more elements. Elements can have <a class='glossary' target='_blank' title='Extra information about an HTML element' href='https://psyteachr.github.io/glossary/a#attribute-html'>attributes</a> that provide more information such as the element's ID or class, which can be used by CSS or JavaScript to refer to the element or a group of elements.
 
 For example, the following code creates an unordered list (`<ul>`) with the class "animals". It contains three list item elements (`<li>`), each with its own id. 
 
@@ -198,12 +198,12 @@ tags$head(
 ```
 
 ::: {.warning}
-Sometimes when you change external files, they don't seem to update when you test the app. This can be because of <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/c#cache'>caching</a>. You can usually solve this by reloading the app in your web browser, reloading in the web browser with the shift key pressed, stopping the app from running in RStudio with the stop sign icon and starting it up again, and, finally, restarting R.
+Sometimes when you change external files, they don't seem to update when you test the app. This can be because of <a class='glossary' target='_blank' title='In a web browser, external files like CSS, JavaScript, and images are usually cached so that they don’t have to be repeatedly downloaded.' href='https://psyteachr.github.io/glossary/c#cache-web'>caching</a>. You can usually solve this by reloading the app in your web browser, reloading in the web browser with the shift key pressed, stopping the app from running in RStudio with the stop sign icon and starting it up again, and, finally, restarting R.
 :::
 
 ## JavaScript
 
-<a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/j#javascript'>JavaScript</a> is a coding language that is very useful for adding dynamic behaviour to web pages. For simple apps, you don't need to understand any JavaScript, but a little bit can be really helpful for adding advanced behaviour.
+<a class='glossary' target='_blank' title='An object-oriented computer programming language commonly used to create interactive effects in web browsers.' href='https://psyteachr.github.io/glossary/j#javascript'>JavaScript</a> is a coding language that is very useful for adding dynamic behaviour to web pages. For simple apps, you don't need to understand any JavaScript, but a little bit can be really helpful for adding advanced behaviour.
 
 ### shinyjs
 
@@ -238,7 +238,7 @@ Shiny apps use [jQuery](https://jquery.com/){target="_blank"}, a framework for m
 Here is some example code from the custom.js file in the template.
 
 ``` js
-$(function() {
+$(document).on("shiny:connected", function() {
   // send window width to shiny
   shiny_size = function() {
     Shiny.setInputValue("window_width", window.innerWidth);
@@ -252,7 +252,7 @@ $(function() {
 
 JavaScript is similar to R in some ways, and maddeningly different in others. One big difference is that lines of code have to end with a semi-colon.
 
-In the code above, the function `$(function() { ... })` is jQuery shorthand for making sure that the code inside doesn't run until the whole webpage has been downloaded. Otherwise, you might try to run some code that references an element that hasn't been created yet (HTML pages don't always download all in one go).
+In the code above, the function `$(document).on("shiny:connected", function() { ... })` is jQuery shorthand for making sure that the code inside doesn't run until the whole webpage has been downloaded and the extra javascript for shiny is available. Otherwise, you might try to run some code that references an element that hasn't been created yet (HTML pages don't always download all in one go) or uses a Shiny function that isn't available yet.
 
 The we create a new function called `shiny_size`, which creates two new Shiny input variables, "window_width" and "window_height", and sets then to the values of the window dimensions (in pixels). The line `window.onresize = shiny_size;` sets this function to run every time the window is resized and the function is run once at the start to initialise those values.
 
@@ -266,23 +266,6 @@ The javaScript function `Shiny.setInputValue(input_id, value)` is a way for you 
 * [Packaging JavaScript Code for Shiny](https://shiny.rstudio.com/articles/packaging-javascript.html){target="_blank"}
 * [W3 Schools jQuery Tutorial](https://www.w3schools.com/jquERy/default.asp){target="_blank"}
 * [Codeacademy interactive tutorials](https://www.codecademy.com/en/tracks/htmlcss){target="_blank"}
-
-## Glossary {#glossary-web}
-
-
-
-|term                                                                                                                |definition                                                                                            |
-|:-------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------|
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/a#argument'>argument</a>             |A variable that provides input to a function.                                                         |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/a#attribute-html'>attribute-html</a> |                                                                                                      |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/c#cache'>cache</a>                   |                                                                                                      |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/c#css'>css</a>                       |Cascading Style Sheet: A system for controlling the visual presentation of HTML in web pages.         |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/e#element-html'>element-html</a>     |                                                                                                      |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/h#html'>html</a>                     |Hyper-Text Markup Language: A system for semantically tagging structure and information on web pages. |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/j#javascript'>javascript</a>         |                                                                                                      |
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/t#tags-html'>tags-html</a>           |                                                                                                      |
-
-
 
 ## Exercises {#exercises-web}
 

@@ -138,7 +138,7 @@ id
 
 ```
 ## Spreadsheet name: demo2
-##               ID: 1sHDhXcUcUp61ONc7ZpfEzpRLJeOD96pG8IGKbg-DAQY
+##               ID: 1N5W9wevtWnTiNAyOc5yb98Sw0_WYF6BWSFlPeNEi3lM
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -153,7 +153,7 @@ id
 
 Include the ID at the top of your app like this:
 
-<pre><code>SHEET_ID <- "1sHDhXcUcUp61ONc7ZpfEzpRLJeOD96pG8IGKbg-DAQY"</code></pre>
+<pre><code>SHEET_ID <- "1N5W9wevtWnTiNAyOc5yb98Sw0_WYF6BWSFlPeNEi3lM"</code></pre>
 
 ### Add data
 
@@ -263,6 +263,17 @@ The Shiny template we're working with has a safer version of `sheet_append()` th
 `# source("R/sheet_append.R")`
 
 This version gracefully handles data with new columns, missing columns, columns in a different order, and columns with a different data type. However, it reads the whole data sheet before deciding whether to append or overwrite the data, which can slow down your app, so is best used only during development when you're changing things a lot. Once you have the final structure of your data, it's better to use the original `googlesheets4::sheet_append()` function.
+
+## Saving Googlesheet data {#gs4_save}
+
+If you mix data types in a column, the data frame returned by `googlesheets4::read_sheet()` has list columns for any mixed columns. Dates can also get written in different ways that look the same when you print to the console, but are a mix of characters and doubles, so you have to convert them to strings like this before you can save as CSV.
+
+
+```r
+string_data <- lapply(data, sapply, toString) %>% as.data.frame()
+readr::write_csv(string_data, "data.csv")
+```
+
 
 ## Glossary {#glossary-data}
 

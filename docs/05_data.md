@@ -138,7 +138,7 @@ id
 
 ```
 ## Spreadsheet name: demo2
-##               ID: 10izVmZXpZfOehRJw28JuwwXvzZcm5iChlCSCC4HZWeU
+##               ID: 1DW6GX_Q5nygsVOBEIRijSRZsI54KBU8gm1vucl1_2a0
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -153,7 +153,7 @@ id
 
 Include the ID at the top of your app like this:
 
-<pre><code>SHEET_ID <- "10izVmZXpZfOehRJw28JuwwXvzZcm5iChlCSCC4HZWeU"</code></pre>
+<pre><code>SHEET_ID <- "1DW6GX_Q5nygsVOBEIRijSRZsI54KBU8gm1vucl1_2a0"</code></pre>
 
 ### Add data
 
@@ -264,13 +264,63 @@ The Shiny template we're working with has a safer version of `sheet_append()` th
 
 This version gracefully handles data with new columns, missing columns, columns in a different order, and columns with a different data type. However, it reads the whole data sheet before deciding whether to append or overwrite the data, which can slow down your app, so is best used only during development when you're changing things a lot. Once you have the final structure of your data, it's better to use the original `googlesheets4::sheet_append()` function.
 
-## Glossary {#glossary-data}
+## Saving Googlesheet data {#gs4_save}
+
+If you mix data types in a column, the data frame returned by `googlesheets4::read_sheet()` has list columns for any mixed columns. Dates can also get written in different ways that look the same when you print to the console, but are a mix of characters and doubles, so you have to convert them to strings like this before you can save as CSV.
+
+
+```r
+string_data <- lapply(data, sapply, toString) %>% as.data.frame()
+readr::write_csv(string_data, "data.csv")
+```
+
+## Exercises {#exercises-data}
+
+### Read others' data
+
+Read in data from the public google sheet at <https://docs.google.com/spreadsheets/d/1QjpRZPNOOL0pfRO6IVT5WiafnyNdahsch1A03iHdv7s/>. Find the sheet ID and figure out which sheet has data on US states (assign this to the object `states`) and which has data on eutherian mammals (assign this to `mammals`).
+
+
+<div class='webex-solution'><button>Solution</button>
+
+
+```r
+library(googlesheets4)
+
+gs4_deauth()
+
+sheet_url <- "https://docs.google.com/spreadsheets/d/1QjpRZPNOOL0pfRO6IVT5WiafnyNdahsch1A03iHdv7s/"
+sheet_id <- as_sheets_id(sheet_url)
+
+states <- read_sheet(sheet_id, 1)
+mammals <- read_sheet(sheet_id, 2)
+```
+
+</div>
 
 
 
-|term                                                                                                                      |definition                                                   |
-|:-------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------|
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/w#working-directory'>working-directory</a> |The filepath where R is currently reading and writing files. |
+### Read your own data
+
+Create a google sheet online and read its contents in R. You will need to either make it public first (click on the green Share icon in the upper right) or authorise googlesheets to access your account.
 
 
+<div class='webex-solution'><button>Solution</button>
 
+
+```r
+gs4_auth()
+my_sheet_url <- ""
+mydata <- read_sheet(my_sheet_url)
+```
+
+</div>
+
+
+### Write data
+
+Append some data to your google sheet
+
+### Shiny app
+
+In the app you're developing, determine what data need to be saved and set up a google sheet (or local data if you're having trouble with google). Write the server function to save data from your app when an action button is pressed.

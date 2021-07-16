@@ -264,9 +264,6 @@ tabItem(
 * [ShinyDashboard](https://rstudio.github.io/shinydashboard/){target="_blank"}
 
 
-## Glossary {#glossary-shinydashboard}
-
-`r glossary::glossary_table()`
 
 ## Exercises {#exercises-shinydashboard}
 

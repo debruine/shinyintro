@@ -156,11 +156,7 @@ select_box <- do.call(box, select_inputs)
 ```
 
 
-## Glossary {#glossary-structure}
-
-`r glossary::glossary_table()`
-
-## Exercises {exercises-structure}
+## Exercises {#exercises-structure}
 
 ### server functions
 

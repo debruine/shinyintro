@@ -119,8 +119,3 @@ observeEvent(input$submit, {
 })
 ```
 
-
-
-## Glossary {#glossary-debugging}
-
-`r glossary::glossary_table()`

@@ -1,9 +1,11 @@
 # psyTeachR styles and functions
 # do not edit!!!!!
 
-library(tidyverse)
-library(webex)
-library(glossary)
+suppressPackageStartupMessages({
+  library(tidyverse)
+  library(webex)
+  library(glossary)
+})
 
 # default knitr options
 knitr::opts_chunk$set(

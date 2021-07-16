@@ -130,14 +130,3 @@ observeEvent(input$submit, {
 })
 ```
 
-
-
-## Glossary {#glossary-debugging}
-
-
-
-|term                                                                                                  |definition                                                                   |
-|:-----------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------|
-|<a class='glossary' target='_blank' href='https://psyteachr.github.io/glossary/c#console'>console</a> |The pane in RStudio where you can type in commands and view output messages. |
-
-

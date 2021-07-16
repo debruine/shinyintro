@@ -235,10 +235,6 @@ What happens when you unselect all the columns? How can you fix this?
 :::
 
 
-## Glossary {#glossary-contingency}
-
-`r glossary::glossary_table()`
-
 ## Exercises {#exercises-contingency}
 
 

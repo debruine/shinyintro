@@ -1,7 +1,7 @@
 --- 
 title: "Building Web Apps with R Shiny"
 author: "Lisa DeBruine"
-date: "2021-07-15"
+date: "2021-07-16"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -117,8 +117,5 @@ If you want to brush up on your R (especially <a class='glossary' target='_blank
 There are a lot of great resources online to reinforce or continue your learning about Shiny.
 
 * [RStudio Shiny Tutorials](https://shiny.rstudio.com/tutorial/)
-        
-## Glossary {#glossary-intro}
-
 
 

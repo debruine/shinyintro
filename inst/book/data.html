@@ -24,7 +24,7 @@
 <meta name="author" content="Lisa DeBruine" />
 
 
-<meta name="date" content="2021-07-15" />
+<meta name="date" content="2021-07-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -249,13 +249,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.4" data-path="data.html"><a href="data.html#add-data"><i class="fa fa-check"></i><b>5.2.4</b> Add data</a></li>
 <li class="chapter" data-level="5.2.5" data-path="data.html"><a href="data.html#appending-data"><i class="fa fa-check"></i><b>5.2.5</b> Appending data</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="data.html"><a href="data.html#glossary-data"><i class="fa fa-check"></i><b>5.3</b> Glossary</a></li>
+<li class="chapter" data-level="5.3" data-path="data.html"><a href="data.html#gs4_save"><i class="fa fa-check"></i><b>5.3</b> Saving Googlesheet data</a></li>
+<li class="chapter" data-level="5.4" data-path="data.html"><a href="data.html#glossary-data"><i class="fa fa-check"></i><b>5.4</b> Glossary</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="reactives.html"><a href="reactives.html"><i class="fa fa-check"></i><b>6</b> Reactive functions</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="reactives.html"><a href="reactives.html#observeevent-1"><i class="fa fa-check"></i><b>6.1</b> observeEvent()</a></li>
+<li class="chapter" data-level="6.1" data-path="first-app.html"><a href="first-app.html#observeevent"><i class="fa fa-check"></i><b>6.1</b> observeEvent()</a></li>
 <li class="chapter" data-level="6.2" data-path="reactives.html"><a href="reactives.html#render-functions"><i class="fa fa-check"></i><b>6.2</b> Render functions</a></li>
-<li class="chapter" data-level="6.3" data-path="reactives.html"><a href="reactives.html#reactive-1"><i class="fa fa-check"></i><b>6.3</b> reactive()</a></li>
+<li class="chapter" data-level="6.3" data-path="first-app.html"><a href="first-app.html#reactive"><i class="fa fa-check"></i><b>6.3</b> reactive()</a></li>
 <li class="chapter" data-level="6.4" data-path="reactives.html"><a href="reactives.html#eventreactive"><i class="fa fa-check"></i><b>6.4</b> eventReactive()</a></li>
 <li class="chapter" data-level="6.5" data-path="reactives.html"><a href="reactives.html#reactiveval"><i class="fa fa-check"></i><b>6.5</b> reactiveVal()</a></li>
 <li class="chapter" data-level="6.6" data-path="reactives.html"><a href="reactives.html#reactivevalue"><i class="fa fa-check"></i><b>6.6</b> reactiveValue()</a></li>
@@ -264,9 +265,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.9" data-path="reactives.html"><a href="reactives.html#glossary-reactives"><i class="fa fa-check"></i><b>6.9</b> Glossary</a></li>
 <li class="chapter" data-level="6.10" data-path="reactives.html"><a href="reactives.html#exercises-reactive"><i class="fa fa-check"></i><b>6.10</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="6.10.1" data-path="reactives.html"><a href="reactives.html#observeevent-2"><i class="fa fa-check"></i><b>6.10.1</b> observeEvent</a></li>
+<li class="chapter" data-level="6.10.1" data-path="reactives.html"><a href="reactives.html#observeevent-1"><i class="fa fa-check"></i><b>6.10.1</b> observeEvent</a></li>
 <li class="chapter" data-level="6.10.2" data-path="reactives.html"><a href="reactives.html#render"><i class="fa fa-check"></i><b>6.10.2</b> render</a></li>
-<li class="chapter" data-level="6.10.3" data-path="reactives.html"><a href="reactives.html#reactive-2"><i class="fa fa-check"></i><b>6.10.3</b> reactive</a></li>
+<li class="chapter" data-level="6.10.3" data-path="reactives.html"><a href="reactives.html#reactive-1"><i class="fa fa-check"></i><b>6.10.3</b> reactive</a></li>
 <li class="chapter" data-level="6.10.4" data-path="reactives.html"><a href="reactives.html#eventreactive-1"><i class="fa fa-check"></i><b>6.10.4</b> eventReactive</a></li>
 <li class="chapter" data-level="6.10.5" data-path="reactives.html"><a href="reactives.html#reactiveval-1"><i class="fa fa-check"></i><b>6.10.5</b> reactiveVal</a></li>
 <li class="chapter" data-level="6.10.6" data-path="reactives.html"><a href="reactives.html#reactivevalues"><i class="fa fa-check"></i><b>6.10.6</b> reactiveValues</a></li>
@@ -304,16 +305,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8" data-path="structure.html"><a href="structure.html"><i class="fa fa-check"></i><b>8</b> Structuring a complex app</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="structure.html"><a href="structure.html#external-functions"><i class="fa fa-check"></i><b>8.1</b> External Functions</a>
+<li class="chapter" data-level="8.1" data-path="structure.html"><a href="structure.html#external-server-functions"><i class="fa fa-check"></i><b>8.1</b> External Server Functions</a>
 <ul>
 <li class="chapter" data-level="8.1.1" data-path="structure.html"><a href="structure.html#sourcing-locally"><i class="fa fa-check"></i><b>8.1.1</b> Sourcing Locally</a></li>
 <li class="chapter" data-level="8.1.2" data-path="structure.html"><a href="structure.html#inputs-and-outputs"><i class="fa fa-check"></i><b>8.1.2</b> Inputs and Outputs</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="structure.html"><a href="structure.html#external-ui"><i class="fa fa-check"></i><b>8.2</b> External UI</a>
+<li class="chapter" data-level="8.2" data-path="structure.html"><a href="structure.html#external-ui-files"><i class="fa fa-check"></i><b>8.2</b> External UI Files</a>
 <ul>
 <li class="chapter" data-level="8.2.1" data-path="structure.html"><a href="structure.html#ui-lists"><i class="fa fa-check"></i><b>8.2.1</b> UI Lists</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="structure.html"><a href="structure.html#glossary-structure"><i class="fa fa-check"></i><b>8.3</b> Glossary</a></li>
+<li class="chapter" data-level="8.4" data-path="structure.html"><a href="structure.html#exercises-structure"><i class="fa fa-check"></i><b>8.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="structure.html"><a href="structure.html#server-functions"><i class="fa fa-check"></i><b>8.4.1</b> server functions</a></li>
+<li class="chapter" data-level="8.4.2" data-path="structure.html"><a href="structure.html#ui-files"><i class="fa fa-check"></i><b>8.4.2</b> UI files</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="debugging.html"><a href="debugging.html"><i class="fa fa-check"></i><b>9</b> Debugging and error handling</a>
 <ul>
@@ -326,7 +332,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="10" data-path="contingency.html"><a href="contingency.html"><i class="fa fa-check"></i><b>10</b> Contingent Display</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="contingency.html"><a href="contingency.html#glossary-contingency"><i class="fa fa-check"></i><b>10.1</b> Glossary</a></li>
+<li class="chapter" data-level="10.1" data-path="contingency.html"><a href="contingency.html#hide-and-show"><i class="fa fa-check"></i><b>10.1</b> Hide and Show</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="contingency.html"><a href="contingency.html#groups"><i class="fa fa-check"></i><b>10.1.1</b> Groups</a></li>
+<li class="chapter" data-level="10.1.2" data-path="contingency.html"><a href="contingency.html#toggle"><i class="fa fa-check"></i><b>10.1.2</b> Toggle</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="contingency.html"><a href="contingency.html#changing-styles"><i class="fa fa-check"></i><b>10.2</b> Changing Styles</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="contingency.html"><a href="contingency.html#changing-non-shiny-elements"><i class="fa fa-check"></i><b>10.2.1</b> Changing non-shiny elements</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="contingency.html"><a href="contingency.html#changing-input-options"><i class="fa fa-check"></i><b>10.3</b> Changing input options</a></li>
+<li class="chapter" data-level="10.4" data-path="contingency.html"><a href="contingency.html#glossary-contingency"><i class="fa fa-check"></i><b>10.4</b> Glossary</a></li>
+<li class="chapter" data-level="10.5" data-path="contingency.html"><a href="contingency.html#exercises-contingency"><i class="fa fa-check"></i><b>10.5</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="sharing.html"><a href="sharing.html"><i class="fa fa-check"></i><b>11</b> Sharing your Apps</a>
 <ul>
@@ -344,7 +361,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="12" data-path="reports.html"><a href="reports.html"><i class="fa fa-check"></i><b>12</b> Customized reports</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="reports.html"><a href="reports.html#glossary-reports"><i class="fa fa-check"></i><b>12.1</b> Glossary</a></li>
+<li class="chapter" data-level="12.1" data-path="reports.html"><a href="reports.html#download-data"><i class="fa fa-check"></i><b>12.1</b> Download Data</a></li>
+<li class="chapter" data-level="12.2" data-path="reports.html"><a href="reports.html#download-images"><i class="fa fa-check"></i><b>12.2</b> Download Images</a></li>
+<li class="chapter" data-level="12.3" data-path="reports.html"><a href="reports.html#r-markdown"><i class="fa fa-check"></i><b>12.3</b> R Markdown</a></li>
+<li class="chapter" data-level="12.4" data-path="reports.html"><a href="reports.html#glossary-reports"><i class="fa fa-check"></i><b>12.4</b> Glossary</a></li>
+<li class="chapter" data-level="12.5" data-path="reports.html"><a href="reports.html#exercises-reports"><i class="fa fa-check"></i><b>12.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="reports.html"><a href="reports.html#food-data"><i class="fa fa-check"></i><b>12.5.1</b> Food Data</a></li>
+<li class="chapter" data-level="12.5.2" data-path="reports.html"><a href="reports.html#food-image"><i class="fa fa-check"></i><b>12.5.2</b> Food Image</a></li>
+<li class="chapter" data-level="12.5.3" data-path="reports.html"><a href="reports.html#food-report"><i class="fa fa-check"></i><b>12.5.3</b> Food Report</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="modules.html"><a href="modules.html"><i class="fa fa-check"></i><b>13</b> Shiny modules for repeated structures</a>
 <ul>
@@ -364,21 +390,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="A.1" data-path="installing-r.html"><a href="installing-r.html#installing-base-r"><i class="fa fa-check"></i><b>A.1</b> Installing Base R</a></li>
 <li class="chapter" data-level="A.2" data-path="installing-r.html"><a href="installing-r.html#installing-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing RStudio</a></li>
-<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.3</b> Installing LaTeX</a></li>
+<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-shinyintro"><i class="fa fa-check"></i><b>A.3</b> Installing shinyintro</a></li>
+<li class="chapter" data-level="A.4" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.4</b> Installing LaTeX</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="setup-git.html"><a href="setup-git.html"><i class="fa fa-check"></i><b>B</b> Git and GitHub</a>
-<ul>
-<li class="chapter" data-level="B.1" data-path="setup-git.html"><a href="setup-git.html#get-a-github-account"><i class="fa fa-check"></i><b>B.1</b> Get a GitHub account</a></li>
-<li class="chapter" data-level="B.2" data-path="setup-git.html"><a href="setup-git.html#set-up-rstudio"><i class="fa fa-check"></i><b>B.2</b> Set up RStudio</a>
-<ul>
-<li class="chapter" data-level="B.2.1" data-path="setup-git.html"><a href="setup-git.html#install-git"><i class="fa fa-check"></i><b>B.2.1</b> Install git</a></li>
-<li class="chapter" data-level="B.2.2" data-path="setup-git.html"><a href="setup-git.html#enable-version-control-in-rstudio"><i class="fa fa-check"></i><b>B.2.2</b> Enable version control in RStudio</a></li>
-</ul></li>
-<li class="chapter" data-level="B.3" data-path="setup-git.html"><a href="setup-git.html#github-info"><i class="fa fa-check"></i><b>B.3</b> Set your GitHub info</a></li>
-<li class="chapter" data-level="B.4" data-path="setup-git.html"><a href="setup-git.html#create-an-ssh-key-on-rstudio"><i class="fa fa-check"></i><b>B.4</b> Create an SSH Key on RStudio</a></li>
-<li class="chapter" data-level="B.5" data-path="setup-git.html"><a href="setup-git.html#create-an-ssh-key-on-github"><i class="fa fa-check"></i><b>B.5</b> Create an SSH Key on GitHub</a></li>
-</ul></li>
-<li class="chapter" data-level="C" data-path="symbols.html"><a href="symbols.html"><i class="fa fa-check"></i><b>C</b> Symbols</a></li>
+<li class="chapter" data-level="B" data-path="symbols.html"><a href="symbols.html"><i class="fa fa-check"></i><b>B</b> Symbols</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
     target="blank"><img alt="Creative Commons License" 
@@ -520,7 +535,7 @@ Figure 5.1: Prompts to choose an account, grant permissions, and confirm.
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="data.html#cb64-1" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="fu">gs4_create</span>(<span class="st">&quot;demo2&quot;</span>, <span class="at">sheets =</span> <span class="fu">c</span>(<span class="st">&quot;demographics&quot;</span>, <span class="st">&quot;questionnaire&quot;</span>))</span>
 <span id="cb64-2"><a href="data.html#cb64-2" aria-hidden="true" tabindex="-1"></a>id</span></code></pre></div>
 <pre><code>## Spreadsheet name: demo2
-##               ID: 1sHDhXcUcUp61ONc7ZpfEzpRLJeOD96pG8IGKbg-DAQY
+##               ID: 1N5W9wevtWnTiNAyOc5yb98Sw0_WYF6BWSFlPeNEi3lM
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -529,7 +544,7 @@ Figure 5.1: Prompts to choose an account, grant permissions, and confirm.
 ##  demographics: 1000 x 26
 ## questionnaire: 1000 x 26</code></pre>
 <p>Include the ID at the top of your app like this:</p>
-<pre><code>SHEET_ID <- "1sHDhXcUcUp61ONc7ZpfEzpRLJeOD96pG8IGKbg-DAQY"</code></pre>
+<pre><code>SHEET_ID <- "1N5W9wevtWnTiNAyOc5yb98Sw0_WYF6BWSFlPeNEi3lM"</code></pre>
 </div>
 <div id="add-data" class="section level3" number="5.2.4">
 <h3><span class="header-section-number">5.2.4</span> Add data</h3>
@@ -666,8 +681,14 @@ Figure 5.1: Prompts to choose an account, grant permissions, and confirm.
 <p>This version gracefully handles data with new columns, missing columns, columns in a different order, and columns with a different data type. However, it reads the whole data sheet before deciding whether to append or overwrite the data, which can slow down your app, so is best used only during development when you’re changing things a lot. Once you have the final structure of your data, it’s better to use the original <code>googlesheets4::sheet_append()</code> function.</p>
 </div>
 </div>
-<div id="glossary-data" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Glossary</h2>
+<div id="gs4_save" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Saving Googlesheet data</h2>
+<p>If you mix data types in a column, the data frame returned by <code>googlesheets4::read_sheet()</code> has list columns for any mixed columns. Dates can also get written in different ways that look the same when you print to the console, but are a mix of characters and doubles, so you have to convert them to strings like this before you can save as CSV.</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="data.html#cb71-1" aria-hidden="true" tabindex="-1"></a>string_data <span class="ot">&lt;-</span> <span class="fu">lapply</span>(data, sapply, toString) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
+<span id="cb71-2"><a href="data.html#cb71-2" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(string_data, <span class="st">&quot;data.csv&quot;</span>)</span></code></pre></div>
+</div>
+<div id="glossary-data" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Glossary</h2>
 <table>
 <colgroup>
 <col width="66%" />

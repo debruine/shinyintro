@@ -337,9 +337,6 @@ Which inputs will trigger `renderText()` to run and produce a new title?
 * [ Use reactive expressions ](https://shiny.rstudio.com/tutorial/written-tutorial/lesson6/){target="_blank"}
 
 
-## Glossary {#glossary-reactives}
-
-`r glossary::glossary_table()`
 
 ## Exercises {#exercises-reactive}
 

@@ -33,18 +33,20 @@ pet_opts <- c(
 
 pet_tab <- tabItem(
   tabName = "pet_tab",
-  box(id = "pet_box", 
-      width = 12, 
-      collapsible = TRUE,
-      collapsed = FALSE,
-      solidHeader = TRUE,
-      title = "Pet Questionnaire", 
-      p("How much do you like each pet?"),
-      radioTableInput("pet_table", pet_q, pet_opts, random = FALSE),
-      actionButton("pet_submit", "Submit")
+  box(
+    id = "pet_box",
+    width = 12,
+    collapsible = TRUE,
+    collapsed = FALSE,
+    solidHeader = TRUE,
+    title = "Pet Questionnaire",
+    p("How much do you like each pet?"),
+    radioTableInput("pet_table", pet_q, pet_opts, random = FALSE),
+    actionButton("pet_submit", "Submit")
   ),
-  tabsetPanel(id = "pet_plots",
-              tabPanel("Individual Data", plotOutput("pet_plot")),
-              tabPanel("Summary Data", plotOutput("pet_summary"))
+  tabsetPanel(
+    id = "pet_plots",
+    tabPanel("Individual Data", plotOutput("pet_plot")),
+    tabPanel("Summary Data", plotOutput("pet_summary"))
   )
 )
