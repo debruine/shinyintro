@@ -27,8 +27,8 @@ questUI <- function(id, title = "Questionnaire", instructions = "",
         actionButton(ns("submit"), "Submit")
     ),
     tabsetPanel(id = ns("plots"),
-                tabPanel("Individual Data", plotOutput(ns("plot"))),
-                tabPanel("Summary Data", plotOutput(ns("summary")))
+                tabPanel("Individual Data", withSpinner(plotOutput(ns("plot")))),
+                tabPanel("Summary Data", withSpinner(plotOutput(ns("summary"))))
     )
   )
 }

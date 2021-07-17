@@ -9,28 +9,6 @@ if (USING_GS4 &&
 }
 
 # radio_table setup
-pet_q <- list(
-  dogs = "Dogs 🐕",
-  cats = "Cats 🐈",
-  birds = "Birds 🦜",
-  fish = "Fish 🐠",
-  mice = "Mice 🐁",
-  hedgehogs = "Hedgehogs 🦔",
-  snakes = "Snakes 🐍"
-)
-
-pet_opts <- c(
-  "😨" = 1,
-  "☹️" = 2,
-  "🙁" = 3,
-  "😕" = 4,
-  "😐" = 5,
-  "🙂" = 6,
-  "😀" = 7,
-  "😃" = 8,
-  "😍" = 9
-)
-
 pet_tab <- tabItem(
   tabName = "pet_tab",
   box(

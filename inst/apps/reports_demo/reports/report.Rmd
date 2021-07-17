@@ -1,7 +1,11 @@
 ---
-title: "Pet Report"
+title: "`r params$title`"
 date: "`r format(Sys.time(), '%d %B, %Y')`" 
 output: html_document
+params:
+  title: Report
+  data: NULL
+  plot: NULL
 ---
 
 ```{r setup, include=FALSE}
@@ -17,18 +21,18 @@ library(dplyr)
 ```
 
 ```{r}
-n_responses <- nrow(v$pet_summary_data)
+n_responses <- nrow(params$data)
 
-n_sessions <- v$pet_summary_data$session_id %>%
+n_sessions <- params$data$session_id %>%
   unique() %>%
   length()
 ```
 
 
-We asked people to rate how much they like pets. We have obtained `r n_responses` responses from `r n_sessions` unique sessions.
+We asked people to rate how much they like food. We have obtained `r n_responses` responses from `r n_sessions` unique sessions.
 
 ## Summary Plot
 
 ```{r plot}
-pet_summary_plot()
+params$plot
 ```

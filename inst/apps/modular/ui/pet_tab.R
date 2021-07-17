@@ -40,8 +40,6 @@ pet_plot <- function(data) {
 }
 
 pet_summary <- function(data, small_screen = FALSE) {
-  #data <- read_sheet(SHEET_ID, "pet")
-  
   sumdata <- data %>%
     select(-datetime) %>%
     pivot_longer(-c("session_id"), 

@@ -115,14 +115,24 @@ output$pet_plot_dl <- downloadHandler(
 
 You can render an `r glossary("R Markdown")` report for users to download.
 
-First, you need to save an R Markdown file (save the one below as `reports/pet_report.Rmd`). The file will have access to any `r glossary("object", "objects")` that are available in `server()`, so you don't have to re-download the summary data and re-create the plot.
+First, you need to save an R Markdown file (save the one below as `reports/report.Rmd`). You need to set up `params` for any info that you want to pass from the Shiny app in th `r glossary("YAML")` header. Here, we will dynamically update the title, data, and plot. You can set the values to `NULL` or another default value.
 
-````
+```{.yaml}
 ---
-title: "Pet Report"
+title: "`r title`"
 date: "`r format(Sys.time(), '%d %B, %Y')`" 
 output: html_document
+params:
+  title: Report
+  data: NULL
+  plot: NULL
 ---
+```
+
+Then you can refer to these params in the R Markdown file as `params$name`. If you knit the report, these will take on the default values.
+
+````
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
   echo = FALSE,
@@ -134,23 +144,26 @@ knitr::opts_chunk$set(
 
 library(dplyr)
 ```
-```{r}
-n_responses <- nrow(v$pet_summary_data)
 
-n_sessions <- v$pet_summary_data$session_id %>%
+```{r}
+n_responses <- nrow(params$data)
+
+n_sessions <- params$data$session_id %>%
   unique() %>%
   length()
 ```
+
 We asked people to rate how much they like pets. We have obtained `r knitr::inline_expr("n_responses")` responses from `r knitr::inline_expr("n_sessions")` unique sessions.
 
 ## Summary Plot
+
 ```{r plot}
-pet_summary_plot()
+params$plot
 ```
 
 ````
 
-The `content` function uses `rmarkdown::render()` to create the output file from Rmd. We are using `html_document` as the output type, but you can also render as a PDF or Word document if you have `r glossary("pandoc")` or `r glossary("latex")` installed.
+The `content` function uses `rmarkdown::render()` to create the output file from Rmd. We are using `html_document` as the output type, but you can also render as a PDF or Word document if you have `r glossary("pandoc")` or `r glossary("latex")` installed. Include the title, data and plot as a named list to the `params` argument. 
 
 ```{r}
 ### pet_report_dl ----
@@ -160,12 +173,20 @@ output$pet_report_dl <- downloadHandler(
     paste0("pet-report_", Sys.Date(), ".html")
   },
   content = function(file) {
-    rmarkdown::render("reports/pet_report.Rmd",
+    rmarkdown::render("reports/report.Rmd",
                       output_file = file, 
+                      params = list(
+                        title = "Pet Report", 
+                        data = v$pet_summary_data,
+                        plot = pet_summary_plot()
+                      ),
+                      envir = new.env(),
                       intermediates_dir = tempdir())
   }
 )
 ```
+
+Setting the `envir` argument to `new.env()` makes sure that settings in your Shiny app, such as a default ggplot theme, can't affect the rendered file, but also makes it so that the R Markdown code will not have access to any objects from your app, such as `input` or `v$summary_data`, unless you pass them as parameters.
 
 ::: {.error}
 On your own computer, you don't need to set `intermediates_dir = tempdir()`, but you will need to do this if you want to deploy your app on a shiny server. When rmarkdown renders an Rmd file, it creates several intermediate files in the working directory and then deletes them. you have permission to write to the app's working directory on your own computer, but might not on a shiny server. `tempdir()` is almost always a safe place to write temporary files to.
@@ -238,8 +259,6 @@ output$food_plot_dl <- downloadHandler(
 Create a downloadable report for the food data.
 
 `r hide()`
-Don't forget to create an Rmd file with the contents of your food report.
-
 ```{r}
 # add to report_tab ui ----
 downloadButton("food_report_dl", "Food Report")
@@ -251,8 +270,14 @@ output$food_report_dl <- downloadHandler(
     paste0("food-report_", Sys.Date(), ".html")
   },
   content = function(file) {
-    rmarkdown::render("reports/food_report.Rmd",
-                      output_file = file,
+    rmarkdown::render("reports/report.Rmd",
+                      output_file = file, 
+                      params = list(
+                        title = "Food Report", 
+                        data = v$food_summary_data,
+                        plot = food_summary_plot()
+                      ),
+                      envir = new.env(),
                       intermediates_dir = tempdir())
   }
 )

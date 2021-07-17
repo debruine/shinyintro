@@ -13,6 +13,7 @@ suppressPackageStartupMessages({
 theme_set(theme_minimal(base_size = 16)) # ggplot theme
 
 # functions ----
+source("scripts/quest_vars.R") # questionnaire Q&A lists
 source("scripts/func.R") # helper functions
 source("scripts/radio_table.R") # radio button tables
 source("scripts/gs4.R") # save data using googlesheets
@@ -100,15 +101,7 @@ server <- function(input, output, session) {
         # save the data and update summary data
         data <- get_radio_table_inputs("pet_table", input, "wide")
         data$session_id <- session$token
-        data$datetime <- Sys.time()
-        if (USING_GS4) {
-            sheet_append(SHEET_ID, data, "pet")
-            v$pet_summary_data <- read_sheet(SHEET_ID, "pet")
-        } else {
-            old_data <- read_csv("data/pet.csv")
-            v$pet_summary_data <- bind_rows(old_data, data)
-            write_csv(v$pet_summary_data, "data/pet.csv")
-        }
+        v$pet_summary_data <- append_pet_data(data, USING_GS4)
         
         # show the summary plot and hide questionnaire
         updateTabsetPanel(session, "pet_plots", selected = "Summary Data")
@@ -117,50 +110,13 @@ server <- function(input, output, session) {
     
     ### pet_plot ----
     output$pet_plot <- renderPlot({ debug_msg("pet_plot")
-        data <- get_radio_table_inputs("pet_table", input, "long") %>%
-            # to handle when all are NA
-            mutate(answer = as.numeric(answer)) %>%
-            # get in same order as table
-            mutate(question = factor(question, names(pet_q)))
-        
-        ggplot(data, aes(x = question, y = answer, color = question)) +
-            geom_point(size = 10, show.legend = FALSE, na.rm = TRUE) +
-            scale_color_viridis_d() + 
-            scale_x_discrete(name = "") +
-            scale_y_continuous(name = "Pet Preference", breaks = 1:9, limits = c(1, 9))
+        pet_data <- get_radio_table_inputs("pet_table", input, "long") 
+        make_pet_plot(pet_data)
     })
     
     ### pet_summary_plot ----
     pet_summary_plot <- reactive({ debug_msg("pet_summary_plot")
-        if (nrow(v$pet_summary_data) == 0) return()
-        
-        omit_vars <- c("session_id", "datetime")
-        
-        data <- v$pet_summary_data %>%
-            pivot_longer(-(omit_vars), 
-                         names_to = "pet", 
-                         values_to = "pref")  %>%
-            # get in same order as table
-            mutate(pet = factor(pet, names(pet_q)))
-        
-        # plot distribution of pet preference in each category
-        g <- ggplot(data, aes(x = pet, y = pref, color = pet)) +
-            scale_color_viridis_d() + 
-            scale_x_discrete(name = "") +
-            scale_y_continuous(name = "Pet Preference", breaks = 1:9, limits = c(1, 9))
-        
-        # rotate x-axis text on small screens
-        if (v$small_screen) {
-            g <- g + theme(axis.text.x=element_text(angle=90,hjust=1))
-        }
-        
-        if (nrow(v$pet_summary_data) == 1) {
-            # violins don't work with 1 row
-            g + geom_point(size = 10, show.legend = FALSE)
-        } else {
-            g + geom_violin(aes(fill = pet), alpha = 0.5, show.legend = FALSE) +
-                scale_fill_viridis_d()
-        }
+        make_pet_summary_plot(v$pet_summary_data, v$small_screen)
     })
     
     ### pet_summary ----
@@ -201,8 +157,14 @@ server <- function(input, output, session) {
         },
         content = function(file) {
             rmarkdown::render(
-                "reports/pet_report.Rmd",
-                output_file = file,
+                "reports/report.Rmd",
+                output_file = file, 
+                params = list(
+                    title = "Pet Report", 
+                    data = v$pet_summary_data,
+                    plot = pet_summary_plot()
+                ),
+                envir = new.env(),
                 intermediates_dir = tempdir()
             )
         }
@@ -214,15 +176,7 @@ server <- function(input, output, session) {
         # save the data and update summary data
         data <- get_radio_table_inputs("food_table", input, "wide")
         data$session_id <- session$token
-        data$datetime <- Sys.time()
-        if (USING_GS4) {
-            sheet_append(SHEET_ID, data, "food")
-            v$food_summary_data <- read_sheet(SHEET_ID, "food")
-        } else {
-            old_data <- read_csv("data/food.csv")
-            v$food_summary_data <- bind_rows(old_data, data)
-            write_csv(v$food_summary_data, "data/food.csv")
-        }
+        v$food_summary_data <- append_food_data(data, USING_GS4)
 
         # show the summary plot and hide questionnaire
         updateTabsetPanel(session, "food_plots", selected = "Summary Data")
@@ -231,37 +185,13 @@ server <- function(input, output, session) {
 
     ### food_plot ----
     output$food_plot <- renderPlot({ debug_msg("food_plot")
-        get_radio_table_inputs("food_table", input, "long") %>%
-            # make answer a factor for empty categories
-            mutate(answer = factor(answer, food_opts)) %>%
-            # plot number of foods in each category
-            ggplot(aes(x = answer, fill = answer)) +
-            geom_bar(show.legend = FALSE, na.rm = TRUE) +
-            scale_fill_viridis_d() +
-            # keep empty categories, not NAs
-            scale_x_discrete(drop = FALSE, na.translate = FALSE)
+        data <- get_radio_table_inputs("food_table", input, "long") 
+        make_food_plot(data)
     })
     
     ### food_summary_plot ----
     food_summary_plot <- reactive({ debug_msg("food_summary_plot")
-        if (nrow(v$food_summary_data) == 0) return()
-        
-        omit_vars <- c("session_id", "datetime")
-        
-        data <- v$food_summary_data %>%
-            pivot_longer(-(omit_vars),
-                         names_to = "food",
-                         values_to = "answer") %>%
-            mutate(answer = factor(answer, food_opts))
-        
-        plot_cols <- ifelse(v$small_screen, 1, 2)
-        
-        # plot number of foods in each category
-        ggplot(data, aes(x = answer, fill = answer)) +
-            geom_bar(show.legend = FALSE, na.rm = TRUE) +
-            scale_fill_viridis_d() +
-            facet_wrap(~food, ncol = plot_cols) +
-            scale_x_discrete(drop = FALSE, na.translate = FALSE)
+        make_food_summary_plot(v$food_summary_data, v$small_screen)
     })
 
     ### food_summary ----
@@ -301,8 +231,14 @@ server <- function(input, output, session) {
         },
         content = function(file) {
             rmarkdown::render(
-                "reports/food_report.Rmd",
-                output_file = file,
+                "reports/report.Rmd",
+                output_file = file, 
+                params = list(
+                    title = "Food Report", 
+                    data = v$food_summary_data,
+                    plot = food_summary_plot()
+                ),
+                envir = new.env(),
                 intermediates_dir = tempdir()
             )
         }

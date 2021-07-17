@@ -9,20 +9,6 @@ if (USING_GS4 &&
 }
 
 # radio_table setup
-food_q <- c(
-  apple = "Apples 🍎",
-  banana = "Bananas 🍌",
-  carrot = "Carrots 🥕",
-  donut = "Donuts 🍩",
-  eggplant = "Eggplants 🍆"
-)
-
-food_opts <- c("Hate it",
-               "Dislike it",
-               "Meh",
-               "Like it",
-               "Love it")
-
 food_tab <- tabItem(
   tabName = "food_tab",
   box(

@@ -183,7 +183,7 @@ First, set up the code to display the correct data in the table.
 
 ```{r}
 mydata <- reactive({
-  if (input$dataset == "mtcars") { mtcars } else { sleep }
+  get(input$dataset, "package:datasets")
 })
 
 output$data_table <- renderTable(mydata())
@@ -206,7 +206,7 @@ Finally, we can add some code to select only the checked columns to display.
 
 ```{r}
 observe({
-  full_data <- if (input$dataset == "mtcars") { mtcars } else { sleep }
+  full_data <- get(input$dataset, "package:datasets")
   col_names <- names(full_data)
   updateCheckboxGroupInput(
     inputId = "columns",
@@ -225,7 +225,7 @@ Finally, alter the reactive function to only show the selected columns.
 
 ```{r}
 mydata <- reactive({
-  d <- if (input$dataset == "mtcars") { mtcars } else { sleep }
+  d <- get(input$dataset, "package:datasets")
   d[input$columns]
 })
 ```

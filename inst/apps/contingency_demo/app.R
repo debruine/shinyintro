@@ -116,7 +116,7 @@ server <- function(input, output, session) {
     })
 
     mydata <- reactive({
-        d <- if (input$dataset == "mtcars") { mtcars } else { sleep }
+        d <- get(input$dataset, "package:datasets")
         if (length(input$columns) == 0) {
             data.frame()
         } else {
@@ -127,7 +127,7 @@ server <- function(input, output, session) {
     output$data_table <- renderTable(mydata())
 
     observe({
-        full_data <- if (input$dataset == "mtcars") { mtcars } else { sleep }
+        full_data <- get(input$dataset, "package:datasets")
         col_names <- names(full_data)
         updateCheckboxGroupInput(
             session,
