@@ -24,7 +24,7 @@
 <meta name="author" content="Lisa DeBruine" />
 
 
-<meta name="date" content="2021-07-16" />
+<meta name="date" content="2021-07-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="debugging.html"/>
 <link rel="next" href="sharing.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/header-attrs-2.9.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,13 +53,13 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<meta property="og:title" content="IntroDataViz">
-<meta property="og:description" content="Data Visualisation Using R, For Researchers Who Don’t Use R.">
-<meta property="og:image" content="https://psyteachr.github.io/images/twitter/psyteachr.png">
-<meta property="og:url" content="https://psyteachr.github.io/introdataviz/">
+<meta property="og:title" content="ShinyIntro">
+<meta property="og:description" content="Chapter 10 Contingent Display | Building Web Apps with R Shiny">
+<meta property="og:image" content="https://debruine.github.io/shinyintro/images/shinyintro_card.png">
+<meta property="og:url" content="https://debruine.github.io/shinyintro/">
 <meta property="twitter:card" content="summary_large_image">
 
-<link rel="shortcut icon" href="https://psyteachr.github.io/images/logo.png">
+<link rel="shortcut icon" href="https://debruine.github.io/shinyintro/images/shinyintro.png">
 
 
 <style type="text/css">
@@ -399,7 +399,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     target="blank"><img alt="Creative Commons License" 
     style="border-width:0" 
     src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></li>
-<li><a href="https://psyteachr.github.io/books" target="blank">PsyTeachR Books</a></li>
+<li><img alt="ShinyIntro hex Logo"
+    src="https://debruine.github.io/shinyintro/images/shinyintro.png" style="width: 100%"/></li>
 
 </ul>
 
@@ -549,7 +550,7 @@ Figure 10.1: Contingency Demo App
 <span id="cb139-5"><a href="contingency.html#cb139-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>First, set up the code to display the correct data in the table.</p>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="contingency.html#cb140-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
-<span id="cb140-2"><a href="contingency.html#cb140-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (input<span class="sc">$</span>dataset <span class="sc">==</span> <span class="st">&quot;mtcars&quot;</span>) { mtcars } <span class="cf">else</span> { sleep }</span>
+<span id="cb140-2"><a href="contingency.html#cb140-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get</span>(input<span class="sc">$</span>dataset, <span class="st">&quot;package:datasets&quot;</span>)</span>
 <span id="cb140-3"><a href="contingency.html#cb140-3" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb140-4"><a href="contingency.html#cb140-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb140-5"><a href="contingency.html#cb140-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>data_table <span class="ot">&lt;-</span> <span class="fu">renderTable</span>(<span class="fu">mydata</span>())</span></code></pre></div>
@@ -563,7 +564,7 @@ Figure 10.1: Contingency Demo App
 <span id="cb141-7"><a href="contingency.html#cb141-7" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <p>Finally, we can add some code to select only the checked columns to display.</p>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="contingency.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">observe</span>({</span>
-<span id="cb142-2"><a href="contingency.html#cb142-2" aria-hidden="true" tabindex="-1"></a>  full_data <span class="ot">&lt;-</span> <span class="cf">if</span> (input<span class="sc">$</span>dataset <span class="sc">==</span> <span class="st">&quot;mtcars&quot;</span>) { mtcars } <span class="cf">else</span> { sleep }</span>
+<span id="cb142-2"><a href="contingency.html#cb142-2" aria-hidden="true" tabindex="-1"></a>  full_data <span class="ot">&lt;-</span> <span class="fu">get</span>(input<span class="sc">$</span>dataset, <span class="st">&quot;package:datasets&quot;</span>)</span>
 <span id="cb142-3"><a href="contingency.html#cb142-3" aria-hidden="true" tabindex="-1"></a>  col_names <span class="ot">&lt;-</span> <span class="fu">names</span>(full_data)</span>
 <span id="cb142-4"><a href="contingency.html#cb142-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">updateCheckboxGroupInput</span>(</span>
 <span id="cb142-5"><a href="contingency.html#cb142-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">inputId =</span> <span class="st">&quot;columns&quot;</span>,</span>
@@ -577,7 +578,7 @@ Figure 10.1: Contingency Demo App
 </div>
 <p>Finally, alter the reactive function to only show the selected columns.</p>
 <div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="contingency.html#cb143-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
-<span id="cb143-2"><a href="contingency.html#cb143-2" aria-hidden="true" tabindex="-1"></a>  d <span class="ot">&lt;-</span> <span class="cf">if</span> (input<span class="sc">$</span>dataset <span class="sc">==</span> <span class="st">&quot;mtcars&quot;</span>) { mtcars } <span class="cf">else</span> { sleep }</span>
+<span id="cb143-2"><a href="contingency.html#cb143-2" aria-hidden="true" tabindex="-1"></a>  d <span class="ot">&lt;-</span> <span class="fu">get</span>(input<span class="sc">$</span>dataset, <span class="st">&quot;package:datasets&quot;</span>)</span>
 <span id="cb143-3"><a href="contingency.html#cb143-3" aria-hidden="true" tabindex="-1"></a>  d[input<span class="sc">$</span>columns]</span>
 <span id="cb143-4"><a href="contingency.html#cb143-4" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <div class="try">

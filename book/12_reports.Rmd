@@ -115,12 +115,12 @@ output$pet_plot_dl <- downloadHandler(
 
 You can render an `r glossary("R Markdown")` report for users to download.
 
-First, you need to save an R Markdown file (save the one below as `reports/report.Rmd`). You need to set up `params` for any info that you want to pass from the Shiny app in th `r glossary("YAML")` header. Here, we will dynamically update the title, data, and plot. You can set the values to `NULL` or another default value.
+First, you need to save an R Markdown file (save the one below as `reports/report.Rmd`). You need to set up `params` for any info that you want to pass from the Shiny app in th `r glossary("YAML")` header. Here, we will dynamically update the title, data, and plot. You can set the values to `NULL` or another default value. 
 
-```{.yaml}
+``` yml
 ---
-title: "`r title`"
-date: "`r format(Sys.time(), '%d %B, %Y')`" 
+title: "`r knitr::inline_expr("params$title")`"
+date: "`r knitr::inline_expr("format(Sys.time(), '%d %B, %Y')")`" 
 output: html_document
 params:
   title: Report
@@ -132,7 +132,6 @@ params:
 Then you can refer to these params in the R Markdown file as `params$name`. If you knit the report, these will take on the default values.
 
 ````
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
   echo = FALSE,
@@ -160,7 +159,6 @@ We asked people to rate how much they like pets. We have obtained `r knitr::inli
 ```{r plot}
 params$plot
 ```
-
 ````
 
 The `content` function uses `rmarkdown::render()` to create the output file from Rmd. We are using `html_document` as the output type, but you can also render as a PDF or Word document if you have `r glossary("pandoc")` or `r glossary("latex")` installed. Include the title, data and plot as a named list to the `params` argument. 

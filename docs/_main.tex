@@ -149,7 +149,7 @@
 
 \title{Building Web Apps with R Shiny}
 \author{Lisa DeBruine}
-\date{2021-07-16}
+\date{2021-07-18}
 
 \begin{document}
 \maketitle
@@ -355,7 +355,11 @@ There are a lot of great resources online to reinforce or continue your learning
 \begin{itemize}
 \tightlist
 \item
+  \href{https://mastering-shiny.org/}{Mastering Shiny}
+\item
   \href{https://shiny.rstudio.com/tutorial/}{RStudio Shiny Tutorials}
+\item
+  \href{https://github.com/nanxstats/awesome-shiny-extensions}{Awesome Shiny Extensions}
 \end{itemize}
 
 \hypertarget{first-app}{%
@@ -1743,7 +1747,9 @@ However, even if a Google Sheet is publicly editable, you can't add data to it w
 \begin{verbatim}
 ## Error: Client error: (401) UNAUTHENTICATED
 ## * Request not authenticated due to missing, invalid, or expired OAuth token.
-## * Request is missing required authentication credential. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+## * Request is missing required authentication credential. Expected OAuth 2
+##   access token, login cookie or other valid authentication credential. See
+##   https://developers.google.com/identity/sign-in/web/devconsole-project.
 \end{verbatim}
 
 You can authorise interactively using the following code (and your own email), which will prompt you to authorise ``Tidyverse API Packages'' the first time you do this.
@@ -1837,7 +1843,7 @@ You can set up a new Google Sheet with code. You only need to do this once for a
 
 \begin{verbatim}
 ## Spreadsheet name: demo2
-##               ID: 11a6lpbjFcnzChF7q4ykx1I98iT16zjrO6_-ApPhqzyE
+##               ID: 1DYYaFlJPAWUsVZ7HhxLquiKKOQkmy44pYrwgg22v8PA
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -1942,11 +1948,11 @@ If you try to append data of a different type, some weird things can happen. Log
 
 \begin{verbatim}
 ## # A tibble: 3 x 4
-##   name      birthyear R_user score    
-##   <list>        <dbl>  <dbl> <list>   
-## 1 <chr [1]>      1976      1 <dbl [1]>
-## 2 <chr [1]>      2007      0 <dbl [1]>
-## 3 <dbl [1]>         0      0 <chr [1]>
+##   name   birthyear R_user    score    
+##   <chr>  <list>    <list>    <list>   
+## 1 Lisa   <dbl [1]> <lgl [1]> <dbl [1]>
+## 2 Robbie <dbl [1]> <lgl [1]> <dbl [1]>
+## 3 1      <chr [1]> <chr [1]> <chr [1]>
 \end{verbatim}
 
 You must append data that has the same number and order of columns as the Google Sheet. If you send columns out of order, they will be recorded in the order you sent them, not in the order of the column names. If you send extra columns, the append will fail.
@@ -3543,7 +3549,7 @@ First, set up the code to display the correct data in the table.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{mydata }\OtherTok{\textless{}{-}} \FunctionTok{reactive}\NormalTok{(\{}
-  \ControlFlowTok{if}\NormalTok{ (input}\SpecialCharTok{$}\NormalTok{dataset }\SpecialCharTok{==} \StringTok{"mtcars"}\NormalTok{) \{ mtcars \} }\ControlFlowTok{else}\NormalTok{ \{ sleep \}}
+  \FunctionTok{get}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{dataset, }\StringTok{"package:datasets"}\NormalTok{)}
 \NormalTok{\})}
 
 \NormalTok{output}\SpecialCharTok{$}\NormalTok{data\_table }\OtherTok{\textless{}{-}} \FunctionTok{renderTable}\NormalTok{(}\FunctionTok{mydata}\NormalTok{())}
@@ -3569,7 +3575,7 @@ Finally, we can add some code to select only the checked columns to display.
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{observe}\NormalTok{(\{}
-\NormalTok{  full\_data }\OtherTok{\textless{}{-}} \ControlFlowTok{if}\NormalTok{ (input}\SpecialCharTok{$}\NormalTok{dataset }\SpecialCharTok{==} \StringTok{"mtcars"}\NormalTok{) \{ mtcars \} }\ControlFlowTok{else}\NormalTok{ \{ sleep \}}
+\NormalTok{  full\_data }\OtherTok{\textless{}{-}} \FunctionTok{get}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{dataset, }\StringTok{"package:datasets"}\NormalTok{)}
 \NormalTok{  col\_names }\OtherTok{\textless{}{-}} \FunctionTok{names}\NormalTok{(full\_data)}
   \FunctionTok{updateCheckboxGroupInput}\NormalTok{(}
     \AttributeTok{inputId =} \StringTok{"columns"}\NormalTok{,}
@@ -3588,7 +3594,7 @@ Finally, alter the reactive function to only show the selected columns.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{mydata }\OtherTok{\textless{}{-}} \FunctionTok{reactive}\NormalTok{(\{}
-\NormalTok{  d }\OtherTok{\textless{}{-}} \ControlFlowTok{if}\NormalTok{ (input}\SpecialCharTok{$}\NormalTok{dataset }\SpecialCharTok{==} \StringTok{"mtcars"}\NormalTok{) \{ mtcars \} }\ControlFlowTok{else}\NormalTok{ \{ sleep \}}
+\NormalTok{  d }\OtherTok{\textless{}{-}} \FunctionTok{get}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{dataset, }\StringTok{"package:datasets"}\NormalTok{)}
 \NormalTok{  d[input}\SpecialCharTok{$}\NormalTok{columns]}
 \NormalTok{\})}
 \end{Highlighting}
@@ -3907,33 +3913,46 @@ Solution
 
 You can render an R Markdown report for users to download.
 
-First, you need to save an R Markdown file (save the one below as \texttt{reports/pet\_report.Rmd}). The file will have access to any objects that are available in \texttt{server()}, so you don't have to re-download the summary data and re-create the plot.
+First, you need to save an R Markdown file (save the one below as \texttt{reports/report.Rmd}). You need to set up \texttt{params} for any info that you want to pass from the Shiny app in th YAML header. Here, we will dynamically update the title, data, and plot. You can set the values to \texttt{NULL} or another default value.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\PreprocessorTok{{-}{-}{-}}
+\FunctionTok{title}\KeywordTok{:}\AttributeTok{ }\StringTok{"\textasciigrave{}r params$title\textasciigrave{}"}
+\FunctionTok{date}\KeywordTok{:}\AttributeTok{ }\StringTok{"\textasciigrave{}r format(Sys.time(), \textquotesingle{}\%d \%B, \%Y\textquotesingle{})\textasciigrave{}"}\AttributeTok{ }
+\FunctionTok{output}\KeywordTok{:}\AttributeTok{ html\_document}
+\FunctionTok{params}\KeywordTok{:}
+\AttributeTok{  }\FunctionTok{title}\KeywordTok{:}\AttributeTok{ Report}
+\AttributeTok{  }\FunctionTok{data}\KeywordTok{:}\AttributeTok{ }\CharTok{NULL}
+\AttributeTok{  }\FunctionTok{plot}\KeywordTok{:}\AttributeTok{ }\CharTok{NULL}
+\PreprocessorTok{{-}{-}{-}}
+\end{Highlighting}
+\end{Shaded}
+
+Then you can refer to these params in the R Markdown file as \texttt{params\$name}. If you knit the report, these will take on the default values.
 
 \begin{verbatim}
----
-title: "Pet Report"
-date: "16 July, 2021" 
-output: html_document
----
 
 
 ```r
-n_responses <- nrow(v$pet_summary_data)
+n_responses <- nrow(params$data)
 
-n_sessions <- v$pet_summary_data$session_id %>%
+n_sessions <- params$data$session_id %>%
   unique() %>%
   length()
 ```
+
 We asked people to rate how much they like pets. We have obtained `r n_responses` responses from `r n_sessions` unique sessions.
 
 ## Summary Plot
 
+
 ```r
-pet_summary_plot()
+params$plot
 ```
 \end{verbatim}
 
-The \texttt{content} function uses \texttt{rmarkdown::render()} to create the output file from Rmd. We are using \texttt{html\_document} as the output type, but you can also render as a PDF or Word document if you have pandoc or latex installed.
+The \texttt{content} function uses \texttt{rmarkdown::render()} to create the output file from Rmd. We are using \texttt{html\_document} as the output type, but you can also render as a PDF or Word document if you have pandoc or latex installed. Include the title, data and plot as a named list to the \texttt{params} argument.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3944,13 +3963,21 @@ The \texttt{content} function uses \texttt{rmarkdown::render()} to create the ou
     \FunctionTok{paste0}\NormalTok{(}\StringTok{"pet{-}report\_"}\NormalTok{, }\FunctionTok{Sys.Date}\NormalTok{(), }\StringTok{".html"}\NormalTok{)}
 \NormalTok{  \},}
   \AttributeTok{content =} \ControlFlowTok{function}\NormalTok{(file) \{}
-\NormalTok{    rmarkdown}\SpecialCharTok{::}\FunctionTok{render}\NormalTok{(}\StringTok{"reports/pet\_report.Rmd"}\NormalTok{,}
+\NormalTok{    rmarkdown}\SpecialCharTok{::}\FunctionTok{render}\NormalTok{(}\StringTok{"reports/report.Rmd"}\NormalTok{,}
                       \AttributeTok{output\_file =}\NormalTok{ file, }
+                      \AttributeTok{params =} \FunctionTok{list}\NormalTok{(}
+                        \AttributeTok{title =} \StringTok{"Pet Report"}\NormalTok{, }
+                        \AttributeTok{data =}\NormalTok{ v}\SpecialCharTok{$}\NormalTok{pet\_summary\_data,}
+                        \AttributeTok{plot =} \FunctionTok{pet\_summary\_plot}\NormalTok{()}
+\NormalTok{                      ),}
+                      \AttributeTok{envir =} \FunctionTok{new.env}\NormalTok{(),}
                       \AttributeTok{intermediates\_dir =} \FunctionTok{tempdir}\NormalTok{())}
 \NormalTok{  \}}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+Setting the \texttt{envir} argument to \texttt{new.env()} makes sure that settings in your Shiny app, such as a default ggplot theme, can't affect the rendered file, but also makes it so that the R Markdown code will not have access to any objects from your app, such as \texttt{input} or \texttt{v\$summary\_data}, unless you pass them as parameters.
 
 On your own computer, you don't need to set \texttt{intermediates\_dir\ =\ tempdir()}, but you will need to do this if you want to deploy your app on a shiny server. When rmarkdown renders an Rmd file, it creates several intermediate files in the working directory and then deletes them. you have permission to write to the app's working directory on your own computer, but might not on a shiny server. \texttt{tempdir()} is almost always a safe place to write temporary files to.
 
@@ -4029,8 +4056,6 @@ Create a downloadable report for the food data.
 
 Solution
 
-Don't forget to create an Rmd file with the contents of your food report.
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# add to report\_tab ui {-}{-}{-}{-}}
@@ -4043,8 +4068,14 @@ Don't forget to create an Rmd file with the contents of your food report.
     \FunctionTok{paste0}\NormalTok{(}\StringTok{"food{-}report\_"}\NormalTok{, }\FunctionTok{Sys.Date}\NormalTok{(), }\StringTok{".html"}\NormalTok{)}
 \NormalTok{  \},}
   \AttributeTok{content =} \ControlFlowTok{function}\NormalTok{(file) \{}
-\NormalTok{    rmarkdown}\SpecialCharTok{::}\FunctionTok{render}\NormalTok{(}\StringTok{"reports/food\_report.Rmd"}\NormalTok{,}
-                      \AttributeTok{output\_file =}\NormalTok{ file,}
+\NormalTok{    rmarkdown}\SpecialCharTok{::}\FunctionTok{render}\NormalTok{(}\StringTok{"reports/report.Rmd"}\NormalTok{,}
+                      \AttributeTok{output\_file =}\NormalTok{ file, }
+                      \AttributeTok{params =} \FunctionTok{list}\NormalTok{(}
+                        \AttributeTok{title =} \StringTok{"Food Report"}\NormalTok{, }
+                        \AttributeTok{data =}\NormalTok{ v}\SpecialCharTok{$}\NormalTok{food\_summary\_data,}
+                        \AttributeTok{plot =} \FunctionTok{food\_summary\_plot}\NormalTok{()}
+\NormalTok{                      ),}
+                      \AttributeTok{envir =} \FunctionTok{new.env}\NormalTok{(),}
                       \AttributeTok{intermediates\_dir =} \FunctionTok{tempdir}\NormalTok{())}
 \NormalTok{  \}}
 \NormalTok{)}
@@ -4545,6 +4576,8 @@ version-control & A way to save a record of changes to your files.\\
 widget & A interactive web element, like a dropdown menu or a slider.\\
 \hline
 working-directory & The filepath where R is currently reading and writing files.\\
+\hline
+yaml & A structured format for information\\
 \hline
 \end{tabular}
 

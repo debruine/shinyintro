@@ -24,7 +24,7 @@
 <meta name="author" content="Lisa DeBruine" />
 
 
-<meta name="date" content="2021-07-16" />
+<meta name="date" content="2021-07-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="outputs.html"/>
 <link rel="next" href="reactives.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/header-attrs-2.9.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,13 +53,13 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<meta property="og:title" content="IntroDataViz">
-<meta property="og:description" content="Data Visualisation Using R, For Researchers Who Don’t Use R.">
-<meta property="og:image" content="https://psyteachr.github.io/images/twitter/psyteachr.png">
-<meta property="og:url" content="https://psyteachr.github.io/introdataviz/">
+<meta property="og:title" content="ShinyIntro">
+<meta property="og:description" content="Chapter 5 Reading and saving data | Building Web Apps with R Shiny">
+<meta property="og:image" content="https://debruine.github.io/shinyintro/images/shinyintro_card.png">
+<meta property="og:url" content="https://debruine.github.io/shinyintro/">
 <meta property="twitter:card" content="summary_large_image">
 
-<link rel="shortcut icon" href="https://psyteachr.github.io/images/logo.png">
+<link rel="shortcut icon" href="https://debruine.github.io/shinyintro/images/shinyintro.png">
 
 
 <style type="text/css">
@@ -399,7 +399,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     target="blank"><img alt="Creative Commons License" 
     style="border-width:0" 
     src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></li>
-<li><a href="https://psyteachr.github.io/books" target="blank">PsyTeachR Books</a></li>
+<li><img alt="ShinyIntro hex Logo"
+    src="https://debruine.github.io/shinyintro/images/shinyintro.png" style="width: 100%"/></li>
 
 </ul>
 
@@ -467,8 +468,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="data.html#cb58-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">number =</span> <span class="dv">4</span>, <span class="at">letter =</span> <span class="st">&quot;D&quot;</span>)</span>
 <span id="cb58-2"><a href="data.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sheet_append</span>(sheet_id, data)</span></code></pre></div>
 <pre><code>## Error: Client error: (401) UNAUTHENTICATED
-## * Request not authenticated due to missing, invalid, or expired OAuth token.
-## * Request is missing required authentication credential. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.</code></pre>
+## • Request not authenticated due to missing, invalid, or expired OAuth token.
+## • Request is missing required authentication credential. Expected OAuth 2
+##   access token, login cookie or other valid authentication credential. See
+##   https://developers.google.com/identity/sign-in/web/devconsole-project.</code></pre>
 <p>You can authorise interactively using the following code (and your own email), which will prompt you to authorise “Tidyverse API Packages” the first time you do this.</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gs4_auth</span>(<span class="at">email =</span> <span class="st">&quot;debruine@gmail.com&quot;</span>)</span></code></pre></div>
 <p>However, this won’t work if you want your Shiny apps to be able to access your Google Sheets.</p>
@@ -535,7 +538,7 @@ Figure 5.1: Prompts to choose an account, grant permissions, and confirm.
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="data.html#cb65-1" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="fu">gs4_create</span>(<span class="st">&quot;demo2&quot;</span>, <span class="at">sheets =</span> <span class="fu">c</span>(<span class="st">&quot;demographics&quot;</span>, <span class="st">&quot;questionnaire&quot;</span>))</span>
 <span id="cb65-2"><a href="data.html#cb65-2" aria-hidden="true" tabindex="-1"></a>id</span></code></pre></div>
 <pre><code>## Spreadsheet name: demo2
-##               ID: 1sDGsRyBdfWG3AtgOhP_PTnvxLE4LuHMp1JDA1VRkxQk
+##               ID: 1YxEvYbTCMROvKaFYaQ4abCfWUUEvhX4kk4Y2_f52xuQ
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -544,7 +547,7 @@ Figure 5.1: Prompts to choose an account, grant permissions, and confirm.
 ##  demographics: 1000 x 26
 ## questionnaire: 1000 x 26</code></pre>
 <p>Include the ID at the top of your app like this:</p>
-<pre><code>SHEET_ID <- "1sDGsRyBdfWG3AtgOhP_PTnvxLE4LuHMp1JDA1VRkxQk"</code></pre>
+<pre><code>SHEET_ID <- "1YxEvYbTCMROvKaFYaQ4abCfWUUEvhX4kk4Y2_f52xuQ"</code></pre>
 </div>
 <div id="add-data" class="section level3" number="5.2.4">
 <h3><span class="header-section-number">5.2.4</span> Add data</h3>
@@ -646,28 +649,28 @@ Figure 5.1: Prompts to choose an account, grant permissions, and confirm.
 <thead>
 <tr class="header">
 <th align="left">name</th>
-<th align="right">birthyear</th>
-<th align="right">R_user</th>
+<th align="left">birthyear</th>
+<th align="left">R_user</th>
 <th align="left">score</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">Lisa</td>
-<td align="right">1976</td>
-<td align="right">1</td>
+<td align="left">1976</td>
+<td align="left">TRUE</td>
 <td align="left">10.2</td>
 </tr>
 <tr class="even">
 <td align="left">Robbie</td>
-<td align="right">2007</td>
-<td align="right">0</td>
+<td align="left">2007</td>
+<td align="left">FALSE</td>
 <td align="left">12.1</td>
 </tr>
 <tr class="odd">
 <td align="left">1</td>
-<td align="right">0</td>
-<td align="right">0</td>
+<td align="left">FALSE</td>
+<td align="left">0</td>
 <td align="left">No</td>
 </tr>
 </tbody>
