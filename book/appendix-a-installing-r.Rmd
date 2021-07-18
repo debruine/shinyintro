@@ -16,7 +16,27 @@ If you are using Linux, choose your specific operating system and follow the ins
 
 Go to [rstudio.com](https://www.rstudio.com/products/rstudio/download/#download) and download the RStudio Desktop (Open Source License) version for your operating system under the list titled **Installers for Supported Platforms**.
 
-## Installing shinyintro
+### RStudio Settings
+
+There are a few settings you should fix immediately after updating RStudio. Go to **`Global Options...`** under the **`Tools`** menu (&#8984;,), and in the General tab, uncheck the box that says **`Restore .RData into workspace at startup`**.  If you keep things around in your workspace, things will get messy, and unexpected things will happen. You should always start with a clear workspace. This also means that you never want to save your workspace when you exit, so set this to **`Never`**. The only thing you want to save are your scripts.
+
+You may also want to change the appearance of your code. Different fonts and themes can sometimes help with visual difficulties or [dyslexia]((https://datacarpentry.org/blog/2017/09/coding-and-dyslexia){target="_blank"}. I prefer a dark background and the FiraCode font for my own coding, but I will use the default theme for screenshots in this book.
+
+```{r settings-general, eval = TRUE, echo=FALSE, fig.width = "45%", fig.cap = "My RStudio General and Appearance settings"}
+knitr::include_graphics(
+  c('images/rstudio_settings_general.png', 
+    'images/rstudio_settings_appearance.png'))
+```
+
+You may also want to change the settings in the Code tab. I prefer two spaces instead of tabs for my code and I like to be able to see the `r glossary("whitepspace")` characters. But these are all a matter of personal preference.
+
+```{r settings-code, eval = TRUE, echo=FALSE, fig.width = "45%", fig.cap = 'My RStudio Code settings'}
+knitr::include_graphics(
+  c("images/rstudio_settings_code_editing.png",
+    "images/rstudio_settings_code_display.png"))
+```
+
+### Installing shinyintro
 
 To install the class package, which will provide you with a copy of all of the shiny apps we'll use for demos and the basic template, paste the following code into the console in RStudio.
 

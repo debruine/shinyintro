@@ -22,7 +22,7 @@ knitr::write_bib(c(
 
 # Overview {-}
 
-`r glossary("Shiny")` apps let you make web applications that do anything you can code in R. For example, you can share your data analysis in a dynamic way with people who don’t use R, collect and visualize data, or even make data aRt.
+`r glossary("Shiny")` lets you make web applications that do anything you can code in R. For example, you can share your data analysis in a dynamic way with people who don’t use R, collect and visualize data, or even make [data aRt](https://towardsdatascience.com/getting-started-with-generative-art-in-r-3bc50067d34b){target="_blank"}.
 
 While there is a wealth of material available on the internet to help you get started with Shiny, it can be difficult to see how everything fits together. This class will take a predominantly live coding approach, rather than a lecture-only approach, so you can code along with the instructor and deal with the inevitable bugs and roadblocks together.
 
@@ -38,6 +38,21 @@ To install the class package, which will provide you with a copy of all of the s
 
 devtools::install_github("debruine/shinyintro")
 ```
+
+The class package lets you access the book or run the demo apps offline.
+
+```{r}
+shinyintro::book()
+shinyintro::app("first_demo")
+```
+
+You can also clone the demo apps.
+
+```{r}
+shinyintro::clone("basic_template", "myapps/newapp")
+```
+
+
 
 ## Example Apps
 
@@ -56,7 +71,7 @@ knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/wordcloud/",
 
 ## Code Horizons Course (27-30 July 2021)
 
-Starting July 27, we are offering this seminar as a 4-day synchronous*, remote workshop for the first time. Each day will consist of a 3-hour live lecture held via the free video-conferencing software Zoom. You are encouraged to join the lecture live, but will have the opportunity to view the recorded session later if you are unable to attend at the scheduled time.
+Starting July 27, we are offering this seminar as a 4-day synchronous ^[We understand that scheduling is difficult during this unpredictable time. If you prefer, you may take all or part of the course asynchronously. The video recordings will be made available within 24 hours of each session and will be accessible for two weeks after the seminar, meaning that you will get all of the class content and discussions even if you cannot participate synchronously.], remote workshop for the first time. Each day will consist of a 3-hour live lecture held via the free video-conferencing software Zoom. You are encouraged to join the lecture live, but will have the opportunity to view the recorded session later if you are unable to attend at the scheduled time. Closed captioning is available for all live and recorded sessions.
 
 Each lecture session will conclude with a hands-on exercise reviewing the content covered, to be completed on your own. An additional lab session will be held Tuesday and Thursday afternoons, where you can review the exercise results with the instructor and ask any questions.
 
@@ -65,13 +80,7 @@ Each lecture session will conclude with a hands-on exercise reviewing the conten
 #### Day 1
 
 * [Your First Shiny App](#first-app)
-    * Overview of the UI/server structure
-    * Inputs, outputs, and action buttons
-    * Reactive functions
 * [ShinyDashboard](#shinydashboard)
-    * Basic template for shinydashboard projects
-    * Sidebar, menu navigation, and tabs
-    * Row- and column-based layouts
 
 #### Day 2
 
@@ -82,27 +91,16 @@ Each lecture session will conclude with a hands-on exercise reviewing the conten
 
 #### Day 3
 
-* Customizing Your Apps
-    * [CSS, HTML, and Javascript](#web)
-    * [Structuring a complex app](#structure)
-* Intermediate Patterns
-    * [Debugging and error handling](#debugging)
-    * [Displaying elements contingent on the state of other elements](#contingency)
+* [CSS, HTML, and Javascript](#web)
+* [Structuring a complex app](#structure)
+* [Debugging and error handling](#debugging)
+* [Displaying elements contingent on the state of other elements](#contingency)
 
 #### Day 4
 
 * [Sharing Your Apps](#sharing)
-    * shinyapps.io
-    * Self-hosting a shiny server
-    * GitHub
-    * In an R package
-* Advanced Patterns
-    * [Creating and downloading a customized report](#reports)
-    * [Shiny modules for repeated structures](#modules)
-
-We understand that scheduling is difficult during this unpredictable time. If you prefer, you may take all or part of the course asynchronously. The video recordings will be made available within 24 hours of each session and will be accessible for two weeks after the seminar, meaning that you will get all of the class content and discussions even if you cannot participate synchronously.
-
-Closed captioning is available for all live and recorded sessions.
+* [Creating and downloading a customized report](#reports)
+* [Shiny modules for repeated structures](#modules)
 
 
 ## Computing
