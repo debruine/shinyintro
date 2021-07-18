@@ -194,6 +194,11 @@ updateDateInput(session, "demo_date", value = NULL)
 Note that select inputs, checkbox groups, and radio buttons use the argument `selected` and not `value`. If you want to set all the values in a checkbox group or radio button group to unchecked, set `selected = character(0)`.
 :::
 
+## Further Reources {#resources-inputs}
+
+* [Mastering Shiny Section 2.2](https://mastering-shiny.org/basic-ui.html#inputs){target="_blank"}
+* [RStudio Shiny Tutorials](https://vimeo.com/rstudioinc/review/131218530/212d8a5a7a/#t=10m41s){target="_blank"}
+
 ## Exercises {#exercises-inputs}
 
 ### Pets

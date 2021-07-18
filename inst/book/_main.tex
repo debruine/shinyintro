@@ -1316,13 +1316,13 @@ Alternatively, you can arrange boxes or other elements inside a column() with a 
 \begin{itemize}
 \tightlist
 \item
-  Create a demo app from the basic\_template and run it.
+  Create a demo app from the basic template and run it.
 \item
   Close the app and run it again.
 \item
   Look at the code to see how the theme colour and sidebar icon change.
 \item
-  Change the title and author in the \texttt{DESCRIPTION} file and set DisplayMode to ``Showcase'' instead of ``Normal'' to see what happens when you run it.
+  Change the title and author in the DESCRIPTION file and set DisplayMode to ``Showcase'' instead of ``Normal'' to see what happens when you run it.
 \end{itemize}
 
 \hypertarget{customise-the-header}{%
@@ -1333,7 +1333,7 @@ Alternatively, you can arrange boxes or other elements inside a column() with a 
 \item
   Change the title to the title of the app you want to build.
 \item
-  Choose a skin
+  Choose a skin color.
 \item
   Experiment with different values for the titleWidth argument. Try ``50\%'' or ``200px'' and see how the title behaves when you change the width of the browser window.
 \end{itemize}
@@ -1346,7 +1346,7 @@ Alternatively, you can arrange boxes or other elements inside a column() with a 
 \item
   Add tabs to the sidebarMenu() for the pages of your custom app.
 \item
-  Choose appropriate icons for each tab.
+  Choose appropriate icon for each tab.
 \item
   Remove the link to the ShinyIntro book and add some information about your app, like the author or a use license.
 \end{itemize}
@@ -1357,7 +1357,7 @@ Alternatively, you can arrange boxes or other elements inside a column() with a 
 \begin{itemize}
 \tightlist
 \item
-  Create an empty tabItem() for each tab you put in the sidebar menu and add them to the body.
+  Create an empty tabItem() for each tab you put in the sidebarMenu() and add them to the dashboardBody().
 \item
   Start adding elements to each tab, such as a list of inputs with questions or a plotOutput() to display a feedback plot.
 \item
@@ -1583,6 +1583,17 @@ Sometimes you need to change the value of an input with code, such as when reset
 
 Note that select inputs, checkbox groups, and radio buttons use the argument \texttt{selected} and not \texttt{value}. If you want to set all the values in a checkbox group or radio button group to unchecked, set \texttt{selected\ =\ character(0)}.
 
+\hypertarget{resources-inputs}{%
+\section{Further Reources}\label{resources-inputs}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://mastering-shiny.org/basic-ui.html\#inputs}{Mastering Shiny Section 2.2}
+\item
+  \href{https://vimeo.com/rstudioinc/review/131218530/212d8a5a7a/\#t=10m41s}{RStudio Shiny Tutorials}
+\end{itemize}
+
 \hypertarget{exercises-inputs}{%
 \section{Exercises}\label{exercises-inputs}}
 
@@ -1630,16 +1641,22 @@ Explore some different output types in the embedded app below before you read ab
 
 \{\centering \href{https://shiny.psy.gla.ac.uk/debruine/output_demo/}{\includegraphics[width=1\linewidth]{_main_files/figure-latex/output-demo-app-1} }
 
-\hypertarget{textoutput}{%
-\section{textOutput}\label{textoutput}}
+\hypertarget{text}{%
+\section{Text}\label{text}}
 
-The function \texttt{textOutput()} defaults to text inside a \texttt{\textless{}span\textgreater{}} or \texttt{\textless{}div\textgreater{}} element, but you can use a different element with the \texttt{container} argument.
+textOutput() defaults to text inside a generic \texttt{\textless{}span\textgreater{}} or \texttt{\textless{}div\textgreater{}}, but you can use a different element with the container argument.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# in the UI}
+\CommentTok{\# in the UI function}
 \FunctionTok{textOutput}\NormalTok{(}\StringTok{"demo\_text"}\NormalTok{, }\AttributeTok{container =}\NormalTok{ tags}\SpecialCharTok{$}\NormalTok{h3)}
+\end{Highlighting}
+\end{Shaded}
 
+renderText() replaces the text of the linked element with its returned string.
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{\# in the server function}
 \NormalTok{output}\SpecialCharTok{$}\NormalTok{demo\_text }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(\{}
     \FunctionTok{sprintf}\NormalTok{(}\StringTok{"Plot of \%s"}\NormalTok{, input}\SpecialCharTok{$}\NormalTok{y)}
@@ -1647,53 +1664,44 @@ The function \texttt{textOutput()} defaults to text inside a \texttt{\textless{}
 \end{Highlighting}
 \end{Shaded}
 
-If you use \texttt{verbatimTextOutput()} in the UI (no change to the server function), it will show the output in a fixed-width font. This can be good for code or text you want the user to copy.
+If you use verbatimTextOutput() in the UI (no change to the render function), it will show the output in a fixed-width font. This can be good for code or text you want the user to copy.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# in the UI}
+\CommentTok{\# in the UI function}
 \FunctionTok{verbatimTextOutput}\NormalTok{(}\StringTok{"demo\_verbatim"}\NormalTok{)}
 
 \CommentTok{\# in the server function}
 \NormalTok{output}\SpecialCharTok{$}\NormalTok{demo\_verbatim }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(\{}
-\NormalTok{        code }\OtherTok{\textless{}{-}} 
-\StringTok{"ggplot(iris, aes(x = Species, y = \%s, color = Species)) +}
+\NormalTok{  code }\OtherTok{\textless{}{-}}
+    \StringTok{"ggplot(iris, aes(x = Species, y = \%s, color = Species)) +}
 \StringTok{    geom\_violin(show.legend = FALSE) +}
 \StringTok{    stat\_summary(show.legend = FALSE)"}
-        
-        \FunctionTok{sprintf}\NormalTok{(code, input}\SpecialCharTok{$}\NormalTok{y)}
-\NormalTok{    \})}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{uioutput}{%
-\section{uiOutput}\label{uioutput}}
-
-If you want to dynamically create parts of the UI, you can use \texttt{uiOutput()}. You can create the UI using the \protect\hyperlink{input_functions}{input functions}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# in the UI}
-\FunctionTok{uiOutput}\NormalTok{(}\StringTok{"demo\_ui"}\NormalTok{)}
-
-\CommentTok{\# in the server function}
-\NormalTok{output}\SpecialCharTok{$}\NormalTok{demo\_ui }\OtherTok{\textless{}{-}} \FunctionTok{renderUI}\NormalTok{(\{}
-\NormalTok{  cols }\OtherTok{\textless{}{-}} \FunctionTok{names}\NormalTok{(iris)[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{]}
-  \FunctionTok{selectInput}\NormalTok{(}\StringTok{"y"}\NormalTok{, }\StringTok{"Column to plot"}\NormalTok{, cols, }\StringTok{"Sepal.Length"}\NormalTok{)}
+  
+  \FunctionTok{sprintf}\NormalTok{(code, input}\SpecialCharTok{$}\NormalTok{y)}
 \NormalTok{\})}
 \end{Highlighting}
 \end{Shaded}
 
-The function \texttt{htmlOutput()} is exactly the same as \texttt{uiOutput()}, so you might see that in some code examples, but I use \texttt{uiOutput()} to make the connection with \texttt{renderUI()} clearer, since there is no \texttt{renderHTML()}.
+\hypertarget{plots}{%
+\section{Plots}\label{plots}}
 
-\hypertarget{plotoutput}{%
-\section{plotOutput}\label{plotoutput}}
+plotOutput() displays plots made with the base R plotting functions (e.g., plot(), hist()) or ggplot2 functions.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# in the UI}
-\FunctionTok{plotOutput}\NormalTok{(}\StringTok{"demo\_plot"}\NormalTok{)}
+\CommentTok{\# in the UI function}
+\FunctionTok{plotOutput}\NormalTok{(}\StringTok{"demo\_plot"}\NormalTok{, }\AttributeTok{width =} \StringTok{"500px"}\NormalTok{, }\AttributeTok{height=}\StringTok{"300px"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
+What is the default value for width?\\
+100\% 400px 400 5in 7in\\
+What is the default value for height?\\
+100\% 400px 400 5in 7in
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{\# in the server function}
 \NormalTok{output}\SpecialCharTok{$}\NormalTok{demo\_plot }\OtherTok{\textless{}{-}} \FunctionTok{renderPlot}\NormalTok{(\{}
   \FunctionTok{ggplot}\NormalTok{(iris, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Species, }\AttributeTok{y =}\NormalTok{ .data[[input}\SpecialCharTok{$}\NormalTok{y]], }\AttributeTok{color =}\NormalTok{ Species)) }\SpecialCharTok{+}
@@ -1704,16 +1712,24 @@ The function \texttt{htmlOutput()} is exactly the same as \texttt{uiOutput()}, s
 \end{Highlighting}
 \end{Shaded}
 
-If you want to create dynamic plots that change with input, note how you need to use \texttt{y\ =\ .data{[}{[}input\$y{]}{]}} inside \texttt{aes()}, instead of just \texttt{y\ =\ input\$y}.
+If you want to create dynamic plots that change with input, note how you need to use \texttt{y\ =\ .data{[}{[}input\$y{]}{]}} inside aes(), instead of just \texttt{y\ =\ input\$y}.
 
-\hypertarget{imageoutput}{%
-\section{imageOutput}\label{imageoutput}}
+\hypertarget{images}{%
+\section{Images}\label{images}}
+
+imageOutput() takes the same arguments as plotOutput(). You can leave width and height as their defaults if you are going to set those values in the render function.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# in the UI}
+\CommentTok{\# in the UI function}
 \FunctionTok{imageOutput}\NormalTok{(}\StringTok{"demo\_image"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
+renderImage() needs to return a named list with at least an \texttt{src} with the image path. You can also set the width and height (numeric values are in pixels), class and alt (the alt-text for screen readers).
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{\# in the server function}
 \NormalTok{output}\SpecialCharTok{$}\NormalTok{demo\_image }\OtherTok{\textless{}{-}} \FunctionTok{renderImage}\NormalTok{(\{}
     \FunctionTok{list}\NormalTok{(}\AttributeTok{src =} \StringTok{"images/flower.jpg"}\NormalTok{,}
@@ -1724,11 +1740,13 @@ If you want to create dynamic plots that change with input, note how you need to
 \end{Highlighting}
 \end{Shaded}
 
-You can dynamically display images of any type, but one of the most useful ways to use image outputs is to control the aspect ratio and relative size of plots. When you save a temporary file, you should set \texttt{deleteFile\ =\ TRUE} in \texttt{renderImage()} (this stops unneeded plots using memory).
+The deleteFile argument is currently optional, but triggers periodic warnings that it won't be optional in the future. You should set it to \texttt{TRUE} if you're making a temporary file (this stops unneeded plots using memory) and \texttt{FALSE} if you're referencing a file you previously saved.
+
+You can dynamically display images of any type, but one of the most useful ways to use image outputs is to control the aspect ratio and relative size of plots.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# in the UI}
+\CommentTok{\# in the UI function}
 \FunctionTok{imageOutput}\NormalTok{(}\StringTok{"demo\_image"}\NormalTok{)}
 
 \CommentTok{\# in the server function}
@@ -1747,22 +1765,29 @@ You can dynamically display images of any type, but one of the most useful ways 
     
   \CommentTok{\# Return a list containing the filename}
   \FunctionTok{list}\NormalTok{(}\AttributeTok{src =}\NormalTok{ plot\_file,}
-       \AttributeTok{width =} \StringTok{"100\%"}\NormalTok{, }\CommentTok{\# don\textquotesingle{}t set the height to keep aspect ratio}
+       \AttributeTok{width =} \StringTok{"100\%"}\NormalTok{,}
+       \AttributeTok{height =} \StringTok{"auto"}\NormalTok{,}
        \AttributeTok{alt =} \StringTok{"The plot"}\NormalTok{)}
 \NormalTok{\}, }\AttributeTok{deleteFile =} \ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{tableoutput}{%
-\section{tableOutput}\label{tableoutput}}
+\hypertarget{tables}{%
+\section{Tables}\label{tables}}
 
-Display a table using \texttt{renderTable()}, which makes a table out of any data frame it returns.
+Display a table using tableOutput().
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# in the UI}
+\CommentTok{\# in the UI function}
 \FunctionTok{tableOutput}\NormalTok{(}\StringTok{"demo\_table"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
+This is paired with renderTable(), which makes a table out of any data frame it returns.
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{\# in the server function}
 \NormalTok{output}\SpecialCharTok{$}\NormalTok{demo\_table }\OtherTok{\textless{}{-}} \FunctionTok{renderTable}\NormalTok{(\{}
 \NormalTok{  iris }\SpecialCharTok{\%\textgreater{}\%}
@@ -1775,16 +1800,26 @@ Display a table using \texttt{renderTable()}, which makes a table out of any dat
 
 Note how you need to use \texttt{.data{[}{[}input\$y{]}{]}} inside \texttt{dplyr::summarise()}, instead of just \texttt{input\$y} to dynamically choose which variable to summarise.
 
-\hypertarget{datatableoutput}{%
-\section{dataTableOutput}\label{datatableoutput}}
+\hypertarget{data-tables}{%
+\subsection{Data Tables}\label{data-tables}}
 
-If you have a long table to show, or one that you want users to be able to sort or search, use \texttt{dataTableOutput()}. You can customise data tables in many ways, but we'll stick with a basic example here.
+If you have a long table to show, or one that you want users to be able to sort or search, use DT::dataTableOutput() (or its synonym DTOutput()).
+
+The basic \texttt{shiny} package has \texttt{dataTableOutput()} and \texttt{renderDataTable()} functions, but they can be buggy. The versions in the \texttt{DT} package are better and have \href{https://rstudio.github.io/DT/}{many additional functions}, so I use those.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# in the UI}
-\NormalTok{DT}\SpecialCharTok{::}\FunctionTok{dataTableOutput}\NormalTok{(}\StringTok{"demo\_datatable"}\NormalTok{)}
+\CommentTok{\# in the UI function}
+\NormalTok{DT}\SpecialCharTok{::}\FunctionTok{dataTableOutput}\NormalTok{(}\StringTok{"demo\_datatable"}\NormalTok{,}
+                    \AttributeTok{width =} \StringTok{"50\%"}\NormalTok{,}
+                    \AttributeTok{height =} \StringTok{"auto"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
+The paired render function is renderDataTable() (or its synonym renderDT()). You can customise data tables in many ways, but we'll stick with a basic example here that limits the number of rows shown at once to 10.
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{\# in the server function}
 \NormalTok{output}\SpecialCharTok{$}\NormalTok{demo\_datatable }\OtherTok{\textless{}{-}}\NormalTok{ DT}\SpecialCharTok{::}\FunctionTok{renderDataTable}\NormalTok{(\{}
 \NormalTok{    iris}
@@ -1792,20 +1827,64 @@ If you have a long table to show, or one that you want users to be able to sort 
 \end{Highlighting}
 \end{Shaded}
 
-The basic \texttt{shiny} package has \texttt{dataTableOutput()} and \texttt{renderDataTable()} functions, but they can be buggy. The versions in the \texttt{DT} package are better and have some additional functions, so I use those.
+The DT package has synonyms for dataTableOutput() and renderDataTable(): and renderDT(). You can use these to make sure you're not accidentally using the shiny versions, which don't have as many options.
+
+\hypertarget{dynamic-html}{%
+\section{Dynamic HTML}\label{dynamic-html}}
+
+If you want to dynamically create parts of the UI, you can use uiOutput().
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# in the UI function}
+\FunctionTok{uiOutput}\NormalTok{(}\StringTok{"demo\_ui"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+You can create the UI using renderUI() to return HTML created using the input functions we learned about in Chapter~\ref{inputs}, the \protect\hyperlink{tags}{tag functions}, or HTML that you write yourself (as an argument to HTML()).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# in the server function}
+\NormalTok{output}\SpecialCharTok{$}\NormalTok{demo\_ui }\OtherTok{\textless{}{-}} \FunctionTok{renderUI}\NormalTok{(\{}
+\NormalTok{  cols }\OtherTok{\textless{}{-}} \FunctionTok{names}\NormalTok{(iris)[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{]}
+  \FunctionTok{selectInput}\NormalTok{(}\StringTok{"y"}\NormalTok{, }\StringTok{"Column to plot"}\NormalTok{, cols, }\StringTok{"Sepal.Length"}\NormalTok{)}
+\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+The function htmlOutput() is a synonym for uiOutput(), so you might see that in some code examples, but I use uiOutput() to make the connection with renderUI() clearer, since there is no renderHTML().
+
+\hypertarget{reosurces-outputs}{%
+\section{Further Resources}\label{reosurces-outputs}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://mastering-shiny.org/basic-ui.html\#outputs}{Mastering Shiny Section 2.3}
+\item
+  \href{https://vimeo.com/rstudioinc/review/131218530/212d8a5a7a/\#t=10m41s}{RStudio Shiny Tutorials}
+\item
+  \href{https://rstudio.github.io/DT/}{DT (data tables)}
+\end{itemize}
 
 \hypertarget{exercises-outputs}{%
 \section{Exercises}\label{exercises-outputs}}
 
-\hypertarget{ui-1}{%
-\subsection{UI}\label{ui-1}}
+\hypertarget{modify-the-demo}{%
+\subsection{Modify the demo}\label{modify-the-demo}}
 
-In the app you're developing, add relevant outputs, such as for plots or tables.
+Clone the ``output\_demo'' app and modify it to use a different dataset.
 
-\hypertarget{server}{%
-\subsection{Server}\label{server}}
+\hypertarget{pets-1}{%
+\subsection{Pets}\label{pets-1}}
 
-In the app you're developing, add the appropriate render function for each output. You can leave the contents blank for now or add in some code to create output.
+Add outputs and appropriate render functions to show a plot and the data from the pets questionnaire you made for the exercise in Chapter~\ref{inputs}.
+
+\hypertarget{your-app}{%
+\subsection{Your app}\label{your-app}}
+
+In the app you're developing, add relevant outputs, such as for plots or tables, and the appropriate render function for each output. You can leave the contents blank for now or add in some code to create output.
 
 \hypertarget{data}{%
 \chapter{Reading and saving data}\label{data}}
@@ -1815,7 +1894,7 @@ In the app you're developing, add the appropriate render function for each outpu
 
 You can read and write data from a Shiny app the same way you do from any R script. We will focus on reading data, since writing data locally can cause problems and is better done with \protect\hyperlink{google_sheets}{Google Sheets}.
 
-The working directory for a Shiny app is the directory that app.R is in. I recommend keeping your data in a directory called ``data'' to keep things tidy.
+The working directory for a Shiny app is the directory that app.R is in. I recommend keeping your data in a directory called data to keep things tidy.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1831,9 +1910,9 @@ The working directory for a Shiny app is the directory that app.R is in. I recom
 \hypertarget{google_sheets}{%
 \section{Google Sheets}\label{google_sheets}}
 
-One of the best ways to start collecting data with a Shiny app is with Google Sheets. This allows you to collect data to the same place from multiple servers, which might happen if you're running the app locally on more than one computer or through a service like \href{https://shinyapps.io}{shinyapps.io}. The R package \texttt{googlesheets4} makes it easy to work with Google Sheets from R.
+One of the best ways to start collecting data with a Shiny app is with Google Sheets. This allows you to collect data to the same place from multiple servers, which might happen if you're running the app locally on more than one computer or through a service like \href{https://shinyapps.io}{shinyapps.io}. The R package googlesheets4 makes it easy to work with Google Sheets from R.
 
-If you just want to read data from a public Google Sheet, you don't need any authorisation. Just start your code with \texttt{gs4\_deauth()} after you load the \texttt{googlesheets4} library (otherwise you'll be prompted to log in). Then you can read data like this:
+If you just want to read data from a public Google Sheet, you don't need any authorisation. Just start your code with gs4\_deauth() after you load googlesheets4 (otherwise you'll be prompted to log in). Then you can read data like this:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1853,7 +1932,7 @@ If you just want to read data from a public Google Sheet, you don't need any aut
 ## 3      3 C
 \end{verbatim}
 
-However, even if a Google Sheet is publicly editable, you can't add data to it without authorising your account.
+However, even if a Google Sheet is publicly editable, you can't add data to it without authorising your account. If you try, you'll get the error below.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1885,7 +1964,7 @@ However, this won't work if you want your Shiny apps to be able to access your G
 \hypertarget{authorisation-for-apps}{%
 \subsection{Authorisation for Apps}\label{authorisation-for-apps}}
 
-First, you need to get a token and store it in a cache folder in your app directory. We're going to call that directory ``.secrets''. Run the following code in your console (NOT in an Rmd file). This will open up a web browser window and prompt you to choose your Google account and authorise ``Tidyverse API Packages''.
+First, you need to get a token and store it in a cache folder in your app directory. We're going to call that directory .secrets. Run the following code in your console (NOT in an Rmd file). This will open up a web browser window and prompt you to choose your Google account and authorise ``Tidyverse API Packages''.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1906,9 +1985,9 @@ First, you need to get a token and store it in a cache folder in your app direct
 \caption{Prompts to choose an account, grant permissions, and confirm.}\label{fig:gs4-auth}
 \end{figure}
 
-When you have finished, you will see a page that says something like, ``Authentication complete. Please close this page and return to R.'' In the file pane in RStudio, you should now see a directory. called ``.secrets'' in the app directory.
+When you have finished, you will see a page that says something like, ``Authentication complete. Please close this page and return to R.'' In the file pane in RStudio, you should now see a directory called .secrets in the app directory.
 
-If you are using GitHub, you don't want to save your secret info to a public repository, so run the following code to ignore any directories called ``.secrets'' (so they will only exist on your computer and not on GitHub).
+If you are using GitHub, you don't want to save your secret info to a public repository, so run the following code to ignore any directories called .secrets (so they will only exist on your computer and not on GitHub).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1963,7 +2042,7 @@ You can set up a new Google Sheet with code. You only need to do this once for a
 
 \begin{verbatim}
 ## Spreadsheet name: demo2
-##               ID: 1GUm-_90mJzYEwXpSa_t3UqRqcfFTzx8UV1yC0CR7Ebg
+##               ID: 14uiUM2BxMO2MaYEA79NHFwsK2GRaTLEp5l_WQ2b85pc
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -2050,7 +2129,7 @@ Then you can append new rows of data to the sheet.
 ## 2 Robbie      2007 FALSE   12.1
 \end{verbatim}
 
-If you try to append data of a different type, some weird things can happen. Logical values added to a numeric column are cast as 0 (FALSE) and 1 (TRUE), while numeric values added to a logical column change the column to numeric. If you mix character and numeric values in a column, the resulting column is a column of one-item lists so that each list can have the appropriate data type. (Data frames in R cannot mix data types in the same column.)
+If you try to append data of a different data type, some weird things can happen. Logical values added to a numeric column are cast as 0 (\texttt{FALSE}) and 1 (\texttt{TRUE}), while numeric values added to a logical column change the column to numeric. If you mix character and numeric values in a column, the resulting column is a column of one-item lists so that each list can have the appropriate data type. (Data frames in R cannot mix data types in the same column.)
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2077,16 +2156,12 @@ If you try to append data of a different type, some weird things can happen. Log
 
 You must append data that has the same number and order of columns as the Google Sheet. If you send columns out of order, they will be recorded in the order you sent them, not in the order of the column names. If you send extra columns, the append will fail.
 
-The Shiny template we're working with has a safer version of \texttt{sheet\_append()} that you can access by uncommenting the line:
-
-\texttt{\#\ source("R/sheet\_append.R")}
-
-This version gracefully handles data with new columns, missing columns, columns in a different order, and columns with a different data type. However, it reads the whole data sheet before deciding whether to append or overwrite the data, which can slow down your app, so is best used only during development when you're changing things a lot. Once you have the final structure of your data, it's better to use the original \texttt{googlesheets4::sheet\_append()} function.
+The demo app ``radiotables'' has a safer version of sheet\_append() that you can use when you're developing on your machine. It's defined in scripts/gs4.R. This version gracefully handles data with new columns, missing columns, columns in a different order, and columns with a different data type. However, it reads the whole data sheet before deciding whether to append or overwrite the data, which can slow down your app, so is best used only during development when you're changing things a lot. If it's not running locally, it uses the original googlesheets4::sheet\_append() function instead.
 
 \hypertarget{gs4_save}{%
 \section{Saving Googlesheet data}\label{gs4_save}}
 
-If you mix data types in a column, the data frame returned by \texttt{googlesheets4::read\_sheet()} has list columns for any mixed columns. Dates can also get written in different ways that look the same when you print to the console, but are a mix of characters and doubles, so you have to convert them to strings like this before you can save as CSV.
+If you mix data types in a column, the data frame returned by read\_sheet() has list columns for any mixed columns. Dates can also get written in different ways that look the same when you print to the console, but are a mix of characters and doubles, so you have to convert them to strings like this before you can save as CSV.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2095,13 +2170,15 @@ If you mix data types in a column, the data frame returned by \texttt{googleshee
 \end{Highlighting}
 \end{Shaded}
 
+The demo app ``radiotables'' has a custom function gs4\_write\_csv() defined in scripts/gs4.R that does the above for you.
+
 \hypertarget{exercises-data}{%
 \section{Exercises}\label{exercises-data}}
 
 \hypertarget{read-others-data}{%
 \subsection{Read others' data}\label{read-others-data}}
 
-Read in data from the public google sheet at \url{https://docs.google.com/spreadsheets/d/1QjpRZPNOOL0pfRO6IVT5WiafnyNdahsch1A03iHdv7s/}. Find the sheet ID and figure out which sheet has data on US states (assign this to the object \texttt{states}) and which has data on eutherian mammals (assign this to \texttt{mammals}).
+Read in data from the public google sheet at \url{https://docs.google.com/spreadsheets/d/1QjpRZPNOOL0pfRO6IVT5WiafnyNdahsch1A03iHdv7s/}. Find the sheet ID and figure out which sheet has data on US states (assign this to the object \texttt{states}) and which has data on Eutherian mammals (assign this to \texttt{mammals}).
 
 Solution
 
@@ -2137,10 +2214,10 @@ Solution
 \hypertarget{write-data}{%
 \subsection{Write data}\label{write-data}}
 
-Append some data to your google sheet
+Append some data to your google sheet.
 
-\hypertarget{shiny-app}{%
-\subsection{Shiny app}\label{shiny-app}}
+\hypertarget{your-app-1}{%
+\subsection{Your app}\label{your-app-1}}
 
 In the app you're developing, determine what data need to be saved and set up a google sheet (or local data if you're having trouble with google). Write the server function to save data from your app when an action button is pressed.
 
@@ -4654,7 +4731,11 @@ argument & A variable that provides input to a function.\\
 \hline
 attribute-html & Extra information about an HTML element\\
 \hline
+base-r & The set of R functions that come with a basic installation of R, before you add external packages\\
+\hline
 cache-web & In a web browser, external files like CSS, JavaScript, and images are usually cached so that they don’t have to be repeatedly downloaded.\\
+\hline
+character & A data type representing strings of text.\\
 \hline
 commit & The action of storing a new snapshot of a project’s state in the git history.\\
 \hline
@@ -4662,9 +4743,13 @@ console & The pane in RStudio where you can type in commands and view output mes
 \hline
 css & Cascading Style Sheet: A system for controlling the visual presentation of HTML in web pages.\\
 \hline
+data-type & The kind of data represented by an object.\\
+\hline
 data-wrangling & The process of preparing data for visualisation and statistical analysis.\\
 \hline
 directory & A collection or “folder” of files on a computer.\\
+\hline
+double & A data type representing a real decimal number\\
 \hline
 dynamic & Something that can change in response to user actions\\
 \hline
@@ -4685,6 +4770,10 @@ jquery & A library that makes it easier to write JavaScript.\\
 latex & A typesetting program needed to create PDF files from R Markdown documents.\\
 \hline
 list & A container data type that allows items with different data types to be grouped together.\\
+\hline
+logical & A data type representing TRUE or FALSE values.\\
+\hline
+numeric & A data type representing a real decimal number or integer.\\
 \hline
 object & A word that identifies and stores the value of some data for later use.\\
 \hline
@@ -4715,6 +4804,8 @@ tag & A way to mark the start and end of HTML elements.\\
 tidyverse & A set of R packages that help you create and work with tidy data\\
 \hline
 ui & The User Interface. This usually refers to a Shiny App as the user will see it.\\
+\hline
+url & \\
 \hline
 vector & A type of data structure that is basically a list of things like T/F values, numbers, or strings.\\
 \hline

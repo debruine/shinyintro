@@ -10,64 +10,58 @@ height = "800px")
 ```
 
 
-## textOutput
+## Text
 
-The function `textOutput()` defaults to text inside a `<span>` or `<div>` element, but you can use a different element with the `container` argument.
+`r func("textOutput")` defaults to text inside a generic `<span>` or `<div>`, but you can use a different `r glossary("element-html", "element")` with the `r arg("container")` argument.
 
 ```{r}
-# in the UI
+# in the UI function
 textOutput("demo_text", container = tags$h3)
+```
 
+`r func("renderText")` replaces the text of the linked element with its returned string.
+
+```{r}
 # in the server function
 output$demo_text <- renderText({
     sprintf("Plot of %s", input$y)
 })
 ```
 
-If you use `verbatimTextOutput()` in the UI (no change to the server function), it will show the output in a fixed-width font. This can be good for code or text you want the user to copy.
+If you use `r func("verbatimTextOutput")` in the UI (no change to the render function), it will show the output in a fixed-width font. This can be good for code or text you want the user to copy.
 
 ```{r}
-# in the UI
+# in the UI function
 verbatimTextOutput("demo_verbatim")
 
 # in the server function
 output$demo_verbatim <- renderText({
-        code <- 
-"ggplot(iris, aes(x = Species, y = %s, color = Species)) +
+  code <-
+    "ggplot(iris, aes(x = Species, y = %s, color = Species)) +
     geom_violin(show.legend = FALSE) +
     stat_summary(show.legend = FALSE)"
-        
-        sprintf(code, input$y)
-    })
-```
-
-## uiOutput
-
-If you want to dynamically create parts of the UI, you can use `uiOutput()`. You can create the UI using the [input functions](#input_functions)
-
-```{r}
-# in the UI
-uiOutput("demo_ui")
-
-# in the server function
-output$demo_ui <- renderUI({
-  cols <- names(iris)[1:4]
-  selectInput("y", "Column to plot", cols, "Sepal.Length")
+  
+  sprintf(code, input$y)
 })
 ```
 
-::: {.info}
-The function `htmlOutput()` is exactly the same as `uiOutput()`, so you might see that in some code examples, but I use `uiOutput()` to make the connection with `renderUI()` clearer, since there is no `renderHTML()`.
-:::
 
+## Plots
 
-
-## plotOutput
+`r func("plotOutput")` displays plots made with the `r glossary("base R")` plotting functions (e.g., `r func("plot")`, `r func("hist")`) or `r pkg("ggplot2")` functions.
 
 ```{r}
-# in the UI
-plotOutput("demo_plot")
+# in the UI function
+plotOutput("demo_plot", width = "500px", height="300px")
+```
 
+What is the default value for `r arg("width")`?  
+`r mcq(c(answer = "100%", "400px", "400", "5in", "7in"))`  
+What is the default value for `r arg("height")`?  
+`r mcq(c("100%", answer = "400px", "400", "5in", "7in"))`
+
+
+```{r}
 # in the server function
 output$demo_plot <- renderPlot({
   ggplot(iris, aes(x = Species, y = .data[[input$y]], color = Species)) +
@@ -78,15 +72,21 @@ output$demo_plot <- renderPlot({
 ```
 
 ::: {.warning}
-If you want to create dynamic plots that change with input, note how you need to use `y = .data[[input$y]]` inside `aes()`, instead of just `y = input$y`.
+If you want to create dynamic plots that change with input, note how you need to use `y = .data[[input$y]]` inside `r func("aes")`, instead of just `y = input$y`.
 :::
 
-## imageOutput
+## Images
+
+`r func("imageOutput")` takes the same arguments as `r func("plotOutput")`. You can leave `r arg("width")` and `r arg("height")` as their defaults if you are going to set those values in the render function.
 
 ```{r}
-# in the UI
+# in the UI function
 imageOutput("demo_image")
+```
 
+`r func("renderImage")` needs to return a named list with at least an `src` with the image path. You can also set the `r arg("width")` and `r arg("height")` (numeric values are in pixels), `r arg("class")` and `r arg("alt")` (the alt-text for screen readers).
+
+```{r}
 # in the server function
 output$demo_image <- renderImage({
     list(src = "images/flower.jpg",
@@ -96,10 +96,14 @@ output$demo_image <- renderImage({
 }, deleteFile = FALSE)
 ```
 
-You can dynamically display images of any type, but one of the most useful ways to use image outputs is to control the aspect ratio and relative size of plots. When you save a temporary file, you should set `deleteFile = TRUE` in `renderImage()` (this stops unneeded plots using memory).
+::: {.warning}
+The `r arg("deleteFile")` argument is currently optional, but triggers periodic warnings that it won't be optional in the future. You should set it to `TRUE` if you're making a temporary file (this stops unneeded plots using memory) and `FALSE` if you're referencing a file you previously saved.
+:::
+
+You can dynamically display images of any type, but one of the most useful ways to use image outputs is to control the aspect ratio and relative size of plots. 
 
 ```{r}
-# in the UI
+# in the UI function
 imageOutput("demo_image")
 
 # in the server function
@@ -118,19 +122,24 @@ output$demo_image <- renderImage({
     
   # Return a list containing the filename
   list(src = plot_file,
-       width = "100%", # don't set the height to keep aspect ratio
+       width = "100%",
+       height = "auto",
        alt = "The plot")
 }, deleteFile = TRUE)
 ```
 
-## tableOutput
+## Tables
 
-Display a table using `renderTable()`, which makes a table out of any data frame it returns.
+Display a table using `r func("tableOutput")`.
 
 ```{r}
-# in the UI
+# in the UI function
 tableOutput("demo_table")
+```
 
+This is paired with `r func("renderTable")`, which makes a table out of any data frame it returns.
+
+```{r}
 # in the server function
 output$demo_table <- renderTable({
   iris %>%
@@ -144,30 +153,71 @@ output$demo_table <- renderTable({
 Note how you need to use `.data[[input$y]]` inside `dplyr::summarise()`, instead of just `input$y` to dynamically choose which variable to summarise.
 :::
 
-## dataTableOutput
+### Data Tables
 
-If you have a long table to show, or one that you want users to be able to sort or search, use `dataTableOutput()`. You can customise data tables in many ways, but we'll stick with a basic example here.
+If you have a long table to show, or one that you want users to be able to sort or search, use `r func("DT::dataTableOutput")` (or its synonym `r func("DTOutput")`). 
+
+The basic `shiny` package has `dataTableOutput()` and `renderDataTable()` functions, but they can be buggy. The versions in the `DT` package are better and have [many additional functions](https://rstudio.github.io/DT/){target="_blank"}, so I use those. 
 
 ```{r}
-# in the UI
-DT::dataTableOutput("demo_datatable")
+# in the UI function
+DT::dataTableOutput("demo_datatable",
+                    width = "50%",
+                    height = "auto")
+```
 
+The paired render function is `r func("renderDataTable")` (or its synonym `r func("renderDT")`). You can customise data tables in many ways, but we'll stick with a basic example here that limits the number of rows shown at once to 10.
+
+```{r}
 # in the server function
 output$demo_datatable <- DT::renderDataTable({
     iris
 }, options = list(pageLength = 10))
 ```
 
-::: {.warning}
-The basic `shiny` package has `dataTableOutput()` and `renderDataTable()` functions, but they can be buggy. The versions in the `DT` package are better and have some additional functions, so I use those.
+::: {.info}
+The `r pkg("DT")` package has synonyms for `r func("dataTableOutput")` and `r func("renderDataTable")`:  and `r func("renderDT")`. You can use these to make sure you're not accidentally using the `r pkg("shiny")` versions, which don't have as many options.
 :::
+
+## Dynamic HTML
+
+If you want to dynamically create parts of the UI, you can use `r func("uiOutput")`. 
+
+```{r}
+# in the UI function
+uiOutput("demo_ui")
+```
+
+You can create the UI using `r func("renderUI")` to return HTML created using the input functions we learned about in Chapter\ \@ref(inputs), the [tag functions](#tags), or HTML that you write yourself (as an argument to `r func("HTML")`).
+
+```{r}
+# in the server function
+output$demo_ui <- renderUI({
+  cols <- names(iris)[1:4]
+  selectInput("y", "Column to plot", cols, "Sepal.Length")
+})
+```
+
+::: {.info}
+The function `r func("htmlOutput")` is a synonym for `r func("uiOutput")`, so you might see that in some code examples, but I use `r func("uiOutput")` to make the connection with `r func("renderUI")` clearer, since there is no `r func("renderHTML")`.
+:::
+
+## Further Resources {#reosurces-outputs}
+
+* [Mastering Shiny Section 2.3](https://mastering-shiny.org/basic-ui.html#outputs){target="_blank"}
+* [RStudio Shiny Tutorials](https://vimeo.com/rstudioinc/review/131218530/212d8a5a7a/#t=10m41s){target="_blank"}
+* [DT (data tables)](https://rstudio.github.io/DT/){target="_blank"}
 
 ## Exercises {#exercises-outputs}
 
-### UI
+### Modify the demo
 
-In the app you're developing, add relevant outputs, such as for plots or tables.
+Clone the "output_demo" app and modify it to use a different dataset.
 
-### Server
+### Pets
 
-In the app you're developing, add the appropriate render function for each output. You can leave the contents blank for now or add in some code to create output.
+Add outputs and appropriate render functions to show a plot and the data from the pets questionnaire you made for the exercise in Chapter\ \@ref(inputs).
+
+### Your app
+
+In the app you're developing, add relevant outputs, such as for plots or tables, and the appropriate render function for each output. You can leave the contents blank for now or add in some code to create output.
