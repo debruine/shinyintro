@@ -167,11 +167,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.2" data-path="first-app.html"><a href="first-app.html#modify-the-demo-app"><i class="fa fa-check"></i><b>1.1.2</b> Modify the Demo App</a></li>
 <li class="chapter" data-level="1.1.3" data-path="first-app.html"><a href="first-app.html#add-new-things"><i class="fa fa-check"></i><b>1.1.3</b> Add New Things</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="first-app.html"><a href="first-app.html#overview-of-the-uiserver-structure"><i class="fa fa-check"></i><b>1.2</b> Overview of the UI/server structure</a>
+<li class="chapter" data-level="1.2" data-path="first-app.html"><a href="first-app.html#app-structure"><i class="fa fa-check"></i><b>1.2</b> App Structure</a>
 <ul>
 <li class="chapter" data-level="1.2.1" data-path="first-app.html"><a href="first-app.html#ui"><i class="fa fa-check"></i><b>1.2.1</b> UI</a></li>
+<li class="chapter" data-level="1.2.2" data-path="first-app.html"><a href="first-app.html#tags"><i class="fa fa-check"></i><b>1.2.2</b> Tags</a></li>
+<li class="chapter" data-level="1.2.3" data-path="first-app.html"><a href="first-app.html#page-layout"><i class="fa fa-check"></i><b>1.2.3</b> Page Layout</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="first-app.html"><a href="first-app.html#inputs-outputs-and-action-buttons"><i class="fa fa-check"></i><b>1.3</b> Inputs, outputs, and action buttons</a>
+<li class="chapter" data-level="1.3" data-path="first-app.html"><a href="first-app.html#dynamic-elements"><i class="fa fa-check"></i><b>1.3</b> Dynamic Elements</a>
 <ul>
 <li class="chapter" data-level="1.3.1" data-path="first-app.html"><a href="first-app.html#inputs-intro"><i class="fa fa-check"></i><b>1.3.1</b> Inputs</a></li>
 <li class="chapter" data-level="1.3.2" data-path="first-app.html"><a href="first-app.html#outputs-intro"><i class="fa fa-check"></i><b>1.3.2</b> Outputs</a></li>
@@ -222,8 +224,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.4" data-path="inputs.html"><a href="inputs.html#checkboxgroupinput"><i class="fa fa-check"></i><b>3.1.4</b> checkboxGroupInput</a></li>
 <li class="chapter" data-level="3.1.5" data-path="inputs.html"><a href="inputs.html#checkboxinput"><i class="fa fa-check"></i><b>3.1.5</b> checkboxInput</a></li>
 <li class="chapter" data-level="3.1.6" data-path="inputs.html"><a href="inputs.html#radiobuttons"><i class="fa fa-check"></i><b>3.1.6</b> radioButtons</a></li>
+<li class="chapter" data-level="3.1.7" data-path="inputs.html"><a href="inputs.html#dateinput"><i class="fa fa-check"></i><b>3.1.7</b> dateInput</a></li>
+<li class="chapter" data-level="3.1.8" data-path="inputs.html"><a href="inputs.html#fileinput"><i class="fa fa-check"></i><b>3.1.8</b> fileInput</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="inputs.html"><a href="inputs.html#setting-inputs-programatically"><i class="fa fa-check"></i><b>3.2</b> Setting inputs programatically</a></li>
+<li class="chapter" data-level="3.3" data-path="inputs.html"><a href="inputs.html#exercises-inputs"><i class="fa fa-check"></i><b>3.3</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="inputs.html"><a href="inputs.html#pets"><i class="fa fa-check"></i><b>3.3.1</b> Pets</a></li>
+<li class="chapter" data-level="3.3.2" data-path="inputs.html"><a href="inputs.html#questionnaire"><i class="fa fa-check"></i><b>3.3.2</b> Questionnaire</a></li>
+<li class="chapter" data-level="3.3.3" data-path="inputs.html"><a href="inputs.html#updating"><i class="fa fa-check"></i><b>3.3.3</b> Updating</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="outputs.html"><a href="outputs.html"><i class="fa fa-check"></i><b>4</b> Outputs</a>
 <ul>
@@ -388,9 +398,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="A" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i><b>A</b> Installing <code>R</code></a>
 <ul>
 <li class="chapter" data-level="A.1" data-path="installing-r.html"><a href="installing-r.html#installing-base-r"><i class="fa fa-check"></i><b>A.1</b> Installing Base R</a></li>
-<li class="chapter" data-level="A.2" data-path="installing-r.html"><a href="installing-r.html#installing-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing RStudio</a></li>
-<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-shinyintro-1"><i class="fa fa-check"></i><b>A.3</b> Installing shinyintro</a></li>
-<li class="chapter" data-level="A.4" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.4</b> Installing LaTeX</a></li>
+<li class="chapter" data-level="A.2" data-path="installing-r.html"><a href="installing-r.html#installing-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing RStudio</a>
+<ul>
+<li class="chapter" data-level="A.2.1" data-path="installing-r.html"><a href="installing-r.html#rstudio-settings"><i class="fa fa-check"></i><b>A.2.1</b> RStudio Settings</a></li>
+<li class="chapter" data-level="A.2.2" data-path="installing-r.html"><a href="installing-r.html#installing-shinyintro-1"><i class="fa fa-check"></i><b>A.2.2</b> Installing shinyintro</a></li>
+</ul></li>
+<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.3</b> Installing LaTeX</a></li>
 </ul></li>
 <li class="chapter" data-level="B" data-path="symbols.html"><a href="symbols.html"><i class="fa fa-check"></i><b>B</b> Symbols</a></li>
 <li class="chapter" data-level="C" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>C</b> Glossary</a></li>
@@ -423,107 +436,182 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 3</span> Inputs</h1>
 <div id="input-functions" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Input functions</h2>
-<p>Inputs are ways that users can communicate information to the Shiny app. Explore some different input types in the embedded app below before you read about how to set up each type. You can run this app locally with <code>shinyintro::app("input_demo")</code> or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/input_demo/" target="_blank">showcase interface</a>.</p>
+<p>Inputs are ways that users can communicate information to the Shiny app. Explore some different input types in the embedded app below before you read about how to set up each type.</p>
 <div class="figure" style="text-align: center"><span id="fig:input-demo-app"></span>
 <iframe src="https://shiny.psy.gla.ac.uk/debruine/input_demo/?showcase=0" width="100%" height="800px">
 </iframe>
 <p class="caption">
-Figure 3.1: Input Demo App
+Figure 3.1: Input Demo App. You can also access this app with <code>shinyintro::app("input_demo")</code> or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/input_demo/" target="_blank">showcase interface</a>.
 </p>
 </div>
 <div id="textinput" class="section level3" number="3.1.1">
 <h3><span class="header-section-number">3.1.1</span> textInput</h3>
-<p><code>textInput()</code> creates a one-line box for short text input.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="inputs.html#cb39-1" aria-hidden="true" tabindex="-1"></a>demo_text <span class="ot">&lt;-</span> </span>
-<span id="cb39-2"><a href="inputs.html#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textInput</span>(<span class="st">&quot;demo_text&quot;</span>, </span>
-<span id="cb39-3"><a href="inputs.html#cb39-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">label =</span> <span class="st">&quot;Name&quot;</span>, </span>
-<span id="cb39-4"><a href="inputs.html#cb39-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">value =</span> <span class="st">&quot;&quot;</span>, </span>
-<span id="cb39-5"><a href="inputs.html#cb39-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">width =</span> <span class="st">&quot;100%&quot;</span>,</span>
-<span id="cb39-6"><a href="inputs.html#cb39-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">placeholder =</span> <span class="st">&quot;Your Name&quot;</span>)</span></code></pre></div>
+<p><code class='function'>textInput()</code> creates a one-line box for short text input. The first <a class='glossary' target='_blank' title='A variable that provides input to a function.' href='https://psyteachr.github.io/glossary/a#argument'>argument</a>, <code class='argument'>inputId</code> (the argument name is usually omitted), needs to be a unique <a class='glossary' target='_blank' title='A piece of text inside of quotes.' href='https://psyteachr.github.io/glossary/s#string'>string</a> that you cannot use for another input or output in this app.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="inputs.html#cb41-1" aria-hidden="true" tabindex="-1"></a>demo_text <span class="ot">&lt;-</span> </span>
+<span id="cb41-2"><a href="inputs.html#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textInput</span>(<span class="st">&quot;demo_text&quot;</span>, </span>
+<span id="cb41-3"><a href="inputs.html#cb41-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">label =</span> <span class="st">&quot;Name&quot;</span>, </span>
+<span id="cb41-4"><a href="inputs.html#cb41-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">value =</span> <span class="st">&quot;&quot;</span>, </span>
+<span id="cb41-5"><a href="inputs.html#cb41-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">width =</span> <span class="st">&quot;100%&quot;</span>,</span>
+<span id="cb41-6"><a href="inputs.html#cb41-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">placeholder =</span> <span class="st">&quot;Your Name&quot;</span>)</span></code></pre></div>
+<div class="try">
+<p>Experiment with the values of <code class='argument'>label</code>, <code class='argument'>value</code>, <code class='argument'>width</code>, and <code class='argument'>placeholder</code> to see what they do.</p>
+</div>
 </div>
 <div id="textareainput" class="section level3" number="3.1.2">
 <h3><span class="header-section-number">3.1.2</span> textAreaInput</h3>
-<p><code>textAreaInput()</code> creates a multi-line box for longer text input.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="inputs.html#cb40-1" aria-hidden="true" tabindex="-1"></a>demo_textarea <span class="ot">&lt;-</span> </span>
-<span id="cb40-2"><a href="inputs.html#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textAreaInput</span>(<span class="st">&quot;demo_textarea&quot;</span>, </span>
-<span id="cb40-3"><a href="inputs.html#cb40-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">label =</span> <span class="st">&quot;Biography&quot;</span>, </span>
-<span id="cb40-4"><a href="inputs.html#cb40-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">value =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb40-5"><a href="inputs.html#cb40-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="st">&quot;100%&quot;</span>,</span>
-<span id="cb40-6"><a href="inputs.html#cb40-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">rows =</span> <span class="dv">5</span>, </span>
-<span id="cb40-7"><a href="inputs.html#cb40-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">placeholder =</span> <span class="st">&quot;Tell us something interesting about you.&quot;</span>)</span></code></pre></div>
+<p><code class='function'>textAreaInput()</code> creates a multi-line box for longer text input.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="inputs.html#cb42-1" aria-hidden="true" tabindex="-1"></a>demo_textarea <span class="ot">&lt;-</span> </span>
+<span id="cb42-2"><a href="inputs.html#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textAreaInput</span>(<span class="st">&quot;demo_textarea&quot;</span>, </span>
+<span id="cb42-3"><a href="inputs.html#cb42-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">label =</span> <span class="st">&quot;Biography&quot;</span>, </span>
+<span id="cb42-4"><a href="inputs.html#cb42-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">value =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb42-5"><a href="inputs.html#cb42-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="st">&quot;100%&quot;</span>,</span>
+<span id="cb42-6"><a href="inputs.html#cb42-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">rows =</span> <span class="dv">5</span>, </span>
+<span id="cb42-7"><a href="inputs.html#cb42-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">placeholder =</span> <span class="st">&quot;Tell us something interesting about you.&quot;</span>)</span></code></pre></div>
+<p>What is the <code class='argument'>inputId</code> of the widget above?
+<select class='webex-solveme' data-answer='["demo_textarea"]'> <option></option> <option>textAreaInput</option> <option>demo_textarea</option> <option>Biography</option></select></p>
 </div>
 <div id="selectinput" class="section level3" number="3.1.3">
 <h3><span class="header-section-number">3.1.3</span> selectInput</h3>
-<p><code>selectInput()</code> creates a drop-down menu. Set the first choice to <code>""</code> to default to <code>NA</code>. If your choices are a named <a class='glossary' target='_blank' title='A container data type that allows items with different data types to be grouped together.' href='https://psyteachr.github.io/glossary/l#list'>list</a> or <a class='glossary' target='_blank' title='A type of data structure that is basically a list of things like T/F values, numbers, or strings.' href='https://psyteachr.github.io/glossary/v#vector'>vector</a>, the names are what is shown and the values are what is recorded. If the choices aren’t named, the displayed and recorded values are the same.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="inputs.html#cb41-1" aria-hidden="true" tabindex="-1"></a>demo_select <span class="ot">&lt;-</span> </span>
-<span id="cb41-2"><a href="inputs.html#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;demo_select&quot;</span>, </span>
-<span id="cb41-3"><a href="inputs.html#cb41-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="st">&quot;Do you like Shiny?&quot;</span>, </span>
-<span id="cb41-4"><a href="inputs.html#cb41-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">choices =</span> <span class="fu">list</span>(<span class="st">&quot;&quot;</span>, </span>
-<span id="cb41-5"><a href="inputs.html#cb41-5" aria-hidden="true" tabindex="-1"></a>                             <span class="st">&quot;Yes, I do&quot;</span> <span class="ot">=</span> <span class="st">&quot;y&quot;</span>, </span>
-<span id="cb41-6"><a href="inputs.html#cb41-6" aria-hidden="true" tabindex="-1"></a>                             <span class="st">&quot;No, I don&#39;t&quot;</span> <span class="ot">=</span> <span class="st">&quot;n&quot;</span>),</span>
-<span id="cb41-7"><a href="inputs.html#cb41-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">selected =</span> <span class="cn">NULL</span>,</span>
-<span id="cb41-8"><a href="inputs.html#cb41-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="st">&quot;100%&quot;</span>)</span></code></pre></div>
-<p>You can also make a select where users can choose multiple options.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="inputs.html#cb42-1" aria-hidden="true" tabindex="-1"></a>genders <span class="ot">&lt;-</span> <span class="fu">list</span>( <span class="co"># no blank needed</span></span>
-<span id="cb42-2"><a href="inputs.html#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Non-binary&quot;</span> <span class="ot">=</span> <span class="st">&quot;nb&quot;</span>,</span>
-<span id="cb42-3"><a href="inputs.html#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Male&quot;</span> <span class="ot">=</span> <span class="st">&quot;m&quot;</span>,</span>
-<span id="cb42-4"><a href="inputs.html#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Female&quot;</span> <span class="ot">=</span> <span class="st">&quot;f&quot;</span>,</span>
-<span id="cb42-5"><a href="inputs.html#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Agender&quot;</span> <span class="ot">=</span> <span class="st">&quot;a&quot;</span>,</span>
-<span id="cb42-6"><a href="inputs.html#cb42-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Gender Fluid&quot;</span> <span class="ot">=</span> <span class="st">&quot;gf&quot;</span></span>
-<span id="cb42-7"><a href="inputs.html#cb42-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb42-8"><a href="inputs.html#cb42-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-9"><a href="inputs.html#cb42-9" aria-hidden="true" tabindex="-1"></a>demo_select_multi <span class="ot">&lt;-</span> </span>
-<span id="cb42-10"><a href="inputs.html#cb42-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;demo_select2&quot;</span>, </span>
-<span id="cb42-11"><a href="inputs.html#cb42-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="st">&quot;Gender (select all that apply)&quot;</span>, </span>
-<span id="cb42-12"><a href="inputs.html#cb42-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">choices =</span> genders,</span>
-<span id="cb42-13"><a href="inputs.html#cb42-13" aria-hidden="true" tabindex="-1"></a>              <span class="at">selected =</span> <span class="cn">NULL</span>,</span>
-<span id="cb42-14"><a href="inputs.html#cb42-14" aria-hidden="true" tabindex="-1"></a>              <span class="at">multiple =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb42-15"><a href="inputs.html#cb42-15" aria-hidden="true" tabindex="-1"></a>              <span class="at">selectize =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb42-16"><a href="inputs.html#cb42-16" aria-hidden="true" tabindex="-1"></a>              <span class="at">size =</span> <span class="dv">5</span>)</span></code></pre></div>
+<p><code class='function'>selectInput()</code> creates a drop-down menu. Set the first <code class='argument'>choice</code> to <code>""</code> to default to <code>NA</code>. If your choices are a named <a class='glossary' target='_blank' title='A container data type that allows items with different data types to be grouped together.' href='https://psyteachr.github.io/glossary/l#list'>list</a> or <a class='glossary' target='_blank' title='A type of data structure that is basically a list of things like T/F values, numbers, or strings.' href='https://psyteachr.github.io/glossary/v#vector'>vector</a>, the names are what is shown and the values are what is recorded. If the choices aren’t named, the displayed and recorded values are the same.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="inputs.html#cb43-1" aria-hidden="true" tabindex="-1"></a>demo_select <span class="ot">&lt;-</span> </span>
+<span id="cb43-2"><a href="inputs.html#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;demo_select&quot;</span>, </span>
+<span id="cb43-3"><a href="inputs.html#cb43-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="st">&quot;Do you like Shiny?&quot;</span>, </span>
+<span id="cb43-4"><a href="inputs.html#cb43-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">choices =</span> <span class="fu">list</span>(<span class="st">&quot;&quot;</span>, </span>
+<span id="cb43-5"><a href="inputs.html#cb43-5" aria-hidden="true" tabindex="-1"></a>                             <span class="st">&quot;Yes, I do&quot;</span> <span class="ot">=</span> <span class="st">&quot;y&quot;</span>, </span>
+<span id="cb43-6"><a href="inputs.html#cb43-6" aria-hidden="true" tabindex="-1"></a>                             <span class="st">&quot;No, I don&#39;t&quot;</span> <span class="ot">=</span> <span class="st">&quot;n&quot;</span>),</span>
+<span id="cb43-7"><a href="inputs.html#cb43-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">selected =</span> <span class="cn">NULL</span>,</span>
+<span id="cb43-8"><a href="inputs.html#cb43-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="st">&quot;100%&quot;</span>)</span></code></pre></div>
+<p>If you set <code class='argument'>multiple</code> to <code>TRUE</code>, you can also make a select where users can choose multiple options.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="inputs.html#cb44-1" aria-hidden="true" tabindex="-1"></a>genders <span class="ot">&lt;-</span> <span class="fu">list</span>( <span class="co"># no blank needed</span></span>
+<span id="cb44-2"><a href="inputs.html#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Non-binary&quot;</span> <span class="ot">=</span> <span class="st">&quot;nb&quot;</span>,</span>
+<span id="cb44-3"><a href="inputs.html#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Male&quot;</span> <span class="ot">=</span> <span class="st">&quot;m&quot;</span>,</span>
+<span id="cb44-4"><a href="inputs.html#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Female&quot;</span> <span class="ot">=</span> <span class="st">&quot;f&quot;</span>,</span>
+<span id="cb44-5"><a href="inputs.html#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Agender&quot;</span> <span class="ot">=</span> <span class="st">&quot;a&quot;</span>,</span>
+<span id="cb44-6"><a href="inputs.html#cb44-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Gender Fluid&quot;</span> <span class="ot">=</span> <span class="st">&quot;gf&quot;</span></span>
+<span id="cb44-7"><a href="inputs.html#cb44-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb44-8"><a href="inputs.html#cb44-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-9"><a href="inputs.html#cb44-9" aria-hidden="true" tabindex="-1"></a>demo_select_multi <span class="ot">&lt;-</span> </span>
+<span id="cb44-10"><a href="inputs.html#cb44-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;demo_select2&quot;</span>, </span>
+<span id="cb44-11"><a href="inputs.html#cb44-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="st">&quot;Gender (select all that apply)&quot;</span>, </span>
+<span id="cb44-12"><a href="inputs.html#cb44-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">choices =</span> genders,</span>
+<span id="cb44-13"><a href="inputs.html#cb44-13" aria-hidden="true" tabindex="-1"></a>              <span class="at">selected =</span> <span class="cn">NULL</span>,</span>
+<span id="cb44-14"><a href="inputs.html#cb44-14" aria-hidden="true" tabindex="-1"></a>              <span class="at">multiple =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb44-15"><a href="inputs.html#cb44-15" aria-hidden="true" tabindex="-1"></a>              <span class="at">selectize =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb44-16"><a href="inputs.html#cb44-16" aria-hidden="true" tabindex="-1"></a>              <span class="at">size =</span> <span class="dv">5</span>)</span></code></pre></div>
 </div>
 <div id="checkboxgroupinput" class="section level3" number="3.1.4">
 <h3><span class="header-section-number">3.1.4</span> checkboxGroupInput</h3>
-<p>However, this interface almost always looks better with a checkbox group.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="inputs.html#cb43-1" aria-hidden="true" tabindex="-1"></a>demo_cbgi <span class="ot">&lt;-</span></span>
-<span id="cb43-2"><a href="inputs.html#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">checkboxGroupInput</span>(<span class="st">&quot;demo_cbgi&quot;</span>,</span>
-<span id="cb43-3"><a href="inputs.html#cb43-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">label =</span> <span class="st">&quot;Gender (select all that apply)&quot;</span>,</span>
-<span id="cb43-4"><a href="inputs.html#cb43-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">choices =</span> genders)</span></code></pre></div>
+<p>However, this interface almost always looks better with <code class='function'>checkboxGroupInput()</code>.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="inputs.html#cb45-1" aria-hidden="true" tabindex="-1"></a>demo_cbgi <span class="ot">&lt;-</span></span>
+<span id="cb45-2"><a href="inputs.html#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">checkboxGroupInput</span>(<span class="st">&quot;demo_cbgi&quot;</span>,</span>
+<span id="cb45-3"><a href="inputs.html#cb45-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">label =</span> <span class="st">&quot;Gender (select all that apply)&quot;</span>,</span>
+<span id="cb45-4"><a href="inputs.html#cb45-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">choices =</span> genders)</span></code></pre></div>
+<p>How can you get the checkboxes to display horizontally instead of vertically?<br />
+<select class='webex-solveme' data-answer='["inline = TRUE"]'> <option></option> <option>display = 'horizontal'</option> <option>class = 'horiz'</option> <option>inline = TRUE</option> <option>class = 'shiny-input-container-inline'</option></select></p>
 </div>
 <div id="checkboxinput" class="section level3" number="3.1.5">
 <h3><span class="header-section-number">3.1.5</span> checkboxInput</h3>
-<p>You can also make a single checkbox. The value is <code>TRUE</code> when checked and <code>FALSE</code> when not.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="inputs.html#cb44-1" aria-hidden="true" tabindex="-1"></a>demo_cb <span class="ot">&lt;-</span> <span class="fu">checkboxInput</span>(<span class="st">&quot;demo_cb&quot;</span>,</span>
-<span id="cb44-2"><a href="inputs.html#cb44-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">label =</span> <span class="st">&quot;I love R&quot;</span>,</span>
-<span id="cb44-3"><a href="inputs.html#cb44-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">value =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p>Sliders allow you to choose numbers between a minimum and maximum.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="inputs.html#cb45-1" aria-hidden="true" tabindex="-1"></a>demo_slider <span class="ot">&lt;-</span> <span class="fu">sliderInput</span>(<span class="st">&quot;demo_slider&quot;</span>,</span>
-<span id="cb45-2"><a href="inputs.html#cb45-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">label =</span> <span class="st">&quot;Age&quot;</span>,</span>
-<span id="cb45-3"><a href="inputs.html#cb45-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">min =</span> <span class="dv">0</span>,</span>
-<span id="cb45-4"><a href="inputs.html#cb45-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">max =</span> <span class="dv">100</span>,</span>
-<span id="cb45-5"><a href="inputs.html#cb45-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">value =</span> <span class="dv">0</span>,</span>
-<span id="cb45-6"><a href="inputs.html#cb45-6" aria-hidden="true" tabindex="-1"></a>                           <span class="at">step =</span> <span class="dv">1</span>,</span>
-<span id="cb45-7"><a href="inputs.html#cb45-7" aria-hidden="true" tabindex="-1"></a>                           <span class="at">width =</span> <span class="st">&quot;100%&quot;</span>)</span></code></pre></div>
+<p>You can also make a single checkbox with <code class='function'>checkboxInput()</code>. The <code class='argument'>value</code> is <code>TRUE</code> when checked and <code>FALSE</code> when not.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="inputs.html#cb46-1" aria-hidden="true" tabindex="-1"></a>demo_cb <span class="ot">&lt;-</span> <span class="fu">checkboxInput</span>(<span class="st">&quot;demo_cb&quot;</span>,</span>
+<span id="cb46-2"><a href="inputs.html#cb46-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">label =</span> <span class="st">&quot;I love R&quot;</span>,</span>
+<span id="cb46-3"><a href="inputs.html#cb46-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">value =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><code class='function'>sliderInput()</code> allows you to choose numbers between a <code class='argument'>min</code> and <code class='argument'>max</code> value.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="inputs.html#cb47-1" aria-hidden="true" tabindex="-1"></a>demo_slider <span class="ot">&lt;-</span> <span class="fu">sliderInput</span>(<span class="st">&quot;demo_slider&quot;</span>,</span>
+<span id="cb47-2"><a href="inputs.html#cb47-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">label =</span> <span class="st">&quot;Age&quot;</span>,</span>
+<span id="cb47-3"><a href="inputs.html#cb47-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">min =</span> <span class="dv">0</span>,</span>
+<span id="cb47-4"><a href="inputs.html#cb47-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">max =</span> <span class="dv">100</span>,</span>
+<span id="cb47-5"><a href="inputs.html#cb47-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">value =</span> <span class="dv">0</span>,</span>
+<span id="cb47-6"><a href="inputs.html#cb47-6" aria-hidden="true" tabindex="-1"></a>                           <span class="at">step =</span> <span class="dv">1</span>,</span>
+<span id="cb47-7"><a href="inputs.html#cb47-7" aria-hidden="true" tabindex="-1"></a>                           <span class="at">width =</span> <span class="st">&quot;100%&quot;</span>)</span></code></pre></div>
+<div class="try">
+<p>What happens if you change <code class='argument'>value</code> or <code class='argument'>step</code>? Try changing <code class='argument'>value</code> to <code>c(10, 20)</code>.</p>
+</div>
 </div>
 <div id="radiobuttons" class="section level3" number="3.1.6">
 <h3><span class="header-section-number">3.1.6</span> radioButtons</h3>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="inputs.html#cb46-1" aria-hidden="true" tabindex="-1"></a>demo_radio <span class="ot">&lt;-</span> <span class="fu">radioButtons</span>(<span class="st">&quot;demo_radio&quot;</span>,</span>
-<span id="cb46-2"><a href="inputs.html#cb46-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">label =</span> <span class="st">&quot;Choose one&quot;</span>,</span>
-<span id="cb46-3"><a href="inputs.html#cb46-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">&quot;Cats&quot;</span>, <span class="st">&quot;Dogs&quot;</span>))</span></code></pre></div>
+<p>If you want users to only be able to choose one options and there are a small number of short options, <code class='function'>radioButton()</code> is a good interface.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="inputs.html#cb48-1" aria-hidden="true" tabindex="-1"></a>demo_radio <span class="ot">&lt;-</span> <span class="fu">radioButtons</span>(<span class="st">&quot;demo_radio&quot;</span>,</span>
+<span id="cb48-2"><a href="inputs.html#cb48-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">label =</span> <span class="st">&quot;Choose one&quot;</span>,</span>
+<span id="cb48-3"><a href="inputs.html#cb48-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">&quot;Cats&quot;</span>, <span class="st">&quot;Dogs&quot;</span>),</span>
+<span id="cb48-4"><a href="inputs.html#cb48-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">selected =</span> <span class="fu">character</span>(<span class="dv">0</span>),</span>
+<span id="cb48-5"><a href="inputs.html#cb48-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">inline =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="warning">
+<p>Radio buttons default to selecting the first item unless you set <code class='argument'>selected</code> to a choice value or <code>character(0)</code> to start with no selection.</p>
+</div>
+</div>
+<div id="dateinput" class="section level3" number="3.1.7">
+<h3><span class="header-section-number">3.1.7</span> dateInput</h3>
+<p>I find the date interface a little clunky, but that might just be because I have to click the back button on the year interface 44 time to find my birthdate. However, it also allows you to type in a date following the format that you can set.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="inputs.html#cb49-1" aria-hidden="true" tabindex="-1"></a>demo_date <span class="ot">&lt;-</span> <span class="fu">dateInput</span>(<span class="st">&quot;demo_date&quot;</span>,</span>
+<span id="cb49-2"><a href="inputs.html#cb49-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">label =</span> <span class="st">&quot;What is your birth date?&quot;</span>,</span>
+<span id="cb49-3"><a href="inputs.html#cb49-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">min =</span> <span class="st">&quot;1900-01-01&quot;</span>,</span>
+<span id="cb49-4"><a href="inputs.html#cb49-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">max =</span> <span class="fu">Sys.Date</span>(),</span>
+<span id="cb49-5"><a href="inputs.html#cb49-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">format =</span> <span class="st">&quot;yyyy-mm-dd&quot;</span>,</span>
+<span id="cb49-6"><a href="inputs.html#cb49-6" aria-hidden="true" tabindex="-1"></a>                       <span class="at">startview =</span> <span class="st">&quot;year&quot;</span>)</span></code></pre></div>
+<div class="info">
+<p>IMHO, the default of <code>"yyyy-mm-dd"</code> is the best because it sorts into chronological order. Don’t let me catch you storing dates like <code>"m/d/yyyy"</code>.</p>
+</div>
+<p>What would you set <code class='argument'>format</code> to in order to display dates like “Sunday July 4, 2021?”<br />
+<select class='webex-solveme' data-answer='["DD MM d, yyyy"]'> <option></option> <option>D M d, Y</option> <option>DD MM d, yyyy</option> <option>DAY MONTH day, YEAR</option> <option>D MM dd, yyyy</option></select></p>
+<p>(don’t actually do this)</p>
+</div>
+<div id="fileinput" class="section level3" number="3.1.8">
+<h3><span class="header-section-number">3.1.8</span> fileInput</h3>
+<p>Users can upload one or more files with <code class='function'>fileInput()</code>. The argument <code class='argument'>acccept</code> lets you limit this to certain file types, but some browsers can bypass this requirement, so it’s not fool-proof.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="inputs.html#cb50-1" aria-hidden="true" tabindex="-1"></a>demo_file <span class="ot">&lt;-</span> <span class="fu">fileInput</span>(<span class="st">&quot;demo_file&quot;</span>,</span>
+<span id="cb50-2"><a href="inputs.html#cb50-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">label =</span> <span class="st">&quot;Upload a data table&quot;</span>,</span>
+<span id="cb50-3"><a href="inputs.html#cb50-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">multiple =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb50-4"><a href="inputs.html#cb50-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">accept =</span> <span class="fu">c</span>(<span class="st">&quot;.csv&quot;</span>, <span class="st">&quot;.tsv&quot;</span>),</span>
+<span id="cb50-5"><a href="inputs.html#cb50-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">buttonLabel =</span> <span class="st">&quot;Upload&quot;</span>)</span></code></pre></div>
+<p>What would you set <code class='argument'>accept</code> to to accept any image file?<br />
+<select class='webex-solveme' data-answer='["image/*"]'> <option></option> <option>image/*</option> <option>.jpg</option> <option>jpg</option> <option>images</option> <option>.img</option></select></p>
 </div>
 </div>
 <div id="setting-inputs-programatically" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Setting inputs programatically</h2>
 <p>Sometimes you need to change the value of an input with code, such as when resetting a questionnaire or in response to an answer on another item. The following code resets all of the inputs above.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="inputs.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">updateTextInput</span>(session, <span class="st">&quot;demo_text&quot;</span>, <span class="at">value =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb47-2"><a href="inputs.html#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">updateTextAreaInput</span>(session, <span class="st">&quot;demo_textarea&quot;</span>, <span class="at">value =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb47-3"><a href="inputs.html#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="fu">updateSelectInput</span>(session, <span class="st">&quot;demo_select&quot;</span>, <span class="at">selected =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb47-4"><a href="inputs.html#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">updateCheckboxGroupInput</span>(session, <span class="st">&quot;demo_cbgi&quot;</span>, <span class="at">selected =</span> <span class="fu">character</span>(<span class="dv">0</span>))</span>
-<span id="cb47-5"><a href="inputs.html#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="fu">updateCheckboxInput</span>(session, <span class="st">&quot;demo_cb&quot;</span>, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb47-6"><a href="inputs.html#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="fu">updateSliderInput</span>(session, <span class="st">&quot;demo_slider&quot;</span>, <span class="at">value =</span> <span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="inputs.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">updateTextInput</span>(session, <span class="st">&quot;demo_text&quot;</span>, <span class="at">value =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb51-2"><a href="inputs.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">updateTextAreaInput</span>(session, <span class="st">&quot;demo_textarea&quot;</span>, <span class="at">value =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb51-3"><a href="inputs.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">updateSelectInput</span>(session, <span class="st">&quot;demo_select&quot;</span>, <span class="at">selected =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb51-4"><a href="inputs.html#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="fu">updateCheckboxGroupInput</span>(session, <span class="st">&quot;demo_cbgi&quot;</span>, <span class="at">selected =</span> <span class="fu">character</span>(<span class="dv">0</span>))</span>
+<span id="cb51-5"><a href="inputs.html#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="fu">updateCheckboxInput</span>(session, <span class="st">&quot;demo_cb&quot;</span>, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb51-6"><a href="inputs.html#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="fu">updateRadioButtons</span>(session, <span class="st">&quot;demo_radio&quot;</span>, <span class="at">selected =</span> <span class="fu">character</span>(<span class="dv">0</span>))</span>
+<span id="cb51-7"><a href="inputs.html#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="fu">updateSliderInput</span>(session, <span class="st">&quot;demo_slider&quot;</span>, <span class="at">value =</span> <span class="dv">0</span>)</span>
+<span id="cb51-8"><a href="inputs.html#cb51-8" aria-hidden="true" tabindex="-1"></a><span class="fu">updateDateInput</span>(session, <span class="st">&quot;demo_date&quot;</span>, <span class="at">value =</span> <span class="cn">NULL</span>)</span></code></pre></div>
 <div class="warning">
-<p>Note that select inputs and checkbox groups use the argument <code>selected</code> and not <code>value</code>. If you want to set all the values in a checkbox group to unchecked, set <code>selected = character(0)</code>.</p>
+<p>Note that select inputs, checkbox groups, and radio buttons use the argument <code>selected</code> and not <code>value</code>. If you want to set all the values in a checkbox group or radio button group to unchecked, set <code>selected = character(0)</code>.</p>
 </div>
+</div>
+<div id="exercises-inputs" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Exercises</h2>
+<div id="pets" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Pets</h3>
+<p>Create an interface that gets people to rate the following pets on a 9-point scale. You can use any option labels or input type you like.</p>
+<ul>
+<li>Dogs 🐕<br />
+</li>
+<li>Cats 🐈<br />
+</li>
+<li>Birds 🦜<br />
+</li>
+<li>Fish 🐠<br />
+</li>
+<li>Mice 🐁<br />
+</li>
+<li>Hedgehogs 🦔<br />
+</li>
+<li>Snakes 🐍</li>
+</ul>
+</div>
+<div id="questionnaire" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Questionnaire</h3>
+<p>In the app you’re developing, add a tab for a questionnaire that you’re interested in and set up the appropriate inputs.</p>
+</div>
+<div id="updating" class="section level3" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Updating</h3>
+<p>Add a “reset” button to your questionnaire tab and write the <code class='function'>server()</code> code to reset all of its inputs.</p>
 
+</div>
 </div>
 </div>
 <div class="psyteachr_footer">
@@ -562,9 +650,14 @@ solveme_func = function(e) {
     my_answer = my_answer.replace(/ /g, "")
   }
   
-  if (my_answer !== "" & real_answers.includes(my_answer)) {
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
     cl.add("webex-correct");
+    cl.remove("webex-incorrect");
   } else {
+    cl.add("webex-incorrect");
     cl.remove("webex-correct");
   }
 
@@ -690,6 +783,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

@@ -22,15 +22,15 @@ There are a few settings you should fix immediately after updating RStudio. Go t
 
 You may also want to change the appearance of your code. Different fonts and themes can sometimes help with visual difficulties or [dyslexia]((https://datacarpentry.org/blog/2017/09/coding-and-dyslexia){target="_blank"}. I prefer a dark background and the FiraCode font for my own coding, but I will use the default theme for screenshots in this book.
 
-```{r settings-general, eval = TRUE, echo=FALSE, fig.width = "45%", fig.cap = "My RStudio General and Appearance settings"}
+```{r settings-general, eval = TRUE, echo=FALSE, out.width = "45%", fig.cap = "My RStudio General and Appearance settings"}
 knitr::include_graphics(
   c('images/rstudio_settings_general.png', 
     'images/rstudio_settings_appearance.png'))
 ```
 
-You may also want to change the settings in the Code tab. I prefer two spaces instead of tabs for my code and I like to be able to see the `r glossary("whitepspace")` characters. But these are all a matter of personal preference.
+You may also want to change the settings in the Code tab. I prefer two spaces instead of tabs for my code and I like to be able to see the `r glossary("whitespace")` characters. But these are all a matter of personal preference.
 
-```{r settings-code, eval = TRUE, echo=FALSE, fig.width = "45%", fig.cap = 'My RStudio Code settings'}
+```{r settings-code, eval = TRUE, echo=FALSE, out.width = "45%", fig.cap = 'My RStudio Code settings'}
 knitr::include_graphics(
   c("images/rstudio_settings_code_editing.png",
     "images/rstudio_settings_code_display.png"))

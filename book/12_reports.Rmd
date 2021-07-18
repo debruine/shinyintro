@@ -2,10 +2,11 @@
 
 While the best part of Shiny apps is their interactivity, sometimes your users need to download data, images, or a static report. This section will show you how.
 
-```{r reports-demo-app, eval = TRUE, echo = FALSE, fig.cap="Reports Demo App"}
+```{r reports-demo-app, eval=TRUE, echo=FALSE, fig.cap="Reports Demo App. You can also access this app with `shinyintro::app(\"reports_demo\")`or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/reports_demo/){target=\"_blank\"}."}
 knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/reports_demo/",
-                   height = "600px")
+height = "600px")
 ```
+
 
 ## Download Data
 

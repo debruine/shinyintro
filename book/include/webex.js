@@ -31,9 +31,14 @@ solveme_func = function(e) {
     my_answer = my_answer.replace(/ /g, "")
   }
   
-  if (my_answer !== "" & real_answers.includes(my_answer)) {
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
     cl.add("webex-correct");
+    cl.remove("webex-incorrect");
   } else {
+    cl.add("webex-incorrect");
     cl.remove("webex-correct");
   }
 

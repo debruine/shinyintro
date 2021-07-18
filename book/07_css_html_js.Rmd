@@ -336,7 +336,7 @@ tags$ul(
 Change the style of just the links inside paragraphs with the class "help" to have an underline. Use external CSS.
 
 `r hide()`
-Add the following to `www/custom.css`:
+Add the following to *www/custom.css*:
 
 ``` css
 .help a { text-decoration: underline; }

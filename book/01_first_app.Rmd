@@ -113,7 +113,7 @@ knitr::include_graphics('images/demo_app/06-change-title.png')
 
 Click `Run App` (or `Reload App` if you haven't closed the app window) in the `r glossary("panes", "source pane")`. If you haven't saved your changes, it will prompt you to do so. Check that the app title has changed.
 
-Now let's change the input. Find the function `sliderInput` (line 21). The first `r glossary("argument")` is the name you can use in the code to find the value of this input, so don't change it just yet. The second argument is the text that displays before the slider. Change this to something else and re-run the app.
+Now let's change the input. Find the function `r func("sliderInput")` (line 21). The first `r glossary("argument")` is the name you can use in the code to find the value of this input, so don't change it just yet. The second argument is the text that displays before the slider. Change this to something else and re-run the app.
 
 ```{r, app-sliderInput}
          sliderInput("bins",
@@ -124,10 +124,10 @@ Now let's change the input. Find the function `sliderInput` (line 21). The first
 ```
 
 ::: {.try}
-See if you can figure out what the next three arguments to `sliderInput` do. Change them to different `r glossary("integer", "integers")`, then re-run the app to see what's changed.
+See if you can figure out what the next three arguments to `r func("sliderInput")` do. Change them to different `r glossary("integer", "integers")`, then re-run the app to see what's changed.
 :::
 
-The arguments to the function `sidebarPanel` are just a list of things you want to display in the sidebar. To add some explanatory text in a paragraph before the `sliderInput`, just use the paragraph function `p("My text")`
+The arguments to the function `r func("sidebarPanel")` are just a list of things you want to display in the sidebar. To add some explanatory text in a paragraph before `r func("sliderInput")`, just use the paragraph function `r func("p")`.
 
 ```{r, app-sidebar-p}
       sidebarPanel(
@@ -175,18 +175,18 @@ There are a lot of ways to represent colour in R. The easiest three are:
 
 1.  hexadecimal colours (e.g., `#0066CC`)
 2.  the `rgb` or `hsl` functions (e.g., `rgb(0, .4, .8)`)
-3.  colour names (type `colours()` in the console)
+3.  colour names (type `r func("colours")` in the console)
 
 The color "steelblue3" is pretty close to the shiny interface default colour, but feel free to choose whatever you like.
 
-I prefer ggplots, so let's make the plot with `geom_histogram` instead of `hist` (which is a great function for really quick plots). Since we need several functions from the `ggplot2` `r glossary("package")`, we'll need to load that package at the top of the script, just under where the `shiny` package is loaded:
+I prefer ggplots, so let's make the plot with `r func("geom_histogram")` instead of `r func("hist")` (which is a great function for really quick plots). Since we need several functions from the `r pkg("ggplot2")` `r glossary("package")`, we'll need to load that package at the top of the script, just under where the  `r pkg("shiny")` package is loaded:
 
 ```{r load-library}
 library(shiny)
 library(ggplot2)
 ```
 
-You can replace all of the code in the `renderPlot` function with the code below.
+You can replace all of the code in `r func("renderPlot")` with the code below.
 
 ```{r, ggplot}
   output$distPlot <- renderPlot({
@@ -201,7 +201,7 @@ You can replace all of the code in the `renderPlot` function with the code below
 ```
 
 ::: {.info}
-You can set the `fill` and `colour` to whatever colours you like, and change `theme_minimal()` to one of the other [built-in ggplot themes](https://ggplot2.tidyverse.org/reference/ggtheme.html#examples){target="_blank"}.
+You can set `r arg("fill")` and `r arg("colour")` to whatever colours you like, and change `r func("theme_minimal")` to one of the other [built-in ggplot themes](https://ggplot2.tidyverse.org/reference/ggtheme.html#examples){target="_blank"}.
 :::
 
 ::: {.try}
@@ -213,19 +213,19 @@ What *are* we even plotting here? Type `?faithful` into the console pane to see 
 The `faithful` dataset includes two columns:`eruptions` and `waiting`. We've been plotting the `waiting` variable, but what if you wanted to plot the `eruptions` variable instead?
 
 ::: {.try}
-Try plotting the eruption time (`eruptions`) instead of the waiting time. You just have to change one word in the `ggplot` function and update the x-axis label.
+Try plotting the eruption time (`eruptions`) instead of the waiting time. You just have to change one word in `r func("ggplot")` and update the x-axis label.
 :::
 
 We can add another input `r glossary("widget")` to let the user switch between plotting eruption time and wait time. We'll learn more about the different input options in Chapter\ \@ref(inputs). We need to toggle between two options, so we can use either radio buttons or a select box. Radio buttons are probably best if you have only a few options and the user will want to see them all at the same time to decide.
 
-Add the following code as the first argument to `sidebarPanel()`, which just takes a list of different widgets. `radioButtons` is the widget we're using. We'll set four `r glossary("argument", "arguments")`:
+Add the following code as the first argument to `r func("sidebarPanel")`, which just takes a list of different widgets. `r func("radioButtons")` is the widget we're using. We'll set four `r glossary("argument", "arguments")`:
 
-* `inputId`: a unique identifier that we will use later in the code to find the value of this widget
-* `label`: the text to display to the user
-* `choices`: a list of choices in the format `c("label1" = "value1", "label2 = "value2", ...)`
-* `selected`: the value of the default choice
+* `r arg("inputId")`: a unique identifier that we will use later in the code to find the value of this widget
+* `r arg("label")`: the text to display to the user
+* `r arg("choices")`: a list of choices in the format `c("label1" = "value1", "label2 = "value2", ...)`
+* `r arg("selected")`: the value of the default choice
 
-For `choices`, the label is what gets shown to the user and the value is what gets used by the code (these can be the same, but you often want the user label to be more descriptive).
+For `r arg("choices")`, the label is what gets shown to the user and the value is what gets used by the code (these can be the same, but you often want the user label to be more descriptive).
 
 ```{r add-radiobuttons}
          radioButtons(inputId = "display_var",
@@ -244,7 +244,7 @@ knitr::include_graphics('images/demo_app/08-radiobutton-widget.png')
 
 You should have a radio button interface now. You can click on the options to switch the button, but it won't do anything to your plot yet. We need to edit the plot-generating code to make that happen.
 
-First, we need to change the x-axis label depending on what we're graphing. We use an if/else statement to set the variable `xlabel` to one thing if `input$display_var` is equivalent to `"eruptions"`, and to something else if it's equivalent to `"waiting"`. Put this code at the very beginning of the code block for the `renderPlot` function (after the line `output$distPlot <- renderPlot({`).
+First, we need to change the x-axis label depending on what we're graphing. We use an if/else statement to set the variable `xlabel` to one thing if `input$display_var` is equivalent to `"eruptions"`, and to something else if it's equivalent to `"waiting"`. Put this code at the very beginning of the code block for `r func("renderPlot")` (after the line `output$distPlot <- renderPlot({`).
 
 ```{r plot-switch1}
       # set x-axis label depending on the value of display_var
@@ -259,7 +259,7 @@ First, we need to change the x-axis label depending on what we're graphing. We u
 The double-equal-signs `==` means "equivalent to and is how you check if two things are the same; if you only use one equal sign, you set the variable on the left to the value on the right.
 :::
 
-Then we have to edit the `ggplot` function to use the new label and to plot the correct column. The variable `input$display_var` gives you the user-input value of the widget called `display_var`.
+Then we have to edit `r arg("ggplot")` to use the new label and to plot the correct column. The variable `input$display_var` gives you the user-input value of the widget called `"display_var"`.
 
 ```{r plot-switch2}
       # create plot
@@ -272,21 +272,22 @@ Then we have to edit the `ggplot` function to use the new label and to plot the 
 ```
 
 ::: {.warning}
-Notice that the function `aes(waiting)` from before has changed to `aes(.data[[input$display_var]])`. Because `input$display_var` is a `r glossary("string")`, we have to select it from the `.data` placeholder (which refers to the `faithful` data table) using double brackets.
+Notice that the code `aes(waiting)` from before has changed to `aes(.data[[input$display_var]])`. Because `input$display_var` is a `r glossary("string")`, we have to select it from the `.data` placeholder (which refers to the `faithful` data table) using double brackets.
 :::
 
-Re-run your app and see if you can change the data and x-axis label with your new widget. If not, check your code against [the code](https://shiny.psy.gla.ac.uk/debruine/first_demo/){target="_blank"}.
+Re-run your app and see if you can change the data and x-axis label with your new widget. 
 
-```{r first-demo-app, eval = TRUE, echo=FALSE, fig.cap="First Demo App. You can also access this app with `shinyintro::app(\"first_demo\")`."}
+```{r first-demo-app, eval=TRUE, echo=FALSE, fig.cap="First Demo App. You can also access this app with `shinyintro::app(\"first_demo\")`or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/first_demo/){target=\"_blank\"}."}
 knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/first_demo/",
-  height = "800px")
+height = "800px")
 ```
 
-## Overview of the UI/server structure
+
+## App Structure
 
 Now that we've made and modified our first working app, it's time to learn a bit about how a shiny app is structured.
 
-A shiny app is made of two main parts, a `r glossary("UI")`, which defines what the user interface looks like, and a `r glossary("server")` function, which defines how the interface behaves. The function `shinyApp()` puts the two together to run the application in a web browser.
+A shiny app is made of two main parts, a `r glossary("UI")`, which defines what the user interface looks like, and a `r glossary("server")` function, which defines how the interface behaves. The function `r func("shinyApp")` puts the two together to run the application in a web browser.
 
 ```{r app-structure}
 # Setup ----
@@ -309,17 +310,17 @@ Create a new app called "basic_demo" and replace all the text in app.R with the 
 
 ### UI
 
-The UI is created by one of the ui-building `\*Page()` functions, such as `fluidPage()`, `fixedPage()`, `fillPage()` or `dashboardPage()` (which we'll learn more about in Chapter\ \@ref(shinydashboard)). The ui-building functions set up the parts of the webpage, which are created by more shiny functions that you list inside of the page function, separated by commas.
+The UI is created by one of the ui-building `\*Page()` functions, such as `r func("fluidPage")`, `r func("fixedPage")`, `r func("fillPage")` or `r func("dashboardPage")` (which we'll learn more about in Chapter\ \@ref(shinydashboard)). The ui-building functions set up the parts of the webpage, which are created by more shiny functions that you list inside of the page function, separated by commas.
 
-#### Tags
+### Tags
 
 For example, the code below displays:
 
 1.  a title panel with the text "Basic Demo"
 2.  a level-two header with the text "My favourite things"
-3.  an unordered list (`tags$ul`) containing several list items (`tags$li`)
+3.  an unordered list (`r func("tags$ul")`) containing several list items (`r func("tags$li")`)
 4.  a paragraph with the text "This is a very basic demo."
-5.  an image of the shinyintro logo with a width and height of 100 pixels
+5.  an image of the `r pkg("shinyintro")` logo with a width and height of 100 pixels
 
 ```{r fluidPage}
 ui <- fluidPage(
@@ -337,15 +338,15 @@ ui <- fluidPage(
 )
 ```
 
-Many of the functions used to create parts of the website are the same as `r glossary("tag", "HTML tags")`, which are ways to mark the beginning and end of different types of text. Most HTML tags are available in shiny by using one of the `tags()` sub-functions, but some of the more common tags, like `p()` or `h1()`-`h6()`also have a version where you can omit the`tags\$` part. You can see a list of all of the tags available in Shiny at the [tag glossary](https://shiny.rstudio.com/articles/tag-glossary.html){target="_blank"}
+Many of the functions used to create parts of the website are the same as `r glossary("tag", "HTML tags")`, which are ways to mark the beginning and end of different types of text. Most HTML tags are available in shiny by using one of the `r func("tags")` sub-functions, but some of the more common tags, like `r func("p")` or `r func("h1")`-`r func("h6")`also have a version where you can omit the`tags\$` part. You can see a list of all of the tags available in Shiny at the [tag glossary](https://shiny.rstudio.com/articles/tag-glossary.html){target="_blank"}
 
 ::: {.try}
 Add the code above to your `basic_demo` app and replace my favourite things with yours. Make the list an ordered list (instead of unordered) and change the image size.
 :::
 
-#### Page Layout
+### Page Layout
 
-You usually want your apps to have a more complex layout than just each element stacked below the previous one. The code below wraps the elements after the title panel inside a `flowLayout()`.
+You usually want your apps to have a more complex layout than just each element stacked below the previous one. The code below wraps the elements after the title panel inside `r func("flowLayout")`.
 
 ```{r}
 ui <- fluidPage(titlePanel("Basic Demo"),
@@ -364,10 +365,10 @@ ui <- fluidPage(titlePanel("Basic Demo"),
 ```
 
 ::: {.try}
-Replace the ui code in your basic_demo" app with the code above and run it in a web browser. What happens when you change the width of the web browser? Change `flowLayout` to `verticalLayout` or `splitLayout` and see what changes.
+Replace the ui code in your basic_demo" app with the code above and run it in a web browser. What happens when you change the width of the web browser? Change `r func("flowLayout")` to `r func("verticalLayout")` or `r func("splitLayout")` and see what changes.
 :::
 
-You can use a `sidebarLayout()` to arrange your elements into a `sidebarPanel()` and a `mainPanel()`. If the browser width is too narrow, the sidebar will display on top of the main panel.
+You can use a `r func("sidebarLayout")` to arrange your elements into a `r func("sidebarPanel")` and a `r func("mainPanel")`. If the browser width is too narrow, the sidebar will display on top of the main panel.
 
 ```{r}
 ui <- fluidPage(titlePanel("Basic Demo"),
@@ -388,13 +389,12 @@ ui <- fluidPage(titlePanel("Basic Demo"),
 ```
 
 
-## Inputs, outputs, and action buttons
-
+## Dynamic Elements
 So far, we've just put `r glossary("static")` elements into our UI. What makes Shiny apps work is `r glossary("dynamic")` elements like inputs, outputs, and action buttons. 
 
 ### Inputs {#inputs-intro}
 
-Inputs are ways for the users of your app to communicate with the app, like drop-down menus or checkboxes. We'll go into the different types of inputs in Capert\ \@ref(inputs).  Below we'll turn the list of favourite things into a group of checkboxes
+Inputs are ways for the users of your app to communicate with the app, like drop-down menus or checkboxes. We'll go into the different types of inputs in Chapter\ \@ref(inputs).  Below we'll turn the list of favourite things into a group of checkboxes
 
 ```{r}
 checkboxGroupInput(
@@ -407,18 +407,18 @@ checkboxGroupInput(
 Most inputs are structured like this, with an inputId, which needs to be a unique string not used as the ID for any other input or output in your app, a label that contains the question, and a list of choices or other parameters that determine what type of values the input will record.
 
 ::: {.info}
-You might have noticed that the `sliderInput()` in the demo app didn't use the argument names for the `inputId` or the `label`. All inputs need these first two arguments, so almost everyone omits their names.
+You might have noticed that the `r func("sliderInput")` in the demo app didn't use the argument names for the `r arg("inputId")` or the `r func("label")`. All inputs need these first two arguments, so almost everyone omits their names.
 :::
 
 ### Outputs {#outputs-intro}
 
-Outputs are placeholders for things that `server()` will create. There are different output functions for different types of outputs, like text, plots, and tables. We'll go into the different types of outputs in detail in Chapter\ \@ref(outputs). Below, we'll make a placeholder for some text that we'll display after counting the number of favourite things.
+Outputs are placeholders for things that `r func("server")` will create. There are different output functions for different types of outputs, like text, plots, and tables. We'll go into the different types of outputs in detail in Chapter\ \@ref(outputs). Below, we'll make a placeholder for some text that we'll display after counting the number of favourite things.
 
 ```{r}
 textOutput(outputId = "n_fav_things")
 ```
 
-Most outputs are structured like this, with just a unique outputId (the argument name is also usually omitted).
+Most outputs are structured like this, with just a unique `r arg("outputId")` (the argument name is also usually omitted).
 
 
 ### Action buttons
@@ -431,9 +431,9 @@ actionButton(inputId = "count_fav_things",
              icon = icon("calculator"))
 ```
 
-Action buttons require a unique inputId and a label for the button text. You can also add an icon. Choose a free icon from [fontawesome](https://fontawesome.com/icons?d=gallery&m=free){target="_blank"}.
+Action buttons require a unique `r arg("inputId")` and a `r arg("label")` for the button text. You can also add an `r arg("icon")`. Choose a free icon from [fontawesome](https://fontawesome.com/icons?d=gallery&m=free){target="_blank"}.
 
-Put the input, output, and action button into the ui and run it. You will see that the input checkboxes are selectable and the button is clickable, but nothing is displayed in the text output. We need some code in `server()` to handle that.
+Put the input, output, and action button into the ui and run it. You will see that the input checkboxes are selectable and the button is clickable, but nothing is displayed in the text output. We need some code in `r func("server")` to handle that.
 
 ```{r}
 ui <- fluidPage(titlePanel("Basic Demo"),
@@ -456,9 +456,9 @@ ui <- fluidPage(titlePanel("Basic Demo"),
 
 ## Reactive functions {#first-reactive}
 
-Reactive functions are functions that only run when certain types of inputs change. Inside the server function, the `r glossary("object")` `input` is a named `r glossary("list")` of the values of all of the inputs. For example, if you want to know which items in the select input named "fav_things" were selected, you would use `input$fav_things`.
+Reactive functions are functions that only run when certain types of inputs change. Inside `r func("server")`, the `r glossary("object")` `input` is a named `r glossary("list")` of the values of all of the inputs. For example, if you want to know which items in the select input named "fav_things" were selected, you would use `input$fav_things`.
 
-Here, we just want to count how many items are checked. We want to do this whenever the button "count_fav_things" is clicked, so we can use the reactive function `observeEvent()` to do this. Every time the value of `input$count_fav_things` changes (which happens when it is clicked), it will run the code inside of the curly brackets `{}`. The code will only run when `input$count_fav_things` changes, not when any inputs inside the function change.
+Here, we just want to count how many items are checked. We want to do this whenever the button "count_fav_things" is clicked, so we can use the reactive function `r func("observeEvent")` to do this. Every time the value of `input$count_fav_things` changes (which happens when it is clicked), it will run the code inside of the curly brackets `{}`. The code will only run when `input$count_fav_things` changes, not when any inputs inside the function change.
 
 ```{r}
 server <- function(input, output) {
@@ -470,7 +470,7 @@ server <- function(input, output) {
 }
 ```
 
-Now we want to display this text in the output "n_fav_things". We need to use a render function that is paired with our output function. Since "n_fav_things" was made with `textOutput()`, we fill it with `renderText()`. 
+Now we want to display this text in the output "n_fav_things". We need to use a render function that is paired with our output function. Since "n_fav_things" was made with `r func("textOutput")`, we fill it with `r func("renderText")`. 
 
 ```{r}
 server <- function(input, output) {
@@ -485,9 +485,9 @@ server <- function(input, output) {
 
 As always in coding, there are many ways to accomplish the same thing. These methods have different pros and cons that we'll learn more about in Chapter\ \@ref(reactives). Here is another pattern that does that same as above.
 
-This pattern uses `reactive()` to create a new function called `count_text()`, which updates the value it returns whenever any inputs inside the reactive function change. We use `isolate()` to prevent `count_text()` from changing when users click the checkboxes. 
+This pattern uses `r func("reactive")` to create a new function called `r func("count_text")`, which updates the value it returns whenever any inputs inside the reactive function change. We use `r func("isolate")` to prevent `r func("count_text")` from changing when users click the checkboxes. 
 
-Whenever the returned value of `count_text()` changes, this triggers an update of the "n_fav_things" output.
+Whenever the returned value of `r func("count_text")` changes, this triggers an update of the "n_fav_things" output.
 
 ```{r}
 server <- function(input, output) {
@@ -506,7 +506,7 @@ server <- function(input, output) {
 ```
 
 ::: {.try}
-Compare the app behaviour with the first pattern versus the second. How are they different? What happens if you remove `isolate()` from around `input$fav_things`?
+Compare the app behaviour with the first pattern versus the second. How are they different? What happens if you remove `r func("isolate")` from around `input$fav_things`?
 :::
 
 ## Further Resources {#resources-first-app}
@@ -520,12 +520,11 @@ Compare the app behaviour with the first pattern versus the second. How are they
 
 ### Addition App - UI
 
-Create the UI for following [addition app](https://shiny.psy.gla.ac.uk/debruine/add_demo/){target="_blank"}. Use `numericInput()` to create the inputs.
+Create the UI for following [addition app](https://shiny.psy.gla.ac.uk/debruine/add_demo/){target="_blank"}. Use `r func("numericInput")` to create the inputs.
 
-
-```{r add-demo-app, eval = TRUE, echo=FALSE, fig.cap="Add Demo App"}
+```{r add-demo-app, eval=TRUE, echo=FALSE, fig.cap="Add Demo App. You can also access this app with `shinyintro::app(\"add_demo\")`or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/add_demo/){target=\"_blank\"}."}
 knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/add_demo/",
-  height = "400px")
+height = "400px")
 ```
 
 `r hide()`
@@ -546,7 +545,7 @@ ui <- fluidPage(titlePanel("Addition Demo"),
 
 ### observeEvent
 
-Use `observeEvent()` to write a server function that displays "n1 + n2 = sum" when you click the action button.
+Use `r func("observeEvent")` to write a server function that displays "n1 + n2 = sum" when you click the action button.
 
 `r hide()`
 
@@ -565,7 +564,7 @@ server <- function(input, output) {
 
 ### reactive
 
-Use `reactive()` to accomplish the same behaviour.
+Use `r func("reactive")` to accomplish the same behaviour.
 
 `r hide()`
 

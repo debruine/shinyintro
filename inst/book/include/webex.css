@@ -1,11 +1,9 @@
 /* styles for webex-solveme */
 .webex-solveme { 
   border: 2px dotted var(--pink); 
-  background-color: var(--pink);
 }
 .webex-solveme.webex-correct { 
     border: 2px solid var(--green);
-    background-color: var(--green);
 }
 /* styles for hidden solutions */
 .webex-solution {

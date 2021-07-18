@@ -1,10 +1,10 @@
 # Structuring a complex app {#structure}
 
-So far, we've been mostly structuring our app entirely in the `app.R` file, apart from some of the web helper files for `r glossary("CSS")` and `r glossary("JavaScript")`. However, once your apps start getting relatively complex, you might find it easier to move some of the code into external `.R` files and using `source()` to include them. There are a few things to watch out for when you do this.
+So far, we've been mostly structuring our app entirely in the *app.R* file, apart from some of the web helper files for `r glossary("CSS")` and `r glossary("JavaScript")`. However, once your apps start getting relatively complex, you might find it easier to move some of the code into external *.R* files and using `source()` to include them. There are a few things to watch out for when you do this.
 
 ## External Server Functions
 
-You can define `r glossary("function", "functions")` you want to use in your app at the top of the `app.R` file, but that can make that file difficult to parse pretty quickly. The basic template includes external functions with the line:
+You can define `r glossary("function", "functions")` you want to use in your app at the top of the *app.R* file, but that can make that file difficult to parse pretty quickly. The basic template includes external functions with the line:
 
 ```{r}
 source("scripts/func.R") # helper functions
@@ -36,7 +36,7 @@ server <- function(input, output, session) {
 } 
 ```
 
-You might find it useful to break up parts of the server logic for a very big app into separate files like this, but it's more common to keep any code that uses reactive functions inside `server()` in the `app.R` file, and move large sections of code inside those functions to externally defined functions.
+You might find it useful to break up parts of the server logic for a very big app into separate files like this, but it's more common to keep any code that uses reactive functions inside `server()` in the *app.R* file, and move large sections of code inside those functions to externally defined functions.
 
 For example, you could define the function `logo_image()` in the external file `scripts/logo.R` like this:
 
@@ -50,7 +50,7 @@ logo_image() <- function() {
 ```
 
 
-The following in the `app.R` file keeps the reactive function `renderImage()` inside `server()`, but lets you reduce the number of lines of code. 
+The following in the *app.R* file keeps the reactive function `renderImage()` inside `server()`, but lets you reduce the number of lines of code. 
 
 ```{r}
 source("scripts/logo.R")
@@ -124,7 +124,7 @@ tabItems(
 )
 ```
 
-For a simple app, you can define the tabs in `app.R` just before you define the `ui`. You can do the same for any components of the `ui`, such as `dashboardHeader()` or `dashboardSidebar()`. When the sections start getting complex, you can move them into external files and source them in.
+For a simple app, you can define the tabs in *app.R* just before you define the `ui`. You can do the same for any components of the `ui`, such as `dashboardHeader()` or `dashboardSidebar()`. When the sections start getting complex, you can move them into external files and source them in.
 
 ### UI Lists
 
@@ -160,8 +160,8 @@ select_box <- do.call(box, select_inputs)
 
 ### server functions
 
-In the app you're developing, see if there are any long functions inside reactive functions in `server()` that can be moved to `scripts/func.R` or another external file.
+In the app you're developing, see if there are any long functions inside reactive functions in `server()` that can be moved to *scripts/func.R* or another external file.
 
 ### UI files
 
-In the app you're developing, move each tab into an external file and source it into `app.R`.
+In the app you're developing, move each tab into an external file and source it into *app.R*.

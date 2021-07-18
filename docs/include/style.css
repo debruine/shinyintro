@@ -1,8 +1,82 @@
 /* (edit style.css for your own book styles) */
 
+.book.font-family-1 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.book .book-body .page-wrapper .page-inner section,
+.book .book-body .page-wrapper .page-inner section.normal {
+  line-height: 1.6;
+}
+
+code, pre, 
+.book .book-body .page-wrapper .page-inner section.normal code, 
+.book .book-body .page-wrapper .page-inner section.normal pre {
+  SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre,
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code {
+  background-color: rgb(190, 190, 190);
+}
+
 .figure img, p img {
   min-width: 200px;
 }
 .figure img + img, p img + img {
   margin-left: 1em;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal code.path,
+.book .book-body .page-wrapper .page-inner section.normal code.package,
+.book .book-body .page-wrapper .page-inner section.normal code.function,
+.book .book-body .page-wrapper .page-inner section.normal code.argument {
+  background-color: inherit;
+  font-size: 105%;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal code.path::before,
+.book .book-body .page-wrapper .page-inner section.normal code.package::before,
+.book .book-body .page-wrapper .page-inner section.normal code.function::before,
+.book .book-body .page-wrapper .page-inner section.normal code.argument::before,
+.book .book-body .page-wrapper .page-inner section.normal code.path::after,
+.book .book-body .page-wrapper .page-inner section.normal code.package::after,
+.book .book-body .page-wrapper .page-inner section.normal code.function::after,
+.book .book-body .page-wrapper .page-inner section.normal code.argument::after {
+  content: none;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal code.path { 
+  font-style: italic;
+}
+.book .book-body .page-wrapper .page-inner section.normal code.package { 
+  font-weight: 800; 
+}
+.book .book-body .page-wrapper .page-inner section.normal code.function { 
+  color: #13307C; 
+}
+.book .book-body .page-wrapper .page-inner section.normal code.argument { 
+  color: #818E3B; 
+}
+
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code.function { 
+  color: #7f8cb0; 
+}
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code.argument { 
+  color: #bcc491; 
+}
+
+.book.color-theme-2 a.glossary, .book.color-theme-2 a:visited.glossary {
+  color: #aca4e0 !important;
+}
+
+a.glossary { 
+  font-weight: 600;
+}
+
+.webex-solveme.webex-incorrect { 
+  background-color: #edaddd; 
+}
+.webex-solveme.webex-correct { 
+  background-color: #c0edc2; 
 }

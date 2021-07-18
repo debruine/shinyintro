@@ -2,16 +2,16 @@
 
 ## Input functions
 
-Inputs are ways that users can communicate information to the Shiny app. Explore some different input types in the embedded app below before you read about how to set up each type. You can run this app locally with `shinyintro::app("input_demo")` or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/input_demo/){target="_blank"}.
+Inputs are ways that users can communicate information to the Shiny app. Explore some different input types in the embedded app below before you read about how to set up each type.
 
-```{r input-demo-app, eval = TRUE, echo=FALSE, fig.cap="Input Demo App"}
+```{r input-demo-app, eval = TRUE, echo=FALSE, fig.cap="Input Demo App. You can also access this app with `shinyintro::app(\"input_demo\")` or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/input_demo/){target=\"_blank\"}."}
 knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/input_demo/",
   height = "800px")
 ```
 
 ### textInput
 
-`textInput()` creates a one-line box for short text input.
+`r func("textInput")` creates a one-line box for short text input. The first `r glossary("argument")`, `r arg("inputId")` (the argument name is usually omitted), needs to be a unique `r glossary("string")` that you cannot use for another input or output in this app.
 
 ```{r}
 demo_text <- 
@@ -22,9 +22,13 @@ demo_text <-
             placeholder = "Your Name")
 ```
 
+::: {.try}
+Experiment with the values of `r arg("label")`, `r arg("value")`, `r arg("width")`, and `r arg("placeholder")` to see what they do.
+:::
+
 ### textAreaInput
 
-`textAreaInput()` creates a multi-line box for longer text input.
+`r func("textAreaInput")` creates a multi-line box for longer text input.
 
 ```{r}
 demo_textarea <- 
@@ -36,9 +40,12 @@ demo_textarea <-
                 placeholder = "Tell us something interesting about you.")
 ```
 
+What is the `r arg("inputId")` of the widget above?
+`r mcq(c("textAreaInput", answer="demo_textarea", "Biography"))`
+
 ### selectInput
 
-`selectInput()` creates a drop-down menu. Set the first choice to `""` to default to `NA`. If your choices are a named `r glossary("list")` or `r glossary("vector")`, the names are what is shown and the values are what is recorded. If the choices aren't named, the displayed and recorded values are the same.
+`r func("selectInput")` creates a drop-down menu. Set the first `r arg("choice")` to `""` to default to `NA`. If your choices are a named `r glossary("list")` or `r glossary("vector")`, the names are what is shown and the values are what is recorded. If the choices aren't named, the displayed and recorded values are the same.
 
 ```{r}
 demo_select <- 
@@ -51,7 +58,7 @@ demo_select <-
               width = "100%")
 ```
 
-You can also make a select where users can choose multiple options.
+If you set `r arg("multiple")` to `TRUE`, you can also make a select where users can choose multiple options.
 
 ```{r}
 genders <- list( # no blank needed
@@ -74,7 +81,7 @@ demo_select_multi <-
 
 ### checkboxGroupInput
 
-However, this interface almost always looks better with a checkbox group. 
+However, this interface almost always looks better with `r func("checkboxGroupInput")`. 
 
 ```{r}
 demo_cbgi <-
@@ -83,9 +90,13 @@ demo_cbgi <-
                      choices = genders)
 ```
 
+How can you get the checkboxes to display horizontally instead of vertically?  
+`r mcq(c("display = 'horizontal'", "class = 'horiz'", answer = "inline = TRUE", "class = 'shiny-input-container-inline'"))`
+
+
 ### checkboxInput
 
-You can also make a single checkbox. The value is `TRUE` when checked and `FALSE` when not.
+You can also make a single checkbox with `r func("checkboxInput")`. The `r arg("value")` is `TRUE` when checked and `FALSE` when not.
 
 ```{r}
 demo_cb <- checkboxInput("demo_cb",
@@ -93,7 +104,7 @@ demo_cb <- checkboxInput("demo_cb",
                          value = TRUE)
 ```
 
-Sliders allow you to choose numbers between a minimum and maximum.
+`r func("sliderInput")` allows you to choose numbers between a `r arg("min")` and `r arg("max")` value.
 
 ```{r}
 demo_slider <- sliderInput("demo_slider",
@@ -105,13 +116,63 @@ demo_slider <- sliderInput("demo_slider",
                            width = "100%")
 ```
 
+::: {.try}
+What happens if you change `r arg("value")` or `r arg("step")`? Try changing `r arg("value")` to `c(10, 20)`.
+:::
+
 ### radioButtons
+
+If you want users to only be able to choose one options and there are a small number of short options, `r func("radioButton")` is a good interface. 
 
 ```{r}
 demo_radio <- radioButtons("demo_radio",
                            label = "Choose one",
-                           choices = c("Cats", "Dogs"))
+                           choices = c("Cats", "Dogs"),
+                           selected = character(0),
+                           inline = TRUE)
 ```
+
+::: {.warning}
+Radio buttons default to selecting the first item unless you set `r arg("selected")` to a choice value or `character(0)` to start with no selection.
+:::
+
+### dateInput
+
+I find the date interface a little clunky, but that might just be because I have to click the back button on the year interface 44 time to find my birthdate. However, it also allows you to type in a date following the format that you can set.
+
+```{r}
+demo_date <- dateInput("demo_date",
+                       label = "What is your birth date?",
+                       min = "1900-01-01",
+                       max = Sys.Date(),
+                       format = "yyyy-mm-dd",
+                       startview = "year")
+```
+
+::: {.info}
+IMHO, the default of `"yyyy-mm-dd"` is the best because it sorts into chronological order. Don't let me catch you storing dates like `"m/d/yyyy"`. 
+:::
+
+What would you set `r arg("format")` to in order to display dates like "Sunday July 4, 2021"?  
+`r mcq(c("D M d, Y", answer = "DD MM d, yyyy", "DAY MONTH day, YEAR", "D MM dd, yyyy"))`
+
+(don't actually do this)
+
+
+### fileInput
+
+Users can upload one or more files with `r func("fileInput")`. The argument `r arg("acccept")` lets you limit this to certain file types, but some browsers can bypass this requirement, so it's not fool-proof.
+
+```{r}
+demo_file <- fileInput("demo_file",
+                       label = "Upload a data table",
+                       multiple = FALSE,
+                       accept = c(".csv", ".tsv"),
+                       buttonLabel = "Upload")
+```
+
+What would you set `r arg("accept")` to to accept any image file?  
+`r mcq(c(answer = "image/*",".jpg", "jpg", "images", ".img"))`
 
 
 ## Setting inputs programatically
@@ -124,10 +185,33 @@ updateTextAreaInput(session, "demo_textarea", value = "")
 updateSelectInput(session, "demo_select", selected = "")
 updateCheckboxGroupInput(session, "demo_cbgi", selected = character(0))
 updateCheckboxInput(session, "demo_cb", value = TRUE)
+updateRadioButtons(session, "demo_radio", selected = character(0))
 updateSliderInput(session, "demo_slider", value = 0)
+updateDateInput(session, "demo_date", value = NULL)
 ```
 
 ::: {.warning}
-Note that select inputs and checkbox groups use the argument `selected` and not `value`. If you want to set all the values in a checkbox group to unchecked, set `selected = character(0)`.
+Note that select inputs, checkbox groups, and radio buttons use the argument `selected` and not `value`. If you want to set all the values in a checkbox group or radio button group to unchecked, set `selected = character(0)`.
 :::
 
+## Exercises {#exercises-inputs}
+
+### Pets
+
+Create an interface that gets people to rate the following pets on a 9-point scale. You can use any option labels or input type you like.
+
+* Dogs 🐕  
+* Cats 🐈  
+* Birds 🦜  
+* Fish 🐠  
+* Mice 🐁  
+* Hedgehogs 🦔  
+* Snakes 🐍
+
+### Questionnaire
+
+In the app you're developing, add a tab for a questionnaire that you're interested in and set up the appropriate inputs. 
+
+### Updating
+
+Add a "reset" button to your questionnaire tab and write the `r func("server")` code to reset all of its inputs.

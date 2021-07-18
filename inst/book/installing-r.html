@@ -167,11 +167,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.2" data-path="first-app.html"><a href="first-app.html#modify-the-demo-app"><i class="fa fa-check"></i><b>1.1.2</b> Modify the Demo App</a></li>
 <li class="chapter" data-level="1.1.3" data-path="first-app.html"><a href="first-app.html#add-new-things"><i class="fa fa-check"></i><b>1.1.3</b> Add New Things</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="first-app.html"><a href="first-app.html#overview-of-the-uiserver-structure"><i class="fa fa-check"></i><b>1.2</b> Overview of the UI/server structure</a>
+<li class="chapter" data-level="1.2" data-path="first-app.html"><a href="first-app.html#app-structure"><i class="fa fa-check"></i><b>1.2</b> App Structure</a>
 <ul>
 <li class="chapter" data-level="1.2.1" data-path="first-app.html"><a href="first-app.html#ui"><i class="fa fa-check"></i><b>1.2.1</b> UI</a></li>
+<li class="chapter" data-level="1.2.2" data-path="first-app.html"><a href="first-app.html#tags"><i class="fa fa-check"></i><b>1.2.2</b> Tags</a></li>
+<li class="chapter" data-level="1.2.3" data-path="first-app.html"><a href="first-app.html#page-layout"><i class="fa fa-check"></i><b>1.2.3</b> Page Layout</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="first-app.html"><a href="first-app.html#inputs-outputs-and-action-buttons"><i class="fa fa-check"></i><b>1.3</b> Inputs, outputs, and action buttons</a>
+<li class="chapter" data-level="1.3" data-path="first-app.html"><a href="first-app.html#dynamic-elements"><i class="fa fa-check"></i><b>1.3</b> Dynamic Elements</a>
 <ul>
 <li class="chapter" data-level="1.3.1" data-path="first-app.html"><a href="first-app.html#inputs-intro"><i class="fa fa-check"></i><b>1.3.1</b> Inputs</a></li>
 <li class="chapter" data-level="1.3.2" data-path="first-app.html"><a href="first-app.html#outputs-intro"><i class="fa fa-check"></i><b>1.3.2</b> Outputs</a></li>
@@ -222,8 +224,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.4" data-path="inputs.html"><a href="inputs.html#checkboxgroupinput"><i class="fa fa-check"></i><b>3.1.4</b> checkboxGroupInput</a></li>
 <li class="chapter" data-level="3.1.5" data-path="inputs.html"><a href="inputs.html#checkboxinput"><i class="fa fa-check"></i><b>3.1.5</b> checkboxInput</a></li>
 <li class="chapter" data-level="3.1.6" data-path="inputs.html"><a href="inputs.html#radiobuttons"><i class="fa fa-check"></i><b>3.1.6</b> radioButtons</a></li>
+<li class="chapter" data-level="3.1.7" data-path="inputs.html"><a href="inputs.html#dateinput"><i class="fa fa-check"></i><b>3.1.7</b> dateInput</a></li>
+<li class="chapter" data-level="3.1.8" data-path="inputs.html"><a href="inputs.html#fileinput"><i class="fa fa-check"></i><b>3.1.8</b> fileInput</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="inputs.html"><a href="inputs.html#setting-inputs-programatically"><i class="fa fa-check"></i><b>3.2</b> Setting inputs programatically</a></li>
+<li class="chapter" data-level="3.3" data-path="inputs.html"><a href="inputs.html#exercises-inputs"><i class="fa fa-check"></i><b>3.3</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="inputs.html"><a href="inputs.html#pets"><i class="fa fa-check"></i><b>3.3.1</b> Pets</a></li>
+<li class="chapter" data-level="3.3.2" data-path="inputs.html"><a href="inputs.html#questionnaire"><i class="fa fa-check"></i><b>3.3.2</b> Questionnaire</a></li>
+<li class="chapter" data-level="3.3.3" data-path="inputs.html"><a href="inputs.html#updating"><i class="fa fa-check"></i><b>3.3.3</b> Updating</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="outputs.html"><a href="outputs.html"><i class="fa fa-check"></i><b>4</b> Outputs</a>
 <ul>
@@ -388,9 +398,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="A" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i><b>A</b> Installing <code>R</code></a>
 <ul>
 <li class="chapter" data-level="A.1" data-path="installing-r.html"><a href="installing-r.html#installing-base-r"><i class="fa fa-check"></i><b>A.1</b> Installing Base R</a></li>
-<li class="chapter" data-level="A.2" data-path="installing-r.html"><a href="installing-r.html#installing-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing RStudio</a></li>
-<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-shinyintro-1"><i class="fa fa-check"></i><b>A.3</b> Installing shinyintro</a></li>
-<li class="chapter" data-level="A.4" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.4</b> Installing LaTeX</a></li>
+<li class="chapter" data-level="A.2" data-path="installing-r.html"><a href="installing-r.html#installing-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing RStudio</a>
+<ul>
+<li class="chapter" data-level="A.2.1" data-path="installing-r.html"><a href="installing-r.html#rstudio-settings"><i class="fa fa-check"></i><b>A.2.1</b> RStudio Settings</a></li>
+<li class="chapter" data-level="A.2.2" data-path="installing-r.html"><a href="installing-r.html#installing-shinyintro-1"><i class="fa fa-check"></i><b>A.2.2</b> Installing shinyintro</a></li>
+</ul></li>
+<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.3</b> Installing LaTeX</a></li>
 </ul></li>
 <li class="chapter" data-level="B" data-path="symbols.html"><a href="symbols.html"><i class="fa fa-check"></i><b>B</b> Symbols</a></li>
 <li class="chapter" data-level="C" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>C</b> Glossary</a></li>
@@ -432,17 +445,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="installing-rstudio" class="section level2" number="14.2">
 <h2><span class="header-section-number">A.2</span> Installing RStudio</h2>
 <p>Go to <a href="https://www.rstudio.com/products/rstudio/download/#download">rstudio.com</a> and download the RStudio Desktop (Open Source License) version for your operating system under the list titled <strong>Installers for Supported Platforms</strong>.</p>
+<div id="rstudio-settings" class="section level3" number="14.2.1">
+<h3><span class="header-section-number">A.2.1</span> RStudio Settings</h3>
+<p>There are a few settings you should fix immediately after updating RStudio. Go to <strong><code>Global Options...</code></strong> under the <strong><code>Tools</code></strong> menu (⌘,), and in the General tab, uncheck the box that says <strong><code>Restore .RData into workspace at startup</code></strong>. If you keep things around in your workspace, things will get messy, and unexpected things will happen. You should always start with a clear workspace. This also means that you never want to save your workspace when you exit, so set this to <strong><code>Never</code></strong>. The only thing you want to save are your scripts.</p>
+<p>You may also want to change the appearance of your code. Different fonts and themes can sometimes help with visual difficulties or [dyslexia]((<a href="https://datacarpentry.org/blog/2017/09/coding-and-dyslexia" class="uri">https://datacarpentry.org/blog/2017/09/coding-and-dyslexia</a>){target="_blank"}. I prefer a dark background and the FiraCode font for my own coding, but I will use the default theme for screenshots in this book.</p>
+<div class="figure" style="text-align: center"><span id="fig:settings-general"></span>
+<img src="images/rstudio_settings_general.png" alt="My RStudio General and Appearance settings" width="45%" /><img src="images/rstudio_settings_appearance.png" alt="My RStudio General and Appearance settings" width="45%" />
+<p class="caption">
+Figure A.1: My RStudio General and Appearance settings
+</p>
 </div>
-<div id="installing-shinyintro-1" class="section level2" number="14.3">
-<h2><span class="header-section-number">A.3</span> Installing shinyintro</h2>
+<p>You may also want to change the settings in the Code tab. I prefer two spaces instead of tabs for my code and I like to be able to see the <a class='glossary' target='_blank' title='Spaces, tabs and line breaks' href='https://psyteachr.github.io/glossary/w#whitespace'>whitespace</a> characters. But these are all a matter of personal preference.</p>
+<div class="figure" style="text-align: center"><span id="fig:settings-code"></span>
+<img src="images/rstudio_settings_code_editing.png" alt="My RStudio Code settings" width="45%" /><img src="images/rstudio_settings_code_display.png" alt="My RStudio Code settings" width="45%" />
+<p class="caption">
+Figure A.2: My RStudio Code settings
+</p>
+</div>
+</div>
+<div id="installing-shinyintro-1" class="section level3" number="14.2.2">
+<h3><span class="header-section-number">A.2.2</span> Installing shinyintro</h3>
 <p>To install the class package, which will provide you with a copy of all of the shiny apps we’ll use for demos and the basic template, paste the following code into the console in RStudio.</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="installing-r.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you may have to install devtools first with </span></span>
-<span id="cb176-2"><a href="installing-r.html#cb176-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;devtools&quot;)</span></span>
-<span id="cb176-3"><a href="installing-r.html#cb176-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb176-4"><a href="installing-r.html#cb176-4" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;debruine/shinyintro&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="installing-r.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you may have to install devtools first with </span></span>
+<span id="cb180-2"><a href="installing-r.html#cb180-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;devtools&quot;)</span></span>
+<span id="cb180-3"><a href="installing-r.html#cb180-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb180-4"><a href="installing-r.html#cb180-4" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;debruine/shinyintro&quot;</span>)</span></code></pre></div>
 </div>
-<div id="installing-latex" class="section level2" number="14.4">
-<h2><span class="header-section-number">A.4</span> Installing LaTeX</h2>
+</div>
+<div id="installing-latex" class="section level2" number="14.3">
+<h2><span class="header-section-number">A.3</span> Installing LaTeX</h2>
 <p>You can install the LaTeX typesetting system to produce PDF reports from RStudio. Without this additional installation, you will be able to produce reports in HTML but not PDF. This course will not require you to make PDFs. To generate PDF reports, you will additionally need:</p>
 <ol style="list-style-type: decimal">
 <li><a href="http://pandoc.org/installing.html">pandoc</a>, and</li>
@@ -492,9 +523,14 @@ solveme_func = function(e) {
     my_answer = my_answer.replace(/ /g, "")
   }
   
-  if (my_answer !== "" & real_answers.includes(my_answer)) {
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
     cl.add("webex-correct");
+    cl.remove("webex-incorrect");
   } else {
+    cl.add("webex-incorrect");
     cl.remove("webex-correct");
   }
 
@@ -620,6 +656,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

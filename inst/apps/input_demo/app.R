@@ -57,21 +57,38 @@ demo_slider <- sliderInput("demo_slider",
                            
 demo_radio <- radioButtons("demo_radio",
                            label = "Choose one",
-                           choices = c("Cats", "Dogs"))
+                           choices = c("Cats", "Dogs"),
+                           selected = character(0),
+                           inline = TRUE)
+
+demo_date <- dateInput("demo_date",
+                       label = "What is your birth date?",
+                       min = "1900-01-01",
+                       max = Sys.Date(),
+                       format = "yyyy-mm-dd",
+                       startview = "year")
+
+demo_file <- fileInput("demo_file",
+                       label = "Upload a data table",
+                       multiple = FALSE,
+                       accept = c(".csv", ".tsv"),
+                       buttonLabel = "Upload")
 
 main_tab <- tabItem(
     tabName = "main_tab",
     p("We're not recording anything here."),
     fluidRow(
-        column(width = 6, 
-                demo_text,
-                demo_textarea,
-                demo_select),
         column(width = 6,
-                demo_cbgi,
-                demo_slider,
-                demo_cb,
-                demo_radio)
+               demo_text,
+               demo_textarea,
+               demo_select,
+               demo_radio),
+        column(width = 6,
+               demo_cbgi,
+               demo_slider,
+               demo_cb,
+               demo_date,
+               demo_file)
     ),
     actionButton("reset", "Reset")
 )
@@ -99,7 +116,9 @@ server <- function(input, output, session) {
         updateSelectInput(session, "demo_select", selected = "")
         updateCheckboxGroupInput(session, "demo_cbgi", selected = character(0))
         updateCheckboxInput(session, "demo_cb", value = TRUE)
+        updateRadioButtons(session, "demo_radio", selected = character(0))
         updateSliderInput(session, "demo_slider", value = 0)
+        updateDateInput(session, "demo_date", value = NULL)
     })
 } 
 

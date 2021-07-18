@@ -1,31 +1,31 @@
 # ShinyDashboard {#shinydashboard}
 
-[Shinydashboard](https://rstudio.github.io/shinydashboard/){target="_blank"} is an R `r glossary("package")` that provides functions to upgrade your Shiny apps into beautiful dashboards.
+[Shinydashboard](https://rstudio.github.io/shinydashboard/){target="_blank"} is an R `r glossary("package")` that provides functions to upgrade the appearance and function of your Shiny apps. 
 
 ## Basic template for shinydashboard projects
 
-The shinyintro package provides a basic template for a shinydashboard project.
+The `r pkg("shinyintro")` package provides a basic template for a shinydashboard `r glossary("project")`.
 
-```{r basic-template-app, eval = TRUE, echo=FALSE, fig.cap="Basic Template App"}
+```{r basic-template-app, eval=TRUE, echo=FALSE, fig.cap="Basic Template.App You can also access this app with `shinyintro::app(\"basic_template\")`or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/basic_template/){target=\"_blank\"}."}
 knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/basic_template/",
-  height = "500px")
+height = "500px")
 ```
 
-You can start a new app using the template with the code `shinyintro::clone("basic_template", "myapp")`. This will create a new directory called "myapp" in your `r glossary("working directory")` and open the `app.R` file in RStudio.
+You can start a new app using the template with the code `shinyintro::clone("basic_template", "myapp")`. This will create a new directory called `r path("myapp")` in your `r glossary("working directory")` and open the `r path("app.R")` file in RStudio.
 
 This directory contains:
 
-* `app.R`: the file where you define the `r glossary("ui")` and `r glossary("server")`
-* `DESCRIPTION`: A file that contains some structured info about the app
-* `README.md`: A file that can contain any information you want
-* `scripts`: a directory that can contain external R code that you can source into the `app.R` file
-* `www`: a directory that contains helper files like images, `r glossary("CSS")`, and `r glossary("JavaScript")` 
+* `r path("app.R")`: the file where you define the `r glossary("ui")` and `r glossary("server")`
+* `r path("DESCRIPTION")`: A file that contains some structured info about the app
+* `r path("README.md")`: A file that can contain any information you want
+* `r path("scripts")`: a directory that can contain external R code that you can source into the `r path("app.R")` file
+* `r path("www")`: a directory that contains helper files like images, `r glossary("CSS")`, and `r glossary("JavaScript")` 
 
 ## Dashboard Structure
 
-Notice that the ui is created with `dashboardPage()` now. This needs to be set up a little differently than `fluidPage()`. The main parts of a dashboardPage are the header, sidebar, and body.
+Notice that the ui is created with `r func("dashboardPage")` now. This needs to be set up a little differently than `r func("fluidPage")`. The main parts of a dashboard page are the header, sidebar, and body.
 
-You can also change the default skin colour. Possible skin colours are: red, yellow (looks orange to me), green, blue, purple, and black.
+You can also change the default `r arg("skin")` colour. Possible skin colours are: red, yellow (looks orange to me), green, blue, purple, and black.
 
 ```{r}
 dashboardPage(
@@ -50,14 +50,14 @@ dashboardHeader(
 You can also include message, notification, and task menus in the header. We won't be using those in this class, but you can learn more at [the shinydashboard site](https://rstudio.github.io/shinydashboard/structure.html#message-menus){target="_blank"}.
 
 ::: {.info}
-If you don't want to use a header, include `dashboardHeader(disable = TRUE)` inside `dashboardPage()`. 
+If you don't want to use a header, include `dashboardHeader(disable = TRUE)` inside `r func("dashboardPage")`. 
 :::
 
 ### dashboardSidebar
 
-The sidebar usually contains a `sidebarMenu()`, which needs a unique ID and a list of menu items. Each `menuItem()` consists of the title, a tabName that will be used to refer to the tab later, and an icon. You can find a list of the available free icons at [fontawesome](https://fontawesome.com/icons?d=gallery&m=free){target="_blank"}.
+The sidebar usually contains a `r func("sidebarMenu")`, which needs a unique ID and a list of menu items. Each `r func("menuItem")` consists of the `r arg("title")`, a `r arg("tabName")` that will be used to refer to the tab later, and an `r arg("icon")`. You can find a list of the available free icons at [fontawesome](https://fontawesome.com/icons?d=gallery&m=free){target="_blank"}.
 
-You can also add in any other elements to the sidebar. The code below adds a link using `tags$a()` Text inside of the sidebar usually looks too close to the edges, so we use [css](#CSS) to style the link and add padding.
+You can also add in any other elements to the sidebar. The code below adds a link using `r func("tags$a")` Text inside of the sidebar usually looks too close to the edges, so we use [css](#CSS) to style the link and add padding.
 
 ```{r}
 dashboardSidebar(
@@ -71,14 +71,14 @@ dashboardSidebar(
 ```
 
 ::: {.info}
-If you don't want to use a sidebar, include `dashboardSidebar(disable = TRUE)` inside `dashboardPage()`. 
+If you don't want to use a sidebar, include `dashboardSidebar(disable = TRUE)` inside `r func("dashboardPage")`. 
 :::
 
 ### dashboardBody
 
-The main part of the app goes inside `dashboardBody()` If you're going to use [shinyjs](#shinyjs) functions (which the basic template does), you need to put `useShinyjs()` first. Then you include the header, linking to any custom CSS or JavaScript files. 
+The main part of the app goes inside `r func("dashboardBody")` If you're going to use `r glossary("javascript")` functions (which the basic template does and we'll learn more about in Chapter\ \@ref(shinyjs)), you need to put `r func("useShinyjs")` first. Then you include the header, linking to any custom CSS or JavaScript files. 
 
-The contents of the body go after that. The most common pattern is a multi-page tabbed pattern, which is set up with `tabItems()`, which contains a `tabItem()` for each tab. The `tabName` has to match the name you used in the sidebar `menuItem`, so that tab shows when the user clicks on the corresponding menu item.
+The contents of the body go after that. The most common pattern is a multi-page tabbed pattern, which is set up with `r func("tabItems")`, which contains a `r func("tabItem")` for each tab. The `r arg("tabName")` has to match the name you used in the sidebar `r func("menuItem")`, so that tab shows when the user clicks on the corresponding menu item.
 
 ```{r}
 dashboardBody(
@@ -95,11 +95,11 @@ dashboardBody(
 
 ```
 
-Since each tab is usually a quite complex list of elements, I like to define each tab outside `dashboardPage()` and then just put a list of the tab objects inside `tabItems()`. This way, it's easy to move the whole tab definition to an external file if it gets too complex (see [Chapter 8](#structure)).
+Since each tab is usually a quite complex list of elements, I like to define each tab outside `r func("dashboardPage")` and then just put a list of the tab objects inside `r func("tabItems")`. This way, it's easy to move the whole tab definition to an external file if it gets too complex (see Chapter \ \@ref(structure)).
 
 ## Body Structure
 
-Tab items can be structured in several ways. At the simplest, you can just list each element after the tabName.
+Tab items can be structured in several ways. At the simplest, you can just list each element after the `r arg("tabName")`.
 
 ```{r}
 tabItem(
@@ -113,9 +113,10 @@ tabItem(
 
 ### Boxes
 
-Most shinydashboard apps organise the parts inside boxes.
+Most `r pkg("shinydashboard")` apps organise the parts inside boxes.
 
 ```{r}
+library() 
 tabItem(
     tabName = "demo_tab",
     box(
@@ -165,11 +166,13 @@ tabItem(
 )
 ```
 
-![](images/sdb_box_status.png)
+```{r sdb-box-status, eval=TRUE, echo=FALSE, fig.cap = 'Shinydashboard Box Statuses.'}
+knitr::include_graphics('images/sdb_box_status.png')
+```
 
 ### Info and Value Boxes
 
-You can use an `infoBox()` or a `valueBox()` to highlight a small amount of information. The shinydashboard uses an aqua background as the default, but the basic template changes this to the skin colour. However, you can customise this by setting the color argument.  
+You can use an `r func("infoBox")` or a `r func("valueBox")` to highlight a small amount of information. The default background is aqua, but the basic template changes this to the skin colour. However, you can customise this by setting the `r arg("color")` argument.  
 
 ```{r}
 tabItem(
@@ -180,9 +183,11 @@ tabItem(
 )
 ```
 
-![](images/sdb_value_info.png)
+```{r sdb-value-info, eval=TRUE, echo=FALSE, fig.cap = 'Examples of value and info boxes you can make.'}
+knitr::include_graphics('images/sdb_value_info.png')
+```
 
-The default width of boxes is 6, and info and value boxes are 4. Shinydashboard uses a grid system that is 12 units across 
+`r pkg("Shinydashboard")` uses a grid system that is 12 units across. The default width of boxes is 6, and info and value boxes are 4.
 
 ::: {.try}
 Try to write the code to create the second row of info boxes show above and the third row of value boxes.
@@ -190,7 +195,7 @@ Try to write the code to create the second row of info boxes show above and the 
 
 ### Tab Boxes
 
-Create a box with multiple tabs using `tabBox()`, which contains `tabPanel()`.
+Create a box with multiple tabs using `r func("tabBox")`, which contains `r func("tabPanel")`.
 
 ```{r}
 tabItem(
@@ -215,7 +220,7 @@ tabItem(
 
 ### Row Layout
 
-You can arrange the boxes inside a `fluidRow()`. Set the box height in pixels. If the window gets too narrow, the boxes will move to stack instead of be in rows.
+You can arrange the boxes inside a `r func("fluidRow")`. Set the box height in pixels. If the window gets too narrow, the boxes will move to stack instead of be in rows.
 
 ```{r}
 tabItem(
@@ -235,7 +240,7 @@ tabItem(
 
 ### Column Layout
 
-Alternatively, you can arrange boxes or other elements inside a column() with a specific width. Elements inside this column have a width relative to the column width, so no matter what value you set the column width to, an element inside with a width of 6 will be half the column width.
+Alternatively, you can arrange boxes or other elements inside a `r func("column")` with a specific `r arg("width")`. Elements inside this column have a width relative to the column width, so no matter what value you set the column `r arg("width")` to, an element inside with a `r arg("width")` of 6 will be half the column width.
 
 ```{r}
 tabItem(
@@ -269,27 +274,27 @@ tabItem(
 
 ### Create an app from the basic template
 
-* Create a demo app from the basic_template and run it. 
+* Create a demo app from the basic template and run it. 
 * Close the app and run it again. 
 * Look at the code to see how the theme colour and sidebar icon change. 
-* Change the title and author in the `DESCRIPTION` file and set DisplayMode to "Showcase" instead of "Normal" to see what happens when you run it.
+* Change the title and author in the `r path("DESCRIPTION")` file and set DisplayMode to "Showcase" instead of "Normal" to see what happens when you run it.
 
 ### Customise the header
 
-* Change the title to the title of the app you want to build.
-* Choose a skin
-* Experiment with different values for the titleWidth argument. Try "50%" or "200px" and see how the title behaves when you change the width of the browser window.
+* Change the `r arg("title")` to the title of the app you want to build.
+* Choose a `r arg("skin")` color.
+* Experiment with different values for the `r arg("titleWidth")` argument. Try "50%" or "200px" and see how the title behaves when you change the width of the browser window.
 
 ### Customise the sidebar
 
-* Add tabs to the sidebar menu for the pages of your custom app.
-* Choose appropriate icons for each tab.
+* Add tabs to the `r func("sidebarMenu")` for the pages of your custom app.
+* Choose appropriate `r arg("icon")` for each tab.
 * Remove the link to the ShinyIntro book and add some information about your app, like the author or a use license.
 
 ### Customise the body
 
-* Create an empty tabItem for each tab you put in the sidebar menu and add them to the body.
-* Start adding elements to each tab, such as a list of inputs with questions or a `plotOutput()` to display a feedback plot.
+* Create an empty `r func("tabItem")` for each tab you put in the `r func("sidebarMenu")` and add them to the `r func("dashboardBody")`.
+* Start adding elements to each tab, such as a list of inputs with questions or a `r func("plotOutput")` to display a feedback plot.
 * Experiment with different ways to display the elements by grouping them into boxes
 * Experiment with different layouts for your boxes and elements.
 * Make sure you check how the app looks on different sized screens, such as phone screens.

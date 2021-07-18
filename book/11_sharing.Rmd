@@ -46,11 +46,11 @@ If you save data locally on a shiny server, you may need to change the owner or 
 
 See [Appendix B](#setup-git) for instructions on how to set up git and a GitHub account. Set up a github access token with `usethis::create_github_token()`. Your web browser will open and you'll be asked to log into your GitHub account and then asked to authorise a new token. Accept the defaults and click OK at the bottom of the page. In RStudio, run `gitcreds::gitcreds_set()` and follow the instructions to save the token.
 
-Then, to share an app with people who use R, make a project that contains your `app.R` file and any related files. If you aren't already using version control for this project, make sure all of your files are saved and type `usethis::use_git()` into the console. Choose Yes to commit and Yes to restart R.
+Then, to share an app with people who use R, make a project that contains your *app.R* file and any related files. If you aren't already using version control for this project, make sure all of your files are saved and type `usethis::use_git()` into the console. Choose Yes to commit and Yes to restart R.
 
 Make a new GitHub repository with `usethis::use_github(protocol="https")`; check that the suggested title and description are OK. If you choose the affirmative response (not always the same number), you'll see some messages and your web browser will open the github repository page.
 
-Now you can share your app with others by sending them the repository link. They can access your repository in RStudio by starting a New Project from version control, using the URL that is shown when you click on the green "Code" button on the repository page (something like "https://github.com/account/repository.git"). They can run your app the same way you do when developing it, by opening the `app.R` file and clicking the Run button.
+Now you can share your app with others by sending them the repository link. They can access your repository in RStudio by starting a New Project from version control, using the URL that is shown when you click on the green "Code" button on the repository page (something like "https://github.com/account/repository.git"). They can run your app the same way you do when developing it, by opening the *app.R* file and clicking the Run button.
 
 To update your files on GitHub, you need to `r glossary("commit")` any changes you make using the Git tab in the upper right pane. Click on the checkbox of any files you want to update, click "Commit", and write a message to yourself explaining the changes (this will be publicly viewable on GitHub, so try to be professional ;). 
 
@@ -80,7 +80,7 @@ dir.create("inst/apps")
 
 Copy any apps you want to include in this package into the inst/apps directory. 
 
-Now, create the app function by running `usethis::edit_file("R/app.R")` and copy the following text into the `app.R` file that just opened. Replace "default_app" with the directory name of the app that you want to open if a user doesn't type any name in at all.
+Now, create the app function by running `usethis::edit_file("R/app.R")` and copy the following text into the *app.R* file that just opened. Replace "default_app" with the directory name of the app that you want to open if a user doesn't type any name in at all.
 
 ```{r}
 #' Launch Shiny App
@@ -98,7 +98,7 @@ app <- function(name = "default_app", ...) {
 ```
 
 
-Next, open the `DESCRIPTION` file and edit the title, author and description. 
+Next, open the *DESCRIPTION* file and edit the title, author and description. 
 
 ```{r}
 devtools::document()

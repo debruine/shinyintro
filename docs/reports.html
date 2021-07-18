@@ -167,11 +167,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.2" data-path="first-app.html"><a href="first-app.html#modify-the-demo-app"><i class="fa fa-check"></i><b>1.1.2</b> Modify the Demo App</a></li>
 <li class="chapter" data-level="1.1.3" data-path="first-app.html"><a href="first-app.html#add-new-things"><i class="fa fa-check"></i><b>1.1.3</b> Add New Things</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="first-app.html"><a href="first-app.html#overview-of-the-uiserver-structure"><i class="fa fa-check"></i><b>1.2</b> Overview of the UI/server structure</a>
+<li class="chapter" data-level="1.2" data-path="first-app.html"><a href="first-app.html#app-structure"><i class="fa fa-check"></i><b>1.2</b> App Structure</a>
 <ul>
 <li class="chapter" data-level="1.2.1" data-path="first-app.html"><a href="first-app.html#ui"><i class="fa fa-check"></i><b>1.2.1</b> UI</a></li>
+<li class="chapter" data-level="1.2.2" data-path="first-app.html"><a href="first-app.html#tags"><i class="fa fa-check"></i><b>1.2.2</b> Tags</a></li>
+<li class="chapter" data-level="1.2.3" data-path="first-app.html"><a href="first-app.html#page-layout"><i class="fa fa-check"></i><b>1.2.3</b> Page Layout</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="first-app.html"><a href="first-app.html#inputs-outputs-and-action-buttons"><i class="fa fa-check"></i><b>1.3</b> Inputs, outputs, and action buttons</a>
+<li class="chapter" data-level="1.3" data-path="first-app.html"><a href="first-app.html#dynamic-elements"><i class="fa fa-check"></i><b>1.3</b> Dynamic Elements</a>
 <ul>
 <li class="chapter" data-level="1.3.1" data-path="first-app.html"><a href="first-app.html#inputs-intro"><i class="fa fa-check"></i><b>1.3.1</b> Inputs</a></li>
 <li class="chapter" data-level="1.3.2" data-path="first-app.html"><a href="first-app.html#outputs-intro"><i class="fa fa-check"></i><b>1.3.2</b> Outputs</a></li>
@@ -222,8 +224,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.4" data-path="inputs.html"><a href="inputs.html#checkboxgroupinput"><i class="fa fa-check"></i><b>3.1.4</b> checkboxGroupInput</a></li>
 <li class="chapter" data-level="3.1.5" data-path="inputs.html"><a href="inputs.html#checkboxinput"><i class="fa fa-check"></i><b>3.1.5</b> checkboxInput</a></li>
 <li class="chapter" data-level="3.1.6" data-path="inputs.html"><a href="inputs.html#radiobuttons"><i class="fa fa-check"></i><b>3.1.6</b> radioButtons</a></li>
+<li class="chapter" data-level="3.1.7" data-path="inputs.html"><a href="inputs.html#dateinput"><i class="fa fa-check"></i><b>3.1.7</b> dateInput</a></li>
+<li class="chapter" data-level="3.1.8" data-path="inputs.html"><a href="inputs.html#fileinput"><i class="fa fa-check"></i><b>3.1.8</b> fileInput</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="inputs.html"><a href="inputs.html#setting-inputs-programatically"><i class="fa fa-check"></i><b>3.2</b> Setting inputs programatically</a></li>
+<li class="chapter" data-level="3.3" data-path="inputs.html"><a href="inputs.html#exercises-inputs"><i class="fa fa-check"></i><b>3.3</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="inputs.html"><a href="inputs.html#pets"><i class="fa fa-check"></i><b>3.3.1</b> Pets</a></li>
+<li class="chapter" data-level="3.3.2" data-path="inputs.html"><a href="inputs.html#questionnaire"><i class="fa fa-check"></i><b>3.3.2</b> Questionnaire</a></li>
+<li class="chapter" data-level="3.3.3" data-path="inputs.html"><a href="inputs.html#updating"><i class="fa fa-check"></i><b>3.3.3</b> Updating</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="outputs.html"><a href="outputs.html"><i class="fa fa-check"></i><b>4</b> Outputs</a>
 <ul>
@@ -388,9 +398,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="A" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i><b>A</b> Installing <code>R</code></a>
 <ul>
 <li class="chapter" data-level="A.1" data-path="installing-r.html"><a href="installing-r.html#installing-base-r"><i class="fa fa-check"></i><b>A.1</b> Installing Base R</a></li>
-<li class="chapter" data-level="A.2" data-path="installing-r.html"><a href="installing-r.html#installing-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing RStudio</a></li>
-<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-shinyintro-1"><i class="fa fa-check"></i><b>A.3</b> Installing shinyintro</a></li>
-<li class="chapter" data-level="A.4" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.4</b> Installing LaTeX</a></li>
+<li class="chapter" data-level="A.2" data-path="installing-r.html"><a href="installing-r.html#installing-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing RStudio</a>
+<ul>
+<li class="chapter" data-level="A.2.1" data-path="installing-r.html"><a href="installing-r.html#rstudio-settings"><i class="fa fa-check"></i><b>A.2.1</b> RStudio Settings</a></li>
+<li class="chapter" data-level="A.2.2" data-path="installing-r.html"><a href="installing-r.html#installing-shinyintro-1"><i class="fa fa-check"></i><b>A.2.2</b> Installing shinyintro</a></li>
+</ul></li>
+<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.3</b> Installing LaTeX</a></li>
 </ul></li>
 <li class="chapter" data-level="B" data-path="symbols.html"><a href="symbols.html"><i class="fa fa-check"></i><b>B</b> Symbols</a></li>
 <li class="chapter" data-level="C" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>C</b> Glossary</a></li>
@@ -426,36 +439,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <iframe src="https://shiny.psy.gla.ac.uk/debruine/reports_demo/?showcase=0" width="100%" height="600px">
 </iframe>
 <p class="caption">
-Figure 12.1: Reports Demo App
+Figure 12.1: Reports Demo App. You can also access this app with <code>shinyintro::app("reports_demo")</code>or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/reports_demo/" target="_blank">showcase interface</a>.
 </p>
 </div>
 <div id="download-data" class="section level2" number="12.1">
 <h2><span class="header-section-number">12.1</span> Download Data</h2>
 <p>First, we need to add the appropriate UI to our questionnaire app. Create a new tab called “report_tab” with two <code>downloadButton()</code>s, one for the pets data and one for the food data.</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="reports.html#cb150-1" aria-hidden="true" tabindex="-1"></a>report_tab <span class="ot">&lt;-</span> <span class="fu">tabItem</span>(</span>
-<span id="cb150-2"><a href="reports.html#cb150-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">tabName =</span> <span class="st">&quot;report_tab&quot;</span>,</span>
-<span id="cb150-3"><a href="reports.html#cb150-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">box</span>(</span>
-<span id="cb150-4"><a href="reports.html#cb150-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">&quot;download_box&quot;</span>,</span>
-<span id="cb150-5"><a href="reports.html#cb150-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Downloads&quot;</span>,</span>
-<span id="cb150-6"><a href="reports.html#cb150-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">solidHeader =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb150-7"><a href="reports.html#cb150-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">downloadButton</span>(<span class="st">&quot;pet_data_dl&quot;</span>, <span class="st">&quot;Pets Data&quot;</span>),</span>
-<span id="cb150-8"><a href="reports.html#cb150-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">downloadButton</span>(<span class="st">&quot;food_data_dl&quot;</span>, <span class="st">&quot;Food Data&quot;</span>)</span>
-<span id="cb150-9"><a href="reports.html#cb150-9" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb150-10"><a href="reports.html#cb150-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="reports.html#cb154-1" aria-hidden="true" tabindex="-1"></a>report_tab <span class="ot">&lt;-</span> <span class="fu">tabItem</span>(</span>
+<span id="cb154-2"><a href="reports.html#cb154-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">tabName =</span> <span class="st">&quot;report_tab&quot;</span>,</span>
+<span id="cb154-3"><a href="reports.html#cb154-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">box</span>(</span>
+<span id="cb154-4"><a href="reports.html#cb154-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">&quot;download_box&quot;</span>,</span>
+<span id="cb154-5"><a href="reports.html#cb154-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Downloads&quot;</span>,</span>
+<span id="cb154-6"><a href="reports.html#cb154-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">solidHeader =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb154-7"><a href="reports.html#cb154-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">downloadButton</span>(<span class="st">&quot;pet_data_dl&quot;</span>, <span class="st">&quot;Pets Data&quot;</span>),</span>
+<span id="cb154-8"><a href="reports.html#cb154-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">downloadButton</span>(<span class="st">&quot;food_data_dl&quot;</span>, <span class="st">&quot;Food Data&quot;</span>)</span>
+<span id="cb154-9"><a href="reports.html#cb154-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb154-10"><a href="reports.html#cb154-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <div class="warning">
 <p>Remember to add this to <code>tabItems()</code> in <code>dashboardBody()</code> and also add a corresponding <code>menuItem()</code> in <code>sidebarMenu()</code>. Run the app to make sure the UI looks like you expect before you proceed.</p>
 </div>
 <p>Now we need to add code to <code>server()</code> to handle the downloads. <code>downloadButton()</code> is a special type of output that is handled by <code>downloadHandler()</code>. This function takes two arguments, a function to create the filename and a function to create the content.</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="reports.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="do">### pet_data_dl ----</span></span>
-<span id="cb151-2"><a href="reports.html#cb151-2" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>pet_data_dl <span class="ot">&lt;-</span> <span class="fu">downloadHandler</span>(</span>
-<span id="cb151-3"><a href="reports.html#cb151-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="cf">function</span>() {</span>
-<span id="cb151-4"><a href="reports.html#cb151-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">debug_msg</span>(<span class="st">&quot;pet_data_dl&quot;</span>)</span>
-<span id="cb151-5"><a href="reports.html#cb151-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(<span class="st">&quot;pet-data_&quot;</span>, <span class="fu">Sys.Date</span>(), <span class="st">&quot;.csv&quot;</span>)</span>
-<span id="cb151-6"><a href="reports.html#cb151-6" aria-hidden="true" tabindex="-1"></a>  },</span>
-<span id="cb151-7"><a href="reports.html#cb151-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">content =</span> <span class="cf">function</span>(file) {</span>
-<span id="cb151-8"><a href="reports.html#cb151-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gs4_write_csv</span>(v<span class="sc">$</span>pet_summary_data, file)</span>
-<span id="cb151-9"><a href="reports.html#cb151-9" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb151-10"><a href="reports.html#cb151-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="reports.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="do">### pet_data_dl ----</span></span>
+<span id="cb155-2"><a href="reports.html#cb155-2" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>pet_data_dl <span class="ot">&lt;-</span> <span class="fu">downloadHandler</span>(</span>
+<span id="cb155-3"><a href="reports.html#cb155-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="cf">function</span>() {</span>
+<span id="cb155-4"><a href="reports.html#cb155-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">debug_msg</span>(<span class="st">&quot;pet_data_dl&quot;</span>)</span>
+<span id="cb155-5"><a href="reports.html#cb155-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(<span class="st">&quot;pet-data_&quot;</span>, <span class="fu">Sys.Date</span>(), <span class="st">&quot;.csv&quot;</span>)</span>
+<span id="cb155-6"><a href="reports.html#cb155-6" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb155-7"><a href="reports.html#cb155-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">content =</span> <span class="cf">function</span>(file) {</span>
+<span id="cb155-8"><a href="reports.html#cb155-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gs4_write_csv</span>(v<span class="sc">$</span>pet_summary_data, file)</span>
+<span id="cb155-9"><a href="reports.html#cb155-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb155-10"><a href="reports.html#cb155-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <div class="warning">
 <p>Instead of <code>write.csv()</code> or <code>readr::write_csv()</code>, here we’re using <code>gs4_write_csv()</code> (defined in <code>scripts/gs4.R</code>) because googlesheets can return list columns that cause errors when <a href="data.html#gs4_save">saving to CSV</a> without some preprocessing.</p>
 </div>
@@ -463,53 +476,53 @@ Figure 12.1: Reports Demo App
 <div id="download-images" class="section level2" number="12.2">
 <h2><span class="header-section-number">12.2</span> Download Images</h2>
 <p>Now that we need to use the summary plot in more than one place, it doesn’t make sense to build it twice. Move all of the code from the <code>renderPlot()</code> for <code>output$pet_summary</code> into a <code>reactive()</code> called <code>pet_summary_plot</code>. Then we can build the plot whenever the inputs change and refer to it anywhere as <code>pet_summary_plot()</code>.</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="reports.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="do">### pet_summary_plot ----</span></span>
-<span id="cb152-2"><a href="reports.html#cb152-2" aria-hidden="true" tabindex="-1"></a>pet_summary_plot <span class="ot">&lt;-</span> <span class="fu">reactive</span>({ <span class="fu">debug_msg</span>(<span class="st">&quot;pet_summary_plot&quot;</span>)</span>
-<span id="cb152-3"><a href="reports.html#cb152-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># code from output$pet_summary ...</span></span>
-<span id="cb152-4"><a href="reports.html#cb152-4" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb152-5"><a href="reports.html#cb152-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb152-6"><a href="reports.html#cb152-6" aria-hidden="true" tabindex="-1"></a><span class="do">### pet_summary ----</span></span>
-<span id="cb152-7"><a href="reports.html#cb152-7" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>pet_summary <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({ <span class="fu">debug_msg</span>(<span class="st">&quot;pet_summary&quot;</span>)</span>
-<span id="cb152-8"><a href="reports.html#cb152-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pet_summary_plot</span>()</span>
-<span id="cb152-9"><a href="reports.html#cb152-9" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="reports.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="do">### pet_summary_plot ----</span></span>
+<span id="cb156-2"><a href="reports.html#cb156-2" aria-hidden="true" tabindex="-1"></a>pet_summary_plot <span class="ot">&lt;-</span> <span class="fu">reactive</span>({ <span class="fu">debug_msg</span>(<span class="st">&quot;pet_summary_plot&quot;</span>)</span>
+<span id="cb156-3"><a href="reports.html#cb156-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># code from output$pet_summary ...</span></span>
+<span id="cb156-4"><a href="reports.html#cb156-4" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb156-5"><a href="reports.html#cb156-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb156-6"><a href="reports.html#cb156-6" aria-hidden="true" tabindex="-1"></a><span class="do">### pet_summary ----</span></span>
+<span id="cb156-7"><a href="reports.html#cb156-7" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>pet_summary <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({ <span class="fu">debug_msg</span>(<span class="st">&quot;pet_summary&quot;</span>)</span>
+<span id="cb156-8"><a href="reports.html#cb156-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pet_summary_plot</span>()</span>
+<span id="cb156-9"><a href="reports.html#cb156-9" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <p>The <code>downloadHandler()</code> works the same as for downloading a CSV file. You can use <code>ggsave()</code> to write the plot.</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="reports.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pet_plot_dl ----</span></span>
-<span id="cb153-2"><a href="reports.html#cb153-2" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>pet_plot_dl <span class="ot">&lt;-</span> <span class="fu">downloadHandler</span>(</span>
-<span id="cb153-3"><a href="reports.html#cb153-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="cf">function</span>() {</span>
-<span id="cb153-4"><a href="reports.html#cb153-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(<span class="st">&quot;pet-plot_&quot;</span>, <span class="fu">Sys.Date</span>(), <span class="st">&quot;.png&quot;</span>)</span>
-<span id="cb153-5"><a href="reports.html#cb153-5" aria-hidden="true" tabindex="-1"></a>  },</span>
-<span id="cb153-6"><a href="reports.html#cb153-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">content =</span> <span class="cf">function</span>(file) {</span>
-<span id="cb153-7"><a href="reports.html#cb153-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggsave</span>(file,</span>
-<span id="cb153-8"><a href="reports.html#cb153-8" aria-hidden="true" tabindex="-1"></a>           <span class="fu">pet_summary_plot</span>(),</span>
-<span id="cb153-9"><a href="reports.html#cb153-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">width =</span> <span class="dv">7</span>,</span>
-<span id="cb153-10"><a href="reports.html#cb153-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">height =</span> <span class="dv">5</span>)</span>
-<span id="cb153-11"><a href="reports.html#cb153-11" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb153-12"><a href="reports.html#cb153-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="reports.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pet_plot_dl ----</span></span>
+<span id="cb157-2"><a href="reports.html#cb157-2" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>pet_plot_dl <span class="ot">&lt;-</span> <span class="fu">downloadHandler</span>(</span>
+<span id="cb157-3"><a href="reports.html#cb157-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="cf">function</span>() {</span>
+<span id="cb157-4"><a href="reports.html#cb157-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(<span class="st">&quot;pet-plot_&quot;</span>, <span class="fu">Sys.Date</span>(), <span class="st">&quot;.png&quot;</span>)</span>
+<span id="cb157-5"><a href="reports.html#cb157-5" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb157-6"><a href="reports.html#cb157-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">content =</span> <span class="cf">function</span>(file) {</span>
+<span id="cb157-7"><a href="reports.html#cb157-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggsave</span>(file,</span>
+<span id="cb157-8"><a href="reports.html#cb157-8" aria-hidden="true" tabindex="-1"></a>           <span class="fu">pet_summary_plot</span>(),</span>
+<span id="cb157-9"><a href="reports.html#cb157-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">width =</span> <span class="dv">7</span>,</span>
+<span id="cb157-10"><a href="reports.html#cb157-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">height =</span> <span class="dv">5</span>)</span>
+<span id="cb157-11"><a href="reports.html#cb157-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb157-12"><a href="reports.html#cb157-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <div class="try">
 <p>Add numeric inputs to the UI to let the user specify the downloaded plot width and height.</p>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="reports.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add to report_tab ui</span></span>
-<span id="cb154-2"><a href="reports.html#cb154-2" aria-hidden="true" tabindex="-1"></a><span class="fu">numericInput</span>(<span class="st">&quot;plot_width&quot;</span>, <span class="st">&quot;Plot Width (inches)&quot;</span>, <span class="dv">7</span>, <span class="at">min =</span> <span class="dv">1</span>, <span class="at">max =</span> <span class="dv">10</span>)</span>
-<span id="cb154-3"><a href="reports.html#cb154-3" aria-hidden="true" tabindex="-1"></a><span class="fu">numericInput</span>(<span class="st">&quot;plot_height&quot;</span>, <span class="st">&quot;Plot Height (inches)&quot;</span>, <span class="dv">5</span>, <span class="at">min =</span> <span class="dv">1</span>, <span class="at">max =</span> <span class="dv">10</span>)</span>
-<span id="cb154-4"><a href="reports.html#cb154-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb154-5"><a href="reports.html#cb154-5" aria-hidden="true" tabindex="-1"></a><span class="do">### pet_plot_dl ----</span></span>
-<span id="cb154-6"><a href="reports.html#cb154-6" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>pet_plot_dl <span class="ot">&lt;-</span> <span class="fu">downloadHandler</span>(</span>
-<span id="cb154-7"><a href="reports.html#cb154-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="cf">function</span>() {</span>
-<span id="cb154-8"><a href="reports.html#cb154-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">debug_msg</span>(<span class="st">&quot;pet_plot_dl&quot;</span>)</span>
-<span id="cb154-9"><a href="reports.html#cb154-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(<span class="st">&quot;pet-plot_&quot;</span>, <span class="fu">Sys.Date</span>(), <span class="st">&quot;.png&quot;</span>)</span>
-<span id="cb154-10"><a href="reports.html#cb154-10" aria-hidden="true" tabindex="-1"></a>  },</span>
-<span id="cb154-11"><a href="reports.html#cb154-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">content =</span> <span class="cf">function</span>(file) {</span>
-<span id="cb154-12"><a href="reports.html#cb154-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggsave</span>(</span>
-<span id="cb154-13"><a href="reports.html#cb154-13" aria-hidden="true" tabindex="-1"></a>      file,</span>
-<span id="cb154-14"><a href="reports.html#cb154-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">pet_summary_plot</span>(),</span>
-<span id="cb154-15"><a href="reports.html#cb154-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">width =</span> input<span class="sc">$</span>plot_width,</span>
-<span id="cb154-16"><a href="reports.html#cb154-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">height =</span> input<span class="sc">$</span>plot_height</span>
-<span id="cb154-17"><a href="reports.html#cb154-17" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb154-18"><a href="reports.html#cb154-18" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb154-19"><a href="reports.html#cb154-19" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="reports.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add to report_tab ui</span></span>
+<span id="cb158-2"><a href="reports.html#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="fu">numericInput</span>(<span class="st">&quot;plot_width&quot;</span>, <span class="st">&quot;Plot Width (inches)&quot;</span>, <span class="dv">7</span>, <span class="at">min =</span> <span class="dv">1</span>, <span class="at">max =</span> <span class="dv">10</span>)</span>
+<span id="cb158-3"><a href="reports.html#cb158-3" aria-hidden="true" tabindex="-1"></a><span class="fu">numericInput</span>(<span class="st">&quot;plot_height&quot;</span>, <span class="st">&quot;Plot Height (inches)&quot;</span>, <span class="dv">5</span>, <span class="at">min =</span> <span class="dv">1</span>, <span class="at">max =</span> <span class="dv">10</span>)</span>
+<span id="cb158-4"><a href="reports.html#cb158-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb158-5"><a href="reports.html#cb158-5" aria-hidden="true" tabindex="-1"></a><span class="do">### pet_plot_dl ----</span></span>
+<span id="cb158-6"><a href="reports.html#cb158-6" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>pet_plot_dl <span class="ot">&lt;-</span> <span class="fu">downloadHandler</span>(</span>
+<span id="cb158-7"><a href="reports.html#cb158-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="cf">function</span>() {</span>
+<span id="cb158-8"><a href="reports.html#cb158-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">debug_msg</span>(<span class="st">&quot;pet_plot_dl&quot;</span>)</span>
+<span id="cb158-9"><a href="reports.html#cb158-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(<span class="st">&quot;pet-plot_&quot;</span>, <span class="fu">Sys.Date</span>(), <span class="st">&quot;.png&quot;</span>)</span>
+<span id="cb158-10"><a href="reports.html#cb158-10" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb158-11"><a href="reports.html#cb158-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">content =</span> <span class="cf">function</span>(file) {</span>
+<span id="cb158-12"><a href="reports.html#cb158-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggsave</span>(</span>
+<span id="cb158-13"><a href="reports.html#cb158-13" aria-hidden="true" tabindex="-1"></a>      file,</span>
+<span id="cb158-14"><a href="reports.html#cb158-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">pet_summary_plot</span>(),</span>
+<span id="cb158-15"><a href="reports.html#cb158-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">width =</span> input<span class="sc">$</span>plot_width,</span>
+<span id="cb158-16"><a href="reports.html#cb158-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">height =</span> input<span class="sc">$</span>plot_height</span>
+<span id="cb158-17"><a href="reports.html#cb158-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb158-18"><a href="reports.html#cb158-18" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb158-19"><a href="reports.html#cb158-19" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -517,15 +530,15 @@ Solution
 <h2><span class="header-section-number">12.3</span> R Markdown</h2>
 <p>You can render an <a class='glossary' target='_blank' title='The R-specific version of markdown: a way to specify formatting, such as headers, paragraphs, lists, bolding, and links, as well as code blocks and inline code.' href='https://psyteachr.github.io/glossary/r#r-markdown'>R Markdown</a> report for users to download.</p>
 <p>First, you need to save an R Markdown file (save the one below as <code>reports/report.Rmd</code>). You need to set up <code>params</code> for any info that you want to pass from the Shiny app in th <a class='glossary' target='_blank' title='A structured format for information' href='https://psyteachr.github.io/glossary/y#yaml'>YAML</a> header. Here, we will dynamically update the title, data, and plot. You can set the values to <code>NULL</code> or another default value.</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb155-1"><a href="reports.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb155-2"><a href="reports.html#cb155-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;`r params$title`&quot;</span></span>
-<span id="cb155-3"><a href="reports.html#cb155-3" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;`r format(Sys.time(), &#39;%d %B, %Y&#39;)`&quot;</span><span class="at"> </span></span>
-<span id="cb155-4"><a href="reports.html#cb155-4" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span>
-<span id="cb155-5"><a href="reports.html#cb155-5" aria-hidden="true" tabindex="-1"></a><span class="fu">params</span><span class="kw">:</span></span>
-<span id="cb155-6"><a href="reports.html#cb155-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Report</span></span>
-<span id="cb155-7"><a href="reports.html#cb155-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">data</span><span class="kw">:</span><span class="at"> </span><span class="ch">NULL</span></span>
-<span id="cb155-8"><a href="reports.html#cb155-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">plot</span><span class="kw">:</span><span class="at"> </span><span class="ch">NULL</span></span>
-<span id="cb155-9"><a href="reports.html#cb155-9" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb159-1"><a href="reports.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb159-2"><a href="reports.html#cb159-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;`r params$title`&quot;</span></span>
+<span id="cb159-3"><a href="reports.html#cb159-3" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;`r format(Sys.time(), &#39;%d %B, %Y&#39;)`&quot;</span><span class="at"> </span></span>
+<span id="cb159-4"><a href="reports.html#cb159-4" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span>
+<span id="cb159-5"><a href="reports.html#cb159-5" aria-hidden="true" tabindex="-1"></a><span class="fu">params</span><span class="kw">:</span></span>
+<span id="cb159-6"><a href="reports.html#cb159-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Report</span></span>
+<span id="cb159-7"><a href="reports.html#cb159-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">data</span><span class="kw">:</span><span class="at"> </span><span class="ch">NULL</span></span>
+<span id="cb159-8"><a href="reports.html#cb159-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">plot</span><span class="kw">:</span><span class="at"> </span><span class="ch">NULL</span></span>
+<span id="cb159-9"><a href="reports.html#cb159-9" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <p>Then you can refer to these params in the R Markdown file as <code>params$name</code>. If you knit the report, these will take on the default values.</p>
 <pre><code>
 
@@ -547,24 +560,24 @@ We asked people to rate how much they like pets. We have obtained `r n_responses
 params$plot
 ```</code></pre>
 <p>The <code>content</code> function uses <code>rmarkdown::render()</code> to create the output file from Rmd. We are using <code>html_document</code> as the output type, but you can also render as a PDF or Word document if you have <a class='glossary' target='_blank' title='A universal document convertor, used by R to make PDF or Word documents from R Markdown' href='https://psyteachr.github.io/glossary/p#pandoc'>pandoc</a> or <a class='glossary' target='_blank' title='A typesetting program needed to create PDF files from R Markdown documents.' href='https://psyteachr.github.io/glossary/l#latex'>latex</a> installed. Include the title, data and plot as a named list to the <code>params</code> argument.</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="reports.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="do">### pet_report_dl ----</span></span>
-<span id="cb157-2"><a href="reports.html#cb157-2" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>pet_report_dl <span class="ot">&lt;-</span> <span class="fu">downloadHandler</span>(</span>
-<span id="cb157-3"><a href="reports.html#cb157-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="cf">function</span>() {</span>
-<span id="cb157-4"><a href="reports.html#cb157-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">debug_msg</span>(<span class="st">&quot;pet_report_dl&quot;</span>)</span>
-<span id="cb157-5"><a href="reports.html#cb157-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(<span class="st">&quot;pet-report_&quot;</span>, <span class="fu">Sys.Date</span>(), <span class="st">&quot;.html&quot;</span>)</span>
-<span id="cb157-6"><a href="reports.html#cb157-6" aria-hidden="true" tabindex="-1"></a>  },</span>
-<span id="cb157-7"><a href="reports.html#cb157-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">content =</span> <span class="cf">function</span>(file) {</span>
-<span id="cb157-8"><a href="reports.html#cb157-8" aria-hidden="true" tabindex="-1"></a>    rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="st">&quot;reports/report.Rmd&quot;</span>,</span>
-<span id="cb157-9"><a href="reports.html#cb157-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">output_file =</span> file, </span>
-<span id="cb157-10"><a href="reports.html#cb157-10" aria-hidden="true" tabindex="-1"></a>                      <span class="at">params =</span> <span class="fu">list</span>(</span>
-<span id="cb157-11"><a href="reports.html#cb157-11" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="st">&quot;Pet Report&quot;</span>, </span>
-<span id="cb157-12"><a href="reports.html#cb157-12" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> v<span class="sc">$</span>pet_summary_data,</span>
-<span id="cb157-13"><a href="reports.html#cb157-13" aria-hidden="true" tabindex="-1"></a>                        <span class="at">plot =</span> <span class="fu">pet_summary_plot</span>()</span>
-<span id="cb157-14"><a href="reports.html#cb157-14" aria-hidden="true" tabindex="-1"></a>                      ),</span>
-<span id="cb157-15"><a href="reports.html#cb157-15" aria-hidden="true" tabindex="-1"></a>                      <span class="at">envir =</span> <span class="fu">new.env</span>(),</span>
-<span id="cb157-16"><a href="reports.html#cb157-16" aria-hidden="true" tabindex="-1"></a>                      <span class="at">intermediates_dir =</span> <span class="fu">tempdir</span>())</span>
-<span id="cb157-17"><a href="reports.html#cb157-17" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb157-18"><a href="reports.html#cb157-18" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="reports.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="do">### pet_report_dl ----</span></span>
+<span id="cb161-2"><a href="reports.html#cb161-2" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>pet_report_dl <span class="ot">&lt;-</span> <span class="fu">downloadHandler</span>(</span>
+<span id="cb161-3"><a href="reports.html#cb161-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="cf">function</span>() {</span>
+<span id="cb161-4"><a href="reports.html#cb161-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">debug_msg</span>(<span class="st">&quot;pet_report_dl&quot;</span>)</span>
+<span id="cb161-5"><a href="reports.html#cb161-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(<span class="st">&quot;pet-report_&quot;</span>, <span class="fu">Sys.Date</span>(), <span class="st">&quot;.html&quot;</span>)</span>
+<span id="cb161-6"><a href="reports.html#cb161-6" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb161-7"><a href="reports.html#cb161-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">content =</span> <span class="cf">function</span>(file) {</span>
+<span id="cb161-8"><a href="reports.html#cb161-8" aria-hidden="true" tabindex="-1"></a>    rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="st">&quot;reports/report.Rmd&quot;</span>,</span>
+<span id="cb161-9"><a href="reports.html#cb161-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">output_file =</span> file, </span>
+<span id="cb161-10"><a href="reports.html#cb161-10" aria-hidden="true" tabindex="-1"></a>                      <span class="at">params =</span> <span class="fu">list</span>(</span>
+<span id="cb161-11"><a href="reports.html#cb161-11" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="st">&quot;Pet Report&quot;</span>, </span>
+<span id="cb161-12"><a href="reports.html#cb161-12" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> v<span class="sc">$</span>pet_summary_data,</span>
+<span id="cb161-13"><a href="reports.html#cb161-13" aria-hidden="true" tabindex="-1"></a>                        <span class="at">plot =</span> <span class="fu">pet_summary_plot</span>()</span>
+<span id="cb161-14"><a href="reports.html#cb161-14" aria-hidden="true" tabindex="-1"></a>                      ),</span>
+<span id="cb161-15"><a href="reports.html#cb161-15" aria-hidden="true" tabindex="-1"></a>                      <span class="at">envir =</span> <span class="fu">new.env</span>(),</span>
+<span id="cb161-16"><a href="reports.html#cb161-16" aria-hidden="true" tabindex="-1"></a>                      <span class="at">intermediates_dir =</span> <span class="fu">tempdir</span>())</span>
+<span id="cb161-17"><a href="reports.html#cb161-17" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb161-18"><a href="reports.html#cb161-18" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>Setting the <code>envir</code> argument to <code>new.env()</code> makes sure that settings in your Shiny app, such as a default ggplot theme, can’t affect the rendered file, but also makes it so that the R Markdown code will not have access to any objects from your app, such as <code>input</code> or <code>v$summary_data</code>, unless you pass them as parameters.</p>
 <div class="error">
 <p>On your own computer, you don’t need to set <code>intermediates_dir = tempdir()</code>, but you will need to do this if you want to deploy your app on a shiny server. When rmarkdown renders an Rmd file, it creates several intermediate files in the working directory and then deletes them. you have permission to write to the app’s working directory on your own computer, but might not on a shiny server. <code>tempdir()</code> is almost always a safe place to write temporary files to.</p>
@@ -579,19 +592,19 @@ params$plot
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="reports.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add to report_tab ui ----</span></span>
-<span id="cb158-2"><a href="reports.html#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="fu">downloadButton</span>(<span class="st">&quot;food_data_dl&quot;</span>, <span class="st">&quot;Food Data&quot;</span>)</span>
-<span id="cb158-3"><a href="reports.html#cb158-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb158-4"><a href="reports.html#cb158-4" aria-hidden="true" tabindex="-1"></a><span class="do">### food_data_dl ----</span></span>
-<span id="cb158-5"><a href="reports.html#cb158-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>food_data_dl <span class="ot">&lt;-</span> <span class="fu">downloadHandler</span>(</span>
-<span id="cb158-6"><a href="reports.html#cb158-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="cf">function</span>() {</span>
-<span id="cb158-7"><a href="reports.html#cb158-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">debug_msg</span>(<span class="st">&quot;food_data_dl&quot;</span>)</span>
-<span id="cb158-8"><a href="reports.html#cb158-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(<span class="st">&quot;food-data_&quot;</span>, <span class="fu">Sys.Date</span>(), <span class="st">&quot;.csv&quot;</span>)</span>
-<span id="cb158-9"><a href="reports.html#cb158-9" aria-hidden="true" tabindex="-1"></a>  },</span>
-<span id="cb158-10"><a href="reports.html#cb158-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">content =</span> <span class="cf">function</span>(file) {</span>
-<span id="cb158-11"><a href="reports.html#cb158-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gs4_write_csv</span>(v<span class="sc">$</span>food_summary_data, file)</span>
-<span id="cb158-12"><a href="reports.html#cb158-12" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb158-13"><a href="reports.html#cb158-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="reports.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add to report_tab ui ----</span></span>
+<span id="cb162-2"><a href="reports.html#cb162-2" aria-hidden="true" tabindex="-1"></a><span class="fu">downloadButton</span>(<span class="st">&quot;food_data_dl&quot;</span>, <span class="st">&quot;Food Data&quot;</span>)</span>
+<span id="cb162-3"><a href="reports.html#cb162-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-4"><a href="reports.html#cb162-4" aria-hidden="true" tabindex="-1"></a><span class="do">### food_data_dl ----</span></span>
+<span id="cb162-5"><a href="reports.html#cb162-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>food_data_dl <span class="ot">&lt;-</span> <span class="fu">downloadHandler</span>(</span>
+<span id="cb162-6"><a href="reports.html#cb162-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="cf">function</span>() {</span>
+<span id="cb162-7"><a href="reports.html#cb162-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">debug_msg</span>(<span class="st">&quot;food_data_dl&quot;</span>)</span>
+<span id="cb162-8"><a href="reports.html#cb162-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(<span class="st">&quot;food-data_&quot;</span>, <span class="fu">Sys.Date</span>(), <span class="st">&quot;.csv&quot;</span>)</span>
+<span id="cb162-9"><a href="reports.html#cb162-9" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb162-10"><a href="reports.html#cb162-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">content =</span> <span class="cf">function</span>(file) {</span>
+<span id="cb162-11"><a href="reports.html#cb162-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gs4_write_csv</span>(v<span class="sc">$</span>food_summary_data, file)</span>
+<span id="cb162-12"><a href="reports.html#cb162-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb162-13"><a href="reports.html#cb162-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 </div>
 <div id="food-image" class="section level3" number="12.4.2">
@@ -601,34 +614,34 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="reports.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add to report_tab ui ----</span></span>
-<span id="cb159-2"><a href="reports.html#cb159-2" aria-hidden="true" tabindex="-1"></a><span class="fu">downloadButton</span>(<span class="st">&quot;food_plot_dl&quot;</span>, <span class="st">&quot;Food Plot&quot;</span>)</span>
-<span id="cb159-3"><a href="reports.html#cb159-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-4"><a href="reports.html#cb159-4" aria-hidden="true" tabindex="-1"></a><span class="do">### food_summary_plot ----</span></span>
-<span id="cb159-5"><a href="reports.html#cb159-5" aria-hidden="true" tabindex="-1"></a>food_summary_plot <span class="ot">&lt;-</span> <span class="fu">reactive</span>({ <span class="fu">debug_msg</span>(<span class="st">&quot;food_summary_plot&quot;</span>)</span>
-<span id="cb159-6"><a href="reports.html#cb159-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># code from output$food_summary ...</span></span>
-<span id="cb159-7"><a href="reports.html#cb159-7" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb159-8"><a href="reports.html#cb159-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-9"><a href="reports.html#cb159-9" aria-hidden="true" tabindex="-1"></a><span class="do">### food_summary ----</span></span>
-<span id="cb159-10"><a href="reports.html#cb159-10" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>food_summary <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({ <span class="fu">debug_msg</span>(<span class="st">&quot;food_summary&quot;</span>)</span>
-<span id="cb159-11"><a href="reports.html#cb159-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">food_summary_plot</span>()</span>
-<span id="cb159-12"><a href="reports.html#cb159-12" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb159-13"><a href="reports.html#cb159-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-14"><a href="reports.html#cb159-14" aria-hidden="true" tabindex="-1"></a><span class="do">### food_plot_dl ----</span></span>
-<span id="cb159-15"><a href="reports.html#cb159-15" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>food_plot_dl <span class="ot">&lt;-</span> <span class="fu">downloadHandler</span>(</span>
-<span id="cb159-16"><a href="reports.html#cb159-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="cf">function</span>() {</span>
-<span id="cb159-17"><a href="reports.html#cb159-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">debug_msg</span>(<span class="st">&quot;food_plot_dl&quot;</span>)</span>
-<span id="cb159-18"><a href="reports.html#cb159-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(<span class="st">&quot;food-plot_&quot;</span>, <span class="fu">Sys.Date</span>(), <span class="st">&quot;.png&quot;</span>)</span>
-<span id="cb159-19"><a href="reports.html#cb159-19" aria-hidden="true" tabindex="-1"></a>  },</span>
-<span id="cb159-20"><a href="reports.html#cb159-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">content =</span> <span class="cf">function</span>(file) {</span>
-<span id="cb159-21"><a href="reports.html#cb159-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggsave</span>(</span>
-<span id="cb159-22"><a href="reports.html#cb159-22" aria-hidden="true" tabindex="-1"></a>      file,</span>
-<span id="cb159-23"><a href="reports.html#cb159-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">food_summary_plot</span>(),</span>
-<span id="cb159-24"><a href="reports.html#cb159-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">width =</span> input<span class="sc">$</span>plot_width,</span>
-<span id="cb159-25"><a href="reports.html#cb159-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">height =</span> input<span class="sc">$</span>plot_height</span>
-<span id="cb159-26"><a href="reports.html#cb159-26" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb159-27"><a href="reports.html#cb159-27" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb159-28"><a href="reports.html#cb159-28" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="reports.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add to report_tab ui ----</span></span>
+<span id="cb163-2"><a href="reports.html#cb163-2" aria-hidden="true" tabindex="-1"></a><span class="fu">downloadButton</span>(<span class="st">&quot;food_plot_dl&quot;</span>, <span class="st">&quot;Food Plot&quot;</span>)</span>
+<span id="cb163-3"><a href="reports.html#cb163-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-4"><a href="reports.html#cb163-4" aria-hidden="true" tabindex="-1"></a><span class="do">### food_summary_plot ----</span></span>
+<span id="cb163-5"><a href="reports.html#cb163-5" aria-hidden="true" tabindex="-1"></a>food_summary_plot <span class="ot">&lt;-</span> <span class="fu">reactive</span>({ <span class="fu">debug_msg</span>(<span class="st">&quot;food_summary_plot&quot;</span>)</span>
+<span id="cb163-6"><a href="reports.html#cb163-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># code from output$food_summary ...</span></span>
+<span id="cb163-7"><a href="reports.html#cb163-7" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb163-8"><a href="reports.html#cb163-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-9"><a href="reports.html#cb163-9" aria-hidden="true" tabindex="-1"></a><span class="do">### food_summary ----</span></span>
+<span id="cb163-10"><a href="reports.html#cb163-10" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>food_summary <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({ <span class="fu">debug_msg</span>(<span class="st">&quot;food_summary&quot;</span>)</span>
+<span id="cb163-11"><a href="reports.html#cb163-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">food_summary_plot</span>()</span>
+<span id="cb163-12"><a href="reports.html#cb163-12" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb163-13"><a href="reports.html#cb163-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-14"><a href="reports.html#cb163-14" aria-hidden="true" tabindex="-1"></a><span class="do">### food_plot_dl ----</span></span>
+<span id="cb163-15"><a href="reports.html#cb163-15" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>food_plot_dl <span class="ot">&lt;-</span> <span class="fu">downloadHandler</span>(</span>
+<span id="cb163-16"><a href="reports.html#cb163-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="cf">function</span>() {</span>
+<span id="cb163-17"><a href="reports.html#cb163-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">debug_msg</span>(<span class="st">&quot;food_plot_dl&quot;</span>)</span>
+<span id="cb163-18"><a href="reports.html#cb163-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(<span class="st">&quot;food-plot_&quot;</span>, <span class="fu">Sys.Date</span>(), <span class="st">&quot;.png&quot;</span>)</span>
+<span id="cb163-19"><a href="reports.html#cb163-19" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb163-20"><a href="reports.html#cb163-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">content =</span> <span class="cf">function</span>(file) {</span>
+<span id="cb163-21"><a href="reports.html#cb163-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggsave</span>(</span>
+<span id="cb163-22"><a href="reports.html#cb163-22" aria-hidden="true" tabindex="-1"></a>      file,</span>
+<span id="cb163-23"><a href="reports.html#cb163-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">food_summary_plot</span>(),</span>
+<span id="cb163-24"><a href="reports.html#cb163-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">width =</span> input<span class="sc">$</span>plot_width,</span>
+<span id="cb163-25"><a href="reports.html#cb163-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">height =</span> input<span class="sc">$</span>plot_height</span>
+<span id="cb163-26"><a href="reports.html#cb163-26" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb163-27"><a href="reports.html#cb163-27" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb163-28"><a href="reports.html#cb163-28" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 </div>
 <div id="food-report" class="section level3" number="12.4.3">
@@ -638,27 +651,27 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="reports.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add to report_tab ui ----</span></span>
-<span id="cb160-2"><a href="reports.html#cb160-2" aria-hidden="true" tabindex="-1"></a><span class="fu">downloadButton</span>(<span class="st">&quot;food_report_dl&quot;</span>, <span class="st">&quot;Food Report&quot;</span>)</span>
-<span id="cb160-3"><a href="reports.html#cb160-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb160-4"><a href="reports.html#cb160-4" aria-hidden="true" tabindex="-1"></a><span class="do">### food_report_dl ----</span></span>
-<span id="cb160-5"><a href="reports.html#cb160-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>food_report_dl <span class="ot">&lt;-</span> <span class="fu">downloadHandler</span>(</span>
-<span id="cb160-6"><a href="reports.html#cb160-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="cf">function</span>() {</span>
-<span id="cb160-7"><a href="reports.html#cb160-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">debug_msg</span>(<span class="st">&quot;food_report_dl&quot;</span>)</span>
-<span id="cb160-8"><a href="reports.html#cb160-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(<span class="st">&quot;food-report_&quot;</span>, <span class="fu">Sys.Date</span>(), <span class="st">&quot;.html&quot;</span>)</span>
-<span id="cb160-9"><a href="reports.html#cb160-9" aria-hidden="true" tabindex="-1"></a>  },</span>
-<span id="cb160-10"><a href="reports.html#cb160-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">content =</span> <span class="cf">function</span>(file) {</span>
-<span id="cb160-11"><a href="reports.html#cb160-11" aria-hidden="true" tabindex="-1"></a>    rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="st">&quot;reports/report.Rmd&quot;</span>,</span>
-<span id="cb160-12"><a href="reports.html#cb160-12" aria-hidden="true" tabindex="-1"></a>                      <span class="at">output_file =</span> file, </span>
-<span id="cb160-13"><a href="reports.html#cb160-13" aria-hidden="true" tabindex="-1"></a>                      <span class="at">params =</span> <span class="fu">list</span>(</span>
-<span id="cb160-14"><a href="reports.html#cb160-14" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="st">&quot;Food Report&quot;</span>, </span>
-<span id="cb160-15"><a href="reports.html#cb160-15" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> v<span class="sc">$</span>food_summary_data,</span>
-<span id="cb160-16"><a href="reports.html#cb160-16" aria-hidden="true" tabindex="-1"></a>                        <span class="at">plot =</span> <span class="fu">food_summary_plot</span>()</span>
-<span id="cb160-17"><a href="reports.html#cb160-17" aria-hidden="true" tabindex="-1"></a>                      ),</span>
-<span id="cb160-18"><a href="reports.html#cb160-18" aria-hidden="true" tabindex="-1"></a>                      <span class="at">envir =</span> <span class="fu">new.env</span>(),</span>
-<span id="cb160-19"><a href="reports.html#cb160-19" aria-hidden="true" tabindex="-1"></a>                      <span class="at">intermediates_dir =</span> <span class="fu">tempdir</span>())</span>
-<span id="cb160-20"><a href="reports.html#cb160-20" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb160-21"><a href="reports.html#cb160-21" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="reports.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add to report_tab ui ----</span></span>
+<span id="cb164-2"><a href="reports.html#cb164-2" aria-hidden="true" tabindex="-1"></a><span class="fu">downloadButton</span>(<span class="st">&quot;food_report_dl&quot;</span>, <span class="st">&quot;Food Report&quot;</span>)</span>
+<span id="cb164-3"><a href="reports.html#cb164-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-4"><a href="reports.html#cb164-4" aria-hidden="true" tabindex="-1"></a><span class="do">### food_report_dl ----</span></span>
+<span id="cb164-5"><a href="reports.html#cb164-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>food_report_dl <span class="ot">&lt;-</span> <span class="fu">downloadHandler</span>(</span>
+<span id="cb164-6"><a href="reports.html#cb164-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="cf">function</span>() {</span>
+<span id="cb164-7"><a href="reports.html#cb164-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">debug_msg</span>(<span class="st">&quot;food_report_dl&quot;</span>)</span>
+<span id="cb164-8"><a href="reports.html#cb164-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(<span class="st">&quot;food-report_&quot;</span>, <span class="fu">Sys.Date</span>(), <span class="st">&quot;.html&quot;</span>)</span>
+<span id="cb164-9"><a href="reports.html#cb164-9" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb164-10"><a href="reports.html#cb164-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">content =</span> <span class="cf">function</span>(file) {</span>
+<span id="cb164-11"><a href="reports.html#cb164-11" aria-hidden="true" tabindex="-1"></a>    rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="st">&quot;reports/report.Rmd&quot;</span>,</span>
+<span id="cb164-12"><a href="reports.html#cb164-12" aria-hidden="true" tabindex="-1"></a>                      <span class="at">output_file =</span> file, </span>
+<span id="cb164-13"><a href="reports.html#cb164-13" aria-hidden="true" tabindex="-1"></a>                      <span class="at">params =</span> <span class="fu">list</span>(</span>
+<span id="cb164-14"><a href="reports.html#cb164-14" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="st">&quot;Food Report&quot;</span>, </span>
+<span id="cb164-15"><a href="reports.html#cb164-15" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> v<span class="sc">$</span>food_summary_data,</span>
+<span id="cb164-16"><a href="reports.html#cb164-16" aria-hidden="true" tabindex="-1"></a>                        <span class="at">plot =</span> <span class="fu">food_summary_plot</span>()</span>
+<span id="cb164-17"><a href="reports.html#cb164-17" aria-hidden="true" tabindex="-1"></a>                      ),</span>
+<span id="cb164-18"><a href="reports.html#cb164-18" aria-hidden="true" tabindex="-1"></a>                      <span class="at">envir =</span> <span class="fu">new.env</span>(),</span>
+<span id="cb164-19"><a href="reports.html#cb164-19" aria-hidden="true" tabindex="-1"></a>                      <span class="at">intermediates_dir =</span> <span class="fu">tempdir</span>())</span>
+<span id="cb164-20"><a href="reports.html#cb164-20" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb164-21"><a href="reports.html#cb164-21" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 
 </div>
@@ -700,9 +713,14 @@ solveme_func = function(e) {
     my_answer = my_answer.replace(/ /g, "")
   }
   
-  if (my_answer !== "" & real_answers.includes(my_answer)) {
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
     cl.add("webex-correct");
+    cl.remove("webex-incorrect");
   } else {
+    cl.add("webex-incorrect");
     cl.remove("webex-correct");
   }
 
@@ -828,6 +846,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

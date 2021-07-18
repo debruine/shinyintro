@@ -21,8 +21,8 @@ ui <- fluidPage(
   # Sidebar with a slider input for number of bins
   sidebarLayout(
     sidebarPanel(
-      radioButtons("display_var",
-                   "Which variable to display",
+      radioButtons(inputId = "display_var",
+                   label = "Which variable to display",
                    choices = c("Waiting time to next eruption" = "waiting",
                                "Eruption time" = "eruptions"),
                    selected = "waiting"

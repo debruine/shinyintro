@@ -162,7 +162,7 @@
 \chapter*{Overview}\label{overview}}
 \addcontentsline{toc}{chapter}{Overview}
 
-Shiny apps let you make web applications that do anything you can code in R. For example, you can share your data analysis in a dynamic way with people who don't use R, collect and visualize data, or even make data aRt.
+Shiny lets you make web applications that do anything you can code in R. For example, you can share your data analysis in a dynamic way with people who don't use R, collect and visualize data, or even make \href{https://towardsdatascience.com/getting-started-with-generative-art-in-r-3bc50067d34b}{data aRt}.
 
 While there is a wealth of material available on the internet to help you get started with Shiny, it can be difficult to see how everything fits together. This class will take a predominantly live coding approach, rather than a lecture-only approach, so you can code along with the instructor and deal with the inevitable bugs and roadblocks together.
 
@@ -179,6 +179,23 @@ To install the class package, which will provide you with a copy of all of the s
 \CommentTok{\# install.packages("devtools")}
 
 \NormalTok{devtools}\SpecialCharTok{::}\FunctionTok{install\_github}\NormalTok{(}\StringTok{"debruine/shinyintro"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+The class package lets you access the book or run the demo apps offline.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{shinyintro}\SpecialCharTok{::}\FunctionTok{book}\NormalTok{()}
+\NormalTok{shinyintro}\SpecialCharTok{::}\FunctionTok{app}\NormalTok{(}\StringTok{"first\_demo"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+You can also clone the demo apps.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{shinyintro}\SpecialCharTok{::}\FunctionTok{clone}\NormalTok{(}\StringTok{"basic\_template"}\NormalTok{, }\StringTok{"myapps/newapp"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -202,7 +219,7 @@ The following are some diverse examples of Shiny apps that the instructor has ma
 \hypertarget{code-horizons-course-27-30-july-2021}{%
 \section{Code Horizons Course (27-30 July 2021)}\label{code-horizons-course-27-30-july-2021}}
 
-Starting July 27, we are offering this seminar as a 4-day synchronous*, remote workshop for the first time. Each day will consist of a 3-hour live lecture held via the free video-conferencing software Zoom. You are encouraged to join the lecture live, but will have the opportunity to view the recorded session later if you are unable to attend at the scheduled time.
+Starting July 27, we are offering this seminar as a 4-day synchronous \footnote{We understand that scheduling is difficult during this unpredictable time. If you prefer, you may take all or part of the course asynchronously. The video recordings will be made available within 24 hours of each session and will be accessible for two weeks after the seminar, meaning that you will get all of the class content and discussions even if you cannot participate synchronously.}, remote workshop for the first time. Each day will consist of a 3-hour live lecture held via the free video-conferencing software Zoom. You are encouraged to join the lecture live, but will have the opportunity to view the recorded session later if you are unable to attend at the scheduled time. Closed captioning is available for all live and recorded sessions.
 
 Each lecture session will conclude with a hands-on exercise reviewing the content covered, to be completed on your own. An additional lab session will be held Tuesday and Thursday afternoons, where you can review the exercise results with the instructor and ask any questions.
 
@@ -216,28 +233,8 @@ Each lecture session will conclude with a hands-on exercise reviewing the conten
 \tightlist
 \item
   \protect\hyperlink{first-app}{Your First Shiny App}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Overview of the UI/server structure
-  \item
-    Inputs, outputs, and action buttons
-  \item
-    Reactive functions
-  \end{itemize}
 \item
   \protect\hyperlink{shinydashboard}{ShinyDashboard}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Basic template for shinydashboard projects
-  \item
-    Sidebar, menu navigation, and tabs
-  \item
-    Row- and column-based layouts
-  \end{itemize}
 \end{itemize}
 
 \hypertarget{day-2}{%
@@ -261,25 +258,13 @@ Each lecture session will conclude with a hands-on exercise reviewing the conten
 \begin{itemize}
 \tightlist
 \item
-  Customizing Your Apps
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \protect\hyperlink{web}{CSS, HTML, and Javascript}
-  \item
-    \protect\hyperlink{structure}{Structuring a complex app}
-  \end{itemize}
+  \protect\hyperlink{web}{CSS, HTML, and Javascript}
 \item
-  Intermediate Patterns
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \protect\hyperlink{debugging}{Debugging and error handling}
-  \item
-    \protect\hyperlink{contingency}{Displaying elements contingent on the state of other elements}
-  \end{itemize}
+  \protect\hyperlink{structure}{Structuring a complex app}
+\item
+  \protect\hyperlink{debugging}{Debugging and error handling}
+\item
+  \protect\hyperlink{contingency}{Displaying elements contingent on the state of other elements}
 \end{itemize}
 
 \hypertarget{day-4}{%
@@ -289,33 +274,11 @@ Each lecture session will conclude with a hands-on exercise reviewing the conten
 \tightlist
 \item
   \protect\hyperlink{sharing}{Sharing Your Apps}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    shinyapps.io
-  \item
-    Self-hosting a shiny server
-  \item
-    GitHub
-  \item
-    In an R package
-  \end{itemize}
 \item
-  Advanced Patterns
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \protect\hyperlink{reports}{Creating and downloading a customized report}
-  \item
-    \protect\hyperlink{modules}{Shiny modules for repeated structures}
-  \end{itemize}
+  \protect\hyperlink{reports}{Creating and downloading a customized report}
+\item
+  \protect\hyperlink{modules}{Shiny modules for repeated structures}
 \end{itemize}
-
-We understand that scheduling is difficult during this unpredictable time. If you prefer, you may take all or part of the course asynchronously. The video recordings will be made available within 24 hours of each session and will be accessible for two weeks after the seminar, meaning that you will get all of the class content and discussions even if you cannot participate synchronously.
-
-Closed captioning is available for all live and recorded sessions.
 
 \hypertarget{computing}{%
 \section{Computing}\label{computing}}
@@ -390,13 +353,20 @@ To start, let's walk through the basics of setting up a shiny app, starting with
   Choose \texttt{Shiny\ Web\ Application} as the project type.
 \item
   I like to put all of my apps in the same directory, but it doesn't matter where you save it.
-\item
-  Your RStudio interface should look like this now. You don't have to do anything else at this step.
 \end{enumerate}
 
-\includegraphics{images/demo_app/04-rstudio-interface.png}
+Your RStudio interface should look like this now.
 
-If RStudio has changed their demo app and your source code doesn't look like this, replace it with the code below:
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/demo_app/04-rstudio-interface} 
+
+}
+
+\caption{RStudio interface with the built-in demo app loaded.}\label{fig:first-rstudio-interface}
+\end{figure}
+
+If you are not using RStudio or your source code doesn't look like this, replace it with the code below:
 
 View Code
 
@@ -456,7 +426,14 @@ View Code
 
 Click on \texttt{Run\ App} in the top right corner of the source pane. The app will open up in a new window. Play with the slider and watch the histogram change.
 
-\includegraphics{images/demo_app/05-app-interface.png}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/demo_app/05-app-interface} 
+
+}
+
+\caption{Demo application interface}\label{fig:first-app-interface}
+\end{figure}
 
 You can also open up the app in a web browser by clicking on \texttt{Open\ in\ Browser}.
 
@@ -465,15 +442,22 @@ You can also open up the app in a web browser by clicking on \texttt{Open\ in\ B
 
 Now we're going to make a series of changes to the demo app until it's all your own.
 
-You can close the app by closing the window or browser tab it's running in, or leave it running while you edit the code. If you have multiple screens, it's useful to have the app open on one screen and the code on another.
+You can close the app by closing the window or browser tab it's running in and clicking the red stop sign in the console tab, or leave it running while you edit the code. If you have multiple screens, it can be useful to have the app open on one screen and the code on another.
 
 Find the application title. It is the first \href{defs.html\#argument}{argument} to the \href{defs.html\#function}{function} \texttt{titlePanel}. Change the title to \texttt{"My\ First\ App"}. Make sure the title is inside quotes and the whole quoted string is inside the parentheses. Save the file (\texttt{cmd-S} or \texttt{File\ \textgreater{}\ Save}).
 
-\includegraphics{images/demo_app/06-change-title.png}
+\begin{figure}
 
-Click \texttt{Run\ App} (or \texttt{Reload\ App} if you haven't closed the app window) in the \href{defs.html\#panes}{source pane}. If you haven't saved your changes, it will prompt you to do so. Check that the app title has changed.
+{\centering \includegraphics[width=1\linewidth]{images/demo_app/06-change-title} 
 
-Now let's change the input. Find the function \texttt{sliderInput} (line 21). The first argument is the name you can use in the code to find the value of this input, so don't change it just yet. The second argument is the text that displays before the slider. Change this to something else and re-run the app.
+}
+
+\caption{App with changed title.}\label{fig:first-change-title}
+\end{figure}
+
+Click \texttt{Run\ App} (or \texttt{Reload\ App} if you haven't closed the app window) in the source pane. If you haven't saved your changes, it will prompt you to do so. Check that the app title has changed.
+
+Now let's change the input. Find the function sliderInput() (line 21). The first argument is the name you can use in the code to find the value of this input, so don't change it just yet. The second argument is the text that displays before the slider. Change this to something else and re-run the app.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -485,9 +469,9 @@ Now let's change the input. Find the function \texttt{sliderInput} (line 21). Th
 \end{Highlighting}
 \end{Shaded}
 
-See if you can figure out what the next three arguments to \texttt{sliderInput} do. Change them to different integers, then re-run the app to see what's changed.
+See if you can figure out what the next three arguments to sliderInput() do. Change them to different integers, then re-run the app to see what's changed.
 
-The arguments to the function \texttt{sidebarPanel} are just a list of things you want to display in the sidebar. To add some explanatory text in a paragraph before the \texttt{sliderInput}, just use the paragraph function \texttt{p("My\ text")}
+The arguments to the function sidebarPanel() are just a list of things you want to display in the sidebar. To add some explanatory text in a paragraph before sliderInput(), just use the paragraph function p().
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -502,7 +486,14 @@ The arguments to the function \texttt{sidebarPanel} are just a list of things yo
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{images/demo_app/07-app-sidebar-p.png}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/demo_app/07-app-sidebar-p} 
+
+}
+
+\caption{Sidebar with an added paragraph.}\label{fig:first-app-sidebar-p}
+\end{figure}
 
 The sidebar shows up on the left if your window is wide enough, but moves to the top of the screen if it's too narrow.
 
@@ -522,7 +513,7 @@ I don't like it there, so we can move this text out of the sidebar and to the to
 
 See where you can move the text in the layout of the page and where causes errors.
 
-I'm also not keen on the grey plot. We can change the plot colour inside the \texttt{hist} function.
+I'm also not keen on the grey plot. We can change the plot colour inside \texttt{hist()}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -537,16 +528,16 @@ There are a lot of ways to represent colour in R. The easiest three are:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  hexadecimal colours like \texttt{\#0066CC},
+  hexadecimal colours (e.g., \texttt{\#0066CC})
 \item
-  the \texttt{rgb} or \texttt{hsl} functions,
+  the \texttt{rgb} or \texttt{hsl} functions (e.g., \texttt{rgb(0,\ .4,\ .8)})
 \item
-  colour names (type \texttt{colours()} in the console)
+  colour names (type colours() in the console)
 \end{enumerate}
 
-I like \texttt{steelblue3}, as it's pretty close to the shiny interface default colour, but feel free to choose whatever you like.
+The color ``steelblue3'' is pretty close to the shiny interface default colour, but feel free to choose whatever you like.
 
-I prefer \texttt{ggplot} graphs, so let's make the plot with \texttt{geom\_histogram} instead of \texttt{hist} (which is a great function for really quick plots). Since we need several functions from the \texttt{ggplot2} package, we'll need to load that package at the top of the script, just under where the \texttt{shiny} package is loaded:
+I prefer ggplots, so let's make the plot with geom\_histogram() instead of hist() (which is a great function for really quick plots). Since we need several functions from the ggplot2 package, we'll need to load that package at the top of the script, just under where the shiny package is loaded:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -555,7 +546,7 @@ I prefer \texttt{ggplot} graphs, so let's make the plot with \texttt{geom\_histo
 \end{Highlighting}
 \end{Shaded}
 
-You can replace all of the code in the \texttt{renderPlot} function with the code below.
+You can replace all of the code in renderPlot() with the code below.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -571,7 +562,7 @@ You can replace all of the code in the \texttt{renderPlot} function with the cod
 \end{Highlighting}
 \end{Shaded}
 
-You can set the \texttt{fill} and \texttt{colour} to whatever colours you like, and change \texttt{theme\_minimal()} to one of the other \href{https://ggplot2.tidyverse.org/reference/ggtheme.html\#examples}{built-in ggplot themes}.
+You can set fill and colour to whatever colours you like, and change theme\_minimal() to one of the other \href{https://ggplot2.tidyverse.org/reference/ggtheme.html\#examples}{built-in ggplot themes}.
 
 What \emph{are} we even plotting here? Type \texttt{?faithful} into the console pane to see what the \texttt{waiting} column represents (\texttt{faithful} is a built-in demo dataset). Change the label on the x-axis to something more sensible.
 
@@ -580,16 +571,30 @@ What \emph{are} we even plotting here? Type \texttt{?faithful} into the console 
 
 The \texttt{faithful} dataset includes two columns:\texttt{eruptions} and \texttt{waiting}. We've been plotting the \texttt{waiting} variable, but what if you wanted to plot the \texttt{eruptions} variable instead?
 
-Try plotting the eruption time (\texttt{eruptions}) instead of the waiting time. You just have to change one word in the \texttt{ggplot} function and update the x-axis label.
+Try plotting the eruption time (\texttt{eruptions}) instead of the waiting time. You just have to change one word in ggplot() and update the x-axis label.
 
-We can add another input widget to let the user switch between plotting eruption time and wait time. The \href{https://shiny.rstudio.com/tutorial/written-tutorial/lesson3/}{RStudio Shiny tutorial} has a great overview of the different input options. We need to toggle between two options, so we can use either radio buttons or a select box. Radio buttons are probably best if you have only a few options and the user will want to see them all at the same time to decide.
+We can add another input widget to let the user switch between plotting eruption time and wait time. We'll learn more about the different input options in Chapter~\ref{inputs}. We need to toggle between two options, so we can use either radio buttons or a select box. Radio buttons are probably best if you have only a few options and the user will want to see them all at the same time to decide.
 
-Add the following code as the first argument to \texttt{sidebarPanel()}, which just takes a list of different widgets. \texttt{radioButtons} is the widget we're using. The first argument is \texttt{display\_var}, which we will use later in the code to find the value of this widget. The second argument is the label to display to the user. The next argument is \texttt{choices}, which is a list of choices in the format \texttt{c("label1"\ =\ "value1",\ "label2\ =\ "value2",\ ...)}. The label is what gets shown to the user and the value is what gets used by the code (these can be the same, but you often want the user label to be more descriptive). The last argument is \texttt{selected}, which is the value of the default choice. Save this and re-run the app.
+Add the following code as the first argument to sidebarPanel(), which just takes a list of different widgets. radioButtons() is the widget we're using. We'll set four arguments:
+
+\begin{itemize}
+\tightlist
+\item
+  inputId: a unique identifier that we will use later in the code to find the value of this widget
+\item
+  label: the text to display to the user
+\item
+  choices: a list of choices in the format \texttt{c("label1"\ =\ "value1",\ "label2\ =\ "value2",\ ...)}
+\item
+  selected: the value of the default choice
+\end{itemize}
+
+For choices, the label is what gets shown to the user and the value is what gets used by the code (these can be the same, but you often want the user label to be more descriptive).
 
 \begin{Shaded}
 \begin{Highlighting}[]
-         \FunctionTok{radioButtons}\NormalTok{(}\StringTok{"display\_var"}\NormalTok{,}
-                      \StringTok{"Which variable to display"}\NormalTok{,}
+         \FunctionTok{radioButtons}\NormalTok{(}\AttributeTok{inputId =} \StringTok{"display\_var"}\NormalTok{,}
+                      \AttributeTok{label =} \StringTok{"Which variable to display"}\NormalTok{,}
                       \AttributeTok{choices =} \FunctionTok{c}\NormalTok{(}\StringTok{"Waiting time to next eruption"} \OtherTok{=} \StringTok{"waiting"}\NormalTok{,}
                                   \StringTok{"Eruption time"} \OtherTok{=} \StringTok{"eruptions"}\NormalTok{),}
                       \AttributeTok{selected =} \StringTok{"waiting"}
@@ -597,11 +602,20 @@ Add the following code as the first argument to \texttt{sidebarPanel()}, which j
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{images/demo_app/08-radiobutton-widget.png}
+Save this and re-run the app.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/demo_app/08-radiobutton-widget} 
+
+}
+
+\caption{A radioButton widget above a sliderInput widget.}\label{fig:first-radiobutton-widget}
+\end{figure}
 
 You should have a radio button interface now. You can click on the options to switch the button, but it won't do anything to your plot yet. We need to edit the plot-generating code to make that happen.
 
-First, we need to change the x-axis label depending on what we're graphing. We use an if/else statement to set the variable \texttt{xlabel} to one thing if \texttt{input\$display\_var} is equivalent to \texttt{"eruptions"}, and to something else if it's equivalent to \texttt{"waiting"}. Put this code at the very beginning of the code block for the \texttt{renderPlot} function (after the line \texttt{output\$distPlot\ \textless{}-\ renderPlot(\{}).
+First, we need to change the x-axis label depending on what we're graphing. We use an if/else statement to set the variable \texttt{xlabel} to one thing if \texttt{input\$display\_var} is equivalent to \texttt{"eruptions"}, and to something else if it's equivalent to \texttt{"waiting"}. Put this code at the very beginning of the code block for renderPlot() (after the line \texttt{output\$distPlot\ \textless{}-\ renderPlot(\{}).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -616,7 +630,7 @@ First, we need to change the x-axis label depending on what we're graphing. We u
 
 The double-equal-signs \texttt{==} means "equivalent to and is how you check if two things are the same; if you only use one equal sign, you set the variable on the left to the value on the right.
 
-Then we have to edit the \texttt{ggplot} function to use the new label and to plot the correct column. The variable \texttt{input\$display\_var} gives you the user-input value of the widget called \texttt{display\_var}.
+Then we have to edit ggplot to use the new label and to plot the correct column. The variable \texttt{input\$display\_var} gives you the user-input value of the widget called \texttt{"display\_var"}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -630,24 +644,24 @@ Then we have to edit the \texttt{ggplot} function to use the new label and to pl
 \end{Highlighting}
 \end{Shaded}
 
-Notice that the function \texttt{aes(waiting)} from before has changed to \texttt{aes(.data{[}{[}input\$display\_var{]}{]})}. Because \texttt{input\$display\_var} is a string, we have to select it from the \texttt{.data} placeholder (which refers to the \texttt{faithful} data table) using double brackets.
+Notice that the code \texttt{aes(waiting)} from before has changed to \texttt{aes(.data{[}{[}input\$display\_var{]}{]})}. Because \texttt{input\$display\_var} is a string, we have to select it from the \texttt{.data} placeholder (which refers to the \texttt{faithful} data table) using double brackets.
 
-Re-run your app and see if you can change the data and x-axis label with your new widget. If not, check your code against \href{https://shiny.psy.gla.ac.uk/debruine/first_demo/}{the code}.
+Re-run your app and see if you can change the data and x-axis label with your new widget.
 
 \textbackslash begin\{figure\}
 
 \{\centering \href{https://shiny.psy.gla.ac.uk/debruine/first_demo/}{\includegraphics[width=1\linewidth]{_main_files/figure-latex/first-demo-app-1} }
 
-\hypertarget{overview-of-the-uiserver-structure}{%
-\section{Overview of the UI/server structure}\label{overview-of-the-uiserver-structure}}
+\hypertarget{app-structure}{%
+\section{App Structure}\label{app-structure}}
 
 Now that we've made and modified our first working app, it's time to learn a bit about how a shiny app is structured.
 
-A shiny app is made of two main parts, a UI, which defines what the user interface looks like, and a server function, which defines how the interface behaves. The function \texttt{shinyApp()} puts the two together to run the application in a web browser.
+A shiny app is made of two main parts, a UI, which defines what the user interface looks like, and a server function, which defines how the interface behaves. The function shinyApp() puts the two together to run the application in a web browser.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Load libraries {-}{-}{-}{-}}
+\CommentTok{\# Setup {-}{-}{-}{-}}
 \FunctionTok{library}\NormalTok{(shiny)}
 
 \CommentTok{\# Define UI {-}{-}{-}{-}}
@@ -667,10 +681,10 @@ Create a new app called ``basic\_demo'' and replace all the text in app.R with t
 \hypertarget{ui}{%
 \subsection{UI}\label{ui}}
 
-The UI is created by one of the ui-building ``*Page'' functions from the shiny or shinydashboard package, such as \texttt{fluidPage()}, \texttt{fixedPage()}, \texttt{fillPage()} or \texttt{dashboardPage()}. The ui-building functions set up the parts of the webpage, which are created by more shiny functions that you list inside of the page function, separated by commas.
+The UI is created by one of the ui-building \texttt{\textbackslash{}*Page()} functions, such as fluidPage(), fixedPage(), fillPage() or dashboardPage() (which we'll learn more about in Chapter~\ref{shinydashboard}). The ui-building functions set up the parts of the webpage, which are created by more shiny functions that you list inside of the page function, separated by commas.
 
 \hypertarget{tags}{%
-\subsubsection{Tags}\label{tags}}
+\subsection{Tags}\label{tags}}
 
 For example, the code below displays:
 
@@ -682,7 +696,7 @@ For example, the code below displays:
 \item
   a level-two header with the text ``My favourite things''
 \item
-  an unordered list (\texttt{tags\$ul}) containing several list items (\texttt{tags\$li})
+  an unordered list (tags\(ul()</code>) containing several list items (<code class='function'>tags\)li())
 \item
   a paragraph with the text ``This is a very basic demo.''
 \item
@@ -692,104 +706,100 @@ For example, the code below displays:
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{ui }\OtherTok{\textless{}{-}} \FunctionTok{fluidPage}\NormalTok{(}
-   \FunctionTok{titlePanel}\NormalTok{(}\StringTok{"Basic Demo"}\NormalTok{),}
-   \FunctionTok{h2}\NormalTok{(}\StringTok{"My favourite things"}\NormalTok{),}
-\NormalTok{   tags}\SpecialCharTok{$}\FunctionTok{ul}\NormalTok{(}
-\NormalTok{      tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Coding"}\NormalTok{),}
-\NormalTok{      tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Cycling"}\NormalTok{),}
-\NormalTok{      tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Cooking"}\NormalTok{)}
-\NormalTok{   ),}
-   \FunctionTok{p}\NormalTok{(}\StringTok{"This is a very basic demo."}\NormalTok{),}
-\NormalTok{  tags}\SpecialCharTok{$}\FunctionTok{img}\NormalTok{(}\AttributeTok{src =} \StringTok{"https://debruine.github.io/shinyintro/images/shinyintro.png"}\NormalTok{, }
-           \AttributeTok{width =} \StringTok{"100px"}\NormalTok{, }\AttributeTok{height =} \StringTok{"100px"}\NormalTok{)}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-Many of the functions used to create parts of the website are the same as HTML tags, which are ways to mark the beginning and end of different types of text. Most HTML tags are available in shiny by using one of the \texttt{tags()} sub-functions, but some of the more common tags, like \texttt{p()} or h1()\texttt{-}h6()\texttt{also\ have\ a\ version\ where\ you\ can\ omit\ the}tags\$` part. You can see a list of all of the tags available in Shiny at the \href{https://shiny.rstudio.com/articles/tag-glossary.html}{tag glossary}
-
-Add the code above to your basic\_demo" app and replace my favourite things with yours. Make the list an ordered list (instead of unordered) and change the image size.
-
-\hypertarget{page-layout}{%
-\subsubsection{Page Layout}\label{page-layout}}
-
-You usually want your apps to have a more complex layout than just each element stacked below the previous one. The code below wraps the elements after the title panel inside a \texttt{flowLayout()}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{ui }\OtherTok{\textless{}{-}} \FunctionTok{fluidPage}\NormalTok{(}
   \FunctionTok{titlePanel}\NormalTok{(}\StringTok{"Basic Demo"}\NormalTok{),}
-  \FunctionTok{flowLayout}\NormalTok{(}
-    \FunctionTok{h2}\NormalTok{(}\StringTok{"My favourite things"}\NormalTok{),}
-\NormalTok{    tags}\SpecialCharTok{$}\FunctionTok{ul}\NormalTok{(}
-\NormalTok{      tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Coding"}\NormalTok{),}
-\NormalTok{      tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Cycling"}\NormalTok{),}
-\NormalTok{      tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Cooking"}\NormalTok{)}
-\NormalTok{    ),}
-    \FunctionTok{p}\NormalTok{(}\StringTok{"This is a very basic demo."}\NormalTok{),}
-\NormalTok{    tags}\SpecialCharTok{$}\FunctionTok{img}\NormalTok{(}
-      \AttributeTok{src =} \StringTok{"https://debruine.github.io/shinyintro/images/shinyintro.png"}\NormalTok{,}
-      \AttributeTok{width =} \StringTok{"100px"}\NormalTok{, }\AttributeTok{height =} \StringTok{"100px"}
-\NormalTok{    )}
+  \FunctionTok{h2}\NormalTok{(}\StringTok{"My favourite things"}\NormalTok{),}
+\NormalTok{  tags}\SpecialCharTok{$}\FunctionTok{ul}\NormalTok{(tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Coding"}\NormalTok{),}
+\NormalTok{          tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Cycling"}\NormalTok{),}
+\NormalTok{          tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Cooking"}\NormalTok{)),}
+  \FunctionTok{p}\NormalTok{(}\StringTok{"This is a very basic demo."}\NormalTok{),}
+\NormalTok{  tags}\SpecialCharTok{$}\FunctionTok{img}\NormalTok{(}
+    \AttributeTok{src =} \StringTok{"https://debruine.github.io/shinyintro/images/shinyintro.png"}\NormalTok{,}
+    \AttributeTok{width =} \StringTok{"100px"}\NormalTok{,}
+    \AttributeTok{height =} \StringTok{"100px"}
 \NormalTok{  )}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-Replace the ui code in your basic\_demo" app with the code above and run it in a web browser. What happens when you change the width of the web browser? Change \texttt{flowLayout} to \texttt{verticalLayout} or \texttt{splitLayout} and see what changes.
+Many of the functions used to create parts of the website are the same as HTML tags, which are ways to mark the beginning and end of different types of text. Most HTML tags are available in shiny by using one of the tags() sub-functions, but some of the more common tags, like p() or h1()-h6()also have a version where you can omit the\texttt{tags\textbackslash{}\$} part. You can see a list of all of the tags available in Shiny at the \href{https://shiny.rstudio.com/articles/tag-glossary.html}{tag glossary}
 
-You can use a \texttt{sidebarLayout()} to arrange your elements into a \texttt{sidebarPanel()} and a \texttt{mainPanel()}. If the browser width is too narrow, the sidebar will display on top of the main panel.
+Add the code above to your \texttt{basic\_demo} app and replace my favourite things with yours. Make the list an ordered list (instead of unordered) and change the image size.
+
+\hypertarget{page-layout}{%
+\subsection{Page Layout}\label{page-layout}}
+
+You usually want your apps to have a more complex layout than just each element stacked below the previous one. The code below wraps the elements after the title panel inside flowLayout().
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ui }\OtherTok{\textless{}{-}} \FunctionTok{fluidPage}\NormalTok{(}
-   \FunctionTok{titlePanel}\NormalTok{(}\StringTok{"Basic Demo"}\NormalTok{),}
-   \FunctionTok{sidebarLayout}\NormalTok{(}
-      \FunctionTok{sidebarPanel}\NormalTok{(}
-         \FunctionTok{h2}\NormalTok{(}\StringTok{"My favourite things"}\NormalTok{),}
-\NormalTok{         tags}\SpecialCharTok{$}\FunctionTok{ul}\NormalTok{(}
-\NormalTok{            tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Coding"}\NormalTok{),}
-\NormalTok{            tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Cycling"}\NormalTok{),}
-\NormalTok{            tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Cooking"}\NormalTok{)}
-\NormalTok{         )}
-\NormalTok{      ),}
-      \FunctionTok{mainPanel}\NormalTok{(}
-         \FunctionTok{p}\NormalTok{(}\StringTok{"This is a very basic demo."}\NormalTok{),}
-\NormalTok{         tags}\SpecialCharTok{$}\FunctionTok{img}\NormalTok{(}
-            \AttributeTok{src =} \StringTok{"https://debruine.github.io/shinyintro/images/shinyintro.png"}\NormalTok{,}
-            \AttributeTok{width =} \StringTok{"100px"}\NormalTok{, }\AttributeTok{height =} \StringTok{"100px"}
-\NormalTok{         )}
-\NormalTok{      )}
-\NormalTok{   )}
-\NormalTok{)}
+\NormalTok{ui }\OtherTok{\textless{}{-}} \FunctionTok{fluidPage}\NormalTok{(}\FunctionTok{titlePanel}\NormalTok{(}\StringTok{"Basic Demo"}\NormalTok{),}
+                \FunctionTok{flowLayout}\NormalTok{(}
+                  \FunctionTok{h2}\NormalTok{(}\StringTok{"My favourite things"}\NormalTok{),}
+\NormalTok{                  tags}\SpecialCharTok{$}\FunctionTok{ul}\NormalTok{(tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Coding"}\NormalTok{),}
+\NormalTok{                          tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Cycling"}\NormalTok{),}
+\NormalTok{                          tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Cooking"}\NormalTok{)),}
+                  \FunctionTok{p}\NormalTok{(}\StringTok{"This is a very basic demo."}\NormalTok{),}
+\NormalTok{                  tags}\SpecialCharTok{$}\FunctionTok{img}\NormalTok{(}
+                    \AttributeTok{src =} \StringTok{"https://debruine.github.io/shinyintro/images/shinyintro.png"}\NormalTok{,}
+                    \AttributeTok{width =} \StringTok{"100px"}\NormalTok{,}
+                    \AttributeTok{height =} \StringTok{"100px"}
+\NormalTok{                  )}
+\NormalTok{                ))}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{inputs-outputs-and-action-buttons}{%
-\section{Inputs, outputs, and action buttons}\label{inputs-outputs-and-action-buttons}}
+Replace the ui code in your basic\_demo" app with the code above and run it in a web browser. What happens when you change the width of the web browser? Change flowLayout() to verticalLayout() or splitLayout() and see what changes.
+
+You can use a sidebarLayout() to arrange your elements into a sidebarPanel() and a mainPanel(). If the browser width is too narrow, the sidebar will display on top of the main panel.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ui }\OtherTok{\textless{}{-}} \FunctionTok{fluidPage}\NormalTok{(}\FunctionTok{titlePanel}\NormalTok{(}\StringTok{"Basic Demo"}\NormalTok{),}
+                \FunctionTok{sidebarLayout}\NormalTok{(}\FunctionTok{sidebarPanel}\NormalTok{(}
+                  \FunctionTok{h2}\NormalTok{(}\StringTok{"My favourite things"}\NormalTok{),}
+\NormalTok{                  tags}\SpecialCharTok{$}\FunctionTok{ul}\NormalTok{(tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Coding"}\NormalTok{),}
+\NormalTok{                          tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Cycling"}\NormalTok{),}
+\NormalTok{                          tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Cooking"}\NormalTok{))}
+\NormalTok{                ),}
+                \FunctionTok{mainPanel}\NormalTok{(}
+                  \FunctionTok{p}\NormalTok{(}\StringTok{"This is a very basic demo."}\NormalTok{),}
+\NormalTok{                  tags}\SpecialCharTok{$}\FunctionTok{img}\NormalTok{(}
+                    \AttributeTok{src =} \StringTok{"https://debruine.github.io/shinyintro/images/shinyintro.png"}\NormalTok{,}
+                    \AttributeTok{width =} \StringTok{"100px"}\NormalTok{,}
+                    \AttributeTok{height =} \StringTok{"100px"}
+\NormalTok{                  )}
+\NormalTok{                )))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{dynamic-elements}{%
+\section{Dynamic Elements}\label{dynamic-elements}}
 
 So far, we've just put static elements into our UI. What makes Shiny apps work is dynamic elements like inputs, outputs, and action buttons.
 
 \hypertarget{inputs-intro}{%
 \subsection{Inputs}\label{inputs-intro}}
 
-Inputs are ways for the users of your app to communicate with the app. They are things like drop-down menus or checkboxes. We'll go into the different types of inputs in the \protect\hyperlink{inputs}{Inputs chapter}. Below we'll turn the list of favourite things into a checkbox list.
+Inputs are ways for the users of your app to communicate with the app, like drop-down menus or checkboxes. We'll go into the different types of inputs in Chapter~\ref{inputs}. Below we'll turn the list of favourite things into a group of checkboxes
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{checkboxGroupInput}\NormalTok{(}\AttributeTok{inputId =} \StringTok{"fav\_things"}\NormalTok{, }
-                   \AttributeTok{label =} \StringTok{"What are your favourite things?"}\NormalTok{,}
-                   \AttributeTok{choices =} \FunctionTok{c}\NormalTok{(}\StringTok{"Coding"}\NormalTok{, }\StringTok{"Cycling"}\NormalTok{, }\StringTok{"Cooking"}\NormalTok{)}
+\FunctionTok{checkboxGroupInput}\NormalTok{(}
+  \AttributeTok{inputId =} \StringTok{"fav\_things"}\NormalTok{,}
+  \AttributeTok{label =} \StringTok{"What are your favourite things?"}\NormalTok{,}
+  \AttributeTok{choices =} \FunctionTok{c}\NormalTok{(}\StringTok{"Coding"}\NormalTok{, }\StringTok{"Cycling"}\NormalTok{, }\StringTok{"Cooking"}\NormalTok{)}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 Most inputs are structured like this, with an inputId, which needs to be a unique string not used as the ID for any other input or output in your app, a label that contains the question, and a list of choices or other parameters that determine what type of values the input will record.
 
+You might have noticed that the sliderInput() in the demo app didn't use the argument names for the inputId or the label(). All inputs need these first two arguments, so almost everyone omits their names.
+
 \hypertarget{outputs-intro}{%
 \subsection{Outputs}\label{outputs-intro}}
 
-Outputs are placeholders for things that \texttt{server()} will create. There are different output functions for different types of outputs, like text, plots, and tables. We'll go into the different types of outputs in detail in the \protect\hyperlink{outputs}{Outputs chapter}. Below, we'll make a placeholder for some text that we'll display after counting the number of favourite things.
+Outputs are placeholders for things that server() will create. There are different output functions for different types of outputs, like text, plots, and tables. We'll go into the different types of outputs in detail in Chapter~\ref{outputs}. Below, we'll make a placeholder for some text that we'll display after counting the number of favourite things.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -797,7 +807,7 @@ Outputs are placeholders for things that \texttt{server()} will create. There ar
 \end{Highlighting}
 \end{Shaded}
 
-Most outputs are structured like this, with just a unique outputId.
+Most outputs are structured like this, with just a unique outputId (the argument name is also usually omitted).
 
 \hypertarget{action-buttons}{%
 \subsection{Action buttons}\label{action-buttons}}
@@ -808,102 +818,104 @@ Action buttons are a special type of input that register button clicks. Below we
 \begin{Highlighting}[]
 \FunctionTok{actionButton}\NormalTok{(}\AttributeTok{inputId =} \StringTok{"count\_fav\_things"}\NormalTok{,}
              \AttributeTok{label =} \StringTok{"Count"}\NormalTok{,}
-             \AttributeTok{icon =} \FunctionTok{icon}\NormalTok{(}\StringTok{"calculator"}\NormalTok{)}
-\NormalTok{)}
+             \AttributeTok{icon =} \FunctionTok{icon}\NormalTok{(}\StringTok{"calculator"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
 Action buttons require a unique inputId and a label for the button text. You can also add an icon. Choose a free icon from \href{https://fontawesome.com/icons?d=gallery\&m=free}{fontawesome}.
 
-Put the input, output, and action button into the ui and run it. You can see that the input checkboxes are selectable and the button is clickable, but nothing is displayed in the text output. We need some code in \texttt{server()} to handle that.
+Put the input, output, and action button into the ui and run it. You will see that the input checkboxes are selectable and the button is clickable, but nothing is displayed in the text output. We need some code in server() to handle that.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ui }\OtherTok{\textless{}{-}} \FunctionTok{fluidPage}\NormalTok{(}
-   \FunctionTok{titlePanel}\NormalTok{(}\StringTok{"Basic Demo"}\NormalTok{),}
-   \FunctionTok{sidebarLayout}\NormalTok{(}
-      \FunctionTok{sidebarPanel}\NormalTok{(}
-         \FunctionTok{checkboxGroupInput}\NormalTok{(}\AttributeTok{inputId =} \StringTok{"fav\_things"}\NormalTok{, }
-                   \AttributeTok{label =} \StringTok{"What are your favourite things?"}\NormalTok{,}
-                   \AttributeTok{choices =} \FunctionTok{c}\NormalTok{(}\StringTok{"Coding"}\NormalTok{, }\StringTok{"Cycling"}\NormalTok{, }\StringTok{"Cooking"}\NormalTok{)}
-\NormalTok{         ),}
-         \FunctionTok{actionButton}\NormalTok{(}\AttributeTok{inputId =} \StringTok{"count\_fav\_things"}\NormalTok{,}
-             \AttributeTok{label =} \StringTok{"Count"}\NormalTok{,}
-             \AttributeTok{icon =} \FunctionTok{icon}\NormalTok{(}\StringTok{"calculator"}\NormalTok{)}
-\NormalTok{         )}
-\NormalTok{      ),}
-      \FunctionTok{mainPanel}\NormalTok{(}
-         \FunctionTok{textOutput}\NormalTok{(}\AttributeTok{outputId =} \StringTok{"n\_fav\_things"}\NormalTok{)}
-\NormalTok{      )}
-\NormalTok{   )}
-\NormalTok{)}
+\NormalTok{ui }\OtherTok{\textless{}{-}} \FunctionTok{fluidPage}\NormalTok{(}\FunctionTok{titlePanel}\NormalTok{(}\StringTok{"Basic Demo"}\NormalTok{),}
+                \FunctionTok{sidebarLayout}\NormalTok{(}
+                  \FunctionTok{sidebarPanel}\NormalTok{(}
+                    \FunctionTok{checkboxGroupInput}\NormalTok{(}
+                      \AttributeTok{inputId =} \StringTok{"fav\_things"}\NormalTok{,}
+                      \AttributeTok{label =} \StringTok{"What are your favourite things?"}\NormalTok{,}
+                      \AttributeTok{choices =} \FunctionTok{c}\NormalTok{(}\StringTok{"Coding"}\NormalTok{, }\StringTok{"Cycling"}\NormalTok{, }\StringTok{"Cooking"}\NormalTok{)}
+\NormalTok{                    ),}
+                    \FunctionTok{actionButton}\NormalTok{(}
+                      \AttributeTok{inputId =} \StringTok{"count\_fav\_things"}\NormalTok{,}
+                      \AttributeTok{label =} \StringTok{"Count"}\NormalTok{,}
+                      \AttributeTok{icon =} \FunctionTok{icon}\NormalTok{(}\StringTok{"calculator"}\NormalTok{)}
+\NormalTok{                    )}
+\NormalTok{                  ),}
+                  \FunctionTok{mainPanel}\NormalTok{(}\FunctionTok{textOutput}\NormalTok{(}\AttributeTok{outputId =} \StringTok{"n\_fav\_things"}\NormalTok{))}
+\NormalTok{                ))}
 \end{Highlighting}
 \end{Shaded}
 
 \hypertarget{first-reactive}{%
 \section{Reactive functions}\label{first-reactive}}
 
-Reactive functions are functions that run when their inputs change. Inside the server function, the object \texttt{input} is a named list of the values of all of the inputs. For example, if you want to know which items in the select input named ``fav\_things'' were selected, you would use \texttt{input\$fav\_things}.
+Reactive functions are functions that only run when certain types of inputs change. Inside server(), the object \texttt{input} is a named list of the values of all of the inputs. For example, if you want to know which items in the select input named ``fav\_things'' were selected, you would use \texttt{input\$fav\_things}.
 
-Here, we just want to count how many items are checked. We want to do this whenever the button ``count\_fav\_things'' is clicked, so we can use the reactive function \texttt{observeEvent()} to do this. Every time the value of \texttt{input\$count\_fav\_things} changes (which happens when it is clicked), it will run the code inside of the curly brackets \texttt{\{\}}. The code will only run when \texttt{input\$count\_fav\_things} changes, not when any inputs inside the function change.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output) \{}
-   \CommentTok{\# count favourite things}
-   \FunctionTok{observeEvent}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{count\_fav\_things, \{}
-\NormalTok{      n }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{fav\_things)}
-\NormalTok{      count\_text }\OtherTok{\textless{}{-}} \FunctionTok{sprintf}\NormalTok{(}\StringTok{"You have \%d favourite things"}\NormalTok{, n)}
-\NormalTok{    \})}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-Now we want to display this text in the output ``n\_fav\_things''. We need to use a render function that is paired with our output function. Since ``n\_fav\_things'' was made with \texttt{textOutput()}, we fill it with \texttt{renderText()}.
+Here, we just want to count how many items are checked. We want to do this whenever the button ``count\_fav\_things'' is clicked, so we can use the reactive function observeEvent() to do this. Every time the value of \texttt{input\$count\_fav\_things} changes (which happens when it is clicked), it will run the code inside of the curly brackets \texttt{\{\}}. The code will only run when \texttt{input\$count\_fav\_things} changes, not when any inputs inside the function change.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output) \{}
-   \CommentTok{\# count favourite things}
-   \FunctionTok{observeEvent}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{count\_fav\_things, \{}
-\NormalTok{      n }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{fav\_things)}
-\NormalTok{      count\_text }\OtherTok{\textless{}{-}} \FunctionTok{sprintf}\NormalTok{(}\StringTok{"You have \%d favourite things"}\NormalTok{, n)}
-\NormalTok{      output}\SpecialCharTok{$}\NormalTok{n\_fav\_things }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(count\_text)}
-\NormalTok{   \})}
+  \CommentTok{\# count favourite things}
+  \FunctionTok{observeEvent}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{count\_fav\_things, \{}
+\NormalTok{    n }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{fav\_things)}
+\NormalTok{    count\_text }\OtherTok{\textless{}{-}} \FunctionTok{sprintf}\NormalTok{(}\StringTok{"You have \%d favourite things"}\NormalTok{, n)}
+\NormalTok{  \})}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
-As always in coding, there are many ways to accomplish the same thing. These methods have different pros and cons that we'll learn more about in the \protect\hyperlink{reactives}{Reactive chapter}. Here is another pattern that does that same as above.
-
-This pattern uses \texttt{reactive()} to update the value of a new function called \texttt{count\_text()} whenever any inputs inside the reactive function change. We use \texttt{isolate()} to prevent \texttt{count\_text()} from changing when users click the checkboxes.
-
-Whenever the returned value of \texttt{count\_text()} changes, this triggers an update of the ``n\_fav\_things'' output.
+Now we want to display this text in the output ``n\_fav\_things''. We need to use a render function that is paired with our output function. Since ``n\_fav\_things'' was made with textOutput(), we fill it with renderText().
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output) \{}
-   \CommentTok{\# update count\_text on fav\_things}
-\NormalTok{   count\_text }\OtherTok{\textless{}{-}} \FunctionTok{reactive}\NormalTok{(\{}
-\NormalTok{      input}\SpecialCharTok{$}\NormalTok{count\_fav\_things }\CommentTok{\# just here to trigger the reactive}
-\NormalTok{      fav\_things }\OtherTok{\textless{}{-}} \FunctionTok{isolate}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{fav\_things) }\CommentTok{\# don\textquotesingle{}t trigger on checks}
-\NormalTok{      n }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(fav\_things)}
-      \FunctionTok{sprintf}\NormalTok{(}\StringTok{"You have \%d favourite things"}\NormalTok{, n)}
-\NormalTok{   \})}
-   
-   \CommentTok{\# display count\_text when it updates}
-\NormalTok{   output}\SpecialCharTok{$}\NormalTok{n\_fav\_things }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(}\FunctionTok{count\_text}\NormalTok{())}
+  \CommentTok{\# count favourite things}
+  \FunctionTok{observeEvent}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{count\_fav\_things, \{}
+\NormalTok{    n }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{fav\_things)}
+\NormalTok{    count\_text }\OtherTok{\textless{}{-}} \FunctionTok{sprintf}\NormalTok{(}\StringTok{"You have \%d favourite things"}\NormalTok{, n)}
+\NormalTok{    output}\SpecialCharTok{$}\NormalTok{n\_fav\_things }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(count\_text)}
+\NormalTok{  \})}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
-Compare the app behaviour with the first pattern versus the second. How are they different? What happens if you remove \texttt{isolate()} from around \texttt{input\$fav\_things}?
+As always in coding, there are many ways to accomplish the same thing. These methods have different pros and cons that we'll learn more about in Chapter~\ref{reactives}. Here is another pattern that does that same as above.
+
+This pattern uses reactive() to create a new function called count\_text(), which updates the value it returns whenever any inputs inside the reactive function change. We use isolate() to prevent count\_text() from changing when users click the checkboxes.
+
+Whenever the returned value of count\_text() changes, this triggers an update of the ``n\_fav\_things'' output.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output) \{}
+  \CommentTok{\# update count\_text on fav\_things}
+\NormalTok{  count\_text }\OtherTok{\textless{}{-}} \FunctionTok{reactive}\NormalTok{(\{}
+\NormalTok{    input}\SpecialCharTok{$}\NormalTok{count\_fav\_things }\CommentTok{\# just here to trigger the reactive}
+\NormalTok{    fav\_things }\OtherTok{\textless{}{-}}
+      \FunctionTok{isolate}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{fav\_things) }\CommentTok{\# don\textquotesingle{}t trigger on checks}
+\NormalTok{    n }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(fav\_things)}
+    \FunctionTok{sprintf}\NormalTok{(}\StringTok{"You have \%d favourite things"}\NormalTok{, n)}
+\NormalTok{  \})}
+  
+  \CommentTok{\# display count\_text when it updates}
+\NormalTok{  output}\SpecialCharTok{$}\NormalTok{n\_fav\_things }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(}\FunctionTok{count\_text}\NormalTok{())}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Compare the app behaviour with the first pattern versus the second. How are they different? What happens if you remove isolate() from around \texttt{input\$fav\_things}?
 
 \hypertarget{resources-first-app}{%
 \section{Further Resources}\label{resources-first-app}}
 
 \begin{itemize}
 \tightlist
+\item
+  \href{https://mastering-shiny.org/}{Mastering Shiny: Chapters 1-3}
+\item
+  \href{https://shiny.rstudio.com/tutorial/}{RStudio Shiny Tutorials: Videos 1-6}
 \item
   \href{https://shiny.rstudio.com/articles/layout-guide.html}{Application layout guide}
 \end{itemize}
@@ -914,7 +926,7 @@ Compare the app behaviour with the first pattern versus the second. How are they
 \hypertarget{addition-app---ui}{%
 \subsection{Addition App - UI}\label{addition-app---ui}}
 
-Create the UI for following \href{https://shiny.psy.gla.ac.uk/debruine/add_demo/}{addition app}. Use \texttt{numericInput()} to create the inputs.
+Create the UI for following \href{https://shiny.psy.gla.ac.uk/debruine/add_demo/}{addition app}. Use numericInput() to create the inputs.
 
 \textbackslash begin\{figure\}
 
@@ -924,26 +936,22 @@ Solution
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ui }\OtherTok{\textless{}{-}} \FunctionTok{fluidPage}\NormalTok{(}
-  \FunctionTok{titlePanel}\NormalTok{(}\StringTok{"Addition Demo"}\NormalTok{),}
-  \FunctionTok{sidebarLayout}\NormalTok{(}
-    \FunctionTok{sidebarPanel}\NormalTok{(}
-      \FunctionTok{numericInput}\NormalTok{(}\StringTok{"n1"}\NormalTok{, }\StringTok{"First number"}\NormalTok{, }\DecValTok{0}\NormalTok{),}
-      \FunctionTok{numericInput}\NormalTok{(}\StringTok{"n2"}\NormalTok{, }\StringTok{"Second number"}\NormalTok{, }\DecValTok{0}\NormalTok{),}
-      \FunctionTok{actionButton}\NormalTok{(}\StringTok{"add"}\NormalTok{, }\StringTok{"Add Numbers"}\NormalTok{)}
-\NormalTok{    ),}
-    \FunctionTok{mainPanel}\NormalTok{(}
-      \FunctionTok{textOutput}\NormalTok{(}\AttributeTok{outputId =} \StringTok{"n1\_plus\_n2"}\NormalTok{)}
-\NormalTok{    )}
-\NormalTok{  )}
-\NormalTok{)}
+\NormalTok{ui }\OtherTok{\textless{}{-}} \FunctionTok{fluidPage}\NormalTok{(}\FunctionTok{titlePanel}\NormalTok{(}\StringTok{"Addition Demo"}\NormalTok{),}
+                \FunctionTok{sidebarLayout}\NormalTok{(}
+                  \FunctionTok{sidebarPanel}\NormalTok{(}
+                    \FunctionTok{numericInput}\NormalTok{(}\StringTok{"n1"}\NormalTok{, }\StringTok{"First number"}\NormalTok{, }\DecValTok{0}\NormalTok{),}
+                    \FunctionTok{numericInput}\NormalTok{(}\StringTok{"n2"}\NormalTok{, }\StringTok{"Second number"}\NormalTok{, }\DecValTok{0}\NormalTok{),}
+                    \FunctionTok{actionButton}\NormalTok{(}\StringTok{"add"}\NormalTok{, }\StringTok{"Add Numbers"}\NormalTok{)}
+\NormalTok{                  ),}
+                  \FunctionTok{mainPanel}\NormalTok{(}\FunctionTok{textOutput}\NormalTok{(}\AttributeTok{outputId =} \StringTok{"n1\_plus\_n2"}\NormalTok{))}
+\NormalTok{                ))}
 \end{Highlighting}
 \end{Shaded}
 
 \hypertarget{observeevent}{%
 \subsection{observeEvent}\label{observeevent}}
 
-Use \texttt{observeEvent()} to write a server function that displays ``n1 + n2 = sum'' when you click the action button.
+Use observeEvent() to write a server function that displays ``n1 + n2 = sum'' when you click the action button.
 
 Solution
 
@@ -963,7 +971,7 @@ Solution
 \hypertarget{reactive}{%
 \subsection{reactive}\label{reactive}}
 
-Use \texttt{reactive()} to accomplish the same behaviour.
+Use reactive() to accomplish the same behaviour.
 
 Solution
 
@@ -985,7 +993,7 @@ Solution
 \hypertarget{shinydashboard}{%
 \chapter{ShinyDashboard}\label{shinydashboard}}
 
-\href{https://rstudio.github.io/shinydashboard/}{Shinydashboard} is an R package that provides functions to upgrade your Shiny apps into beautiful dashboards.
+\href{https://rstudio.github.io/shinydashboard/}{Shinydashboard} is an R package that provides functions to upgrade the appearance and function of your Shiny apps.
 
 \hypertarget{basic-template-for-shinydashboard-projects}{%
 \section{Basic template for shinydashboard projects}\label{basic-template-for-shinydashboard-projects}}
@@ -996,28 +1004,28 @@ The shinyintro package provides a basic template for a shinydashboard project.
 
 \{\centering \href{https://shiny.psy.gla.ac.uk/debruine/basic_template/}{\includegraphics[width=1\linewidth]{_main_files/figure-latex/basic-template-app-1} }
 
-You can start a new app using the template with the code \texttt{shinyintro::clone("basic\_template",\ "myapp")}. This will create a new directory called ``myapp'' in your working directory and open the \texttt{app.R} file in RStudio.
+You can start a new app using the template with the code \texttt{shinyintro::clone("basic\_template",\ "myapp")}. This will create a new directory called myapp in your working directory and open the app.R file in RStudio.
 
 This directory contains:
 
 \begin{itemize}
 \tightlist
 \item
-  \texttt{app.R}: the file where you define the ui and server
+  app.R: the file where you define the ui and server
 \item
-  \texttt{DESCRIPTION}: A file that contains some structured info about the app
+  DESCRIPTION: A file that contains some structured info about the app
 \item
-  \texttt{README.md}: A file that can contain any information you want
+  README.md: A file that can contain any information you want
 \item
-  \texttt{scripts}: a directory that can contain external R code that you can source into the \texttt{app.R} file
+  scripts: a directory that can contain external R code that you can source into the app.R file
 \item
-  \texttt{www}: a directory that contains helper files like images, CSS, and JavaScript
+  www: a directory that contains helper files like images, CSS, and JavaScript
 \end{itemize}
 
 \hypertarget{dashboard-structure}{%
 \section{Dashboard Structure}\label{dashboard-structure}}
 
-Notice that the ui is created with \texttt{dashboardPage()} now. This needs to be set up a little differently than \texttt{fluidPage()}. The main parts of a dashboardPage are the header, sidebar, and body.
+Notice that the ui is created with dashboardPage() now. This needs to be set up a little differently than fluidPage(). The main parts of a dashboard page are the header, sidebar, and body.
 
 You can also change the default skin colour. Possible skin colours are: red, yellow (looks orange to me), green, blue, purple, and black.
 
@@ -1048,14 +1056,14 @@ You can add a title to the header, and change the title width.
 
 You can also include message, notification, and task menus in the header. We won't be using those in this class, but you can learn more at \href{https://rstudio.github.io/shinydashboard/structure.html\#message-menus}{the shinydashboard site}.
 
-If you don't want to use a header, include \texttt{dashboardHeader(disable\ =\ TRUE)} inside \texttt{dashboardPage()}.
+If you don't want to use a header, include \texttt{dashboardHeader(disable\ =\ TRUE)} inside dashboardPage().
 
 \hypertarget{dashboardsidebar}{%
 \subsection{dashboardSidebar}\label{dashboardsidebar}}
 
-The sidebar usually contains a \texttt{sidebarMenu()}, which needs a unique ID and a list of menu items. Each \texttt{menuItem()} consists of the title, a tabName that will be used to refer to the tab later, and an icon. You can find a list of the available free icons at \href{https://fontawesome.com/icons?d=gallery\&m=free}{fontawesome}.
+The sidebar usually contains a sidebarMenu(), which needs a unique ID and a list of menu items. Each menuItem() consists of the title, a tabName that will be used to refer to the tab later, and an icon. You can find a list of the available free icons at \href{https://fontawesome.com/icons?d=gallery\&m=free}{fontawesome}.
 
-You can also add in any other elements to the sidebar. The code below adds a link using \texttt{tags\$a()} Text inside of the sidebar usually looks too close to the edges, so we use \protect\hyperlink{CSS}{css} to style the link and add padding.
+You can also add in any other elements to the sidebar. The code below adds a link using tags\$a() Text inside of the sidebar usually looks too close to the edges, so we use \protect\hyperlink{CSS}{css} to style the link and add padding.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1070,14 +1078,14 @@ You can also add in any other elements to the sidebar. The code below adds a lin
 \end{Highlighting}
 \end{Shaded}
 
-If you don't want to use a sidebar, include \texttt{dashboardSidebar(disable\ =\ TRUE)} inside \texttt{dashboardPage()}.
+If you don't want to use a sidebar, include \texttt{dashboardSidebar(disable\ =\ TRUE)} inside dashboardPage().
 
 \hypertarget{dashboardbody}{%
 \subsection{dashboardBody}\label{dashboardbody}}
 
-The main part of the app goes inside \texttt{dashboardBody()} If you're going to use \protect\hyperlink{shinyjs}{shinyjs} functions (which the basic template does), you need to put \texttt{useShinyjs()} first. Then you include the header, linking to any custom CSS or JavaScript files.
+The main part of the app goes inside dashboardBody() If you're going to use javascript functions (which the basic template does and we'll learn more about in Chapter~\ref{shinyjs}), you need to put useShinyjs() first. Then you include the header, linking to any custom CSS or JavaScript files.
 
-The contents of the body go after that. The most common pattern is a multi-page tabbed pattern, which is set up with \texttt{tabItems()}, which contains a \texttt{tabItem()} for each tab. The \texttt{tabName} has to match the name you used in the sidebar \texttt{menuItem}, so that tab shows when the user clicks on the corresponding menu item.
+The contents of the body go after that. The most common pattern is a multi-page tabbed pattern, which is set up with tabItems(), which contains a tabItem() for each tab. The tabName has to match the name you used in the sidebar menuItem(), so that tab shows when the user clicks on the corresponding menu item.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1095,7 +1103,7 @@ The contents of the body go after that. The most common pattern is a multi-page 
 \end{Highlighting}
 \end{Shaded}
 
-Since each tab is usually a quite complex list of elements, I like to define each tab outside \texttt{dashboardPage()} and then just put a list of the tab objects inside \texttt{tabItems()}. This way, it's easy to move the whole tab definition to an external file if it gets too complex (see \protect\hyperlink{structure}{Chapter 8}).
+Since each tab is usually a quite complex list of elements, I like to define each tab outside dashboardPage() and then just put a list of the tab objects inside tabItems(). This way, it's easy to move the whole tab definition to an external file if it gets too complex (see Chapter ~\ref{structure}).
 
 \hypertarget{body-structure}{%
 \section{Body Structure}\label{body-structure}}
@@ -1121,6 +1129,7 @@ Most shinydashboard apps organise the parts inside boxes.
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{() }
 \FunctionTok{tabItem}\NormalTok{(}
     \AttributeTok{tabName =} \StringTok{"demo\_tab"}\NormalTok{,}
     \FunctionTok{box}\NormalTok{(}
@@ -1173,12 +1182,19 @@ In the normal shinydashboard style, solid headers only have a colour if the box 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{images/sdb_box_status.png}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/sdb_box_status} 
+
+}
+
+\caption{Shinydashboard Box Statuses.}\label{fig:sdb-box-status}
+\end{figure}
 
 \hypertarget{info-and-value-boxes}{%
 \subsection{Info and Value Boxes}\label{info-and-value-boxes}}
 
-You can use an \texttt{infoBox()} or a \texttt{valueBox()} to highlight a small amount of information. The shinydashboard uses an aqua background as the default, but the basic template changes this to the skin colour. However, you can customise this by setting the color argument.
+You can use an infoBox() or a valueBox() to highlight a small amount of information. The default background is aqua, but the basic template changes this to the skin colour. However, you can customise this by setting the color argument.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1191,16 +1207,23 @@ You can use an \texttt{infoBox()} or a \texttt{valueBox()} to highlight a small 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{images/sdb_value_info.png}
+\begin{figure}
 
-The default width of boxes is 6, and info and value boxes are 4. Shinydashboard uses a grid system that is 12 units across
+{\centering \includegraphics[width=1\linewidth]{images/sdb_value_info} 
+
+}
+
+\caption{Examples of value and info boxes you can make.}\label{fig:sdb-value-info}
+\end{figure}
+
+Shinydashboard uses a grid system that is 12 units across. The default width of boxes is 6, and info and value boxes are 4.
 
 Try to write the code to create the second row of info boxes show above and the third row of value boxes.
 
 \hypertarget{tab-boxes}{%
 \subsection{Tab Boxes}\label{tab-boxes}}
 
-Create a box with multiple tabs using \texttt{tabBox()}, which contains \texttt{tabPanel()}.
+Create a box with multiple tabs using tabBox(), which contains tabPanel().
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1227,7 +1250,7 @@ Create a box with multiple tabs using \texttt{tabBox()}, which contains \texttt{
 \hypertarget{row-layout}{%
 \subsection{Row Layout}\label{row-layout}}
 
-You can arrange the boxes inside a \texttt{fluidRow()}. Set the box height in pixels. If the window gets too narrow, the boxes will move to stack instead of be in rows.
+You can arrange the boxes inside a fluidRow(). Set the box height in pixels. If the window gets too narrow, the boxes will move to stack instead of be in rows.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1321,7 +1344,7 @@ Alternatively, you can arrange boxes or other elements inside a column() with a 
 \begin{itemize}
 \tightlist
 \item
-  Add tabs to the sidebar menu for the pages of your custom app.
+  Add tabs to the sidebarMenu() for the pages of your custom app.
 \item
   Choose appropriate icons for each tab.
 \item
@@ -1334,9 +1357,9 @@ Alternatively, you can arrange boxes or other elements inside a column() with a 
 \begin{itemize}
 \tightlist
 \item
-  Create an empty tabItem for each tab you put in the sidebar menu and add them to the body.
+  Create an empty tabItem() for each tab you put in the sidebar menu and add them to the body.
 \item
-  Start adding elements to each tab, such as a list of inputs with questions or a \texttt{plotOutput()} to display a feedback plot.
+  Start adding elements to each tab, such as a list of inputs with questions or a plotOutput() to display a feedback plot.
 \item
   Experiment with different ways to display the elements by grouping them into boxes
 \item
@@ -1351,7 +1374,7 @@ Alternatively, you can arrange boxes or other elements inside a column() with a 
 \hypertarget{input-functions}{%
 \section{Input functions}\label{input-functions}}
 
-Inputs are ways that users can communicate information to the Shiny app. Explore some different input types in the embedded app below before you read about how to set up each type. You can run this app locally with \texttt{shinyintro::app("input\_demo")} or view it in a separate tab with the \href{https://shiny.psy.gla.ac.uk/debruine/input_demo/}{showcase interface}.
+Inputs are ways that users can communicate information to the Shiny app. Explore some different input types in the embedded app below before you read about how to set up each type.
 
 \textbackslash begin\{figure\}
 
@@ -1360,7 +1383,7 @@ Inputs are ways that users can communicate information to the Shiny app. Explore
 \hypertarget{textinput}{%
 \subsection{textInput}\label{textinput}}
 
-\texttt{textInput()} creates a one-line box for short text input.
+textInput() creates a one-line box for short text input. The first argument, inputId (the argument name is usually omitted), needs to be a unique string that you cannot use for another input or output in this app.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1373,10 +1396,12 @@ Inputs are ways that users can communicate information to the Shiny app. Explore
 \end{Highlighting}
 \end{Shaded}
 
+Experiment with the values of label, value, width, and placeholder to see what they do.
+
 \hypertarget{textareainput}{%
 \subsection{textAreaInput}\label{textareainput}}
 
-\texttt{textAreaInput()} creates a multi-line box for longer text input.
+textAreaInput() creates a multi-line box for longer text input.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1390,10 +1415,13 @@ Inputs are ways that users can communicate information to the Shiny app. Explore
 \end{Highlighting}
 \end{Shaded}
 
+What is the inputId of the widget above?
+textAreaInput demo\_textarea Biography
+
 \hypertarget{selectinput}{%
 \subsection{selectInput}\label{selectinput}}
 
-\texttt{selectInput()} creates a drop-down menu. Set the first choice to \texttt{""} to default to \texttt{NA}. If your choices are a named list or vector, the names are what is shown and the values are what is recorded. If the choices aren't named, the displayed and recorded values are the same.
+selectInput() creates a drop-down menu. Set the first choice to \texttt{""} to default to \texttt{NA}. If your choices are a named list or vector, the names are what is shown and the values are what is recorded. If the choices aren't named, the displayed and recorded values are the same.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1408,7 +1436,7 @@ Inputs are ways that users can communicate information to the Shiny app. Explore
 \end{Highlighting}
 \end{Shaded}
 
-You can also make a select where users can choose multiple options.
+If you set multiple to \texttt{TRUE}, you can also make a select where users can choose multiple options.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1434,7 +1462,7 @@ You can also make a select where users can choose multiple options.
 \hypertarget{checkboxgroupinput}{%
 \subsection{checkboxGroupInput}\label{checkboxgroupinput}}
 
-However, this interface almost always looks better with a checkbox group.
+However, this interface almost always looks better with checkboxGroupInput().
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1445,10 +1473,13 @@ However, this interface almost always looks better with a checkbox group.
 \end{Highlighting}
 \end{Shaded}
 
+How can you get the checkboxes to display horizontally instead of vertically?\\
+display = 'horizontal' class = 'horiz' inline = TRUE class = 'shiny-input-container-inline'
+
 \hypertarget{checkboxinput}{%
 \subsection{checkboxInput}\label{checkboxinput}}
 
-You can also make a single checkbox. The value is \texttt{TRUE} when checked and \texttt{FALSE} when not.
+You can also make a single checkbox with checkboxInput(). The value is \texttt{TRUE} when checked and \texttt{FALSE} when not.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1458,7 +1489,7 @@ You can also make a single checkbox. The value is \texttt{TRUE} when checked and
 \end{Highlighting}
 \end{Shaded}
 
-Sliders allow you to choose numbers between a minimum and maximum.
+sliderInput() allows you to choose numbers between a min and max value.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1472,16 +1503,65 @@ Sliders allow you to choose numbers between a minimum and maximum.
 \end{Highlighting}
 \end{Shaded}
 
+What happens if you change value or step? Try changing value to \texttt{c(10,\ 20)}.
+
 \hypertarget{radiobuttons}{%
 \subsection{radioButtons}\label{radiobuttons}}
+
+If you want users to only be able to choose one options and there are a small number of short options, radioButton() is a good interface.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{demo\_radio }\OtherTok{\textless{}{-}} \FunctionTok{radioButtons}\NormalTok{(}\StringTok{"demo\_radio"}\NormalTok{,}
                            \AttributeTok{label =} \StringTok{"Choose one"}\NormalTok{,}
-                           \AttributeTok{choices =} \FunctionTok{c}\NormalTok{(}\StringTok{"Cats"}\NormalTok{, }\StringTok{"Dogs"}\NormalTok{))}
+                           \AttributeTok{choices =} \FunctionTok{c}\NormalTok{(}\StringTok{"Cats"}\NormalTok{, }\StringTok{"Dogs"}\NormalTok{),}
+                           \AttributeTok{selected =} \FunctionTok{character}\NormalTok{(}\DecValTok{0}\NormalTok{),}
+                           \AttributeTok{inline =} \ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+Radio buttons default to selecting the first item unless you set selected to a choice value or \texttt{character(0)} to start with no selection.
+
+\hypertarget{dateinput}{%
+\subsection{dateInput}\label{dateinput}}
+
+I find the date interface a little clunky, but that might just be because I have to click the back button on the year interface 44 time to find my birthdate. However, it also allows you to type in a date following the format that you can set.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{demo\_date }\OtherTok{\textless{}{-}} \FunctionTok{dateInput}\NormalTok{(}\StringTok{"demo\_date"}\NormalTok{,}
+                       \AttributeTok{label =} \StringTok{"What is your birth date?"}\NormalTok{,}
+                       \AttributeTok{min =} \StringTok{"1900{-}01{-}01"}\NormalTok{,}
+                       \AttributeTok{max =} \FunctionTok{Sys.Date}\NormalTok{(),}
+                       \AttributeTok{format =} \StringTok{"yyyy{-}mm{-}dd"}\NormalTok{,}
+                       \AttributeTok{startview =} \StringTok{"year"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+IMHO, the default of \texttt{"yyyy-mm-dd"} is the best because it sorts into chronological order. Don't let me catch you storing dates like \texttt{"m/d/yyyy"}.
+
+What would you set format to in order to display dates like ``Sunday July 4, 2021''?\\
+D M d, Y DD MM d, yyyy DAY MONTH day, YEAR D MM dd, yyyy
+
+(don't actually do this)
+
+\hypertarget{fileinput}{%
+\subsection{fileInput}\label{fileinput}}
+
+Users can upload one or more files with fileInput(). The argument acccept lets you limit this to certain file types, but some browsers can bypass this requirement, so it's not fool-proof.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{demo\_file }\OtherTok{\textless{}{-}} \FunctionTok{fileInput}\NormalTok{(}\StringTok{"demo\_file"}\NormalTok{,}
+                       \AttributeTok{label =} \StringTok{"Upload a data table"}\NormalTok{,}
+                       \AttributeTok{multiple =} \ConstantTok{FALSE}\NormalTok{,}
+                       \AttributeTok{accept =} \FunctionTok{c}\NormalTok{(}\StringTok{".csv"}\NormalTok{, }\StringTok{".tsv"}\NormalTok{),}
+                       \AttributeTok{buttonLabel =} \StringTok{"Upload"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+What would you set accept to to accept any image file?\\
+image/* .jpg jpg images .img
 
 \hypertarget{setting-inputs-programatically}{%
 \section{Setting inputs programatically}\label{setting-inputs-programatically}}
@@ -1495,18 +1575,56 @@ Sometimes you need to change the value of an input with code, such as when reset
 \FunctionTok{updateSelectInput}\NormalTok{(session, }\StringTok{"demo\_select"}\NormalTok{, }\AttributeTok{selected =} \StringTok{""}\NormalTok{)}
 \FunctionTok{updateCheckboxGroupInput}\NormalTok{(session, }\StringTok{"demo\_cbgi"}\NormalTok{, }\AttributeTok{selected =} \FunctionTok{character}\NormalTok{(}\DecValTok{0}\NormalTok{))}
 \FunctionTok{updateCheckboxInput}\NormalTok{(session, }\StringTok{"demo\_cb"}\NormalTok{, }\AttributeTok{value =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{updateRadioButtons}\NormalTok{(session, }\StringTok{"demo\_radio"}\NormalTok{, }\AttributeTok{selected =} \FunctionTok{character}\NormalTok{(}\DecValTok{0}\NormalTok{))}
 \FunctionTok{updateSliderInput}\NormalTok{(session, }\StringTok{"demo\_slider"}\NormalTok{, }\AttributeTok{value =} \DecValTok{0}\NormalTok{)}
+\FunctionTok{updateDateInput}\NormalTok{(session, }\StringTok{"demo\_date"}\NormalTok{, }\AttributeTok{value =} \ConstantTok{NULL}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-Note that select inputs and checkbox groups use the argument \texttt{selected} and not \texttt{value}. If you want to set all the values in a checkbox group to unchecked, set \texttt{selected\ =\ character(0)}.
+Note that select inputs, checkbox groups, and radio buttons use the argument \texttt{selected} and not \texttt{value}. If you want to set all the values in a checkbox group or radio button group to unchecked, set \texttt{selected\ =\ character(0)}.
+
+\hypertarget{exercises-inputs}{%
+\section{Exercises}\label{exercises-inputs}}
+
+\hypertarget{pets}{%
+\subsection{Pets}\label{pets}}
+
+Create an interface that gets people to rate the following pets on a 9-point scale. You can use any option labels or input type you like.
+
+\begin{itemize}
+\tightlist
+\item
+  Dogs 🐕\\
+\item
+  Cats 🐈\\
+\item
+  Birds 🦜\\
+\item
+  Fish 🐠\\
+\item
+  Mice 🐁\\
+\item
+  Hedgehogs 🦔\\
+\item
+  Snakes 🐍
+\end{itemize}
+
+\hypertarget{questionnaire}{%
+\subsection{Questionnaire}\label{questionnaire}}
+
+In the app you're developing, add a tab for a questionnaire that you're interested in and set up the appropriate inputs.
+
+\hypertarget{updating}{%
+\subsection{Updating}\label{updating}}
+
+Add a ``reset'' button to your questionnaire tab and write the server() code to reset all of its inputs.
 
 \hypertarget{outputs}{%
 \chapter{Outputs}\label{outputs}}
 
 Output are ways that the Shiny app can dynamically display information to the user. In the user interface (UI), you create outputs with IDs that you reference in an associated rendering function inside the server function.
 
-Explore some different output types in the embedded app below before you read about how to set up each type. You can run this app locally with \texttt{shinyintro::app("output\_demo")} or view it in a separate tab with the {[}showcase interface{]}(\textless{}\url{https://shiny.psy.gla.ac.uk/debruine/output_demo/}(\{target="\_blank"\}.
+Explore some different output types in the embedded app below before you read about how to set up each type.
 
 \textbackslash begin\{figure\}
 
@@ -1746,9 +1864,11 @@ However, even if a Google Sheet is publicly editable, you can't add data to it w
 
 \begin{verbatim}
 ## Error: Client error: (401) UNAUTHENTICATED
-## * Request not authenticated due to missing, invalid, or expired OAuth token.
-## * Request is missing required authentication credential. Expected OAuth 2
-##   access token, login cookie or other valid authentication credential. See
+## * Request not authenticated due to missing, invalid, or expired OAuth
+##   token.
+## * Request is missing required authentication credential. Expected
+##   OAuth 2 access token, login cookie or other valid authentication
+##   credential. See
 ##   https://developers.google.com/identity/sign-in/web/devconsole-project.
 \end{verbatim}
 
@@ -1843,7 +1963,7 @@ You can set up a new Google Sheet with code. You only need to do this once for a
 
 \begin{verbatim}
 ## Spreadsheet name: demo2
-##               ID: 1DYYaFlJPAWUsVZ7HhxLquiKKOQkmy44pYrwgg22v8PA
+##               ID: 1GUm-_90mJzYEwXpSa_t3UqRqcfFTzx8UV1yC0CR7Ebg
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -1948,11 +2068,11 @@ If you try to append data of a different type, some weird things can happen. Log
 
 \begin{verbatim}
 ## # A tibble: 3 x 4
-##   name   birthyear R_user    score    
-##   <chr>  <list>    <list>    <list>   
-## 1 Lisa   <dbl [1]> <lgl [1]> <dbl [1]>
-## 2 Robbie <dbl [1]> <lgl [1]> <dbl [1]>
-## 3 1      <chr [1]> <chr [1]> <chr [1]>
+##   name      birthyear R_user score    
+##   <list>        <dbl>  <dbl> <list>   
+## 1 <chr [1]>      1976      1 <dbl [1]>
+## 2 <chr [1]>      2007      0 <dbl [1]>
+## 3 <dbl [1]>         0      0 <chr [1]>
 \end{verbatim}
 
 You must append data that has the same number and order of columns as the Google Sheet. If you send columns out of order, they will be recorded in the order you sent them, not in the order of the column names. If you send extra columns, the append will fail.
@@ -2991,7 +3111,7 @@ Change the style of just the links inside paragraphs with the class ``help'' to 
 
 Solution
 
-Add the following to \texttt{www/custom.css}:
+Add the following to \emph{www/custom.css}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3002,12 +3122,12 @@ Add the following to \texttt{www/custom.css}:
 \hypertarget{structure}{%
 \chapter{Structuring a complex app}\label{structure}}
 
-So far, we've been mostly structuring our app entirely in the \texttt{app.R} file, apart from some of the web helper files for CSS and JavaScript. However, once your apps start getting relatively complex, you might find it easier to move some of the code into external \texttt{.R} files and using \texttt{source()} to include them. There are a few things to watch out for when you do this.
+So far, we've been mostly structuring our app entirely in the \emph{app.R} file, apart from some of the web helper files for CSS and JavaScript. However, once your apps start getting relatively complex, you might find it easier to move some of the code into external \emph{.R} files and using \texttt{source()} to include them. There are a few things to watch out for when you do this.
 
 \hypertarget{external-server-functions}{%
 \section{External Server Functions}\label{external-server-functions}}
 
-You can define functions you want to use in your app at the top of the \texttt{app.R} file, but that can make that file difficult to parse pretty quickly. The basic template includes external functions with the line:
+You can define functions you want to use in your app at the top of the \emph{app.R} file, but that can make that file difficult to parse pretty quickly. The basic template includes external functions with the line:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3044,7 +3164,7 @@ However, you can source in external code inside \texttt{server()} by setting the
 \end{Highlighting}
 \end{Shaded}
 
-You might find it useful to break up parts of the server logic for a very big app into separate files like this, but it's more common to keep any code that uses reactive functions inside \texttt{server()} in the \texttt{app.R} file, and move large sections of code inside those functions to externally defined functions.
+You might find it useful to break up parts of the server logic for a very big app into separate files like this, but it's more common to keep any code that uses reactive functions inside \texttt{server()} in the \emph{app.R} file, and move large sections of code inside those functions to externally defined functions.
 
 For example, you could define the function \texttt{logo\_image()} in the external file \texttt{scripts/logo.R} like this:
 
@@ -3059,7 +3179,7 @@ For example, you could define the function \texttt{logo\_image()} in the externa
 \end{Highlighting}
 \end{Shaded}
 
-The following in the \texttt{app.R} file keeps the reactive function \texttt{renderImage()} inside \texttt{server()}, but lets you reduce the number of lines of code.
+The following in the \emph{app.R} file keeps the reactive function \texttt{renderImage()} inside \texttt{server()}, but lets you reduce the number of lines of code.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3145,7 +3265,7 @@ Defining a complex UI can be very challenging. The basic template uses a pattern
 \end{Highlighting}
 \end{Shaded}
 
-For a simple app, you can define the tabs in \texttt{app.R} just before you define the \texttt{ui}. You can do the same for any components of the \texttt{ui}, such as \texttt{dashboardHeader()} or \texttt{dashboardSidebar()}. When the sections start getting complex, you can move them into external files and source them in.
+For a simple app, you can define the tabs in \emph{app.R} just before you define the \texttt{ui}. You can do the same for any components of the \texttt{ui}, such as \texttt{dashboardHeader()} or \texttt{dashboardSidebar()}. When the sections start getting complex, you can move them into external files and source them in.
 
 \hypertarget{ui-lists}{%
 \subsection{UI Lists}\label{ui-lists}}
@@ -3185,12 +3305,12 @@ Here's an example of how you would programatically create select inputs for each
 \hypertarget{server-functions}{%
 \subsection{server functions}\label{server-functions}}
 
-In the app you're developing, see if there are any long functions inside reactive functions in \texttt{server()} that can be moved to \texttt{scripts/func.R} or another external file.
+In the app you're developing, see if there are any long functions inside reactive functions in \texttt{server()} that can be moved to \emph{scripts/func.R} or another external file.
 
 \hypertarget{ui-files}{%
 \subsection{UI files}\label{ui-files}}
 
-In the app you're developing, move each tab into an external file and source it into \texttt{app.R}.
+In the app you're developing, move each tab into an external file and source it into \emph{app.R}.
 
 \hypertarget{debugging}{%
 \chapter{Debugging and error handling}\label{debugging}}
@@ -3458,7 +3578,7 @@ What would go wrong if you put the button inside the box?
 
 You can use \texttt{addClass()}, \texttt{removeClass()}, and \texttt{toggleClass()} to change element classes. You usually want to do this with classes you've defined yourself.
 
-Add the following style to the \texttt{www/custom.css} file.
+Add the following style to the \emph{www/custom.css} file.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3669,11 +3789,11 @@ GitHub is a great place to organise and share your code using version control. Y
 
 See \protect\hyperlink{setup-git}{Appendix B} for instructions on how to set up git and a GitHub account. Set up a github access token with \texttt{usethis::create\_github\_token()}. Your web browser will open and you'll be asked to log into your GitHub account and then asked to authorise a new token. Accept the defaults and click OK at the bottom of the page. In RStudio, run \texttt{gitcreds::gitcreds\_set()} and follow the instructions to save the token.
 
-Then, to share an app with people who use R, make a project that contains your \texttt{app.R} file and any related files. If you aren't already using version control for this project, make sure all of your files are saved and type \texttt{usethis::use\_git()} into the console. Choose Yes to commit and Yes to restart R.
+Then, to share an app with people who use R, make a project that contains your \emph{app.R} file and any related files. If you aren't already using version control for this project, make sure all of your files are saved and type \texttt{usethis::use\_git()} into the console. Choose Yes to commit and Yes to restart R.
 
 Make a new GitHub repository with \texttt{usethis::use\_github(protocol="https")}; check that the suggested title and description are OK. If you choose the affirmative response (not always the same number), you'll see some messages and your web browser will open the github repository page.
 
-Now you can share your app with others by sending them the repository link. They can access your repository in RStudio by starting a New Project from version control, using the URL that is shown when you click on the green ``Code'' button on the repository page (something like ``\url{https://github.com/account/repository.git}''). They can run your app the same way you do when developing it, by opening the \texttt{app.R} file and clicking the Run button.
+Now you can share your app with others by sending them the repository link. They can access your repository in RStudio by starting a New Project from version control, using the URL that is shown when you click on the green ``Code'' button on the repository page (something like ``\url{https://github.com/account/repository.git}''). They can run your app the same way you do when developing it, by opening the \emph{app.R} file and clicking the Run button.
 
 To update your files on GitHub, you need to commit any changes you make using the Git tab in the upper right pane. Click on the checkbox of any files you want to update, click ``Commit'', and write a message to yourself explaining the changes (this will be publicly viewable on GitHub, so try to be professional ;).
 
@@ -3703,7 +3823,7 @@ You can put your app in a custom R package to make it even easier for people to 
 
 Copy any apps you want to include in this package into the inst/apps directory.
 
-Now, create the app function by running \texttt{usethis::edit\_file("R/app.R")} and copy the following text into the \texttt{app.R} file that just opened. Replace ``default\_app'' with the directory name of the app that you want to open if a user doesn't type any name in at all.
+Now, create the app function by running \texttt{usethis::edit\_file("R/app.R")} and copy the following text into the \emph{app.R} file that just opened. Replace ``default\_app'' with the directory name of the app that you want to open if a user doesn't type any name in at all.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3722,7 +3842,7 @@ Now, create the app function by running \texttt{usethis::edit\_file("R/app.R")} 
 \end{Highlighting}
 \end{Shaded}
 
-Next, open the \texttt{DESCRIPTION} file and edit the title, author and description.
+Next, open the \emph{DESCRIPTION} file and edit the title, author and description.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4091,8 +4211,6 @@ If you find yourself making nearly identical UIs or server functions over and ov
 
 \{\centering \href{https://shiny.psy.gla.ac.uk/debruine/modules_demo/}{\includegraphics[width=1\linewidth]{_main_files/figure-latex/modules-demo-app-1} }
 
-Run locally with \texttt{shinyintro::app("modules\_demo")} or view it in a separate tab with the \href{https://shiny.psy.gla.ac.uk/debruine/modules_demo/}{showcase interface}.
-
 \hypertarget{modularizing-the-ui}{%
 \section{Modularizing the UI}\label{modularizing-the-ui}}
 
@@ -4419,8 +4537,35 @@ If you are using Linux, choose your specific operating system and follow the ins
 
 Go to \href{https://www.rstudio.com/products/rstudio/download/\#download}{rstudio.com} and download the RStudio Desktop (Open Source License) version for your operating system under the list titled \textbf{Installers for Supported Platforms}.
 
+\hypertarget{rstudio-settings}{%
+\subsection{RStudio Settings}\label{rstudio-settings}}
+
+There are a few settings you should fix immediately after updating RStudio. Go to \textbf{\texttt{Global\ Options...}} under the \textbf{\texttt{Tools}} menu (⌘,), and in the General tab, uncheck the box that says \textbf{\texttt{Restore\ .RData\ into\ workspace\ at\ startup}}. If you keep things around in your workspace, things will get messy, and unexpected things will happen. You should always start with a clear workspace. This also means that you never want to save your workspace when you exit, so set this to \textbf{\texttt{Never}}. The only thing you want to save are your scripts.
+
+You may also want to change the appearance of your code. Different fonts and themes can sometimes help with visual difficulties or {[}dyslexia{]}((\url{https://datacarpentry.org/blog/2017/09/coding-and-dyslexia})\{target="\_blank"\}. I prefer a dark background and the FiraCode font for my own coding, but I will use the default theme for screenshots in this book.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.45\linewidth]{images/rstudio_settings_general} \includegraphics[width=0.45\linewidth]{images/rstudio_settings_appearance} 
+
+}
+
+\caption{My RStudio General and Appearance settings}\label{fig:settings-general}
+\end{figure}
+
+You may also want to change the settings in the Code tab. I prefer two spaces instead of tabs for my code and I like to be able to see the whitespace characters. But these are all a matter of personal preference.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.45\linewidth]{images/rstudio_settings_code_editing} \includegraphics[width=0.45\linewidth]{images/rstudio_settings_code_display} 
+
+}
+
+\caption{My RStudio Code settings}\label{fig:settings-code}
+\end{figure}
+
 \hypertarget{installing-shinyintro-1}{%
-\section{Installing shinyintro}\label{installing-shinyintro-1}}
+\subsection{Installing shinyintro}\label{installing-shinyintro-1}}
 
 To install the class package, which will provide you with a copy of all of the shiny apps we'll use for demos and the basic template, paste the following code into the console in RStudio.
 
@@ -4549,6 +4694,8 @@ pandoc & A universal document convertor, used by R to make PDF or Word documents
 \hline
 panes & RStudio is arranged with four window “panes.”\\
 \hline
+project & A way to organise related files in RStudio\\
+\hline
 push & Updating the remote git project from the local project.\\
 \hline
 r-markdown & The R-specific version of markdown: a way to specify formatting, such as headers, paragraphs, lists, bolding, and links, as well as code blocks and inline code.\\
@@ -4572,6 +4719,10 @@ ui & The User Interface. This usually refers to a Shiny App as the user will see
 vector & A type of data structure that is basically a list of things like T/F values, numbers, or strings.\\
 \hline
 version-control & A way to save a record of changes to your files.\\
+\hline
+whitepspace & \\
+\hline
+whitespace & Spaces, tabs and line breaks\\
 \hline
 widget & A interactive web element, like a dropdown menu or a slider.\\
 \hline

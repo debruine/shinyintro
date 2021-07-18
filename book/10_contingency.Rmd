@@ -1,8 +1,8 @@
 # Contingent Display {#contingency}
 
-```{r contingency-demo-app, eval = TRUE, echo = FALSE, fig.cap="Contingency Demo App"}
+```{r contingency-demo-app, eval=TRUE, echo=FALSE, fig.cap="Contingency Demo App. You can also access this app with `shinyintro::app(\"contingency_demo\")`or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/contingency_demo/){target=\"_blank\"}."}
 knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/contingency_demo/",
-                   height = "800px")
+height = "800px")
 ```
 
 ## Hide and Show
@@ -102,7 +102,7 @@ What would go wrong if you put the button inside the box?
 
 You can use `addClass()`, `removeClass()`, and `toggleClass()` to change element classes. You usually want to do this with classes you've defined yourself. 
 
-Add the following style to the `www/custom.css` file.
+Add the following style to the *www/custom.css* file.
 
 ```{r}
 .notice-me {

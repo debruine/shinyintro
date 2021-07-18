@@ -167,11 +167,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.2" data-path="first-app.html"><a href="first-app.html#modify-the-demo-app"><i class="fa fa-check"></i><b>1.1.2</b> Modify the Demo App</a></li>
 <li class="chapter" data-level="1.1.3" data-path="first-app.html"><a href="first-app.html#add-new-things"><i class="fa fa-check"></i><b>1.1.3</b> Add New Things</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="first-app.html"><a href="first-app.html#overview-of-the-uiserver-structure"><i class="fa fa-check"></i><b>1.2</b> Overview of the UI/server structure</a>
+<li class="chapter" data-level="1.2" data-path="first-app.html"><a href="first-app.html#app-structure"><i class="fa fa-check"></i><b>1.2</b> App Structure</a>
 <ul>
 <li class="chapter" data-level="1.2.1" data-path="first-app.html"><a href="first-app.html#ui"><i class="fa fa-check"></i><b>1.2.1</b> UI</a></li>
+<li class="chapter" data-level="1.2.2" data-path="first-app.html"><a href="first-app.html#tags"><i class="fa fa-check"></i><b>1.2.2</b> Tags</a></li>
+<li class="chapter" data-level="1.2.3" data-path="first-app.html"><a href="first-app.html#page-layout"><i class="fa fa-check"></i><b>1.2.3</b> Page Layout</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="first-app.html"><a href="first-app.html#inputs-outputs-and-action-buttons"><i class="fa fa-check"></i><b>1.3</b> Inputs, outputs, and action buttons</a>
+<li class="chapter" data-level="1.3" data-path="first-app.html"><a href="first-app.html#dynamic-elements"><i class="fa fa-check"></i><b>1.3</b> Dynamic Elements</a>
 <ul>
 <li class="chapter" data-level="1.3.1" data-path="first-app.html"><a href="first-app.html#inputs-intro"><i class="fa fa-check"></i><b>1.3.1</b> Inputs</a></li>
 <li class="chapter" data-level="1.3.2" data-path="first-app.html"><a href="first-app.html#outputs-intro"><i class="fa fa-check"></i><b>1.3.2</b> Outputs</a></li>
@@ -222,8 +224,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.4" data-path="inputs.html"><a href="inputs.html#checkboxgroupinput"><i class="fa fa-check"></i><b>3.1.4</b> checkboxGroupInput</a></li>
 <li class="chapter" data-level="3.1.5" data-path="inputs.html"><a href="inputs.html#checkboxinput"><i class="fa fa-check"></i><b>3.1.5</b> checkboxInput</a></li>
 <li class="chapter" data-level="3.1.6" data-path="inputs.html"><a href="inputs.html#radiobuttons"><i class="fa fa-check"></i><b>3.1.6</b> radioButtons</a></li>
+<li class="chapter" data-level="3.1.7" data-path="inputs.html"><a href="inputs.html#dateinput"><i class="fa fa-check"></i><b>3.1.7</b> dateInput</a></li>
+<li class="chapter" data-level="3.1.8" data-path="inputs.html"><a href="inputs.html#fileinput"><i class="fa fa-check"></i><b>3.1.8</b> fileInput</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="inputs.html"><a href="inputs.html#setting-inputs-programatically"><i class="fa fa-check"></i><b>3.2</b> Setting inputs programatically</a></li>
+<li class="chapter" data-level="3.3" data-path="inputs.html"><a href="inputs.html#exercises-inputs"><i class="fa fa-check"></i><b>3.3</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="inputs.html"><a href="inputs.html#pets"><i class="fa fa-check"></i><b>3.3.1</b> Pets</a></li>
+<li class="chapter" data-level="3.3.2" data-path="inputs.html"><a href="inputs.html#questionnaire"><i class="fa fa-check"></i><b>3.3.2</b> Questionnaire</a></li>
+<li class="chapter" data-level="3.3.3" data-path="inputs.html"><a href="inputs.html#updating"><i class="fa fa-check"></i><b>3.3.3</b> Updating</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="outputs.html"><a href="outputs.html"><i class="fa fa-check"></i><b>4</b> Outputs</a>
 <ul>
@@ -388,9 +398,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="A" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i><b>A</b> Installing <code>R</code></a>
 <ul>
 <li class="chapter" data-level="A.1" data-path="installing-r.html"><a href="installing-r.html#installing-base-r"><i class="fa fa-check"></i><b>A.1</b> Installing Base R</a></li>
-<li class="chapter" data-level="A.2" data-path="installing-r.html"><a href="installing-r.html#installing-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing RStudio</a></li>
-<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-shinyintro-1"><i class="fa fa-check"></i><b>A.3</b> Installing shinyintro</a></li>
-<li class="chapter" data-level="A.4" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.4</b> Installing LaTeX</a></li>
+<li class="chapter" data-level="A.2" data-path="installing-r.html"><a href="installing-r.html#installing-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing RStudio</a>
+<ul>
+<li class="chapter" data-level="A.2.1" data-path="installing-r.html"><a href="installing-r.html#rstudio-settings"><i class="fa fa-check"></i><b>A.2.1</b> RStudio Settings</a></li>
+<li class="chapter" data-level="A.2.2" data-path="installing-r.html"><a href="installing-r.html#installing-shinyintro-1"><i class="fa fa-check"></i><b>A.2.2</b> Installing shinyintro</a></li>
+</ul></li>
+<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.3</b> Installing LaTeX</a></li>
 </ul></li>
 <li class="chapter" data-level="B" data-path="symbols.html"><a href="symbols.html"><i class="fa fa-check"></i><b>B</b> Symbols</a></li>
 <li class="chapter" data-level="C" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>C</b> Glossary</a></li>
@@ -426,22 +439,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">9.1</span> RStudio Console Messages</h2>
 <p>Sending messages to the <a class='glossary' target='_blank' title='The pane in RStudio where you can type in commands and view output messages.' href='https://psyteachr.github.io/glossary/c#console'>console</a> is a simple way to debug your code.</p>
 <p>I like to keep track of what functions are being called by starting every function inside the server function with a message. The template includes a custom message logging function that helps you use this with both development and deployed apps: <code>debug_msg()</code>.</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="debugging.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="co"># display debugging messages in R if local, </span></span>
-<span id="cb120-2"><a href="debugging.html#cb120-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or in the console log if remote</span></span>
-<span id="cb120-3"><a href="debugging.html#cb120-3" aria-hidden="true" tabindex="-1"></a>debug_msg <span class="ot">&lt;-</span> <span class="cf">function</span>(...) {</span>
-<span id="cb120-4"><a href="debugging.html#cb120-4" aria-hidden="true" tabindex="-1"></a>  is_local <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">&#39;SHINY_PORT&#39;</span>) <span class="sc">==</span> <span class="st">&quot;&quot;</span></span>
-<span id="cb120-5"><a href="debugging.html#cb120-5" aria-hidden="true" tabindex="-1"></a>  txt <span class="ot">&lt;-</span> <span class="fu">toString</span>(<span class="fu">list</span>(...))</span>
-<span id="cb120-6"><a href="debugging.html#cb120-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (is_local) {</span>
-<span id="cb120-7"><a href="debugging.html#cb120-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(txt)</span>
-<span id="cb120-8"><a href="debugging.html#cb120-8" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb120-9"><a href="debugging.html#cb120-9" aria-hidden="true" tabindex="-1"></a>    shinyjs<span class="sc">::</span><span class="fu">runjs</span>(<span class="fu">sprintf</span>(<span class="st">&quot;console.debug(</span><span class="sc">\&quot;</span><span class="st">%s</span><span class="sc">\&quot;</span><span class="st">)&quot;</span>, txt))</span>
-<span id="cb120-10"><a href="debugging.html#cb120-10" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb120-11"><a href="debugging.html#cb120-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="debugging.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="co"># display debugging messages in R if local, </span></span>
+<span id="cb124-2"><a href="debugging.html#cb124-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or in the console log if remote</span></span>
+<span id="cb124-3"><a href="debugging.html#cb124-3" aria-hidden="true" tabindex="-1"></a>debug_msg <span class="ot">&lt;-</span> <span class="cf">function</span>(...) {</span>
+<span id="cb124-4"><a href="debugging.html#cb124-4" aria-hidden="true" tabindex="-1"></a>  is_local <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">&#39;SHINY_PORT&#39;</span>) <span class="sc">==</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb124-5"><a href="debugging.html#cb124-5" aria-hidden="true" tabindex="-1"></a>  txt <span class="ot">&lt;-</span> <span class="fu">toString</span>(<span class="fu">list</span>(...))</span>
+<span id="cb124-6"><a href="debugging.html#cb124-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (is_local) {</span>
+<span id="cb124-7"><a href="debugging.html#cb124-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(txt)</span>
+<span id="cb124-8"><a href="debugging.html#cb124-8" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb124-9"><a href="debugging.html#cb124-9" aria-hidden="true" tabindex="-1"></a>    shinyjs<span class="sc">::</span><span class="fu">runjs</span>(<span class="fu">sprintf</span>(<span class="st">&quot;console.debug(</span><span class="sc">\&quot;</span><span class="st">%s</span><span class="sc">\&quot;</span><span class="st">)&quot;</span>, txt))</span>
+<span id="cb124-10"><a href="debugging.html#cb124-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb124-11"><a href="debugging.html#cb124-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>For example, the code below prints “questionnaire submitted” every time the action button <code>q_submit</code> is pressed. It prints to the RStudio console when you’re developing and to the javascript console for deployed apps.</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="debugging.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">observeEvent</span>(input<span class="sc">$</span>q_submit, {</span>
-<span id="cb121-2"><a href="debugging.html#cb121-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">debug_msg</span>(<span class="st">&quot;questionnaire submitted&quot;</span>)</span>
-<span id="cb121-3"><a href="debugging.html#cb121-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># rest of code ...</span></span>
-<span id="cb121-4"><a href="debugging.html#cb121-4" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="debugging.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">observeEvent</span>(input<span class="sc">$</span>q_submit, {</span>
+<span id="cb125-2"><a href="debugging.html#cb125-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">debug_msg</span>(<span class="st">&quot;questionnaire submitted&quot;</span>)</span>
+<span id="cb125-3"><a href="debugging.html#cb125-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># rest of code ...</span></span>
+<span id="cb125-4"><a href="debugging.html#cb125-4" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 </div>
 <div id="javascript-console" class="section level2" number="9.2">
 <h2><span class="header-section-number">9.2</span> JavaScript Console</h2>
@@ -474,44 +487,44 @@ Figure 9.2: Showcase mode.
 <p>You’ve probably experienced the greyed out screen of a crashed app more than enough now. In development, the next step is to look at the console to see if you have a warning or error message. If you’re lucky, you can figure out where in the code this is happening (this is easier if you start all your functions with a debug message).</p>
 <p>However, sometimes there are errors that are difficult to prevent. For example, you can try to restrict inputs so the users only enter numeric values using <code>numericInput()</code>, but some browsers will let you enter text values anyways. To avoid crashing the whole app, you can wrap potentially error-triggering code in <code>tryCatch()</code>.</p>
 <p>For example, the code below will cause an error because you can’t add a number and a letter.</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="debugging.html#cb123-1" aria-hidden="true" tabindex="-1"></a>input <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">n1 =</span> <span class="dv">10</span>, <span class="at">n2 =</span> <span class="st">&quot;A&quot;</span>)</span>
-<span id="cb123-2"><a href="debugging.html#cb123-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-3"><a href="debugging.html#cb123-3" aria-hidden="true" tabindex="-1"></a>sum <span class="ot">&lt;-</span> input<span class="sc">$</span>n1 <span class="sc">+</span> input<span class="sc">$</span>n2</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="debugging.html#cb127-1" aria-hidden="true" tabindex="-1"></a>input <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">n1 =</span> <span class="dv">10</span>, <span class="at">n2 =</span> <span class="st">&quot;A&quot;</span>)</span>
+<span id="cb127-2"><a href="debugging.html#cb127-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb127-3"><a href="debugging.html#cb127-3" aria-hidden="true" tabindex="-1"></a>sum <span class="ot">&lt;-</span> input<span class="sc">$</span>n1 <span class="sc">+</span> input<span class="sc">$</span>n2</span></code></pre></div>
 <pre><code>## Error in input$n1 + input$n2: non-numeric argument to binary operator</code></pre>
 <p>The following code tries to run the code inside the curly brackets (<code>{}</code>), but if it creates an error, the error function will run. The object <code>e</code> is the error object, and you can print the message from it using <code>debug_msg()</code> (this won’t crash the app).</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="debugging.html#cb125-1" aria-hidden="true" tabindex="-1"></a>sum <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>({</span>
-<span id="cb125-2"><a href="debugging.html#cb125-2" aria-hidden="true" tabindex="-1"></a>  input<span class="sc">$</span>n1 <span class="sc">+</span> input<span class="sc">$</span>n2</span>
-<span id="cb125-3"><a href="debugging.html#cb125-3" aria-hidden="true" tabindex="-1"></a>}, <span class="at">error =</span> <span class="cf">function</span>(e) {</span>
-<span id="cb125-4"><a href="debugging.html#cb125-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">debug_msg</span>(e<span class="sc">$</span>message)</span>
-<span id="cb125-5"><a href="debugging.html#cb125-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="dv">0</span>)</span>
-<span id="cb125-6"><a href="debugging.html#cb125-6" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="debugging.html#cb129-1" aria-hidden="true" tabindex="-1"></a>sum <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>({</span>
+<span id="cb129-2"><a href="debugging.html#cb129-2" aria-hidden="true" tabindex="-1"></a>  input<span class="sc">$</span>n1 <span class="sc">+</span> input<span class="sc">$</span>n2</span>
+<span id="cb129-3"><a href="debugging.html#cb129-3" aria-hidden="true" tabindex="-1"></a>}, <span class="at">error =</span> <span class="cf">function</span>(e) {</span>
+<span id="cb129-4"><a href="debugging.html#cb129-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">debug_msg</span>(e<span class="sc">$</span>message)</span>
+<span id="cb129-5"><a href="debugging.html#cb129-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="dv">0</span>)</span>
+<span id="cb129-6"><a href="debugging.html#cb129-6" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <p>The return value from the error message is the value assigned to <code>sum</code> if there is an error. Sometimes it won’t make sense to have a default value, or the code you’re checking doesn’t have a return value. In that case, you can just put all the code inside the brackets and not return anything from the error function.</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="debugging.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tryCatch</span>({</span>
-<span id="cb126-2"><a href="debugging.html#cb126-2" aria-hidden="true" tabindex="-1"></a>  sum <span class="ot">&lt;-</span> input<span class="sc">$</span>n1 <span class="sc">+</span> input<span class="sc">$</span>n2</span>
-<span id="cb126-3"><a href="debugging.html#cb126-3" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>sum <span class="ot">&lt;-</span> <span class="fu">renderText</span>(sum)</span>
-<span id="cb126-4"><a href="debugging.html#cb126-4" aria-hidden="true" tabindex="-1"></a>}, <span class="at">error =</span> <span class="cf">function</span>(e) {</span>
-<span id="cb126-5"><a href="debugging.html#cb126-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">debug_msg</span>(e<span class="sc">$</span>message)</span>
-<span id="cb126-6"><a href="debugging.html#cb126-6" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="debugging.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tryCatch</span>({</span>
+<span id="cb130-2"><a href="debugging.html#cb130-2" aria-hidden="true" tabindex="-1"></a>  sum <span class="ot">&lt;-</span> input<span class="sc">$</span>n1 <span class="sc">+</span> input<span class="sc">$</span>n2</span>
+<span id="cb130-3"><a href="debugging.html#cb130-3" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>sum <span class="ot">&lt;-</span> <span class="fu">renderText</span>(sum)</span>
+<span id="cb130-4"><a href="debugging.html#cb130-4" aria-hidden="true" tabindex="-1"></a>}, <span class="at">error =</span> <span class="cf">function</span>(e) {</span>
+<span id="cb130-5"><a href="debugging.html#cb130-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">debug_msg</span>(e<span class="sc">$</span>message)</span>
+<span id="cb130-6"><a href="debugging.html#cb130-6" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 </div>
 <div id="input-checking" class="section level2" number="9.5">
 <h2><span class="header-section-number">9.5</span> Input Checking</h2>
 <p>The user above might be frustrated if they’ve made a mistake that causes an error and don’t know what it was. You can help prevent errors and make the experience of using your app nicer by doing input checking and sending your users useful messages.</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="debugging.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">observeEvent</span>(input<span class="sc">$</span>submit, {</span>
-<span id="cb127-2"><a href="debugging.html#cb127-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># check inputs</span></span>
-<span id="cb127-3"><a href="debugging.html#cb127-3" aria-hidden="true" tabindex="-1"></a>  input_error <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
-<span id="cb127-4"><a href="debugging.html#cb127-4" aria-hidden="true" tabindex="-1"></a>    <span class="sc">!</span><span class="fu">is.numeric</span>(input<span class="sc">$</span>n1) <span class="sc">~</span> <span class="st">&quot;N1 needs to be a number&quot;</span>,</span>
-<span id="cb127-5"><a href="debugging.html#cb127-5" aria-hidden="true" tabindex="-1"></a>    <span class="sc">!</span><span class="fu">is.numeric</span>(input<span class="sc">$</span>n2) <span class="sc">~</span> <span class="st">&quot;N2 needs to be a number&quot;</span>,</span>
-<span id="cb127-6"><a href="debugging.html#cb127-6" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;&quot;</span></span>
-<span id="cb127-7"><a href="debugging.html#cb127-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb127-8"><a href="debugging.html#cb127-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (input_error <span class="sc">!=</span> <span class="st">&quot;&quot;</span>) {</span>
-<span id="cb127-9"><a href="debugging.html#cb127-9" aria-hidden="true" tabindex="-1"></a>    shinyjs<span class="sc">::</span><span class="fu">alert</span>(input_error)</span>
-<span id="cb127-10"><a href="debugging.html#cb127-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>() <span class="co"># exit the function here</span></span>
-<span id="cb127-11"><a href="debugging.html#cb127-11" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb127-12"><a href="debugging.html#cb127-12" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb127-13"><a href="debugging.html#cb127-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># no input errors</span></span>
-<span id="cb127-14"><a href="debugging.html#cb127-14" aria-hidden="true" tabindex="-1"></a>  sum <span class="ot">&lt;-</span> input<span class="sc">$</span>n1 <span class="sc">+</span> input<span class="sc">$</span>n2</span>
-<span id="cb127-15"><a href="debugging.html#cb127-15" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>sum <span class="ot">&lt;-</span> <span class="fu">renderText</span>(sum)</span>
-<span id="cb127-16"><a href="debugging.html#cb127-16" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="debugging.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">observeEvent</span>(input<span class="sc">$</span>submit, {</span>
+<span id="cb131-2"><a href="debugging.html#cb131-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># check inputs</span></span>
+<span id="cb131-3"><a href="debugging.html#cb131-3" aria-hidden="true" tabindex="-1"></a>  input_error <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
+<span id="cb131-4"><a href="debugging.html#cb131-4" aria-hidden="true" tabindex="-1"></a>    <span class="sc">!</span><span class="fu">is.numeric</span>(input<span class="sc">$</span>n1) <span class="sc">~</span> <span class="st">&quot;N1 needs to be a number&quot;</span>,</span>
+<span id="cb131-5"><a href="debugging.html#cb131-5" aria-hidden="true" tabindex="-1"></a>    <span class="sc">!</span><span class="fu">is.numeric</span>(input<span class="sc">$</span>n2) <span class="sc">~</span> <span class="st">&quot;N2 needs to be a number&quot;</span>,</span>
+<span id="cb131-6"><a href="debugging.html#cb131-6" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb131-7"><a href="debugging.html#cb131-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb131-8"><a href="debugging.html#cb131-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (input_error <span class="sc">!=</span> <span class="st">&quot;&quot;</span>) {</span>
+<span id="cb131-9"><a href="debugging.html#cb131-9" aria-hidden="true" tabindex="-1"></a>    shinyjs<span class="sc">::</span><span class="fu">alert</span>(input_error)</span>
+<span id="cb131-10"><a href="debugging.html#cb131-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>() <span class="co"># exit the function here</span></span>
+<span id="cb131-11"><a href="debugging.html#cb131-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb131-12"><a href="debugging.html#cb131-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb131-13"><a href="debugging.html#cb131-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># no input errors</span></span>
+<span id="cb131-14"><a href="debugging.html#cb131-14" aria-hidden="true" tabindex="-1"></a>  sum <span class="ot">&lt;-</span> input<span class="sc">$</span>n1 <span class="sc">+</span> input<span class="sc">$</span>n2</span>
+<span id="cb131-15"><a href="debugging.html#cb131-15" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>sum <span class="ot">&lt;-</span> <span class="fu">renderText</span>(sum)</span>
+<span id="cb131-16"><a href="debugging.html#cb131-16" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 
 </div>
 </div>
@@ -551,9 +564,14 @@ solveme_func = function(e) {
     my_answer = my_answer.replace(/ /g, "")
   }
   
-  if (my_answer !== "" & real_answers.includes(my_answer)) {
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
     cl.add("webex-correct");
+    cl.remove("webex-incorrect");
   } else {
+    cl.add("webex-incorrect");
     cl.remove("webex-correct");
   }
 
@@ -679,6 +697,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
