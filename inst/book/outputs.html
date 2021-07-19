@@ -157,7 +157,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#computing"><i class="fa fa-check"></i><b>0.4</b> Computing</a></li>
 <li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#who-should-register"><i class="fa fa-check"></i><b>0.5</b> Who Should Register?</a></li>
-<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#further-resources"><i class="fa fa-check"></i><b>0.6</b> Further Resources</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#conventions"><i class="fa fa-check"></i><b>0.6</b> Conventions</a></li>
+<li class="chapter" data-level="0.7" data-path="index.html"><a href="index.html#further-resources"><i class="fa fa-check"></i><b>0.7</b> Further Resources</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="first-app.html"><a href="first-app.html"><i class="fa fa-check"></i><b>1</b> Your First Shiny App</a>
 <ul>
@@ -321,6 +322,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5.3" data-path="web.html"><a href="web.html#style-links"><i class="fa fa-check"></i><b>7.5.3</b> Style links</a></li>
 <li class="chapter" data-level="7.5.4" data-path="web.html"><a href="web.html#style-a-single-link-directly"><i class="fa fa-check"></i><b>7.5.4</b> Style a single link directly</a></li>
 <li class="chapter" data-level="7.5.5" data-path="web.html"><a href="web.html#external-css-1"><i class="fa fa-check"></i><b>7.5.5</b> External CSS</a></li>
+<li class="chapter" data-level="7.5.6" data-path="web.html"><a href="web.html#style-your-app"><i class="fa fa-check"></i><b>7.5.6</b> Style your app</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="structure.html"><a href="structure.html"><i class="fa fa-check"></i><b>8</b> Structuring a complex app</a>
@@ -450,15 +452,15 @@ Figure 4.1: Output Demo App. You can also access this app with <code>shinyintro:
 </div>
 <div id="text" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Text</h2>
-<p><code class='function'>textOutput()</code> defaults to text inside a generic <code>&lt;span&gt;</code> or <code>&lt;div&gt;</code>, but you can use a different <a class='glossary' target='_blank' title='A unit of HTML, such as a header, paragraph, or image.' href='https://psyteachr.github.io/glossary/e#element-html'>element</a> with the <code class='argument'>container</code> argument.</p>
+<p><code><span class="fu">textOutput</span>()</code> defaults to text inside a generic <code>&lt;span&gt;</code> or <code>&lt;div&gt;</code>, but you can use a different <a class='glossary' target='_blank' title='A unit of HTML, such as a header, paragraph, or image.' href='https://psyteachr.github.io/glossary/e#element-html'>element</a> with the <code><span class="at">container</span></code> argument.</p>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="outputs.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI function</span></span>
 <span id="cb52-2"><a href="outputs.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">textOutput</span>(<span class="st">&quot;demo_text&quot;</span>, <span class="at">container =</span> tags<span class="sc">$</span>h3)</span></code></pre></div>
-<p><code class='function'>renderText()</code> replaces the text of the linked element with its returned string.</p>
+<p><code><span class="fu">renderText</span>()</code> replaces the text of the linked element with its returned string.</p>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="outputs.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
 <span id="cb53-2"><a href="outputs.html#cb53-2" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_text <span class="ot">&lt;-</span> <span class="fu">renderText</span>({</span>
 <span id="cb53-3"><a href="outputs.html#cb53-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sprintf</span>(<span class="st">&quot;Plot of %s&quot;</span>, input<span class="sc">$</span>y)</span>
 <span id="cb53-4"><a href="outputs.html#cb53-4" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
-<p>If you use <code class='function'>verbatimTextOutput()</code> in the UI (no change to the render function), it will show the output in a fixed-width font. This can be good for code or text you want the user to copy.</p>
+<p>If you use <code><span class="fu">verbatimTextOutput</span>()</code> in the UI (no change to the render function), it will show the output in a fixed-width font. This can be good for code or text you want the user to copy.</p>
 <div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="outputs.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI function</span></span>
 <span id="cb54-2"><a href="outputs.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">verbatimTextOutput</span>(<span class="st">&quot;demo_verbatim&quot;</span>)</span>
 <span id="cb54-3"><a href="outputs.html#cb54-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -474,12 +476,12 @@ Figure 4.1: Output Demo App. You can also access this app with <code>shinyintro:
 </div>
 <div id="plots" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Plots</h2>
-<p><code class='function'>plotOutput()</code> displays plots made with the <a class='glossary' target='_blank' title='The set of R functions that come with a basic installation of R, before you add external packages' href='https://psyteachr.github.io/glossary/b#base-r'>base R</a> plotting functions (e.g., <code class='function'>plot()</code>, <code class='function'>hist()</code>) or <code class='package'>ggplot2</code> functions.</p>
+<p><code><span class="fu">plotOutput</span>()</code> displays plots made with the <a class='glossary' target='_blank' title='The set of R functions that come with a basic installation of R, before you add external packages' href='https://psyteachr.github.io/glossary/b#base-r'>base R</a> plotting functions (e.g., <code><span class="fu">plot</span>()</code>, <code><span class="fu">hist</span>()</code>) or <code class='package'>ggplot2</code> functions.</p>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="outputs.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI function</span></span>
 <span id="cb55-2"><a href="outputs.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotOutput</span>(<span class="st">&quot;demo_plot&quot;</span>, <span class="at">width =</span> <span class="st">&quot;500px&quot;</span>, <span class="at">height=</span><span class="st">&quot;300px&quot;</span>)</span></code></pre></div>
-<p>What is the default value for <code class='argument'>width</code>?<br />
+<p>What is the default value for <code><span class="at">width</span></code>?<br />
 <select class='webex-solveme' data-answer='["100%"]'> <option></option> <option>100%</option> <option>400px</option> <option>400</option> <option>5in</option> <option>7in</option></select><br />
-What is the default value for <code class='argument'>height</code>?<br />
+What is the default value for <code><span class="at">height</span></code>?<br />
 <select class='webex-solveme' data-answer='["400px"]'> <option></option> <option>100%</option> <option>400px</option> <option>400</option> <option>5in</option> <option>7in</option></select></p>
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="outputs.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
 <span id="cb56-2"><a href="outputs.html#cb56-2" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
@@ -489,15 +491,15 @@ What is the default value for <code class='argument'>height</code>?<br />
 <span id="cb56-6"><a href="outputs.html#cb56-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(input<span class="sc">$</span>y)</span>
 <span id="cb56-7"><a href="outputs.html#cb56-7" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <div class="warning">
-<p>If you want to create dynamic plots that change with input, note how you need to use <code>y = .data[[input$y]]</code> inside <code class='function'>aes()</code>, instead of just <code>y = input$y</code>.</p>
+<p>If you want to create dynamic plots that change with input, note how you need to use <code>y = .data[[input$y]]</code> inside <code><span class="fu">aes</span>()</code>, instead of just <code>y = input$y</code>.</p>
 </div>
 </div>
 <div id="images" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> Images</h2>
-<p><code class='function'>imageOutput()</code> takes the same arguments as <code class='function'>plotOutput()</code>. You can leave <code class='argument'>width</code> and <code class='argument'>height</code> as their defaults if you are going to set those values in the render function.</p>
+<p><code><span class="fu">imageOutput</span>()</code> takes the same arguments as <code><span class="fu">plotOutput</span>()</code>. You can leave <code><span class="at">width</span></code> and <code><span class="at">height</span></code> as their defaults if you are going to set those values in the render function.</p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="outputs.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI function</span></span>
 <span id="cb57-2"><a href="outputs.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">imageOutput</span>(<span class="st">&quot;demo_image&quot;</span>)</span></code></pre></div>
-<p><code class='function'>renderImage()</code> needs to return a named list with at least an <code>src</code> with the image path. You can also set the <code class='argument'>width</code> and <code class='argument'>height</code> (numeric values are in pixels), <code class='argument'>class</code> and <code class='argument'>alt</code> (the alt-text for screen readers).</p>
+<p><code><span class="fu">renderImage</span>()</code> needs to return a named list with at least an <code><span class="at">src</span></code> with the image path. You can also set the <code><span class="at">width</span></code> and <code><span class="at">height</span></code> (numeric values are in pixels), <code><span class="at">class</span></code> and <code><span class="at">alt</span></code> (the alt-text for screen readers).</p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="outputs.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
 <span id="cb58-2"><a href="outputs.html#cb58-2" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_image <span class="ot">&lt;-</span> <span class="fu">renderImage</span>({</span>
 <span id="cb58-3"><a href="outputs.html#cb58-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(<span class="at">src =</span> <span class="st">&quot;images/flower.jpg&quot;</span>,</span>
@@ -506,7 +508,7 @@ What is the default value for <code class='argument'>height</code>?<br />
 <span id="cb58-6"><a href="outputs.html#cb58-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">alt =</span> <span class="st">&quot;A flower&quot;</span>)</span>
 <span id="cb58-7"><a href="outputs.html#cb58-7" aria-hidden="true" tabindex="-1"></a>}, <span class="at">deleteFile =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <div class="warning">
-<p>The <code class='argument'>deleteFile</code> argument is currently optional, but triggers periodic warnings that it won’t be optional in the future. You should set it to <code>TRUE</code> if you’re making a temporary file (this stops unneeded plots using memory) and <code>FALSE</code> if you’re referencing a file you previously saved.</p>
+<p>The <code><span class="at">deleteFile</span></code> argument is currently optional, but triggers periodic warnings that it won’t be optional in the future. You should set it to <code><span class="cn">TRUE</span></code> if you’re making a temporary file (this stops unneeded plots using memory) and <code><span class="cn">FALSE</span></code> if you’re referencing a file you previously saved.</p>
 </div>
 <p>You can dynamically display images of any type, but one of the most useful ways to use image outputs is to control the aspect ratio and relative size of plots.</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="outputs.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI function</span></span>
@@ -535,10 +537,10 @@ What is the default value for <code class='argument'>height</code>?<br />
 </div>
 <div id="tables" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Tables</h2>
-<p>Display a table using <code class='function'>tableOutput()</code>.</p>
+<p>Display a table using <code><span class="fu">tableOutput</span>()</code>.</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="outputs.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI function</span></span>
 <span id="cb60-2"><a href="outputs.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tableOutput</span>(<span class="st">&quot;demo_table&quot;</span>)</span></code></pre></div>
-<p>This is paired with <code class='function'>renderTable()</code>, which makes a table out of any data frame it returns.</p>
+<p>This is paired with <code><span class="fu">renderTable</span>()</code>, which makes a table out of any data frame it returns.</p>
 <div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="outputs.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
 <span id="cb61-2"><a href="outputs.html#cb61-2" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_table <span class="ot">&lt;-</span> <span class="fu">renderTable</span>({</span>
 <span id="cb61-3"><a href="outputs.html#cb61-3" aria-hidden="true" tabindex="-1"></a>  iris <span class="sc">%&gt;%</span></span>
@@ -547,39 +549,39 @@ What is the default value for <code class='argument'>height</code>?<br />
 <span id="cb61-6"><a href="outputs.html#cb61-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">sd =</span> <span class="fu">sd</span>(.data[[input<span class="sc">$</span>y]]))</span>
 <span id="cb61-7"><a href="outputs.html#cb61-7" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <div class="warning">
-<p>Note how you need to use <code>.data[[input$y]]</code> inside <code>dplyr::summarise()</code>, instead of just <code>input$y</code> to dynamically choose which variable to summarise.</p>
+<p>Note how you need to use <code>.data[[input$y]]</code> inside <code><span class="fu">dplyr::summarise</span>()</code>, instead of just <code>input$y</code> to dynamically choose which variable to summarise.</p>
 </div>
 <div id="data-tables" class="section level3" number="4.4.1">
 <h3><span class="header-section-number">4.4.1</span> Data Tables</h3>
-<p>If you have a long table to show, or one that you want users to be able to sort or search, use <code class='function'>DT::dataTableOutput()</code> (or its synonym <code class='function'>DTOutput()</code>).</p>
-<p>The basic <code>shiny</code> package has <code>dataTableOutput()</code> and <code>renderDataTable()</code> functions, but they can be buggy. The versions in the <code>DT</code> package are better and have <a href="https://rstudio.github.io/DT/" target="_blank">many additional functions</a>, so I use those.</p>
+<p>If you have a long table to show, or one that you want users to be able to sort or search, use <code><span class="fu">DT::dataTableOutput</span>()</code> (or its synonym <code><span class="fu">DTOutput</span>()</code>).</p>
+<p>The basic <code class='package'>shiny</code> package has <code><span class="fu">dataTableOutput</span>()</code> and <code><span class="fu">renderDataTable</span>()</code> functions, but they can be buggy. The versions in the <code class='package'>DT</code> package are better and have <a href="https://rstudio.github.io/DT/" target="_blank">many additional functions</a>, so I use those.</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="outputs.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI function</span></span>
 <span id="cb62-2"><a href="outputs.html#cb62-2" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="st">&quot;demo_datatable&quot;</span>,</span>
 <span id="cb62-3"><a href="outputs.html#cb62-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">width =</span> <span class="st">&quot;50%&quot;</span>,</span>
 <span id="cb62-4"><a href="outputs.html#cb62-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">height =</span> <span class="st">&quot;auto&quot;</span>)</span></code></pre></div>
-<p>The paired render function is <code class='function'>renderDataTable()</code> (or its synonym <code class='function'>renderDT()</code>). You can customise data tables in many ways, but we’ll stick with a basic example here that limits the number of rows shown at once to 10.</p>
+<p>The paired render function is <code><span class="fu">renderDataTable</span>()</code> (or its synonym <code><span class="fu">renderDT</span>()</code>). You can customise data tables in many ways, but we’ll stick with a basic example here that limits the number of rows shown at once to <code><span class="fl">10</span></code>.</p>
 <div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="outputs.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
 <span id="cb63-2"><a href="outputs.html#cb63-2" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_datatable <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
 <span id="cb63-3"><a href="outputs.html#cb63-3" aria-hidden="true" tabindex="-1"></a>    iris</span>
 <span id="cb63-4"><a href="outputs.html#cb63-4" aria-hidden="true" tabindex="-1"></a>}, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="dv">10</span>))</span></code></pre></div>
 <div class="info">
-<p>The <code class='package'>DT</code> package has synonyms for <code class='function'>dataTableOutput()</code> and <code class='function'>renderDataTable()</code>: and <code class='function'>renderDT()</code>. You can use these to make sure you’re not accidentally using the <code class='package'>shiny</code> versions, which don’t have as many options.</p>
+<p>The <code class='package'>DT</code> package has synonyms for <code><span class="fu">dataTableOutput</span>()</code> and <code><span class="fu">renderDataTable</span>()</code>: and <code><span class="fu">renderDT</span>()</code>. You can use these to make sure you’re not accidentally using the <code class='package'>shiny</code> versions, which don’t have as many options.</p>
 </div>
 </div>
 </div>
 <div id="dynamic-html" class="section level2" number="4.5">
 <h2><span class="header-section-number">4.5</span> Dynamic HTML</h2>
-<p>If you want to dynamically create parts of the UI, you can use <code class='function'>uiOutput()</code>.</p>
+<p>If you want to dynamically create parts of the UI, you can use <code><span class="fu">uiOutput</span>()</code>.</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="outputs.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the UI function</span></span>
 <span id="cb64-2"><a href="outputs.html#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">uiOutput</span>(<span class="st">&quot;demo_ui&quot;</span>)</span></code></pre></div>
-<p>You can create the UI using <code class='function'>renderUI()</code> to return HTML created using the input functions we learned about in Section <a href="inputs.html#inputs">3</a>, the <a href="first-app.html#tags">tag functions</a>, or HTML that you write yourself (as an argument to <code class='function'>HTML()</code>).</p>
+<p>You can create the UI using <code><span class="fu">renderUI</span>()</code> to return HTML created using the input functions we learned about in Section <a href="inputs.html#inputs">3</a>, the <a href="first-app.html#tags">tag functions</a>, or HTML that you write yourself (as an argument to <code><span class="fu">HTML</span>()</code>).</p>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="outputs.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server function</span></span>
 <span id="cb65-2"><a href="outputs.html#cb65-2" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>demo_ui <span class="ot">&lt;-</span> <span class="fu">renderUI</span>({</span>
 <span id="cb65-3"><a href="outputs.html#cb65-3" aria-hidden="true" tabindex="-1"></a>  cols <span class="ot">&lt;-</span> <span class="fu">names</span>(iris)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span>
 <span id="cb65-4"><a href="outputs.html#cb65-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;y&quot;</span>, <span class="st">&quot;Column to plot&quot;</span>, cols, <span class="st">&quot;Sepal.Length&quot;</span>)</span>
 <span id="cb65-5"><a href="outputs.html#cb65-5" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <div class="info">
-<p>The function <code class='function'>htmlOutput()</code> is a synonym for <code class='function'>uiOutput()</code>, so you might see that in some code examples, but I use <code class='function'>uiOutput()</code> to make the connection with <code class='function'>renderUI()</code> clearer, since there is no <code class='function'>renderHTML()</code>.</p>
+<p>The function <code><span class="fu">htmlOutput</span>()</code> is a synonym for <code><span class="fu">uiOutput</span>()</code>, so you might see that in some code examples, but I use <code><span class="fu">uiOutput</span>()</code> to make the connection with <code><span class="fu">renderUI</span>()</code> clearer, since there is no <code><span class="fu">renderHTML</span>()</code>.</p>
 </div>
 </div>
 <div id="reosurces-outputs" class="section level2" number="4.6">

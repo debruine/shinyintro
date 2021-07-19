@@ -157,7 +157,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#computing"><i class="fa fa-check"></i><b>0.4</b> Computing</a></li>
 <li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#who-should-register"><i class="fa fa-check"></i><b>0.5</b> Who Should Register?</a></li>
-<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#further-resources"><i class="fa fa-check"></i><b>0.6</b> Further Resources</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#conventions"><i class="fa fa-check"></i><b>0.6</b> Conventions</a></li>
+<li class="chapter" data-level="0.7" data-path="index.html"><a href="index.html#further-resources"><i class="fa fa-check"></i><b>0.7</b> Further Resources</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="first-app.html"><a href="first-app.html"><i class="fa fa-check"></i><b>1</b> Your First Shiny App</a>
 <ul>
@@ -321,6 +322,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5.3" data-path="web.html"><a href="web.html#style-links"><i class="fa fa-check"></i><b>7.5.3</b> Style links</a></li>
 <li class="chapter" data-level="7.5.4" data-path="web.html"><a href="web.html#style-a-single-link-directly"><i class="fa fa-check"></i><b>7.5.4</b> Style a single link directly</a></li>
 <li class="chapter" data-level="7.5.5" data-path="web.html"><a href="web.html#external-css-1"><i class="fa fa-check"></i><b>7.5.5</b> External CSS</a></li>
+<li class="chapter" data-level="7.5.6" data-path="web.html"><a href="web.html#style-your-app"><i class="fa fa-check"></i><b>7.5.6</b> Style your app</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="structure.html"><a href="structure.html"><i class="fa fa-check"></i><b>8</b> Structuring a complex app</a>
@@ -453,7 +455,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="google_sheets" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Google Sheets</h2>
 <p>One of the best ways to start collecting data with a Shiny app is with Google Sheets. This allows you to collect data to the same place from multiple servers, which might happen if you’re running the app locally on more than one computer or through a service like <a href="https://shinyapps.io" target="_blank">shinyapps.io</a>. The R package <code class='package'>googlesheets4</code> makes it easy to work with Google Sheets from R.</p>
-<p>If you just want to read data from a public Google Sheet, you don’t need any authorisation. Just start your code with <code class='function'>gs4_deauth()</code> after you load <code class='package'>googlesheets4</code> (otherwise you’ll be prompted to log in). Then you can read data like this:</p>
+<p>If you just want to read data from a public Google Sheet, you don’t need any authorisation. Just start your code with <code><span class="fu">gs4_deauth</span>()</code> after you load <code class='package'>googlesheets4</code> (otherwise you’ll be prompted to log in). Then you can read data like this:</p>
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(googlesheets4)</span>
 <span id="cb83-2"><a href="data.html#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gs4_deauth</span>()</span>
 <span id="cb83-3"><a href="data.html#cb83-3" aria-hidden="true" tabindex="-1"></a>sheet_id <span class="ot">&lt;-</span> <span class="st">&quot;https://docs.google.com/spreadsheets/d/1tQCYQrI4xITlPyxb9dQ-JpMDYeADovIeiZZRNHkctGA/&quot;</span></span>
@@ -486,11 +488,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="data.html#cb84-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">number =</span> <span class="dv">4</span>, <span class="at">letter =</span> <span class="st">&quot;D&quot;</span>)</span>
 <span id="cb84-2"><a href="data.html#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sheet_append</span>(sheet_id, data)</span></code></pre></div>
 <pre><code>## Error: Client error: (401) UNAUTHENTICATED
-## • Request not authenticated due to missing, invalid, or expired OAuth
-##   token.
-## • Request is missing required authentication credential. Expected
-##   OAuth 2 access token, login cookie or other valid authentication
-##   credential. See
+## • Request not authenticated due to missing, invalid, or expired OAuth token.
+## • Request is missing required authentication credential. Expected OAuth 2 access
+##   token, login cookie or other valid authentication credential. See
 ##   https://developers.google.com/identity/sign-in/web/devconsole-project.</code></pre>
 <p>You can authorise interactively using the following code (and your own email), which will prompt you to authorise “Tidyverse API Packages” the first time you do this.</p>
 <div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="data.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gs4_auth</span>(<span class="at">email =</span> <span class="st">&quot;debruine@gmail.com&quot;</span>)</span></code></pre></div>
@@ -558,7 +558,7 @@ Figure 6.1: Prompts to choose an account, grant permissions, and confirm.
 <div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data.html#cb91-1" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="fu">gs4_create</span>(<span class="st">&quot;demo2&quot;</span>, <span class="at">sheets =</span> <span class="fu">c</span>(<span class="st">&quot;demographics&quot;</span>, <span class="st">&quot;questionnaire&quot;</span>))</span>
 <span id="cb91-2"><a href="data.html#cb91-2" aria-hidden="true" tabindex="-1"></a>id</span></code></pre></div>
 <pre><code>## Spreadsheet name: demo2
-##               ID: 1A_NEUPunebSKb6oTlTEN4EtO5MqVqx2hXur2u6B83bM
+##               ID: 1xKG8MxziTXuqz0xapmYY4VcRtHkVOJPt1cPmkIVxQlk
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -567,7 +567,7 @@ Figure 6.1: Prompts to choose an account, grant permissions, and confirm.
 ##  demographics: 1000 x 26
 ## questionnaire: 1000 x 26</code></pre>
 <p>Include the ID at the top of your app like this:</p>
-<pre><code>SHEET_ID <- "1A_NEUPunebSKb6oTlTEN4EtO5MqVqx2hXur2u6B83bM"</code></pre>
+<pre><code>SHEET_ID <- "1xKG8MxziTXuqz0xapmYY4VcRtHkVOJPt1cPmkIVxQlk"</code></pre>
 </div>
 <div id="add-data" class="section level3" number="6.2.4">
 <h3><span class="header-section-number">6.2.4</span> Add data</h3>
@@ -654,7 +654,7 @@ Figure 6.1: Prompts to choose an account, grant permissions, and confirm.
 </tbody>
 </table>
 </div>
-<p>If you try to append data of a different <a class='glossary' target='_blank' title='The kind of data represented by an object.' href='https://psyteachr.github.io/glossary/d#data-type'>data type</a>, some weird things can happen. <a class='glossary' target='_blank' title='A data type representing TRUE or FALSE values.' href='https://psyteachr.github.io/glossary/l#logical'>Logical</a> values added to a <a class='glossary' target='_blank' title='A data type representing a real decimal number or integer.' href='https://psyteachr.github.io/glossary/n#numeric'>numeric</a> column are cast as 0 (<code>FALSE</code>) and 1 (<code>TRUE</code>), while numeric values added to a logical column change the column to numeric. If you mix <a class='glossary' target='_blank' title='A data type representing strings of text.' href='https://psyteachr.github.io/glossary/c#character'>character</a> and numeric values in a column, the resulting column is a column of one-item lists so that each list can have the appropriate data type. (Data frames in R cannot mix data types in the same column.)</p>
+<p>If you try to append data of a different <a class='glossary' target='_blank' title='The kind of data represented by an object.' href='https://psyteachr.github.io/glossary/d#data-type'>data type</a>, some weird things can happen. <a class='glossary' target='_blank' title='A data type representing TRUE or FALSE values.' href='https://psyteachr.github.io/glossary/l#logical'>Logical</a> values added to a <a class='glossary' target='_blank' title='A data type representing a real decimal number or integer.' href='https://psyteachr.github.io/glossary/n#numeric'>numeric</a> column are cast as <code><span class="fl">0</span></code> (<code><span class="fl">1</span></code>) and <code><span class="fl">1</span></code> (<code><span class="cn">TRUE</span></code>), while numeric values added to a logical column change the column to numeric. If you mix <a class='glossary' target='_blank' title='A data type representing strings of text.' href='https://psyteachr.github.io/glossary/c#character'>character</a> and numeric values in a column, the resulting column is a column of one-item lists so that each list can have the appropriate data type. (Data frames in R cannot mix data types in the same column.)</p>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data.html#cb97-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb97-2"><a href="data.html#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="dv">1</span>,</span>
 <span id="cb97-3"><a href="data.html#cb97-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">birthyear =</span> <span class="cn">FALSE</span>,</span>
@@ -699,15 +699,15 @@ Figure 6.1: Prompts to choose an account, grant permissions, and confirm.
 <div class="danger">
 <p>You must append data that has the same number and order of columns as the Google Sheet. If you send columns out of order, they will be recorded in the order you sent them, not in the order of the column names. If you send extra columns, the append will fail.</p>
 </div>
-<p>The demo app “radiotables” has a safer version of <code class='function'>sheet_append()</code> that you can use when you’re developing on your machine. It’s defined in <code class='path'>scripts/gs4.R</code>. This version gracefully handles data with new columns, missing columns, columns in a different order, and columns with a different data type. However, it reads the whole data sheet before deciding whether to append or overwrite the data, which can slow down your app, so is best used only during development when you’re changing things a lot. If it’s not running locally, it uses the original <code class='function'>googlesheets4::sheet_append()</code> function instead.</p>
+<p>The demo app “radiotables” has a safer version of <code><span class="fu">sheet_append</span>()</code> that you can use when you’re developing on your machine. It’s defined in <code class='path'>scripts/gs4.R</code>. This version gracefully handles data with new columns, missing columns, columns in a different order, and columns with a different data type. However, it reads the whole data sheet before deciding whether to append or overwrite the data, which can slow down your app, so is best used only during development when you’re changing things a lot. If it’s not running locally, it uses the original <code><span class="fu">googlesheets4::sheet_append</span>()</code> function instead.</p>
 </div>
 </div>
 <div id="gs4_save" class="section level2" number="6.3">
 <h2><span class="header-section-number">6.3</span> Saving Googlesheet data</h2>
-<p>If you mix data types in a column, the data frame returned by <code class='function'>read_sheet()</code> has list columns for any mixed columns. Dates can also get written in different ways that look the same when you print to the console, but are a mix of characters and doubles, so you have to convert them to strings like this before you can save as CSV.</p>
+<p>If you mix data types in a column, the data frame returned by <code><span class="fu">read_sheet</span>()</code> has list columns for any mixed columns. Dates can also get written in different ways that look the same when you print to the console, but are a mix of characters and doubles, so you have to convert them to strings like this before you can save as CSV.</p>
 <div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="data.html#cb98-1" aria-hidden="true" tabindex="-1"></a>string_data <span class="ot">&lt;-</span> <span class="fu">lapply</span>(data, sapply, toString) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
 <span id="cb98-2"><a href="data.html#cb98-2" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(string_data, <span class="st">&quot;data.csv&quot;</span>)</span></code></pre></div>
-<p>The demo app “radiotables” has a custom function <code class='function'>gs4_write_csv()</code> defined in <code class='path'>scripts/gs4.R</code> that does the above for you.</p>
+<p>The demo app “radiotables” has a custom function <code><span class="fu">gs4_write_csv</span>()</code> defined in <code class='path'>scripts/gs4.R</code> that does the above for you.</p>
 </div>
 <div id="exercises-data" class="section level2" number="6.4">
 <h2><span class="header-section-number">6.4</span> Exercises</h2>

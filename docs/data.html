@@ -322,6 +322,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5.3" data-path="web.html"><a href="web.html#style-links"><i class="fa fa-check"></i><b>7.5.3</b> Style links</a></li>
 <li class="chapter" data-level="7.5.4" data-path="web.html"><a href="web.html#style-a-single-link-directly"><i class="fa fa-check"></i><b>7.5.4</b> Style a single link directly</a></li>
 <li class="chapter" data-level="7.5.5" data-path="web.html"><a href="web.html#external-css-1"><i class="fa fa-check"></i><b>7.5.5</b> External CSS</a></li>
+<li class="chapter" data-level="7.5.6" data-path="web.html"><a href="web.html#style-your-app"><i class="fa fa-check"></i><b>7.5.6</b> Style your app</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="structure.html"><a href="structure.html"><i class="fa fa-check"></i><b>8</b> Structuring a complex app</a>
@@ -487,11 +488,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="data.html#cb84-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">number =</span> <span class="dv">4</span>, <span class="at">letter =</span> <span class="st">&quot;D&quot;</span>)</span>
 <span id="cb84-2"><a href="data.html#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sheet_append</span>(sheet_id, data)</span></code></pre></div>
 <pre><code>## Error: Client error: (401) UNAUTHENTICATED
-## • Request not authenticated due to missing, invalid, or expired OAuth
-##   token.
-## • Request is missing required authentication credential. Expected
-##   OAuth 2 access token, login cookie or other valid authentication
-##   credential. See
+## • Request not authenticated due to missing, invalid, or expired OAuth token.
+## • Request is missing required authentication credential. Expected OAuth 2 access
+##   token, login cookie or other valid authentication credential. See
 ##   https://developers.google.com/identity/sign-in/web/devconsole-project.</code></pre>
 <p>You can authorise interactively using the following code (and your own email), which will prompt you to authorise “Tidyverse API Packages” the first time you do this.</p>
 <div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="data.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gs4_auth</span>(<span class="at">email =</span> <span class="st">&quot;debruine@gmail.com&quot;</span>)</span></code></pre></div>
@@ -559,7 +558,7 @@ Figure 6.1: Prompts to choose an account, grant permissions, and confirm.
 <div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data.html#cb91-1" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="fu">gs4_create</span>(<span class="st">&quot;demo2&quot;</span>, <span class="at">sheets =</span> <span class="fu">c</span>(<span class="st">&quot;demographics&quot;</span>, <span class="st">&quot;questionnaire&quot;</span>))</span>
 <span id="cb91-2"><a href="data.html#cb91-2" aria-hidden="true" tabindex="-1"></a>id</span></code></pre></div>
 <pre><code>## Spreadsheet name: demo2
-##               ID: 1JcfNalUj0nB3W7V1dr5FiaWOtQmzb13oeeH9kd1aHAQ
+##               ID: 1xKG8MxziTXuqz0xapmYY4VcRtHkVOJPt1cPmkIVxQlk
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -568,7 +567,7 @@ Figure 6.1: Prompts to choose an account, grant permissions, and confirm.
 ##  demographics: 1000 x 26
 ## questionnaire: 1000 x 26</code></pre>
 <p>Include the ID at the top of your app like this:</p>
-<pre><code>SHEET_ID <- "1JcfNalUj0nB3W7V1dr5FiaWOtQmzb13oeeH9kd1aHAQ"</code></pre>
+<pre><code>SHEET_ID <- "1xKG8MxziTXuqz0xapmYY4VcRtHkVOJPt1cPmkIVxQlk"</code></pre>
 </div>
 <div id="add-data" class="section level3" number="6.2.4">
 <h3><span class="header-section-number">6.2.4</span> Add data</h3>

@@ -20,24 +20,27 @@ pkg <- function(txt) {
   sprintf("<code class='package'>%s</code>", txt)
 }
 
-func <- function(txt) {
-  sprintf("<code><span class='fu'>%s</span>()</code>", txt)
+func <- function(txt, args = "") {
+  sprintf("<code><span class='fu'>%s</span>(%s)</code>", txt, args)
 }
 
 arg <- function(txt) {
   sprintf("<code><span class='at'>%s</span></code>", txt)
 }
 
-dt <- function(val) {
-  class <- switch(typeof(val), 
-                  character = "st", 
-                  integer = "fl", 
-                  double = "fl", 
-                  logical = "cn",
-                  closure = "fu",
-                  "")
+dt <- function(val, class = NULL) {
+  if (is.null(class)) {
+    class <- switch(typeof(val), 
+                    character = "st", 
+                    integer = "fl", 
+                    double = "fl", 
+                    logical = "cn",
+                    closure = "fu",
+                    "")
+  }
   txt <- toString(val)
   if (class == "st") txt <- sprintf("&quot;%s&quot;", txt)
+  txt <- gsub("<", "&lt;", txt, fixed = TRUE)
   
   sprintf("<code><span class='%s'>%s</span></code>", class, txt)
 }

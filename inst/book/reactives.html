@@ -157,7 +157,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#computing"><i class="fa fa-check"></i><b>0.4</b> Computing</a></li>
 <li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#who-should-register"><i class="fa fa-check"></i><b>0.5</b> Who Should Register?</a></li>
-<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#further-resources"><i class="fa fa-check"></i><b>0.6</b> Further Resources</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#conventions"><i class="fa fa-check"></i><b>0.6</b> Conventions</a></li>
+<li class="chapter" data-level="0.7" data-path="index.html"><a href="index.html#further-resources"><i class="fa fa-check"></i><b>0.7</b> Further Resources</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="first-app.html"><a href="first-app.html"><i class="fa fa-check"></i><b>1</b> Your First Shiny App</a>
 <ul>
@@ -321,6 +322,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5.3" data-path="web.html"><a href="web.html#style-links"><i class="fa fa-check"></i><b>7.5.3</b> Style links</a></li>
 <li class="chapter" data-level="7.5.4" data-path="web.html"><a href="web.html#style-a-single-link-directly"><i class="fa fa-check"></i><b>7.5.4</b> Style a single link directly</a></li>
 <li class="chapter" data-level="7.5.5" data-path="web.html"><a href="web.html#external-css-1"><i class="fa fa-check"></i><b>7.5.5</b> External CSS</a></li>
+<li class="chapter" data-level="7.5.6" data-path="web.html"><a href="web.html#style-your-app"><i class="fa fa-check"></i><b>7.5.6</b> Style your app</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="structure.html"><a href="structure.html"><i class="fa fa-check"></i><b>8</b> Structuring a complex app</a>
@@ -440,7 +442,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="reactives" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Reactive functions</h1>
 <p>There are a lot of great tutorials that explain the principles behind reactive functions, but that never made any sense to me when I first started out, so I’m just going to give you examples that you can extrapolate principles from.</p>
-<p>Reactivity is how Shiny determines which code in <code class='function'>server()</code> gets to run when. Some types of <a class='glossary' target='_blank' title='A word that identifies and stores the value of some data for later use.' href='https://psyteachr.github.io/glossary/o#object'>objects</a>, such as the <code>input</code> object or objects made by <code class='function'>reactiveValues()</code>, can trigger some types of functions to run whenever they change.</p>
+<p>Reactivity is how Shiny determines which code in <code><span class="fu">server</span>()</code> gets to run when. Some types of <a class='glossary' target='_blank' title='A word that identifies and stores the value of some data for later use.' href='https://psyteachr.github.io/glossary/o#object'>objects</a>, such as the <code>input</code> object or objects made by <code><span class="fu">reactiveValues</span>()</code>, can trigger some types of functions to run whenever they change.</p>
 <p>For our example, we will use the <code>reactive_demo</code> app. It shows three select inputs that allow the user to choose values from the cut, color, and clarity columns of the <code>diamonds</code> dataset from <code class='package'>ggplot2</code>, then draws a plot of the relationship between carat and price for the selected subset.</p>
 <div class="figure" style="text-align: center"><span id="fig:reactive-demo-app"></span>
 <iframe src="https://shiny.psy.gla.ac.uk/debruine/reactive_demo/?showcase=0" width="100%" height="800px">
@@ -467,7 +469,7 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
 <p>Whenever an input changes, it will trigger some types of functions to run.</p>
 <div id="observeevent-1" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> observeEvent()</h2>
-<p>We learned about <code class='function'>observeEvent()</code> in Section <a href="first-app.html#first-reactive">1.4</a>. This function runs the code whenever the value of the first argument changes. If there are reactives inside the function, they won’t trigger the code to run when they change.</p>
+<p>We learned about <code><span class="fu">observeEvent</span>()</code> in Section <a href="first-app.html#first-reactive">1.4</a>. This function runs the code whenever the value of the first argument changes. If there are reactives inside the function, they won’t trigger the code to run when they change.</p>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="reactives.html#cb67-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
 <span id="cb67-2"><a href="reactives.html#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>update, {</span>
 <span id="cb67-3"><a href="reactives.html#cb67-3" aria-hidden="true" tabindex="-1"></a>    data <span class="ot">&lt;-</span> <span class="fu">filter</span>(diamonds,</span>
@@ -489,14 +491,14 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
 <span id="cb67-19"><a href="reactives.html#cb67-19" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>title <span class="ot">&lt;-</span> <span class="fu">renderText</span>(title)</span>
 <span id="cb67-20"><a href="reactives.html#cb67-20" aria-hidden="true" tabindex="-1"></a>  })</span>
 <span id="cb67-21"><a href="reactives.html#cb67-21" aria-hidden="true" tabindex="-1"></a>} </span></code></pre></div>
-<p>In the example above, which inputs will trigger <code class='function'>renderPlot()</code> to run and produce a new plot?</p>
+<p>In the example above, which inputs will trigger <code><span class="fu">renderPlot</span>()</code> to run and produce a new plot?</p>
 <p><select class='webex-solveme' data-answer='["update"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
-<p>In the example above, which inputs will trigger <code class='function'>renderText()</code> to run and produce a new title?</p>
+<p>In the example above, which inputs will trigger <code><span class="fu">renderText</span>()</code> to run and produce a new title?</p>
 <p><select class='webex-solveme' data-answer='["update"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
 </div>
 <div id="render-functions" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Render functions</h2>
-<p>Functions that render an output, like <code class='function'>renderText()</code> or <code class='function'>renderPlot()</code> will run whenever an input in their code changes. You can trigger a render function just by putting a reactive alone on a line, even if you aren’t using it in the rest of the code.</p>
+<p>Functions that render an output, like <code><span class="fu">renderText</span>()</code> or <code><span class="fu">renderPlot</span>()</code> will run whenever an input in their code changes. You can trigger a render function just by putting a reactive alone on a line, even if you aren’t using it in the rest of the code.</p>
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="reactives.html#cb68-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
 <span id="cb68-2"><a href="reactives.html#cb68-2" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
 <span id="cb68-3"><a href="reactives.html#cb68-3" aria-hidden="true" tabindex="-1"></a>    data <span class="ot">&lt;-</span> <span class="fu">filter</span>(diamonds,</span>
@@ -518,15 +520,15 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
 <span id="cb68-19"><a href="reactives.html#cb68-19" aria-hidden="true" tabindex="-1"></a>                     input<span class="sc">$</span>clarity)</span>
 <span id="cb68-20"><a href="reactives.html#cb68-20" aria-hidden="true" tabindex="-1"></a>  }<span class="er">)</span></span>
 <span id="cb68-21"><a href="reactives.html#cb68-21" aria-hidden="true" tabindex="-1"></a>} </span></code></pre></div>
-<p>In the example above, which inputs will trigger <code class='function'>renderPlot()</code> to run and produce a new plot?</p>
-<p><select class='webex-solveme' data-answer='["cut, color & clarity"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
-<p>Which inputs will trigger <code class='function'>renderText()</code> to run and produce a new title?</p>
-<p><select class='webex-solveme' data-answer='["all of the above"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
+<p>In the example above, which inputs will trigger <code><span class="fu">renderPlot</span>()</code> to run and produce a new plot?<br />
+<select class='webex-solveme' data-answer='["cut, color & clarity"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
+<p>Which inputs will trigger <code><span class="fu">renderText</span>()</code> to run and produce a new title?<br />
+<select class='webex-solveme' data-answer='["all of the above"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
 </div>
 <div id="reactive-1" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> reactive()</h2>
-<p>If you move the <code>data</code> filtering outside of <code class='function'>renderPlot()</code>, you’ll get an error message like “Can’t access reactive value ‘cut’ outside of reactive consumer.” This means that the <code>input</code> values can only be read inside certain functions, like <code class='function'>reactive()</code>, <code class='function'>observeEvent()</code>, or a render function.</p>
-<p>However, we can put the data filtering inside <code class='function'>reactive()</code>. This means that whenever an input inside that function changes, the code will run and update the value of <code class='function'>data()</code>. This can be useful if you need to recalculate the data table each time the inputs change, and then use it in more than one function.</p>
+<p>If you move the <code>data</code> filtering outside of <code><span class="fu">renderPlot</span>()</code>, you’ll get an error message like “Can’t access reactive value ‘cut’ outside of reactive consumer.” This means that the <code>input</code> values can only be read inside certain functions, like <code><span class="fu">reactive</span>()</code>, <code><span class="fu">observeEvent</span>()</code>, or a render function.</p>
+<p>However, we can put the data filtering inside <code><span class="fu">reactive</span>()</code>. This means that whenever an input inside that function changes, the code will run and update the value of <code><span class="fu">data</span>()</code>. This can be useful if you need to recalculate the data table each time the inputs change, and then use it in more than one function.</p>
 <div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="reactives.html#cb69-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
 <span id="cb69-2"><a href="reactives.html#cb69-2" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
 <span id="cb69-3"><a href="reactives.html#cb69-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(diamonds,</span>
@@ -551,17 +553,17 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
 <span id="cb69-22"><a href="reactives.html#cb69-22" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb69-23"><a href="reactives.html#cb69-23" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>text <span class="ot">&lt;-</span> <span class="fu">renderText</span>(<span class="fu">title</span>())</span>
 <span id="cb69-24"><a href="reactives.html#cb69-24" aria-hidden="true" tabindex="-1"></a>} </span></code></pre></div>
-<p>In the example above, which inputs will trigger <code class='function'>renderPlot()</code> to run and produce a new plot?</p>
-<p><select class='webex-solveme' data-answer='["cut, color & clarity"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
-<p>Which inputs will trigger <code class='function'>renderText()</code> to run and produce a new title?</p>
-<p><select class='webex-solveme' data-answer='["cut, color & clarity"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
+<p>In the example above, which inputs will trigger <code><span class="fu">renderPlot</span>()</code> to run and produce a new plot?<br />
+<select class='webex-solveme' data-answer='["cut, color & clarity"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
+<p>Which inputs will trigger <code><span class="fu">renderText</span>()</code> to run and produce a new title?<br />
+<select class='webex-solveme' data-answer='["cut, color & clarity"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
 <div class="warning">
-<p>My most common error is trying to use <code>data</code> or <code>title</code> as an object instead of as a function. Notice how the first argument to ggplot is no longer <code>data</code>, but <code class='function'>data()</code> and you set the value of data with <code>data(newdata)</code>, not <code>data &lt;- newdata</code>. For now, just remember this as a quirk of shiny.</p>
+<p>My most common error is trying to use <code>data</code> or <code>title</code> as an object instead of as a function. Notice how the first argument to ggplot is no longer <code>data</code>, but <code><span class="fu">data</span>()</code> and you set the value of data with <code>data(newdata)</code>, not <code>data &lt;- newdata</code>. For now, just remember this as a quirk of shiny.</p>
 </div>
 </div>
 <div id="eventreactive" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> eventReactive()</h2>
-<p>While <code class='function'>reactive()</code> is triggered whenever any input values inside it change, <code class='function'>eventReactive()</code> is only triggered when the value of the first argument changes, like <code class='function'>observeEvent()</code>, but returns a reactive function like <code class='function'>reactive()</code>.</p>
+<p>While <code><span class="fu">reactive</span>()</code> is triggered whenever any input values inside it change, <code><span class="fu">eventReactive</span>()</code> is only triggered when the value of the first argument changes, like <code><span class="fu">observeEvent</span>()</code>, but returns a reactive function like <code><span class="fu">reactive</span>()</code>.</p>
 <div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="reactives.html#cb70-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
 <span id="cb70-2"><a href="reactives.html#cb70-2" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">eventReactive</span>(input<span class="sc">$</span>update, {</span>
 <span id="cb70-3"><a href="reactives.html#cb70-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(diamonds,</span>
@@ -585,16 +587,16 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
 <span id="cb70-21"><a href="reactives.html#cb70-21" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb70-22"><a href="reactives.html#cb70-22" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>text <span class="ot">&lt;-</span> <span class="fu">renderText</span>(<span class="fu">title</span>())</span>
 <span id="cb70-23"><a href="reactives.html#cb70-23" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>In the example above, which inputs will trigger <code class='function'>renderPlot()</code> to run and produce a new plot?</p>
+<p>In the example above, which inputs will trigger <code><span class="fu">renderPlot</span>()</code> to run and produce a new plot?</p>
 <p><select class='webex-solveme' data-answer='["update"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
-<p>Which inputs will trigger <code class='function'>renderText()</code> to run and produce a new title?</p>
+<p>Which inputs will trigger <code><span class="fu">renderText</span>()</code> to run and produce a new title?</p>
 <p><select class='webex-solveme' data-answer='["update"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
 </div>
 <div id="reactiveval" class="section level2" number="5.5">
 <h2><span class="header-section-number">5.5</span> reactiveVal()</h2>
-<p>Another pattern that accomplishes a similar thing to <code class='function'>reactive()</code> is to create a reactive value using <code class='function'>reactiveVal()</code>. This allows you to update the value of <code>data()</code> not just using the code inside the <code class='function'>reactive()</code> function that created it, but in any function. This is useful when you have multiple functions that need to update that value.</p>
-<p>Here, we use <code class='function'>observeEvent()</code> to trigger the data filtering code only when the update button is pressed. This new data set is assigned to <code class='function'>data()</code> using the code <code>data(newdata)</code>.</p>
-<p>Because <code class='function'>data()</code> returns a reactive value, it will trigger <code class='function'>renderPlot()</code> whenever it changes.</p>
+<p>Another pattern that accomplishes a similar thing to <code><span class="fu">reactive</span>()</code> is to create a reactive value using <code><span class="fu">reactiveVal</span>()</code>. This allows you to update the value of <code><span class="fu">data</span>()</code> not just using the code inside the <code><span class="fu">reactive</span>()</code> function that created it, but in any function. This is useful when you have multiple functions that need to update that value.</p>
+<p>Here, we use <code><span class="fu">observeEvent</span>()</code> to trigger the data filtering code only when the update button is pressed. This new data set is assigned to <code><span class="fu">data</span>()</code> using the code <code>data(newdata)</code>.</p>
+<p>Because <code><span class="fu">data</span>()</code> returns a reactive value, it will trigger <code><span class="fu">renderPlot</span>()</code> whenever it changes.</p>
 <div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="reactives.html#cb71-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
 <span id="cb71-2"><a href="reactives.html#cb71-2" aria-hidden="true" tabindex="-1"></a>    data <span class="ot">&lt;-</span> <span class="fu">reactiveVal</span>(diamonds)</span>
 <span id="cb71-3"><a href="reactives.html#cb71-3" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -620,18 +622,18 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
 <span id="cb71-23"><a href="reactives.html#cb71-23" aria-hidden="true" tabindex="-1"></a>                     input<span class="sc">$</span>clarity)</span>
 <span id="cb71-24"><a href="reactives.html#cb71-24" aria-hidden="true" tabindex="-1"></a>    })</span>
 <span id="cb71-25"><a href="reactives.html#cb71-25" aria-hidden="true" tabindex="-1"></a>} </span></code></pre></div>
-<p>In the example above, which inputs will trigger <code class='function'>renderPlot()</code> to run and produce a new plot?</p>
-<p><select class='webex-solveme' data-answer='["update"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
-<p>Which inputs will trigger <code class='function'>renderText()</code> to run and produce a new title?</p>
-<p><select class='webex-solveme' data-answer='["cut, color & clarity"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
+<p>In the example above, which inputs will trigger <code><span class="fu">renderPlot</span>()</code> to run and produce a new plot?<br />
+<select class='webex-solveme' data-answer='["update"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
+<p>Which inputs will trigger <code><span class="fu">renderText</span>()</code> to run and produce a new title?<br />
+<select class='webex-solveme' data-answer='["cut, color & clarity"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
 <div class="info">
-<p>We used <code>data &lt;- reactiveVal(diamonds)</code> in order for <code class='function'>data()</code> to have a value that didn’t cause an error when <code class='function'>renderPlot()</code> runs for the first time.</p>
+<p>We used <code>data &lt;- reactiveVal(diamonds)</code> in order for <code><span class="fu">data</span>()</code> to have a value that didn’t cause an error when <code><span class="fu">renderPlot</span>()</code> runs for the first time.</p>
 </div>
 </div>
 <div id="reactivevalue" class="section level2" number="5.6">
 <h2><span class="header-section-number">5.6</span> reactiveValue()</h2>
-<p>You need to set up a new <code class='function'>reactiveVal()</code> for each value in an app that you want to make reactive. I prefer to use <code class='function'>reactiveValues()</code> because it can be used for any new reactive value you need and works just like <code>input</code>.</p>
-<p>You can just set your new object to <code class='function'>reactiveValues()</code> or you can initialise it with starting values like below. The object <code>v</code> is a named list, just like <code>input</code>, and when it’s values change, it triggers reactive functions exactly like <code>input</code> does.</p>
+<p>You need to set up a new <code><span class="fu">reactiveVal</span>()</code> for each value in an app that you want to make reactive. I prefer to use <code><span class="fu">reactiveValues</span>()</code> because it can be used for any new reactive value you need and works just like <code>input</code>.</p>
+<p>You can just set your new object to <code><span class="fu">reactiveValues</span>()</code> or you can initialise it with starting values like below. The object <code>v</code> is a named list, just like <code>input</code>, and when it’s values change, it triggers reactive functions exactly like <code>input</code> does.</p>
 <div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="reactives.html#cb72-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
 <span id="cb72-2"><a href="reactives.html#cb72-2" aria-hidden="true" tabindex="-1"></a>    v <span class="ot">&lt;-</span> <span class="fu">reactiveValues</span>(</span>
 <span id="cb72-3"><a href="reactives.html#cb72-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> diamonds,</span>
@@ -658,17 +660,17 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
 <span id="cb72-24"><a href="reactives.html#cb72-24" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb72-25"><a href="reactives.html#cb72-25" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>title <span class="ot">&lt;-</span> <span class="fu">renderText</span>(v<span class="sc">$</span>title)</span>
 <span id="cb72-26"><a href="reactives.html#cb72-26" aria-hidden="true" tabindex="-1"></a>} </span></code></pre></div>
-<p>In the example above, which inputs will trigger <code class='function'>renderPlot()</code> to run and produce a new plot?</p>
-<p><select class='webex-solveme' data-answer='["update"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
-<p>Which inputs will trigger <code class='function'>renderText()</code> to run and produce a new title?</p>
-<p><select class='webex-solveme' data-answer='["update"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
+<p>In the example above, which inputs will trigger <code><span class="fu">renderPlot</span>()</code> to run and produce a new plot?<br />
+<select class='webex-solveme' data-answer='["update"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
+<p>Which inputs will trigger <code><span class="fu">renderText</span>()</code> to run and produce a new title?<br />
+<select class='webex-solveme' data-answer='["update"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
 <div class="warning">
-<p>Note that you refer to reactive values set up this way as <code>v$data</code> and <code>v$title</code>, not <code class='function'>data()</code> and <code class='function'>title()</code>.</p>
+<p>Note that you refer to reactive values set up this way as <code>v$data</code> and <code>v$title</code>, not <code><span class="fu">data</span>()</code> and <code><span class="fu">title</span>()</code>.</p>
 </div>
 </div>
 <div id="isolate" class="section level2" number="5.7">
 <h2><span class="header-section-number">5.7</span> isolate()</h2>
-<p>If you want to use an input or reactive value inside a reactive function, but don’t want to trigger that function, you can <code class='function'>isolate()</code> it. You can also use <code class='function'>isolate()</code> to get a reactive value outside a reactive function.</p>
+<p>If you want to use an input or reactive value inside a reactive function, but don’t want to trigger that function, you can <code><span class="fu">isolate</span>()</code> it. You can also use <code><span class="fu">isolate</span>()</code> to get a reactive value outside a reactive function.</p>
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="reactives.html#cb73-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
 <span id="cb73-2"><a href="reactives.html#cb73-2" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
 <span id="cb73-3"><a href="reactives.html#cb73-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(</span>
@@ -699,10 +701,10 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
 <span id="cb73-28"><a href="reactives.html#cb73-28" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb73-29"><a href="reactives.html#cb73-29" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>title <span class="ot">&lt;-</span> <span class="fu">renderText</span>(<span class="fu">title</span>())</span>
 <span id="cb73-30"><a href="reactives.html#cb73-30" aria-hidden="true" tabindex="-1"></a>} </span></code></pre></div>
-<p>In the example above, which inputs will trigger <code class='function'>renderPlot()</code> to run and produce a new plot?</p>
-<p><select class='webex-solveme' data-answer='["clarity"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
-<p>Which inputs will trigger <code class='function'>renderText()</code> to run and produce a new title?</p>
-<p><select class='webex-solveme' data-answer='["cut"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
+<p>In the example above, which inputs will trigger <code><span class="fu">renderPlot</span>()</code> to run and produce a new plot?<br />
+<select class='webex-solveme' data-answer='["clarity"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
+<p>Which inputs will trigger <code><span class="fu">renderText</span>()</code> to run and produce a new title?<br />
+<select class='webex-solveme' data-answer='["cut"]'> <option></option> <option>cut</option> <option>color</option> <option>clarity</option> <option>update</option> <option>cut, color &amp; clarity</option> <option>all of the above</option></select></p>
 </div>
 <div id="further-resources-resources-reactive" class="section level2" number="5.8">
 <h2><span class="header-section-number">5.8</span> Further Resources {#resources-reactive)</h2>
@@ -715,7 +717,7 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
 </div>
 <div id="exercises-reactive" class="section level2" number="5.9">
 <h2><span class="header-section-number">5.9</span> Exercises</h2>
-<p>For the following exercises, clone “reactive_demo” and replace the boxes in the ui with the code below. Delete all the code in <code class='function'>server()</code>. Make sure this runs before you go ahead.</p>
+<p>For the following exercises, clone “reactive_demo” and replace the boxes in the ui with the code below. Delete all the code in <code><span class="fu">server</span>()</code>. Make sure this runs before you go ahead.</p>
 <div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="reactives.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(<span class="at">width =</span> <span class="dv">4</span>,</span>
 <span id="cb74-2"><a href="reactives.html#cb74-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">selectInput</span>(<span class="st">&quot;stat&quot;</span>, <span class="st">&quot;Statistic&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;sd&quot;</span>)),</span>
 <span id="cb74-3"><a href="reactives.html#cb74-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">selectInput</span>(<span class="st">&quot;group&quot;</span>, <span class="st">&quot;Group By&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;vore&quot;</span>, <span class="st">&quot;order&quot;</span>, <span class="st">&quot;conservation&quot;</span>)),</span>
@@ -724,7 +726,7 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
 <span id="cb74-6"><a href="reactives.html#cb74-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">solidHeader =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb74-7"><a href="reactives.html#cb74-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">textOutput</span>(<span class="st">&quot;caption&quot;</span>),</span>
 <span id="cb74-8"><a href="reactives.html#cb74-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tableOutput</span>(<span class="st">&quot;table&quot;</span>))</span></code></pre></div>
-<p>You will grouping and summarising the <code>msleep</code> data table from <code class='package'>ggplot2</code> by calculating the mean or standard deviation for all (or some) of the numeric columns grouped by the categorical columns <code>vore</code>, <code>order</code>, or <code>conservation</code>. If you’re not sure how to create such a summary table with dplyr, look at the following code for a concrete example.</p>
+<p>You will grouping and summarising the <code>msleep</code> data table from <code class='package'>ggplot2</code> by calculating the mean or standard deviation for all (or some) of the numeric columns grouped by the categorical columns <code>vore</code>, <code>order</code>, or <code>conservation</code>. If you’re not sure how to create such a summary table with <code class='package'>dplyr</code>, look at the following code for a concrete example.</p>
 <div class="webex-solution">
 <button>
 Hint
@@ -797,7 +799,7 @@ Hint
 </div>
 <div id="observeevent-2" class="section level3" number="5.9.1">
 <h3><span class="header-section-number">5.9.1</span> observeEvent</h3>
-<p>Use <code class='function'>observeEvent()</code> to update the output table with the appropriate summary table and to update the caption with an appropriate caption only when the update button is clicked.</p>
+<p>Use <code><span class="fu">observeEvent</span>()</code> to update the output table with the appropriate summary table and to update the caption with an appropriate caption only when the update button is clicked.</p>
 <div class="webex-solution">
 <button>
 Solution
@@ -838,7 +840,7 @@ Solution
 </div>
 <div id="reactive-2" class="section level3" number="5.9.3">
 <h3><span class="header-section-number">5.9.3</span> reactive</h3>
-<p>Use <code class='function'>reactive()</code> to update the output table and caption whenever group or stat change. Ignore the update button.</p>
+<p>Use <code><span class="fu">reactive</span>()</code> to update the output table and caption whenever group or stat change. Ignore the update button.</p>
 <div class="webex-solution">
 <button>
 Solution
@@ -860,7 +862,7 @@ Solution
 </div>
 <div id="eventreactive-1" class="section level3" number="5.9.4">
 <h3><span class="header-section-number">5.9.4</span> eventReactive</h3>
-<p>Use <code class='function'>eventReactive()</code> to update the output table and caption only when the update button is clicked.</p>
+<p>Use <code><span class="fu">eventReactive</span>()</code> to update the output table and caption only when the update button is clicked.</p>
 <div class="webex-solution">
 <button>
 Solution
@@ -882,7 +884,7 @@ Solution
 </div>
 <div id="reactiveval-1" class="section level3" number="5.9.5">
 <h3><span class="header-section-number">5.9.5</span> reactiveVal</h3>
-<p>Use <code class='function'>reactiveVal()</code> to update the output table and caption only when the update button is clicked.</p>
+<p>Use <code><span class="fu">reactiveVal</span>()</code> to update the output table and caption only when the update button is clicked.</p>
 <div class="webex-solution">
 <button>
 Solution
@@ -910,7 +912,7 @@ Solution
 </div>
 <div id="reactivevalues" class="section level3" number="5.9.6">
 <h3><span class="header-section-number">5.9.6</span> reactiveValues</h3>
-<p>Use <code class='function'>reactiveValues()</code> to update the output table and caption only when the update button is clicked.</p>
+<p>Use <code><span class="fu">reactiveValues</span>()</code> to update the output table and caption only when the update button is clicked.</p>
 <div class="webex-solution">
 <button>
 Solution

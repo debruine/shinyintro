@@ -310,6 +310,39 @@ You need to have basic familiarity with R, including data import, data processin
 
 If you want to brush up on your R (especially tidyverse), and also gain familiarity with the instructor's teaching style, the first seven chapters of \href{https://psyteachr.github.io/msc-data-skills/}{Data Skills for Reproducible Science} provide a good overview.
 
+\hypertarget{conventions}{%
+\section{Conventions}\label{conventions}}
+
+This book will use the following conventions:
+
+\begin{itemize}
+\tightlist
+\item
+  File paths: www/style.css
+\item
+  R Packages: shinydashboard
+\item
+  Functions: {observeEvent}()
+\item
+  Arguments: {width}
+\item
+  Strings: {"Lisa"}
+\item
+  Numbers: {100}
+\item
+  Logical values: {TRUE}
+\item
+  Other code: \texttt{x\ \textless{}-\ list(a\ =\ "Aligator",\ b\ =\ "Buffalo")}
+\item
+  Glossary items: shiny
+\item
+  Internal links: Section~\ref{first-app}
+\item
+  External links: \href{https://mastering-shiny.org/}{Mastering Shiny}
+\item
+  Menu/interface options: \textbf{\texttt{New\ File...}}
+\end{itemize}
+
 \hypertarget{further-resources}{%
 \section{Further Resources}\label{further-resources}}
 
@@ -348,9 +381,9 @@ To start, let's walk through the basics of setting up a shiny app, starting with
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  Under the \texttt{File} menu, choose \texttt{New\ Project...}. You will see a popup window like the one above. Choose \texttt{New\ Directory}.
+  Under the \textbf{\texttt{File}} menu, choose \textbf{\texttt{New\ Project...}}. You will see a popup window like the one above. Choose \textbf{\texttt{New\ Directory}}.
 \item
-  Choose \texttt{Shiny\ Web\ Application} as the project type.
+  Choose \textbf{\texttt{Shiny\ Web\ Application}} as the project type.
 \item
   I like to put all of my apps in the same directory, but it doesn't matter where you save it.
 \end{enumerate}
@@ -424,7 +457,7 @@ View Code
 \end{Highlighting}
 \end{Shaded}
 
-Click on \texttt{Run\ App} in the top right corner of the source pane. The app will open up in a new window. Play with the slider and watch the histogram change.
+Click on \textbf{\texttt{Run\ App}} in the top right corner of the source pane. The app will open up in a new window. Play with the slider and watch the histogram change.
 
 \begin{figure}
 
@@ -455,9 +488,9 @@ Find the application title. It is the first \href{defs.html\#argument}{argument}
 \caption{App with changed title.}\label{fig:first-change-title}
 \end{figure}
 
-Click \texttt{Run\ App} (or \texttt{Reload\ App} if you haven't closed the app window) in the source pane. If you haven't saved your changes, it will prompt you to do so. Check that the app title has changed.
+Click \textbf{\texttt{Run\ App}} (or \textbf{\texttt{Reload\ App}} if you haven't closed the app window) in the source pane. If you haven't saved your changes, it will prompt you to do so. Check that the app title has changed.
 
-Now let's change the input. Find the function sliderInput() (line 21). The first argument is the name you can use in the code to find the value of this input, so don't change it just yet. The second argument is the text that displays before the slider. Change this to something else and re-run the app.
+Now let's change the input. Find the function {sliderInput}() (line 21). The first argument is the name you can use in the code to find the value of this input, so don't change it just yet. The second argument is the text that displays before the slider. Change this to something else and re-run the app.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -469,9 +502,9 @@ Now let's change the input. Find the function sliderInput() (line 21). The first
 \end{Highlighting}
 \end{Shaded}
 
-See if you can figure out what the next three arguments to sliderInput() do. Change them to different integers, then re-run the app to see what's changed.
+See if you can figure out what the next three arguments to {sliderInput}() do. Change them to different integers, then re-run the app to see what's changed.
 
-The arguments to the function sidebarPanel() are just a list of things you want to display in the sidebar. To add some explanatory text in a paragraph before sliderInput(), just use the paragraph function p().
+The arguments to the function {sidebarPanel}() are just a list of things you want to display in the sidebar. To add some explanatory text in a paragraph before {sliderInput}(), just use the paragraph function {p}().
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -528,16 +561,16 @@ There are a lot of ways to represent colour in R. The easiest three are:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  hexadecimal colours (e.g., \texttt{\#0066CC})
+  hexadecimal colours (e.g., {"\#0066CC"})
 \item
   the \texttt{rgb} or \texttt{hsl} functions (e.g., \texttt{rgb(0,\ .4,\ .8)})
 \item
-  colour names (type colours() in the console)
+  colour names (type {colours}() in the console)
 \end{enumerate}
 
 The color ``steelblue3'' is pretty close to the shiny interface default colour, but feel free to choose whatever you like.
 
-I prefer ggplots, so let's make the plot with geom\_histogram() instead of hist() (which is a great function for really quick plots). Since we need several functions from the ggplot2 package, we'll need to load that package at the top of the script, just under where the shiny package is loaded:
+I prefer ggplots, so let's make the plot with {geom\_histogram}() instead of {hist}() (which is a great function for really quick plots). Since we need several functions from the ggplot2 package, we'll need to load that package at the top of the script, just under where the shiny package is loaded:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -546,7 +579,7 @@ I prefer ggplots, so let's make the plot with geom\_histogram() instead of hist(
 \end{Highlighting}
 \end{Shaded}
 
-You can replace all of the code in renderPlot() with the code below.
+You can replace all of the code in {renderPlot}() with the code below.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -562,7 +595,7 @@ You can replace all of the code in renderPlot() with the code below.
 \end{Highlighting}
 \end{Shaded}
 
-You can set fill and colour to whatever colours you like, and change theme\_minimal() to one of the other \href{https://ggplot2.tidyverse.org/reference/ggtheme.html\#examples}{built-in ggplot themes}.
+You can set {fill} and {colour} to whatever colours you like, and change {theme\_minimal}() to one of the other \href{https://ggplot2.tidyverse.org/reference/ggtheme.html\#examples}{built-in ggplot themes}.
 
 What \emph{are} we even plotting here? Type \texttt{?faithful} into the console pane to see what the \texttt{waiting} column represents (\texttt{faithful} is a built-in demo dataset). Change the label on the x-axis to something more sensible.
 
@@ -571,25 +604,25 @@ What \emph{are} we even plotting here? Type \texttt{?faithful} into the console 
 
 The \texttt{faithful} dataset includes two columns:\texttt{eruptions} and \texttt{waiting}. We've been plotting the \texttt{waiting} variable, but what if you wanted to plot the \texttt{eruptions} variable instead?
 
-Try plotting the eruption time (\texttt{eruptions}) instead of the waiting time. You just have to change one word in ggplot() and update the x-axis label.
+Try plotting the eruption time (\texttt{eruptions}) instead of the waiting time. You just have to change one word in {ggplot}() and update the x-axis label.
 
 We can add another input widget to let the user switch between plotting eruption time and wait time. We'll learn more about the different input options in Section~\ref{inputs}. We need to toggle between two options, so we can use either radio buttons or a select box. Radio buttons are probably best if you have only a few options and the user will want to see them all at the same time to decide.
 
-Add the following code as the first argument to sidebarPanel(), which just takes a list of different widgets. radioButtons() is the widget we're using. We'll set four arguments:
+Add the following code as the first argument to {sidebarPanel}(), which just takes a list of different widgets. {radioButtons}() is the widget we're using. We'll set four arguments:
 
 \begin{itemize}
 \tightlist
 \item
-  inputId: a unique identifier that we will use later in the code to find the value of this widget
+  {inputId}: a unique identifier that we will use later in the code to find the value of this widget
 \item
-  label: the text to display to the user
+  {label}: the text to display to the user
 \item
-  choices: a list of choices in the format \texttt{c("label1"\ =\ "value1",\ "label2\ =\ "value2",\ ...)}
+  {choices}: a list of choices in the format \texttt{c("label1"\ =\ "value1",\ "label2\ =\ "value2",\ ...)}
 \item
-  selected: the value of the default choice
+  {selected}: the value of the default choice
 \end{itemize}
 
-For choices, the label is what gets shown to the user and the value is what gets used by the code (these can be the same, but you often want the user label to be more descriptive).
+For {choices}, the label is what gets shown to the user and the value is what gets used by the code (these can be the same, but you often want the user label to be more descriptive).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -615,7 +648,7 @@ Save this and re-run the app.
 
 You should have a radio button interface now. You can click on the options to switch the button, but it won't do anything to your plot yet. We need to edit the plot-generating code to make that happen.
 
-First, we need to change the x-axis label depending on what we're graphing. We use an if/else statement to set the variable \texttt{xlabel} to one thing if \texttt{input\$display\_var} is equivalent to \texttt{"eruptions"}, and to something else if it's equivalent to \texttt{"waiting"}. Put this code at the very beginning of the code block for renderPlot() (after the line \texttt{output\$distPlot\ \textless{}-\ renderPlot(\{}).
+First, we need to change the x-axis label depending on what we're graphing. We use an if/else statement to set the variable \texttt{xlabel} to one thing if \texttt{input\$display\_var} is equivalent to {"eruptions"}, and to something else if it's equivalent to {"waiting"}. Put this code at the very beginning of the code block for {renderPlot}() (after the line \texttt{output\$distPlot\ \textless{}-\ renderPlot(\{}).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -630,7 +663,7 @@ First, we need to change the x-axis label depending on what we're graphing. We u
 
 The double-equal-signs \texttt{==} means "equivalent to and is how you check if two things are the same; if you only use one equal sign, you set the variable on the left to the value on the right.
 
-Then we have to edit ggplot to use the new label and to plot the correct column. The variable \texttt{input\$display\_var} gives you the user-input value of the widget called \texttt{"display\_var"}.
+Then we have to edit {ggplot} to use the new label and to plot the correct column. The variable \texttt{input\$display\_var} gives you the user-input value of the widget called \texttt{"display\_var"}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -657,7 +690,7 @@ Re-run your app and see if you can change the data and x-axis label with your ne
 
 Now that we've made and modified our first working app, it's time to learn a bit about how a shiny app is structured.
 
-A shiny app is made of two main parts, a UI, which defines what the user interface looks like, and a server function, which defines how the interface behaves. The function shinyApp() puts the two together to run the application in a web browser.
+A shiny app is made of two main parts, a UI, which defines what the user interface looks like, and a server function, which defines how the interface behaves. The function {shinyApp}() puts the two together to run the application in a web browser.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -681,7 +714,7 @@ Create a new app called ``basic\_demo'' and replace all the text in app.R with t
 \hypertarget{ui}{%
 \subsection{UI}\label{ui}}
 
-The UI is created by one of the ui-building \texttt{\textbackslash{}*Page()} functions, such as fluidPage(), fixedPage(), fillPage() or dashboardPage() (which we'll learn more about in Section~\ref{shinydashboard}). The ui-building functions set up the parts of the webpage, which are created by more shiny functions that you list inside of the page function, separated by commas.
+The UI is created by one of the ui-building \texttt{\textbackslash{}*Page()} functions, such as {fluidPage}(), {fixedPage}(), {fillPage}() or {dashboardPage}() (which we'll learn more about in Section~\ref{shinydashboard}). The ui-building functions set up the parts of the webpage, which are created by more shiny functions that you list inside of the page function, separated by commas.
 
 \hypertarget{tags}{%
 \subsection{Tags}\label{tags}}
@@ -696,7 +729,7 @@ For example, the code below displays:
 \item
   a level-two header with the text ``My favourite things''
 \item
-  an unordered list (tags\(ul()</code>) containing several list items (<code class='function'>tags\)li())
+  an unordered list ({tags\(ul</span>()</code>) containing several list items (<code><span class='fu'>tags\)li}())
 \item
   a paragraph with the text ``This is a very basic demo.''
 \item
@@ -721,14 +754,14 @@ For example, the code below displays:
 \end{Highlighting}
 \end{Shaded}
 
-Many of the functions used to create parts of the website are the same as HTML tags, which are ways to mark the beginning and end of different types of text. Most HTML tags are available in shiny by using one of the tags() sub-functions, but some of the more common tags, like p() or h1()-h6()also have a version where you can omit the\texttt{tags\textbackslash{}\$} part. You can see a list of all of the tags available in Shiny at the \href{https://shiny.rstudio.com/articles/tag-glossary.html}{tag glossary}
+Many of the functions used to create parts of the website are the same as HTML tags, which are ways to mark the beginning and end of different types of text. Most HTML tags are available in shiny by using one of the {tags}() sub-functions, but some of the more common tags, like {p}() or {h1}()-{h6}()also have a version where you can omit the\texttt{tags\textbackslash{}\$} part. You can see a list of all of the tags available in Shiny at the \href{https://shiny.rstudio.com/articles/tag-glossary.html}{tag glossary}
 
-Add the code above to your \texttt{basic\_demo} app and replace my favourite things with yours. Make the list an ordered list (instead of unordered) and change the image size.
+Add the code above to your basic\_demo app and replace my favourite things with yours. Make the list an ordered list (instead of unordered) and change the image size.
 
 \hypertarget{page-layout}{%
 \subsection{Page Layout}\label{page-layout}}
 
-You usually want your apps to have a more complex layout than just each element stacked below the previous one. The code below wraps the elements after the title panel inside flowLayout().
+You usually want your apps to have a more complex layout than just each element stacked below the previous one. The code below wraps the elements after the title panel inside {flowLayout}().
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -748,9 +781,9 @@ You usually want your apps to have a more complex layout than just each element 
 \end{Highlighting}
 \end{Shaded}
 
-Replace the ui code in your basic\_demo" app with the code above and run it in a web browser. What happens when you change the width of the web browser? Change flowLayout() to verticalLayout() or splitLayout() and see what changes.
+Replace the ui code in your basic\_demo app with the code above and run it in a web browser. What happens when you change the width of the web browser? Change {flowLayout}() to {verticalLayout}() or {splitLayout}() and see what changes.
 
-You can use a sidebarLayout() to arrange your elements into a sidebarPanel() and a mainPanel(). If the browser width is too narrow, the sidebar will display on top of the main panel.
+You can use a {sidebarLayout}() to arrange your elements into a {sidebarPanel}() and a {mainPanel}(). If the browser width is too narrow, the sidebar will display on top of the main panel.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -794,12 +827,12 @@ Inputs are ways for the users of your app to communicate with the app, like drop
 
 Most inputs are structured like this, with an inputId, which needs to be a unique string not used as the ID for any other input or output in your app, a label that contains the question, and a list of choices or other parameters that determine what type of values the input will record.
 
-You might have noticed that the sliderInput() in the demo app didn't use the argument names for the inputId or the label(). All inputs need these first two arguments, so almost everyone omits their names.
+You might have noticed that the {sliderInput}() in the demo app didn't use the argument names for the {inputId} or the {label}(). All inputs need these first two arguments, so almost everyone omits their names.
 
 \hypertarget{outputs-intro}{%
 \subsection{Outputs}\label{outputs-intro}}
 
-Outputs are placeholders for things that server() will create. There are different output functions for different types of outputs, like text, plots, and tables. We'll go into the different types of outputs in detail in Section~\ref{outputs}. Below, we'll make a placeholder for some text that we'll display after counting the number of favourite things.
+Outputs are placeholders for things that {server}() will create. There are different output functions for different types of outputs, like text, plots, and tables. We'll go into the different types of outputs in detail in Section~\ref{outputs}. Below, we'll make a placeholder for some text that we'll display after counting the number of favourite things.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -807,7 +840,7 @@ Outputs are placeholders for things that server() will create. There are differe
 \end{Highlighting}
 \end{Shaded}
 
-Most outputs are structured like this, with just a unique outputId (the argument name is also usually omitted).
+Most outputs are structured like this, with just a unique {outputId} (the argument name is also usually omitted).
 
 \hypertarget{action-buttons}{%
 \subsection{Action buttons}\label{action-buttons}}
@@ -822,9 +855,9 @@ Action buttons are a special type of input that register button clicks. Below we
 \end{Highlighting}
 \end{Shaded}
 
-Action buttons require a unique inputId and a label for the button text. You can also add an icon. Choose a free icon from \href{https://fontawesome.com/icons?d=gallery\&m=free}{fontawesome}.
+Action buttons require a unique {inputId} and a {label} for the button text. You can also add an {icon}. Choose a free icon from \href{https://fontawesome.com/icons?d=gallery\&m=free}{fontawesome}.
 
-Put the input, output, and action button into the ui and run it. You will see that the input checkboxes are selectable and the button is clickable, but nothing is displayed in the text output. We need some code in server() to handle that.
+Put the input, output, and action button into the ui and run it. You will see that the input checkboxes are selectable and the button is clickable, but nothing is displayed in the text output. We need some code in {server}() to handle that.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -850,9 +883,9 @@ Put the input, output, and action button into the ui and run it. You will see th
 \hypertarget{first-reactive}{%
 \section{Reactive functions}\label{first-reactive}}
 
-Reactive functions are functions that only run when certain types of inputs change. Inside server(), the object \texttt{input} is a named list of the values of all of the inputs. For example, if you want to know which items in the select input named ``fav\_things'' were selected, you would use \texttt{input\$fav\_things}.
+Reactive functions are functions that only run when certain types of inputs change. Inside {server}(), the object \texttt{input} is a named list of the values of all of the inputs. For example, if you want to know which items in the select input named {"fav\_things"} were selected, you would use \texttt{input\$fav\_things}.
 
-Here, we just want to count how many items are checked. We want to do this whenever the button ``count\_fav\_things'' is clicked, so we can use the reactive function observeEvent() to do this. Every time the value of \texttt{input\$count\_fav\_things} changes (which happens when it is clicked), it will run the code inside of the curly brackets \texttt{\{\}}. The code will only run when \texttt{input\$count\_fav\_things} changes, not when any inputs inside the function change.
+Here, we just want to count how many items are checked. We want to do this whenever the button {"count\_fav\_things"} is clicked, so we can use the reactive function {observeEvent}() to do this. Every time the value of \texttt{input\$count\_fav\_things} changes (which happens when it is clicked), it will run the code inside of the curly brackets \texttt{\{\}}. The code will only run when \texttt{input\$count\_fav\_things} changes, not when any inputs inside the function change.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -866,7 +899,7 @@ Here, we just want to count how many items are checked. We want to do this whene
 \end{Highlighting}
 \end{Shaded}
 
-Now we want to display this text in the output ``n\_fav\_things''. We need to use a render function that is paired with our output function. Since ``n\_fav\_things'' was made with textOutput(), we fill it with renderText().
+Now we want to display this text in the output {"n\_fav\_things"}. We need to use a render function that is paired with our output function. Since ``n\_fav\_things'' was made with {textOutput}(), we fill it with {renderText}().
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -883,9 +916,9 @@ Now we want to display this text in the output ``n\_fav\_things''. We need to us
 
 As always in coding, there are many ways to accomplish the same thing. These methods have different pros and cons that we'll learn more about in Section~\ref{reactives}. Here is another pattern that does that same as above.
 
-This pattern uses reactive() to create a new function called count\_text(), which updates the value it returns whenever any inputs inside the reactive function change. We use isolate() to prevent count\_text() from changing when users click the checkboxes.
+This pattern uses {reactive}() to create a new function called {count\_text}(), which updates the value it returns whenever any inputs inside the reactive function change. We use {isolate}() to prevent {count\_text}() from changing when users click the checkboxes.
 
-Whenever the returned value of count\_text() changes, this triggers an update of the ``n\_fav\_things'' output.
+Whenever the returned value of {count\_text}() changes, this triggers an update of the {"n\_fav\_things"} output.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -905,7 +938,7 @@ Whenever the returned value of count\_text() changes, this triggers an update of
 \end{Highlighting}
 \end{Shaded}
 
-Compare the app behaviour with the first pattern versus the second. How are they different? What happens if you remove isolate() from around \texttt{input\$fav\_things}?
+Compare the app behaviour with the first pattern versus the second. How are they different? What happens if you remove {isolate}() from around \texttt{input\$fav\_things}?
 
 \hypertarget{resources-first-app}{%
 \section{Further Resources}\label{resources-first-app}}
@@ -926,7 +959,7 @@ Compare the app behaviour with the first pattern versus the second. How are they
 \hypertarget{addition-app---ui}{%
 \subsection{Addition App - UI}\label{addition-app---ui}}
 
-Create the UI for following \href{https://shiny.psy.gla.ac.uk/debruine/add_demo/}{addition app}. Use numericInput() to create the inputs.
+Create the UI for following \href{https://shiny.psy.gla.ac.uk/debruine/add_demo/}{addition app}. Use {numericInput}() to create the inputs.
 
 \textbackslash begin\{figure\}
 
@@ -951,7 +984,7 @@ Solution
 \hypertarget{observeevent}{%
 \subsection{observeEvent}\label{observeevent}}
 
-Use observeEvent() to write a server function that displays ``n1 + n2 = sum'' when you click the action button.
+Use {observeEvent}() to write a server function that displays ``n1 + n2 = sum'' when you click the action button.
 
 Solution
 
@@ -971,7 +1004,7 @@ Solution
 \hypertarget{reactive}{%
 \subsection{reactive}\label{reactive}}
 
-Use reactive() to accomplish the same behaviour.
+Use {reactive}() to accomplish the same behaviour.
 
 Solution
 
@@ -1025,9 +1058,9 @@ This directory contains:
 \hypertarget{dashboard-structure}{%
 \section{Dashboard Structure}\label{dashboard-structure}}
 
-Notice that the ui is created with dashboardPage() now. This needs to be set up a little differently than fluidPage(). The main parts of a dashboard page are the header, sidebar, and body.
+Notice that the ui is created with {dashboardPage}() now. This needs to be set up a little differently than {fluidPage}(). The main parts of a dashboard page are the header, sidebar, and body.
 
-You can also change the default skin colour. Possible skin colours are: red, yellow (looks orange to me), green, blue, purple, and black.
+You can also change the default {skin} colour. Possible skin colours are: {"red"}, {"yellow"} (looks orange to me), {"green"}, {"blue"}, {"purple"}, and {"black"}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1056,14 +1089,14 @@ You can add a title to the header, and change the title width.
 
 You can also include message, notification, and task menus in the header. We won't be using those in this class, but you can learn more at \href{https://rstudio.github.io/shinydashboard/structure.html\#message-menus}{the shinydashboard site}.
 
-If you don't want to use a header, include \texttt{dashboardHeader(disable\ =\ TRUE)} inside dashboardPage().
+If you don't want to use a header, include \texttt{dashboardHeader(disable\ =\ TRUE)} inside {dashboardPage}().
 
 \hypertarget{dashboardsidebar}{%
 \subsection{dashboardSidebar}\label{dashboardsidebar}}
 
-The sidebar usually contains a sidebarMenu(), which needs a unique ID and a list of menu items. Each menuItem() consists of the title, a tabName that will be used to refer to the tab later, and an icon. You can find a list of the available free icons at \href{https://fontawesome.com/icons?d=gallery\&m=free}{fontawesome}.
+The sidebar usually contains a {sidebarMenu}(), which needs a unique ID and a list of menu items. Each {menuItem}() consists of the {title}, a {tabName} that will be used to refer to the tab later, and an {icon}. You can find a list of the available free icons at \href{https://fontawesome.com/icons?d=gallery\&m=free}{fontawesome}.
 
-You can also add in any other elements to the sidebar. The code below adds a link using tags\$a() Text inside of the sidebar usually looks too close to the edges, so we use \protect\hyperlink{CSS}{css} to style the link and add padding.
+You can also add in any other elements to the sidebar. The code below adds a link using {tags\$a}() Text inside of the sidebar usually looks too close to the edges, so we use \protect\hyperlink{CSS}{css} to style the link and add padding.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1078,14 +1111,14 @@ You can also add in any other elements to the sidebar. The code below adds a lin
 \end{Highlighting}
 \end{Shaded}
 
-If you don't want to use a sidebar, include \texttt{dashboardSidebar(disable\ =\ TRUE)} inside dashboardPage().
+If you don't want to use a sidebar, include \texttt{dashboardSidebar(disable\ =\ TRUE)} inside {dashboardPage}().
 
 \hypertarget{dashboardbody}{%
 \subsection{dashboardBody}\label{dashboardbody}}
 
-The main part of the app goes inside dashboardBody() If you're going to use javascript functions (which the basic template does and we'll learn more about in Section~\ref{shinyjs}), you need to put useShinyjs() first. Then you include the header, linking to any custom CSS or JavaScript files.
+The main part of the app goes inside {dashboardBody}() If you're going to use javascript functions (which the basic template does and we'll learn more about in Section~\ref{shinyjs}), you need to put {useShinyjs}() first. Then you include the header, linking to any custom CSS or JavaScript files.
 
-The contents of the body go after that. The most common pattern is a multi-page tabbed pattern, which is set up with tabItems(), which contains a tabItem() for each tab. The tabName has to match the name you used in the sidebar menuItem(), so that tab shows when the user clicks on the corresponding menu item.
+The contents of the body go after that. The most common pattern is a multi-page tabbed pattern, which is set up with {tabItems}(), which contains a {tabItem}() for each tab. The {tabName} has to match the name you used in the sidebar {menuItem}(), so that tab shows when the user clicks on the corresponding menu item.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1103,12 +1136,12 @@ The contents of the body go after that. The most common pattern is a multi-page 
 \end{Highlighting}
 \end{Shaded}
 
-Since each tab is usually a quite complex list of elements, I like to define each tab outside dashboardPage() and then just put a list of the tab objects inside tabItems(). This way, it's easy to move the whole tab definition to an external file if it gets too complex (see Chapter ~\ref{structure}).
+Since each tab is usually a quite complex list of elements, I like to define each tab outside {dashboardPage}() and then just put a list of the tab objects inside {tabItems}(). This way, it's easy to move the whole tab definition to an external file if it gets too complex (see Section~\ref{structure}).
 
 \hypertarget{body-structure}{%
 \section{Body Structure}\label{body-structure}}
 
-Tab items can be structured in several ways. At the simplest, you can just list each element after the tabName.
+Tab items can be structured in several ways. At the simplest, you can just list each element after the {tabName}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1166,7 +1199,7 @@ You can add titles to the boxes, make them collapsible and/or give them solid he
 \end{Highlighting}
 \end{Shaded}
 
-In the normal shinydashboard style, solid headers only have a colour if the box also has the status argument set. In the basic template provided in this class, there is custom CSS to make solid headers the same colour as the theme skin, but you can also set the status.
+In the normal shinydashboard style, solid headers only have a colour if the box also has the status argument set. In the basic template provided in this class, there is custom CSS to make solid headers the same colour as the theme skin, but you can also set the {status}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1194,7 +1227,7 @@ In the normal shinydashboard style, solid headers only have a colour if the box 
 \hypertarget{info-and-value-boxes}{%
 \subsection{Info and Value Boxes}\label{info-and-value-boxes}}
 
-You can use an infoBox() or a valueBox() to highlight a small amount of information. The default background is aqua, but the basic template changes this to the skin colour. However, you can customise this by setting the color argument.
+You can use an {infoBox}() or a {valueBox}() to highlight a small amount of information. The default background is aqua, but the basic template changes this to the skin colour. However, you can customise this by setting the {color} argument.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1216,14 +1249,14 @@ You can use an infoBox() or a valueBox() to highlight a small amount of informat
 \caption{Examples of value and info boxes you can make.}\label{fig:sdb-value-info}
 \end{figure}
 
-Shinydashboard uses a grid system that is 12 units across. The default width of boxes is 6, and info and value boxes are 4.
+Shinydashboard uses a grid system that is {12} units across. The default width of boxes is {6}, and info and value boxes are {4}.
 
 Try to write the code to create the second row of info boxes show above and the third row of value boxes.
 
 \hypertarget{tab-boxes}{%
 \subsection{Tab Boxes}\label{tab-boxes}}
 
-Create a box with multiple tabs using tabBox(), which contains tabPanel().
+Create a box with multiple tabs using {tabBox}(), which contains {tabPanel}().
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1250,7 +1283,7 @@ Create a box with multiple tabs using tabBox(), which contains tabPanel().
 \hypertarget{row-layout}{%
 \subsection{Row Layout}\label{row-layout}}
 
-You can arrange the boxes inside a fluidRow(). Set the box height in pixels. If the window gets too narrow, the boxes will move to stack instead of be in rows.
+You can arrange the boxes inside a {fluidRow}(). Set the box height in pixels. If the window gets too narrow, the boxes will move to stack instead of be in rows.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1273,7 +1306,7 @@ You can arrange the boxes inside a fluidRow(). Set the box height in pixels. If 
 \hypertarget{column-layout}{%
 \subsection{Column Layout}\label{column-layout}}
 
-Alternatively, you can arrange boxes or other elements inside a column() with a specific width. Elements inside this column have a width relative to the column width, so no matter what value you set the column width to, an element inside with a width of 6 will be half the column width.
+Alternatively, you can arrange boxes or other elements inside a {column}() with a specific {width}. Elements inside this column have a width relative to the column width, so no matter what value you set the column {width} to, an element inside with a {width} of {6} will be half the column width.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1331,11 +1364,11 @@ Alternatively, you can arrange boxes or other elements inside a column() with a 
 \begin{itemize}
 \tightlist
 \item
-  Change the title to the title of the app you want to build.
+  Change the {title} to the title of the app you want to build.
 \item
-  Choose a skin color.
+  Choose a {skin} color.
 \item
-  Experiment with different values for the titleWidth argument. Try ``50\%'' or ``200px'' and see how the title behaves when you change the width of the browser window.
+  Experiment with different values for the {titleWidth} argument. Try {"50\%"} or {"200px"} and see how the title behaves when you change the width of the browser window.
 \end{itemize}
 
 \hypertarget{customise-the-sidebar}{%
@@ -1344,9 +1377,9 @@ Alternatively, you can arrange boxes or other elements inside a column() with a 
 \begin{itemize}
 \tightlist
 \item
-  Add tabs to the sidebarMenu() for the pages of your custom app.
+  Add tabs to the {sidebarMenu}() for the pages of your custom app.
 \item
-  Choose appropriate icon for each tab.
+  Choose appropriate {icon} for each tab.
 \item
   Remove the link to the ShinyIntro book and add some information about your app, like the author or a use license.
 \end{itemize}
@@ -1357,9 +1390,9 @@ Alternatively, you can arrange boxes or other elements inside a column() with a 
 \begin{itemize}
 \tightlist
 \item
-  Create an empty tabItem() for each tab you put in the sidebarMenu() and add them to the dashboardBody().
+  Create an empty {tabItem}() for each tab you put in the {sidebarMenu}() and add them to the {dashboardBody}().
 \item
-  Start adding elements to each tab, such as a list of inputs with questions or a plotOutput() to display a feedback plot.
+  Start adding elements to each tab, such as a list of inputs with questions or a {plotOutput}() to display a feedback plot.
 \item
   Experiment with different ways to display the elements by grouping them into boxes
 \item
@@ -1383,7 +1416,7 @@ Inputs are ways that users can communicate information to the Shiny app. Explore
 \hypertarget{textinput}{%
 \subsection{textInput}\label{textinput}}
 
-textInput() creates a one-line box for short text input. The first argument, inputId (the argument name is usually omitted), needs to be a unique string that you cannot use for another input or output in this app.
+{textInput}() creates a one-line box for short text input. The first argument, {inputId} (the argument name is usually omitted), needs to be a unique string that you cannot use for another input or output in this app.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1396,12 +1429,12 @@ textInput() creates a one-line box for short text input. The first argument, inp
 \end{Highlighting}
 \end{Shaded}
 
-Experiment with the values of label, value, width, and placeholder to see what they do.
+Experiment with the values of {label}, {value}, {width}, and {placeholder} to see what they do.
 
 \hypertarget{textareainput}{%
 \subsection{textAreaInput}\label{textareainput}}
 
-textAreaInput() creates a multi-line box for longer text input.
+{textAreaInput}() creates a multi-line box for longer text input.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1415,13 +1448,13 @@ textAreaInput() creates a multi-line box for longer text input.
 \end{Highlighting}
 \end{Shaded}
 
-What is the inputId of the widget above?
+What is the {inputId} of the widget above?
 textAreaInput demo\_textarea Biography
 
 \hypertarget{selectinput}{%
 \subsection{selectInput}\label{selectinput}}
 
-selectInput() creates a drop-down menu. Set the first choice to \texttt{""} to default to \texttt{NA}. If your choices are a named list or vector, the names are what is shown and the values are what is recorded. If the choices aren't named, the displayed and recorded values are the same.
+{selectInput}() creates a drop-down menu. Set the first {choice} to \texttt{""} to default to \texttt{NA}. If your choices are a named list or vector, the names are what is shown and the values are what is recorded. If the choices aren't named, the displayed and recorded values are the same.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1436,7 +1469,7 @@ selectInput() creates a drop-down menu. Set the first choice to \texttt{""} to d
 \end{Highlighting}
 \end{Shaded}
 
-If you set multiple to \texttt{TRUE}, you can also make a select where users can choose multiple options.
+If you set {multiple} to {TRUE}, you can also make a select where users can choose multiple options.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1462,7 +1495,7 @@ If you set multiple to \texttt{TRUE}, you can also make a select where users can
 \hypertarget{checkboxgroupinput}{%
 \subsection{checkboxGroupInput}\label{checkboxgroupinput}}
 
-However, this interface almost always looks better with checkboxGroupInput().
+However, this interface almost always looks better with {checkboxGroupInput}().
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1479,7 +1512,7 @@ display = 'horizontal' class = 'horiz' inline = TRUE class = 'shiny-input-contai
 \hypertarget{checkboxinput}{%
 \subsection{checkboxInput}\label{checkboxinput}}
 
-You can also make a single checkbox with checkboxInput(). The value is \texttt{TRUE} when checked and \texttt{FALSE} when not.
+You can also make a single checkbox with {checkboxInput}(). The {value} is {TRUE} when checked and {FALSE} when not.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1489,7 +1522,7 @@ You can also make a single checkbox with checkboxInput(). The value is \texttt{T
 \end{Highlighting}
 \end{Shaded}
 
-sliderInput() allows you to choose numbers between a min and max value.
+{sliderInput}() allows you to choose numbers between a {min} and {max} value.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1503,12 +1536,12 @@ sliderInput() allows you to choose numbers between a min and max value.
 \end{Highlighting}
 \end{Shaded}
 
-What happens if you change value or step? Try changing value to \texttt{c(10,\ 20)}.
+What happens if you change {value} or {step}? Try changing {value} to \texttt{c(10,\ 20)}.
 
 \hypertarget{radiobuttons}{%
 \subsection{radioButtons}\label{radiobuttons}}
 
-If you want users to only be able to choose one options and there are a small number of short options, radioButton() is a good interface.
+If you want users to only be able to choose one options and there are a small number of short options, {radioButton}() is a good interface.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1520,7 +1553,7 @@ If you want users to only be able to choose one options and there are a small nu
 \end{Highlighting}
 \end{Shaded}
 
-Radio buttons default to selecting the first item unless you set selected to a choice value or \texttt{character(0)} to start with no selection.
+Radio buttons default to selecting the first item unless you set {selected} to a choice value or \texttt{character(0)} to start with no selection.
 
 \hypertarget{dateinput}{%
 \subsection{dateInput}\label{dateinput}}
@@ -1538,17 +1571,15 @@ I find the date interface a little clunky, but that might just be because I have
 \end{Highlighting}
 \end{Shaded}
 
-IMHO, the default of \texttt{"yyyy-mm-dd"} is the best because it sorts into chronological order. Don't let me catch you storing dates like \texttt{"m/d/yyyy"}.
+IMHO, the default of {"yyyy-mm-dd"} is the best because it sorts into chronological order. Don't let me catch you storing dates like {"m/d/yyyy"}.
 
-What would you set format to in order to display dates like ``Sunday July 4, 2021''?\\
+What would you set {format} to in order to display dates like ``Sunday July 4, 2021''?\\
 D M d, Y DD MM d, yyyy DAY MONTH day, YEAR D MM dd, yyyy
-
-(don't actually do this)
 
 \hypertarget{fileinput}{%
 \subsection{fileInput}\label{fileinput}}
 
-Users can upload one or more files with fileInput(). The argument acccept lets you limit this to certain file types, but some browsers can bypass this requirement, so it's not fool-proof.
+Users can upload one or more files with {fileInput}(). The argument {acccept} lets you limit this to certain file types, but some browsers can bypass this requirement, so it's not fool-proof.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1560,7 +1591,7 @@ Users can upload one or more files with fileInput(). The argument acccept lets y
 \end{Highlighting}
 \end{Shaded}
 
-What would you set accept to to accept any image file?\\
+What would you set {accept} to to accept any image file?\\
 image/* .jpg jpg images .img
 
 \hypertarget{setting-inputs-programatically}{%
@@ -1581,7 +1612,7 @@ Sometimes you need to change the value of an input with code, such as when reset
 \end{Highlighting}
 \end{Shaded}
 
-Note that select inputs, checkbox groups, and radio buttons use the argument \texttt{selected} and not \texttt{value}. If you want to set all the values in a checkbox group or radio button group to unchecked, set \texttt{selected\ =\ character(0)}.
+Note that select inputs, checkbox groups, and radio buttons use the argument {selected} and not {value}(). If you want to set all the values in a checkbox group or radio button group to unchecked, set \texttt{selected\ =\ character(0)}.
 
 \hypertarget{resources-inputs}{%
 \section{Further Reources}\label{resources-inputs}}
@@ -1628,7 +1659,7 @@ In the app you're developing, add a tab for a questionnaire that you're interest
 \hypertarget{updating}{%
 \subsection{Updating}\label{updating}}
 
-Add a ``reset'' button to your questionnaire tab and write the server() code to reset all of its inputs.
+Add a ``reset'' button to your questionnaire tab and write the {server}() code to reset all of its inputs.
 
 \hypertarget{outputs}{%
 \chapter{Outputs}\label{outputs}}
@@ -1644,7 +1675,7 @@ Explore some different output types in the embedded app below before you read ab
 \hypertarget{text}{%
 \section{Text}\label{text}}
 
-textOutput() defaults to text inside a generic \texttt{\textless{}span\textgreater{}} or \texttt{\textless{}div\textgreater{}}, but you can use a different element with the container argument.
+{textOutput}() defaults to text inside a generic \texttt{\textless{}span\textgreater{}} or \texttt{\textless{}div\textgreater{}}, but you can use a different element with the {container} argument.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1653,7 +1684,7 @@ textOutput() defaults to text inside a generic \texttt{\textless{}span\textgreat
 \end{Highlighting}
 \end{Shaded}
 
-renderText() replaces the text of the linked element with its returned string.
+{renderText}() replaces the text of the linked element with its returned string.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1664,7 +1695,7 @@ renderText() replaces the text of the linked element with its returned string.
 \end{Highlighting}
 \end{Shaded}
 
-If you use verbatimTextOutput() in the UI (no change to the render function), it will show the output in a fixed-width font. This can be good for code or text you want the user to copy.
+If you use {verbatimTextOutput}() in the UI (no change to the render function), it will show the output in a fixed-width font. This can be good for code or text you want the user to copy.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1686,7 +1717,7 @@ If you use verbatimTextOutput() in the UI (no change to the render function), it
 \hypertarget{plots}{%
 \section{Plots}\label{plots}}
 
-plotOutput() displays plots made with the base R plotting functions (e.g., plot(), hist()) or ggplot2 functions.
+{plotOutput}() displays plots made with the base R plotting functions (e.g., {plot}(), {hist}()) or ggplot2 functions.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1695,9 +1726,9 @@ plotOutput() displays plots made with the base R plotting functions (e.g., plot(
 \end{Highlighting}
 \end{Shaded}
 
-What is the default value for width?\\
+What is the default value for {width}?\\
 100\% 400px 400 5in 7in\\
-What is the default value for height?\\
+What is the default value for {height}?\\
 100\% 400px 400 5in 7in
 
 \begin{Shaded}
@@ -1712,12 +1743,12 @@ What is the default value for height?\\
 \end{Highlighting}
 \end{Shaded}
 
-If you want to create dynamic plots that change with input, note how you need to use \texttt{y\ =\ .data{[}{[}input\$y{]}{]}} inside aes(), instead of just \texttt{y\ =\ input\$y}.
+If you want to create dynamic plots that change with input, note how you need to use \texttt{y\ =\ .data{[}{[}input\$y{]}{]}} inside {aes}(), instead of just \texttt{y\ =\ input\$y}.
 
 \hypertarget{images}{%
 \section{Images}\label{images}}
 
-imageOutput() takes the same arguments as plotOutput(). You can leave width and height as their defaults if you are going to set those values in the render function.
+{imageOutput}() takes the same arguments as {plotOutput}(). You can leave {width} and {height} as their defaults if you are going to set those values in the render function.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1726,7 +1757,7 @@ imageOutput() takes the same arguments as plotOutput(). You can leave width and 
 \end{Highlighting}
 \end{Shaded}
 
-renderImage() needs to return a named list with at least an \texttt{src} with the image path. You can also set the width and height (numeric values are in pixels), class and alt (the alt-text for screen readers).
+{renderImage}() needs to return a named list with at least an {src} with the image path. You can also set the {width} and {height} (numeric values are in pixels), {class} and {alt} (the alt-text for screen readers).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1740,7 +1771,7 @@ renderImage() needs to return a named list with at least an \texttt{src} with th
 \end{Highlighting}
 \end{Shaded}
 
-The deleteFile argument is currently optional, but triggers periodic warnings that it won't be optional in the future. You should set it to \texttt{TRUE} if you're making a temporary file (this stops unneeded plots using memory) and \texttt{FALSE} if you're referencing a file you previously saved.
+The {deleteFile} argument is currently optional, but triggers periodic warnings that it won't be optional in the future. You should set it to {TRUE} if you're making a temporary file (this stops unneeded plots using memory) and {FALSE} if you're referencing a file you previously saved.
 
 You can dynamically display images of any type, but one of the most useful ways to use image outputs is to control the aspect ratio and relative size of plots.
 
@@ -1775,7 +1806,7 @@ You can dynamically display images of any type, but one of the most useful ways 
 \hypertarget{tables}{%
 \section{Tables}\label{tables}}
 
-Display a table using tableOutput().
+Display a table using {tableOutput}().
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1784,7 +1815,7 @@ Display a table using tableOutput().
 \end{Highlighting}
 \end{Shaded}
 
-This is paired with renderTable(), which makes a table out of any data frame it returns.
+This is paired with {renderTable}(), which makes a table out of any data frame it returns.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1798,14 +1829,14 @@ This is paired with renderTable(), which makes a table out of any data frame it 
 \end{Highlighting}
 \end{Shaded}
 
-Note how you need to use \texttt{.data{[}{[}input\$y{]}{]}} inside \texttt{dplyr::summarise()}, instead of just \texttt{input\$y} to dynamically choose which variable to summarise.
+Note how you need to use \texttt{.data{[}{[}input\$y{]}{]}} inside {dplyr::summarise}(), instead of just \texttt{input\$y} to dynamically choose which variable to summarise.
 
 \hypertarget{data-tables}{%
 \subsection{Data Tables}\label{data-tables}}
 
-If you have a long table to show, or one that you want users to be able to sort or search, use DT::dataTableOutput() (or its synonym DTOutput()).
+If you have a long table to show, or one that you want users to be able to sort or search, use {DT::dataTableOutput}() (or its synonym {DTOutput}()).
 
-The basic \texttt{shiny} package has \texttt{dataTableOutput()} and \texttt{renderDataTable()} functions, but they can be buggy. The versions in the \texttt{DT} package are better and have \href{https://rstudio.github.io/DT/}{many additional functions}, so I use those.
+The basic shiny package has {dataTableOutput}() and {renderDataTable}() functions, but they can be buggy. The versions in the DT package are better and have \href{https://rstudio.github.io/DT/}{many additional functions}, so I use those.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1816,7 +1847,7 @@ The basic \texttt{shiny} package has \texttt{dataTableOutput()} and \texttt{rend
 \end{Highlighting}
 \end{Shaded}
 
-The paired render function is renderDataTable() (or its synonym renderDT()). You can customise data tables in many ways, but we'll stick with a basic example here that limits the number of rows shown at once to 10.
+The paired render function is {renderDataTable}() (or its synonym {renderDT}()). You can customise data tables in many ways, but we'll stick with a basic example here that limits the number of rows shown at once to {10}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1827,12 +1858,12 @@ The paired render function is renderDataTable() (or its synonym renderDT()). You
 \end{Highlighting}
 \end{Shaded}
 
-The DT package has synonyms for dataTableOutput() and renderDataTable(): and renderDT(). You can use these to make sure you're not accidentally using the shiny versions, which don't have as many options.
+The DT package has synonyms for {dataTableOutput}() and {renderDataTable}(): and {renderDT}(). You can use these to make sure you're not accidentally using the shiny versions, which don't have as many options.
 
 \hypertarget{dynamic-html}{%
 \section{Dynamic HTML}\label{dynamic-html}}
 
-If you want to dynamically create parts of the UI, you can use uiOutput().
+If you want to dynamically create parts of the UI, you can use {uiOutput}().
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1841,7 +1872,7 @@ If you want to dynamically create parts of the UI, you can use uiOutput().
 \end{Highlighting}
 \end{Shaded}
 
-You can create the UI using renderUI() to return HTML created using the input functions we learned about in Section~\ref{inputs}, the \protect\hyperlink{tags}{tag functions}, or HTML that you write yourself (as an argument to HTML()).
+You can create the UI using {renderUI}() to return HTML created using the input functions we learned about in Section~\ref{inputs}, the \protect\hyperlink{tags}{tag functions}, or HTML that you write yourself (as an argument to {HTML}()).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1853,7 +1884,7 @@ You can create the UI using renderUI() to return HTML created using the input fu
 \end{Highlighting}
 \end{Shaded}
 
-The function htmlOutput() is a synonym for uiOutput(), so you might see that in some code examples, but I use uiOutput() to make the connection with renderUI() clearer, since there is no renderHTML().
+The function {htmlOutput}() is a synonym for {uiOutput}(), so you might see that in some code examples, but I use {uiOutput}() to make the connection with {renderUI}() clearer, since there is no {renderHTML}().
 
 \hypertarget{reosurces-outputs}{%
 \section{Further Resources}\label{reosurces-outputs}}
@@ -1891,7 +1922,7 @@ In the app you're developing, add relevant outputs, such as for plots or tables,
 
 There are a lot of great tutorials that explain the principles behind reactive functions, but that never made any sense to me when I first started out, so I'm just going to give you examples that you can extrapolate principles from.
 
-Reactivity is how Shiny determines which code in server() gets to run when. Some types of objects, such as the \texttt{input} object or objects made by reactiveValues(), can trigger some types of functions to run whenever they change.
+Reactivity is how Shiny determines which code in {server}() gets to run when. Some types of objects, such as the \texttt{input} object or objects made by {reactiveValues}(), can trigger some types of functions to run whenever they change.
 
 For our example, we will use the \texttt{reactive\_demo} app. It shows three select inputs that allow the user to choose values from the cut, color, and clarity columns of the \texttt{diamonds} dataset from ggplot2, then draws a plot of the relationship between carat and price for the selected subset.
 
@@ -1925,7 +1956,7 @@ Whenever an input changes, it will trigger some types of functions to run.
 \hypertarget{observeevent-1}{%
 \section{observeEvent()}\label{observeevent-1}}
 
-We learned about observeEvent() in Section~\ref{first-reactive}. This function runs the code whenever the value of the first argument changes. If there are reactives inside the function, they won't trigger the code to run when they change.
+We learned about {observeEvent}() in Section~\ref{first-reactive}. This function runs the code whenever the value of the first argument changes. If there are reactives inside the function, they won't trigger the code to run when they change.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1953,18 +1984,18 @@ We learned about observeEvent() in Section~\ref{first-reactive}. This function r
 \end{Highlighting}
 \end{Shaded}
 
-In the example above, which inputs will trigger renderPlot() to run and produce a new plot?
+In the example above, which inputs will trigger {renderPlot}() to run and produce a new plot?
 
 cut color clarity update cut, color \& clarity all of the above
 
-In the example above, which inputs will trigger renderText() to run and produce a new title?
+In the example above, which inputs will trigger {renderText}() to run and produce a new title?
 
 cut color clarity update cut, color \& clarity all of the above
 
 \hypertarget{render-functions}{%
 \section{Render functions}\label{render-functions}}
 
-Functions that render an output, like renderText() or renderPlot() will run whenever an input in their code changes. You can trigger a render function just by putting a reactive alone on a line, even if you aren't using it in the rest of the code.
+Functions that render an output, like {renderText}() or {renderPlot}() will run whenever an input in their code changes. You can trigger a render function just by putting a reactive alone on a line, even if you aren't using it in the rest of the code.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1992,20 +2023,18 @@ Functions that render an output, like renderText() or renderPlot() will run when
 \end{Highlighting}
 \end{Shaded}
 
-In the example above, which inputs will trigger renderPlot() to run and produce a new plot?
-
+In the example above, which inputs will trigger {renderPlot}() to run and produce a new plot?\\
 cut color clarity update cut, color \& clarity all of the above
 
-Which inputs will trigger renderText() to run and produce a new title?
-
+Which inputs will trigger {renderText}() to run and produce a new title?\\
 cut color clarity update cut, color \& clarity all of the above
 
 \hypertarget{reactive-1}{%
 \section{reactive()}\label{reactive-1}}
 
-If you move the \texttt{data} filtering outside of renderPlot(), you'll get an error message like ``Can't access reactive value `cut' outside of reactive consumer.'' This means that the \texttt{input} values can only be read inside certain functions, like reactive(), observeEvent(), or a render function.
+If you move the \texttt{data} filtering outside of {renderPlot}(), you'll get an error message like ``Can't access reactive value `cut' outside of reactive consumer.'' This means that the \texttt{input} values can only be read inside certain functions, like {reactive}(), {observeEvent}(), or a render function.
 
-However, we can put the data filtering inside reactive(). This means that whenever an input inside that function changes, the code will run and update the value of data(). This can be useful if you need to recalculate the data table each time the inputs change, and then use it in more than one function.
+However, we can put the data filtering inside {reactive}(). This means that whenever an input inside that function changes, the code will run and update the value of {data}(). This can be useful if you need to recalculate the data table each time the inputs change, and then use it in more than one function.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2036,20 +2065,18 @@ However, we can put the data filtering inside reactive(). This means that whenev
 \end{Highlighting}
 \end{Shaded}
 
-In the example above, which inputs will trigger renderPlot() to run and produce a new plot?
-
+In the example above, which inputs will trigger {renderPlot}() to run and produce a new plot?\\
 cut color clarity update cut, color \& clarity all of the above
 
-Which inputs will trigger renderText() to run and produce a new title?
-
+Which inputs will trigger {renderText}() to run and produce a new title?\\
 cut color clarity update cut, color \& clarity all of the above
 
-My most common error is trying to use \texttt{data} or \texttt{title} as an object instead of as a function. Notice how the first argument to ggplot is no longer \texttt{data}, but data() and you set the value of data with \texttt{data(newdata)}, not \texttt{data\ \textless{}-\ newdata}. For now, just remember this as a quirk of shiny.
+My most common error is trying to use \texttt{data} or \texttt{title} as an object instead of as a function. Notice how the first argument to ggplot is no longer \texttt{data}, but {data}() and you set the value of data with \texttt{data(newdata)}, not \texttt{data\ \textless{}-\ newdata}. For now, just remember this as a quirk of shiny.
 
 \hypertarget{eventreactive}{%
 \section{eventReactive()}\label{eventreactive}}
 
-While reactive() is triggered whenever any input values inside it change, eventReactive() is only triggered when the value of the first argument changes, like observeEvent(), but returns a reactive function like reactive().
+While {reactive}() is triggered whenever any input values inside it change, {eventReactive}() is only triggered when the value of the first argument changes, like {observeEvent}(), but returns a reactive function like {reactive}().
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2079,22 +2106,22 @@ While reactive() is triggered whenever any input values inside it change, eventR
 \end{Highlighting}
 \end{Shaded}
 
-In the example above, which inputs will trigger renderPlot() to run and produce a new plot?
+In the example above, which inputs will trigger {renderPlot}() to run and produce a new plot?
 
 cut color clarity update cut, color \& clarity all of the above
 
-Which inputs will trigger renderText() to run and produce a new title?
+Which inputs will trigger {renderText}() to run and produce a new title?
 
 cut color clarity update cut, color \& clarity all of the above
 
 \hypertarget{reactiveval}{%
 \section{reactiveVal()}\label{reactiveval}}
 
-Another pattern that accomplishes a similar thing to reactive() is to create a reactive value using reactiveVal(). This allows you to update the value of \texttt{data()} not just using the code inside the reactive() function that created it, but in any function. This is useful when you have multiple functions that need to update that value.
+Another pattern that accomplishes a similar thing to {reactive}() is to create a reactive value using {reactiveVal}(). This allows you to update the value of {data}() not just using the code inside the {reactive}() function that created it, but in any function. This is useful when you have multiple functions that need to update that value.
 
-Here, we use observeEvent() to trigger the data filtering code only when the update button is pressed. This new data set is assigned to data() using the code \texttt{data(newdata)}.
+Here, we use {observeEvent}() to trigger the data filtering code only when the update button is pressed. This new data set is assigned to {data}() using the code \texttt{data(newdata)}.
 
-Because data() returns a reactive value, it will trigger renderPlot() whenever it changes.
+Because {data}() returns a reactive value, it will trigger {renderPlot}() whenever it changes.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2126,22 +2153,20 @@ Because data() returns a reactive value, it will trigger renderPlot() whenever i
 \end{Highlighting}
 \end{Shaded}
 
-In the example above, which inputs will trigger renderPlot() to run and produce a new plot?
-
+In the example above, which inputs will trigger {renderPlot}() to run and produce a new plot?\\
 cut color clarity update cut, color \& clarity all of the above
 
-Which inputs will trigger renderText() to run and produce a new title?
-
+Which inputs will trigger {renderText}() to run and produce a new title?\\
 cut color clarity update cut, color \& clarity all of the above
 
-We used \texttt{data\ \textless{}-\ reactiveVal(diamonds)} in order for data() to have a value that didn't cause an error when renderPlot() runs for the first time.
+We used \texttt{data\ \textless{}-\ reactiveVal(diamonds)} in order for {data}() to have a value that didn't cause an error when {renderPlot}() runs for the first time.
 
 \hypertarget{reactivevalue}{%
 \section{reactiveValue()}\label{reactivevalue}}
 
-You need to set up a new reactiveVal() for each value in an app that you want to make reactive. I prefer to use reactiveValues() because it can be used for any new reactive value you need and works just like \texttt{input}.
+You need to set up a new {reactiveVal}() for each value in an app that you want to make reactive. I prefer to use {reactiveValues}() because it can be used for any new reactive value you need and works just like \texttt{input}.
 
-You can just set your new object to reactiveValues() or you can initialise it with starting values like below. The object \texttt{v} is a named list, just like \texttt{input}, and when it's values change, it triggers reactive functions exactly like \texttt{input} does.
+You can just set your new object to {reactiveValues}() or you can initialise it with starting values like below. The object \texttt{v} is a named list, just like \texttt{input}, and when it's values change, it triggers reactive functions exactly like \texttt{input} does.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2174,20 +2199,18 @@ You can just set your new object to reactiveValues() or you can initialise it wi
 \end{Highlighting}
 \end{Shaded}
 
-In the example above, which inputs will trigger renderPlot() to run and produce a new plot?
-
+In the example above, which inputs will trigger {renderPlot}() to run and produce a new plot?\\
 cut color clarity update cut, color \& clarity all of the above
 
-Which inputs will trigger renderText() to run and produce a new title?
-
+Which inputs will trigger {renderText}() to run and produce a new title?\\
 cut color clarity update cut, color \& clarity all of the above
 
-Note that you refer to reactive values set up this way as \texttt{v\$data} and \texttt{v\$title}, not data() and title().
+Note that you refer to reactive values set up this way as \texttt{v\$data} and \texttt{v\$title}, not {data}() and {title}().
 
 \hypertarget{isolate}{%
 \section{isolate()}\label{isolate}}
 
-If you want to use an input or reactive value inside a reactive function, but don't want to trigger that function, you can isolate() it. You can also use isolate() to get a reactive value outside a reactive function.
+If you want to use an input or reactive value inside a reactive function, but don't want to trigger that function, you can {isolate}() it. You can also use {isolate}() to get a reactive value outside a reactive function.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2224,12 +2247,10 @@ If you want to use an input or reactive value inside a reactive function, but do
 \end{Highlighting}
 \end{Shaded}
 
-In the example above, which inputs will trigger renderPlot() to run and produce a new plot?
-
+In the example above, which inputs will trigger {renderPlot}() to run and produce a new plot?\\
 cut color clarity update cut, color \& clarity all of the above
 
-Which inputs will trigger renderText() to run and produce a new title?
-
+Which inputs will trigger {renderText}() to run and produce a new title?\\
 cut color clarity update cut, color \& clarity all of the above
 
 \hypertarget{further-resources-resources-reactive}{%
@@ -2250,7 +2271,7 @@ cut color clarity update cut, color \& clarity all of the above
 \hypertarget{exercises-reactive}{%
 \section{Exercises}\label{exercises-reactive}}
 
-For the following exercises, clone ``reactive\_demo'' and replace the boxes in the ui with the code below. Delete all the code in server(). Make sure this runs before you go ahead.
+For the following exercises, clone ``reactive\_demo'' and replace the boxes in the ui with the code below. Delete all the code in {server}(). Make sure this runs before you go ahead.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2291,7 +2312,7 @@ Hint
 \hypertarget{observeevent-2}{%
 \subsection{observeEvent}\label{observeevent-2}}
 
-Use observeEvent() to update the output table with the appropriate summary table and to update the caption with an appropriate caption only when the update button is clicked.
+Use {observeEvent}() to update the output table with the appropriate summary table and to update the caption with an appropriate caption only when the update button is clicked.
 
 Solution
 
@@ -2338,7 +2359,7 @@ Solution
 \hypertarget{reactive-2}{%
 \subsection{reactive}\label{reactive-2}}
 
-Use reactive() to update the output table and caption whenever group or stat change. Ignore the update button.
+Use {reactive}() to update the output table and caption whenever group or stat change. Ignore the update button.
 
 Solution
 
@@ -2363,7 +2384,7 @@ Solution
 \hypertarget{eventreactive-1}{%
 \subsection{eventReactive}\label{eventreactive-1}}
 
-Use eventReactive() to update the output table and caption only when the update button is clicked.
+Use {eventReactive}() to update the output table and caption only when the update button is clicked.
 
 Solution
 
@@ -2388,7 +2409,7 @@ Solution
 \hypertarget{reactiveval-1}{%
 \subsection{reactiveVal}\label{reactiveval-1}}
 
-Use reactiveVal() to update the output table and caption only when the update button is clicked.
+Use {reactiveVal}() to update the output table and caption only when the update button is clicked.
 
 Solution
 
@@ -2419,7 +2440,7 @@ Solution
 \hypertarget{reactivevalues}{%
 \subsection{reactiveValues}\label{reactivevalues}}
 
-Use reactiveValues() to update the output table and caption only when the update button is clicked.
+Use {reactiveValues}() to update the output table and caption only when the update button is clicked.
 
 Solution
 
@@ -2469,7 +2490,7 @@ The working directory for a Shiny app is the directory that app.R is in. I recom
 
 One of the best ways to start collecting data with a Shiny app is with Google Sheets. This allows you to collect data to the same place from multiple servers, which might happen if you're running the app locally on more than one computer or through a service like \href{https://shinyapps.io}{shinyapps.io}. The R package googlesheets4 makes it easy to work with Google Sheets from R.
 
-If you just want to read data from a public Google Sheet, you don't need any authorisation. Just start your code with gs4\_deauth() after you load googlesheets4 (otherwise you'll be prompted to log in). Then you can read data like this:
+If you just want to read data from a public Google Sheet, you don't need any authorisation. Just start your code with {gs4\_deauth}() after you load googlesheets4 (otherwise you'll be prompted to log in). Then you can read data like this:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2500,11 +2521,9 @@ However, even if a Google Sheet is publicly editable, you can't add data to it w
 
 \begin{verbatim}
 ## Error: Client error: (401) UNAUTHENTICATED
-## * Request not authenticated due to missing, invalid, or expired OAuth
-##   token.
-## * Request is missing required authentication credential. Expected
-##   OAuth 2 access token, login cookie or other valid authentication
-##   credential. See
+## * Request not authenticated due to missing, invalid, or expired OAuth token.
+## * Request is missing required authentication credential. Expected OAuth 2 access
+##   token, login cookie or other valid authentication credential. See
 ##   https://developers.google.com/identity/sign-in/web/devconsole-project.
 \end{verbatim}
 
@@ -2599,7 +2618,7 @@ You can set up a new Google Sheet with code. You only need to do this once for a
 
 \begin{verbatim}
 ## Spreadsheet name: demo2
-##               ID: 1PulMwLX5kV1ZwjTRss6n445DNTaSVrGNPh6aqA4AxXU
+##               ID: 1e5oQ1PMZFs3dlBGeQiQBQ7g7mnW5NbFU7OXj42bwNcI
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -2686,7 +2705,7 @@ Then you can append new rows of data to the sheet.
 ## 2 Robbie      2007 FALSE   12.1
 \end{verbatim}
 
-If you try to append data of a different data type, some weird things can happen. Logical values added to a numeric column are cast as 0 (\texttt{FALSE}) and 1 (\texttt{TRUE}), while numeric values added to a logical column change the column to numeric. If you mix character and numeric values in a column, the resulting column is a column of one-item lists so that each list can have the appropriate data type. (Data frames in R cannot mix data types in the same column.)
+If you try to append data of a different data type, some weird things can happen. Logical values added to a numeric column are cast as {0} ({1}) and {1} ({TRUE}), while numeric values added to a logical column change the column to numeric. If you mix character and numeric values in a column, the resulting column is a column of one-item lists so that each list can have the appropriate data type. (Data frames in R cannot mix data types in the same column.)
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2713,12 +2732,12 @@ If you try to append data of a different data type, some weird things can happen
 
 You must append data that has the same number and order of columns as the Google Sheet. If you send columns out of order, they will be recorded in the order you sent them, not in the order of the column names. If you send extra columns, the append will fail.
 
-The demo app ``radiotables'' has a safer version of sheet\_append() that you can use when you're developing on your machine. It's defined in scripts/gs4.R. This version gracefully handles data with new columns, missing columns, columns in a different order, and columns with a different data type. However, it reads the whole data sheet before deciding whether to append or overwrite the data, which can slow down your app, so is best used only during development when you're changing things a lot. If it's not running locally, it uses the original googlesheets4::sheet\_append() function instead.
+The demo app ``radiotables'' has a safer version of {sheet\_append}() that you can use when you're developing on your machine. It's defined in scripts/gs4.R. This version gracefully handles data with new columns, missing columns, columns in a different order, and columns with a different data type. However, it reads the whole data sheet before deciding whether to append or overwrite the data, which can slow down your app, so is best used only during development when you're changing things a lot. If it's not running locally, it uses the original {googlesheets4::sheet\_append}() function instead.
 
 \hypertarget{gs4_save}{%
 \section{Saving Googlesheet data}\label{gs4_save}}
 
-If you mix data types in a column, the data frame returned by read\_sheet() has list columns for any mixed columns. Dates can also get written in different ways that look the same when you print to the console, but are a mix of characters and doubles, so you have to convert them to strings like this before you can save as CSV.
+If you mix data types in a column, the data frame returned by {read\_sheet}() has list columns for any mixed columns. Dates can also get written in different ways that look the same when you print to the console, but are a mix of characters and doubles, so you have to convert them to strings like this before you can save as CSV.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2727,7 +2746,7 @@ If you mix data types in a column, the data frame returned by read\_sheet() has 
 \end{Highlighting}
 \end{Shaded}
 
-The demo app ``radiotables'' has a custom function gs4\_write\_csv() defined in scripts/gs4.R that does the above for you.
+The demo app ``radiotables'' has a custom function {gs4\_write\_csv}() defined in scripts/gs4.R that does the above for you.
 
 \hypertarget{exercises-data}{%
 \section{Exercises}\label{exercises-data}}
@@ -2786,23 +2805,23 @@ You don't need to know anything about HTML, CSS and JavaScript to make basic Shi
 \hypertarget{html}{%
 \section{HTML}\label{html}}
 
-HTML stands for Hyper-Text Markup Language, a system for semantically tagging structure and information on web pages. The term ``semantically'' is important here; HTML should tell you \textbf{what} something is, not \textbf{how} to display it (that's handled by CSS). This separation helps your apps be accessible to people who use screen readers.
+HTML stands for Hyper-Text Markup Language, a system for semantically tagging structure and information on web pages. The term ``semantically'' is important here; HTML should tell you \textbf{what} something is, not \textbf{how} to display it (that's handled by \protect\hyperlink{CSS}{CSS}). This separation helps your apps be accessible to people who use screen readers.
 
 \hypertarget{html-tags}{%
 \subsection{HTML Tags}\label{html-tags}}
 
-We learned about the \texttt{tags()} function in \protect\hyperlink{tags}{Chapter 1} and how it is linked to HTML tags. For example, the R code \texttt{tags\$h2("Methods")} creates the HTML \texttt{\textless{}h2\textgreater{}Methods\textless{}/h2\textgreater{}}. It surrounds the text content with a starting tag \texttt{\textless{}h2\textgreater{}} and an ending tag \texttt{\textless{}/h2\textgreater{}}.
+We learned about the {tags}() function in \protect\hyperlink{tags}{Chapter 1} and how it is linked to HTML tags. For example, the R code \texttt{tags\$h2("Methods")} creates the HTML \texttt{\textless{}h2\textgreater{}Methods\textless{}/h2\textgreater{}}. It surrounds the text content with a starting tag ({\textless h2\textgreater{}}) and an ending tag ({\textless/h2\textgreater{}}).
 
-Tags create elements, which can be thought of kind of like boxes. An element can contain one or more elements. Elements can have attributes that provide more information such as the element's ID or class, which can be used by CSS or JavaScript to refer to the element or a group of elements.
+Tags create elements, which can be thought of kind of like boxes. An element can contain one or more elements. Elements can have attributes that provide more information such as the element's {id} or {class}, which can be used by CSS or JavaScript to refer to the element or a group of elements.
 
-For example, the following code creates an unordered list (\texttt{\textless{}ul\textgreater{}}) with the class ``animals''. It contains three list item elements (\texttt{\textless{}li\textgreater{}}), each with its own id.
+For example, the following code creates an unordered list ({\textless ul\textgreater{}}) with the {class} {"animals"}. It contains three list item elements ({\textless li\textgreater{}}), each with its own {id} and {class}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{\textless{}ul} \ErrorTok{class}\OtherTok{=}\StringTok{"animals"}\KeywordTok{\textgreater{}}
-    \KeywordTok{\textless{}li} \ErrorTok{id}\OtherTok{=}\StringTok{"aardvark"}\KeywordTok{\textgreater{}}\NormalTok{Aardvarks}\KeywordTok{\textless{}/li\textgreater{}}
-    \KeywordTok{\textless{}li} \ErrorTok{id}\OtherTok{=}\StringTok{"bee"}\KeywordTok{\textgreater{}}\NormalTok{Bees}\KeywordTok{\textless{}/li\textgreater{}}
-    \KeywordTok{\textless{}li} \ErrorTok{id}\OtherTok{=}\StringTok{"capybara"}\KeywordTok{\textgreater{}}\NormalTok{Capybaras}\KeywordTok{\textless{}/li\textgreater{}}
+    \KeywordTok{\textless{}li} \ErrorTok{class}\OtherTok{=}\StringTok{"mammal"} \ErrorTok{id}\OtherTok{=}\StringTok{"aardvark"} \KeywordTok{\textgreater{}}\NormalTok{Aardvarks}\KeywordTok{\textless{}/li\textgreater{}}
+    \KeywordTok{\textless{}li} \ErrorTok{class}\OtherTok{=}\StringTok{"insect"} \ErrorTok{id}\OtherTok{=}\StringTok{"bee"}\KeywordTok{\textgreater{}}\NormalTok{Bees}\KeywordTok{\textless{}/li\textgreater{}}
+    \KeywordTok{\textless{}li} \ErrorTok{class}\OtherTok{=}\StringTok{"mammal"} \ErrorTok{id}\OtherTok{=}\StringTok{"capybara"}\KeywordTok{\textgreater{}}\NormalTok{Capybaras}\KeywordTok{\textless{}/li\textgreater{}}
 \KeywordTok{\textless{}/ul\textgreater{}}
 \end{Highlighting}
 \end{Shaded}
@@ -2811,22 +2830,23 @@ You seldom \emph{have to} write HTML directly in Shiny, but if you have experien
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{tags}\SpecialCharTok{$}\FunctionTok{ul}\NormalTok{(}\AttributeTok{class =} \StringTok{"animals"}\NormalTok{,}
-\NormalTok{        tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"aardvark"}\NormalTok{, }\StringTok{"Aardvark"}\NormalTok{),}
-\NormalTok{        tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"bee"}\NormalTok{, }\StringTok{"Bee"}\NormalTok{),}
-\NormalTok{        tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"capybara"}\NormalTok{, }\StringTok{"Capybara"}\NormalTok{)}
+\NormalTok{tags}\SpecialCharTok{$}\FunctionTok{ul}\NormalTok{(}
+  \AttributeTok{class =} \StringTok{"animals"}\NormalTok{,}
+\NormalTok{  tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Aardvark"}\NormalTok{, }\AttributeTok{class =} \StringTok{"mammal"}\NormalTok{, }\AttributeTok{id =} \StringTok{"aardvark"}\NormalTok{),}
+\NormalTok{  tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Bee"}\NormalTok{, }\AttributeTok{class =} \StringTok{"insect"}\NormalTok{, }\AttributeTok{id =} \StringTok{"bee"}\NormalTok{),}
+\NormalTok{  tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Capybara"}\NormalTok{, }\AttributeTok{class =} \StringTok{"mammal"}\NormalTok{, }\AttributeTok{id =} \StringTok{"capybara"}\NormalTok{)}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-Alternatively, you can use \texttt{HTML()} to include raw HTML in a ui function.
+Alternatively, you can use {HTML}() to include raw HTML in a ui function.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{HTML}\NormalTok{(}\StringTok{\textquotesingle{}\textless{}ul class="animals"\textgreater{}}
-\StringTok{    \textless{}li id="aardvark"\textgreater{}Aardvarks\textless{}/li\textgreater{}}
-\StringTok{    \textless{}li id="bee"\textgreater{}Bees\textless{}/li\textgreater{}}
-\StringTok{    \textless{}li id="capybara"\textgreater{}Capybaras\textless{}/li\textgreater{}}
+\StringTok{    \textless{}li class="mammal" id="aardvark" \textgreater{}Aardvarks\textless{}/li\textgreater{}}
+\StringTok{    \textless{}li class="insect" id="bee"\textgreater{}Bees\textless{}/li\textgreater{}}
+\StringTok{    \textless{}li class="mammal" id="capybara"\textgreater{}Capybaras\textless{}/li\textgreater{}}
 \StringTok{\textless{}/ul\textgreater{}\textquotesingle{}}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -2834,9 +2854,9 @@ Alternatively, you can use \texttt{HTML()} to include raw HTML in a ui function.
 \hypertarget{viewing-html}{%
 \subsection{Viewing HTML}\label{viewing-html}}
 
-But the main reason for you to learn a little about HTML is that it can help you to customise the appearance of your Shiny apps using CSS and their behaviour using JavaScript.
+But the main reason for you to learn a little about HTML is that it can help you to customise the appearance of your Shiny apps using \protect\hyperlink{CSS}{CSS} and their behaviour using \protect\hyperlink{JavaScript}{JavaScript}.
 
-Often, you'll need to find out how to refer to a specific element or group of elements that were created by a shiny ui function. For example, it isn't obvious how you'd refer to the sidebar tab for \texttt{x\_tab} in the following code:
+Often, you'll need to find out how to refer to a specific element or group of elements that were created by a shiny ui function. For example, it isn't obvious how you'd refer to the sidebar tab for {"x\_tab"} in the following code:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2847,21 +2867,23 @@ Often, you'll need to find out how to refer to a specific element or group of el
 \end{Highlighting}
 \end{Shaded}
 
-If you right click on the resulting app and choose ``View Page Source'', you'll (eventually) find that the code above created the HTML below.
+If you open the resulting app in a web browser, right click on the page, and choose \textbf{\texttt{View\ Page\ Source}}, you'll (eventually) find that the code above created the HTML below.
 
-\begin{verbatim}
-<ul class="sidebar-menu">
-  <li>
-    <a href="#shiny-tab-x_tab" data-toggle="tab" data-value="x_tab">
-      <i class="fa fa-dragon" role="presentation" aria-label="dragon icon"></i>
-      <span>Tab Title</span>
-    </a>
-  </li>
-  <div id="tabs" class="sidebarMenuSelectedTabItem" data-value="null"></div>
-</ul>
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{\textless{}ul} \ErrorTok{class}\OtherTok{=}\StringTok{"sidebar{-}menu"}\KeywordTok{\textgreater{}}
+  \KeywordTok{\textless{}li\textgreater{}}
+    \KeywordTok{\textless{}a} \ErrorTok{href}\OtherTok{=}\StringTok{"\#shiny{-}tab{-}x\_tab"} \ErrorTok{data{-}toggle}\OtherTok{=}\StringTok{"tab"} \ErrorTok{data{-}value}\OtherTok{=}\StringTok{"x\_tab"}\KeywordTok{\textgreater{}}
+      \KeywordTok{\textless{}i} \ErrorTok{class}\OtherTok{=}\StringTok{"fa fa{-}dragon"} \ErrorTok{role}\OtherTok{=}\StringTok{"presentation"} \ErrorTok{aria{-}label}\OtherTok{=}\StringTok{"dragon icon"}\KeywordTok{\textgreater{}\textless{}/i\textgreater{}}
+      \KeywordTok{\textless{}span\textgreater{}}\NormalTok{Tab Title}\KeywordTok{\textless{}/span\textgreater{}}
+    \KeywordTok{\textless{}/a\textgreater{}}
+  \KeywordTok{\textless{}/li\textgreater{}}
+  \KeywordTok{\textless{}div} \ErrorTok{id}\OtherTok{=}\StringTok{"tabs"} \ErrorTok{class}\OtherTok{=}\StringTok{"sidebarMenuSelectedTabItem"} \ErrorTok{data{-}value}\OtherTok{=}\StringTok{"null"}\KeywordTok{\textgreater{}\textless{}/div\textgreater{}}
+\KeywordTok{\textless{}/ul\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
 
-Now you know that the dragon icon is made by an italics tag (\texttt{\textless{}i\textgreater{}}) that's inside an anchor (\texttt{\textless{}a\textgreater{}}) with the id ``\#shiny-tab-x\_tab''. Therefore, you can change the colour of this icon using the following CSS:
+Now you know that the dragon icon is made by an italics tag ({\textless i\textgreater{}}) that's inside an anchor ({\textless a\textgreater{}}) with the {id} {\#shiny-tab-x\_tab}. Therefore, you can change the colour of this icon using the following CSS:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2900,7 +2922,7 @@ CSS is structured as follows:
 
 Selectors are how you refer to the parts of the HTML you want to style. There are dozens of \href{https://www.w3schools.com/cssref/css_selectors.asp}{selectors} and they can get very complex. We'll focus on some basic examples below.
 
-Properties are aspects of the visual style that you want to change, such as ``color'' (text color), ``background-color'', or ``border''. Values have specific formats for each property, such as ``1px'' or ``0.5em'' to describe lengths, or ``red'' or ``\#FF0000'' to describe colours.
+Properties are aspects of the visual style that you want to change, such as {color} (text color), {background-color}, or {border}. Values have specific formats for each property, such as {"1px"} or {"0.5em"} to describe lengths, or \texttt{red} or \texttt{\#FF0000} to describe colours.
 
 There are hundreds of \href{https://www.w3schools.com/cssref/default.asp}{properties} and you can't memorise them all. I usually Google something like ``css font type'' or ``css underline text'' and choose the first link from \href{https://www.w3schools.com}{ww3schools}.
 
@@ -2909,9 +2931,9 @@ For example, if you have HTML that looks like this:
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{\textless{}ul} \ErrorTok{class}\OtherTok{=}\StringTok{"animals"}\KeywordTok{\textgreater{}}
-    \KeywordTok{\textless{}li} \ErrorTok{id}\OtherTok{=}\StringTok{"aardvark"}\KeywordTok{\textgreater{}}\NormalTok{Aardvarks}\KeywordTok{\textless{}/li\textgreater{}}
-    \KeywordTok{\textless{}li} \ErrorTok{id}\OtherTok{=}\StringTok{"bee"}\KeywordTok{\textgreater{}}\NormalTok{Bees}\KeywordTok{\textless{}/li\textgreater{}}
-    \KeywordTok{\textless{}li} \ErrorTok{id}\OtherTok{=}\StringTok{"capybara"}\KeywordTok{\textgreater{}}\NormalTok{Capybaras}\KeywordTok{\textless{}/li\textgreater{}}
+    \KeywordTok{\textless{}li} \ErrorTok{class}\OtherTok{=}\StringTok{"mammal"} \ErrorTok{id}\OtherTok{=}\StringTok{"aardvark"} \KeywordTok{\textgreater{}}\NormalTok{Aardvarks}\KeywordTok{\textless{}/li\textgreater{}}
+    \KeywordTok{\textless{}li} \ErrorTok{class}\OtherTok{=}\StringTok{"insect"} \ErrorTok{id}\OtherTok{=}\StringTok{"bee"}\KeywordTok{\textgreater{}}\NormalTok{Bees}\KeywordTok{\textless{}/li\textgreater{}}
+    \KeywordTok{\textless{}li} \ErrorTok{class}\OtherTok{=}\StringTok{"mammal"} \ErrorTok{id}\OtherTok{=}\StringTok{"capybara"}\KeywordTok{\textgreater{}}\NormalTok{Capybaras}\KeywordTok{\textless{}/li\textgreater{}}
 \KeywordTok{\textless{}/ul\textgreater{}}
 \end{Highlighting}
 \end{Shaded}
@@ -2925,25 +2947,26 @@ You can refer to different parts of the list in many ways:
 CSS & Meaning \\
 \midrule
 \endhead
-\texttt{.animals\ \{\ border:\ 1px\ solid\ green;\ \}} & any element with the class ``animals'' will get a 1-pixel green border \\
-\texttt{ul.animals\ \{\ border:\ 1px\ solid\ green;\ \}} & any unordered list with the class ``animals'' will get a 1-pixel green border \\
-\texttt{.animals\ li\ \{\ color:\ blue;\ \}} & any list item element inside an element with the class ``animals'' will have blue text \\
-\texttt{\#bee\ \{\ font-style:\ italic;\ \}} & the element with the id ``bee'' will be in italics \\
-\texttt{.animals\ li\ +\ li\ \{\ background-color:\ grey;\ \}} & inside an element with the class ``animals'', any list item that follows another list item will have a grey background \\
+\texttt{mammal\ \{\ border:\ 1px\ solid\ green;\ \}} & any element with the {class} {"mammal"} will get a 1-pixel green border \\
+\texttt{ul.animals\ \{\ border:\ 1px\ solid\ green;\ \}} & any unordered list with the {class} {"animals"} will get a 1-pixel green border \\
+\texttt{.animals\ li\ \{\ color:\ blue;\ \}} & any list item element inside an element with the {class} {"animals"} will have blue text \\
+\texttt{\#bee\ \{\ font-style:\ italic;\ \}} & the element with the {id} {"bee"} will be in italics \\
+\texttt{.animals\ li\ +\ li\ \{\ background-color:\ grey;\ \}} & inside an element with the {class} {"animals"}, any list item that follows another list item will have a grey background \\
 \bottomrule
 \end{longtable}
 
 \hypertarget{styling-a-single-element}{%
 \subsection{Styling a single element}\label{styling-a-single-element}}
 
-You can add styles to most elements that you make with shiny ui functions by adding an argument called \texttt{style}.
+You can add styles to most elements that you make with shiny ui functions by adding an argument called {style}. You don't need to give them a {class} or {id} this way, but this is inefficient if you're styling many related elements in the same way.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{tags}\SpecialCharTok{$}\FunctionTok{ul}\NormalTok{(}\AttributeTok{class =} \StringTok{"animals"}\NormalTok{, }\AttributeTok{style=}\StringTok{"width: 10em;"}\NormalTok{,}
-\NormalTok{        tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Aardvark"}\NormalTok{),}
-\NormalTok{        tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Bee"}\NormalTok{, }\AttributeTok{style=}\StringTok{"background{-}color: yellow;"}\NormalTok{),}
-\NormalTok{        tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Capybara"}\NormalTok{)}
+\NormalTok{tags}\SpecialCharTok{$}\FunctionTok{ul}\NormalTok{(}
+  \AttributeTok{style =} \StringTok{"width: 10em;"}\NormalTok{,}
+\NormalTok{  tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Aardvark"}\NormalTok{),}
+\NormalTok{  tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Bee"}\NormalTok{, }\AttributeTok{style =} \StringTok{"background{-}color: yellow;"}\NormalTok{),}
+\NormalTok{  tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Capybara"}\NormalTok{)}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -2951,7 +2974,7 @@ You can add styles to most elements that you make with shiny ui functions by add
 \hypertarget{inline-css}{%
 \subsection{Inline CSS}\label{inline-css}}
 
-You can add a small amount of CSS to an app inside the header using the style tag. The code below makes the element with the class ``animal'' 10em wide (\emph{em} is a unit of size that is proportional to text size). It also makes the element with the id ``bee'' italic and gives it a black background with yellow text. If the element is a list item, it makes the marker a bee emoji.
+You can add a small amount of CSS to an app inside the header using the style tag. The code below makes the element with the {class} {"animal"} {"10em"} in {width} (\emph{em} is a unit of size that is proportional to text size). It also makes the element with the {id} {"bee"} italic and gives it a black {background-color} with yellow text {color}. If the element is a list item, it makes the marker a bee emoji.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2965,16 +2988,13 @@ You can add a small amount of CSS to an app inside the header using the style ta
 \StringTok{  li\#bee::marker \{ content: "🐝 "; \}}
 \StringTok{\textquotesingle{}}
 
-\NormalTok{ui }\OtherTok{\textless{}{-}} \FunctionTok{fluidPage}\NormalTok{(}
-\NormalTok{  tags}\SpecialCharTok{$}\FunctionTok{head}\NormalTok{(}
-\NormalTok{    tags}\SpecialCharTok{$}\FunctionTok{style}\NormalTok{(mystyle)}
-\NormalTok{  ),}
-\NormalTok{  tags}\SpecialCharTok{$}\FunctionTok{ul}\NormalTok{(}\AttributeTok{class =} \StringTok{"animals"}\NormalTok{,}
-\NormalTok{        tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Aardvark"}\NormalTok{, }\AttributeTok{class =} \StringTok{"aardvark"}\NormalTok{),}
-\NormalTok{        tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Bee"}\NormalTok{, }\AttributeTok{class =} \StringTok{"bee"}\NormalTok{),}
-\NormalTok{        tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Capybara"}\NormalTok{, }\AttributeTok{class =} \StringTok{"capybara"}\NormalTok{)}
-\NormalTok{  )}
-\NormalTok{)}
+\NormalTok{ui }\OtherTok{\textless{}{-}} \FunctionTok{fluidPage}\NormalTok{(tags}\SpecialCharTok{$}\FunctionTok{head}\NormalTok{(tags}\SpecialCharTok{$}\FunctionTok{style}\NormalTok{(mystyle)),}
+\NormalTok{                tags}\SpecialCharTok{$}\FunctionTok{ul}\NormalTok{(}
+                  \AttributeTok{class =} \StringTok{"animals"}\NormalTok{,}
+\NormalTok{                  tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Aardvark"}\NormalTok{, }\AttributeTok{class =} \StringTok{"mammal"}\NormalTok{, }\AttributeTok{id =} \StringTok{"aardvark"}\NormalTok{),}
+\NormalTok{                  tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Bee"}\NormalTok{, }\AttributeTok{class =} \StringTok{"insect"}\NormalTok{, }\AttributeTok{id =} \StringTok{"bee"}\NormalTok{),}
+\NormalTok{                  tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Capybara"}\NormalTok{, }\AttributeTok{class =} \StringTok{"mammal"}\NormalTok{, }\AttributeTok{id =} \StringTok{"capybara"}\NormalTok{)}
+\NormalTok{                ))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2987,7 +3007,7 @@ Capybaras
 \hypertarget{external-css}{%
 \subsection{External CSS}\label{external-css}}
 
-For anything longer than a few lines, you can see how this can get tedious. You can put all of your CSS in an external file and reference that in the header instead using \texttt{tags\$link()}. The CSS file needs to be inside the \texttt{www} directory to let Shiny know that it's meant to be included like this. The template we're using in this class comes with a CSS file called \texttt{custom.css}.
+For anything longer than a few lines, you can see how this can get tedious. You can put all of your CSS in an external file and reference that in the header instead using {tags\$link}(). The CSS file needs to be inside the www directory to let Shiny know that it's meant to be included like this. The template we're using in this class comes with a CSS file called www/custom.css.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3007,38 +3027,38 @@ JavaScript is a coding language that is very useful for adding dynamic behaviour
 \hypertarget{shinyjs}{%
 \subsection{shinyjs}\label{shinyjs}}
 
-The R package shinyjs provides several ways to work with JavaScript in a Shiny app. In orde to set it up so that your server function can use shinyjs function, you need to add \texttt{shinyjs::useShinyjs()} somewhere in your ui function.
+The R package shinyjs provides several ways to work with JavaScript in a Shiny app. In order to set it up so that your server function can use shinyjs function, you need to add {shinyjs::useShinyjs}() somewhere in your ui function.
 
-Here is a list of the shinyjs functions that I find most useful (\texttt{id} refers to an element with the specified ID):
+Here is a list of the shinyjs functions that I find most useful ({id} refers to an element with the specified ID):
 
 \begin{itemize}
 \tightlist
 \item
-  \texttt{hide(id)}: hide the element
+  {hide}(id): hide the element
 \item
-  \texttt{show(id)}: show the element
+  {show}(id): show the element
 \item
-  \texttt{toggle(id)}: change the visibility of the element (hide it if it's visible, and show it if it's not)
+  {toggle}(id): change the visibility of the element (hide it if it's visible, and show it if it's not)
 \item
-  \texttt{alert(text)}: create an alert popup; this is useful for debugging
+  {alert}(text): create an alert popup; this is useful for debugging
 \item
-  \texttt{addClass(id,\ class)}: adds a CSS class to the element
+  {addClass}(id, class): adds a CSS class to the element
 \item
-  \texttt{removeClass(id,\ class)}: removes a CSS class from the element
+  {removeClass}(id, class): removes a CSS class from the element
 \item
-  \texttt{click(id)}: simulates a click on the action button
+  {click}(id): simulates a click on the action button
 \item
-  \texttt{disable(id)}: disable an input
+  {disable}(id): disable an input
 \item
-  \texttt{enable(id)}: enables an input
+  {enable}(id): enables an input
 \item
-  \texttt{reset(id)}: resets an input (much easier than the update* functions)
+  {reset}(id): resets an input (much easier than the update* functions)
 \end{itemize}
 
 \hypertarget{external-js}{%
 \subsection{External JS}\label{external-js}}
 
-To do anything more complicated, it's best to put your JavaScript in an external file in the \texttt{www} directory. You can include a link to this script in the header. The template we're using in this class comes with a JavaScript file called ``custom.js''.
+To do anything more complicated, it's best to put your JavaScript in an external file in the www directory. You can include a link to this script in the header. The template we're using in this class comes with a JavaScript file called www/custom.js.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3050,7 +3070,7 @@ To do anything more complicated, it's best to put your JavaScript in an external
 
 Shiny apps use \href{https://jquery.com/}{jQuery}, a framework for making JavaScript easier to write. It lets you refer to elements using their CSS selectors.
 
-Here is some example code from the custom.js file in the template.
+Here is some example code from the www/custom.js file in the basic template.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3067,13 +3087,13 @@ Here is some example code from the custom.js file in the template.
 \end{Highlighting}
 \end{Shaded}
 
-JavaScript is similar to R in some ways, and maddeningly different in others. One big difference is that lines of code have to end with a semi-colon.
+JavaScript is similar to R in some ways, and maddeningly different in others. One big difference is that lines of code \textbf{\emph{have to}} end with a semi-colon.
 
-In the code above, the function \texttt{\$(document).on("shiny:connected",\ function()\ \{\ ...\ \})} is jQuery shorthand for making sure that the code inside doesn't run until the whole webpage has been downloaded and the extra javascript for shiny is available. Otherwise, you might try to run some code that references an element that hasn't been created yet (HTML pages don't always download all in one go) or uses a Shiny function that isn't available yet.
+In the code above, the function \texttt{\$(document).on("shiny:connected",\ function()\ \{\ ...\ \})} is jQuery shorthand for making sure that the code inside doesn't run until the whole webpage has been downloaded and the extra javascript for shiny is available. Otherwise, you might try to run some code that references an element that hasn't been created yet (HTML pages don't always download all in one go) or uses a Shiny javascript function that isn't available yet.
 
-The we create a new function called \texttt{shiny\_size}, which creates two new Shiny input variables, ``window\_width'' and ``window\_height'', and sets then to the values of the window dimensions (in pixels). The line \texttt{window.onresize\ =\ shiny\_size;} sets this function to run every time the window is resized and the function is run once at the start to initialise those values.
+The we create a new function called {shiny\_size}(), which creates two new Shiny input variables, {"window\_width"} and {"window\_height"}, and sets then to the values of the window dimensions (in pixels). The line \texttt{window.onresize\ =\ shiny\_size;} sets this function to run every time the window is resized and the function is run once at the start to initialise those values.
 
-The javaScript function \texttt{Shiny.setInputValue(input\_id,\ value)} is a way for you to communicate things that happen on the web page to the Shiny app by changing or creating inputs. You can use this inside \texttt{server()} to, for example, change a plot style if \texttt{input\$window\_width\ \textless{}\ 600}.
+The javaScript function \texttt{Shiny.setInputValue(input\_id,\ value)} is a way for you to communicate things that happen on the web page to the Shiny app by changing or creating inputs. You can use this inside {server}() to, for example, change a plot style if \texttt{input\$window\_width\ \textless{}\ 600}.
 
 \hypertarget{resources-web}{%
 \section{Further Resources}\label{resources-web}}
@@ -3102,7 +3122,7 @@ Clone the basic template for these exercises.
 \hypertarget{add-html}{%
 \subsection{Add HTML}\label{add-html}}
 
-Add the following HTML before the image in \texttt{x\_tab} using \texttt{HTML()}:
+Add the following HTML before the image in \texttt{x\_tab} using `{HTML}():
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3119,9 +3139,11 @@ Solution
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{x\_tab }\OtherTok{\textless{}{-}} \FunctionTok{tabItem}\NormalTok{(}
-    \AttributeTok{tabName =} \StringTok{"x\_tab"}\NormalTok{,}
-    \FunctionTok{HTML}\NormalTok{(}\StringTok{\textquotesingle{}\textless{}p class="help"\textgreater{}For more help, you can go to \textless{}a href="https://shiny.rstudio.com/articles/html{-}tags.html"\textgreater{}Customize your UI with HTML\textless{}/a\textgreater{}.\textless{}/p\textgreater{}\textquotesingle{}}\NormalTok{),}
-    \FunctionTok{imageOutput}\NormalTok{(}\StringTok{"logo"}\NormalTok{)}
+  \AttributeTok{tabName =} \StringTok{"x\_tab"}\NormalTok{,}
+  \FunctionTok{HTML}\NormalTok{(}
+    \StringTok{\textquotesingle{}\textless{}p class="help"\textgreater{}For more help, you can go to \textless{}a href="https://shiny.rstudio.com/articles/html{-}tags.html"\textgreater{}Customize your UI with HTML\textless{}/a\textgreater{}.\textless{}/p\textgreater{}\textquotesingle{}}
+\NormalTok{  ),}
+  \FunctionTok{imageOutput}\NormalTok{(}\StringTok{"logo"}\NormalTok{)}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -3144,13 +3166,17 @@ Solution
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{x\_tab }\OtherTok{\textless{}{-}} \FunctionTok{tabItem}\NormalTok{(}
-    \AttributeTok{tabName =} \StringTok{"x\_tab"}\NormalTok{,}
-    \FunctionTok{HTML}\NormalTok{(}\StringTok{\textquotesingle{}\textless{}p class="help"\textgreater{}For more help, you can go to \textless{}a href="https://shiny.rstudio.com/articles/html{-}tags.html"\textgreater{}Customize your UI with HTML\textless{}/a\textgreater{}.\textless{}/p\textgreater{}\textquotesingle{}}\NormalTok{),}
-\NormalTok{    tags}\SpecialCharTok{$}\FunctionTok{ul}\NormalTok{(}
-\NormalTok{        tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(tags}\SpecialCharTok{$}\FunctionTok{a}\NormalTok{(}\AttributeTok{href =} \StringTok{"https://shiny.rstudio.com/articles/tag{-}glossary.html"}\NormalTok{, }\StringTok{"Tags Glossary"}\NormalTok{)),}
-\NormalTok{        tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(tags}\SpecialCharTok{$}\FunctionTok{a}\NormalTok{(}\AttributeTok{href =} \StringTok{"https://www.w3schools.com/html/"}\NormalTok{, }\StringTok{"HTML Tutorial"}\NormalTok{))}
-\NormalTok{    ),}
-    \FunctionTok{imageOutput}\NormalTok{(}\StringTok{"logo"}\NormalTok{)}
+  \AttributeTok{tabName =} \StringTok{"x\_tab"}\NormalTok{,}
+  \FunctionTok{HTML}\NormalTok{(}
+    \StringTok{\textquotesingle{}\textless{}p class="help"\textgreater{}For more help, you can go to \textless{}a href="https://shiny.rstudio.com/articles/html{-}tags.html"\textgreater{}Customize your UI with HTML\textless{}/a\textgreater{}.\textless{}/p\textgreater{}\textquotesingle{}}
+\NormalTok{  ),}
+\NormalTok{  tags}\SpecialCharTok{$}\FunctionTok{ul}\NormalTok{(tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}
+\NormalTok{    tags}\SpecialCharTok{$}\FunctionTok{a}\NormalTok{(}\AttributeTok{href =} \StringTok{"https://shiny.rstudio.com/articles/tag{-}glossary.html"}\NormalTok{, }\StringTok{"Tags Glossary"}\NormalTok{)}
+\NormalTok{  ),}
+\NormalTok{  tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}
+\NormalTok{    tags}\SpecialCharTok{$}\FunctionTok{a}\NormalTok{(}\AttributeTok{href =} \StringTok{"https://www.w3schools.com/html/"}\NormalTok{, }\StringTok{"HTML Tutorial"}\NormalTok{)}
+\NormalTok{  )),}
+  \FunctionTok{imageOutput}\NormalTok{(}\StringTok{"logo"}\NormalTok{)}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -3158,15 +3184,15 @@ Solution
 \hypertarget{style-links}{%
 \subsection{Style links}\label{style-links}}
 
-Change the style of all the links to make them hotpink. Use the inline CSS method. As a bonus, change the colour of links when you hover over them, too.
+Change the style of all the links to make them \texttt{hotpink}. Use the inline CSS method. As a bonus, change the colour of links when you hover over them, too.
 
 Solution
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{tags}\SpecialCharTok{$}\FunctionTok{head}\NormalTok{(}
-\NormalTok{    tags}\SpecialCharTok{$}\FunctionTok{style}\NormalTok{(}\StringTok{"a \{ color: hotpink; \}}
-\StringTok{                a:hover \{ color: red; \}"}\NormalTok{)}
+\NormalTok{  tags}\SpecialCharTok{$}\FunctionTok{style}\NormalTok{(}\StringTok{"a \{ color: hotpink; \}}
+\StringTok{              a:hover \{ color: red; \}"}\NormalTok{)}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -3174,7 +3200,7 @@ Solution
 \hypertarget{style-a-single-link-directly}{%
 \subsection{Style a single link directly}\label{style-a-single-link-directly}}
 
-Change the style of just the first link in the list to make it green.
+Change the style of just the first link in the list to make it \texttt{green}.
 
 Solution
 
@@ -3190,17 +3216,22 @@ Solution
 \hypertarget{external-css-1}{%
 \subsection{External CSS}\label{external-css-1}}
 
-Change the style of just the links inside paragraphs with the class ``help'' to have an underline. Use external CSS.
+Change the style of just the links inside paragraphs with the {class} {"help"} to have an underline. Use external CSS.
 
 Solution
 
-Add the following to \emph{www/custom.css}:
+Add the following to www/custom.css:
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{.help}\NormalTok{ a \{ }\KeywordTok{text{-}decoration}\NormalTok{: }\DecValTok{underline}\OperatorTok{;}\NormalTok{ \}}
 \end{Highlighting}
 \end{Shaded}
+
+\hypertarget{style-your-app}{%
+\subsection{Style your app}\label{style-your-app}}
+
+Add some new styles to www/custom.css in your custom app. See if you can figure out how to change any aspects of the default interface that bug you.
 
 \hypertarget{structure}{%
 \chapter{Structuring a complex app}\label{structure}}

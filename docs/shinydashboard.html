@@ -322,6 +322,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5.3" data-path="web.html"><a href="web.html#style-links"><i class="fa fa-check"></i><b>7.5.3</b> Style links</a></li>
 <li class="chapter" data-level="7.5.4" data-path="web.html"><a href="web.html#style-a-single-link-directly"><i class="fa fa-check"></i><b>7.5.4</b> Style a single link directly</a></li>
 <li class="chapter" data-level="7.5.5" data-path="web.html"><a href="web.html#external-css-1"><i class="fa fa-check"></i><b>7.5.5</b> External CSS</a></li>
+<li class="chapter" data-level="7.5.6" data-path="web.html"><a href="web.html#style-your-app"><i class="fa fa-check"></i><b>7.5.6</b> Style your app</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="structure.html"><a href="structure.html"><i class="fa fa-check"></i><b>8</b> Structuring a complex app</a>
@@ -464,7 +465,7 @@ Figure 2.1: Basic Template.App You can also access this app with <code>shinyintr
 <div id="dashboard-structure" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Dashboard Structure</h2>
 <p>Notice that the ui is created with <code><span class="fu">dashboardPage</span>()</code> now. This needs to be set up a little differently than <code><span class="fu">fluidPage</span>()</code>. The main parts of a dashboard page are the header, sidebar, and body.</p>
-<p>You can also change the default <code><span class="at">skin</span></code> colour. Possible skin colours are: <code><span class="st">“red”</span></code>, <code><span class="st">“yellow”</span></code> (looks orange to me), <code><span class="st">“green”</span></code>, <code><span class="st">“blue”</span></code>, <code><span class="st">“purple”</span></code>, and <code><span class="st">“black”</span></code>.</p>
+<p>You can also change the default <code><span class="at">skin</span></code> colour. Possible skin colours are: <code><span class="st">"red"</span></code>, <code><span class="st">"yellow"</span></code> (looks orange to me), <code><span class="st">"green"</span></code>, <code><span class="st">"blue"</span></code>, <code><span class="st">"purple"</span></code>, and <code><span class="st">"black"</span></code>.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="shinydashboard.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dashboardPage</span>(</span>
 <span id="cb29-2"><a href="shinydashboard.html#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">skin =</span> <span class="st">&quot;purple&quot;</span>,</span>
 <span id="cb29-3"><a href="shinydashboard.html#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dashboardHeader</span>(),</span>
@@ -675,7 +676,7 @@ Figure 2.3: Examples of value and info boxes you can make.
 <ul>
 <li>Change the <code><span class="at">title</span></code> to the title of the app you want to build.</li>
 <li>Choose a <code><span class="at">skin</span></code> color.</li>
-<li>Experiment with different values for the <code><span class="at">titleWidth</span></code> argument. Try <code><span class="st">“50%”</span></code> or <code><span class="st">“200px”</span></code> and see how the title behaves when you change the width of the browser window.</li>
+<li>Experiment with different values for the <code><span class="at">titleWidth</span></code> argument. Try <code><span class="st">"50%"</span></code> or <code><span class="st">"200px"</span></code> and see how the title behaves when you change the width of the browser window.</li>
 </ul>
 </div>
 <div id="customise-the-sidebar" class="section level3" number="2.5.3">

@@ -4,49 +4,50 @@ You don't need to know anything about HTML, CSS and JavaScript to make basic Shi
 
 ## HTML
 
-`r glossary("HTML")` stands for Hyper-Text Markup Language, a system for semantically tagging structure and information on web pages. The term "semantically" is important here; HTML should tell you **what** something is, not **how** to display it (that's handled by CSS). This separation helps your apps be accessible to people who use screen readers.
+`r glossary("HTML")` stands for Hyper-Text Markup Language, a system for semantically tagging structure and information on web pages. The term "semantically" is important here; HTML should tell you **what** something is, not **how** to display it (that's handled by [CSS](#CSS)). This separation helps your apps be accessible to people who use screen readers.
 
 ### HTML Tags
 
-We learned about the `tags()` function in [Chapter 1](#tags) and how it is linked to `r glossary("tag", "HTML tags")`. For example, the R code `tags$h2("Methods")` creates the HTML `<h2>Methods</h2>`. It surrounds the text content with a starting tag `<h2>` and an ending tag `</h2>`. 
+We learned about the `r func("tags")` function in [Chapter 1](#tags) and how it is linked to `r glossary("tag", "HTML tags")`. For example, the R code `tags$h2("Methods")` creates the HTML `<h2>Methods</h2>`. It surrounds the text content with a starting tag (`r dt("<h2>", "kw")`) and an ending tag (`r dt("</h2>", "kw")`). 
 
-Tags create `r glossary("element-html", "elements")`, which can be thought of kind of like boxes. An element can contain one or more elements. Elements can have `r glossary("attribute-html", "attributes")` that provide more information such as the element's ID or class, which can be used by CSS or JavaScript to refer to the element or a group of elements.
+Tags create `r glossary("element-html", "elements")`, which can be thought of kind of like boxes. An element can contain one or more elements. Elements can have `r glossary("attribute-html", "attributes")` that provide more information such as the element's `r dt("id", "er")` or `r dt("class", "er")`, which can be used by CSS or JavaScript to refer to the element or a group of elements.
 
-For example, the following code creates an unordered list (`<ul>`) with the class "animals". It contains three list item elements (`<li>`), each with its own id. 
+For example, the following code creates an unordered list (`r dt("<ul>", "kw")`) with the `r dt("class", "er")` `r dt("animals")`. It contains three list item elements (`r dt("<li>", "kw")`), each with its own `r dt("id", "er")` and `r dt("class", "er")`. 
 
 ``` html
 <ul class="animals">
-    <li id="aardvark">Aardvarks</li>
-    <li id="bee">Bees</li>
-    <li id="capybara">Capybaras</li>
+    <li class="mammal" id="aardvark" >Aardvarks</li>
+    <li class="insect" id="bee">Bees</li>
+    <li class="mammal" id="capybara">Capybaras</li>
 </ul>
 ```
 
 You seldom *have to* write HTML directly in Shiny, but if you have experience with HTML, it can sometimes be easier to create something in HTML than with the relevant Shiny functions. For example, the code above in Shiny would be:
 
 ```{r}
-tags$ul(class = "animals",
-        tags$li("aardvark", "Aardvark"),
-        tags$li("bee", "Bee"),
-        tags$li("capybara", "Capybara")
+tags$ul(
+  class = "animals",
+  tags$li("Aardvark", class = "mammal", id = "aardvark"),
+  tags$li("Bee", class = "insect", id = "bee"),
+  tags$li("Capybara", class = "mammal", id = "capybara")
 )
 ```
 
-Alternatively, you can use `HTML()` to include raw HTML in a ui function.
+Alternatively, you can use `r func("HTML")` to include raw HTML in a ui function.
 
 ```{r}
 HTML('<ul class="animals">
-    <li id="aardvark">Aardvarks</li>
-    <li id="bee">Bees</li>
-    <li id="capybara">Capybaras</li>
+    <li class="mammal" id="aardvark" >Aardvarks</li>
+    <li class="insect" id="bee">Bees</li>
+    <li class="mammal" id="capybara">Capybaras</li>
 </ul>')
 ```
 
 ### Viewing HTML
 
-But the main reason for you to learn a little about HTML is that it can help you to customise the appearance of your Shiny apps using CSS and their behaviour using JavaScript.
+But the main reason for you to learn a little about HTML is that it can help you to customise the appearance of your Shiny apps using [CSS](#CSS) and their behaviour using [JavaScript](#JavaScript).
 
-Often, you'll need to find out how to refer to a specific element or group of elements that were created by a shiny ui function. For example, it isn't obvious how you'd refer to the sidebar tab for `x_tab` in the following code:
+Often, you'll need to find out how to refer to a specific element or group of elements that were created by a `r pkg("shiny")` ui function. For example, it isn't obvious how you'd refer to the sidebar tab for `r dt("x_tab")` in the following code:
 
 ```{r}
 sidebarMenu(
@@ -55,9 +56,9 @@ sidebarMenu(
 )
 ```
 
-If you right click on the resulting app and choose "View Page Source", you'll (eventually) find that the code above created the HTML below.
+If you open the resulting app in a web browser, right click on the page, and choose **`View Page Source`**, you'll (eventually) find that the code above created the HTML below.
 
-```
+``` html
 <ul class="sidebar-menu">
   <li>
     <a href="#shiny-tab-x_tab" data-toggle="tab" data-value="x_tab">
@@ -69,7 +70,7 @@ If you right click on the resulting app and choose "View Page Source", you'll (e
 </ul>
 ```
 
-Now you know that the dragon icon is made by an italics tag (`<i>`) that's inside an anchor (`<a>`) with the id "#shiny-tab-x_tab". Therefore, you can change the colour of this icon using the following CSS:
+Now you know that the dragon icon is made by an italics tag (`r dt("<i>", "kw")`) that's inside an anchor (`r dt("<a>", "kw")`) with the `r dt("id", "er")` `r dt("#shiny-tab-x_tab", "pp")`. Therefore, you can change the colour of this icon using the following CSS:
 
 ``` css
 #shiny-tab-x_tab i { color: red; }
@@ -98,7 +99,7 @@ selector { property: value; }
 
 Selectors are how you refer to the parts of the HTML you want to style. There are dozens of [selectors](https://www.w3schools.com/cssref/css_selectors.asp){target="_blank"} and they can get very complex. We'll focus on some basic examples below.
 
-Properties are aspects of the visual style that you want to change, such as "color" (text color), "background-color", or "border". Values have specific formats for each property, such as "1px" or "0.5em" to describe lengths, or "red" or "#FF0000" to describe colours. 
+Properties are aspects of the visual style that you want to change, such as `r dt("color", "kw")` (text color), `r dt("background-color", "kw")`, or `r dt("border", "kw")`. Values have specific formats for each property, such as `r dt("1px")` or `r dt("0.5em")` to describe lengths, or `red` or `#FF0000` to describe colours. 
 
 ::: {.info}
 There are hundreds of [properties](https://www.w3schools.com/cssref/default.asp){target="_blank"} and you can't memorise them all. I usually Google something like "css font type" or "css underline text" and choose the first link from [ww3schools](https://www.w3schools.com){target="_blank"}.
@@ -108,9 +109,9 @@ For example, if you have HTML that looks like this:
 
 ``` html
 <ul class="animals">
-    <li id="aardvark">Aardvarks</li>
-    <li id="bee">Bees</li>
-    <li id="capybara">Capybaras</li>
+    <li class="mammal" id="aardvark" >Aardvarks</li>
+    <li class="insect" id="bee">Bees</li>
+    <li class="mammal" id="capybara">Capybaras</li>
 </ul>
 ```
 
@@ -118,28 +119,29 @@ You can refer to different parts of the list in many ways:
 
 | CSS | Meaning |
 |:----|:--------|
-| `.animals { border: 1px solid green; }` | any element with the class "animals" will get a 1-pixel green border |
-| `ul.animals { border: 1px solid green; }` | any unordered list with the class "animals" will get a 1-pixel green border |
-| `.animals li { color: blue; }` | any list item element inside an element with the class "animals" will have blue text |
-| `#bee { font-style: italic; }` | the element with the id "bee" will be in italics |
-| `.animals li + li { background-color: grey; }` | inside an element with the class "animals", any list item that follows another list item will have a grey background |
+| `mammal { border: 1px solid green; }` | any element with the `r arg("class")` `r dt("mammal")` will get a 1-pixel green border |
+| `ul.animals { border: 1px solid green; }` | any unordered list with the `r arg("class")` `r dt("animals")` will get a 1-pixel green border |
+| `.animals li { color: blue; }` | any list item element inside an element with the `r arg("class")` `r dt("animals")` will have blue text |
+| `#bee { font-style: italic; }` | the element with the `r arg("id")` `r dt("bee")` will be in italics |
+| `.animals li + li { background-color: grey; }` | inside an element with the `r arg("class")` `r dt("animals")`, any list item that follows another list item will have a grey background |
 
 ### Styling a single element
 
-You can add styles to most elements that you make with shiny ui functions by adding an `r glossary("argument")` called `style`.
+You can add styles to most elements that you make with shiny ui functions by adding an argument called `r arg("style")`. You don't need to give them a `r dt("class", "kw")` or `r dt("id", "kw")` this way, but this is inefficient if you're styling many related elements in the same way.
 
 ```{r}
-tags$ul(class = "animals", style="width: 10em;",
-        tags$li("Aardvark"),
-        tags$li("Bee", style="background-color: yellow;"),
-        tags$li("Capybara")
+tags$ul(
+  style = "width: 10em;",
+  tags$li("Aardvark"),
+  tags$li("Bee", style = "background-color: yellow;"),
+  tags$li("Capybara")
 )
 ```
 
 
 ### Inline CSS
 
-You can add a small amount of CSS to an app inside the header using the style tag. The code below makes the element with the class "animal" 10em wide (*em* is a unit of size that is proportional to text size). It also makes the element with the id "bee" italic and gives it a black background with yellow text. If the element is a list item, it makes the marker a bee emoji.
+You can add a small amount of CSS to an app inside the header using the style tag. The code below makes the element with the `r arg("class")` `r dt("animal")` `r dt("10em")` in `r dt("width", "kw")` (*em* is a unit of size that is proportional to text size). It also makes the element with the `r arg("id")` `r dt("bee")` italic and gives it a black `r arg("background-color")` with yellow text `r arg("color")`. If the element is a list item, it makes the marker a bee emoji.
 
 ```{r}
 mystyle <- '
@@ -152,16 +154,13 @@ mystyle <- '
   li#bee::marker { content: "🐝 "; }
 '
 
-ui <- fluidPage(
-  tags$head(
-    tags$style(mystyle)
-  ),
-  tags$ul(class = "animals",
-        tags$li("Aardvark", class = "aardvark"),
-        tags$li("Bee", class = "bee"),
-        tags$li("Capybara", class = "capybara")
-  )
-)
+ui <- fluidPage(tags$head(tags$style(mystyle)),
+                tags$ul(
+                  class = "animals",
+                  tags$li("Aardvark", class = "mammal", id = "aardvark"),
+                  tags$li("Bee", class = "insect", id = "bee"),
+                  tags$li("Capybara", class = "mammal", id = "capybara")
+                ))
 ```
 
 <style>
@@ -175,14 +174,14 @@ ui <- fluidPage(
 </style>
 
 <ul class="animals">
-    <li id="aardvark">Aardvarks</li>
-    <li id="bee">Bees</li>
-    <li id="capybara">Capybaras</li>
+    <li class="mammal" id="aardvark" >Aardvarks</li>
+    <li class="insect" id="bee">Bees</li>
+    <li class="mammal" id="capybara">Capybaras</li>
 </ul>
 
 ### External CSS
 
-For anything longer than a few lines, you can see how this can get tedious. You can put all of your CSS in an external file and reference that in the header instead using `tags$link()`. The CSS file needs to be inside the `www` directory to let Shiny know that it's meant to be included like this. The template we're using in this class comes with a CSS file called `custom.css`.
+For anything longer than a few lines, you can see how this can get tedious. You can put all of your CSS in an external file and reference that in the header instead using `r func("tags$link")`. The CSS file needs to be inside the `r path("www")` directory to let Shiny know that it's meant to be included like this. The template we're using in this class comes with a CSS file called `r path("www/custom.css")`.
 
 ```{r}
 tags$head(
@@ -200,24 +199,24 @@ Sometimes when you change external files, they don't seem to update when you tes
 
 ### shinyjs
 
-The R package shinyjs provides several ways to work with JavaScript in a Shiny app. In orde to set it up so that your server function can use shinyjs function, you need to add `shinyjs::useShinyjs()` somewhere in your ui function.
+The R package `r pkg("shinyjs")` provides several ways to work with JavaScript in a Shiny app. In order to set it up so that your server function can use `r pkg("shinyjs")` function, you need to add `r func("shinyjs::useShinyjs")` somewhere in your ui function.
 
-Here is a list of the shinyjs functions that I find most useful (`id` refers to an element with the specified ID):
+Here is a list of the `r pkg("shinyjs")` functions that I find most useful (`r arg("id")` refers to an element with the specified ID):
 
-* `hide(id)`: hide the element
-* `show(id)`: show the element
-* `toggle(id)`: change the visibility of the element (hide it if it's visible, and show it if it's not)
-* `alert(text)`: create an alert popup; this is useful for debugging
-* `addClass(id, class)`: adds a CSS class to the element
-* `removeClass(id, class)`: removes a CSS class from the element
-* `click(id)`: simulates a click on the action button
-* `disable(id)`: disable an input
-* `enable(id)`: enables an input
-* `reset(id)`: resets an input (much easier than the update* functions)
+* `r func("hide", "id")`: hide the element
+* `r func("show", "id")`: show the element
+* `r func("toggle", "id")`: change the visibility of the element (hide it if it's visible, and show it if it's not)
+* `r func("alert", "text")`: create an alert popup; this is useful for debugging
+* `r func("addClass", "id, class")`: adds a CSS class to the element
+* `r func("removeClass", "id, class")`: removes a CSS class from the element
+* `r func("click", "id")`: simulates a click on the action button
+* `r func("disable", "id")`: disable an input
+* `r func("enable", "id")`: enables an input
+* `r func("reset", "id")`: resets an input (much easier than the update* functions)
 
 ### External JS
 
-To do anything more complicated, it's best to put your JavaScript in an external file in the `www` directory. You can include a link to this script in the header. The template we're using in this class comes with a JavaScript file called "custom.js".
+To do anything more complicated, it's best to put your JavaScript in an external file in the `r path("www")` directory. You can include a link to this script in the header. The template we're using in this class comes with a JavaScript file called `r path("www/custom.js")`.
 
 ```{r}
 tags$head(
@@ -227,7 +226,7 @@ tags$head(
 
 Shiny apps use [jQuery](https://jquery.com/){target="_blank"}, a framework for making JavaScript easier to write. It lets you refer to elements using their CSS selectors.
 
-Here is some example code from the custom.js file in the template.
+Here is some example code from the `r path("www/custom.js")` file in the basic template.
 
 ``` js
 $(document).on("shiny:connected", function() {
@@ -242,13 +241,13 @@ $(document).on("shiny:connected", function() {
 })
 ```
 
-JavaScript is similar to R in some ways, and maddeningly different in others. One big difference is that lines of code have to end with a semi-colon.
+JavaScript is similar to R in some ways, and maddeningly different in others. One big difference is that lines of code **_have to_** end with a semi-colon.
 
-In the code above, the function `$(document).on("shiny:connected", function() { ... })` is jQuery shorthand for making sure that the code inside doesn't run until the whole webpage has been downloaded and the extra javascript for shiny is available. Otherwise, you might try to run some code that references an element that hasn't been created yet (HTML pages don't always download all in one go) or uses a Shiny function that isn't available yet.
+In the code above, the function `$(document).on("shiny:connected", function() { ... })` is jQuery shorthand for making sure that the code inside doesn't run until the whole webpage has been downloaded and the extra javascript for shiny is available. Otherwise, you might try to run some code that references an element that hasn't been created yet (HTML pages don't always download all in one go) or uses a Shiny javascript function that isn't available yet.
 
-The we create a new function called `shiny_size`, which creates two new Shiny input variables, "window_width" and "window_height", and sets then to the values of the window dimensions (in pixels). The line `window.onresize = shiny_size;` sets this function to run every time the window is resized and the function is run once at the start to initialise those values.
+The we create a new function called `r func("shiny_size")`, which creates two new Shiny input variables, `r dt("window_width")` and `r dt("window_height")`, and sets then to the values of the window dimensions (in pixels). The line `window.onresize = shiny_size;` sets this function to run every time the window is resized and the function is run once at the start to initialise those values.
 
-The javaScript function `Shiny.setInputValue(input_id, value)` is a way for you to communicate things that happen on the web page to the Shiny app by changing or creating inputs. You can use this inside `server()` to, for example, change a plot style if `input$window_width < 600`.
+The javaScript function `Shiny.setInputValue(input_id, value)` is a way for you to communicate things that happen on the web page to the Shiny app by changing or creating inputs. You can use this inside `r func("server")` to, for example, change a plot style if `input$window_width < 600`.
 
 ## Further Resources {#resources-web}
 
@@ -265,7 +264,7 @@ Clone the basic template for these exercises.
 
 ### Add HTML
 
-Add the following HTML before the image in `x_tab` using `HTML()`:
+Add the following HTML before the image in `x_tab` using ``r func("HTML")`:
 
 ``` html
 <p class="help">For more help, you can go to <a href="https://shiny.rstudio.com/articles/html-tags.html">Customize your UI with HTML</a>.</p>
@@ -278,9 +277,11 @@ Since the HTML has double quotes in it, you either need to escape them or surrou
 `r hide()`
 ```{r}
 x_tab <- tabItem(
-    tabName = "x_tab",
-    HTML('<p class="help">For more help, you can go to <a href="https://shiny.rstudio.com/articles/html-tags.html">Customize your UI with HTML</a>.</p>'),
-    imageOutput("logo")
+  tabName = "x_tab",
+  HTML(
+    '<p class="help">For more help, you can go to <a href="https://shiny.rstudio.com/articles/html-tags.html">Customize your UI with HTML</a>.</p>'
+  ),
+  imageOutput("logo")
 )
 ```
 `r unhide()`
@@ -295,33 +296,38 @@ Add an unordered list under the paragraph that contains the following text and l
 `r hide()`
 ```{r}
 x_tab <- tabItem(
-    tabName = "x_tab",
-    HTML('<p class="help">For more help, you can go to <a href="https://shiny.rstudio.com/articles/html-tags.html">Customize your UI with HTML</a>.</p>'),
-    tags$ul(
-        tags$li(tags$a(href = "https://shiny.rstudio.com/articles/tag-glossary.html", "Tags Glossary")),
-        tags$li(tags$a(href = "https://www.w3schools.com/html/", "HTML Tutorial"))
-    ),
-    imageOutput("logo")
+  tabName = "x_tab",
+  HTML(
+    '<p class="help">For more help, you can go to <a href="https://shiny.rstudio.com/articles/html-tags.html">Customize your UI with HTML</a>.</p>'
+  ),
+  tags$ul(tags$li(
+    tags$a(href = "https://shiny.rstudio.com/articles/tag-glossary.html", "Tags Glossary")
+  ),
+  tags$li(
+    tags$a(href = "https://www.w3schools.com/html/", "HTML Tutorial")
+  )),
+  imageOutput("logo")
 )
 ```
 `r unhide()`
 
 ### Style links
 
-Change the style of all the links to make them hotpink. Use the inline CSS method. As a bonus, change the colour of links when you hover over them, too.
+Change the style of all the links to make them `hotpink`. Use the inline CSS method. As a bonus, change the colour of links when you hover over them, too.
 
 `r hide()`
 ```{r}
 tags$head(
-    tags$style("a { color: hotpink; }
-                a:hover { color: red; }")
+  tags$style("a { color: hotpink; }
+              a:hover { color: red; }")
 )
 ```
 `r unhide()`
 
 ### Style a single link directly
 
-Change the style of just the first link in the list to make it green. 
+Change the style of just the first link in the list to make it `green`. 
+
 `r hide()`
 ```{r}
 tags$ul(
@@ -333,16 +339,19 @@ tags$ul(
 
 ### External CSS
 
-Change the style of just the links inside paragraphs with the class "help" to have an underline. Use external CSS.
+Change the style of just the links inside paragraphs with the `r arg("class")` `r dt("help")` to have an underline. Use external CSS.
 
 `r hide()`
-Add the following to *www/custom.css*:
+Add the following to `r path("www/custom.css")`:
 
 ``` css
 .help a { text-decoration: underline; }
 ```
 `r unhide()`
 
+### Style your app
+
+Add some new styles to `r path("www/custom.css")` in your custom app. See if you can figure out how to change any aspects of the default interface that bug you.
 
 
 

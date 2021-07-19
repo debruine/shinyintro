@@ -28,9 +28,7 @@ code, pre,
 }
 
 .book .book-body .page-wrapper .page-inner section.normal code.path,
-.book .book-body .page-wrapper .page-inner section.normal code.package,
-.book .book-body .page-wrapper .page-inner section.normal code.function,
-.book .book-body .page-wrapper .page-inner section.normal code.argument {
+.book .book-body .page-wrapper .page-inner section.normal code.package {
   background-color: inherit;
 }
 
@@ -49,19 +47,6 @@ code, pre,
 .book .book-body .page-wrapper .page-inner section.normal code.package { 
   font-weight: 800; 
   color: #666;
-}
-.book .book-body .page-wrapper .page-inner section.normal code.function { 
-  color: #13307C; 
-}
-.book .book-body .page-wrapper .page-inner section.normal code.argument { 
-  color: #818E3B; 
-}
-
-.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code.function { 
-  color: #7f8cb0; 
-}
-.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code.argument { 
-  color: #bcc491; 
 }
 
 .book.color-theme-2 a.glossary, .book.color-theme-2 a:visited.glossary {

@@ -31,6 +31,7 @@ day-3
 day-4
 computing
 who-should-register
+conventions
 further-resources
 first-app
 the-demo-app
@@ -146,6 +147,7 @@ class-html
 style-links
 style-a-single-link-directly
 external-css-1
+style-your-app
 structure
 external-server-functions
 sourcing-locally

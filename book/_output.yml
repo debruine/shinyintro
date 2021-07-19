@@ -1,4 +1,5 @@
 bookdown::gitbook: 
+  highlight: default
   default: true
   smart: false
   df_print: kable
