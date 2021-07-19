@@ -5,7 +5,8 @@
 Inputs are ways that users can communicate information to the Shiny app. Explore some different input types in the embedded app below before you read about how to set up each type.
 
 ```{r input-demo-app, eval = TRUE, echo=FALSE, fig.cap="Input Demo App. You can also access this app with `shinyintro::app(\"input_demo\")` or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/input_demo/){target=\"_blank\"}."}
-knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/input_demo/",
+if (is_html)
+  knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/input_demo/",
   height = "800px")
 ```
 

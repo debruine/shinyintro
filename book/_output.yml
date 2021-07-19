@@ -24,6 +24,7 @@ bookdown::gitbook:
             src="https://debruine.github.io/shinyintro/images/shinyintro.png" style="width: 100%"/></li>
     download: 
       - ["shinyintro.pdf", "PDF"]
+      - ["shinyintro.epub", "EPUB"]
     fontsettings:
       theme: white
       family: sans

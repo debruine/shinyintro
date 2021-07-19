@@ -1,15 +1,16 @@
 # Contingent Display {#contingency}
 
 ```{r contingency-demo-app, eval=TRUE, echo=FALSE, fig.cap="Contingency Demo App. You can also access this app with `shinyintro::app(\"contingency_demo\")`or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/contingency_demo/){target=\"_blank\"}."}
-knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/contingency_demo/",
+if (is_html)
+  knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/contingency_demo/",
 height = "800px")
 ```
 
 ## Hide and Show
 
-I frequently want to make some aspect of a shiny app contingent on the state of another aspect, such as only showing a text input of the value of a select input is "other". You can use the `hide()` and `show()` functions from shinyjs to accomplish this easily.
+I frequently want to make some aspect of a shiny app contingent on the state of another aspect, such as only showing a text input of the value of a select input is "other". You can use the `r func("hide")` and `r func("show")` functions from `r pkg("shinyjs")` to accomplish this easily.
 
-When you set up the UI, wrap any elements that should be hidden at the start in `hidden()`.
+When you set up the UI, wrap any elements that should be hidden at the start in `r func("hidden")`.
 
 ```{r}
 # in the ui
@@ -22,7 +23,7 @@ box(title = "Questions",
 )
 ```
 
-Then set up the hide and show logic in `server()`. 
+Then set up the hide and show logic in `r func("server")`. 
 
 ```{r}
 # in the server
@@ -39,7 +40,7 @@ observeEvent(input$first_pet, {
 
 Sometimes you need to hide and show a group of elements, depending on something else. You can wrap the grouped elements in a div tag with an id and hide and show that id.
 
-For example, it doesn't make sense to show the questions above to someone who has never had a pet. Add a `selectInput()` before the previous two questions, and then wrap those questions in `tags$div()` with an id of "first_pet_grp"
+For example, it doesn't make sense to show the questions above to someone who has never had a pet. Add a `r func("selectInput")` before the previous two questions, and then wrap those questions in `r func("tags$div")` with an id of `r dt("first_pet_grp")`
 
 ```{r}
 # replace in ui
@@ -76,9 +77,9 @@ Try to figure out what could go wrong if you didn't wrap "first_pet" and "first_
 
 ### Toggle
 
-Sometimes you need to change the visibility of an element when something happens, rather than specifically hide or show it. You can use `toggle()` to hide an element if it's visible and show it if it's hidden.
+Sometimes you need to change the visibility of an element when something happens, rather than specifically hide or show it. You can use `r func("toggle")` to hide an element if it's visible and show it if it's hidden.
 
-Add an `actionButton()` to the sidebar menu (not inside the box) and give the box an id of "pet_box". Any element that you might want to refer to in the code needs an id.
+Add an `r func("actionButton")` to the sidebar menu (not inside the box) and give the box an `r arg("id")` of `r dt("pet_box")`. Any element that you might want to refer to in the code needs an `r arg("id")`.
 
 ```{r}
 # add to ui
@@ -100,9 +101,9 @@ What would go wrong if you put the button inside the box?
 
 ## Changing Styles
 
-You can use `addClass()`, `removeClass()`, and `toggleClass()` to change element classes. You usually want to do this with classes you've defined yourself. 
+You can use `r func("addClass")`, `r func("removeClass")`, and `r func("toggleClass")` to change element classes. You usually want to do this with classes you've defined yourself. 
 
-Add the following style to the *www/custom.css* file.
+Add the following style to the `r path("www/custom.css")` file.
 
 ```{r}
 .notice-me {
@@ -123,7 +124,7 @@ box(title = "Notice", solidHeader = TRUE,
 )
 ```
 
-This code adds the class `notice-me` to the paragraph element "notice_text" whenever the "add_notive" button is pressed.
+This code adds the class `r dt("notice-me")` to the paragraph element `r dt("notice_text")` whenever the "add_notice" button is pressed.
 
 ```{r}
 observeEvent(input$add_notice, {
@@ -132,15 +133,15 @@ observeEvent(input$add_notice, {
 ```
 
 ::: {.try}
-Guess how you would use `removeClass()`, and `toggleClass()` with the buttons set up above.
+Guess how you would use `r func("removeClass")`, and `r func("toggleClass")` with the buttons set up above.
 :::
 
 
 ### Changing non-shiny elements
 
-Unfortunately, not all elements on the web page have an ID that can be altered by `addClass()` or `removeClass()`. For example, the skin of a shinydashboard app is determined by the css class of the body element. However, we can use `runjs()` to run any arbitrary [JavaScript](#JavaScript) code. 
+Unfortunately, not all elements on the web page have an ID that can be altered by `r func("addClass")` or `r func("removeClass")`. For example, the skin of a shinydashboard app is determined by the css class of the body element. However, we can use `r func("runjs")` to run any arbitrary [JavaScript](#JavaScript) code. 
 
-Add the following action button into the sidebar menu.
+Add the following action button into the `r func("sidebarMenu")`.
 
 ```{r}
 actionButton("random_skin", "Random Skin")
@@ -167,7 +168,7 @@ Changing the skin color with a button press isn't something you'll easily find d
 
 ## Changing input options
 
-The relevant options in a `selectInput()` or `radioButton()` may change depending on the values of other inputs. Sometimes you can accommodate this by creating multiple versions of a input and hiding or showing. Other times you may wish to update the input directly.
+The relevant options in a `r func("selectInput")` or `r func("radioButton")` may change depending on the values of other inputs. Sometimes you can accommodate this by creating multiple versions of a input and hiding or showing. Other times you may wish to update the input directly.
 
 Add the following box to the ui.
 
@@ -190,7 +191,7 @@ output$data_table <- renderTable(mydata())
 ```
 
 
-Now we need to set the options for "columns" depending on which "dataset" is selected.
+Now we need to set the options for `r dt("columns")` depending on which "dataset" is selected.
 
 ```{r}
 observe({
@@ -218,7 +219,7 @@ observe({
 ```
 
 ::: {.try}
-Why do we have to get the dataset again instead of using the data from `mydata()`?
+Why do we have to get the dataset again instead of using the data from `r func("mydata")`?
 :::
 
 Finally, alter the reactive function to only show the selected columns.
@@ -237,5 +238,11 @@ What happens when you unselect all the columns? How can you fix this?
 
 ## Exercises {#exercises-contingency}
 
+### Filtered data 
 
+Create an app where you use inputs to filter a dataset and display a table of the filtered dataset. For example, with the `msleep` dataset, you could have inputs that select `vore`, `order` and `conservation`. Since some values will exclude categories (e.g., there are no omnivores in the order Cetacea), update the available categories in each input when values are selected. Make sure you have a way to reset the values.
+
+### Your App
+
+Check for places in your app that could use contingency.
 

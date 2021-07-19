@@ -5,8 +5,8 @@ Output are ways that the Shiny app can dynamically display information to the us
 Explore some different output types in the embedded app below before you read about how to set up each type.
 
 ```{r output-demo-app, eval=TRUE, echo=FALSE, fig.cap="Output Demo App. You can also access this app with `shinyintro::app(\"output_demo\")`or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/output_demo/){target=\"_blank\"}."}
-knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/output_demo/",
-height = "800px")
+if (is_html)
+  knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/output_demo/", height = "800px")
 ```
 
 

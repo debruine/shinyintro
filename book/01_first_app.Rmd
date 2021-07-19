@@ -278,7 +278,8 @@ Notice that the code `aes(waiting)` from before has changed to `aes(.data[[input
 Re-run your app and see if you can change the data and x-axis label with your new widget. 
 
 ```{r first-demo-app, eval=TRUE, echo=FALSE, fig.cap="First Demo App. You can also access this app with `shinyintro::app(\"first_demo\")`or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/first_demo/){target=\"_blank\"}."}
-knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/first_demo/",
+if (is_html)
+  knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/first_demo/",
 height = "800px")
 ```
 
@@ -523,7 +524,8 @@ Compare the app behaviour with the first pattern versus the second. How are they
 Create the UI for following [addition app](https://shiny.psy.gla.ac.uk/debruine/add_demo/){target="_blank"}. Use `r func("numericInput")` to create the inputs.
 
 ```{r add-demo-app, eval=TRUE, echo=FALSE, fig.cap="Add Demo App. You can also access this app with `shinyintro::app(\"add_demo\")`or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/add_demo/){target=\"_blank\"}."}
-knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/add_demo/",
+if (is_html)
+  knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/add_demo/",
 height = "400px")
 ```
 

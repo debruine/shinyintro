@@ -163,6 +163,12 @@ javascript-console
 showcase-mode
 trycatch
 input-checking
+modal-dialogs
+validate
+resources-debugging
+exercises-debugging
+required-selections
+your-app-2
 contingency
 hide-and-show
 groups
@@ -171,6 +177,8 @@ changing-styles
 changing-non-shiny-elements
 changing-input-options
 exercises-contingency
+filtered-data
+your-app-3
 sharing
 shinyapps.io
 self-hosting-a-shiny-server

@@ -3,14 +3,16 @@
 While the best part of Shiny apps is their interactivity, sometimes your users need to download data, images, or a static report. This section will show you how.
 
 ```{r reports-demo-app, eval=TRUE, echo=FALSE, fig.cap="Reports Demo App. You can also access this app with `shinyintro::app(\"reports_demo\")`or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/reports_demo/){target=\"_blank\"}."}
-knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/reports_demo/",
-height = "600px")
+if (is_html)
+  knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/reports_demo/",
+                     height = "600px"
+  )
 ```
 
 
 ## Download Data
 
-First, we need to add the appropriate UI to our questionnaire app. Create a new tab called "report_tab" with two `downloadButton()`s, one for the pets data and one for the food data.
+First, we need to add the appropriate UI to our questionnaire app. Create a new tab called `r dt("report_tab")` with two `r func("downloadButton")`s, one for the pets data and one for the food data.
 
 ```{r}
 report_tab <- tabItem(
@@ -26,10 +28,10 @@ report_tab <- tabItem(
 ```
 
 ::: {.warning}
-Remember to add this to `tabItems()` in `dashboardBody()` and also add a corresponding `menuItem()` in `sidebarMenu()`. Run the app to make sure the UI looks like you expect before you proceed.
+Remember to add this to `r func("tabItems")` in `r func("dashboardBody")` and also add a corresponding `r func("menuItem")` in `r func("sidebarMenu")`. Run the app to make sure the UI looks like you expect before you proceed.
 :::
 
-Now we need to add code to `server()` to handle the downloads. `downloadButton()` is a special type of output that is handled by `downloadHandler()`. This function takes two arguments, a function to create the filename and a function to create the content. 
+Now we need to add code to `r func("server")` to handle the downloads. `r func("downloadButton")` is a special type of output that is handled by `r func("downloadHandler")`. This function takes two arguments, a function to create the `r arg("filename")` and a function to create the `r arg("content")`. 
 
 ```{r}
 ### pet_data_dl ----
@@ -45,13 +47,13 @@ output$pet_data_dl <- downloadHandler(
 ```
 
 ::: {.warning}
-Instead of `write.csv()` or `readr::write_csv()`, here we're using `gs4_write_csv()` (defined in `scripts/gs4.R`) because googlesheets can return list columns that cause errors when [saving to CSV](#gs4_save) without some preprocessing.
+Instead of `r func("write.csv")` or `r func("readr::write_csv")`, here we're using `r func("gs4_write_csv")` (defined in `r path("scripts/gs4.R")`) because googlesheets can return list columns that cause errors when [saving to CSV](#gs4_save) without some preprocessing.
 :::
 
 
 ## Download Images
 
-Now that we need to use the summary plot in more than one place, it doesn't make sense to build it twice. Move all of the code from the `renderPlot()` for `output$pet_summary` into a `reactive()` called `pet_summary_plot`. Then we can build the plot whenever the inputs change and refer to it anywhere as `pet_summary_plot()`.
+Now that we need to use the summary plot in more than one place, it doesn't make sense to build it twice. Move all of the code from the `r func("renderPlot")` for `output$pet_summary` into a `r func("reactive")` called `pet_summary_plot`. Then we can build the plot whenever the inputs change and refer to it anywhere as `r func("pet_summary_plot")`.
 
 ```{r}
 ### pet_summary_plot ----
@@ -65,7 +67,7 @@ output$pet_summary <- renderPlot({ debug_msg("pet_summary")
 })
 ```
 
-The `downloadHandler()` works the same as for downloading a CSV file. You can use `ggsave()` to write the plot. 
+The `r func("downloadHandler")` works the same as for downloading a CSV file. You can use `r func("ggsave")` to write the plot. 
 
 ```{r}
 # pet_plot_dl ----
@@ -83,7 +85,7 @@ output$pet_plot_dl <- downloadHandler(
 ```
 
 ::: {.try}
-Add numeric inputs to the UI to let the user specify the downloaded plot width and height.
+Add numeric inputs to the UI to let the user specify the downloaded plot `r arg("width")` and `r arg("height")`.
 
 `r hide()`
 ```{r}
@@ -116,7 +118,7 @@ output$pet_plot_dl <- downloadHandler(
 
 You can render an `r glossary("R Markdown")` report for users to download.
 
-First, you need to save an R Markdown file (save the one below as `reports/report.Rmd`). You need to set up `params` for any info that you want to pass from the Shiny app in th `r glossary("YAML")` header. Here, we will dynamically update the title, data, and plot. You can set the values to `NULL` or another default value. 
+First, you need to save an R Markdown file (save the one below as `r path("reports/report.Rmd")`). You need to set up `params` for any info that you want to pass from the Shiny app in th `r glossary("YAML")` header. Here, we will dynamically update the title, data, and plot. You can set the values to `NULL` or another default value. 
 
 ``` yml
 ---
@@ -162,7 +164,7 @@ params$plot
 ```
 ````
 
-The `content` function uses `rmarkdown::render()` to create the output file from Rmd. We are using `html_document` as the output type, but you can also render as a PDF or Word document if you have `r glossary("pandoc")` or `r glossary("latex")` installed. Include the title, data and plot as a named list to the `params` argument. 
+The `content` function uses `r func("rmarkdown::render")` to create the output file from Rmd. We are using `html_document` as the output type, but you can also render as a PDF or Word document if you have `r glossary("pandoc")` or `r glossary("latex")` installed. Include the `r arg("title")`, `r arg("data")` and `r arg("plot")` as a named list to the `r arg("params")` argument. 
 
 ```{r}
 ### pet_report_dl ----
@@ -185,10 +187,10 @@ output$pet_report_dl <- downloadHandler(
 )
 ```
 
-Setting the `envir` argument to `new.env()` makes sure that settings in your Shiny app, such as a default ggplot theme, can't affect the rendered file, but also makes it so that the R Markdown code will not have access to any objects from your app, such as `input` or `v$summary_data`, unless you pass them as parameters.
+Setting the `r arg("envir")` argument to `r func("new.env")` makes sure that settings in your Shiny app, such as a default ggplot theme, can't affect the rendered file, but also makes it so that the R Markdown code will not have access to any objects from your app, such as `input` or `v$summary_data`, unless you pass them as parameters.
 
 ::: {.error}
-On your own computer, you don't need to set `intermediates_dir = tempdir()`, but you will need to do this if you want to deploy your app on a shiny server. When rmarkdown renders an Rmd file, it creates several intermediate files in the working directory and then deletes them. you have permission to write to the app's working directory on your own computer, but might not on a shiny server. `tempdir()` is almost always a safe place to write temporary files to.
+On your own computer, you don't need to set `intermediates_dir = tempdir()`, but you will need to do this if you want to deploy your app on a shiny server. When rmarkdown renders an Rmd file, it creates several intermediate files in the working directory and then deletes them. you have permission to write to the app's working directory on your own computer, but might not on a shiny server. `r func("tempdir")` is almost always a safe place to write temporary files to.
 :::
 
 

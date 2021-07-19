@@ -24,7 +24,7 @@
 <meta name="author" content="Lisa DeBruine" />
 
 
-<meta name="date" content="2021-07-19" />
+<meta name="date" content="2021-07-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -348,7 +348,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2" data-path="debugging.html"><a href="debugging.html#javascript-console"><i class="fa fa-check"></i><b>9.2</b> JavaScript Console</a></li>
 <li class="chapter" data-level="9.3" data-path="debugging.html"><a href="debugging.html#showcase-mode"><i class="fa fa-check"></i><b>9.3</b> Showcase Mode</a></li>
 <li class="chapter" data-level="9.4" data-path="debugging.html"><a href="debugging.html#trycatch"><i class="fa fa-check"></i><b>9.4</b> tryCatch</a></li>
-<li class="chapter" data-level="9.5" data-path="debugging.html"><a href="debugging.html#input-checking"><i class="fa fa-check"></i><b>9.5</b> Input Checking</a></li>
+<li class="chapter" data-level="9.5" data-path="debugging.html"><a href="debugging.html#input-checking"><i class="fa fa-check"></i><b>9.5</b> Input Checking</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="debugging.html"><a href="debugging.html#modal-dialogs"><i class="fa fa-check"></i><b>9.5.1</b> Modal Dialogs</a></li>
+<li class="chapter" data-level="9.5.2" data-path="debugging.html"><a href="debugging.html#validate"><i class="fa fa-check"></i><b>9.5.2</b> Validate</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="debugging.html"><a href="debugging.html#resources-debugging"><i class="fa fa-check"></i><b>9.6</b> Further Resources</a></li>
+<li class="chapter" data-level="9.7" data-path="debugging.html"><a href="debugging.html#exercises-debugging"><i class="fa fa-check"></i><b>9.7</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="debugging.html"><a href="debugging.html#required-selections"><i class="fa fa-check"></i><b>9.7.1</b> Required selections</a></li>
+<li class="chapter" data-level="9.7.2" data-path="debugging.html"><a href="debugging.html#your-app-2"><i class="fa fa-check"></i><b>9.7.2</b> Your app</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="contingency.html"><a href="contingency.html"><i class="fa fa-check"></i><b>10</b> Contingent Display</a>
 <ul>
@@ -362,7 +372,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2.1" data-path="contingency.html"><a href="contingency.html#changing-non-shiny-elements"><i class="fa fa-check"></i><b>10.2.1</b> Changing non-shiny elements</a></li>
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="contingency.html"><a href="contingency.html#changing-input-options"><i class="fa fa-check"></i><b>10.3</b> Changing input options</a></li>
-<li class="chapter" data-level="10.4" data-path="contingency.html"><a href="contingency.html#exercises-contingency"><i class="fa fa-check"></i><b>10.4</b> Exercises</a></li>
+<li class="chapter" data-level="10.4" data-path="contingency.html"><a href="contingency.html#exercises-contingency"><i class="fa fa-check"></i><b>10.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="contingency.html"><a href="contingency.html#filtered-data"><i class="fa fa-check"></i><b>10.4.1</b> Filtered data</a></li>
+<li class="chapter" data-level="10.4.2" data-path="contingency.html"><a href="contingency.html#your-app-3"><i class="fa fa-check"></i><b>10.4.2</b> Your App</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="sharing.html"><a href="sharing.html"><i class="fa fa-check"></i><b>11</b> Sharing your Apps</a>
 <ul>
@@ -446,22 +460,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/saio_connect.png" style="max-width:300px; float: right;" /></p>
 <ol style="list-style-type: decimal">
 <li>Open <strong><code>Tools &gt; Global Options ...</code></strong></li>
-<li>Go to the <strong>Publishing</strong> tab</li>
-<li>Click the <strong>Connect</strong> button and choose ShinyApps.io</li>
+<li>Go to the <strong><code>Publishing</code></strong> tab</li>
+<li>Click the <strong><code>Connect</code></strong> button and choose ShinyApps.io</li>
 <li>Click on the link to <a href="https://www.shinyapps.io/" target="_blank">go to your account</a></li>
-<li>Click the <strong>Sign Up</strong> button and <strong>Sign up with GitHub</strong></li>
-<li>You should now be in your shinyapps.io dashboard; click on your name in the upper right and choose <strong>Tokens</strong></li>
+<li>Click the <strong><code>Sign Up</code></strong> button and <strong><code>Sign up with GitHub</code></strong></li>
+<li>You should now be in your shinyapps.io dashboard; click on your name in the upper right and choose <strong><code>Tokens</code></strong></li>
 <li>Add a token</li>
-<li>Click <strong>Show</strong> next to the token and copy the text to the clipboard
+<li>Click <strong><code>Show</code></strong> next to the token and copy the text to the clipboard
 <img src="images/saio_secret.png" /></li>
-<li>Go back to RStudio and paste the text in the box and click <strong>Connect Account</strong></li>
-<li>Make sure the box next to “Enable publishing…” is ticked, click <strong>Apply</strong>, and close the options window
+<li>Go back to RStudio and paste the text in the box and click <strong><code>Connect Account</code></strong></li>
+<li>Make sure the box next to “Enable publishing…” is ticked, click <strong><code>Apply</code></strong>, and close the options window
 ˙
 You can test this by creating a simple app. If you have the shinyintro package, use the code below.</li>
 </ol>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="sharing.html#cb154-1" aria-hidden="true" tabindex="-1"></a>shinyintro<span class="sc">::</span><span class="fu">clone</span>(<span class="st">&quot;input_demo&quot;</span>, <span class="st">&quot;mytestapp&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="sharing.html#cb156-1" aria-hidden="true" tabindex="-1"></a>shinyintro<span class="sc">::</span><span class="fu">clone</span>(<span class="st">&quot;input_demo&quot;</span>, <span class="st">&quot;mytestapp&quot;</span>)</span></code></pre></div>
 <p><img src="images/saio_publish.png" style="max-width:300px; float: right;" /></p>
-<p>Open the app.R file and go to <strong><code>File &gt; Publish...</code></strong> in the menu (or click on the blue icon in the upper right corner of the source pane). Make sure these are the right files for your app, edit the title if you want, and click <strong>Publish</strong>. A web browser window will open after a few seconds showing your app online! You can now share it with your friends and colleagues.</p>
+<p>Open the <code class='path'>app.R</code> file and go to <strong><code>File &gt; Publish...</code></strong> in the menu (or click on the blue icon in the upper right corner of the source pane). Make sure these are the right files for your app, edit the title if you want, and click <strong><code>Publish</code></strong>. A web browser window will open after a few seconds showing your app online! You can now share it with your friends and colleagues.</p>
 <div class="info">
 <p>If publishing fails, check the Console pane. If you already have too many apps on shinyapps.io, you’ll see the message, “You have reached the maximum number of applications allowed for your account.” You can archive some of your apps from the shinyapps.io dashboard if this is the problem.</p>
 </div>
@@ -477,11 +491,11 @@ You can test this by creating a simple app. If you have the shinyintro package, 
 <div id="github" class="section level2" number="11.3">
 <h2><span class="header-section-number">11.3</span> GitHub</h2>
 <p><a class='glossary' target='_blank' title='A cloud-based service for storing and sharing your version controlled files.' href='https://psyteachr.github.io/glossary/g#github'>GitHub</a> is a great place to organise and share your code using <a class='glossary' target='_blank' title='A way to save a record of changes to your files.' href='https://psyteachr.github.io/glossary/v#version-control'>version control</a>. You can also use it to host Shiny app code for others to download and run on their own computer.</p>
-<p>See <a href="#setup-git">Appendix B</a> for instructions on how to set up git and a GitHub account. Set up a github access token with <code>usethis::create_github_token()</code>. Your web browser will open and you’ll be asked to log into your GitHub account and then asked to authorise a new token. Accept the defaults and click OK at the bottom of the page. In RStudio, run <code>gitcreds::gitcreds_set()</code> and follow the instructions to save the token.</p>
-<p>Then, to share an app with people who use R, make a project that contains your <em>app.R</em> file and any related files. If you aren’t already using version control for this project, make sure all of your files are saved and type <code>usethis::use_git()</code> into the console. Choose Yes to commit and Yes to restart R.</p>
-<p>Make a new GitHub repository with <code>usethis::use_github(protocol="https")</code>; check that the suggested title and description are OK. If you choose the affirmative response (not always the same number), you’ll see some messages and your web browser will open the github repository page.</p>
-<p>Now you can share your app with others by sending them the repository link. They can access your repository in RStudio by starting a New Project from version control, using the URL that is shown when you click on the green “Code” button on the repository page (something like “<a href="https://github.com/account/repository.git" class="uri">https://github.com/account/repository.git</a>”). They can run your app the same way you do when developing it, by opening the <em>app.R</em> file and clicking the Run button.</p>
-<p>To update your files on GitHub, you need to <a class='glossary' target='_blank' title='The action of storing a new snapshot of a project’s state in the git history.' href='https://psyteachr.github.io/glossary/c#commit'>commit</a> any changes you make using the Git tab in the upper right pane. Click on the checkbox of any files you want to update, click “Commit,” and write a message to yourself explaining the changes (this will be publicly viewable on GitHub, so try to be professional ;).</p>
+<p>See <a href="#setup-git">Appendix B</a> for instructions on how to set up git and a GitHub account. Set up a github access token with <code><span class="fu">usethis::create_github_token</span>()</code>. Your web browser will open and you’ll be asked to log into your GitHub account and then asked to authorise a new token. Accept the defaults and click OK at the bottom of the page. In RStudio, run <code><span class="fu">gitcreds::gitcreds_set</span>()</code> and follow the instructions to save the token.</p>
+<p>Then, to share an app with people who use R, make a project that contains your <code class='path'>app.R</code> file and any related files. If you aren’t already using <a class='glossary' target='_blank' title='A way to save a record of changes to your files.' href='https://psyteachr.github.io/glossary/v#version-control'>version control</a> for this project, make sure all of your files are saved and type <code><span class="fu">usethis::use_git</span>()</code> into the console. Choose Yes to commit and Yes to restart R.</p>
+<p>Make a new GitHub repository with <code><span class="fu">usethis::use_github</span>(protocol=“https”)</code>; check that the suggested title and description are OK. If you choose the affirmative response (not always the same number), you’ll see some messages and your web browser will open the github repository page.</p>
+<p>Now you can share your app with others by sending them the repository link. They can access your repository in RStudio by starting a <strong><code>New Project...</code></strong> from version control, using the URL that is shown when you click on the green <strong><code>Code</code></strong> button on the repository page (something like “<a href="https://github.com/account/repository.git" class="uri">https://github.com/account/repository.git</a>”). They can run your app the same way you do when developing it, by opening the <code class='path'>app.R</code> file and clicking the Run button.</p>
+<p>To update your files on GitHub, you need to <a class='glossary' target='_blank' title='The action of storing a new snapshot of a project’s state in the git history.' href='https://psyteachr.github.io/glossary/c#commit'>commit</a> any changes you make using the Git tab in the upper right pane. Click on the checkbox of any files you want to update, click <strong><code>Commit</code></strong>, and write a message to yourself explaining the changes (this will be publicly viewable on GitHub, so try to be professional, but you can use emojis 😱🤪😍).</p>
 <p>Committing just creates a snapshot of the files on your computer so you can look at previous versions. To update the files on GitHub, you need to <a class='glossary' target='_blank' title='Updating the remote git project from the local project.' href='https://psyteachr.github.io/glossary/p#push'>push</a> the updates using the green up arrow button.</p>
 <div class="info">
 <p>Git and GitHub can be tricky. <a href="https://happygitwithr.com/" target="_blank">Happy Git with R</a> by Jenny Bryan is a fantastic in-depth book anbout how to work with git in R and RStudio.</p>
@@ -490,46 +504,47 @@ You can test this by creating a simple app. If you have the shinyintro package, 
 <div id="in-an-r-package" class="section level2" number="11.4">
 <h2><span class="header-section-number">11.4</span> In an R package</h2>
 <p>You can put your app in a custom R package to make it even easier for people to run the app. The usethis package is incredibly helpful for setting up packages.</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="sharing.html#cb155-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_package</span>(<span class="st">&quot;mypackagename&quot;</span>)</span>
-<span id="cb155-2"><a href="sharing.html#cb155-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_ccby_license</span>()</span>
-<span id="cb155-3"><a href="sharing.html#cb155-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb155-4"><a href="sharing.html#cb155-4" aria-hidden="true" tabindex="-1"></a><span class="co"># add packages your app uses</span></span>
-<span id="cb155-5"><a href="sharing.html#cb155-5" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">&quot;shiny&quot;</span>)</span>
-<span id="cb155-6"><a href="sharing.html#cb155-6" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">&quot;shinydashboard&quot;</span>)</span>
-<span id="cb155-7"><a href="sharing.html#cb155-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb155-8"><a href="sharing.html#cb155-8" aria-hidden="true" tabindex="-1"></a><span class="co"># add the directory for your apps</span></span>
-<span id="cb155-9"><a href="sharing.html#cb155-9" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;inst&quot;</span>)</span>
-<span id="cb155-10"><a href="sharing.html#cb155-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;inst/apps&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="sharing.html#cb157-1" aria-hidden="true" tabindex="-1"></a>mypackagename <span class="ot">&lt;-</span> <span class="st">&quot;mypackagename&quot;</span> <span class="co"># change this</span></span>
+<span id="cb157-2"><a href="sharing.html#cb157-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_package</span>(mypackagename)</span>
+<span id="cb157-3"><a href="sharing.html#cb157-3" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_ccby_license</span>()</span>
+<span id="cb157-4"><a href="sharing.html#cb157-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb157-5"><a href="sharing.html#cb157-5" aria-hidden="true" tabindex="-1"></a><span class="co"># add packages your app uses</span></span>
+<span id="cb157-6"><a href="sharing.html#cb157-6" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">&quot;shiny&quot;</span>)</span>
+<span id="cb157-7"><a href="sharing.html#cb157-7" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">&quot;shinydashboard&quot;</span>)</span>
+<span id="cb157-8"><a href="sharing.html#cb157-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb157-9"><a href="sharing.html#cb157-9" aria-hidden="true" tabindex="-1"></a><span class="co"># add the directory for your apps</span></span>
+<span id="cb157-10"><a href="sharing.html#cb157-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;inst&quot;</span>)</span>
+<span id="cb157-11"><a href="sharing.html#cb157-11" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;inst/apps&quot;</span>)</span></code></pre></div>
 <p>Copy any apps you want to include in this package into the inst/apps directory.</p>
-<p>Now, create the app function by running <code>usethis::edit_file("R/app.R")</code> and copy the following text into the <em>app.R</em> file that just opened. Replace “default_app” with the directory name of the app that you want to open if a user doesn’t type any name in at all.</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="sharing.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; Launch Shiny App</span></span>
-<span id="cb156-2"><a href="sharing.html#cb156-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb156-3"><a href="sharing.html#cb156-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @param name The name of the app to run</span></span>
-<span id="cb156-4"><a href="sharing.html#cb156-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @param ... arguments to pass to shiny::runApp</span></span>
-<span id="cb156-5"><a href="sharing.html#cb156-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb156-6"><a href="sharing.html#cb156-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
-<span id="cb156-7"><a href="sharing.html#cb156-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb156-8"><a href="sharing.html#cb156-8" aria-hidden="true" tabindex="-1"></a>app <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">name =</span> <span class="st">&quot;default_app&quot;</span>, ...) {</span>
-<span id="cb156-9"><a href="sharing.html#cb156-9" aria-hidden="true" tabindex="-1"></a>  appDir <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="fu">paste0</span>(<span class="st">&quot;apps/&quot;</span>, name), <span class="at">package =</span> <span class="st">&quot;mypackagename&quot;</span>)</span>
-<span id="cb156-10"><a href="sharing.html#cb156-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (appDir <span class="sc">==</span> <span class="st">&quot;&quot;</span>) <span class="fu">stop</span>(<span class="st">&quot;The shiny app &quot;</span>, name, <span class="st">&quot; does not exist&quot;</span>)</span>
-<span id="cb156-11"><a href="sharing.html#cb156-11" aria-hidden="true" tabindex="-1"></a>  shiny<span class="sc">::</span><span class="fu">runApp</span>(appDir, ...)</span>
-<span id="cb156-12"><a href="sharing.html#cb156-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>Next, open the <em>DESCRIPTION</em> file and edit the title, author and description.</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="sharing.html#cb157-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">document</span>()</span>
-<span id="cb157-2"><a href="sharing.html#cb157-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install</span>()</span></code></pre></div>
-<p>You should now be able to run your app with <code>mypackagename::app()</code>.</p>
+<p>Now, create the app function by running <code>usethis::edit_file("R/app.R")</code> and copy the following text into the <code class='path'>app.R</code> file that just opened. Replace <code><span class="st">"default_app"</span></code> with the directory name of the app that you want to open if a user doesn’t type any name in at all.</p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="sharing.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; Launch Shiny App</span></span>
+<span id="cb158-2"><a href="sharing.html#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb158-3"><a href="sharing.html#cb158-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @param name The name of the app to run</span></span>
+<span id="cb158-4"><a href="sharing.html#cb158-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @param ... arguments to pass to shiny::runApp</span></span>
+<span id="cb158-5"><a href="sharing.html#cb158-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb158-6"><a href="sharing.html#cb158-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
+<span id="cb158-7"><a href="sharing.html#cb158-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb158-8"><a href="sharing.html#cb158-8" aria-hidden="true" tabindex="-1"></a>app <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">name =</span> <span class="st">&quot;default_app&quot;</span>, ...) {</span>
+<span id="cb158-9"><a href="sharing.html#cb158-9" aria-hidden="true" tabindex="-1"></a>  appDir <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="fu">paste0</span>(<span class="st">&quot;apps/&quot;</span>, name), <span class="at">package =</span> <span class="st">&quot;mypackagename&quot;</span>)</span>
+<span id="cb158-10"><a href="sharing.html#cb158-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (appDir <span class="sc">==</span> <span class="st">&quot;&quot;</span>) <span class="fu">stop</span>(<span class="st">&quot;The shiny app &quot;</span>, name, <span class="st">&quot; does not exist&quot;</span>)</span>
+<span id="cb158-11"><a href="sharing.html#cb158-11" aria-hidden="true" tabindex="-1"></a>  shiny<span class="sc">::</span><span class="fu">runApp</span>(appDir, ...)</span>
+<span id="cb158-12"><a href="sharing.html#cb158-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Next, open the <code class='path'>DESCRIPTION</code> file and edit the title, author and description. Now run the following code in the console.</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="sharing.html#cb159-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">document</span>()</span>
+<span id="cb159-2"><a href="sharing.html#cb159-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install</span>()</span></code></pre></div>
+<p>This will create the help documentation for your package function and install the package on your computer. You should now be able to run your app with <code><span class="fu">mypackagename::app</span>()</code>.</p>
 <p>Set up git and save your package to GitHub to share it with others:</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="sharing.html#cb158-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git</span>()</span>
-<span id="cb158-2"><a href="sharing.html#cb158-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_github</span>(<span class="at">protocol=</span><span class="st">&quot;https&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="sharing.html#cb160-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git</span>()</span>
+<span id="cb160-2"><a href="sharing.html#cb160-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_github</span>(<span class="at">protocol=</span><span class="st">&quot;https&quot;</span>)</span></code></pre></div>
 <p>Once it’s uploaded to GitHub, other people can install it with the following code:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="sharing.html#cb159-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;myaccountname/mypackagename&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="sharing.html#cb161-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;myaccountname/mypackagename&quot;</span>)</span></code></pre></div>
 </div>
 <div id="exercises-sharing" class="section level2" number="11.5">
 <h2><span class="header-section-number">11.5</span> Exercises</h2>
 <div id="shinyapps.io-1" class="section level3" number="11.5.1">
 <h3><span class="header-section-number">11.5.1</span> Shinyapps.io</h3>
 <ul>
-<li>Upload another demo app to shinyapps.io</li>
+<li>Upload a cloned demo app to shinyapps.io</li>
 <li>Check that you can access it online</li>
 <li>Archive the app in the shinyapps.io dashboard</li>
 </ul>
@@ -713,7 +728,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": [["shinyintro.pdf", "PDF"]],
+"download": [["shinyintro.pdf", "PDF"], ["shinyintro.epub", "EPUB"]],
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

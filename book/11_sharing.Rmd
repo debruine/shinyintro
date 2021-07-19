@@ -5,16 +5,16 @@
 ![](images/saio_connect.png){style="max-width:300px; float: right;"}
 
 1. Open **`Tools > Global Options ...`**
-2. Go to the **Publishing** tab 
-3. Click the **Connect** button and choose ShinyApps.io
+2. Go to the **`Publishing`** tab 
+3. Click the **`Connect`** button and choose ShinyApps.io
 4. Click on the link to [go to your account](https://www.shinyapps.io/){target="_blank"}
-5. Click the **Sign Up** button and **Sign up with GitHub** 
-6. You should now be in your shinyapps.io dashboard; click on your name in the upper right and choose **Tokens**
+5. Click the **`Sign Up`** button and **`Sign up with GitHub`** 
+6. You should now be in your shinyapps.io dashboard; click on your name in the upper right and choose **`Tokens`**
 7. Add a token
-8. Click **Show** next to the token and copy the text to the clipboard
+8. Click **`Show`** next to the token and copy the text to the clipboard
     ![](images/saio_secret.png)
-9. Go back to RStudio and paste the text in the box and click **Connect Account**
-10. Make sure the box next to "Enable publishing..." is ticked, click **Apply**, and close the options window
+9. Go back to RStudio and paste the text in the box and click **`Connect Account`**
+10. Make sure the box next to "Enable publishing..." is ticked, click **`Apply`**, and close the options window
 ˙
 You can test this by creating a simple app. If you have the shinyintro package, use the code below.
 
@@ -24,7 +24,7 @@ shinyintro::clone("input_demo", "mytestapp")
 
 ![](images/saio_publish.png){style="max-width:300px; float: right;"}
 
-Open the app.R file and go to **`File > Publish...`** in the menu (or click on the blue icon in the upper right corner of the source pane). Make sure these are the right files for your app, edit the title if you want, and click **Publish**. A web browser window will open after a few seconds showing your app online! You can now share it with your friends and colleagues.
+Open the `r path("app.R")` file and go to **`File > Publish...`** in the menu (or click on the blue icon in the upper right corner of the source pane). Make sure these are the right files for your app, edit the title if you want, and click **`Publish`**. A web browser window will open after a few seconds showing your app online! You can now share it with your friends and colleagues.
 
 ::: {.info}
 If publishing fails, check the Console pane. If you already have too many apps on shinyapps.io, you'll see the message, "You have reached the maximum number of applications allowed for your account." You can archive some of your apps from the shinyapps.io dashboard if this is the problem.
@@ -44,15 +44,15 @@ If you save data locally on a shiny server, you may need to change the owner or 
 
 `r glossary("GitHub")` is a great place to organise and share your code using `r glossary("version control")`. You can also use it to host Shiny app code for others to download and run on their own computer.
 
-See [Appendix B](#setup-git) for instructions on how to set up git and a GitHub account. Set up a github access token with `usethis::create_github_token()`. Your web browser will open and you'll be asked to log into your GitHub account and then asked to authorise a new token. Accept the defaults and click OK at the bottom of the page. In RStudio, run `gitcreds::gitcreds_set()` and follow the instructions to save the token.
+See [Appendix B](#setup-git) for instructions on how to set up git and a GitHub account. Set up a github access token with `r func("usethis::create_github_token")`. Your web browser will open and you'll be asked to log into your GitHub account and then asked to authorise a new token. Accept the defaults and click OK at the bottom of the page. In RStudio, run `r func("gitcreds::gitcreds_set")` and follow the instructions to save the token.
 
-Then, to share an app with people who use R, make a project that contains your *app.R* file and any related files. If you aren't already using version control for this project, make sure all of your files are saved and type `usethis::use_git()` into the console. Choose Yes to commit and Yes to restart R.
+Then, to share an app with people who use R, make a project that contains your `r path("app.R")` file and any related files. If you aren't already using `r glossary("version control")` for this project, make sure all of your files are saved and type `r func("usethis::use_git")` into the console. Choose Yes to commit and Yes to restart R.
 
-Make a new GitHub repository with `usethis::use_github(protocol="https")`; check that the suggested title and description are OK. If you choose the affirmative response (not always the same number), you'll see some messages and your web browser will open the github repository page.
+Make a new GitHub repository with `r func("usethis::use_github", 'protocol="https"')`; check that the suggested title and description are OK. If you choose the affirmative response (not always the same number), you'll see some messages and your web browser will open the github repository page.
 
-Now you can share your app with others by sending them the repository link. They can access your repository in RStudio by starting a New Project from version control, using the URL that is shown when you click on the green "Code" button on the repository page (something like "https://github.com/account/repository.git"). They can run your app the same way you do when developing it, by opening the *app.R* file and clicking the Run button.
+Now you can share your app with others by sending them the repository link. They can access your repository in RStudio by starting a **`New Project...`** from version control, using the URL that is shown when you click on the green **`Code`** button on the repository page (something like "https://github.com/account/repository.git"). They can run your app the same way you do when developing it, by opening the `r path("app.R")` file and clicking the Run button.
 
-To update your files on GitHub, you need to `r glossary("commit")` any changes you make using the Git tab in the upper right pane. Click on the checkbox of any files you want to update, click "Commit", and write a message to yourself explaining the changes (this will be publicly viewable on GitHub, so try to be professional ;). 
+To update your files on GitHub, you need to `r glossary("commit")` any changes you make using the Git tab in the upper right pane. Click on the checkbox of any files you want to update, click **`Commit`**, and write a message to yourself explaining the changes (this will be publicly viewable on GitHub, so try to be professional, but you can use emojis 😱🤪😍). 
 
 Committing just creates a snapshot of the files on your computer so you can look at previous versions. To update the files on GitHub, you need to `r glossary("push")` the updates using the green up arrow button.
 
@@ -65,7 +65,8 @@ Git and GitHub can be tricky. [Happy Git with R](https://happygitwithr.com/){tar
 You can put your app in a custom R package to make it even easier for people to run the app. The usethis package is incredibly helpful for setting up packages.
 
 ```{r}
-usethis::create_package("mypackagename")
+mypackagename <- "mypackagename" # change this
+usethis::create_package(mypackagename)
 usethis::use_ccby_license()
 
 # add packages your app uses
@@ -77,10 +78,9 @@ dir.create("inst")
 dir.create("inst/apps")
 ```
 
-
 Copy any apps you want to include in this package into the inst/apps directory. 
 
-Now, create the app function by running `usethis::edit_file("R/app.R")` and copy the following text into the *app.R* file that just opened. Replace "default_app" with the directory name of the app that you want to open if a user doesn't type any name in at all.
+Now, create the app function by running `usethis::edit_file("R/app.R")` and copy the following text into the `r path("app.R")` file that just opened. Replace `r dt("default_app")` with the directory name of the app that you want to open if a user doesn't type any name in at all.  
 
 ```{r}
 #' Launch Shiny App
@@ -98,14 +98,14 @@ app <- function(name = "default_app", ...) {
 ```
 
 
-Next, open the *DESCRIPTION* file and edit the title, author and description. 
+Next, open the `r path("DESCRIPTION")` file and edit the title, author and description. Now run the following code in the console.
 
 ```{r}
 devtools::document()
 devtools::install()
 ```
 
-You should now be able to run your app with `mypackagename::app()`.
+This will create the help documentation for your package function and install the package on your computer. You should now be able to run your app with `r func("mypackagename::app")`.
 
 Set up git and save your package to GitHub to share it with others:
 
@@ -121,12 +121,11 @@ devtools::install_github("myaccountname/mypackagename")
 ```
 
 
-
 ## Exercises {#exercises-sharing}
 
 ### Shinyapps.io
 
-* Upload another demo app to shinyapps.io
+* Upload a cloned demo app to shinyapps.io
 * Check that you can access it online
 * Archive the app in the shinyapps.io dashboard
 

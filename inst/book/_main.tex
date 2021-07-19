@@ -149,7 +149,7 @@
 
 \title{Building Web Apps with R Shiny}
 \author{Lisa DeBruine}
-\date{2021-07-19}
+\date{2021-07-20}
 
 \begin{document}
 \maketitle
@@ -161,6 +161,8 @@
 \hypertarget{overview}{%
 \chapter*{Overview}\label{overview}}
 \addcontentsline{toc}{chapter}{Overview}
+
+\includegraphics{images/shinyintro.png}
 
 Shiny lets you make web applications that do anything you can code in R. For example, you can share your data analysis in a dynamic way with people who don't use R, collect and visualize data, or even make \href{https://towardsdatascience.com/getting-started-with-generative-art-in-r-3bc50067d34b}{data aRt}.
 
@@ -681,10 +683,6 @@ Notice that the code \texttt{aes(waiting)} from before has changed to \texttt{ae
 
 Re-run your app and see if you can change the data and x-axis label with your new widget.
 
-\textbackslash begin\{figure\}
-
-\{\centering \href{https://shiny.psy.gla.ac.uk/debruine/first_demo/}{\includegraphics[width=1\linewidth]{_main_files/figure-latex/first-demo-app-1} }
-
 \hypertarget{app-structure}{%
 \section{App Structure}\label{app-structure}}
 
@@ -961,10 +959,6 @@ Compare the app behaviour with the first pattern versus the second. How are they
 
 Create the UI for following \href{https://shiny.psy.gla.ac.uk/debruine/add_demo/}{addition app}. Use {numericInput}() to create the inputs.
 
-\textbackslash begin\{figure\}
-
-\{\centering \href{https://shiny.psy.gla.ac.uk/debruine/add_demo/}{\includegraphics[width=1\linewidth]{_main_files/figure-latex/add-demo-app-1} }
-
 Solution
 
 \begin{Shaded}
@@ -1032,10 +1026,6 @@ Solution
 \section{Basic template for shinydashboard projects}\label{basic-template-for-shinydashboard-projects}}
 
 The shinyintro package provides a basic template for a shinydashboard project.
-
-\textbackslash begin\{figure\}
-
-\{\centering \href{https://shiny.psy.gla.ac.uk/debruine/basic_template/}{\includegraphics[width=1\linewidth]{_main_files/figure-latex/basic-template-app-1} }
 
 You can start a new app using the template with the code \texttt{shinyintro::clone("basic\_template",\ "myapp")}. This will create a new directory called myapp in your working directory and open the app.R file in RStudio.
 
@@ -1409,10 +1399,6 @@ Alternatively, you can arrange boxes or other elements inside a {column}() with 
 
 Inputs are ways that users can communicate information to the Shiny app. Explore some different input types in the embedded app below before you read about how to set up each type.
 
-\textbackslash begin\{figure\}
-
-\{\centering \href{https://shiny.psy.gla.ac.uk/debruine/input_demo/}{\includegraphics[width=1\linewidth]{_main_files/figure-latex/input-demo-app-1} }
-
 \hypertarget{textinput}{%
 \subsection{textInput}\label{textinput}}
 
@@ -1668,10 +1654,6 @@ Output are ways that the Shiny app can dynamically display information to the us
 
 Explore some different output types in the embedded app below before you read about how to set up each type.
 
-\textbackslash begin\{figure\}
-
-\{\centering \href{https://shiny.psy.gla.ac.uk/debruine/output_demo/}{\includegraphics[width=1\linewidth]{_main_files/figure-latex/output-demo-app-1} }
-
 \hypertarget{text}{%
 \section{Text}\label{text}}
 
@@ -1925,10 +1907,6 @@ There are a lot of great tutorials that explain the principles behind reactive f
 Reactivity is how Shiny determines which code in {server}() gets to run when. Some types of objects, such as the \texttt{input} object or objects made by {reactiveValues}(), can trigger some types of functions to run whenever they change.
 
 For our example, we will use the \texttt{reactive\_demo} app. It shows three select inputs that allow the user to choose values from the cut, color, and clarity columns of the \texttt{diamonds} dataset from ggplot2, then draws a plot of the relationship between carat and price for the selected subset.
-
-\textbackslash begin\{figure\}
-
-\{\centering \href{https://shiny.psy.gla.ac.uk/debruine/reactive_demo/}{\includegraphics[width=1\linewidth]{_main_files/figure-latex/reactive-demo-app-1} }
 
 Here is the relevant code for the UI. There are four inputs: cut, color, clarity, and update. There are two outputs: title and plot.
 
@@ -2521,9 +2499,11 @@ However, even if a Google Sheet is publicly editable, you can't add data to it w
 
 \begin{verbatim}
 ## Error: Client error: (401) UNAUTHENTICATED
-## * Request not authenticated due to missing, invalid, or expired OAuth token.
-## * Request is missing required authentication credential. Expected OAuth 2 access
-##   token, login cookie or other valid authentication credential. See
+## * Request not authenticated due to missing, invalid, or expired
+##   OAuth token.
+## * Request is missing required authentication credential.
+##   Expected OAuth 2 access token, login cookie or other valid
+##   authentication credential. See
 ##   https://developers.google.com/identity/sign-in/web/devconsole-project.
 \end{verbatim}
 
@@ -2618,7 +2598,7 @@ You can set up a new Google Sheet with code. You only need to do this once for a
 
 \begin{verbatim}
 ## Spreadsheet name: demo2
-##               ID: 1e5oQ1PMZFs3dlBGeQiQBQ7g7mnW5NbFU7OXj42bwNcI
+##               ID: 1UP08pCnMxeKrIn2itfYHoyBMMpihI6x2BR9IbFfxmjU
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -3236,12 +3216,12 @@ Add some new styles to www/custom.css in your custom app. See if you can figure 
 \hypertarget{structure}{%
 \chapter{Structuring a complex app}\label{structure}}
 
-So far, we've been mostly structuring our app entirely in the \emph{app.R} file, apart from some of the web helper files for CSS and JavaScript. However, once your apps start getting relatively complex, you might find it easier to move some of the code into external \emph{.R} files and using \texttt{source()} to include them. There are a few things to watch out for when you do this.
+So far, we've been mostly structuring our app entirely in the app.R file, apart from some of the web helper files for CSS and JavaScript. However, once your apps start getting relatively complex, you might find it easier to move some of the code into external .R files and using \texttt{source()} to include them. There are a few things to watch out for when you do this.
 
 \hypertarget{external-server-functions}{%
 \section{External Server Functions}\label{external-server-functions}}
 
-You can define functions you want to use in your app at the top of the \emph{app.R} file, but that can make that file difficult to parse pretty quickly. The basic template includes external functions with the line:
+You can define functions you want to use in your app at the top of the app.R file, but that can make that file difficult to parse pretty quickly. The basic template includes external functions with the line:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3249,14 +3229,14 @@ You can define functions you want to use in your app at the top of the \emph{app
 \end{Highlighting}
 \end{Shaded}
 
-This file contains definitions for the functions \texttt{debug\_msg()} and \texttt{debug\_sprintf()}. You can add your own custom functions to this file or to another file that you source in separately.
+This file contains definitions for the functions {debug\_msg}() and {debug\_sprintf}(). You can add your own custom functions to this file or to another file that you source in separately.
 
-All \texttt{.R} files inside a directory called \texttt{R} will run before the app starts up, even if you don't source them into the app. You can use this to set up any functions your app needs without having to use \texttt{source()}, but I prefer to explicitly include external files, so I keep external functions in a directory called \texttt{scripts}.
+All .R files inside a directory called R will run before the app starts up, even if you don't source them into the app. You can use this to set up any functions your app needs without having to use {source}(), but I prefer to explicitly include external files, so I keep external functions in a directory called \texttt{scripts}.
 
 \hypertarget{sourcing-locally}{%
 \subsection{Sourcing Locally}\label{sourcing-locally}}
 
-It can be tricky to use shiny functions to external files. For example, you can't just move the contents of \texttt{server()} to an external file called \texttt{scripts/logo.R} and source the file in like this:
+It can be tricky to use shiny functions to external files. For example, you can't just move the contents of {server}() to an external file called scripts/logo.R and source the file in like this:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3266,9 +3246,9 @@ It can be tricky to use shiny functions to external files. For example, you can'
 \end{Highlighting}
 \end{Shaded}
 
-You'll get an error like: ``Error in output\$logo \textless- renderImage(\{ : object `output' not found''. This is because the input and output objects only work like you'd expect when they are inside the \texttt{server()} function.
+You'll get an error like: ``Error in output\$logo \textless- renderImage(\{ : object `output' not found''. This is because the input and output objects only work like you'd expect when they are inside {server}()
 
-However, you can source in external code inside \texttt{server()} by setting the \texttt{local} argument to TRUE.
+However, you can source in external code inside {server}() by setting the \texttt{local} argument to TRUE.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3278,9 +3258,9 @@ However, you can source in external code inside \texttt{server()} by setting the
 \end{Highlighting}
 \end{Shaded}
 
-You might find it useful to break up parts of the server logic for a very big app into separate files like this, but it's more common to keep any code that uses reactive functions inside \texttt{server()} in the \emph{app.R} file, and move large sections of code inside those functions to externally defined functions.
+You might find it useful to break up parts of the server logic for a very big app into separate files like this, but it's more common to keep any code that uses reactive functions inside {server}() in the app.R file, and move large sections of code inside those functions to externally defined functions.
 
-For example, you could define the function \texttt{logo\_image()} in the external file \texttt{scripts/logo.R} like this:
+For example, you could define the function {logo\_image}() in the external file scripts/logo.R like this:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3293,7 +3273,7 @@ For example, you could define the function \texttt{logo\_image()} in the externa
 \end{Highlighting}
 \end{Shaded}
 
-The following in the \emph{app.R} file keeps the reactive function \texttt{renderImage()} inside \texttt{server()}, but lets you reduce the number of lines of code.
+The following in the app.R file keeps the reactive function {renderImage}() inside {server}(), but lets you reduce the number of lines of code.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3309,7 +3289,7 @@ The following in the \emph{app.R} file keeps the reactive function \texttt{rende
 \hypertarget{inputs-and-outputs}{%
 \subsection{Inputs and Outputs}\label{inputs-and-outputs}}
 
-The objects \texttt{input} and \texttt{output} aren't available by default to externally defined functions. Let's add an action button to the ui for our app, \texttt{actionButton("change",\ "Change\ Image")}, and change the \texttt{logo\_image()} function so that it returns the ShinyIntro logo on odd-numbered clicks of the change button, and the psyTeachR logo on even-numbered clicks.
+The objects \texttt{input} and \texttt{output} aren't available by default to externally defined functions. Let's add an action button to the ui for our app, \texttt{actionButton("change",\ "Change\ Image")}, and change the {logo\_image}() function so that it returns the ShinyIntro logo on odd-numbered clicks of the change button, and the psyTeachR logo on even-numbered clicks.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3327,11 +3307,11 @@ The objects \texttt{input} and \texttt{output} aren't available by default to ex
 \end{Highlighting}
 \end{Shaded}
 
-If you try to run this, you'll get an error message like, ``Error in logo\_image: object `input' not found''. This is because the external function doesn't have access to reactive objects like \texttt{input}, \texttt{output}, \texttt{session}, or any \texttt{reactiveValues()}.
+If you try to run this, you'll get an error message like, ``Error in logo\_image: object `input' not found''. This is because the external function doesn't have access to reactive objects like \texttt{input}, \texttt{output}, \texttt{session}, or any {reactiveValues}().
 
 The best solution is to pass any variables to the function that you need. In some circumstances, you can pass the whole \texttt{input} object, but that's seldom necessary.
 
-Here, we change \texttt{logo\_image()} to take a single argument called \texttt{change} and replace \texttt{input\$change} with this argument.
+Here, we change {logo\_image}() to take a single argument called {change} and replace \texttt{input\$change} with this argument.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3349,7 +3329,7 @@ Here, we change \texttt{logo\_image()} to take a single argument called \texttt{
 \end{Highlighting}
 \end{Shaded}
 
-Then we just have to pass the value of \texttt{input\$change} to \texttt{logo\_image()} inside \texttt{renderImage()}, where the \texttt{input} object is available.
+Then we just have to pass the value of \texttt{input\$change} to {logo\_image}() inside {renderImage}(), where the \texttt{input} object is available.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3366,7 +3346,7 @@ Don't worry too much if this isn't making a lot of sense yet. The main thing I w
 \hypertarget{external-ui-files}{%
 \section{External UI Files}\label{external-ui-files}}
 
-Defining a complex UI can be very challenging. The basic template uses a pattern that I find helpful with apps that have multiple tab items. I assign each tab to an object and then include the tabs of the app in \texttt{dashboardBody()} like this:
+Defining a complex UI can be very challenging. The basic template uses a pattern that I find helpful with apps that have multiple tab items. I assign each tab to an object and then include the tabs of the app in {dashboardBody}() like this:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3379,16 +3359,16 @@ Defining a complex UI can be very challenging. The basic template uses a pattern
 \end{Highlighting}
 \end{Shaded}
 
-For a simple app, you can define the tabs in \emph{app.R} just before you define the \texttt{ui}. You can do the same for any components of the \texttt{ui}, such as \texttt{dashboardHeader()} or \texttt{dashboardSidebar()}. When the sections start getting complex, you can move them into external files and source them in.
+For a simple app, you can define the tabs in app.R just before you define the \texttt{ui}. You can do the same for any components of the \texttt{ui}, such as {dashboardHeader}() or {dashboardSidebar}(). When the sections start getting complex, you can move them into external files and source them in.
 
 \hypertarget{ui-lists}{%
 \subsection{UI Lists}\label{ui-lists}}
 
 \includegraphics{images/structure_ui.png}
 
-When parts of the UI repeat or can be created programmatically instead of manually, you can use \texttt{apply()} or \texttt{map()} functions to create a list of UI components. It can be a little tricky to figure out how to add a list of components into the UI, but this can be accomplished with \texttt{do.call()}.
+When parts of the UI repeat or can be created programmatically instead of manually, you can use {apply}() or {map}() functions to create a list of UI components. It can be a little tricky to figure out how to add a list of components into the UI, but this can be accomplished with {do.call}().
 
-Here's an example of how you would programatically create select inputs for each categorical column of the \texttt{starwars} dataset from \texttt{dplyr} and add them to a \texttt{box()}.
+Here's an example of how you would programatically create select inputs for each categorical column of the \texttt{starwars} dataset from dplyr and add them to a {box}().
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3419,42 +3399,40 @@ Here's an example of how you would programatically create select inputs for each
 \hypertarget{server-functions}{%
 \subsection{server functions}\label{server-functions}}
 
-In the app you're developing, see if there are any long functions inside reactive functions in \texttt{server()} that can be moved to \emph{scripts/func.R} or another external file.
+In the app you're developing, see if there are any long functions inside reactive functions in {server}() that can be moved to scripts/func.R or another external file.
 
 \hypertarget{ui-files}{%
 \subsection{UI files}\label{ui-files}}
 
-In the app you're developing, move each tab into an external file and source it into \emph{app.R}.
+In the app you're developing, move each tab into an external file and source it into app.R.
 
 \hypertarget{debugging}{%
 \chapter{Debugging and error handling}\label{debugging}}
 
-Bugs are a part of coding. A great coder isn't someone who writes bug-free code on the first try (this is an unachievable goal), but rather someone who knows how to efficiently catch bugs. This sections presents a few simple ways to debug your Shiny app. See the article \href{https://shiny.rstudio.com/articles/debugging.html}{Debugging Shiny applications} for further debugging strategies, including breakpoints and \href{https://rstudio.github.io/reactlog/}{reactlog}.
+Bugs are a part of coding. A great coder isn't someone who writes bug-free code on their first try (this is an unachievable goal), but rather someone who knows how to efficiently catch bugs. This section presents a few simple ways to debug your Shiny app.
 
 \hypertarget{rstudio-console-messages}{%
 \section{RStudio Console Messages}\label{rstudio-console-messages}}
 
 Sending messages to the console is a simple way to debug your code.
 
-I like to keep track of what functions are being called by starting every function inside the server function with a message. The template includes a custom message logging function that helps you use this with both development and deployed apps: \texttt{debug\_msg()}.
+I like to keep track of what functions are being called by starting every function inside the server function with a message. The template includes a custom message logging function that helps you use this with both development and deployed apps: {debug\_msg}().
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# display debugging messages in R if local, }
-\CommentTok{\# or in the console log if remote}
+\CommentTok{\# display debugging messages in R (if local) }
+\CommentTok{\# and in the console log (if running in shiny)}
 \NormalTok{debug\_msg }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(...) \{}
 \NormalTok{  is\_local }\OtherTok{\textless{}{-}} \FunctionTok{Sys.getenv}\NormalTok{(}\StringTok{\textquotesingle{}SHINY\_PORT\textquotesingle{}}\NormalTok{) }\SpecialCharTok{==} \StringTok{""}
+\NormalTok{  in\_shiny }\OtherTok{\textless{}{-}} \SpecialCharTok{!}\FunctionTok{is.null}\NormalTok{(shiny}\SpecialCharTok{::}\FunctionTok{getDefaultReactiveDomain}\NormalTok{())}
 \NormalTok{  txt }\OtherTok{\textless{}{-}} \FunctionTok{toString}\NormalTok{(}\FunctionTok{list}\NormalTok{(...))}
-  \ControlFlowTok{if}\NormalTok{ (is\_local) \{}
-    \FunctionTok{message}\NormalTok{(txt)}
-\NormalTok{  \} }\ControlFlowTok{else}\NormalTok{ \{}
-\NormalTok{    shinyjs}\SpecialCharTok{::}\FunctionTok{runjs}\NormalTok{(}\FunctionTok{sprintf}\NormalTok{(}\StringTok{"console.debug(}\SpecialCharTok{\textbackslash{}"}\StringTok{\%s}\SpecialCharTok{\textbackslash{}"}\StringTok{)"}\NormalTok{, txt))}
-\NormalTok{  \}}
+  \ControlFlowTok{if}\NormalTok{ (is\_local) }\FunctionTok{message}\NormalTok{(txt)}
+  \ControlFlowTok{if}\NormalTok{ (in\_shiny) shinyjs}\SpecialCharTok{::}\FunctionTok{runjs}\NormalTok{(}\FunctionTok{sprintf}\NormalTok{(}\StringTok{"console.debug(}\SpecialCharTok{\textbackslash{}"}\StringTok{\%s}\SpecialCharTok{\textbackslash{}"}\StringTok{)"}\NormalTok{, txt))}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
-For example, the code below prints ``questionnaire submitted'' every time the action button \texttt{q\_submit} is pressed. It prints to the RStudio console when you're developing and to the javascript console for deployed apps.
+For example, the code below prints ``questionnaire submitted'' every time the action button \texttt{q\_submit} is pressed. It prints to the javascript console and also to the RStudio console when you're developing.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3479,12 +3457,12 @@ I use \href{https://www.mozilla.org/en-US/firefox/developer/}{FireFox Developer 
 \caption{Javascript consoles in FireFox Developer Edition and Chrome.}\label{fig:js-console}
 \end{figure}
 
-Shiny puts a lot of info you won't care about into the logs, so \texttt{debug\_msg()} writes messages to the debug console. You can filter just those messages by choosing only ``Debug'' in FireFox or ``Verbose'' in Chrome.
+Shiny puts a lot of info you won't care about into the logs, so {debug\_msg}() writes messages to the debug console. You can filter just those messages by choosing only \textbf{\texttt{Debug}} in FireFox or \textbf{\texttt{Verbose}} in Chrome.
 
 \hypertarget{showcase-mode}{%
 \section{Showcase Mode}\label{showcase-mode}}
 
-You can view an app in showcase mode by setting ``DisplayMode'' to ``Showcase'' (instead of ``Normal'') in the DESCRIPTION file in the app directory. When you're in this mode, you can see your app code, css files, and javascript files. The functions in your server function will highlight in yellow each time they are run. However, this isn't much help if many of your functions are in external files or you are using modules. Also, if your script is very long, you won't be able to see the highlighting unless you've scrolled to the right section, so I find it more straightforward to use the message method described above.
+You can view an app in showcase mode by setting ``DisplayMode'' to ``Showcase'' (instead of ``Normal'') in the DESCRIPTION file in the app directory. When you're in this mode, you can see your app code, css files, and javascript files. The functions in {server}() will highlight in yellow each time they are run. However, this isn't much help if many of your functions are in external files or you are using modules. Also, if your script is very long, you won't be able to see the highlighting unless you've scrolled to the right section, so I find it more straightforward to use the message method described above.
 
 \begin{verbatim}
 Title: Questionnaire Template
@@ -3506,9 +3484,9 @@ Type: Shiny
 \hypertarget{trycatch}{%
 \section{tryCatch}\label{trycatch}}
 
-You've probably experienced the greyed out screen of a crashed app more than enough now. In development, the next step is to look at the console to see if you have a warning or error message. If you're lucky, you can figure out where in the code this is happening (this is easier if you start all your functions with a debug message).
+You've probably experienced the greyed out screen of a crashed app more than enough now. In development, the next step is to look at the console to see if you have a warning or error message. If you're lucky, you can figure out where in the code this is happening (this is easier if you start all your functions with a debug message) and fix it.
 
-However, sometimes there are errors that are difficult to prevent. For example, you can try to restrict inputs so the users only enter numeric values using \texttt{numericInput()}, but some browsers will let you enter text values anyways. To avoid crashing the whole app, you can wrap potentially error-triggering code in \texttt{tryCatch()}.
+However, sometimes there are errors that are difficult to prevent. For example, you can try to restrict inputs so the users only enter numeric values using {numericInput}(), but many browsers will let you enter text values anyways (they cause a value of \texttt{NA}). To avoid crashing the whole app, you can wrap potentially error-triggering code in {tryCatch}().
 
 For example, the code below will cause an error because you can't add a number and a letter.
 
@@ -3524,7 +3502,7 @@ For example, the code below will cause an error because you can't add a number a
 ## Error in input$n1 + input$n2: non-numeric argument to binary operator
 \end{verbatim}
 
-The following code tries to run the code inside the curly brackets (\texttt{\{\}}), but if it creates an error, the error function will run. The object \texttt{e} is the error object, and you can print the message from it using \texttt{debug\_msg()} (this won't crash the app).
+The following code tries to run the code inside the curly brackets (\texttt{\{\}}), but if it creates an error, the error function will run. The object \texttt{e} is the error object, and you can print the message from it using {debug\_msg}() (this won't crash the app).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3555,6 +3533,11 @@ The return value from the error message is the value assigned to \texttt{sum} if
 
 The user above might be frustrated if they've made a mistake that causes an error and don't know what it was. You can help prevent errors and make the experience of using your app nicer by doing input checking and sending your users useful messages.
 
+\hypertarget{modal-dialogs}{%
+\subsection{Modal Dialogs}\label{modal-dialogs}}
+
+One method is to check your input values, generate an appropriate error message if anything is wrong, and show the message in a {modalDialog}().
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{observeEvent}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{submit, \{}
@@ -3565,30 +3548,100 @@ The user above might be frustrated if they've made a mistake that causes an erro
     \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}} \StringTok{""}
 \NormalTok{  )}
   \ControlFlowTok{if}\NormalTok{ (input\_error }\SpecialCharTok{!=} \StringTok{""}\NormalTok{) \{}
-\NormalTok{    shinyjs}\SpecialCharTok{::}\FunctionTok{alert}\NormalTok{(input\_error)}
+    \FunctionTok{showModal}\NormalTok{(}\FunctionTok{modalDialog}\NormalTok{(}
+      \AttributeTok{title =} \StringTok{"input\_error"}\NormalTok{,}
+\NormalTok{      input\_error,}
+      \AttributeTok{easyClose =} \ConstantTok{TRUE}
+\NormalTok{    ))}
     \FunctionTok{return}\NormalTok{() }\CommentTok{\# exit the function here}
 \NormalTok{  \}}
   
   \CommentTok{\# no input errors}
-\NormalTok{  sum }\OtherTok{\textless{}{-}}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{n1 }\SpecialCharTok{+}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{n2}
-\NormalTok{  output}\SpecialCharTok{$}\NormalTok{sum }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(sum)}
+\NormalTok{    sum }\OtherTok{\textless{}{-}}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{n1 }\SpecialCharTok{+}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{n2}
+\NormalTok{    add\_text }\OtherTok{\textless{}{-}} \FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%d + \%d = \%d"}\NormalTok{, input}\SpecialCharTok{$}\NormalTok{n1, input}\SpecialCharTok{$}\NormalTok{n2, sum)}
+\NormalTok{    output}\SpecialCharTok{$}\NormalTok{n1\_plus\_n2 }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(add\_text)}
 \NormalTok{\})}
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{validate}{%
+\subsection{Validate}\label{validate}}
+
+You can also use {validate}() and {need}() to test for required inputs to an output. However, this only works from inside a render function or a reactive function called inside a render function. I prefer to make my own pop-up messages like above, because they will work from any type of function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output) \{}
+\NormalTok{  add\_text }\OtherTok{\textless{}{-}} \FunctionTok{reactive}\NormalTok{(\{}
+\NormalTok{    input}\SpecialCharTok{$}\NormalTok{add }\CommentTok{\# triggers reactive}
+\NormalTok{    n1 }\OtherTok{\textless{}{-}} \FunctionTok{isolate}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{n1)}
+\NormalTok{    n2 }\OtherTok{\textless{}{-}} \FunctionTok{isolate}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{n2)}
+    \FunctionTok{validate}\NormalTok{(}
+      \FunctionTok{need}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(n1), }\StringTok{"The first value must a number"}\NormalTok{),}
+      \FunctionTok{need}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(n2), }\StringTok{"The second value must a number"}\NormalTok{)}
+\NormalTok{    )}
+    
+    \FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%d + \%d = \%d"}\NormalTok{, n1, n2, n1 }\SpecialCharTok{+}\NormalTok{ n2)}
+\NormalTok{  \})}
+
+\NormalTok{  output}\SpecialCharTok{$}\NormalTok{n1\_plus\_n2 }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(}\FunctionTok{add\_text}\NormalTok{())}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{resources-debugging}{%
+\section{Further Resources}\label{resources-debugging}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://shiny.rstudio.com/articles/debugging.html}{Debugging Shiny applications}
+\item
+  \href{https://rstudio.github.io/reactlog/}{reactlog}
+\item
+  \href{https://shiny.rstudio.com/articles/validation.html}{Write error messages for your UI with validate}
+\end{itemize}
+
+\hypertarget{exercises-debugging}{%
+\section{Exercises}\label{exercises-debugging}}
+
+\hypertarget{required-selections}{%
+\subsection{Required selections}\label{required-selections}}
+
+Write an app that creates the plot below for any checked values of a {checkboxGroupInput}() that lists all the orders in \texttt{msleep}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# this input is just an example for testing the code below}
+\NormalTok{input }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\AttributeTok{orders =} \FunctionTok{c}\NormalTok{(}\StringTok{"Carnivora"}\NormalTok{, }\StringTok{"Chiroptera"}\NormalTok{, }\StringTok{"Primates"}\NormalTok{))}
+\CommentTok{\# input \textless{}{-} list(orders = c()) \# check this to see what happens with no selections}
+
+\NormalTok{filtered\_data }\OtherTok{\textless{}{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{filter}\NormalTok{(msleep, order }\SpecialCharTok{\%in\%}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{orders)}
+
+\FunctionTok{ggplot}\NormalTok{(filtered\_data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ sleep\_total, }\AttributeTok{fill =}\NormalTok{ order)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{binwidth =} \DecValTok{1}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{order)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=1\linewidth]{_main_files/figure-latex/unnamed-chunk-126-1} \end{center}
+
+Add error checking to the app to deal with what happens when \texttt{input\$order} has no selections.
+
+\hypertarget{your-app-2}{%
+\subsection{Your app}\label{your-app-2}}
+
+In the app you're developing, find anywhere that a user could enter invalid information or cause an error and add a way to handle this.
+
 \hypertarget{contingency}{%
 \chapter{Contingent Display}\label{contingency}}
-
-\textbackslash begin\{figure\}
-
-\{\centering \href{https://shiny.psy.gla.ac.uk/debruine/contingency_demo/}{\includegraphics[width=1\linewidth]{_main_files/figure-latex/contingency-demo-app-1} }
 
 \hypertarget{hide-and-show}{%
 \section{Hide and Show}\label{hide-and-show}}
 
-I frequently want to make some aspect of a shiny app contingent on the state of another aspect, such as only showing a text input of the value of a select input is ``other''. You can use the \texttt{hide()} and \texttt{show()} functions from shinyjs to accomplish this easily.
+I frequently want to make some aspect of a shiny app contingent on the state of another aspect, such as only showing a text input of the value of a select input is ``other''. You can use the {hide}() and {show}() functions from shinyjs to accomplish this easily.
 
-When you set up the UI, wrap any elements that should be hidden at the start in \texttt{hidden()}.
+When you set up the UI, wrap any elements that should be hidden at the start in {hidden}().
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3603,7 +3656,7 @@ When you set up the UI, wrap any elements that should be hidden at the start in 
 \end{Highlighting}
 \end{Shaded}
 
-Then set up the hide and show logic in \texttt{server()}.
+Then set up the hide and show logic in {server}().
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3623,7 +3676,7 @@ Then set up the hide and show logic in \texttt{server()}.
 
 Sometimes you need to hide and show a group of elements, depending on something else. You can wrap the grouped elements in a div tag with an id and hide and show that id.
 
-For example, it doesn't make sense to show the questions above to someone who has never had a pet. Add a \texttt{selectInput()} before the previous two questions, and then wrap those questions in \texttt{tags\$div()} with an id of ``first\_pet\_grp''
+For example, it doesn't make sense to show the questions above to someone who has never had a pet. Add a {selectInput}() before the previous two questions, and then wrap those questions in {tags\$div}() with an id of {"first\_pet\_grp"}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3663,9 +3716,9 @@ Try to figure out what could go wrong if you didn't wrap ``first\_pet'' and ``fi
 \hypertarget{toggle}{%
 \subsection{Toggle}\label{toggle}}
 
-Sometimes you need to change the visibility of an element when something happens, rather than specifically hide or show it. You can use \texttt{toggle()} to hide an element if it's visible and show it if it's hidden.
+Sometimes you need to change the visibility of an element when something happens, rather than specifically hide or show it. You can use {toggle}() to hide an element if it's visible and show it if it's hidden.
 
-Add an \texttt{actionButton()} to the sidebar menu (not inside the box) and give the box an id of ``pet\_box''. Any element that you might want to refer to in the code needs an id.
+Add an {actionButton}() to the sidebar menu (not inside the box) and give the box an {id} of {"pet\_box"}. Any element that you might want to refer to in the code needs an {id}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3690,9 +3743,9 @@ What would go wrong if you put the button inside the box?
 \hypertarget{changing-styles}{%
 \section{Changing Styles}\label{changing-styles}}
 
-You can use \texttt{addClass()}, \texttt{removeClass()}, and \texttt{toggleClass()} to change element classes. You usually want to do this with classes you've defined yourself.
+You can use {addClass}(), {removeClass}(), and {toggleClass}() to change element classes. You usually want to do this with classes you've defined yourself.
 
-Add the following style to the \emph{www/custom.css} file.
+Add the following style to the www/custom.css file.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3717,7 +3770,7 @@ And add this box to the ui:
 \end{Highlighting}
 \end{Shaded}
 
-This code adds the class \texttt{notice-me} to the paragraph element ``notice\_text'' whenever the ``add\_notive'' button is pressed.
+This code adds the class {"notice-me"} to the paragraph element {"notice\_text"} whenever the ``add\_notice'' button is pressed.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3727,14 +3780,14 @@ This code adds the class \texttt{notice-me} to the paragraph element ``notice\_t
 \end{Highlighting}
 \end{Shaded}
 
-Guess how you would use \texttt{removeClass()}, and \texttt{toggleClass()} with the buttons set up above.
+Guess how you would use {removeClass}(), and {toggleClass}() with the buttons set up above.
 
 \hypertarget{changing-non-shiny-elements}{%
 \subsection{Changing non-shiny elements}\label{changing-non-shiny-elements}}
 
-Unfortunately, not all elements on the web page have an ID that can be altered by \texttt{addClass()} or \texttt{removeClass()}. For example, the skin of a shinydashboard app is determined by the css class of the body element. However, we can use \texttt{runjs()} to run any arbitrary \protect\hyperlink{JavaScript}{JavaScript} code.
+Unfortunately, not all elements on the web page have an ID that can be altered by {addClass}() or {removeClass}(). For example, the skin of a shinydashboard app is determined by the css class of the body element. However, we can use {runjs}() to run any arbitrary \protect\hyperlink{JavaScript}{JavaScript} code.
 
-Add the following action button into the sidebar menu.
+Add the following action button into the {sidebarMenu}().
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3764,7 +3817,7 @@ Changing the skin color with a button press isn't something you'll easily find d
 \hypertarget{changing-input-options}{%
 \section{Changing input options}\label{changing-input-options}}
 
-The relevant options in a \texttt{selectInput()} or \texttt{radioButton()} may change depending on the values of other inputs. Sometimes you can accommodate this by creating multiple versions of a input and hiding or showing. Other times you may wish to update the input directly.
+The relevant options in a {selectInput}() or {radioButton}() may change depending on the values of other inputs. Sometimes you can accommodate this by creating multiple versions of a input and hiding or showing. Other times you may wish to update the input directly.
 
 Add the following box to the ui.
 
@@ -3790,7 +3843,7 @@ First, set up the code to display the correct data in the table.
 \end{Highlighting}
 \end{Shaded}
 
-Now we need to set the options for ``columns'' depending on which ``dataset'' is selected.
+Now we need to set the options for {"columns"} depending on which ``dataset'' is selected.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3821,7 +3874,7 @@ Finally, we can add some code to select only the checked columns to display.
 \end{Highlighting}
 \end{Shaded}
 
-Why do we have to get the dataset again instead of using the data from \texttt{mydata()}?
+Why do we have to get the dataset again instead of using the data from {mydata}()?
 
 Finally, alter the reactive function to only show the selected columns.
 
@@ -3839,6 +3892,16 @@ What happens when you unselect all the columns? How can you fix this?
 \hypertarget{exercises-contingency}{%
 \section{Exercises}\label{exercises-contingency}}
 
+\hypertarget{filtered-data}{%
+\subsection{Filtered data}\label{filtered-data}}
+
+Create an app where you use inputs to filter a dataset and display a table of the filtered dataset. For example, with the \texttt{msleep} dataset, you could have inputs that select \texttt{vore}, \texttt{order} and \texttt{conservation}. Since some values will exclude categories (e.g., there are no omnivores in the order Cetacea), update the available categories in each input when values are selected. Make sure you have a way to reset the values.
+
+\hypertarget{your-app-3}{%
+\subsection{Your App}\label{your-app-3}}
+
+Check for places in your app that could use contingency.
+
 \hypertarget{sharing}{%
 \chapter{Sharing your Apps}\label{sharing}}
 
@@ -3853,24 +3916,24 @@ What happens when you unselect all the columns? How can you fix this?
 \item
   Open \textbf{\texttt{Tools\ \textgreater{}\ Global\ Options\ ...}}
 \item
-  Go to the \textbf{Publishing} tab
+  Go to the \textbf{\texttt{Publishing}} tab
 \item
-  Click the \textbf{Connect} button and choose ShinyApps.io
+  Click the \textbf{\texttt{Connect}} button and choose ShinyApps.io
 \item
   Click on the link to \href{https://www.shinyapps.io/}{go to your account}
 \item
-  Click the \textbf{Sign Up} button and \textbf{Sign up with GitHub}
+  Click the \textbf{\texttt{Sign\ Up}} button and \textbf{\texttt{Sign\ up\ with\ GitHub}}
 \item
-  You should now be in your shinyapps.io dashboard; click on your name in the upper right and choose \textbf{Tokens}
+  You should now be in your shinyapps.io dashboard; click on your name in the upper right and choose \textbf{\texttt{Tokens}}
 \item
   Add a token
 \item
-  Click \textbf{Show} next to the token and copy the text to the clipboard
+  Click \textbf{\texttt{Show}} next to the token and copy the text to the clipboard
   \includegraphics{images/saio_secret.png}
 \item
-  Go back to RStudio and paste the text in the box and click \textbf{Connect Account}
+  Go back to RStudio and paste the text in the box and click \textbf{\texttt{Connect\ Account}}
 \item
-  Make sure the box next to ``Enable publishing\ldots{}'' is ticked, click \textbf{Apply}, and close the options window
+  Make sure the box next to ``Enable publishing\ldots{}'' is ticked, click \textbf{\texttt{Apply}}, and close the options window
   ˙
   You can test this by creating a simple app. If you have the shinyintro package, use the code below.
 \end{enumerate}
@@ -3883,7 +3946,7 @@ What happens when you unselect all the columns? How can you fix this?
 
 \includegraphics{images/saio_publish.png}
 
-Open the app.R file and go to \textbf{\texttt{File\ \textgreater{}\ Publish...}} in the menu (or click on the blue icon in the upper right corner of the source pane). Make sure these are the right files for your app, edit the title if you want, and click \textbf{Publish}. A web browser window will open after a few seconds showing your app online! You can now share it with your friends and colleagues.
+Open the app.R file and go to \textbf{\texttt{File\ \textgreater{}\ Publish...}} in the menu (or click on the blue icon in the upper right corner of the source pane). Make sure these are the right files for your app, edit the title if you want, and click \textbf{\texttt{Publish}}. A web browser window will open after a few seconds showing your app online! You can now share it with your friends and colleagues.
 
 If publishing fails, check the Console pane. If you already have too many apps on shinyapps.io, you'll see the message, ``You have reached the maximum number of applications allowed for your account.'' You can archive some of your apps from the shinyapps.io dashboard if this is the problem.
 
@@ -3901,15 +3964,15 @@ If you save data locally on a shiny server, you may need to change the owner or 
 
 GitHub is a great place to organise and share your code using version control. You can also use it to host Shiny app code for others to download and run on their own computer.
 
-See \protect\hyperlink{setup-git}{Appendix B} for instructions on how to set up git and a GitHub account. Set up a github access token with \texttt{usethis::create\_github\_token()}. Your web browser will open and you'll be asked to log into your GitHub account and then asked to authorise a new token. Accept the defaults and click OK at the bottom of the page. In RStudio, run \texttt{gitcreds::gitcreds\_set()} and follow the instructions to save the token.
+See \protect\hyperlink{setup-git}{Appendix B} for instructions on how to set up git and a GitHub account. Set up a github access token with {usethis::create\_github\_token}(). Your web browser will open and you'll be asked to log into your GitHub account and then asked to authorise a new token. Accept the defaults and click OK at the bottom of the page. In RStudio, run {gitcreds::gitcreds\_set}() and follow the instructions to save the token.
 
-Then, to share an app with people who use R, make a project that contains your \emph{app.R} file and any related files. If you aren't already using version control for this project, make sure all of your files are saved and type \texttt{usethis::use\_git()} into the console. Choose Yes to commit and Yes to restart R.
+Then, to share an app with people who use R, make a project that contains your app.R file and any related files. If you aren't already using version control for this project, make sure all of your files are saved and type {usethis::use\_git}() into the console. Choose Yes to commit and Yes to restart R.
 
-Make a new GitHub repository with \texttt{usethis::use\_github(protocol="https")}; check that the suggested title and description are OK. If you choose the affirmative response (not always the same number), you'll see some messages and your web browser will open the github repository page.
+Make a new GitHub repository with {usethis::use\_github}(protocol=``https''); check that the suggested title and description are OK. If you choose the affirmative response (not always the same number), you'll see some messages and your web browser will open the github repository page.
 
-Now you can share your app with others by sending them the repository link. They can access your repository in RStudio by starting a New Project from version control, using the URL that is shown when you click on the green ``Code'' button on the repository page (something like ``\url{https://github.com/account/repository.git}''). They can run your app the same way you do when developing it, by opening the \emph{app.R} file and clicking the Run button.
+Now you can share your app with others by sending them the repository link. They can access your repository in RStudio by starting a \textbf{\texttt{New\ Project...}} from version control, using the URL that is shown when you click on the green \textbf{\texttt{Code}} button on the repository page (something like ``\url{https://github.com/account/repository.git}''). They can run your app the same way you do when developing it, by opening the app.R file and clicking the Run button.
 
-To update your files on GitHub, you need to commit any changes you make using the Git tab in the upper right pane. Click on the checkbox of any files you want to update, click ``Commit'', and write a message to yourself explaining the changes (this will be publicly viewable on GitHub, so try to be professional ;).
+To update your files on GitHub, you need to commit any changes you make using the Git tab in the upper right pane. Click on the checkbox of any files you want to update, click \textbf{\texttt{Commit}}, and write a message to yourself explaining the changes (this will be publicly viewable on GitHub, so try to be professional, but you can use emojis 😱🤪😍).
 
 Committing just creates a snapshot of the files on your computer so you can look at previous versions. To update the files on GitHub, you need to push the updates using the green up arrow button.
 
@@ -3922,7 +3985,8 @@ You can put your app in a custom R package to make it even easier for people to 
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{usethis}\SpecialCharTok{::}\FunctionTok{create\_package}\NormalTok{(}\StringTok{"mypackagename"}\NormalTok{)}
+\NormalTok{mypackagename }\OtherTok{\textless{}{-}} \StringTok{"mypackagename"} \CommentTok{\# change this}
+\NormalTok{usethis}\SpecialCharTok{::}\FunctionTok{create\_package}\NormalTok{(mypackagename)}
 \NormalTok{usethis}\SpecialCharTok{::}\FunctionTok{use\_ccby\_license}\NormalTok{()}
 
 \CommentTok{\# add packages your app uses}
@@ -3937,7 +4001,7 @@ You can put your app in a custom R package to make it even easier for people to 
 
 Copy any apps you want to include in this package into the inst/apps directory.
 
-Now, create the app function by running \texttt{usethis::edit\_file("R/app.R")} and copy the following text into the \emph{app.R} file that just opened. Replace ``default\_app'' with the directory name of the app that you want to open if a user doesn't type any name in at all.
+Now, create the app function by running \texttt{usethis::edit\_file("R/app.R")} and copy the following text into the app.R file that just opened. Replace {"default\_app"} with the directory name of the app that you want to open if a user doesn't type any name in at all.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3956,7 +4020,7 @@ Now, create the app function by running \texttt{usethis::edit\_file("R/app.R")} 
 \end{Highlighting}
 \end{Shaded}
 
-Next, open the \emph{DESCRIPTION} file and edit the title, author and description.
+Next, open the DESCRIPTION file and edit the title, author and description. Now run the following code in the console.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3965,7 +4029,7 @@ Next, open the \emph{DESCRIPTION} file and edit the title, author and descriptio
 \end{Highlighting}
 \end{Shaded}
 
-You should now be able to run your app with \texttt{mypackagename::app()}.
+This will create the help documentation for your package function and install the package on your computer. You should now be able to run your app with {mypackagename::app}().
 
 Set up git and save your package to GitHub to share it with others:
 
@@ -3993,7 +4057,7 @@ Once it's uploaded to GitHub, other people can install it with the following cod
 \begin{itemize}
 \tightlist
 \item
-  Upload another demo app to shinyapps.io
+  Upload a cloned demo app to shinyapps.io
 \item
   Check that you can access it online
 \item
@@ -4031,14 +4095,10 @@ Once it's uploaded to GitHub, other people can install it with the following cod
 
 While the best part of Shiny apps is their interactivity, sometimes your users need to download data, images, or a static report. This section will show you how.
 
-\textbackslash begin\{figure\}
-
-\{\centering \href{https://shiny.psy.gla.ac.uk/debruine/reports_demo/}{\includegraphics[width=1\linewidth]{_main_files/figure-latex/reports-demo-app-1} }
-
 \hypertarget{download-data}{%
 \section{Download Data}\label{download-data}}
 
-First, we need to add the appropriate UI to our questionnaire app. Create a new tab called ``report\_tab'' with two \texttt{downloadButton()}s, one for the pets data and one for the food data.
+First, we need to add the appropriate UI to our questionnaire app. Create a new tab called {"report\_tab"} with two {downloadButton}()s, one for the pets data and one for the food data.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4055,9 +4115,9 @@ First, we need to add the appropriate UI to our questionnaire app. Create a new 
 \end{Highlighting}
 \end{Shaded}
 
-Remember to add this to \texttt{tabItems()} in \texttt{dashboardBody()} and also add a corresponding \texttt{menuItem()} in \texttt{sidebarMenu()}. Run the app to make sure the UI looks like you expect before you proceed.
+Remember to add this to {tabItems}() in {dashboardBody}() and also add a corresponding {menuItem}() in {sidebarMenu}(). Run the app to make sure the UI looks like you expect before you proceed.
 
-Now we need to add code to \texttt{server()} to handle the downloads. \texttt{downloadButton()} is a special type of output that is handled by \texttt{downloadHandler()}. This function takes two arguments, a function to create the filename and a function to create the content.
+Now we need to add code to {server}() to handle the downloads. {downloadButton}() is a special type of output that is handled by {downloadHandler}(). This function takes two arguments, a function to create the {filename} and a function to create the {content}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4074,12 +4134,12 @@ Now we need to add code to \texttt{server()} to handle the downloads. \texttt{do
 \end{Highlighting}
 \end{Shaded}
 
-Instead of \texttt{write.csv()} or \texttt{readr::write\_csv()}, here we're using \texttt{gs4\_write\_csv()} (defined in \texttt{scripts/gs4.R}) because googlesheets can return list columns that cause errors when \protect\hyperlink{gs4_save}{saving to CSV} without some preprocessing.
+Instead of {write.csv}() or {readr::write\_csv}(), here we're using {gs4\_write\_csv}() (defined in scripts/gs4.R) because googlesheets can return list columns that cause errors when \protect\hyperlink{gs4_save}{saving to CSV} without some preprocessing.
 
 \hypertarget{download-images}{%
 \section{Download Images}\label{download-images}}
 
-Now that we need to use the summary plot in more than one place, it doesn't make sense to build it twice. Move all of the code from the \texttt{renderPlot()} for \texttt{output\$pet\_summary} into a \texttt{reactive()} called \texttt{pet\_summary\_plot}. Then we can build the plot whenever the inputs change and refer to it anywhere as \texttt{pet\_summary\_plot()}.
+Now that we need to use the summary plot in more than one place, it doesn't make sense to build it twice. Move all of the code from the {renderPlot}() for \texttt{output\$pet\_summary} into a {reactive}() called \texttt{pet\_summary\_plot}. Then we can build the plot whenever the inputs change and refer to it anywhere as {pet\_summary\_plot}().
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4095,7 +4155,7 @@ Now that we need to use the summary plot in more than one place, it doesn't make
 \end{Highlighting}
 \end{Shaded}
 
-The \texttt{downloadHandler()} works the same as for downloading a CSV file. You can use \texttt{ggsave()} to write the plot.
+The {downloadHandler}() works the same as for downloading a CSV file. You can use {ggsave}() to write the plot.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4114,7 +4174,7 @@ The \texttt{downloadHandler()} works the same as for downloading a CSV file. You
 \end{Highlighting}
 \end{Shaded}
 
-Add numeric inputs to the UI to let the user specify the downloaded plot width and height.
+Add numeric inputs to the UI to let the user specify the downloaded plot {width} and {height}.
 
 Solution
 
@@ -4147,7 +4207,7 @@ Solution
 
 You can render an R Markdown report for users to download.
 
-First, you need to save an R Markdown file (save the one below as \texttt{reports/report.Rmd}). You need to set up \texttt{params} for any info that you want to pass from the Shiny app in th YAML header. Here, we will dynamically update the title, data, and plot. You can set the values to \texttt{NULL} or another default value.
+First, you need to save an R Markdown file (save the one below as reports/report.Rmd). You need to set up \texttt{params} for any info that you want to pass from the Shiny app in th YAML header. Here, we will dynamically update the title, data, and plot. You can set the values to \texttt{NULL} or another default value.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4186,7 +4246,7 @@ params$plot
 ```
 \end{verbatim}
 
-The \texttt{content} function uses \texttt{rmarkdown::render()} to create the output file from Rmd. We are using \texttt{html\_document} as the output type, but you can also render as a PDF or Word document if you have pandoc or latex installed. Include the title, data and plot as a named list to the \texttt{params} argument.
+The \texttt{content} function uses {rmarkdown::render}() to create the output file from Rmd. We are using \texttt{html\_document} as the output type, but you can also render as a PDF or Word document if you have pandoc or latex installed. Include the {title}, {data} and {plot} as a named list to the {params} argument.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4211,9 +4271,9 @@ The \texttt{content} function uses \texttt{rmarkdown::render()} to create the ou
 \end{Highlighting}
 \end{Shaded}
 
-Setting the \texttt{envir} argument to \texttt{new.env()} makes sure that settings in your Shiny app, such as a default ggplot theme, can't affect the rendered file, but also makes it so that the R Markdown code will not have access to any objects from your app, such as \texttt{input} or \texttt{v\$summary\_data}, unless you pass them as parameters.
+Setting the {envir} argument to {new.env}() makes sure that settings in your Shiny app, such as a default ggplot theme, can't affect the rendered file, but also makes it so that the R Markdown code will not have access to any objects from your app, such as \texttt{input} or \texttt{v\$summary\_data}, unless you pass them as parameters.
 
-On your own computer, you don't need to set \texttt{intermediates\_dir\ =\ tempdir()}, but you will need to do this if you want to deploy your app on a shiny server. When rmarkdown renders an Rmd file, it creates several intermediate files in the working directory and then deletes them. you have permission to write to the app's working directory on your own computer, but might not on a shiny server. \texttt{tempdir()} is almost always a safe place to write temporary files to.
+On your own computer, you don't need to set \texttt{intermediates\_dir\ =\ tempdir()}, but you will need to do this if you want to deploy your app on a shiny server. When rmarkdown renders an Rmd file, it creates several intermediate files in the working directory and then deletes them. you have permission to write to the app's working directory on your own computer, but might not on a shiny server. {tempdir}() is almost always a safe place to write temporary files to.
 
 \hypertarget{exercises-reports}{%
 \section{Exercises}\label{exercises-reports}}
@@ -4321,14 +4381,10 @@ Solution
 
 If you find yourself making nearly identical UIs or server functions over and over in the same app, you might benefit from modules. This is a way to define a pattern to use repeatedly.
 
-\textbackslash begin\{figure\}
-
-\{\centering \href{https://shiny.psy.gla.ac.uk/debruine/modules_demo/}{\includegraphics[width=1\linewidth]{_main_files/figure-latex/modules-demo-app-1} }
-
 \hypertarget{modularizing-the-ui}{%
 \section{Modularizing the UI}\label{modularizing-the-ui}}
 
-The two tabPanels below follow nearly identical patterns. You can often identify a place where modules might be useful when you use a naming convention like \{base\}\_\{type\} for the ids.
+The two tabPanels below follow nearly identical patterns. You can often identify a place where modules might be useful when you use a naming convention like "\{base\}\_\{type\}" for the {id}s.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4348,9 +4404,9 @@ The two tabPanels below follow nearly identical patterns. You can often identify
 \end{Highlighting}
 \end{Shaded}
 
-The first step in modularising your code is to make a function that creates the UIs above from the base ID and any other changing aspects. In the example above, the choices are different for each selectInput, so we'll make a function that has the arguments \texttt{id} and \texttt{choices}.
+The first step in modularising your code is to make a function that creates the UIs above from the base ID and any other changing aspects. In the example above, the choices are different for each {selectInput}(), so we'll make a function that has the arguments {id} and {choices}.
 
-The first line of a UI module function is always \texttt{ns\ \textless{}-\ NS(id)}, which creates a shorthand way to add the base id to the id type. So instead of the selectInput's name being ``iris\_dv'' or ``mtcars\_dv'', we set it as \texttt{ns("dv")}. All ids need to use \texttt{ns()} to add the namespace to thier ID.
+The first line of a UI module function is always \texttt{ns\ \textless{}-\ NS(id)}, which creates a shorthand way to add the base id to the id type. So instead of the {selectInput}()'s name being {"iris\_dv"} or {"mtcars\_dv"}, we set it as {ns}(dv). All ids need to use {ns}() to add the namespace to their ID.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4413,7 +4469,7 @@ In our original code, we have four functions that create the two output tables a
 
 The second step to modularising code is creating a server function. You can put all the functions the relate to the inputs and outputs in the UI function here, so we will include one to make the output table and one to make the output plot.
 
-The server function takes the base id as the first argument, and then any arguments you need to specify things that change between base implementations. Above, the tables show different data and the plots use different groupings for the x axis and fill, so we'll add arguments for \texttt{data} and \texttt{group\_by}.
+The server function takes the base id as the first argument, and then any arguments you need to specify things that change between base implementations. Above, the tables show different data and the plots use different groupings for the x axis and fill, so we'll add arguments for {data} and {group\_by}.
 
 A server function \textbf{always} contains \texttt{moduleServer()} set up like below.
 
@@ -4489,7 +4545,7 @@ Try to implement the code above on your own.
 \hypertarget{new-instance}{%
 \subsection{2. New Instance}\label{new-instance}}
 
-Add a new tab called ``diamonds'' that visualises the \texttt{diamonds} dataset. Choose the columns you want as choices in the \texttt{selectInput()} and the grouping column.
+Add a new tab called ``diamonds'' that visualises the \texttt{diamonds} dataset. Choose the columns you want as choices in the {selectInput}() and the grouping column.
 
 UI Solution
 
@@ -4517,12 +4573,12 @@ You can group by any of the categorical columns: cut, color, or clarity.
 \begin{itemize}
 \tightlist
 \item
-  Add another \texttt{selectInput()} to the UI that allows the user to select the grouping variable. (\texttt{iris} only has one possibility, but \texttt{mtcars} and \texttt{diamonds} should have several)
+  Add another {selectInput}() to the UI that allows the user to select the grouping variable. (\texttt{iris} only has one possibility, but \texttt{mtcars} and \texttt{diamonds} should have several)
 \end{itemize}
 
 UI Solution
 
-You need to add a new selectInput() to the tabPanel. Remember to use \texttt{ns()} for the id. The choices for this select will also differ by data set, so you need to add \texttt{group\_choices} to the arguments of this function.
+You need to add a new {selectInput}() to the {tabPanel}(). Remember to use {ns}() for the id. The choices for this select will also differ by data set, so you need to add {group\_choices} to the arguments of this function.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4550,7 +4606,7 @@ Server Solution
 
 You no longer need \texttt{group\_by} in the arguments for this function because you are getting that info from an input.
 
-Instead of changing \texttt{group\_by} to \texttt{input\$group\_by} in three places in the code below, I just added the line \texttt{group\_by\ \textless{}-\ input\$group\_by} at the top of \texttt{moduleServer()}.
+Instead of changing {group\_by} to \texttt{input\$group\_by} in three places in the code below, I just added the line \texttt{group\_by\ \textless{}-\ input\$group\_by} at the top of {moduleServer}().
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4567,7 +4623,7 @@ Instead of changing \texttt{group\_by} to \texttt{input\$group\_by} in three pla
 \hypertarget{new-module}{%
 \subsection{4. New module}\label{new-module}}
 
-There is a fluidRow() before the tabsetPanel() in the ui that contains three \texttt{infoBoxOutput()} and three renderInfoBoxOutput() functions in the server function.
+There is a {fluidRow}() before the {tabsetPanel}() in the ui that contains three {infoBoxOutput}() and three {renderInfoBoxOutput}() functions in the server function.
 
 Modularise the info boxes and their associated server functions.
 
@@ -4602,7 +4658,7 @@ Server Function
 
 UI Code
 
-In the \texttt{ui}, replace the \texttt{fluidRow()} with this:
+In the \texttt{ui}, replace the {fluidRow}() with this:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4616,12 +4672,12 @@ In the \texttt{ui}, replace the \texttt{fluidRow()} with this:
 
 Server Code
 
-In \texttt{server()}, replace \texttt{renderInfoBox()} with this:
+In {server}(), replace {renderInfoBox}() with this:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{infoBoxServer}\NormalTok{(}\StringTok{"year"}\NormalTok{, }\StringTok{"Year"}\NormalTok{, }\StringTok{"\%Y"}\NormalTok{, }\StringTok{"calendar"}\NormalTok{)}
-\FunctionTok{infoBoxServer}\NormalTok{(}\StringTok{"month"}\NormalTok{, }\StringTok{"Month"}\NormalTok{, }\StringTok{"\%m"}\NormalTok{, }\StringTok{"calendar{-}alt"}\NormalTok{)}
+\FunctionTok{infoBoxServer}\NormalTok{(}\StringTok{"year"}\NormalTok{, }\StringTok{"Year"}\NormalTok{, }\StringTok{"\%Y"}\NormalTok{, }\StringTok{"calendar"}\NormalTok{),}
+\FunctionTok{infoBoxServer}\NormalTok{(}\StringTok{"month"}\NormalTok{, }\StringTok{"Month"}\NormalTok{, }\StringTok{"\%m"}\NormalTok{, }\StringTok{"calendar{-}alt"}\NormalTok{),}
 \FunctionTok{infoBoxServer}\NormalTok{(}\StringTok{"day"}\NormalTok{, }\StringTok{"Day"}\NormalTok{, }\StringTok{"\%d"}\NormalTok{, }\StringTok{"calendar{-}day"}\NormalTok{)}\ErrorTok{)}
 \end{Highlighting}
 \end{Shaded}

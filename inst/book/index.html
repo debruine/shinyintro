@@ -24,7 +24,7 @@
 <meta name="author" content="Lisa DeBruine" />
 
 
-<meta name="date" content="2021-07-19" />
+<meta name="date" content="2021-07-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -348,7 +348,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2" data-path="debugging.html"><a href="debugging.html#javascript-console"><i class="fa fa-check"></i><b>9.2</b> JavaScript Console</a></li>
 <li class="chapter" data-level="9.3" data-path="debugging.html"><a href="debugging.html#showcase-mode"><i class="fa fa-check"></i><b>9.3</b> Showcase Mode</a></li>
 <li class="chapter" data-level="9.4" data-path="debugging.html"><a href="debugging.html#trycatch"><i class="fa fa-check"></i><b>9.4</b> tryCatch</a></li>
-<li class="chapter" data-level="9.5" data-path="debugging.html"><a href="debugging.html#input-checking"><i class="fa fa-check"></i><b>9.5</b> Input Checking</a></li>
+<li class="chapter" data-level="9.5" data-path="debugging.html"><a href="debugging.html#input-checking"><i class="fa fa-check"></i><b>9.5</b> Input Checking</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="debugging.html"><a href="debugging.html#modal-dialogs"><i class="fa fa-check"></i><b>9.5.1</b> Modal Dialogs</a></li>
+<li class="chapter" data-level="9.5.2" data-path="debugging.html"><a href="debugging.html#validate"><i class="fa fa-check"></i><b>9.5.2</b> Validate</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="debugging.html"><a href="debugging.html#resources-debugging"><i class="fa fa-check"></i><b>9.6</b> Further Resources</a></li>
+<li class="chapter" data-level="9.7" data-path="debugging.html"><a href="debugging.html#exercises-debugging"><i class="fa fa-check"></i><b>9.7</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="debugging.html"><a href="debugging.html#required-selections"><i class="fa fa-check"></i><b>9.7.1</b> Required selections</a></li>
+<li class="chapter" data-level="9.7.2" data-path="debugging.html"><a href="debugging.html#your-app-2"><i class="fa fa-check"></i><b>9.7.2</b> Your app</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="contingency.html"><a href="contingency.html"><i class="fa fa-check"></i><b>10</b> Contingent Display</a>
 <ul>
@@ -362,7 +372,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2.1" data-path="contingency.html"><a href="contingency.html#changing-non-shiny-elements"><i class="fa fa-check"></i><b>10.2.1</b> Changing non-shiny elements</a></li>
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="contingency.html"><a href="contingency.html#changing-input-options"><i class="fa fa-check"></i><b>10.3</b> Changing input options</a></li>
-<li class="chapter" data-level="10.4" data-path="contingency.html"><a href="contingency.html#exercises-contingency"><i class="fa fa-check"></i><b>10.4</b> Exercises</a></li>
+<li class="chapter" data-level="10.4" data-path="contingency.html"><a href="contingency.html#exercises-contingency"><i class="fa fa-check"></i><b>10.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="contingency.html"><a href="contingency.html#filtered-data"><i class="fa fa-check"></i><b>10.4.1</b> Filtered data</a></li>
+<li class="chapter" data-level="10.4.2" data-path="contingency.html"><a href="contingency.html#your-app-3"><i class="fa fa-check"></i><b>10.4.2</b> Your App</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="sharing.html"><a href="sharing.html"><i class="fa fa-check"></i><b>11</b> Sharing your Apps</a>
 <ul>
@@ -442,10 +456,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Building Web Apps with R Shiny</h1>
 <p class="author"><em>Lisa DeBruine</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-07-19</em></p>
+<p class="date" style="margin-top: 1.5em;"><em>2021-07-20</em></p>
 </div>
 <div id="overview" class="section level1 unnumbered">
 <h1>Overview</h1>
+<p><img src="images/shinyintro.png" style="float: right; width: 200px; height: 200px;" /></p>
 <p><a class='glossary' target='_blank' title='An R package that builds interactive web apps' href='https://psyteachr.github.io/glossary/s#shiny'>Shiny</a> lets you make web applications that do anything you can code in R. For example, you can share your data analysis in a dynamic way with people who don’t use R, collect and visualize data, or even make <a href="https://towardsdatascience.com/getting-started-with-generative-art-in-r-3bc50067d34b" target="_blank">data aRt</a>.</p>
 <p>While there is a wealth of material available on the internet to help you get started with Shiny, it can be difficult to see how everything fits together. This class will take a predominantly live coding approach, rather than a lecture-only approach, so you can code along with the instructor and deal with the inevitable bugs and roadblocks together.</p>
 <p>This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports.</p>
@@ -730,7 +745,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": [["shinyintro.pdf", "PDF"]],
+"download": [["shinyintro.pdf", "PDF"], ["shinyintro.epub", "EPUB"]],
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

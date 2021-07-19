@@ -3,14 +3,15 @@
 If you find yourself making nearly identical `r glossary("UI", "UIs")` or server functions over and over in the same app, you might benefit from modules. This is a way to define a pattern to use repeatedly.
 
 ```{r modules-demo-app, eval=TRUE, echo=FALSE, fig.cap="Modules Demo App. You can also access this app with `shinyintro::app(\"modules_demo\")`or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/modules_demo/){target=\"_blank\"}."}
-knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/modules_demo/",
+if (is_html)
+  knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/modules_demo/",
 height = "800px")
 ```
 
 
 ## Modularizing the UI
 
-The two tabPanels below follow nearly identical patterns. You can often identify a place where modules might be useful when you use a naming convention like {base}_{type} for the ids. 
+The two tabPanels below follow nearly identical patterns. You can often identify a place where modules might be useful when you use a naming convention like `r dt("{base}_{type}")` for the `r arg("id")`s. 
 
 ```{r}
 
@@ -30,9 +31,9 @@ mtcars_tab <- tabPanel(
 
 ```
 
-The first step in modularising your code is to make a function that creates the UIs above from the base ID and any other changing aspects. In the example above, the choices are different for each selectInput, so we'll make a function that has the arguments `id` and `choices`.
+The first step in modularising your code is to make a function that creates the UIs above from the base ID and any other changing aspects. In the example above, the choices are different for each `r func("selectInput")`, so we'll make a function that has the arguments `r arg("id")` and `r arg("choices")`.
 
-The first line of a UI module function is always `ns <- NS(id)`, which creates a shorthand way to add the base id to the id type. So instead of the selectInput's name being "iris_dv" or "mtcars_dv", we set it as `ns("dv")`. All ids need to use `ns()` to add the namespace to thier ID.
+The first line of a UI module function is always `ns <- NS(id)`, which creates a shorthand way to add the base id to the id type. So instead of the `r func("selectInput")`'s name being `r dt("iris_dv")` or `r dt("mtcars_dv")`, we set it as `r func("ns", "dv")`. All ids need to use `r func("ns")` to add the namespace to their ID.
 
 ```{r}
 tabPanelUI <- function(id, choices) {
@@ -90,7 +91,7 @@ output$mtcars_plot <- renderPlot({
 
 The second step to modularising code is creating a server function. You can put all the functions the relate to the inputs and outputs in the UI function here, so we will include one to make the output table and one to make the output plot.
 
-The server function takes the base id as the first argument, and then any arguments you need to specify things that change between base implementations. Above, the tables show different data and the plots use different groupings for the x axis and fill, so we'll add arguments for `data` and `group_by`.
+The server function takes the base id as the first argument, and then any arguments you need to specify things that change between base implementations. Above, the tables show different data and the plots use different groupings for the x axis and fill, so we'll add arguments for `r arg("data")` and `r arg("group_by")`.
 
 A server function **always** contains `moduleServer()` set up like below.
 
@@ -153,7 +154,7 @@ Try to implement the code above on your own.
 
 ### 2. New Instance
 
-Add a new tab called "diamonds" that visualises the `diamonds` dataset. Choose the columns you want as choices in the `selectInput()` and the grouping column.
+Add a new tab called "diamonds" that visualises the `diamonds` dataset. Choose the columns you want as choices in the `r func("selectInput")` and the grouping column.
 
 `r hide("UI Solution")`
 
@@ -175,11 +176,11 @@ tabPanelServer("diamonds", data = diamonds, group_by = "cut")
 
 ### 3. Altering modules
 
-* Add another `selectInput()` to the UI that allows the user to select the grouping variable. (`iris` only has one possibility, but `mtcars` and `diamonds` should have several)
+* Add another `r func("selectInput")` to the UI that allows the user to select the grouping variable. (`iris` only has one possibility, but `mtcars` and `diamonds` should have several)
 
 `r hide("UI Solution")`
 
-You need to add a new selectInput() to the tabPanel. Remember to use `ns()` for the id. The choices for this select will also differ by data set, so you need to add `group_choices` to the arguments of this function.
+You need to add a new `r func("selectInput")` to the `r func("tabPanel")`. Remember to use `r func("ns")` for the id. The choices for this select will also differ by data set, so you need to add `r arg("group_choices")` to the arguments of this function.
 
  ```{r}
 tabPanelUI <- function(id, choices, group_choices) {
@@ -202,7 +203,7 @@ tabPanelUI <- function(id, choices, group_choices) {
 
 You no longer need `group_by` in the arguments for this function because you are getting that info from an input.
 
-Instead of changing `group_by` to `input$group_by` in three places in the code below, I just added the line `group_by <- input$group_by` at the top of `moduleServer()`.
+Instead of changing `r arg("group_by")` to `input$group_by` in three places in the code below, I just added the line `group_by <- input$group_by` at the top of `r func("moduleServer")`.
 
 ```{r}
 tabPanelServer <- function(id, data) {
@@ -217,7 +218,7 @@ tabPanelServer <- function(id, data) {
 
 ### 4. New module
 
-There is a fluidRow() before the tabsetPanel() in the ui that contains three `infoBoxOutput()` and three renderInfoBoxOutput() functions in the server function.
+There is a `r func("fluidRow")` before the `r func("tabsetPanel")` in the ui that contains three `r func("infoBoxOutput")` and three `r func("renderInfoBoxOutput")` functions in the server function.
 
 Modularise the info boxes and their associated server functions. 
 
@@ -250,7 +251,7 @@ infoBoxServer <- function(id, title, fmt, icon, color = "purple") {
 
 `r hide("UI Code")`
 
-In the `ui`, replace the `fluidRow()` with this:
+In the `ui`, replace the `r func("fluidRow")` with this:
 
 ```{r}
 fluidRow(
@@ -264,11 +265,11 @@ fluidRow(
 
 `r hide("Server Code")`
 
-In `server()`, replace `renderInfoBox()` with this:
+In `r func("server")`, replace `r func("renderInfoBox")` with this:
 
 ```{r}
-infoBoxServer("year", "Year", "%Y", "calendar")
-infoBoxServer("month", "Month", "%m", "calendar-alt")
+infoBoxServer("year", "Year", "%Y", "calendar"),
+infoBoxServer("month", "Month", "%m", "calendar-alt"),
 infoBoxServer("day", "Day", "%d", "calendar-day"))
 ```
 `r unhide()`

@@ -19,10 +19,11 @@ knitr::write_bib(c(
 
 ```
 
-
 # Overview {-}
 
-`r glossary("Shiny")` lets you make web applications that do anything you can code in R. For example, you can share your data analysis in a dynamic way with people who don’t use R, collect and visualize data, or even make [data aRt](https://towardsdatascience.com/getting-started-with-generative-art-in-r-3bc50067d34b){target="_blank"}.
+![](images/shinyintro.png){style="float: right; width: 200px; height: 200px;"}
+
+`r glossary("Shiny")` lets you make web applications that do anything you can code in R. For example, you can share your data analysis in a dynamic way with people who don't use R, collect and visualize data, or even make [data aRt](https://towardsdatascience.com/getting-started-with-generative-art-in-r-3bc50067d34b){target="_blank"}.
 
 While there is a wealth of material available on the internet to help you get started with Shiny, it can be difficult to see how everything fits together. This class will take a predominantly live coding approach, rather than a lecture-only approach, so you can code along with the instructor and deal with the inevitable bugs and roadblocks together.
 
@@ -64,7 +65,8 @@ The following are some diverse examples of Shiny apps that the instructor has ma
 * [Word Cloud](https://shiny.psy.gla.ac.uk/debruine/wordcloud/){target="_blank"} Create a word cloud from text and customize its appearance. Created during the live-coding event at [Hack Your Data Beautiful](https://psyteachr.github.io/hack-your-data/){target="_blank"}.
 
 ```{r word-cloud-app, echo=FALSE, fig.cap="Word Cloud App"}
-knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/wordcloud/",
+if (is_html)
+  knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/wordcloud/",
   height = "600px")
 ```
 
