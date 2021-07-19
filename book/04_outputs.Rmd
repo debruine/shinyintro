@@ -84,7 +84,7 @@ If you want to create dynamic plots that change with input, note how you need to
 imageOutput("demo_image")
 ```
 
-`r func("renderImage")` needs to return a named list with at least an `src` with the image path. You can also set the `r arg("width")` and `r arg("height")` (numeric values are in pixels), `r arg("class")` and `r arg("alt")` (the alt-text for screen readers).
+`r func("renderImage")` needs to return a named list with at least an `r arg("src")` with the image path. You can also set the `r arg("width")` and `r arg("height")` (numeric values are in pixels), `r arg("class")` and `r arg("alt")` (the alt-text for screen readers).
 
 ```{r}
 # in the server function
@@ -97,7 +97,7 @@ output$demo_image <- renderImage({
 ```
 
 ::: {.warning}
-The `r arg("deleteFile")` argument is currently optional, but triggers periodic warnings that it won't be optional in the future. You should set it to `TRUE` if you're making a temporary file (this stops unneeded plots using memory) and `FALSE` if you're referencing a file you previously saved.
+The `r arg("deleteFile")` argument is currently optional, but triggers periodic warnings that it won't be optional in the future. You should set it to `r dt(TRUE)` if you're making a temporary file (this stops unneeded plots using memory) and `r dt(FALSE)` if you're referencing a file you previously saved.
 :::
 
 You can dynamically display images of any type, but one of the most useful ways to use image outputs is to control the aspect ratio and relative size of plots. 
@@ -150,14 +150,14 @@ output$demo_table <- renderTable({
 ```
 
 ::: {.warning}
-Note how you need to use `.data[[input$y]]` inside `dplyr::summarise()`, instead of just `input$y` to dynamically choose which variable to summarise.
+Note how you need to use `.data[[input$y]]` inside `r func("dplyr::summarise")`, instead of just `input$y` to dynamically choose which variable to summarise.
 :::
 
 ### Data Tables
 
 If you have a long table to show, or one that you want users to be able to sort or search, use `r func("DT::dataTableOutput")` (or its synonym `r func("DTOutput")`). 
 
-The basic `shiny` package has `dataTableOutput()` and `renderDataTable()` functions, but they can be buggy. The versions in the `DT` package are better and have [many additional functions](https://rstudio.github.io/DT/){target="_blank"}, so I use those. 
+The basic `r pkg("shiny")` package has `r func("dataTableOutput")` and `r func("renderDataTable")` functions, but they can be buggy. The versions in the `r pkg("DT")` package are better and have [many additional functions](https://rstudio.github.io/DT/){target="_blank"}, so I use those. 
 
 ```{r}
 # in the UI function
@@ -166,7 +166,7 @@ DT::dataTableOutput("demo_datatable",
                     height = "auto")
 ```
 
-The paired render function is `r func("renderDataTable")` (or its synonym `r func("renderDT")`). You can customise data tables in many ways, but we'll stick with a basic example here that limits the number of rows shown at once to 10.
+The paired render function is `r func("renderDataTable")` (or its synonym `r func("renderDT")`). You can customise data tables in many ways, but we'll stick with a basic example here that limits the number of rows shown at once to `r dt(10)`.
 
 ```{r}
 # in the server function
@@ -188,7 +188,7 @@ If you want to dynamically create parts of the UI, you can use `r func("uiOutput
 uiOutput("demo_ui")
 ```
 
-You can create the UI using `r func("renderUI")` to return HTML created using the input functions we learned about in Chapter\ \@ref(inputs), the [tag functions](#tags), or HTML that you write yourself (as an argument to `r func("HTML")`).
+You can create the UI using `r func("renderUI")` to return HTML created using the input functions we learned about in Section\ \@ref(inputs), the [tag functions](#tags), or HTML that you write yourself (as an argument to `r func("HTML")`).
 
 ```{r}
 # in the server function
@@ -216,7 +216,7 @@ Clone the "output_demo" app and modify it to use a different dataset.
 
 ### Pets
 
-Add outputs and appropriate render functions to show a plot and the data from the pets questionnaire you made for the exercise in Chapter\ \@ref(inputs).
+Add outputs and appropriate render functions to show a plot and the data from the pets questionnaire you made for the exercise in Section\ \@ref(inputs).
 
 ### Your app
 

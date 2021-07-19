@@ -170,7 +170,7 @@ sheet_append(SHEET_ID, data, "demographics")
 read_sheet(SHEET_ID, "demographics")
 ```
 
-If you try to append data of a different `r glossary("data type")`, some weird things can happen. `r glossary("Logical")` values added to a `r glossary("numeric")` column are cast as 0 (`FALSE`) and 1 (`TRUE`), while numeric values added to a logical column change the column to numeric. If you mix `r glossary("character")` and numeric values in a column, the resulting column is a column of one-item lists so that each list can have the appropriate data type. (Data frames in R cannot mix data types in the same column.)
+If you try to append data of a different `r glossary("data type")`, some weird things can happen. `r glossary("Logical")` values added to a `r glossary("numeric")` column are cast as `r dt(0)` (`r dt(1)`) and `r dt(1)` (`r dt(TRUE)`), while numeric values added to a logical column change the column to numeric. If you mix `r glossary("character")` and numeric values in a column, the resulting column is a column of one-item lists so that each list can have the appropriate data type. (Data frames in R cannot mix data types in the same column.)
 
 ```{r, eval = TRUE}
 data <- data.frame(

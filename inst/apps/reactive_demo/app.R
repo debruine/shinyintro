@@ -20,8 +20,7 @@ source("scripts/func.R") # helper functions
 ui <- dashboardPage(
     skin = "purple",
     dashboardHeader(title = "Reactive Demo",
-                    # puts sidebar toggle on right
-                    titleWidth = "calc(100% - 44px)"),
+                    titleWidth = "100%"),
     dashboardSidebar(disable = TRUE),
     dashboardBody(
         shinyjs::useShinyjs(),
@@ -31,7 +30,7 @@ ui <- dashboardPage(
             tags$link(rel = "stylesheet", type = "text/css", href = "custom.css"),
             tags$script(src = "custom.js")
         ),
-        box(
+        box(width = 3,
             title = "Diamonds",
             solidHeader = TRUE,
             selectInput("cut", "Cut", levels(diamonds$cut)),
@@ -39,7 +38,7 @@ ui <- dashboardPage(
             selectInput("clarity", "Clarity", levels(diamonds$clarity)),
             actionButton("update", "Update Plot")
         ),
-        box(
+        box(width = 9,
             title = "Plot",
             solidHeader = TRUE,
             textOutput("title"),

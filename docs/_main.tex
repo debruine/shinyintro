@@ -149,7 +149,7 @@
 
 \title{Building Web Apps with R Shiny}
 \author{Lisa DeBruine}
-\date{2021-07-18}
+\date{2021-07-19}
 
 \begin{document}
 \maketitle
@@ -247,9 +247,9 @@ Each lecture session will conclude with a hands-on exercise reviewing the conten
 \item
   \protect\hyperlink{outputs}{Different output types}
 \item
-  \protect\hyperlink{data}{Reading and saving data}
-\item
   \protect\hyperlink{reactives}{Reactive functions}
+\item
+  \protect\hyperlink{data}{Reading and saving data}
 \end{itemize}
 
 \hypertarget{day-3}{%
@@ -264,7 +264,7 @@ Each lecture session will conclude with a hands-on exercise reviewing the conten
 \item
   \protect\hyperlink{debugging}{Debugging and error handling}
 \item
-  \protect\hyperlink{contingency}{Displaying elements contingent on the state of other elements}
+  \protect\hyperlink{contingency}{Contingent Display}
 \end{itemize}
 
 \hypertarget{day-4}{%
@@ -573,7 +573,7 @@ The \texttt{faithful} dataset includes two columns:\texttt{eruptions} and \textt
 
 Try plotting the eruption time (\texttt{eruptions}) instead of the waiting time. You just have to change one word in ggplot() and update the x-axis label.
 
-We can add another input widget to let the user switch between plotting eruption time and wait time. We'll learn more about the different input options in Chapter~\ref{inputs}. We need to toggle between two options, so we can use either radio buttons or a select box. Radio buttons are probably best if you have only a few options and the user will want to see them all at the same time to decide.
+We can add another input widget to let the user switch between plotting eruption time and wait time. We'll learn more about the different input options in Section~\ref{inputs}. We need to toggle between two options, so we can use either radio buttons or a select box. Radio buttons are probably best if you have only a few options and the user will want to see them all at the same time to decide.
 
 Add the following code as the first argument to sidebarPanel(), which just takes a list of different widgets. radioButtons() is the widget we're using. We'll set four arguments:
 
@@ -681,7 +681,7 @@ Create a new app called ``basic\_demo'' and replace all the text in app.R with t
 \hypertarget{ui}{%
 \subsection{UI}\label{ui}}
 
-The UI is created by one of the ui-building \texttt{\textbackslash{}*Page()} functions, such as fluidPage(), fixedPage(), fillPage() or dashboardPage() (which we'll learn more about in Chapter~\ref{shinydashboard}). The ui-building functions set up the parts of the webpage, which are created by more shiny functions that you list inside of the page function, separated by commas.
+The UI is created by one of the ui-building \texttt{\textbackslash{}*Page()} functions, such as fluidPage(), fixedPage(), fillPage() or dashboardPage() (which we'll learn more about in Section~\ref{shinydashboard}). The ui-building functions set up the parts of the webpage, which are created by more shiny functions that you list inside of the page function, separated by commas.
 
 \hypertarget{tags}{%
 \subsection{Tags}\label{tags}}
@@ -780,7 +780,7 @@ So far, we've just put static elements into our UI. What makes Shiny apps work i
 \hypertarget{inputs-intro}{%
 \subsection{Inputs}\label{inputs-intro}}
 
-Inputs are ways for the users of your app to communicate with the app, like drop-down menus or checkboxes. We'll go into the different types of inputs in Chapter~\ref{inputs}. Below we'll turn the list of favourite things into a group of checkboxes
+Inputs are ways for the users of your app to communicate with the app, like drop-down menus or checkboxes. We'll go into the different types of inputs in Section~\ref{inputs}. Below we'll turn the list of favourite things into a group of checkboxes
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -799,7 +799,7 @@ You might have noticed that the sliderInput() in the demo app didn't use the arg
 \hypertarget{outputs-intro}{%
 \subsection{Outputs}\label{outputs-intro}}
 
-Outputs are placeholders for things that server() will create. There are different output functions for different types of outputs, like text, plots, and tables. We'll go into the different types of outputs in detail in Chapter~\ref{outputs}. Below, we'll make a placeholder for some text that we'll display after counting the number of favourite things.
+Outputs are placeholders for things that server() will create. There are different output functions for different types of outputs, like text, plots, and tables. We'll go into the different types of outputs in detail in Section~\ref{outputs}. Below, we'll make a placeholder for some text that we'll display after counting the number of favourite things.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -881,7 +881,7 @@ Now we want to display this text in the output ``n\_fav\_things''. We need to us
 \end{Highlighting}
 \end{Shaded}
 
-As always in coding, there are many ways to accomplish the same thing. These methods have different pros and cons that we'll learn more about in Chapter~\ref{reactives}. Here is another pattern that does that same as above.
+As always in coding, there are many ways to accomplish the same thing. These methods have different pros and cons that we'll learn more about in Section~\ref{reactives}. Here is another pattern that does that same as above.
 
 This pattern uses reactive() to create a new function called count\_text(), which updates the value it returns whenever any inputs inside the reactive function change. We use isolate() to prevent count\_text() from changing when users click the checkboxes.
 
@@ -1083,7 +1083,7 @@ If you don't want to use a sidebar, include \texttt{dashboardSidebar(disable\ =\
 \hypertarget{dashboardbody}{%
 \subsection{dashboardBody}\label{dashboardbody}}
 
-The main part of the app goes inside dashboardBody() If you're going to use javascript functions (which the basic template does and we'll learn more about in Chapter~\ref{shinyjs}), you need to put useShinyjs() first. Then you include the header, linking to any custom CSS or JavaScript files.
+The main part of the app goes inside dashboardBody() If you're going to use javascript functions (which the basic template does and we'll learn more about in Section~\ref{shinyjs}), you need to put useShinyjs() first. Then you include the header, linking to any custom CSS or JavaScript files.
 
 The contents of the body go after that. The most common pattern is a multi-page tabbed pattern, which is set up with tabItems(), which contains a tabItem() for each tab. The tabName has to match the name you used in the sidebar menuItem(), so that tab shows when the user clicks on the corresponding menu item.
 
@@ -1841,7 +1841,7 @@ If you want to dynamically create parts of the UI, you can use uiOutput().
 \end{Highlighting}
 \end{Shaded}
 
-You can create the UI using renderUI() to return HTML created using the input functions we learned about in Chapter~\ref{inputs}, the \protect\hyperlink{tags}{tag functions}, or HTML that you write yourself (as an argument to HTML()).
+You can create the UI using renderUI() to return HTML created using the input functions we learned about in Section~\ref{inputs}, the \protect\hyperlink{tags}{tag functions}, or HTML that you write yourself (as an argument to HTML()).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1879,12 +1879,569 @@ Clone the ``output\_demo'' app and modify it to use a different dataset.
 \hypertarget{pets-1}{%
 \subsection{Pets}\label{pets-1}}
 
-Add outputs and appropriate render functions to show a plot and the data from the pets questionnaire you made for the exercise in Chapter~\ref{inputs}.
+Add outputs and appropriate render functions to show a plot and the data from the pets questionnaire you made for the exercise in Section~\ref{inputs}.
 
 \hypertarget{your-app}{%
 \subsection{Your app}\label{your-app}}
 
 In the app you're developing, add relevant outputs, such as for plots or tables, and the appropriate render function for each output. You can leave the contents blank for now or add in some code to create output.
+
+\hypertarget{reactives}{%
+\chapter{Reactive functions}\label{reactives}}
+
+There are a lot of great tutorials that explain the principles behind reactive functions, but that never made any sense to me when I first started out, so I'm just going to give you examples that you can extrapolate principles from.
+
+Reactivity is how Shiny determines which code in server() gets to run when. Some types of objects, such as the \texttt{input} object or objects made by reactiveValues(), can trigger some types of functions to run whenever they change.
+
+For our example, we will use the \texttt{reactive\_demo} app. It shows three select inputs that allow the user to choose values from the cut, color, and clarity columns of the \texttt{diamonds} dataset from ggplot2, then draws a plot of the relationship between carat and price for the selected subset.
+
+\textbackslash begin\{figure\}
+
+\{\centering \href{https://shiny.psy.gla.ac.uk/debruine/reactive_demo/}{\includegraphics[width=1\linewidth]{_main_files/figure-latex/reactive-demo-app-1} }
+
+Here is the relevant code for the UI. There are four inputs: cut, color, clarity, and update. There are two outputs: title and plot.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{box}\NormalTok{(}
+  \AttributeTok{title =} \StringTok{"Diamonds"}\NormalTok{,}
+  \AttributeTok{solidHeader =} \ConstantTok{TRUE}\NormalTok{,}
+  \FunctionTok{selectInput}\NormalTok{(}\StringTok{"cut"}\NormalTok{, }\StringTok{"Cut"}\NormalTok{, }\FunctionTok{levels}\NormalTok{(diamonds}\SpecialCharTok{$}\NormalTok{cut)),}
+  \FunctionTok{selectInput}\NormalTok{(}\StringTok{"color"}\NormalTok{, }\StringTok{"Color"}\NormalTok{, }\FunctionTok{levels}\NormalTok{(diamonds}\SpecialCharTok{$}\NormalTok{color)),}
+  \FunctionTok{selectInput}\NormalTok{(}\StringTok{"clarity"}\NormalTok{, }\StringTok{"Clarity"}\NormalTok{, }\FunctionTok{levels}\NormalTok{(diamonds}\SpecialCharTok{$}\NormalTok{clarity)),}
+  \FunctionTok{actionButton}\NormalTok{(}\StringTok{"update"}\NormalTok{, }\StringTok{"Update Plot"}\NormalTok{)}
+\NormalTok{),}
+\FunctionTok{box}\NormalTok{(}
+  \AttributeTok{title =} \StringTok{"Plot"}\NormalTok{,}
+  \AttributeTok{solidHeader =} \ConstantTok{TRUE}\NormalTok{,}
+  \FunctionTok{textOutput}\NormalTok{(}\StringTok{"title"}\NormalTok{),}
+  \FunctionTok{plotOutput}\NormalTok{(}\StringTok{"plot"}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Whenever an input changes, it will trigger some types of functions to run.
+
+\hypertarget{observeevent-1}{%
+\section{observeEvent()}\label{observeevent-1}}
+
+We learned about observeEvent() in Section~\ref{first-reactive}. This function runs the code whenever the value of the first argument changes. If there are reactives inside the function, they won't trigger the code to run when they change.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
+  \FunctionTok{observeEvent}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{update, \{}
+\NormalTok{    data }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(diamonds,}
+\NormalTok{                   cut }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{cut,}
+\NormalTok{                   color }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{color,}
+\NormalTok{                   clarity }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{clarity)}
+    
+\NormalTok{    title }\OtherTok{\textless{}{-}} \FunctionTok{sprintf}\NormalTok{(}\StringTok{"Cut: \%s, Color: \%s, Clarity: \%s"}\NormalTok{,}
+\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{cut,}
+\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{color,}
+\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{clarity)}
+    
+\NormalTok{    output}\SpecialCharTok{$}\NormalTok{plot }\OtherTok{\textless{}{-}} \FunctionTok{renderPlot}\NormalTok{(\{}
+      \FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(carat, price)) }\SpecialCharTok{+}
+        \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
+        \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =}\NormalTok{ lm, }\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{)}
+\NormalTok{    \})}
+    
+\NormalTok{    output}\SpecialCharTok{$}\NormalTok{title }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(title)}
+\NormalTok{  \})}
+\NormalTok{\} }
+\end{Highlighting}
+\end{Shaded}
+
+In the example above, which inputs will trigger renderPlot() to run and produce a new plot?
+
+cut color clarity update cut, color \& clarity all of the above
+
+In the example above, which inputs will trigger renderText() to run and produce a new title?
+
+cut color clarity update cut, color \& clarity all of the above
+
+\hypertarget{render-functions}{%
+\section{Render functions}\label{render-functions}}
+
+Functions that render an output, like renderText() or renderPlot() will run whenever an input in their code changes. You can trigger a render function just by putting a reactive alone on a line, even if you aren't using it in the rest of the code.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
+\NormalTok{  output}\SpecialCharTok{$}\NormalTok{plot }\OtherTok{\textless{}{-}} \FunctionTok{renderPlot}\NormalTok{(\{}
+\NormalTok{    data }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(diamonds,}
+\NormalTok{                   cut }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{cut,}
+\NormalTok{                   color }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{color,}
+\NormalTok{                   clarity }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{clarity)}
+    
+    \FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(carat, price)) }\SpecialCharTok{+}
+      \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
+      \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =}\NormalTok{ lm, }\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{)}
+\NormalTok{  \})}
+  
+\NormalTok{  output}\SpecialCharTok{$}\NormalTok{title }\OtherTok{\textless{}{-}}\NormalTok{ renderText\{}
+\NormalTok{    input}\SpecialCharTok{$}\NormalTok{update }\CommentTok{\# just here to trigger the function}
+    
+    \FunctionTok{sprintf}\NormalTok{(}\StringTok{"Cut: \%s, Color: \%s, Clarity: \%s"}\NormalTok{,}
+\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{cut,}
+\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{color,}
+\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{clarity)}
+\NormalTok{  \}}\ErrorTok{)}
+\NormalTok{\} }
+\end{Highlighting}
+\end{Shaded}
+
+In the example above, which inputs will trigger renderPlot() to run and produce a new plot?
+
+cut color clarity update cut, color \& clarity all of the above
+
+Which inputs will trigger renderText() to run and produce a new title?
+
+cut color clarity update cut, color \& clarity all of the above
+
+\hypertarget{reactive-1}{%
+\section{reactive()}\label{reactive-1}}
+
+If you move the \texttt{data} filtering outside of renderPlot(), you'll get an error message like ``Can't access reactive value `cut' outside of reactive consumer.'' This means that the \texttt{input} values can only be read inside certain functions, like reactive(), observeEvent(), or a render function.
+
+However, we can put the data filtering inside reactive(). This means that whenever an input inside that function changes, the code will run and update the value of data(). This can be useful if you need to recalculate the data table each time the inputs change, and then use it in more than one function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
+\NormalTok{  data }\OtherTok{\textless{}{-}} \FunctionTok{reactive}\NormalTok{(\{}
+    \FunctionTok{filter}\NormalTok{(diamonds,}
+\NormalTok{           cut }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{cut,}
+\NormalTok{           color }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{color,}
+\NormalTok{           clarity }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{clarity)}
+\NormalTok{  \})}
+  
+\NormalTok{  title }\OtherTok{\textless{}{-}} \FunctionTok{reactive}\NormalTok{(\{}
+    \FunctionTok{sprintf}\NormalTok{(}\StringTok{"Cut: \%s, Color: \%s, Clarity: \%s, N: \%d"}\NormalTok{,}
+\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{cut,}
+\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{color,}
+\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{clarity,}
+            \FunctionTok{nrow}\NormalTok{(}\FunctionTok{data}\NormalTok{()))}
+\NormalTok{  \})}
+  
+\NormalTok{  output}\SpecialCharTok{$}\NormalTok{plot }\OtherTok{\textless{}{-}} \FunctionTok{renderPlot}\NormalTok{(\{}
+    \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{data}\NormalTok{(), }\FunctionTok{aes}\NormalTok{(carat, price)) }\SpecialCharTok{+}
+      \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
+      \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =}\NormalTok{ lm, }\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{)}
+\NormalTok{  \})}
+  
+\NormalTok{  output}\SpecialCharTok{$}\NormalTok{text }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(}\FunctionTok{title}\NormalTok{())}
+\NormalTok{\} }
+\end{Highlighting}
+\end{Shaded}
+
+In the example above, which inputs will trigger renderPlot() to run and produce a new plot?
+
+cut color clarity update cut, color \& clarity all of the above
+
+Which inputs will trigger renderText() to run and produce a new title?
+
+cut color clarity update cut, color \& clarity all of the above
+
+My most common error is trying to use \texttt{data} or \texttt{title} as an object instead of as a function. Notice how the first argument to ggplot is no longer \texttt{data}, but data() and you set the value of data with \texttt{data(newdata)}, not \texttt{data\ \textless{}-\ newdata}. For now, just remember this as a quirk of shiny.
+
+\hypertarget{eventreactive}{%
+\section{eventReactive()}\label{eventreactive}}
+
+While reactive() is triggered whenever any input values inside it change, eventReactive() is only triggered when the value of the first argument changes, like observeEvent(), but returns a reactive function like reactive().
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
+\NormalTok{  data }\OtherTok{\textless{}{-}} \FunctionTok{eventReactive}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{update, \{}
+    \FunctionTok{filter}\NormalTok{(diamonds,}
+\NormalTok{           cut }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{cut,}
+\NormalTok{           color }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{color,}
+\NormalTok{           clarity }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{clarity)}
+\NormalTok{  \})}
+  
+\NormalTok{  title }\OtherTok{\textless{}{-}} \FunctionTok{eventReactive}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{update, \{}
+    \FunctionTok{sprintf}\NormalTok{(}\StringTok{"Cut: \%s, Color: \%s, Clarity: \%s"}\NormalTok{,}
+\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{cut,}
+\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{color,}
+\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{clarity)}
+\NormalTok{  \})}
+  
+\NormalTok{  output}\SpecialCharTok{$}\NormalTok{plot }\OtherTok{\textless{}{-}} \FunctionTok{renderPlot}\NormalTok{(\{}
+    \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{data}\NormalTok{(), }\FunctionTok{aes}\NormalTok{(carat, price)) }\SpecialCharTok{+}
+      \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
+      \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =}\NormalTok{ lm, }\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{)}
+\NormalTok{  \})}
+  
+\NormalTok{  output}\SpecialCharTok{$}\NormalTok{text }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(}\FunctionTok{title}\NormalTok{())}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+In the example above, which inputs will trigger renderPlot() to run and produce a new plot?
+
+cut color clarity update cut, color \& clarity all of the above
+
+Which inputs will trigger renderText() to run and produce a new title?
+
+cut color clarity update cut, color \& clarity all of the above
+
+\hypertarget{reactiveval}{%
+\section{reactiveVal()}\label{reactiveval}}
+
+Another pattern that accomplishes a similar thing to reactive() is to create a reactive value using reactiveVal(). This allows you to update the value of \texttt{data()} not just using the code inside the reactive() function that created it, but in any function. This is useful when you have multiple functions that need to update that value.
+
+Here, we use observeEvent() to trigger the data filtering code only when the update button is pressed. This new data set is assigned to data() using the code \texttt{data(newdata)}.
+
+Because data() returns a reactive value, it will trigger renderPlot() whenever it changes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
+\NormalTok{    data }\OtherTok{\textless{}{-}} \FunctionTok{reactiveVal}\NormalTok{(diamonds)}
+    
+    \FunctionTok{observeEvent}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{update, \{}
+\NormalTok{        newdata }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(diamonds,}
+\NormalTok{               cut }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{cut,}
+\NormalTok{               color }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{color,}
+\NormalTok{               clarity }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{clarity)}
+        
+        \FunctionTok{data}\NormalTok{(newdata) }\CommentTok{\# updates data()}
+\NormalTok{    \})}
+    
+\NormalTok{    output}\SpecialCharTok{$}\NormalTok{plot }\OtherTok{\textless{}{-}} \FunctionTok{renderPlot}\NormalTok{(\{}
+        \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{data}\NormalTok{(), }\FunctionTok{aes}\NormalTok{(carat, price)) }\SpecialCharTok{+}
+            \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
+            \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =}\NormalTok{ lm, }\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{)}
+\NormalTok{    \})}
+    
+\NormalTok{    output}\SpecialCharTok{$}\NormalTok{title }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(\{}
+      \FunctionTok{sprintf}\NormalTok{(}\StringTok{"Cut: \%s, Color: \%s, Clarity: \%s"}\NormalTok{,}
+\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{cut,}
+\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{color,}
+\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{clarity)}
+\NormalTok{    \})}
+\NormalTok{\} }
+\end{Highlighting}
+\end{Shaded}
+
+In the example above, which inputs will trigger renderPlot() to run and produce a new plot?
+
+cut color clarity update cut, color \& clarity all of the above
+
+Which inputs will trigger renderText() to run and produce a new title?
+
+cut color clarity update cut, color \& clarity all of the above
+
+We used \texttt{data\ \textless{}-\ reactiveVal(diamonds)} in order for data() to have a value that didn't cause an error when renderPlot() runs for the first time.
+
+\hypertarget{reactivevalue}{%
+\section{reactiveValue()}\label{reactivevalue}}
+
+You need to set up a new reactiveVal() for each value in an app that you want to make reactive. I prefer to use reactiveValues() because it can be used for any new reactive value you need and works just like \texttt{input}.
+
+You can just set your new object to reactiveValues() or you can initialise it with starting values like below. The object \texttt{v} is a named list, just like \texttt{input}, and when it's values change, it triggers reactive functions exactly like \texttt{input} does.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
+\NormalTok{    v }\OtherTok{\textless{}{-}} \FunctionTok{reactiveValues}\NormalTok{(}
+        \AttributeTok{data =}\NormalTok{ diamonds,}
+        \AttributeTok{title =} \StringTok{"All Data"}
+\NormalTok{    )}
+    
+    \FunctionTok{observeEvent}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{update, \{}
+\NormalTok{        v}\SpecialCharTok{$}\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(diamonds,}
+\NormalTok{                       cut }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{cut,}
+\NormalTok{                       color }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{color,}
+\NormalTok{                       clarity }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{clarity)}
+        
+\NormalTok{        v}\SpecialCharTok{$}\NormalTok{title }\OtherTok{\textless{}{-}} \FunctionTok{sprintf}\NormalTok{(}\StringTok{"Cut: \%s, Color: \%s, Clarity: \%s"}\NormalTok{,}
+\NormalTok{                         input}\SpecialCharTok{$}\NormalTok{cut,}
+\NormalTok{                         input}\SpecialCharTok{$}\NormalTok{color,}
+\NormalTok{                         input}\SpecialCharTok{$}\NormalTok{clarity)}
+\NormalTok{    \})}
+    
+\NormalTok{    output}\SpecialCharTok{$}\NormalTok{plot }\OtherTok{\textless{}{-}} \FunctionTok{renderPlot}\NormalTok{(\{}
+        \FunctionTok{ggplot}\NormalTok{(v}\SpecialCharTok{$}\NormalTok{data, }\FunctionTok{aes}\NormalTok{(carat, price)) }\SpecialCharTok{+}
+            \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
+            \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =}\NormalTok{ lm, }\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{)}
+\NormalTok{    \})}
+    
+\NormalTok{    output}\SpecialCharTok{$}\NormalTok{title }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(v}\SpecialCharTok{$}\NormalTok{title)}
+\NormalTok{\} }
+\end{Highlighting}
+\end{Shaded}
+
+In the example above, which inputs will trigger renderPlot() to run and produce a new plot?
+
+cut color clarity update cut, color \& clarity all of the above
+
+Which inputs will trigger renderText() to run and produce a new title?
+
+cut color clarity update cut, color \& clarity all of the above
+
+Note that you refer to reactive values set up this way as \texttt{v\$data} and \texttt{v\$title}, not data() and title().
+
+\hypertarget{isolate}{%
+\section{isolate()}\label{isolate}}
+
+If you want to use an input or reactive value inside a reactive function, but don't want to trigger that function, you can isolate() it. You can also use isolate() to get a reactive value outside a reactive function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
+\NormalTok{  data }\OtherTok{\textless{}{-}} \FunctionTok{reactive}\NormalTok{(\{}
+    \FunctionTok{filter}\NormalTok{(}
+\NormalTok{      diamonds,}
+\NormalTok{      cut }\SpecialCharTok{==} \FunctionTok{isolate}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{cut),}
+\NormalTok{      color }\SpecialCharTok{==} \FunctionTok{isolate}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{color),}
+\NormalTok{      clarity }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{clarity}
+\NormalTok{    )}
+\NormalTok{  \})}
+  
+\NormalTok{  title }\OtherTok{\textless{}{-}} \FunctionTok{reactive}\NormalTok{(\{}
+    \FunctionTok{sprintf}\NormalTok{(}
+      \StringTok{"Cut: \%s, Color: \%s, Clarity: \%s"}\NormalTok{,}
+\NormalTok{      input}\SpecialCharTok{$}\NormalTok{cut,}
+      \FunctionTok{isolate}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{color),}
+      \FunctionTok{isolate}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{clarity)}
+\NormalTok{    )}
+\NormalTok{  \})}
+  
+  \CommentTok{\# what is the title at initialisation?}
+  \FunctionTok{debug\_msg}\NormalTok{(}\FunctionTok{isolate}\NormalTok{(}\FunctionTok{title}\NormalTok{()))}
+  
+\NormalTok{  output}\SpecialCharTok{$}\NormalTok{plot }\OtherTok{\textless{}{-}} \FunctionTok{renderPlot}\NormalTok{(\{}
+    \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{data}\NormalTok{(), }\FunctionTok{aes}\NormalTok{(carat, price)) }\SpecialCharTok{+}
+      \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
+      \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =}\NormalTok{ lm, }\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{)}
+\NormalTok{  \})}
+  
+\NormalTok{  output}\SpecialCharTok{$}\NormalTok{title }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(}\FunctionTok{title}\NormalTok{())}
+\NormalTok{\} }
+\end{Highlighting}
+\end{Shaded}
+
+In the example above, which inputs will trigger renderPlot() to run and produce a new plot?
+
+cut color clarity update cut, color \& clarity all of the above
+
+Which inputs will trigger renderText() to run and produce a new title?
+
+cut color clarity update cut, color \& clarity all of the above
+
+\hypertarget{further-resources-resources-reactive}{%
+\section{Further Resources \{\#resources-reactive)}\label{further-resources-resources-reactive}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://mastering-shiny.org/basic-reactivity.html}{Mastering Shiny - Basic Reactivity}
+\item
+  \href{https://shiny.rstudio.com/articles/reactivity-overview.html}{Reactivity - An overview}
+\item
+  \href{https://shiny.rstudio.com/tutorial/written-tutorial/lesson6/}{Use reactive expressions}
+\item
+  \href{https://mastering-shiny.org/reactivity-intro.html}{Mastering Shiny - Mastering Reactivity}
+\end{itemize}
+
+\hypertarget{exercises-reactive}{%
+\section{Exercises}\label{exercises-reactive}}
+
+For the following exercises, clone ``reactive\_demo'' and replace the boxes in the ui with the code below. Delete all the code in server(). Make sure this runs before you go ahead.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{box}\NormalTok{(}\AttributeTok{width =} \DecValTok{4}\NormalTok{,}
+    \FunctionTok{selectInput}\NormalTok{(}\StringTok{"stat"}\NormalTok{, }\StringTok{"Statistic"}\NormalTok{, }\FunctionTok{c}\NormalTok{(}\StringTok{"mean"}\NormalTok{, }\StringTok{"sd"}\NormalTok{)),}
+    \FunctionTok{selectInput}\NormalTok{(}\StringTok{"group"}\NormalTok{, }\StringTok{"Group By"}\NormalTok{, }\FunctionTok{c}\NormalTok{(}\StringTok{"vore"}\NormalTok{, }\StringTok{"order"}\NormalTok{, }\StringTok{"conservation"}\NormalTok{)),}
+    \FunctionTok{actionButton}\NormalTok{(}\StringTok{"update"}\NormalTok{, }\StringTok{"Update Table"}\NormalTok{)),}
+\FunctionTok{box}\NormalTok{(}\AttributeTok{width =} \DecValTok{8}\NormalTok{,}
+    \AttributeTok{solidHeader =} \ConstantTok{TRUE}\NormalTok{,}
+    \AttributeTok{title =} \FunctionTok{textOutput}\NormalTok{(}\StringTok{"caption"}\NormalTok{),}
+    \FunctionTok{tableOutput}\NormalTok{(}\StringTok{"table"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+You will grouping and summarising the \texttt{msleep} data table from ggplot2 by calculating the mean or standard deviation for all (or some) of the numeric columns grouped by the categorical columns \texttt{vore}, \texttt{order}, or \texttt{conservation}. If you're not sure how to create such a summary table with dplyr, look at the following code for a concrete example.
+
+Hint
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{msleep }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(vore) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise\_if}\NormalTok{(is.numeric, }\StringTok{"mean"}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 5 x 7
+##   vore    sleep_total sleep_rem sleep_cycle awake brainwt  bodywt
+##   <chr>         <dbl>     <dbl>       <dbl> <dbl>   <dbl>   <dbl>
+## 1 carni         10.4       2.29       0.373 13.6  0.0793   90.8  
+## 2 herbi          9.51      1.37       0.418 14.5  0.622   367.   
+## 3 insecti       14.9       3.52       0.161  9.06 0.0216   12.9  
+## 4 omni          10.9       1.96       0.592 13.1  0.146    12.7  
+## 5 <NA>          10.2       1.88       0.183 13.8  0.00763   0.858
+\end{verbatim}
+
+\hypertarget{observeevent-2}{%
+\subsection{observeEvent}\label{observeevent-2}}
+
+Use observeEvent() to update the output table with the appropriate summary table and to update the caption with an appropriate caption only when the update button is clicked.
+
+Solution
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
+  \FunctionTok{observeEvent}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{update, \{}
+\NormalTok{    data }\OtherTok{\textless{}{-}}\NormalTok{ msleep }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{group\_by}\NormalTok{(.data[[input}\SpecialCharTok{$}\NormalTok{group]]) }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{summarise\_if}\NormalTok{(is.numeric, input}\SpecialCharTok{$}\NormalTok{stat, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{    output}\SpecialCharTok{$}\NormalTok{table }\OtherTok{\textless{}{-}} \FunctionTok{renderTable}\NormalTok{(data)}
+    
+\NormalTok{    caption }\OtherTok{\textless{}{-}}
+      \FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%ss by \%s"}\NormalTok{, }\FunctionTok{toupper}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{stat), input}\SpecialCharTok{$}\NormalTok{group)}
+\NormalTok{    output}\SpecialCharTok{$}\NormalTok{caption }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(caption)}
+\NormalTok{  \})}
+\NormalTok{\} }
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{render}{%
+\subsection{render}\label{render}}
+
+Use render functions to update the output table and caption whenever group or stat change.
+
+Solution
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
+\NormalTok{  output}\SpecialCharTok{$}\NormalTok{table }\OtherTok{\textless{}{-}} \FunctionTok{renderTable}\NormalTok{(\{}
+\NormalTok{    msleep }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{group\_by}\NormalTok{(.data[[input}\SpecialCharTok{$}\NormalTok{group]]) }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{summarise\_if}\NormalTok{(is.numeric, input}\SpecialCharTok{$}\NormalTok{stat, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  \})}
+  
+\NormalTok{  output}\SpecialCharTok{$}\NormalTok{caption }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(\{}
+    \FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%ss by \%s"}\NormalTok{, }\FunctionTok{toupper}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{stat), input}\SpecialCharTok{$}\NormalTok{group)}
+\NormalTok{  \})}
+\NormalTok{\} }
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{reactive-2}{%
+\subsection{reactive}\label{reactive-2}}
+
+Use reactive() to update the output table and caption whenever group or stat change. Ignore the update button.
+
+Solution
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
+\NormalTok{  data }\OtherTok{\textless{}{-}} \FunctionTok{reactive}\NormalTok{(\{}
+\NormalTok{    msleep }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{group\_by}\NormalTok{(.data[[input}\SpecialCharTok{$}\NormalTok{group]]) }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{summarise\_if}\NormalTok{(is.numeric, input}\SpecialCharTok{$}\NormalTok{stat, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  \})}
+\NormalTok{  output}\SpecialCharTok{$}\NormalTok{table }\OtherTok{\textless{}{-}} \FunctionTok{renderTable}\NormalTok{(}\FunctionTok{data}\NormalTok{())}
+  
+\NormalTok{  caption }\OtherTok{\textless{}{-}} \FunctionTok{reactive}\NormalTok{(\{}
+    \FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%ss by \%s"}\NormalTok{, }\FunctionTok{toupper}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{stat), input}\SpecialCharTok{$}\NormalTok{group)}
+\NormalTok{  \})}
+\NormalTok{  output}\SpecialCharTok{$}\NormalTok{caption }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(}\FunctionTok{caption}\NormalTok{())}
+\NormalTok{\} }
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{eventreactive-1}{%
+\subsection{eventReactive}\label{eventreactive-1}}
+
+Use eventReactive() to update the output table and caption only when the update button is clicked.
+
+Solution
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
+\NormalTok{  data }\OtherTok{\textless{}{-}} \FunctionTok{eventReactive}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{update, \{}
+\NormalTok{    msleep }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{group\_by}\NormalTok{(.data[[input}\SpecialCharTok{$}\NormalTok{group]]) }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{summarise\_if}\NormalTok{(is.numeric, input}\SpecialCharTok{$}\NormalTok{stat, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  \})}
+\NormalTok{  output}\SpecialCharTok{$}\NormalTok{table }\OtherTok{\textless{}{-}} \FunctionTok{renderTable}\NormalTok{(}\FunctionTok{data}\NormalTok{())}
+  
+\NormalTok{  caption }\OtherTok{\textless{}{-}} \FunctionTok{eventReactive}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{update, \{}
+    \FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%ss by \%s"}\NormalTok{, }\FunctionTok{toupper}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{stat), input}\SpecialCharTok{$}\NormalTok{group)}
+\NormalTok{  \})}
+\NormalTok{  output}\SpecialCharTok{$}\NormalTok{caption }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(}\FunctionTok{caption}\NormalTok{())}
+\NormalTok{\} }
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{reactiveval-1}{%
+\subsection{reactiveVal}\label{reactiveval-1}}
+
+Use reactiveVal() to update the output table and caption only when the update button is clicked.
+
+Solution
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
+\NormalTok{  data }\OtherTok{\textless{}{-}} \FunctionTok{reactiveVal}\NormalTok{()}
+\NormalTok{  caption }\OtherTok{\textless{}{-}} \FunctionTok{reactiveVal}\NormalTok{()}
+  
+  \FunctionTok{observeEvent}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{update, \{}
+\NormalTok{    newdata }\OtherTok{\textless{}{-}}\NormalTok{ msleep }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{group\_by}\NormalTok{(.data[[input}\SpecialCharTok{$}\NormalTok{group]]) }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{summarise\_if}\NormalTok{(is.numeric, input}\SpecialCharTok{$}\NormalTok{stat, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+    \FunctionTok{data}\NormalTok{(newdata)}
+    
+    \CommentTok{\# this is an alternative way to set reactiveVal}
+    \CommentTok{\# by piping the value into the function}
+    \FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%ss by \%s"}\NormalTok{, }\FunctionTok{toupper}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{stat), input}\SpecialCharTok{$}\NormalTok{group) }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{caption}\NormalTok{()}
+\NormalTok{  \})}
+  
+\NormalTok{  output}\SpecialCharTok{$}\NormalTok{table }\OtherTok{\textless{}{-}} \FunctionTok{renderTable}\NormalTok{(}\FunctionTok{data}\NormalTok{())}
+\NormalTok{  output}\SpecialCharTok{$}\NormalTok{caption }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(}\FunctionTok{caption}\NormalTok{())}
+\NormalTok{\} }
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{reactivevalues}{%
+\subsection{reactiveValues}\label{reactivevalues}}
+
+Use reactiveValues() to update the output table and caption only when the update button is clicked.
+
+Solution
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
+\NormalTok{  v }\OtherTok{\textless{}{-}} \FunctionTok{reactiveValues}\NormalTok{()}
+  
+  \FunctionTok{observeEvent}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{update, \{}
+\NormalTok{    v}\SpecialCharTok{$}\NormalTok{data }\OtherTok{\textless{}{-}}\NormalTok{ msleep }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{group\_by}\NormalTok{(.data[[input}\SpecialCharTok{$}\NormalTok{group]]) }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{summarise\_if}\NormalTok{(is.numeric, input}\SpecialCharTok{$}\NormalTok{stat, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+    
+\NormalTok{    v}\SpecialCharTok{$}\NormalTok{caption }\OtherTok{\textless{}{-}}
+      \FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%ss by \%s"}\NormalTok{, }\FunctionTok{toupper}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{stat), input}\SpecialCharTok{$}\NormalTok{group)}
+\NormalTok{  \})}
+  
+\NormalTok{  output}\SpecialCharTok{$}\NormalTok{table }\OtherTok{\textless{}{-}} \FunctionTok{renderTable}\NormalTok{(v}\SpecialCharTok{$}\NormalTok{data)}
+\NormalTok{  output}\SpecialCharTok{$}\NormalTok{caption }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(v}\SpecialCharTok{$}\NormalTok{caption)}
+\NormalTok{\} }
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{data}{%
 \chapter{Reading and saving data}\label{data}}
@@ -2042,7 +2599,7 @@ You can set up a new Google Sheet with code. You only need to do this once for a
 
 \begin{verbatim}
 ## Spreadsheet name: demo2
-##               ID: 14uiUM2BxMO2MaYEA79NHFwsK2GRaTLEp5l_WQ2b85pc
+##               ID: 1PulMwLX5kV1ZwjTRss6n445DNTaSVrGNPh6aqA4AxXU
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -2220,557 +2777,6 @@ Append some data to your google sheet.
 \subsection{Your app}\label{your-app-1}}
 
 In the app you're developing, determine what data need to be saved and set up a google sheet (or local data if you're having trouble with google). Write the server function to save data from your app when an action button is pressed.
-
-\hypertarget{reactives}{%
-\chapter{Reactive functions}\label{reactives}}
-
-There are a lot of great tutorials that explain the principles behind reactive functions, but that never made any sense to me when I first started out, so I'm just going to give you examples that you can extrapolate principles from.
-
-Reactivity is how Shiny determines which code in \texttt{server()} gets to run when. Some types of objects, such as the \texttt{input} object or objects made by \texttt{reactiveValues()}, can trigger some types of functions to run whenever they change.
-
-For our example, we will use the \texttt{reactive\_demo} app. It shows three select inputs that allow the user to choose values from the cut, color, and clarity columns of the \texttt{diamonds} dataset from ggplot2, then draws a plot of the relationship between carat and price for the selected subset.
-
-\textbackslash begin\{figure\}
-
-\{\centering \href{https://shiny.psy.gla.ac.uk/debruine/reactive_demo/}{\includegraphics[width=1\linewidth]{_main_files/figure-latex/reactive-demo-app-1} }
-
-Here is the relevant code for the UI. There are four inputs: cut, color, clarity, and update. There are two outputs: title and plot.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{box}\NormalTok{(}
-  \AttributeTok{title =} \StringTok{"Diamonds"}\NormalTok{,}
-  \AttributeTok{solidHeader =} \ConstantTok{TRUE}\NormalTok{,}
-  \FunctionTok{selectInput}\NormalTok{(}\StringTok{"cut"}\NormalTok{, }\StringTok{"Cut"}\NormalTok{, }\FunctionTok{levels}\NormalTok{(diamonds}\SpecialCharTok{$}\NormalTok{cut)),}
-  \FunctionTok{selectInput}\NormalTok{(}\StringTok{"color"}\NormalTok{, }\StringTok{"Color"}\NormalTok{, }\FunctionTok{levels}\NormalTok{(diamonds}\SpecialCharTok{$}\NormalTok{color)),}
-  \FunctionTok{selectInput}\NormalTok{(}\StringTok{"clarity"}\NormalTok{, }\StringTok{"Clarity"}\NormalTok{, }\FunctionTok{levels}\NormalTok{(diamonds}\SpecialCharTok{$}\NormalTok{clarity)),}
-  \FunctionTok{actionButton}\NormalTok{(}\StringTok{"update"}\NormalTok{, }\StringTok{"Update Plot"}\NormalTok{)}
-\NormalTok{),}
-\FunctionTok{box}\NormalTok{(}
-  \AttributeTok{title =} \StringTok{"Plot"}\NormalTok{,}
-  \AttributeTok{solidHeader =} \ConstantTok{TRUE}\NormalTok{,}
-  \FunctionTok{textOutput}\NormalTok{(}\StringTok{"title"}\NormalTok{),}
-  \FunctionTok{plotOutput}\NormalTok{(}\StringTok{"plot"}\NormalTok{)}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-Whenever an input changes, it will trigger some types of functions to run.
-
-\hypertarget{observeevent-1}{%
-\section{observeEvent()}\label{observeevent-1}}
-
-We learned about \texttt{observeEvent()} in \protect\hyperlink{first-reactive}{Chapter 1}. This function runs the code whenever the value of the first argument changes. If there are reactives inside the function, they won't trigger the code to run when they change.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
-  \FunctionTok{observeEvent}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{update, \{}
-\NormalTok{    data }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(diamonds,}
-\NormalTok{                   cut }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{cut,}
-\NormalTok{                   color }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{color,}
-\NormalTok{                   clarity }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{clarity)}
-    
-\NormalTok{    title }\OtherTok{\textless{}{-}} \FunctionTok{sprintf}\NormalTok{(}\StringTok{"Cut: \%s, Color: \%s, Clarity: \%s"}\NormalTok{,}
-\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{cut,}
-\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{color,}
-\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{clarity)}
-    
-\NormalTok{    output}\SpecialCharTok{$}\NormalTok{plot }\OtherTok{\textless{}{-}} \FunctionTok{renderPlot}\NormalTok{(\{}
-      \FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(carat, price)) }\SpecialCharTok{+}
-        \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
-        \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =}\NormalTok{ lm, }\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{)}
-\NormalTok{    \})}
-    
-\NormalTok{    output}\SpecialCharTok{$}\NormalTok{title }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(title)}
-\NormalTok{  \})}
-\NormalTok{\} }
-\end{Highlighting}
-\end{Shaded}
-
-In the example above, which inputs will trigger \texttt{renderPlot()} to run and produce a new plot?
-
-cut color clarity update cut, color \& clarity all of the above
-
-In the example above, which inputs will trigger \texttt{renderText()} to run and produce a new title?
-
-cut color clarity update cut, color \& clarity all of the above
-
-\hypertarget{render-functions}{%
-\section{Render functions}\label{render-functions}}
-
-Functions that render an output, like \texttt{renderText()} or \texttt{renderPlot()} will run whenever an input in their code changes. You can trigger a render function just by putting a reactive alone on a line, even if you aren't using it in the rest of the code.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
-\NormalTok{  output}\SpecialCharTok{$}\NormalTok{plot }\OtherTok{\textless{}{-}} \FunctionTok{renderPlot}\NormalTok{(\{}
-\NormalTok{    data }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(diamonds,}
-\NormalTok{                   cut }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{cut,}
-\NormalTok{                   color }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{color,}
-\NormalTok{                   clarity }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{clarity)}
-    
-    \FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(carat, price)) }\SpecialCharTok{+}
-      \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
-      \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =}\NormalTok{ lm, }\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{)}
-\NormalTok{  \})}
-  
-\NormalTok{  output}\SpecialCharTok{$}\NormalTok{title }\OtherTok{\textless{}{-}}\NormalTok{ renderText\{}
-\NormalTok{    input}\SpecialCharTok{$}\NormalTok{update }
-    
-    \FunctionTok{sprintf}\NormalTok{(}\StringTok{"Cut: \%s, Color: \%s, Clarity: \%s"}\NormalTok{,}
-\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{cut,}
-\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{color,}
-\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{clarity)}
-\NormalTok{  \}}\ErrorTok{)}
-\NormalTok{\} }
-\end{Highlighting}
-\end{Shaded}
-
-In the example above, which inputs will trigger \texttt{renderPlot()} to run and produce a new plot?
-
-cut color clarity update cut, color \& clarity all of the above
-
-Which inputs will trigger \texttt{renderText()} to run and produce a new title?
-
-cut color clarity update cut, color \& clarity all of the above
-
-\hypertarget{reactive-1}{%
-\section{reactive()}\label{reactive-1}}
-
-If you move the \texttt{data} filtering outside of \texttt{renderPlot()}, you'll get an error message like ``Can't access reactive value `cut' outside of reactive consumer.'' This means that the \texttt{input} values can only be read inside certain functions, like \texttt{reactive()}, \texttt{observeEvent()}, or a render function.
-
-However, we can put the data filtering inside \texttt{reactive()}. This means that whenever an input inside that function changes, the code will run and update the value of \texttt{data()}. This can be useful if you need to recalculate the data table each time the inputs change, and then use it in more than one function.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
-\NormalTok{  data }\OtherTok{\textless{}{-}} \FunctionTok{reactive}\NormalTok{(\{}
-    \FunctionTok{filter}\NormalTok{(diamonds,}
-\NormalTok{           cut }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{cut,}
-\NormalTok{           color }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{color,}
-\NormalTok{           clarity }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{clarity)}
-\NormalTok{  \})}
-  
-\NormalTok{  title }\OtherTok{\textless{}{-}} \FunctionTok{reactive}\NormalTok{(\{}
-    \FunctionTok{sprintf}\NormalTok{(}\StringTok{"Cut: \%s, Color: \%s, Clarity: \%s, N: \%d"}\NormalTok{,}
-\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{cut,}
-\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{color,}
-\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{clarity,}
-            \FunctionTok{nrow}\NormalTok{(}\FunctionTok{data}\NormalTok{()))}
-\NormalTok{  \})}
-  
-\NormalTok{  output}\SpecialCharTok{$}\NormalTok{plot }\OtherTok{\textless{}{-}} \FunctionTok{renderPlot}\NormalTok{(\{}
-    \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{data}\NormalTok{(), }\FunctionTok{aes}\NormalTok{(carat, price)) }\SpecialCharTok{+}
-      \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
-      \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =}\NormalTok{ lm, }\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{)}
-\NormalTok{  \})}
-  
-\NormalTok{  output}\SpecialCharTok{$}\NormalTok{text }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(}\FunctionTok{title}\NormalTok{())}
-\NormalTok{\} }
-\end{Highlighting}
-\end{Shaded}
-
-In the example above, which inputs will trigger \texttt{renderPlot()} to run and produce a new plot?
-
-cut color clarity update cut, color \& clarity all of the above
-
-Which inputs will trigger \texttt{renderText()} to run and produce a new title?
-
-cut color clarity update cut, color \& clarity all of the above
-
-My most common error is trying to use \texttt{data} or \texttt{title} as an object instead of as a function. Notice how the first argument to ggplot is no longer \texttt{data}, but \texttt{data()} and you set the value of data with \texttt{data(newdata)}, not \texttt{data\ \textless{}-\ newdata}. For now, just remember this as a quirk of shiny.
-
-\hypertarget{eventreactive}{%
-\section{eventReactive()}\label{eventreactive}}
-
-While \texttt{reactive()} is triggered whenever any input values inside it change, \texttt{eventReactive()} is only triggered when the value of the first argument changes, like \texttt{observeEvent()}, but returns a reactive function like \texttt{reactive()}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
-\NormalTok{  data }\OtherTok{\textless{}{-}} \FunctionTok{eventReactive}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{update, \{}
-    \FunctionTok{filter}\NormalTok{(diamonds,}
-\NormalTok{           cut }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{cut,}
-\NormalTok{           color }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{color,}
-\NormalTok{           clarity }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{clarity)}
-\NormalTok{  \})}
-  
-\NormalTok{  title }\OtherTok{\textless{}{-}} \FunctionTok{eventReactive}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{update, \{}
-    \FunctionTok{sprintf}\NormalTok{(}\StringTok{"Cut: \%s, Color: \%s, Clarity: \%s"}\NormalTok{,}
-\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{cut,}
-\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{color,}
-\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{clarity)}
-\NormalTok{  \})}
-  
-\NormalTok{  output}\SpecialCharTok{$}\NormalTok{plot }\OtherTok{\textless{}{-}} \FunctionTok{renderPlot}\NormalTok{(\{}
-    \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{data}\NormalTok{(), }\FunctionTok{aes}\NormalTok{(carat, price)) }\SpecialCharTok{+}
-      \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
-      \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =}\NormalTok{ lm, }\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{)}
-\NormalTok{  \})}
-  
-\NormalTok{  output}\SpecialCharTok{$}\NormalTok{text }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(}\FunctionTok{title}\NormalTok{())}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-In the example above, which inputs will trigger \texttt{renderPlot()} to run and produce a new plot?
-
-cut color clarity update cut, color \& clarity all of the above
-
-Which inputs will trigger \texttt{renderText()} to run and produce a new title?
-
-cut color clarity update cut, color \& clarity all of the above
-
-\hypertarget{reactiveval}{%
-\section{reactiveVal()}\label{reactiveval}}
-
-Another pattern that accomplishes a similar thing to \texttt{reactive()} is to create a reactive value using \texttt{reactiveVal()}. This allows you to update the value of \texttt{data()} not just using the code inside the \texttt{reactive()} function that created it, but in any function. This is useful when you have multiple functions that need to update that value.
-
-Here, we use \texttt{observeEvent()} to trigger the data filtering code only when the update button is pressed. This new data set is assigned to \texttt{data()} using the code \texttt{data(newdata)}.
-
-Because \texttt{data()} is a reactive value, it will trigger \texttt{renderPlot()} whenever it changes.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
-\NormalTok{    data }\OtherTok{\textless{}{-}} \FunctionTok{reactiveVal}\NormalTok{(diamonds)}
-    
-    \FunctionTok{observeEvent}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{update, \{}
-\NormalTok{        newdata }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(diamonds,}
-\NormalTok{               cut }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{cut,}
-\NormalTok{               color }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{color,}
-\NormalTok{               clarity }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{clarity)}
-        
-        \FunctionTok{data}\NormalTok{(newdata) }\CommentTok{\# updates data()}
-\NormalTok{    \})}
-    
-\NormalTok{    output}\SpecialCharTok{$}\NormalTok{plot }\OtherTok{\textless{}{-}} \FunctionTok{renderPlot}\NormalTok{(\{}
-        \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{data}\NormalTok{(), }\FunctionTok{aes}\NormalTok{(carat, price)) }\SpecialCharTok{+}
-            \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
-            \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =}\NormalTok{ lm, }\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{)}
-\NormalTok{    \})}
-    
-\NormalTok{    output}\SpecialCharTok{$}\NormalTok{title }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(\{}
-      \FunctionTok{sprintf}\NormalTok{(}\StringTok{"Cut: \%s, Color: \%s, Clarity: \%s"}\NormalTok{,}
-\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{cut,}
-\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{color,}
-\NormalTok{                     input}\SpecialCharTok{$}\NormalTok{clarity)}
-\NormalTok{    \})}
-\NormalTok{\} }
-\end{Highlighting}
-\end{Shaded}
-
-In the example above, which inputs will trigger \texttt{renderPlot()} to run and produce a new plot?
-
-cut color clarity update cut, color \& clarity all of the above
-
-Which inputs will trigger \texttt{renderText()} to run and produce a new title?
-
-cut color clarity update cut, color \& clarity all of the above
-
-We used \texttt{data\ \textless{}-\ reactiveVal(diamonds)} in order for \texttt{data()} to have a value that didn't cause an error when \texttt{renderPlot()} runs for the first time.
-
-\hypertarget{reactivevalue}{%
-\section{reactiveValue()}\label{reactivevalue}}
-
-You need to set up a new \texttt{reactiveVal()} for each value in an app that you want to make reactive. I prefer to use \texttt{reactiveValues()} because it can be used for any new reactive value you need and works just like \texttt{input}.
-
-You can just set your new object to \texttt{reactiveValues()} or you can initialise it with starting values like below. The object \texttt{v} is a named list, just like \texttt{input}, and when it's values change, it triggers reactive functions exactly like \texttt{input} does.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
-\NormalTok{    v }\OtherTok{\textless{}{-}} \FunctionTok{reactiveValues}\NormalTok{(}
-        \AttributeTok{data =}\NormalTok{ diamonds,}
-        \AttributeTok{title =} \StringTok{"All Data"}
-\NormalTok{    )}
-    
-    \FunctionTok{observeEvent}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{update, \{}
-\NormalTok{        v}\SpecialCharTok{$}\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(diamonds,}
-\NormalTok{                       cut }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{cut,}
-\NormalTok{                       color }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{color,}
-\NormalTok{                       clarity }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{clarity)}
-        
-\NormalTok{        v}\SpecialCharTok{$}\NormalTok{title }\OtherTok{\textless{}{-}} \FunctionTok{sprintf}\NormalTok{(}\StringTok{"Cut: \%s, Color: \%s, Clarity: \%s"}\NormalTok{,}
-\NormalTok{                         input}\SpecialCharTok{$}\NormalTok{cut,}
-\NormalTok{                         input}\SpecialCharTok{$}\NormalTok{color,}
-\NormalTok{                         input}\SpecialCharTok{$}\NormalTok{clarity)}
-\NormalTok{    \})}
-    
-\NormalTok{    output}\SpecialCharTok{$}\NormalTok{plot }\OtherTok{\textless{}{-}} \FunctionTok{renderPlot}\NormalTok{(\{}
-        \FunctionTok{ggplot}\NormalTok{(v}\SpecialCharTok{$}\NormalTok{data, }\FunctionTok{aes}\NormalTok{(carat, price)) }\SpecialCharTok{+}
-            \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
-            \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =}\NormalTok{ lm, }\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{)}
-\NormalTok{    \})}
-    
-\NormalTok{    output}\SpecialCharTok{$}\NormalTok{title }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(v}\SpecialCharTok{$}\NormalTok{title)}
-\NormalTok{\} }
-\end{Highlighting}
-\end{Shaded}
-
-In the example above, which inputs will trigger \texttt{renderPlot()} to run and produce a new plot?
-
-cut color clarity update cut, color \& clarity all of the above
-
-Which inputs will trigger \texttt{renderText()} to run and produce a new title?
-
-cut color clarity update cut, color \& clarity all of the above
-
-Note that you refer to reactive values set up this way as \texttt{v\$data} and \texttt{v\$title}, not \texttt{data()} and \texttt{title()}.
-
-\hypertarget{isolate}{%
-\section{isolate()}\label{isolate}}
-
-If you want to use an input or reactive value inside a reactive function, but don't want to trigger that function, you can \texttt{isolate()} it. You can also use \texttt{isolate()} to use a reactive value outside a reactive function.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
-\NormalTok{  data }\OtherTok{\textless{}{-}} \FunctionTok{reactive}\NormalTok{(\{}
-    \FunctionTok{filter}\NormalTok{(}
-\NormalTok{      diamonds,}
-\NormalTok{      cut }\SpecialCharTok{==} \FunctionTok{isolate}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{cut),}
-\NormalTok{      color }\SpecialCharTok{==} \FunctionTok{isolate}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{color),}
-\NormalTok{      clarity }\SpecialCharTok{==}\NormalTok{ input}\SpecialCharTok{$}\NormalTok{clarity}
-\NormalTok{    )}
-\NormalTok{  \})}
-  
-\NormalTok{  title }\OtherTok{\textless{}{-}} \FunctionTok{reactive}\NormalTok{(\{}
-    \FunctionTok{sprintf}\NormalTok{(}
-      \StringTok{"Cut: \%s, Color: \%s, Clarity: \%s"}\NormalTok{,}
-\NormalTok{      input}\SpecialCharTok{$}\NormalTok{cut,}
-      \FunctionTok{isolate}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{color),}
-      \FunctionTok{isolate}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{clarity)}
-\NormalTok{    )}
-\NormalTok{  \})}
-  
-  \CommentTok{\# what is the title at initialisation?}
-  \FunctionTok{debug\_msg}\NormalTok{(}\FunctionTok{isolate}\NormalTok{(}\FunctionTok{title}\NormalTok{()))}
-  
-\NormalTok{  output}\SpecialCharTok{$}\NormalTok{plot }\OtherTok{\textless{}{-}} \FunctionTok{renderPlot}\NormalTok{(\{}
-    \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{data}\NormalTok{(), }\FunctionTok{aes}\NormalTok{(carat, price)) }\SpecialCharTok{+}
-      \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
-      \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =}\NormalTok{ lm, }\AttributeTok{color =} \StringTok{"\#605CA8"}\NormalTok{)}
-\NormalTok{  \})}
-  
-\NormalTok{  output}\SpecialCharTok{$}\NormalTok{title }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(}\FunctionTok{title}\NormalTok{())}
-\NormalTok{\} }
-\end{Highlighting}
-\end{Shaded}
-
-In the example above, which inputs will trigger \texttt{renderPlot()} to run and produce a new plot?
-
-cut color clarity update cut, color \& clarity all of the above
-
-Which inputs will trigger \texttt{renderText()} to run and produce a new title?
-
-cut color clarity update cut, color \& clarity all of the above
-
-\hypertarget{further-resources-resources-reactive}{%
-\section{Further Resources \{\#resources-reactive)}\label{further-resources-resources-reactive}}
-
-\begin{itemize}
-\tightlist
-\item
-  \href{https://shiny.rstudio.com/articles/reactivity-overview.html}{Reactivity - An overview}
-\item
-  \href{https://shiny.rstudio.com/tutorial/written-tutorial/lesson6/}{Use reactive expressions}
-\end{itemize}
-
-\hypertarget{exercises-reactive}{%
-\section{Exercises}\label{exercises-reactive}}
-
-For the following exercises, clone ``reactive\_demo'' and replace the boxes in the ui with the code below. Delete all the code in \texttt{server()}. Make sure this runs before you go ahead.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{box}\NormalTok{(}\AttributeTok{width =} \DecValTok{4}\NormalTok{,}
-    \FunctionTok{selectInput}\NormalTok{(}\StringTok{"stat"}\NormalTok{, }\StringTok{"Statistic"}\NormalTok{, }\FunctionTok{c}\NormalTok{(}\StringTok{"mean"}\NormalTok{, }\StringTok{"sd"}\NormalTok{)),}
-    \FunctionTok{selectInput}\NormalTok{(}\StringTok{"group"}\NormalTok{, }\StringTok{"Group By"}\NormalTok{, }\FunctionTok{c}\NormalTok{(}\StringTok{"vore"}\NormalTok{, }\StringTok{"order"}\NormalTok{, }\StringTok{"conservation"}\NormalTok{)),}
-    \FunctionTok{actionButton}\NormalTok{(}\StringTok{"update"}\NormalTok{, }\StringTok{"Update Table"}\NormalTok{)),}
-\FunctionTok{box}\NormalTok{(}\AttributeTok{width =} \DecValTok{8}\NormalTok{,}
-    \AttributeTok{solidHeader =} \ConstantTok{TRUE}\NormalTok{,}
-    \AttributeTok{title =} \FunctionTok{textOutput}\NormalTok{(}\StringTok{"caption"}\NormalTok{),}
-    \FunctionTok{tableOutput}\NormalTok{(}\StringTok{"table"}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-You will grouping and summarising the \texttt{msleep} data table from \texttt{ggplot2} by calculating the mean or standard deviation for all (or some) of the numeric columns grouped by the categorical columns vore, order, or conservation. If you're not sure how to create such a summary table with dplyr, look at the following code for a concrete example.
-
-Hint
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{msleep }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{group\_by}\NormalTok{(vore) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{summarise\_if}\NormalTok{(is.numeric, }\StringTok{"mean"}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## # A tibble: 5 x 7
-##   vore    sleep_total sleep_rem sleep_cycle awake brainwt  bodywt
-##   <chr>         <dbl>     <dbl>       <dbl> <dbl>   <dbl>   <dbl>
-## 1 carni         10.4       2.29       0.373 13.6  0.0793   90.8  
-## 2 herbi          9.51      1.37       0.418 14.5  0.622   367.   
-## 3 insecti       14.9       3.52       0.161  9.06 0.0216   12.9  
-## 4 omni          10.9       1.96       0.592 13.1  0.146    12.7  
-## 5 <NA>          10.2       1.88       0.183 13.8  0.00763   0.858
-\end{verbatim}
-
-\hypertarget{observeevent-2}{%
-\subsection{observeEvent}\label{observeevent-2}}
-
-Use \texttt{observeEvent()} to update the output table with the appropriate summary table and to update the caption with an appropriate caption only when the update button is clicked.
-
-Solution
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
-    \FunctionTok{observeEvent}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{update, \{}
-\NormalTok{        data }\OtherTok{\textless{}{-}}\NormalTok{ msleep }\SpecialCharTok{\%\textgreater{}\%}
-            \FunctionTok{group\_by}\NormalTok{(.data[[input}\SpecialCharTok{$}\NormalTok{group]]) }\SpecialCharTok{\%\textgreater{}\%}
-            \FunctionTok{summarise\_if}\NormalTok{(is.numeric, input}\SpecialCharTok{$}\NormalTok{stat, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
-\NormalTok{        output}\SpecialCharTok{$}\NormalTok{table }\OtherTok{\textless{}{-}} \FunctionTok{renderTable}\NormalTok{(data)}
-    
-\NormalTok{        caption }\OtherTok{\textless{}{-}} \FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%ss by \%s"}\NormalTok{, }\FunctionTok{toupper}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{stat), input}\SpecialCharTok{$}\NormalTok{group)}
-\NormalTok{        output}\SpecialCharTok{$}\NormalTok{caption }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(caption)}
-\NormalTok{    \})}
-\NormalTok{\} }
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{render}{%
-\subsection{render}\label{render}}
-
-Use render functions to update the output table and caption whenever group or stat change.
-
-Solution
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
-\NormalTok{    output}\SpecialCharTok{$}\NormalTok{table }\OtherTok{\textless{}{-}} \FunctionTok{renderTable}\NormalTok{(\{}
-\NormalTok{        msleep }\SpecialCharTok{\%\textgreater{}\%}
-            \FunctionTok{group\_by}\NormalTok{(.data[[input}\SpecialCharTok{$}\NormalTok{group]]) }\SpecialCharTok{\%\textgreater{}\%}
-            \FunctionTok{summarise\_if}\NormalTok{(is.numeric, input}\SpecialCharTok{$}\NormalTok{stat, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
-\NormalTok{    \})}
-    
-\NormalTok{    output}\SpecialCharTok{$}\NormalTok{caption }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(\{}
-        \FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%ss by \%s"}\NormalTok{, }\FunctionTok{toupper}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{stat), input}\SpecialCharTok{$}\NormalTok{group)}
-\NormalTok{    \})}
-\NormalTok{\} }
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{reactive-2}{%
-\subsection{reactive}\label{reactive-2}}
-
-Use reactive functions to update the output table and caption whenever group or stat change. Ignore the update button.
-
-Solution
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
-\NormalTok{  data }\OtherTok{\textless{}{-}} \FunctionTok{reactive}\NormalTok{(\{}
-\NormalTok{    msleep }\SpecialCharTok{\%\textgreater{}\%}
-      \FunctionTok{group\_by}\NormalTok{(.data[[input}\SpecialCharTok{$}\NormalTok{group]]) }\SpecialCharTok{\%\textgreater{}\%}
-      \FunctionTok{summarise\_if}\NormalTok{(is.numeric, input}\SpecialCharTok{$}\NormalTok{stat, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
-\NormalTok{  \})}
-\NormalTok{  output}\SpecialCharTok{$}\NormalTok{table }\OtherTok{\textless{}{-}} \FunctionTok{renderTable}\NormalTok{(}\FunctionTok{data}\NormalTok{())}
-  
-\NormalTok{  caption }\OtherTok{\textless{}{-}} \FunctionTok{reactive}\NormalTok{(\{}
-    \FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%ss by \%s"}\NormalTok{, }\FunctionTok{toupper}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{stat), input}\SpecialCharTok{$}\NormalTok{group)}
-\NormalTok{  \})}
-\NormalTok{  output}\SpecialCharTok{$}\NormalTok{caption }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(}\FunctionTok{caption}\NormalTok{())}
-\NormalTok{\} }
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{eventreactive-1}{%
-\subsection{eventReactive}\label{eventreactive-1}}
-
-Use \texttt{eventReactive()} to update the output table and caption only when the update button is clicked.
-
-Solution
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
-\NormalTok{  data }\OtherTok{\textless{}{-}} \FunctionTok{eventReactive}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{update, \{}
-\NormalTok{    msleep }\SpecialCharTok{\%\textgreater{}\%}
-      \FunctionTok{group\_by}\NormalTok{(.data[[input}\SpecialCharTok{$}\NormalTok{group]]) }\SpecialCharTok{\%\textgreater{}\%}
-      \FunctionTok{summarise\_if}\NormalTok{(is.numeric, input}\SpecialCharTok{$}\NormalTok{stat, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
-\NormalTok{  \})}
-\NormalTok{  output}\SpecialCharTok{$}\NormalTok{table }\OtherTok{\textless{}{-}} \FunctionTok{renderTable}\NormalTok{(}\FunctionTok{data}\NormalTok{())}
-  
-\NormalTok{  caption }\OtherTok{\textless{}{-}} \FunctionTok{eventReactive}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{update, \{}
-    \FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%ss by \%s"}\NormalTok{, }\FunctionTok{toupper}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{stat), input}\SpecialCharTok{$}\NormalTok{group)}
-\NormalTok{  \})}
-\NormalTok{  output}\SpecialCharTok{$}\NormalTok{caption }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(}\FunctionTok{caption}\NormalTok{())}
-\NormalTok{\} }
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{reactiveval-1}{%
-\subsection{reactiveVal}\label{reactiveval-1}}
-
-Use \texttt{reactiveVal()} to update the output table and caption only when the update button is clicked.
-
-Solution
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
-\NormalTok{  data }\OtherTok{\textless{}{-}} \FunctionTok{reactiveVal}\NormalTok{()}
-\NormalTok{  caption }\OtherTok{\textless{}{-}} \FunctionTok{reactiveVal}\NormalTok{()}
-  
-  \FunctionTok{observeEvent}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{update, \{}
-\NormalTok{    newdata }\OtherTok{\textless{}{-}}\NormalTok{ msleep }\SpecialCharTok{\%\textgreater{}\%}
-      \FunctionTok{group\_by}\NormalTok{(.data[[input}\SpecialCharTok{$}\NormalTok{group]]) }\SpecialCharTok{\%\textgreater{}\%}
-      \FunctionTok{summarise\_if}\NormalTok{(is.numeric, input}\SpecialCharTok{$}\NormalTok{stat, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
-    \FunctionTok{data}\NormalTok{(newdata)}
-    
-    \CommentTok{\# this is an alternative way to set reactiveVal}
-    \CommentTok{\# by piping the value into the function}
-    \FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%ss by \%s"}\NormalTok{, }\FunctionTok{toupper}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{stat), input}\SpecialCharTok{$}\NormalTok{group) }\SpecialCharTok{\%\textgreater{}\%}
-      \FunctionTok{caption}\NormalTok{()}
-\NormalTok{  \})}
-  
-\NormalTok{  output}\SpecialCharTok{$}\NormalTok{table }\OtherTok{\textless{}{-}} \FunctionTok{renderTable}\NormalTok{(}\FunctionTok{data}\NormalTok{())}
-\NormalTok{  output}\SpecialCharTok{$}\NormalTok{caption }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(}\FunctionTok{caption}\NormalTok{())}
-\NormalTok{\} }
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{reactivevalues}{%
-\subsection{reactiveValues}\label{reactivevalues}}
-
-Use \texttt{reactiveValues()} to update the output table and caption only when the update button is clicked.
-
-Solution
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{}
-\NormalTok{  v }\OtherTok{\textless{}{-}} \FunctionTok{reactiveValues}\NormalTok{()}
-  
-  \FunctionTok{observeEvent}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{update, \{}
-\NormalTok{    v}\SpecialCharTok{$}\NormalTok{data }\OtherTok{\textless{}{-}}\NormalTok{ msleep }\SpecialCharTok{\%\textgreater{}\%}
-      \FunctionTok{group\_by}\NormalTok{(.data[[input}\SpecialCharTok{$}\NormalTok{group]]) }\SpecialCharTok{\%\textgreater{}\%}
-      \FunctionTok{summarise\_if}\NormalTok{(is.numeric, input}\SpecialCharTok{$}\NormalTok{stat, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
-    
-\NormalTok{    v}\SpecialCharTok{$}\NormalTok{caption }\OtherTok{\textless{}{-}} \FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%ss by \%s"}\NormalTok{, }\FunctionTok{toupper}\NormalTok{(input}\SpecialCharTok{$}\NormalTok{stat), input}\SpecialCharTok{$}\NormalTok{group)}
-\NormalTok{  \})}
-  
-\NormalTok{  output}\SpecialCharTok{$}\NormalTok{table }\OtherTok{\textless{}{-}} \FunctionTok{renderTable}\NormalTok{(v}\SpecialCharTok{$}\NormalTok{data)}
-\NormalTok{  output}\SpecialCharTok{$}\NormalTok{caption }\OtherTok{\textless{}{-}} \FunctionTok{renderText}\NormalTok{(v}\SpecialCharTok{$}\NormalTok{caption)}
-\NormalTok{\} }
-\end{Highlighting}
-\end{Shaded}
 
 \hypertarget{web}{%
 \chapter{HTML, CSS, and JavaScript}\label{web}}
@@ -4805,13 +4811,9 @@ tidyverse & A set of R packages that help you create and work with tidy data\\
 \hline
 ui & The User Interface. This usually refers to a Shiny App as the user will see it.\\
 \hline
-url & \\
-\hline
 vector & A type of data structure that is basically a list of things like T/F values, numbers, or strings.\\
 \hline
 version-control & A way to save a record of changes to your files.\\
-\hline
-whitepspace & \\
 \hline
 whitespace & Spaces, tabs and line breaks\\
 \hline

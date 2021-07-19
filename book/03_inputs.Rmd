@@ -58,7 +58,7 @@ demo_select <-
               width = "100%")
 ```
 
-If you set `r arg("multiple")` to `TRUE`, you can also make a select where users can choose multiple options.
+If you set `r arg("multiple")` to `r dt(TRUE)`, you can also make a select where users can choose multiple options.
 
 ```{r}
 genders <- list( # no blank needed
@@ -96,7 +96,7 @@ How can you get the checkboxes to display horizontally instead of vertically?
 
 ### checkboxInput
 
-You can also make a single checkbox with `r func("checkboxInput")`. The `r arg("value")` is `TRUE` when checked and `FALSE` when not.
+You can also make a single checkbox with `r func("checkboxInput")`. The `r arg("value")` is `r dt(TRUE)` when checked and `r dt(FALSE)` when not.
 
 ```{r}
 demo_cb <- checkboxInput("demo_cb",
@@ -150,13 +150,11 @@ demo_date <- dateInput("demo_date",
 ```
 
 ::: {.info}
-IMHO, the default of `"yyyy-mm-dd"` is the best because it sorts into chronological order. Don't let me catch you storing dates like `"m/d/yyyy"`. 
+IMHO, the default of `r dt("yyyy-mm-dd")` is the best because it sorts into chronological order. Don't let me catch you storing dates like `r dt("m/d/yyyy")`. 
 :::
 
 What would you set `r arg("format")` to in order to display dates like "Sunday July 4, 2021"?  
 `r mcq(c("D M d, Y", answer = "DD MM d, yyyy", "DAY MONTH day, YEAR", "D MM dd, yyyy"))`
-
-(don't actually do this)
 
 
 ### fileInput
@@ -191,7 +189,7 @@ updateDateInput(session, "demo_date", value = NULL)
 ```
 
 ::: {.warning}
-Note that select inputs, checkbox groups, and radio buttons use the argument `selected` and not `value`. If you want to set all the values in a checkbox group or radio button group to unchecked, set `selected = character(0)`.
+Note that select inputs, checkbox groups, and radio buttons use the argument `r arg("selected")` and not `r func("value")`. If you want to set all the values in a checkbox group or radio button group to unchecked, set `selected = character(0)`.
 :::
 
 ## Further Reources {#resources-inputs}

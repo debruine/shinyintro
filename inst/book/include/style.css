@@ -32,25 +32,20 @@ code, pre,
 .book .book-body .page-wrapper .page-inner section.normal code.function,
 .book .book-body .page-wrapper .page-inner section.normal code.argument {
   background-color: inherit;
-  font-size: 105%;
 }
 
-.book .book-body .page-wrapper .page-inner section.normal code.path::before,
-.book .book-body .page-wrapper .page-inner section.normal code.package::before,
-.book .book-body .page-wrapper .page-inner section.normal code.function::before,
-.book .book-body .page-wrapper .page-inner section.normal code.argument::before,
-.book .book-body .page-wrapper .page-inner section.normal code.path::after,
-.book .book-body .page-wrapper .page-inner section.normal code.package::after,
-.book .book-body .page-wrapper .page-inner section.normal code.function::after,
-.book .book-body .page-wrapper .page-inner section.normal code.argument::after {
+.book .book-body .page-wrapper .page-inner section.normal code::before,
+.book .book-body .page-wrapper .page-inner section.normal code::after {
   content: none;
+  font-size: 105%;
 }
 
 .book .book-body .page-wrapper .page-inner section.normal code.path { 
   font-style: italic;
 }
 .book .book-body .page-wrapper .page-inner section.normal code.package { 
-  font-weight: 800; 
+  font-weight: 500; 
+  color: #333;
 }
 .book .book-body .page-wrapper .page-inner section.normal code.function { 
   color: #13307C; 

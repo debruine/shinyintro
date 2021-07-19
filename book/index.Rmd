@@ -86,15 +86,15 @@ Each lecture session will conclude with a hands-on exercise reviewing the conten
 
 * [Different input types](#inputs)
 * [Different output types](#outputs)
-* [Reading and saving data](#data)
 * [Reactive functions](#reactives)
+* [Reading and saving data](#data)
 
 #### Day 3
 
 * [CSS, HTML, and Javascript](#web)
 * [Structuring a complex app](#structure)
 * [Debugging and error handling](#debugging)
-* [Displaying elements contingent on the state of other elements](#contingency)
+* [Contingent Display](#contingency)
 
 #### Day 4
 
@@ -131,6 +131,24 @@ g + geom_violin(alpha = 0.5)
 
 
 If you want to brush up on your R (especially `r glossary("tidyverse")`), and also gain familiarity with the instructor's teaching style, the first seven chapters of [Data Skills for Reproducible Science](https://psyteachr.github.io/msc-data-skills/){target="_blank"} provide a good overview.
+
+## Conventions
+
+This book will use the following conventions:
+
+* File paths: `r path("www/style.css")`
+* R Packages: `r pkg("shinydashboard")`
+* Functions: `r func("observeEvent")`
+* Arguments: `r arg("width")`
+* Strings: `r dt("Lisa")`
+* Numbers: `r dt(100)`
+* Logical values: `r dt(TRUE)`
+* Other code: `x <- list(a = "Aligator", b = "Buffalo")`
+* Glossary items: `r glossary("shiny")`
+* Internal links: Section\ \@ref(first-app)
+* External links: [Mastering Shiny](https://mastering-shiny.org/){target="_blank"}
+* Menu/interface options: **`New File...`**
+
 
 ## Further Resources
 
