@@ -153,7 +153,7 @@ tabItem(
 )
 ```
 
-<img src="images/sdb_box_collapse.gif">
+<img src="images/sdb_box_collapse.gif" />
 
 In the normal shinydashboard style, solid headers only have a colour if the box also has the status argument set. In the basic template provided in this class, there is custom CSS to make solid headers the same colour as the theme skin, but you can also set the `r arg("status")`.
 

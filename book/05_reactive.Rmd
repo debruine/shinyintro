@@ -9,7 +9,7 @@ For our example, we will use the `reactive_demo` app. It shows three select inpu
 ```{r reactive-demo-app, eval=TRUE, echo=FALSE, fig.cap="Reactive Demo App. You can also access this app with `shinyintro::app(\"reactive_demo\")`or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/reactive_demo/){target=\"_blank\"}."}
 if (is_html)
   knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/reactive_demo/",
-height = "800px")
+height = "560px")
 ```
 
 Here is the relevant code for the UI. There are four inputs: cut, color, clarity, and update. There are two outputs: title and plot.

@@ -280,7 +280,7 @@ Re-run your app and see if you can change the data and x-axis label with your ne
 ```{r first-demo-app, eval=TRUE, echo=FALSE, fig.cap="First Demo App. You can also access this app with `shinyintro::app(\"first_demo\")`or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/first_demo/){target=\"_blank\"}."}
 if (is_html)
   knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/first_demo/",
-height = "800px")
+height = "520px")
 ```
 
 
@@ -339,7 +339,7 @@ ui <- fluidPage(
 )
 ```
 
-Many of the functions used to create parts of the website are the same as `r glossary("tag", "HTML tags")`, which are ways to mark the beginning and end of different types of text. Most HTML tags are available in shiny by using one of the `r func("tags")` sub-functions, but some of the more common tags, like `r func("p")` or `r func("h1")`-`r func("h6")`also have a version where you can omit the`tags\$` part. You can see a list of all of the tags available in Shiny at the [tag glossary](https://shiny.rstudio.com/articles/tag-glossary.html){target="_blank"}
+Many of the functions used to create parts of the website are the same as `r glossary("tag", "HTML tags")`, which are ways to mark the beginning and end of different types of text. Most HTML tags are available in shiny by using one of the `r func("tags")` sub-functions, but some of the more common tags, like `r func("p")` or `r func("h1")`-`r func("h6")`also have a version where you can omit the `tags$` part. You can see a list of all of the tags available in Shiny at the [tag glossary](https://shiny.rstudio.com/articles/tag-glossary.html){target="_blank"}
 
 ::: {.try}
 Add the code above to your basic_demo app and replace my favourite things with yours. Make the list an ordered list (instead of unordered) and change the image size.

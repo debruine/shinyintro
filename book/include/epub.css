@@ -1,0 +1,51 @@
+/* psyTeachR default styles. Do not edit this !! */
+/* (edit style.css for your own book styles) */
+
+:root {
+  --pink: #983E82;   /* hsl(315, 42%, 42%) */
+  --orange: #E2A458; /* hsl( 33, 70%, 62%) */
+  --yellow: #F5DC70; /* hsl( 49, 87%, 70%) */
+  --green: #59935B;  /* hsl(122, 25%, 46%) */
+  --blue: #467AAC;   /* hsl(209, 42%, 47%) */
+  --purple: #61589C; /* hsl(248, 28%, 48%) */
+}
+
+
+pre {
+  border: 2px solid grey !important;
+  border-radius: 5px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* set styles for alert boxes */
+
+.danger, .warning, .info , .alert, .try {
+  padding: 1em 1em 0.25em 1em;
+  margin-bottom: 10px;
+  background-color: hsla(0, 0%, 100%, .1);
+  background-position: 0.5em 0.5em;
+  background-size: 2.5em;
+  background-repeat: no-repeat;
+  border-radius: 0.5em;
+}
+
+.danger {
+  background-color: hsla(315, 42%, 42%, .10);
+  border: 2px solid var(--pink);
+}
+
+.warning {
+  background-color: hsla(49, 87%, 70%, .1);
+  border: 2px solid var(--yellow);
+}
+
+.info {
+  background-color: hsla(209, 42%, 47%, .1);
+  border: 2px solid var(--blue);
+}
+
+.try {
+  background-color: hsla(248, 28%, 48%, .1);
+  border: 2px solid var(--purple);
+}

@@ -3,7 +3,7 @@
 ```{r contingency-demo-app, eval=TRUE, echo=FALSE, fig.cap="Contingency Demo App. You can also access this app with `shinyintro::app(\"contingency_demo\")`or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/contingency_demo/){target=\"_blank\"}."}
 if (is_html)
   knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/contingency_demo/",
-height = "800px")
+height = "600px")
 ```
 
 ## Hide and Show
