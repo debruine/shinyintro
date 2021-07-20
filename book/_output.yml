@@ -25,6 +25,7 @@ bookdown::gitbook:
     download: 
       - ["shinyintro.pdf", "PDF"]
       - ["shinyintro.epub", "EPUB"]
+      - ["shinyintro.mobi", "MOBI"]
     fontsettings:
       theme: white
       family: sans
