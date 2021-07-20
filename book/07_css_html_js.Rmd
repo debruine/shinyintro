@@ -47,12 +47,12 @@ HTML('<ul class="animals">
 
 But the main reason for you to learn a little about HTML is that it can help you to customise the appearance of your Shiny apps using [CSS](#CSS) and their behaviour using [JavaScript](#JavaScript).
 
-Often, you'll need to find out how to refer to a specific element or group of elements that were created by a `r pkg("shiny")` ui function. For example, it isn't obvious how you'd refer to the sidebar tab for `r dt("x_tab")` in the following code:
+Often, you'll need to find out how to refer to a specific element or group of elements that were created by a `r pkg("shiny")` ui function. For example, it isn't obvious how you'd refer to the sidebar tab for `r dt("demo_tab")` in the following code:
 
 ```{r}
 sidebarMenu(
     id = "tabs",
-    menuItem("Tab Title", tabName = "x_tab", icon = icon("dragon"))
+    menuItem("Tab Title", tabName = "demo_tab", icon = icon("dragon"))
 )
 ```
 
@@ -61,7 +61,7 @@ If you open the resulting app in a web browser, right click on the page, and cho
 ``` html
 <ul class="sidebar-menu">
   <li>
-    <a href="#shiny-tab-x_tab" data-toggle="tab" data-value="x_tab">
+    <a href="#shiny-tab-demo_tab" data-toggle="tab" data-value="demo_tab">
       <i class="fa fa-dragon" role="presentation" aria-label="dragon icon"></i>
       <span>Tab Title</span>
     </a>
@@ -70,15 +70,15 @@ If you open the resulting app in a web browser, right click on the page, and cho
 </ul>
 ```
 
-Now you know that the dragon icon is made by an italics tag (`r dt("<i>", "kw")`) that's inside an anchor (`r dt("<a>", "kw")`) with the `r dt("id", "er")` `r dt("#shiny-tab-x_tab", "pp")`. Therefore, you can change the colour of this icon using the following CSS:
+Now you know that the dragon icon is made by an italics tag (`r dt("<i>", "kw")`) that's inside an anchor (`r dt("<a>", "kw")`) with the `r dt("id", "er")` `r dt("#shiny-tab-demo_tab", "pp")`. Therefore, you can change the colour of this icon using the following CSS:
 
 ``` css
-#shiny-tab-x_tab i { color: red; }
+#shiny-tab-demo_tab i { color: red; }
 ```
 
 It can be tricky to find what code you're looking for, but developer tools can help. I use [FireFox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/){target="_blank"} when I'm developing web apps, but Chrome also has developer tools. In FireFox, go to **`Tools > Browser Tools > Web Developer Tools`** (opt-cmd-I). In Chrome, go to **`View > Developer > Developer Tools`** (opt-cmd-I). You can dock the tools to the bottom, right , or left of the window, or as a separate window. 
 
-Open the Inspector (FireFox) or Elements (Chrome) tab of the tools and click on the icon that looks like an arrow pointing into a box. When you hover over parts of the web page, not you will see boxes outlining each element. You can click on an element to highlight its HTML in the tools.
+Open the Inspector (FireFox) or Elements (Chrome) tab of the tools and click on the icon that looks like an arrow pointing into a box. When you hover over parts of the web page, now you will see boxes outlining each element. You can click on an element to highlight its HTML in the tools.
 
 ```{r inspector, eval = TRUE, echo=FALSE, fig.cap = "Viewing the HTML with the inspector."}
 knitr::include_graphics("images/inspector.png")
@@ -119,7 +119,7 @@ You can refer to different parts of the list in many ways:
 
 | CSS | Meaning |
 |:----|:--------|
-| `mammal { border: 1px solid green; }` | any element with the `r arg("class")` `r dt("mammal")` will get a 1-pixel green border |
+| `.mammal { border: 1px solid green; }` | any element with the `r arg("class")` `r dt("mammal")` will get a 1-pixel green border |
 | `ul.animals { border: 1px solid green; }` | any unordered list with the `r arg("class")` `r dt("animals")` will get a 1-pixel green border |
 | `.animals li { color: blue; }` | any list item element inside an element with the `r arg("class")` `r dt("animals")` will have blue text |
 | `#bee { font-style: italic; }` | the element with the `r arg("id")` `r dt("bee")` will be in italics |
@@ -141,7 +141,7 @@ tags$ul(
 
 ### Inline CSS
 
-You can add a small amount of CSS to an app inside the header using the style tag. The code below makes the element with the `r arg("class")` `r dt("animal")` `r dt("10em")` in `r dt("width", "kw")` (*em* is a unit of size that is proportional to text size). It also makes the element with the `r arg("id")` `r dt("bee")` italic and gives it a black `r arg("background-color")` with yellow text `r arg("color")`. If the element is a list item, it makes the marker a bee emoji.
+You can add CSS to an app inside the header using the style tag. The code below makes the element with the `r arg("class")` `r dt("animal")` `r dt("10em")` in `r dt("width", "kw")` (*em* is a unit of size that is proportional to text size). It also makes the element with the `r arg("id")` `r dt("bee")` italic and gives it a black `r arg("background-color")` with yellow text `r arg("color")`. If the element is a list item, it makes the marker a bee emoji.
 
 ```{r}
 mystyle <- '
@@ -264,7 +264,7 @@ Clone the basic template for these exercises.
 
 ### Add HTML
 
-Add the following HTML before the image in `x_tab` using ``r func("HTML")`:
+Add the following HTML before the image in `demo_tab` using ``r func("HTML")`:
 
 ``` html
 <p class="help">For more help, you can go to <a href="https://shiny.rstudio.com/articles/html-tags.html">Customize your UI with HTML</a>.</p>
@@ -276,8 +276,8 @@ Since the HTML has double quotes in it, you either need to escape them or surrou
 
 `r hide()`
 ```{r}
-x_tab <- tabItem(
-  tabName = "x_tab",
+demo_tab <- tabItem(
+  tabName = "demo_tab",
   HTML(
     '<p class="help">For more help, you can go to <a href="https://shiny.rstudio.com/articles/html-tags.html">Customize your UI with HTML</a>.</p>'
   ),
@@ -295,8 +295,8 @@ Add an unordered list under the paragraph that contains the following text and l
 
 `r hide()`
 ```{r}
-x_tab <- tabItem(
-  tabName = "x_tab",
+demo_tab <- tabItem(
+  tabName = "demo_tab",
   HTML(
     '<p class="help">For more help, you can go to <a href="https://shiny.rstudio.com/articles/html-tags.html">Customize your UI with HTML</a>.</p>'
   ),

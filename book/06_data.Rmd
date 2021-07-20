@@ -128,7 +128,7 @@ You can add an empty data structure to your sheet by specifying the `r glossary(
 data <- data.frame(
   name = character(0),
   birthyear = integer(0),
-  parent = logical(0),
+  R_user = logical(0),
   score = double(0)
 )
 
@@ -241,4 +241,4 @@ Append some data to your google sheet.
 
 ## Your App {#your-app-data}
 
-In the app you're developing, determine what data need to be saved and set up a google sheet (or local data if you're having trouble with google). Write the server function to save data from your app when an action button is pressed.
+In the app you're developing, determine what data need to be saved and set up a google sheet (or local data if you're having trouble with google). Add the authorisation code to your app (see `r path("scripts/gs4.R")` in the radiotables demo). Write the server function to save data from your app when an action button is pressed.

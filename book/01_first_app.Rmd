@@ -2,7 +2,7 @@
 
 ## The Demo App
 
-To start, let's walk through the basics of setting up a `r glossary("shiny")` app, starting with the example built into `r glossary("RStudio")` I won't explain yet how shiny apps are structured; the goal is to just get something up and running, and give you some familiarity with the layout of a fairly simple app.
+To start, let's walk through the basics of setting up a `r glossary("shiny")` app, starting with the example built into `r glossary("RStudio")`. I won't explain yet how shiny apps are structured; the goal is to just get something up and running, and give you some familiarity with the layout of a fairly simple app.
 
 ### Set Up the Demo App
 
@@ -105,7 +105,7 @@ Now we're going to make a series of changes to the demo app until it's all your 
 You can close the app by closing the window or browser tab it's running in and clicking the red stop sign in the console tab, or leave it running while you edit the code. If you have multiple screens, it can be useful to have the app open on one screen and the code on another.
 :::
 
-Find the application title. It is the first [argument](defs.html#argument) to the [function](defs.html#function) `titlePanel`. Change the title to `"My First App"`. Make sure the title is inside quotes and the whole quoted `r glossary("string")` is inside the parentheses. Save the file (`cmd-S` or `File > Save`).
+Find the application title. It is the first [argument](defs.html#argument) to the [function](defs.html#function) `r func("titlePanel")`. Change the `r arg("title")` to `r dt("My First App")`. Make sure the title is inside quotes and the whole quoted `r glossary("string")` is inside the parentheses. Save the file (`cmd-S` or `File > Save`).
 
 ```{r first-change-title, eval = TRUE, echo=FALSE, fig.cap = 'App with changed title.'}
 knitr::include_graphics('images/demo_app/06-change-title.png')
@@ -177,9 +177,9 @@ There are a lot of ways to represent colour in R. The easiest three are:
 2.  the `rgb` or `hsl` functions (e.g., `rgb(0, .4, .8)`)
 3.  colour names (type `r func("colours")` in the console)
 
-The color "steelblue3" is pretty close to the shiny interface default colour, but feel free to choose whatever you like.
+The color `r dt("steelblue3")` is pretty close to the shiny interface default colour, but feel free to choose whatever you like.
 
-I prefer ggplots, so let's make the plot with `r func("geom_histogram")` instead of `r func("hist")` (which is a great function for really quick plots). Since we need several functions from the `r pkg("ggplot2")` `r glossary("package")`, we'll need to load that package at the top of the script, just under where the  `r pkg("shiny")` package is loaded:
+I prefer ggplots, so let's make the plot with `r func("geom_histogram")` instead of `r func("hist")` (which is a great function for really quick plots, but not very visually appealing). Since we need several functions from the `r pkg("ggplot2")` `r glossary("package")`, we'll need to load that package at the top of the script, just under where the  `r pkg("shiny")` package is loaded:
 
 ```{r load-library}
 library(shiny)
@@ -210,7 +210,7 @@ What *are* we even plotting here? Type `?faithful` into the console pane to see 
 
 ### Add New Things
 
-The `faithful` dataset includes two columns:`eruptions` and `waiting`. We've been plotting the `waiting` variable, but what if you wanted to plot the `eruptions` variable instead?
+The `faithful` dataset includes two columns: `eruptions` and `waiting`. We've been plotting the `waiting` variable, but what if you wanted to plot the `eruptions` variable instead?
 
 ::: {.try}
 Try plotting the eruption time (`eruptions`) instead of the waiting time. You just have to change one word in `r func("ggplot")` and update the x-axis label.
@@ -222,7 +222,7 @@ Add the following code as the first argument to `r func("sidebarPanel")`, which 
 
 * `r arg("inputId")`: a unique identifier that we will use later in the code to find the value of this widget
 * `r arg("label")`: the text to display to the user
-* `r arg("choices")`: a list of choices in the format `c("label1" = "value1", "label2 = "value2", ...)`
+* `r arg("choices")`: a list of choices in the format `c("label1" = "value1", "label2" = "value2", ...)`
 * `r arg("selected")`: the value of the default choice
 
 For `r arg("choices")`, the label is what gets shown to the user and the value is what gets used by the code (these can be the same, but you often want the user label to be more descriptive).
@@ -311,7 +311,7 @@ Create a new app called "basic_demo" and replace all the text in app.R with the 
 
 ### UI
 
-The UI is created by one of the ui-building `\*Page()` functions, such as `r func("fluidPage")`, `r func("fixedPage")`, `r func("fillPage")` or `r func("dashboardPage")` (which we'll learn more about in Section\ \@ref(shinydashboard)). The ui-building functions set up the parts of the webpage, which are created by more shiny functions that you list inside of the page function, separated by commas.
+The UI is created by one of the ui-building `****Page()` functions, such as `r func("fluidPage")`, `r func("fixedPage")`, `r func("fillPage")` or `r func("dashboardPage")` (which we'll learn more about in Section\ \@ref(shinydashboard)). The ui-building functions set up the parts of the webpage, which are created by more shiny functions that you list inside of the page function, separated by commas.
 
 ### Tags
 
@@ -319,7 +319,7 @@ For example, the code below displays:
 
 1.  a title panel with the text "Basic Demo"
 2.  a level-two header with the text "My favourite things"
-3.  an unordered list (`r func("tags$ul")`) containing several list items (`r func("tags$li")`)
+3.  an unordered list containing several list items
 4.  a paragraph with the text "This is a very basic demo."
 5.  an image of the `r pkg("shinyintro")` logo with a width and height of 100 pixels
 
@@ -405,10 +405,10 @@ checkboxGroupInput(
 )
 ```
 
-Most inputs are structured like this, with an inputId, which needs to be a unique string not used as the ID for any other input or output in your app, a label that contains the question, and a list of choices or other parameters that determine what type of values the input will record.
+Most inputs are structured like this, with an `r arg("inputId")`, which needs to be a unique string not used as the ID for any other input or output in your app, a `r arg("label")` that contains the question, and a list of `r arg("choices")` or other parameters that determine what type of values the input will record.
 
 ::: {.info}
-You might have noticed that the `r func("sliderInput")` in the demo app didn't use the argument names for the `r arg("inputId")` or the `r func("label")`. All inputs need these first two arguments, so almost everyone omits their names.
+You might have noticed that the `r func("sliderInput")` in the demo app didn't use the argument names for the `r arg("inputId")` or the `r arg("label")`. All inputs need these first two arguments, so almost everyone omits their names.
 :::
 
 ### Outputs {#outputs-intro}
@@ -486,10 +486,6 @@ server <- function(input, output) {
 
 As always in coding, there are many ways to accomplish the same thing. These methods have different pros and cons that we'll learn more about in Section\ \@ref(reactives). Here is another pattern that does that same as above.
 
-This pattern uses `r func("reactive")` to create a new function called `r func("count_text")`, which updates the value it returns whenever any inputs inside the reactive function change. We use `r func("isolate")` to prevent `r func("count_text")` from changing when users click the checkboxes. 
-
-Whenever the returned value of `r func("count_text")` changes, this triggers an update of the `r dt("n_fav_things")` output.
-
 ```{r}
 server <- function(input, output) {
   # update count_text on fav_things
@@ -505,6 +501,10 @@ server <- function(input, output) {
   output$n_fav_things <- renderText(count_text())
 }
 ```
+
+This pattern uses `r func("reactive")` to create a new function called `r func("count_text")`, which updates the value it returns whenever any inputs inside the reactive function change. We use `r func("isolate")` to prevent `r func("count_text")` from changing when users click the checkboxes. 
+
+Whenever the returned value of `r func("count_text")` changes, this triggers an update of the `r dt("n_fav_things")` output.
 
 ::: {.try}
 Compare the app behaviour with the first pattern versus the second. How are they different? What happens if you remove `r func("isolate")` from around `input$fav_things`?

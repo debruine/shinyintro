@@ -123,7 +123,7 @@ What happens if you change `r arg("value")` or `r arg("step")`? Try changing `r 
 
 ### radioButtons
 
-If you want users to only be able to choose one options and there are a small number of short options, `r func("radioButton")` is a good interface. 
+If you want users to only be able to choose one option and there are a small number of short options, `r func("radioButton")` is a good interface. 
 
 ```{r}
 demo_radio <- radioButtons("demo_radio",
@@ -160,7 +160,7 @@ What would you set `r arg("format")` to in order to display dates like "Sunday J
 
 ### fileInput
 
-Users can upload one or more files with `r func("fileInput")`. The argument `r arg("acccept")` lets you limit this to certain file types, but some browsers can bypass this requirement, so it's not fool-proof.
+Users can upload one or more files with `r func("fileInput")`. The argument `r arg("accept")` lets you limit this to certain file types, but some browsers can bypass this requirement, so it's not fool-proof.
 
 ```{r}
 demo_file <- fileInput("demo_file",

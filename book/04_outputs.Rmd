@@ -100,34 +100,6 @@ output$demo_image <- renderImage({
 The `r arg("deleteFile")` argument is currently optional, but triggers periodic warnings that it won't be optional in the future. You should set it to `r dt(TRUE)` if you're making a temporary file (this stops unneeded plots using memory) and `r dt(FALSE)` if you're referencing a file you previously saved.
 :::
 
-You can dynamically display images of any type, but one of the most useful ways to use image outputs is to control the aspect ratio and relative size of plots. 
-
-```{r}
-# in the UI function
-imageOutput("demo_image")
-
-# in the server function
-output$demo_image <- renderImage({
-  # make the plot
-  g <- ggplot(iris, aes(x = Species, y = .data[[input$y]], color = Species)) +
-    geom_violin(show.legend = FALSE) +
-    stat_summary(show.legend = FALSE) +
-    ylab(input$y)
-  
-  # save to a temporary file
-  plot_file <- tempfile(fileext = ".png")
-
-  ggsave(plot_file, demo_plot(), units = "in",
-         dpi = 72, width = 7, height = 5)
-    
-  # Return a list containing the filename
-  list(src = plot_file,
-       width = "100%",
-       height = "auto",
-       alt = "The plot")
-}, deleteFile = TRUE)
-```
-
 ## Tables
 
 Display a table using `r func("tableOutput")`.
@@ -176,7 +148,7 @@ output$demo_datatable <- DT::renderDataTable({
 ```
 
 ::: {.info}
-The `r pkg("DT")` package has synonyms for `r func("dataTableOutput")` and `r func("renderDataTable")`:  and `r func("renderDT")`. You can use these to make sure you're not accidentally using the `r pkg("shiny")` versions, which don't have as many options.
+You can use the `r pkg("DT")` synonyms to make sure you're not accidentally using the `r pkg("shiny")` versions, which don't have the same options.
 :::
 
 ## Dynamic HTML

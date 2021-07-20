@@ -79,26 +79,26 @@ Each lecture session will conclude with a hands-on exercise reviewing the conten
 
 ### Schedule
 
-#### Day 1
+#### Day 1 {-}
 
 * [Your First Shiny App](#first-app)
 * [ShinyDashboard](#shinydashboard)
 
-#### Day 2
+#### Day 2 {-}
 
 * [Different input types](#inputs)
 * [Different output types](#outputs)
 * [Reactive functions](#reactives)
 * [Reading and saving data](#data)
 
-#### Day 3
+#### Day 3 {-}
 
 * [CSS, HTML, and Javascript](#web)
 * [Structuring a complex app](#structure)
 * [Debugging and error handling](#debugging)
 * [Contingent Display](#contingency)
 
-#### Day 4
+#### Day 4 {-}
 
 * [Sharing Your Apps](#sharing)
 * [Creating and downloading a customized report](#reports)

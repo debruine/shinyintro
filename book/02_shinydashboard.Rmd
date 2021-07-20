@@ -9,8 +9,10 @@ The `r pkg("shinyintro")` package provides a basic template for a shinydashboard
 ```{r basic-template-app, eval=TRUE, echo=FALSE, fig.cap="Basic Template.App You can also access this app with `shinyintro::app(\"basic_template\")`or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/basic_template/){target=\"_blank\"}."}
 if (is_html)
   knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/basic_template/",
-height = "500px")
+height = "400px")
 ```
+
+----
 
 You can start a new app using the template with the code `shinyintro::clone("basic_template", "myapp")`. This will create a new directory called `r path("myapp")` in your `r glossary("working directory")` and open the `r path("app.R")` file in RStudio.
 
@@ -64,7 +66,7 @@ You can also add in any other elements to the sidebar. The code below adds a lin
 dashboardSidebar(
     sidebarMenu(
         id = "tabs",
-        menuItem("Tab Title", tabName = "x_tab", icon = icon("dragon"))
+        menuItem("Tab Title", tabName = "demo_tab", icon = icon("dragon"))
     ),
     tags$a(href = "https://debruine.github.io/shinyintro/", 
            "ShinyIntro book", style="padding: 1em;")
@@ -90,7 +92,7 @@ dashboardBody(
         tags$script(src = "custom.js")
     ),
     tabItems(
-        tabItem(tabName = "x_tab", imageOutput("logo"))
+        tabItem(tabName = "demo_tab", imageOutput("logo"))
     )
 )
 
@@ -157,7 +159,7 @@ In the normal shinydashboard style, solid headers only have a colour if the box 
 
 ```{r}
 tabItem(
-    tabName = "x_tab",
+    tabName = "demo_tab",
     box(title = "No Status", solidHeader = TRUE),
     box(title = "Primary",   solidHeader = TRUE, status = "primary"),
     box(title = "Success",   solidHeader = TRUE, status = "success"),
@@ -177,7 +179,7 @@ You can use an `r func("infoBox")` or a `r func("valueBox")` to highlight a smal
 
 ```{r}
 tabItem(
-    tabName = "x_tab",
+    tabName = "demo_tab",
     infoBox("Default InfoBox", "Value", "Subtitle"),
     valueBox("Default ValueBox", "With subtitle"),
     valueBox("No subtitle", "")
@@ -216,7 +218,9 @@ tabItem(
 )
 ```
 
-![](images/sdb_tab_box.png)
+```{r sdb-tab-box, eval=TRUE, echo=FALSE, fig.cap = 'Tab Boxes'}
+knitr::include_graphics('images/sdb_tab_box.png')
+```
 
 
 ### Row Layout
@@ -237,7 +241,9 @@ tabItem(
     )
 ```
 
-![](images/sdb_row_layout.png)
+```{r sdb-row-layout, eval=TRUE, echo=FALSE, fig.cap = 'An example fluidRow layout of boxes with different widths and heights.'}
+knitr::include_graphics('images/sdb_row_layout.png')
+```
 
 ### Column Layout
 
@@ -262,8 +268,9 @@ tabItem(
 )
 ```
 
-![](images/sdb_column_layout.png)
-
+```{r sdb-column-layout, eval=TRUE, echo=FALSE, fig.cap = 'An example for column layout.'}
+knitr::include_graphics('images/sdb_column_layout.png')
+```
 
 ## Further Resources {#resources-shinydashboard}
 
