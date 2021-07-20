@@ -47,8 +47,8 @@ pre {
   color: black;
   padding: 0;
   background-color: inherit !important;
-  font-size: 105%;
   border: none;
+  letter-spacing: 0.1;
 }
 
 div.color-theme-1 .book-body .page-wrapper .page-inner section.normal strong code {

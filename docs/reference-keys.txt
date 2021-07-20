@@ -9,6 +9,9 @@ fig:add-demo-app
 fig:basic-template-app
 fig:sdb-box-status
 fig:sdb-value-info
+fig:sdb-tab-box
+fig:sdb-row-layout
+fig:sdb-column-layout
 fig:input-demo-app
 fig:output-demo-app
 fig:reactive-demo-app

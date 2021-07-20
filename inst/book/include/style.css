@@ -4,6 +4,10 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+.book .book-body .page-wrapper .page-inner {
+  max-width: 900px;
+}
+
 .book .book-body .page-wrapper .page-inner section,
 .book .book-body .page-wrapper .page-inner section.normal {
   line-height: 1.6;

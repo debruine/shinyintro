@@ -554,7 +554,7 @@ Figure 3.1: Input Demo App. You can also access this app with <code>shinyintro::
 </div>
 <div id="radiobuttons" class="section level3" number="3.1.6">
 <h3><span class="header-section-number">3.1.6</span> radioButtons</h3>
-<p>If you want users to only be able to choose one options and there are a small number of short options, <code><span class="fu">radioButton</span>()</code> is a good interface.</p>
+<p>If you want users to only be able to choose one option and there are a small number of short options, <code><span class="fu">radioButton</span>()</code> is a good interface.</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="inputs.html#cb48-1" aria-hidden="true" tabindex="-1"></a>demo_radio <span class="ot">&lt;-</span> <span class="fu">radioButtons</span>(<span class="st">&quot;demo_radio&quot;</span>,</span>
 <span id="cb48-2"><a href="inputs.html#cb48-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">label =</span> <span class="st">&quot;Choose one&quot;</span>,</span>
 <span id="cb48-3"><a href="inputs.html#cb48-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">&quot;Cats&quot;</span>, <span class="st">&quot;Dogs&quot;</span>),</span>
@@ -581,7 +581,7 @@ Figure 3.1: Input Demo App. You can also access this app with <code>shinyintro::
 </div>
 <div id="fileinput" class="section level3" number="3.1.8">
 <h3><span class="header-section-number">3.1.8</span> fileInput</h3>
-<p>Users can upload one or more files with <code><span class="fu">fileInput</span>()</code>. The argument <code><span class="at">acccept</span></code> lets you limit this to certain file types, but some browsers can bypass this requirement, so it’s not fool-proof.</p>
+<p>Users can upload one or more files with <code><span class="fu">fileInput</span>()</code>. The argument <code><span class="at">accept</span></code> lets you limit this to certain file types, but some browsers can bypass this requirement, so it’s not fool-proof.</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="inputs.html#cb50-1" aria-hidden="true" tabindex="-1"></a>demo_file <span class="ot">&lt;-</span> <span class="fu">fileInput</span>(<span class="st">&quot;demo_file&quot;</span>,</span>
 <span id="cb50-2"><a href="inputs.html#cb50-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">label =</span> <span class="st">&quot;Upload a data table&quot;</span>,</span>
 <span id="cb50-3"><a href="inputs.html#cb50-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">multiple =</span> <span class="cn">FALSE</span>,</span>
@@ -811,20 +811,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

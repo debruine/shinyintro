@@ -9,6 +9,9 @@ fig:add-demo-app
 fig:basic-template-app
 fig:sdb-box-status
 fig:sdb-value-info
+fig:sdb-tab-box
+fig:sdb-row-layout
+fig:sdb-column-layout
 fig:input-demo-app
 fig:output-demo-app
 fig:reactive-demo-app
@@ -25,10 +28,6 @@ installing-shinyintro
 example-apps
 code-horizons-course-27-30-july-2021
 schedule
-day-1
-day-2
-day-3
-day-4
 computing
 who-should-register
 conventions
