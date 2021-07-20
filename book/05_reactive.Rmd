@@ -495,7 +495,7 @@ server <- function(input, output, session) {
 ```
 `r unhide()`
 
+## Your App {#your-app-reactive}
 
-
-
+Add reactive functions to your custom app. Think about which patterns are best for your app. For example, if you need to update a data table when inputs change, and then use it in more than one output, it's best to use `r func("reactive")` to create a function for the data and callit in the render functions for each output, rather than creating the data table in each render function.
 

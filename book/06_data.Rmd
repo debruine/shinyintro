@@ -239,6 +239,6 @@ mydata <- read_sheet(my_sheet_url)
 
 Append some data to your google sheet.
 
-### Your app
+## Your App {#your-app-data}
 
 In the app you're developing, determine what data need to be saved and set up a google sheet (or local data if you're having trouble with google). Write the server function to save data from your app when an action button is pressed.

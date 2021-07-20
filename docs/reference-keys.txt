@@ -65,7 +65,7 @@ tab-boxes
 row-layout
 column-layout
 resources-shinydashboard
-exercises-shinydashboard
+your-app-sdb
 create-an-app-from-the-basic-template
 customise-the-header
 customise-the-sidebar
@@ -84,8 +84,7 @@ setting-inputs-programatically
 resources-inputs
 exercises-inputs
 pets
-questionnaire
-updating
+your-app-inputs
 outputs
 text
 plots
@@ -97,7 +96,7 @@ reosurces-outputs
 exercises-outputs
 modify-the-demo
 pets-1
-your-app
+your-app-outputs
 reactives
 observeevent-1
 render-functions
@@ -114,6 +113,7 @@ reactive-2
 eventreactive-1
 reactiveval-1
 reactivevalues
+your-app-reactive
 data
 local-data
 google_sheets
@@ -127,7 +127,7 @@ exercises-data
 read-others-data
 read-your-own-data
 write-data
-your-app-1
+your-app-data
 web
 html
 html-tags
@@ -147,7 +147,7 @@ class-html
 style-links
 style-a-single-link-directly
 external-css-1
-style-your-app
+your-app-web
 structure
 external-server-functions
 sourcing-locally
@@ -155,8 +155,9 @@ inputs-and-outputs
 external-ui-files
 ui-lists
 exercises-structure
-server-functions
-ui-files
+ui-1
+server
+your-app-structure
 debugging
 rstudio-console-messages
 javascript-console
@@ -168,7 +169,7 @@ validate
 resources-debugging
 exercises-debugging
 required-selections
-your-app-2
+your-app-debugging
 contingency
 hide-and-show
 groups
@@ -178,7 +179,7 @@ changing-non-shiny-elements
 changing-input-options
 exercises-contingency
 filtered-data
-your-app-3
+your-app-contingency
 sharing
 shinyapps.io
 self-hosting-a-shiny-server
@@ -188,6 +189,7 @@ exercises-sharing
 shinyapps.io-1
 github-1
 r-package
+your-app-sharing
 reports
 download-data
 download-images
@@ -196,6 +198,7 @@ exercises-reports
 food-data
 food-image
 food-report
+your-app-reports
 modules
 modularizing-the-ui
 modularizing-server-functions
@@ -204,6 +207,7 @@ repeat-example
 new-instance
 altering-modules
 new-module
+your-app-modules
 installing-r
 installing-base-r
 installing-rstudio

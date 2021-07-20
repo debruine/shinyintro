@@ -349,7 +349,7 @@ Add the following to `r path("www/custom.css")`:
 ```
 `r unhide()`
 
-### Style your app
+## Your App {#your-app-web}
 
 Add some new styles to `r path("www/custom.css")` in your custom app. See if you can figure out how to change any aspects of the default interface that bug you.
 

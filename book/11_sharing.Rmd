@@ -133,15 +133,15 @@ devtools::install_github("myaccountname/mypackagename")
 
 * Set up a GitHub account
 * Create a New Project in RStudio from version control using <https://github.com/debruine/demoapp>
-* Create your own project that contains an app you're working on and upload it to GitHub. 
-* Send a friend (or your instructor) directions to access and run it.
+* Create a project that contains a demo app and upload it to GitHub. 
 
 ### R Package
 
-* Create an R package for your app and upload it to GitHub.
-* Send a friend (or your instructor) directions to access and run it.
+* Create an R package for a demo app and upload it to GitHub.
 
+## Your App {#your-app-sharing}
 
+How will users need to access your app? Will they be R users who can download it and run it on their own computers? Or will you need to find a host online? Choose and implement a sharing method for your custom app. Send a friend (or your instructor) directions to access and run it.
 
 
 

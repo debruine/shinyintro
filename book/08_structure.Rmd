@@ -158,10 +158,14 @@ select_box <- do.call(box, select_inputs)
 
 ## Exercises {#exercises-structure}
 
-### server functions
+### UI 
 
-In the app you're developing, see if there are any long functions inside reactive functions in `r func("server")` that can be moved to `r path("scripts/func.R")` or another external file.
+Clone the reactive_demo, move the boxes in the ui to an external file, and source them in.
 
-### UI files
+### Server
 
-In the app you're developing, move each tab into an external file and source it into `r path("app.R")`.
+Make a custom function in `r path("scripts/func.R")` that creates the plot. Use that in `r func("server")`.
+
+## Your App {#your-app-structure}
+
+In the app you're developing, see if there are any long functions inside reactive functions in `r func("server")` that can be moved to `r path("scripts/func.R")` or another external file. Move each tab into an external file and source it into `r path("app.R")`.

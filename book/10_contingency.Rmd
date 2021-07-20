@@ -242,7 +242,7 @@ What happens when you unselect all the columns? How can you fix this?
 
 Create an app where you use inputs to filter a dataset and display a table of the filtered dataset. For example, with the `msleep` dataset, you could have inputs that select `vore`, `order` and `conservation`. Since some values will exclude categories (e.g., there are no omnivores in the order Cetacea), update the available categories in each input when values are selected. Make sure you have a way to reset the values.
 
-### Your App
+## Your App {#your-app-contingency}
 
 Check for places in your app that could use contingency.
 

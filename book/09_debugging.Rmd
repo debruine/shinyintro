@@ -173,6 +173,6 @@ ggplot(filtered_data, aes(x = sleep_total, fill = order)) +
 
 Add error checking to the app to deal with what happens when `input$order` has no selections.
 
-### Your app
+## Your App {#your-app-debugging}
 
 In the app you're developing, find anywhere that a user could enter invalid information or cause an error and add a way to handle this.

@@ -1330,8 +1330,8 @@ Alternatively, you can arrange boxes or other elements inside a {column}() with 
   \href{https://rstudio.github.io/shinydashboard/}{ShinyDashboard}
 \end{itemize}
 
-\hypertarget{exercises-shinydashboard}{%
-\section{Exercises}\label{exercises-shinydashboard}}
+\hypertarget{your-app-sdb}{%
+\section{Your App}\label{your-app-sdb}}
 
 \hypertarget{create-an-app-from-the-basic-template}{%
 \subsection{Create an app from the basic template}\label{create-an-app-from-the-basic-template}}
@@ -1637,13 +1637,10 @@ Create an interface that gets people to rate the following pets on a 9-point sca
   Snakes 🐍
 \end{itemize}
 
-\hypertarget{questionnaire}{%
-\subsection{Questionnaire}\label{questionnaire}}
+\hypertarget{your-app-inputs}{%
+\section{Your App}\label{your-app-inputs}}
 
 In the app you're developing, add a tab for a questionnaire that you're interested in and set up the appropriate inputs.
-
-\hypertarget{updating}{%
-\subsection{Updating}\label{updating}}
 
 Add a ``reset'' button to your questionnaire tab and write the {server}() code to reset all of its inputs.
 
@@ -1894,8 +1891,8 @@ Clone the ``output\_demo'' app and modify it to use a different dataset.
 
 Add outputs and appropriate render functions to show a plot and the data from the pets questionnaire you made for the exercise in Section~\ref{inputs}.
 
-\hypertarget{your-app}{%
-\subsection{Your app}\label{your-app}}
+\hypertarget{your-app-outputs}{%
+\section{Your App}\label{your-app-outputs}}
 
 In the app you're developing, add relevant outputs, such as for plots or tables, and the appropriate render function for each output. You can leave the contents blank for now or add in some code to create output.
 
@@ -2442,6 +2439,11 @@ Solution
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{your-app-reactive}{%
+\section{Your App}\label{your-app-reactive}}
+
+Add reactive functions to your custom app. Think about which patterns are best for your app. For example, if you need to update a data table when inputs change, and then use it in more than one output, it's best to use {reactive}() to create a function for the data and callit in the render functions for each output, rather than creating the data table in each render function.
+
 \hypertarget{data}{%
 \chapter{Reading and saving data}\label{data}}
 
@@ -2598,7 +2600,7 @@ You can set up a new Google Sheet with code. You only need to do this once for a
 
 \begin{verbatim}
 ## Spreadsheet name: demo2
-##               ID: 1UP08pCnMxeKrIn2itfYHoyBMMpihI6x2BR9IbFfxmjU
+##               ID: 121Yg7HQgNSdv5ofCFYAwrrSsQzmfWdJWzh2uYdn2kA8
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -2772,8 +2774,8 @@ Solution
 
 Append some data to your google sheet.
 
-\hypertarget{your-app-1}{%
-\subsection{Your app}\label{your-app-1}}
+\hypertarget{your-app-data}{%
+\section{Your App}\label{your-app-data}}
 
 In the app you're developing, determine what data need to be saved and set up a google sheet (or local data if you're having trouble with google). Write the server function to save data from your app when an action button is pressed.
 
@@ -3208,8 +3210,8 @@ Add the following to www/custom.css:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{style-your-app}{%
-\subsection{Style your app}\label{style-your-app}}
+\hypertarget{your-app-web}{%
+\section{Your App}\label{your-app-web}}
 
 Add some new styles to www/custom.css in your custom app. See if you can figure out how to change any aspects of the default interface that bug you.
 
@@ -3396,15 +3398,20 @@ Here's an example of how you would programatically create select inputs for each
 \hypertarget{exercises-structure}{%
 \section{Exercises}\label{exercises-structure}}
 
-\hypertarget{server-functions}{%
-\subsection{server functions}\label{server-functions}}
+\hypertarget{ui-1}{%
+\subsection{UI}\label{ui-1}}
 
-In the app you're developing, see if there are any long functions inside reactive functions in {server}() that can be moved to scripts/func.R or another external file.
+Clone the reactive\_demo, move the boxes in the ui to an external file, and source them in.
 
-\hypertarget{ui-files}{%
-\subsection{UI files}\label{ui-files}}
+\hypertarget{server}{%
+\subsection{Server}\label{server}}
 
-In the app you're developing, move each tab into an external file and source it into app.R.
+Make a custom function in scripts/func.R that creates the plot. Use that in {server}().
+
+\hypertarget{your-app-structure}{%
+\section{Your App}\label{your-app-structure}}
+
+In the app you're developing, see if there are any long functions inside reactive functions in {server}() that can be moved to scripts/func.R or another external file. Move each tab into an external file and source it into app.R.
 
 \hypertarget{debugging}{%
 \chapter{Debugging and error handling}\label{debugging}}
@@ -3628,8 +3635,8 @@ Write an app that creates the plot below for any checked values of a {checkboxGr
 
 Add error checking to the app to deal with what happens when \texttt{input\$order} has no selections.
 
-\hypertarget{your-app-2}{%
-\subsection{Your app}\label{your-app-2}}
+\hypertarget{your-app-debugging}{%
+\section{Your App}\label{your-app-debugging}}
 
 In the app you're developing, find anywhere that a user could enter invalid information or cause an error and add a way to handle this.
 
@@ -3897,8 +3904,8 @@ What happens when you unselect all the columns? How can you fix this?
 
 Create an app where you use inputs to filter a dataset and display a table of the filtered dataset. For example, with the \texttt{msleep} dataset, you could have inputs that select \texttt{vore}, \texttt{order} and \texttt{conservation}. Since some values will exclude categories (e.g., there are no omnivores in the order Cetacea), update the available categories in each input when values are selected. Make sure you have a way to reset the values.
 
-\hypertarget{your-app-3}{%
-\subsection{Your App}\label{your-app-3}}
+\hypertarget{your-app-contingency}{%
+\section{Your App}\label{your-app-contingency}}
 
 Check for places in your app that could use contingency.
 
@@ -4074,9 +4081,7 @@ Once it's uploaded to GitHub, other people can install it with the following cod
 \item
   Create a New Project in RStudio from version control using \url{https://github.com/debruine/demoapp}
 \item
-  Create your own project that contains an app you're working on and upload it to GitHub.
-\item
-  Send a friend (or your instructor) directions to access and run it.
+  Create a project that contains a demo app and upload it to GitHub.
 \end{itemize}
 
 \hypertarget{r-package}{%
@@ -4085,10 +4090,13 @@ Once it's uploaded to GitHub, other people can install it with the following cod
 \begin{itemize}
 \tightlist
 \item
-  Create an R package for your app and upload it to GitHub.
-\item
-  Send a friend (or your instructor) directions to access and run it.
+  Create an R package for a demo app and upload it to GitHub.
 \end{itemize}
+
+\hypertarget{your-app-sharing}{%
+\section{Your App}\label{your-app-sharing}}
+
+How will users need to access your app? Will they be R users who can download it and run it on their own computers? Or will you need to find a host online? Choose and implement a sharing method for your custom app. Send a friend (or your instructor) directions to access and run it.
 
 \hypertarget{reports}{%
 \chapter{Customized reports}\label{reports}}
@@ -4376,6 +4384,11 @@ Solution
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{your-app-reports}{%
+\section{Your app}\label{your-app-reports}}
+
+What might users want to download from your app? Include data, image, or report download if that is applicable to your app.
+
 \hypertarget{modules}{%
 \chapter{Shiny modules for repeated structures}\label{modules}}
 
@@ -4526,7 +4539,7 @@ Our example only reduced our code by 4 lines, but it can save a lot of time, eff
 \section{Exercises}\label{exercises-modules}}
 
 \hypertarget{repeat-example}{%
-\subsection{1. Repeat Example}\label{repeat-example}}
+\subsection{Repeat Example}\label{repeat-example}}
 
 Try to implement the code above on your own.
 
@@ -4543,7 +4556,7 @@ Try to implement the code above on your own.
 \end{itemize}
 
 \hypertarget{new-instance}{%
-\subsection{2. New Instance}\label{new-instance}}
+\subsection{New Instance}\label{new-instance}}
 
 Add a new tab called ``diamonds'' that visualises the \texttt{diamonds} dataset. Choose the columns you want as choices in the {selectInput}() and the grouping column.
 
@@ -4568,7 +4581,7 @@ You can group by any of the categorical columns: cut, color, or clarity.
 \end{Shaded}
 
 \hypertarget{altering-modules}{%
-\subsection{3. Altering modules}\label{altering-modules}}
+\subsection{Altering modules}\label{altering-modules}}
 
 \begin{itemize}
 \tightlist
@@ -4621,7 +4634,7 @@ Instead of changing {group\_by} to \texttt{input\$group\_by} in three places in 
 \end{Shaded}
 
 \hypertarget{new-module}{%
-\subsection{4. New module}\label{new-module}}
+\subsection{New module}\label{new-module}}
 
 There is a {fluidRow}() before the {tabsetPanel}() in the ui that contains three {infoBoxOutput}() and three {renderInfoBoxOutput}() functions in the server function.
 
@@ -4681,6 +4694,11 @@ In {server}(), replace {renderInfoBox}() with this:
 \FunctionTok{infoBoxServer}\NormalTok{(}\StringTok{"day"}\NormalTok{, }\StringTok{"Day"}\NormalTok{, }\StringTok{"\%d"}\NormalTok{, }\StringTok{"calendar{-}day"}\NormalTok{)}\ErrorTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+\hypertarget{your-app-modules}{%
+\section{Your app}\label{your-app-modules}}
+
+What you could modularise in your custom app?
 
 \hypertarget{appendix-appendices}{%
 \appendix}

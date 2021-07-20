@@ -218,6 +218,6 @@ Clone the "output_demo" app and modify it to use a different dataset.
 
 Add outputs and appropriate render functions to show a plot and the data from the pets questionnaire you made for the exercise in Section\ \@ref(inputs).
 
-### Your app
+## Your App {#your-app-outputs}
 
 In the app you're developing, add relevant outputs, such as for plots or tables, and the appropriate render function for each output. You can leave the contents blank for now or add in some code to create output.

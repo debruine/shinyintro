@@ -285,3 +285,6 @@ output$food_report_dl <- downloadHandler(
 ```
 `r unhide()`
 
+## Your app {#your-app-reports}
+
+What might users want to download from your app? Include data, image, or report download if that is applicable to your app.

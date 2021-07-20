@@ -212,10 +212,8 @@ Create an interface that gets people to rate the following pets on a 9-point sca
 * Hedgehogs 🦔  
 * Snakes 🐍
 
-### Questionnaire
+## Your App {#your-app-inputs}
 
-In the app you're developing, add a tab for a questionnaire that you're interested in and set up the appropriate inputs. 
-
-### Updating
+In the app you're developing, add a tab for a questionnaire that you're interested in and set up the appropriate inputs.
 
 Add a "reset" button to your questionnaire tab and write the `r func("server")` code to reset all of its inputs.

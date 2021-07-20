@@ -143,7 +143,7 @@ Our example only reduced our code by 4 lines, but it can save a lot of time, eff
 
 ## Exercises {#exercises-modules}
 
-### 1. Repeat Example
+### Repeat Example
 
 Try to implement the code above on your own.
 
@@ -152,7 +152,7 @@ Try to implement the code above on your own.
 * Create the UI module function and use it to replace `iris_tab` and `mtcars_tab`
 * Create the server function and use it to replace the server functions
 
-### 2. New Instance
+### New Instance
 
 Add a new tab called "diamonds" that visualises the `diamonds` dataset. Choose the columns you want as choices in the `r func("selectInput")` and the grouping column.
 
@@ -174,7 +174,7 @@ tabPanelServer("diamonds", data = diamonds, group_by = "cut")
 ```
 `r unhide()`
 
-### 3. Altering modules
+### Altering modules
 
 * Add another `r func("selectInput")` to the UI that allows the user to select the grouping variable. (`iris` only has one possibility, but `mtcars` and `diamonds` should have several)
 
@@ -216,7 +216,7 @@ tabPanelServer <- function(id, data) {
 ```
 `r unhide()`
 
-### 4. New module
+### New module
 
 There is a `r func("fluidRow")` before the `r func("tabsetPanel")` in the ui that contains three `r func("infoBoxOutput")` and three `r func("renderInfoBoxOutput")` functions in the server function.
 
@@ -273,3 +273,7 @@ infoBoxServer("month", "Month", "%m", "calendar-alt"),
 infoBoxServer("day", "Day", "%d", "calendar-day"))
 ```
 `r unhide()`
+
+## Your app {#your-app-modules}
+
+What you could modularise in your custom app?

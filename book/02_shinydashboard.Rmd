@@ -271,7 +271,7 @@ tabItem(
 
 
 
-## Exercises {#exercises-shinydashboard}
+## Your App {#your-app-sdb}
 
 ### Create an app from the basic template
 
@@ -299,3 +299,4 @@ tabItem(
 * Experiment with different ways to display the elements by grouping them into boxes
 * Experiment with different layouts for your boxes and elements.
 * Make sure you check how the app looks on different sized screens, such as phone screens.
+
