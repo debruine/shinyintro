@@ -34,43 +34,6 @@ box(
 
 Whenever an input changes, it will trigger some types of functions to run.
 
-## observeEvent()
-
-We learned about `r func("observeEvent")` in Section\ \@ref(first-reactive). This function runs the code whenever the value of the first argument changes. If there are reactives inside the function, they won't trigger the code to run when they change.
-
-```{r}
-server <- function(input, output, session) {
-  observeEvent(input$update, {
-    data <- filter(diamonds,
-                   cut == input$cut,
-                   color == input$color,
-                   clarity == input$clarity)
-    
-    title <- sprintf("Cut: %s, Color: %s, Clarity: %s",
-                     input$cut,
-                     input$color,
-                     input$clarity)
-    
-    output$plot <- renderPlot({
-      ggplot(data, aes(carat, price)) +
-        geom_point(color = "#605CA8", alpha = 0.5) +
-        geom_smooth(method = lm, color = "#605CA8")
-    })
-    
-    output$title <- renderText(title)
-  })
-} 
-```
-
-In the example above, which inputs will trigger `r func("renderPlot")` to run and produce a new plot?
-
-`r webex::mcq(c("cut", "color", "clarity", answer = "update", "cut, color & clarity", "all of the above"))`
-
-In the example above, which inputs will trigger `r func("renderText")` to run and produce a new title?
-
-`r webex::mcq(c("cut", "color", "clarity", answer = "update", "cut, color & clarity", "all of the above"))`
-
-
 ## Render functions
 
 Functions that render an output, like `r func("renderText")` or `r func("renderPlot")` will run whenever an input in their code changes. You can trigger a render function just by putting a reactive alone on a line, even if you aren't using it in the rest of the code.
@@ -88,7 +51,7 @@ server <- function(input, output, session) {
       geom_smooth(method = lm, color = "#605CA8")
   })
   
-  output$title <- renderText{
+  output$title <- renderText({
     input$update # just here to trigger the function
     
     sprintf("Cut: %s, Color: %s, Clarity: %s",
@@ -124,8 +87,7 @@ server <- function(input, output, session) {
     sprintf("Cut: %s, Color: %s, Clarity: %s, N: %d",
                      input$cut,
                      input$color,
-                     input$clarity,
-            nrow(data()))
+                     input$clarity)
   })
   
   output$plot <- renderPlot({
@@ -148,48 +110,51 @@ Which inputs will trigger `r func("renderText")` to run and produce a new title?
 My most common error is trying to use `data` or `title` as an object instead of as a function. Notice how the first argument to ggplot is no longer `data`, but `r func("data")` and you set the value of data with `data(newdata)`, not `data <- newdata`. For now, just remember this as a quirk of shiny.
 :::
 
-## eventReactive() 
+## observeEvent()
 
-While `r func("reactive")` is triggered whenever any input values inside it change, `r func("eventReactive")` is only triggered when the value of the first argument changes, like `r func("observeEvent")`, but returns a reactive function like `r func("reactive")`.
+What if you only want to update things when the update button is clicked, and not whenever the user changes an option?
+
+We learned about `r func("observeEvent")` in Section\ \@ref(first-reactive). This function runs the code whenever the value of the first argument changes. If there are reactive values inside the function, they won't trigger the code to run when they change.
 
 ```{r}
 server <- function(input, output, session) {
-  data <- eventReactive(input$update, {
-    filter(diamonds,
-           cut == input$cut,
-           color == input$color,
-           clarity == input$clarity)
-  })
-  
-  title <- eventReactive(input$update, {
-    sprintf("Cut: %s, Color: %s, Clarity: %s",
+  observeEvent(input$update, {
+    data <- filter(diamonds,
+                   cut == input$cut,
+                   color == input$color,
+                   clarity == input$clarity)
+    
+    title <- sprintf("Cut: %s, Color: %s, Clarity: %s",
                      input$cut,
                      input$color,
                      input$clarity)
+    
+    output$plot <- renderPlot({
+      ggplot(data, aes(carat, price)) +
+        geom_point(color = "#605CA8", alpha = 0.5) +
+        geom_smooth(method = lm, color = "#605CA8")
+    })
+    
+    output$title <- renderText(title)
   })
-  
-  output$plot <- renderPlot({
-    ggplot(data(), aes(carat, price)) +
-      geom_point(color = "#605CA8", alpha = 0.5) +
-      geom_smooth(method = lm, color = "#605CA8")
-  })
-  
-  output$text <- renderText(title())
-}
+} 
 ```
 
 In the example above, which inputs will trigger `r func("renderPlot")` to run and produce a new plot?
 
 `r webex::mcq(c("cut", "color", "clarity", answer = "update", "cut, color & clarity", "all of the above"))`
 
-Which inputs will trigger `r func("renderText")` to run and produce a new title?
+In the example above, which inputs will trigger `r func("renderText")` to run and produce a new title?
 
 `r webex::mcq(c("cut", "color", "clarity", answer = "update", "cut, color & clarity", "all of the above"))`
 
+::: {.warning}
+You should avoid creating reactive functions inside other functions like I did above. That is because those functions *will* be triggered by changes to any reactive inputs inside them. It doesn't make a difference in this example because the render functions don't have any reactive values in them, but this can cause huge problems in more complex apps.
+:::
 
 ## reactiveVal()
 
-Another pattern that accomplishes a similar thing to `r func("reactive")` is to create a reactive value using `r func("reactiveVal")`. This allows you to update the value of `r func("data")` not just using the code inside the `r func("reactive")` function that created it, but in any function. This is useful when you have multiple functions that need to update that value.
+You can avoid the problem above of defining a render function inside a reactive function by creating a reactive value using `r func("reactiveVal")`. This allows you to update the value of `r func("data")` not just using the code inside the `r func("observeEvent")` function that created it, but in any function. This is useful when you have multiple functions that need to update that value.
 
 Here, we use `r func("observeEvent")` to trigger the data filtering code only when the update button is pressed. This new data set is assigned to `r func("data")` using the code `data(newdata)`. 
 
@@ -198,14 +163,21 @@ Because `r func("data")` returns a reactive value, it will trigger `r func("rend
 ```{r}
 server <- function(input, output, session) {
     data <- reactiveVal(diamonds)
+    title <- reactiveVal()
     
     observeEvent(input$update, {
         newdata <- filter(diamonds,
-               cut == input$cut,
-               color == input$color,
-               clarity == input$clarity)
-        
+                   cut == input$cut,
+                   color == input$color,
+                   clarity == input$clarity)
+    
+        newtitle <- sprintf("Cut: %s, Color: %s, Clarity: %s",
+                         input$cut,
+                         input$color,
+                         input$clarity)
+            
         data(newdata) # updates data()
+        title(newtitle) # updates title()
     })
     
     output$plot <- renderPlot({
@@ -214,12 +186,7 @@ server <- function(input, output, session) {
             geom_smooth(method = lm, color = "#605CA8")
     })
     
-    output$title <- renderText({
-      sprintf("Cut: %s, Color: %s, Clarity: %s",
-                     input$cut,
-                     input$color,
-                     input$clarity)
-    })
+    output$title <- renderText(title())
 } 
 ```
 
@@ -227,11 +194,12 @@ In the example above, which inputs will trigger `r func("renderPlot")` to run an
 `r webex::mcq(c("cut", "color", "clarity", answer = "update", "cut, color & clarity", "all of the above"))`
 
 Which inputs will trigger `r func("renderText")` to run and produce a new title?  
-`r webex::mcq(c("cut", "color", "clarity", "update", answer = "cut, color & clarity", "all of the above"))`
+`r webex::mcq(c("cut", "color", "clarity", answer = "update", "cut, color & clarity", "all of the above"))`
 
 ::: {.info}
 We used `data <- reactiveVal(diamonds)` in order for `r func("data")` to have a value that didn't cause an error when `r func("renderPlot")` runs for the first time. 
 :::
+
 
 ## reactiveValue()
 
@@ -277,6 +245,44 @@ Which inputs will trigger `r func("renderText")` to run and produce a new title?
 ::: {.warning}
 Note that you refer to reactive values set up this way as `v$data` and `v$title`, not `r func("data")` and `r func("title")`, as set them `v$data <- newdata`, not `v$data(newdata)`.
 :::
+
+## eventReactive() 
+
+While `r func("reactive")` is triggered whenever any input values inside it change, `r func("eventReactive")` is only triggered when the value of the first argument changes, like `r func("observeEvent")`, but returns a reactive function like `r func("reactive")`.
+
+```{r}
+server <- function(input, output, session) {
+  data <- eventReactive(input$update, {
+    filter(diamonds,
+           cut == input$cut,
+           color == input$color,
+           clarity == input$clarity)
+  })
+  
+  title <- eventReactive(input$update, {
+    sprintf("Cut: %s, Color: %s, Clarity: %s",
+                     input$cut,
+                     input$color,
+                     input$clarity)
+  })
+  
+  output$plot <- renderPlot({
+    ggplot(data(), aes(carat, price)) +
+      geom_point(color = "#605CA8", alpha = 0.5) +
+      geom_smooth(method = lm, color = "#605CA8")
+  })
+  
+  output$text <- renderText(title())
+}
+```
+
+In the example above, which inputs will trigger `r func("renderPlot")` to run and produce a new plot?
+
+`r webex::mcq(c("cut", "color", "clarity", answer = "update", "cut, color & clarity", "all of the above"))`
+
+Which inputs will trigger `r func("renderText")` to run and produce a new title?
+
+`r webex::mcq(c("cut", "color", "clarity", answer = "update", "cut, color & clarity", "all of the above"))`
 
 ## isolate()
 
@@ -356,27 +362,6 @@ msleep %>%
 ```
 `r unhide()`
 
-### observeEvent
-
-Use `r func("observeEvent")` to update the output table with the appropriate summary table and to update the caption with an appropriate caption only when the update button is clicked.
-
-`r hide()`
-```{r}
-server <- function(input, output, session) {
-  observeEvent(input$update, {
-    data <- msleep %>%
-      group_by(.data[[input$group]]) %>%
-      summarise_if(is.numeric, input$stat, na.rm = TRUE)
-    output$table <- renderTable(data)
-    
-    caption <-
-      sprintf("%ss by %s", toupper(input$stat), input$group)
-    output$caption <- renderText(caption)
-  })
-} 
-```
-`r unhide()`
-
 ### render
 
 Use render functions to update the output table and caption whenever group or stat change.
@@ -396,6 +381,7 @@ server <- function(input, output, session) {
 } 
 ```
 `r unhide()`
+
 
 ### reactive
 
@@ -419,24 +405,24 @@ server <- function(input, output, session) {
 ```
 `r unhide()`
 
-### eventReactive
 
-Use `r func("eventReactive")` to update the output table and caption only when the update button is clicked.
+### observeEvent
+
+Use `r func("observeEvent")` to update the output table with the appropriate summary table and to update the caption with an appropriate caption only when the update button is clicked.
 
 `r hide()`
 ```{r}
 server <- function(input, output, session) {
-  data <- eventReactive(input$update, {
-    msleep %>%
+  observeEvent(input$update, {
+    data <- msleep %>%
       group_by(.data[[input$group]]) %>%
       summarise_if(is.numeric, input$stat, na.rm = TRUE)
+    output$table <- renderTable(data)
+    
+    caption <-
+      sprintf("%ss by %s", toupper(input$stat), input$group)
+    output$caption <- renderText(caption)
   })
-  output$table <- renderTable(data())
-  
-  caption <- eventReactive(input$update, {
-    sprintf("%ss by %s", toupper(input$stat), input$group)
-  })
-  output$caption <- renderText(caption())
 } 
 ```
 `r unhide()`
@@ -494,6 +480,29 @@ server <- function(input, output, session) {
 } 
 ```
 `r unhide()`
+
+### eventReactive
+
+Use `r func("eventReactive")` to update the output table and caption only when the update button is clicked.
+
+`r hide()`
+```{r}
+server <- function(input, output, session) {
+  data <- eventReactive(input$update, {
+    msleep %>%
+      group_by(.data[[input$group]]) %>%
+      summarise_if(is.numeric, input$stat, na.rm = TRUE)
+  })
+  output$table <- renderTable(data())
+  
+  caption <- eventReactive(input$update, {
+    sprintf("%ss by %s", toupper(input$stat), input$group)
+  })
+  output$caption <- renderText(caption())
+} 
+```
+`r unhide()`
+
 
 ## Your App {#your-app-reactive}
 

@@ -50,24 +50,24 @@ ui <- dashboardPage(
 
 # server ----
 server <- function(input, output, session) {
-    observeEvent(input$update, {
+    output$plot <- renderPlot({
         data <- filter(diamonds,
                        cut == input$cut,
                        color == input$color,
                        clarity == input$clarity)
         
-        title <- sprintf("Cut: %s, Color: %s, Clarity: %s",
-                         input$cut,
-                         input$color,
-                         input$clarity)
+        ggplot(data, aes(carat, price)) +
+            geom_point(color = "#605CA8", alpha = 0.5) +
+            geom_smooth(method = lm, color = "#605CA8")
+    })
+    
+    output$title <- renderText({
+        input$update # just here to trigger the function
         
-        output$plot <- renderPlot({
-            ggplot(data, aes(carat, price)) +
-                geom_point(color = "#605CA8", alpha = 0.5) +
-                geom_smooth(method = lm, color = "#605CA8")
-        })
-        
-        output$title <- renderText(title)
+        sprintf("Cut: %s, Color: %s, Clarity: %s",
+                input$cut,
+                input$color,
+                input$clarity)
     })
 } 
 
