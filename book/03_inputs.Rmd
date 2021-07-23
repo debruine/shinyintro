@@ -23,7 +23,7 @@ demo_text <-
             placeholder = "Your Name")
 ```
 
-::: {.try}
+::: {.try data-latex=""}
 Experiment with the values of `r arg("label")`, `r arg("value")`, `r arg("width")`, and `r arg("placeholder")` to see what they do.
 :::
 
@@ -117,7 +117,7 @@ demo_slider <- sliderInput("demo_slider",
                            width = "100%")
 ```
 
-::: {.try}
+::: {.try data-latex=""}
 What happens if you change `r arg("value")` or `r arg("step")`? Try changing `r arg("value")` to `c(10, 20)`.
 :::
 
@@ -133,7 +133,7 @@ demo_radio <- radioButtons("demo_radio",
                            inline = TRUE)
 ```
 
-::: {.warning}
+::: {.warning data-latex=""}
 Radio buttons default to selecting the first item unless you set `r arg("selected")` to a choice value or `character(0)` to start with no selection.
 :::
 
@@ -150,7 +150,7 @@ demo_date <- dateInput("demo_date",
                        startview = "year")
 ```
 
-::: {.info}
+::: {.info data-latex=""}
 IMHO, the default of `r dt("yyyy-mm-dd")` is the best because it sorts into chronological order. Don't let me catch you storing dates like `r dt("m/d/yyyy")`. 
 :::
 
@@ -189,7 +189,7 @@ updateSliderInput(session, "demo_slider", value = 0)
 updateDateInput(session, "demo_date", value = NULL)
 ```
 
-::: {.warning}
+::: {.warning data-latex=""}
 Note that select inputs, checkbox groups, and radio buttons use the argument `r arg("selected")` and not `r func("value")`. If you want to set all the values in a checkbox group or radio button group to unchecked, set `selected = character(0)`.
 :::
 

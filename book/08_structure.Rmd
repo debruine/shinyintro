@@ -12,7 +12,7 @@ source("scripts/func.R") # helper functions
 
 This file contains definitions for the functions `r func("debug_msg")` and `r func("debug_sprintf")`. You can add your own custom functions to this file or to another file that you source in separately.
 
-::: {.warning}
+::: {.warning data-latex=""}
 All `r path(".R")` files inside a directory called `r path("R")` will run before the app starts up, even if you don't source them into the app. You can use this to set up any functions your app needs without having to use `r func("source")`, but I prefer to explicitly include external files, so I keep external functions in a directory called `scripts`.
 :::
 

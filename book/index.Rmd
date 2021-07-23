@@ -6,6 +6,8 @@ site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
+classoption: oneside
+geometry: margin=1in
 link-citations: yes
 description: "This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports."
 ---
@@ -140,16 +142,33 @@ This book will use the following conventions:
 
 * File paths: `r path("www/style.css")`
 * R Packages: `r pkg("shinydashboard")`
-* Functions: `r func("observeEvent")`
+* Functions: `r func("observeEvent", "input$button, {}")`
 * Arguments: `r arg("width")`
 * Strings: `r dt("Lisa")`
 * Numbers: `r dt(100)`
 * Logical values: `r dt(TRUE)`
-* Other code: `x <- list(a = "Aligator", b = "Buffalo")`
+* Other code: `x <- list(a = "Alligator", b = "Loki")`
 * Glossary items: `r glossary("shiny")`
 * Internal links: Section\ \@ref(first-app)
 * External links: [Mastering Shiny](https://mastering-shiny.org/){target="_blank"}
 * Menu/interface options: **`New File...`**
+
+::: {.info data-latex=""}
+Informational asides.
+:::
+
+::: {.warning data-latex=""}
+Notes to warn you about something.
+:::
+
+::: {.dangerous data-latex=""}
+Notes about things that could cause serious errors.
+:::
+
+::: {.try data-latex=""}
+Try it yourself.
+:::
+
 
 
 ## Further Resources

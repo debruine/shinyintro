@@ -125,7 +125,7 @@ tabPanelServer <- function(id, data, group_by) {
 }
 ```
 
-::: {.warning}
+::: {.warning data-latex=""}
 In the original code, the grouping variables were unquoted, but it's tricky to pass unquoted variable names to custom functions, and we already know how to refer to columns by a character object using `.data[[char_obj]]`. 
 
 The grouping column `Species` in `iris` is already a factor, but recasting it as a factor won't hurt, and is required for the `mtcars` grouping column `vs`.

@@ -106,7 +106,7 @@ In the example above, which inputs will trigger `r func("renderPlot")` to run an
 Which inputs will trigger `r func("renderText")` to run and produce a new title?  
 `r webex::mcq(c("cut", "color", "clarity", "update", answer = "cut, color & clarity", "all of the above"))`
 
-::: {.warning}
+::: {.warning data-latex=""}
 My most common error is trying to use `data` or `title` as an object instead of as a function. Notice how the first argument to ggplot is no longer `data`, but `r func("data")` and you set the value of data with `data(newdata)`, not `data <- newdata`. For now, just remember this as a quirk of shiny.
 :::
 
@@ -148,7 +148,7 @@ In the example above, which inputs will trigger `r func("renderText")` to run an
 
 `r webex::mcq(c("cut", "color", "clarity", answer = "update", "cut, color & clarity", "all of the above"))`
 
-::: {.warning}
+::: {.warning data-latex=""}
 You should avoid creating reactive functions inside other functions like I did above. That is because those functions *will* be triggered by changes to any reactive inputs inside them. It doesn't make a difference in this example because the render functions don't have any reactive values in them, but this can cause huge problems in more complex apps.
 :::
 
@@ -196,7 +196,7 @@ In the example above, which inputs will trigger `r func("renderPlot")` to run an
 Which inputs will trigger `r func("renderText")` to run and produce a new title?  
 `r webex::mcq(c("cut", "color", "clarity", answer = "update", "cut, color & clarity", "all of the above"))`
 
-::: {.info}
+::: {.info data-latex=""}
 We used `data <- reactiveVal(diamonds)` in order for `r func("data")` to have a value that didn't cause an error when `r func("renderPlot")` runs for the first time. 
 :::
 
@@ -242,7 +242,7 @@ In the example above, which inputs will trigger `r func("renderPlot")` to run an
 Which inputs will trigger `r func("renderText")` to run and produce a new title?  
 `r webex::mcq(c("cut", "color", "clarity", answer = "update", "cut, color & clarity", "all of the above"))`
 
-::: {.warning}
+::: {.warning data-latex=""}
 Note that you refer to reactive values set up this way as `v$data` and `v$title`, not `r func("data")` and `r func("title")`, as set them `v$data <- newdata`, not `v$data(newdata)`.
 :::
 
@@ -328,7 +328,7 @@ Which inputs will trigger `r func("renderText")` to run and produce a new title?
 `r webex::mcq(c(answer = "cut", "color", "clarity", "update", "cut, color & clarity", "all of the above"))`
 
 
-## Further Resources {#resources-reactive)
+## Further Resources {#resources-reactive}
 
 * [Mastering Shiny - Basic Reactivity](https://mastering-shiny.org/basic-reactivity.html){target="_blank"}
 * [Reactivity - An overview](https://shiny.rstudio.com/articles/reactivity-overview.html){target="_blank"}

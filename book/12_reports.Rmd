@@ -27,7 +27,7 @@ report_tab <- tabItem(
 )
 ```
 
-::: {.warning}
+::: {.warning data-latex=""}
 Remember to add this to `r func("tabItems")` in `r func("dashboardBody")` and also add a corresponding `r func("menuItem")` in `r func("sidebarMenu")`. Run the app to make sure the UI looks like you expect before you proceed.
 :::
 
@@ -46,7 +46,7 @@ output$pet_data_dl <- downloadHandler(
 )
 ```
 
-::: {.warning}
+::: {.warning data-latex=""}
 Instead of `r func("write.csv")` or `r func("readr::write_csv")`, here we're using `r func("gs4_write_csv")` (defined in `r path("scripts/gs4.R")`) because googlesheets can return list columns that cause errors when [saving to CSV](#gs4_save) without some preprocessing.
 :::
 
@@ -84,7 +84,7 @@ output$pet_plot_dl <- downloadHandler(
 )
 ```
 
-::: {.try}
+::: {.try data-latex=""}
 Add numeric inputs to the UI to let the user specify the downloaded plot `r arg("width")` and `r arg("height")`.
 
 `r hide()`
@@ -189,7 +189,7 @@ output$pet_report_dl <- downloadHandler(
 
 Setting the `r arg("envir")` argument to `r func("new.env")` makes sure that settings in your Shiny app, such as a default ggplot theme, can't affect the rendered file, but also makes it so that the R Markdown code will not have access to any objects from your app, such as `input` or `v$summary_data`, unless you pass them as parameters.
 
-::: {.error}
+::: {.dangerous data-latex=""}
 On your own computer, you don't need to set `intermediates_dir = tempdir()`, but you will need to do this if you want to deploy your app on a shiny server. When rmarkdown renders an Rmd file, it creates several intermediate files in the working directory and then deletes them. you have permission to write to the app's working directory on your own computer, but might not on a shiny server. `r func("tempdir")` is almost always a safe place to write temporary files to.
 :::
 

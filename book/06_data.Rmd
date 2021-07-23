@@ -150,7 +150,7 @@ write_sheet(data, SHEET_ID, "demographics")
 read_sheet(SHEET_ID, "demographics")
 ```
 
-::: {.info}
+::: {.info data-latex=""}
 Notice that `birthyear` is a `r glossary("double")`, not an `r glossary("integer")`. Google Sheets only have one numeric type, so both doubles and integers are coerced to doubles.
 :::
 
@@ -184,7 +184,7 @@ sheet_append(SHEET_ID, data, "demographics")
 read_sheet(SHEET_ID, "demographics")
 ```
 
-::: {.danger}
+::: {.dangerous data-latex=""}
 You must append data that has the same number and order of columns as the Google Sheet. If you send columns out of order, they will be recorded in the order you sent them, not in the order of the column names. If you send extra columns, the append will fail.
 :::
 

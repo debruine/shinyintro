@@ -74,7 +74,7 @@ div.color-theme-2 .book-body .page-wrapper .page-inner section.normal strong cod
 
 /* set styles for alert boxes */
 
-.danger, .warning, .info , .alert, .try {
+.dangerous, .warning, .info , .alert, .try {
   padding: 1em 1em 0.25em 3.5em;
   margin-bottom: 10px;
   background-color: hsla(0, 0%, 100%, .1);
@@ -84,7 +84,7 @@ div.color-theme-2 .book-body .page-wrapper .page-inner section.normal strong cod
   border-radius: 0.5em;
 }
 
-.danger {
+.dangerous {
   background-image: url("../images/alerts/danger.svg");
   background-color: hsla(315, 42%, 42%, .10);
   border: 1px solid var(--pink);

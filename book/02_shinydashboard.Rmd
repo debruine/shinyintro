@@ -31,12 +31,10 @@ Notice that the ui is created with `r func("dashboardPage")` now. This needs to 
 You can also change the default `r arg("skin")` colour. Possible skin colours are: `r dt("red")`, `r dt("yellow")` (looks orange to me), `r dt("green")`, `r dt("blue")`, `r dt("purple")`, and `r dt("black")`.
 
 ```{r}
-dashboardPage(
-    skin = "purple",
-    dashboardHeader(),
-    dashboardSidebar(),
-    dashboardBody()
-)
+dashboardPage(skin = "purple",
+              dashboardHeader(),
+              dashboardSidebar(),
+              dashboardBody())
 ```
 
 ### dashboardHeader
@@ -44,15 +42,14 @@ dashboardPage(
 You can add a title to the header, and change the title width.
 
 ```{r}
-dashboardHeader(
-  title = "Basic Template", 
-  titleWidth = "calc(100% - 44px)" # puts sidebar toggle on right
-)
+dashboardHeader(title = "Basic Template",
+                # puts sidebar toggle on right
+                titleWidth = "calc(100% - 44px)")
 ```
 
 You can also include message, notification, and task menus in the header. We won't be using those in this class, but you can learn more at [the shinydashboard site](https://rstudio.github.io/shinydashboard/structure.html#message-menus){target="_blank"}.
 
-::: {.info}
+::: {.info data-latex=""}
 If you don't want to use a header, include `dashboardHeader(disable = TRUE)` inside `r func("dashboardPage")`. 
 :::
 
@@ -64,16 +61,19 @@ You can also add in any other elements to the sidebar. The code below adds a lin
 
 ```{r}
 dashboardSidebar(
-    sidebarMenu(
-        id = "tabs",
-        menuItem("Tab Title", tabName = "demo_tab", icon = icon("dragon"))
-    ),
-    tags$a(href = "https://debruine.github.io/shinyintro/", 
-           "ShinyIntro book", style="padding: 1em;")
+  sidebarMenu(id = "tabs",
+              menuItem(
+                "Tab Title",
+                tabName = "demo_tab",
+                icon = icon("dragon")
+              )),
+  tags$a("ShinyIntro book",
+         href = "https://debruine.github.io/shinyintro/",
+         style = "padding: 1em;")
 )
 ```
 
-::: {.info}
+::: {.info data-latex=""}
 If you don't want to use a sidebar, include `dashboardSidebar(disable = TRUE)` inside `r func("dashboardPage")`. 
 :::
 
@@ -84,18 +84,16 @@ The main part of the app goes inside `r func("dashboardBody")` If you're going t
 The contents of the body go after that. The most common pattern is a multi-page tabbed pattern, which is set up with `r func("tabItems")`, which contains a `r func("tabItem")` for each tab. The `r arg("tabName")` has to match the name you used in the sidebar `r func("menuItem")`, so that tab shows when the user clicks on the corresponding menu item.
 
 ```{r}
-dashboardBody(
-    shinyjs::useShinyjs(),
-    tags$head(
-        # links to files in www/
-        tags$link(rel = "stylesheet", type = "text/css", href = "custom.css"), 
-        tags$script(src = "custom.js")
-    ),
-    tabItems(
-        tabItem(tabName = "demo_tab", imageOutput("logo"))
-    )
-)
-
+dashboardBody(shinyjs::useShinyjs(),
+              tags$head(
+                # links to files in www/
+                tags$link(rel = "stylesheet",
+                          type = "text/css",
+                          href = "custom.css"),
+                tags$script(src = "custom.js")
+              ),
+              tabItems(tabItem(tabName = "demo_tab",
+                               imageOutput("logo"))))
 ```
 
 Since each tab is usually a quite complex list of elements, I like to define each tab outside `r func("dashboardPage")` and then just put a list of the tab objects inside `r func("tabItems")`. This way, it's easy to move the whole tab definition to an external file if it gets too complex (see Section\ \@ref(structure)).
@@ -106,11 +104,14 @@ Tab items can be structured in several ways. At the simplest, you can just list 
 
 ```{r}
 tabItem(
-    tabName = "demo_tab",
-    textInput("given", "Given Name"),
-    textInput("surname", "Surname"),
-    selectInput("pet", "What is your favourite pet?", c("cats", "dogs", "ferrets")),
-    textAreaInput("bio", NULL, height = "100px", placeholder = "brief bio")
+  tabName = "demo_tab",
+  textInput("given", "Given Name"),
+  textInput("surname", "Surname"),
+  selectInput("pet", "What is your favourite pet?",
+              c("cats", "dogs", "ferrets")),
+  textAreaInput("bio", NULL,
+                height = "100px",
+                placeholder = "brief bio")
 )
 ```
 
@@ -119,21 +120,23 @@ tabItem(
 Most `r pkg("shinydashboard")` apps organise the parts inside boxes.
 
 ```{r}
-library() 
-tabItem(
-    tabName = "demo_tab",
-    box(
-      textInput("given", "Given Name"),
-      textInput("surname", "Surname"),
-      selectInput("pet", "What is your favourite pet?", c("cats", "dogs", "ferrets"))
-    ),
-    box(
-       textAreaInput("bio", NULL, height = "100px", placeholder = "brief bio")
-    )
-)
+tabItem(tabName = "demo_tab",
+        box(
+          textInput("given", "Given Name"),
+          textInput("surname", "Surname"),
+          selectInput("pet", "What is your favourite pet?",
+                      c("cats", "dogs", "ferrets"))
+        ),
+        box(
+          textAreaInput("bio", NULL,
+                        height = "100px",
+                        placeholder = "brief bio")
+        ))
 ```
 
-![](images/sdb_layout2.png)
+```{r sdb-layout2, eval=TRUE, echo=FALSE, fig.cap = 'Organizing elements inside boxes.'}
+knitr::include_graphics('images/sdb_layout2.png')
+```
 
 You can add titles to the boxes, make them collapsible and/or give them solid headers. 
 
@@ -192,7 +195,7 @@ knitr::include_graphics('images/sdb_value_info.png')
 
 `r pkg("Shinydashboard")` uses a grid system that is `r dt(12)` units across. The default width of boxes is `r dt(6)`, and info and value boxes are `r dt(4)`.
 
-::: {.try}
+::: {.try data-latex=""}
 Try to write the code to create the second row of info boxes show above and the third row of value boxes.
 :::
 
@@ -239,6 +242,7 @@ tabItem(
       box("F", title = "5x100", width = 5, height = 100),
       box("G", title = "7x100", width = 7, height = 100)
     )
+)
 ```
 
 ```{r sdb-row-layout, eval=TRUE, echo=FALSE, fig.cap = 'An example fluidRow layout of boxes with different widths and heights.'}
@@ -287,19 +291,19 @@ knitr::include_graphics('images/sdb_column_layout.png')
 * Look at the code to see how the theme colour and sidebar icon change. 
 * Change the title and author in the `r path("DESCRIPTION")` file and set DisplayMode to "Showcase" instead of "Normal" to see what happens when you run it.
 
-### Customise the header
+### Customize the header
 
 * Change the `r arg("title")` to the title of the app you want to build.
 * Choose a `r arg("skin")` color.
 * Experiment with different values for the `r arg("titleWidth")` argument. Try `r dt("50%")` or `r dt("200px")` and see how the title behaves when you change the width of the browser window.
 
-### Customise the sidebar
+### Customize the sidebar
 
 * Add tabs to the `r func("sidebarMenu")` for the pages of your custom app.
 * Choose appropriate `r arg("icon")` for each tab.
 * Remove the link to the ShinyIntro book and add some information about your app, like the author or a use license.
 
-### Customise the body
+### Customize the body
 
 * Create an empty `r func("tabItem")` for each tab you put in the `r func("sidebarMenu")` and add them to the `r func("dashboardBody")`.
 * Start adding elements to each tab, such as a list of inputs with questions or a `r func("plotOutput")` to display a feedback plot.

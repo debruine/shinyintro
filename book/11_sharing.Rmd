@@ -26,7 +26,7 @@ shinyintro::clone("input_demo", "mytestapp")
 
 Open the `r path("app.R")` file and go to **`File > Publish...`** in the menu (or click on the blue icon in the upper right corner of the source pane). Make sure these are the right files for your app, edit the title if you want, and click **`Publish`**. A web browser window will open after a few seconds showing your app online! You can now share it with your friends and colleagues.
 
-::: {.info}
+::: {.info data-latex=""}
 If publishing fails, check the Console pane. If you already have too many apps on shinyapps.io, you'll see the message, "You have reached the maximum number of applications allowed for your account." You can archive some of your apps from the shinyapps.io dashboard if this is the problem.
 :::
 
@@ -36,7 +36,7 @@ Setting up a shiny server is beyond the scope of this class, but if you have acc
 
 This solution is good if you want to save data locally and do not want to use Google Sheets. You can't save data locally on shinyapps.io.
 
-::: {.info}
+::: {.info data-latex=""}
 If you save data locally on a shiny server, you may need to change the owner or permissions of the directory you save data in so that the web user can write to it. Ask the administrator of the server for help if this doesn't make any sense to you.
 :::
 
@@ -56,7 +56,7 @@ To update your files on GitHub, you need to `r glossary("commit")` any changes y
 
 Committing just creates a snapshot of the files on your computer so you can look at previous versions. To update the files on GitHub, you need to `r glossary("push")` the updates using the green up arrow button.
 
-::: {.info}
+::: {.info data-latex=""}
 Git and GitHub can be tricky. [Happy Git with R](https://happygitwithr.com/){target="_blank"} by Jenny Bryan is a fantastic in-depth book anbout how to work with git in R and RStudio.
 :::
 

@@ -3,18 +3,20 @@ setwd(rstudioapi::getActiveProject())
 setwd("book")
 preview <- FALSE # preview = TRUE to run faster, but misses some linking
 
-# render a chapter or the whole book
-#browseURL(bookdown::preview_chapter("01_first_app.Rmd"))
+# render a chapter quickly
+#browseURL(bookdown::preview_chapter("05_reactive.Rmd"), preview = TRUE)
 
 
 # make PDF
 browseURL(bookdown::render_book("index.Rmd", "bookdown::pdf_book", preview = preview))
-file.copy("../docs/_main.pdf", "../docs/shinyintro.pdf")
+file.rename("_main.pdf", "shinyintro.pdf")
 
 # make EPUB
 epub <- bookdown::epub_book() #stylesheet = c("include/epub.css"))
-browseURL(bookdown::render_book("index.Rmd", epub, preview = preview))
-file.copy("../docs/_main.epub", "../docs/shinyintro.epub")
+bookdown::render_book("index.Rmd", epub, preview = preview)
+file.rename("_main.epub", "shinyintro.epub")
+
+system("/Applications/calibre.app/Contents/MacOS/ebook-convert ~/rproj/debruine/shinyintro/docs/shinyintro.epub ~/rproj/debruine/shinyintro/docs/shinyintro.mobi")
 
 # make HTML
 browseURL(bookdown::render_book("index.Rmd", "bookdown::gitbook", preview = preview))

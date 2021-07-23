@@ -85,7 +85,7 @@ knitr::include_graphics("images/inspector.png")
 ```
 
 
-## CSS
+## CSS {#CSS}
 
 `r glossary("CSS")` stands for Cascading Style Sheets and is a way to control the visual presentation of HTML on web pages. You can use CSS to change the default appearance of anything on a web page. 
 
@@ -101,7 +101,7 @@ Selectors are how you refer to the parts of the HTML you want to style. There ar
 
 Properties are aspects of the visual style that you want to change, such as `r dt("color", "kw")` (text color), `r dt("background-color", "kw")`, or `r dt("border", "kw")`. Values have specific formats for each property, such as `r dt("1px")` or `r dt("0.5em")` to describe lengths, or `red` or `#FF0000` to describe colours. 
 
-::: {.info}
+::: {.info data-latex=""}
 There are hundreds of [properties](https://www.w3schools.com/cssref/default.asp){target="_blank"} and you can't memorise them all. I usually Google something like "css font type" or "css underline text" and choose the first link from [ww3schools](https://www.w3schools.com){target="_blank"}.
 :::
 
@@ -189,11 +189,11 @@ tags$head(
 )
 ```
 
-::: {.warning}
+::: {.warning data-latex=""}
 Sometimes when you change external files, they don't seem to update when you test the app. This can be because of `r glossary("cache-web", "caching")`. You can usually solve this by reloading the app in your web browser, reloading in the web browser with the shift key pressed, stopping the app from running in RStudio with the stop sign icon and starting it up again, and, finally, restarting R.
 :::
 
-## JavaScript
+## JavaScript {#JavaScript}
 
 `r glossary("JavaScript")` is a coding language that is very useful for adding dynamic behaviour to web pages. For simple apps, you don't need to understand any JavaScript, but a little bit can be really helpful for adding advanced behaviour.
 

@@ -71,7 +71,7 @@ observeEvent(input$had_pet, {
 })
 ```
 
-::: {.try}
+::: {.try data-latex=""}
 Try to figure out what could go wrong if you didn't wrap "first_pet" and "first_pet_other" in a group, and instead just hid or showed "first_pet" and "first_pet_other" depending on the value of `has_pet`?
 :::
 
@@ -95,7 +95,7 @@ observeEvent(input$toggle_pet_box, {
 })
 ```
 
-::: {.try}
+::: {.try data-latex=""}
 What would go wrong if you put the button inside the box?
 :::
 
@@ -132,7 +132,7 @@ observeEvent(input$add_notice, {
 })
 ```
 
-::: {.try}
+::: {.try data-latex=""}
 Guess how you would use `r func("removeClass")`, and `r func("toggleClass")` with the buttons set up above.
 :::
 
@@ -162,7 +162,7 @@ observeEvent(input$random_skin, {
 })
 ```
 
-::: {.info}
+::: {.info data-latex=""}
 Changing the skin color with a button press isn't something you'll easily find documented in online materials. I figured it out through looking at how the underlying html changed when I changed the skin color in the app code. Hacks like this require lots of trial and error, but get easier the more you understand about html, css and JavaScript.
 :::
 
@@ -218,7 +218,7 @@ observe({
 })
 ```
 
-::: {.try}
+::: {.try data-latex=""}
 Why do we have to get the dataset again instead of using the data from `r func("mydata")`?
 :::
 
@@ -231,7 +231,7 @@ mydata <- reactive({
 })
 ```
 
-::: {.try}
+::: {.try data-latex=""}
 What happens when you unselect all the columns? How can you fix this?
 :::
 

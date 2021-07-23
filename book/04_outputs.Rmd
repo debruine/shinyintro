@@ -71,7 +71,7 @@ output$demo_plot <- renderPlot({
 })
 ```
 
-::: {.warning}
+::: {.warning data-latex=""}
 If you want to create dynamic plots that change with input, note how you need to use `y = .data[[input$y]]` inside `r func("aes")`, instead of just `y = input$y`.
 :::
 
@@ -96,7 +96,7 @@ output$demo_image <- renderImage({
 }, deleteFile = FALSE)
 ```
 
-::: {.warning}
+::: {.warning data-latex=""}
 The `r arg("deleteFile")` argument is currently optional, but triggers periodic warnings that it won't be optional in the future. You should set it to `r dt(TRUE)` if you're making a temporary file (this stops unneeded plots using memory) and `r dt(FALSE)` if you're referencing a file you previously saved.
 :::
 
@@ -121,7 +121,7 @@ output$demo_table <- renderTable({
 })
 ```
 
-::: {.warning}
+::: {.warning data-latex=""}
 Note how you need to use `.data[[input$y]]` inside `r func("dplyr::summarise")`, instead of just `input$y` to dynamically choose which variable to summarise.
 :::
 
@@ -147,7 +147,7 @@ output$demo_datatable <- DT::renderDataTable({
 }, options = list(pageLength = 10))
 ```
 
-::: {.info}
+::: {.info data-latex=""}
 You can use the `r pkg("DT")` synonyms to make sure you're not accidentally using the `r pkg("shiny")` versions, which don't have the same options.
 :::
 
@@ -170,7 +170,7 @@ output$demo_ui <- renderUI({
 })
 ```
 
-::: {.info}
+::: {.info data-latex=""}
 The function `r func("htmlOutput")` is a synonym for `r func("uiOutput")`, so you might see that in some code examples, but I use `r func("uiOutput")` to make the connection with `r func("renderUI")` clearer, since there is no `r func("renderHTML")`.
 :::
 
