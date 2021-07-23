@@ -9,13 +9,17 @@ preview <- FALSE # preview = TRUE to run faster, but misses some linking
 
 # make PDF
 browseURL(bookdown::render_book("index.Rmd", "bookdown::pdf_book", preview = preview))
-file.rename("_main.pdf", "shinyintro.pdf")
+file.remove("../docs/shinyintro.pdf")
+file.rename("../docs/_main.pdf", "../docs/shinyintro.pdf")
 
 # make EPUB
 epub <- bookdown::epub_book() #stylesheet = c("include/epub.css"))
 bookdown::render_book("index.Rmd", epub, preview = preview)
-file.rename("_main.epub", "shinyintro.epub")
+file.remove("../docs/shinyintro.epub")
+file.rename("../docs/_main.epub", "../docs/shinyintro.epub")
 
+# make MOBI
+file.remove("../docs/shinyintro.mobi")
 system("/Applications/calibre.app/Contents/MacOS/ebook-convert ~/rproj/debruine/shinyintro/docs/shinyintro.epub ~/rproj/debruine/shinyintro/docs/shinyintro.mobi")
 
 # make HTML
