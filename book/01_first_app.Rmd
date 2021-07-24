@@ -105,7 +105,7 @@ Now we're going to make a series of changes to the demo app until it's all your 
 You can close the app by closing the window or browser tab it's running in and clicking the red stop sign in the console tab, or leave it running while you edit the code. If you have multiple screens, it can be useful to have the app open on one screen and the code on another.
 :::
 
-Find the application title. It is the first [argument](defs.html#argument) to the [function](defs.html#function) `r func("titlePanel")`. Change the `r arg("title")` to `r dt("My First App")`. Make sure the title is inside quotes and the whole quoted `r glossary("string")` is inside the parentheses. Save the file (`cmd-S` or `File > Save`).
+Find the application title. It is the first `r glossary("argument")` to the `r glossary("function")` `r func("titlePanel")`. Change the `r arg("title")` to `r dt("My First App")`. Make sure the title is inside quotes and the whole quoted `r glossary("string")` is inside the parentheses. Save the file (`cmd-S` or `File > Save`).
 
 ```{r first-change-title, eval = TRUE, echo=FALSE, fig.cap = 'App with changed title.'}
 knitr::include_graphics('images/demo_app/06-change-title.png')
@@ -116,11 +116,11 @@ Click **`Run App`** (or **`Reload App`** if you haven't closed the app window) i
 Now let's change the input. Find the function `r func("sliderInput")` (line 21). The first `r glossary("argument")` is the name you can use in the code to find the value of this input, so don't change it just yet. The second argument is the text that displays before the slider. Change this to something else and re-run the app.
 
 ```{r, app-sliderInput}
-         sliderInput("bins",
-                     "Number of bins:",
-                     min = 0,
-                     max = 50,
-                     value = 30)
+sliderInput("bins",
+            "Number of bins:",
+            min = 0,
+            max = 50,
+            value = 30)
 ```
 
 ::: {.try data-latex=""}
@@ -130,14 +130,14 @@ See if you can figure out what the next three arguments to `r func("sliderInput"
 The arguments to the function `r func("sidebarPanel")` are just a list of things you want to display in the sidebar. To add some explanatory text in a paragraph before `r func("sliderInput")`, just use the paragraph function `r func("p")`.
 
 ```{r, app-sidebar-p}
-      sidebarPanel(
-         p("I am explaining this perfectly"),
-         sliderInput("bins",
-                     "Choose the best bin number:",
-                     min = 10,
-                     max = 40,
-                     value = 25)
-      )
+sidebarPanel(
+   p("I am explaining this perfectly"),
+   sliderInput("bins",
+               "Choose the best bin number:",
+               min = 10,
+               max = 40,
+               value = 25)
+)
 ```
 
 ```{r first-app-sidebar-p, eval = TRUE, echo=FALSE, fig.cap = 'Sidebar with an added paragraph.'}
@@ -151,13 +151,13 @@ The sidebar shows up on the left if your window is wide enough, but moves to the
 I don't like it there, so we can move this text out of the sidebar and to the top of the page, just under the title. Try this and re-run the app.
 
 ```{r, app-intro-text}
-   # Application title
-   titlePanel("My First App"),
+# Application title
+titlePanel("My First App"),
 
-   p("I am explaining this perfectly"),
+p("I am explaining this perfectly"),
 
-   # Sidebar with a slider input for number of bins
-   sidebarLayout(...)
+# Sidebar with a slider input for number of bins
+sidebarLayout(...)
 ```
 
 ::: {.try data-latex=""}
@@ -167,8 +167,8 @@ See where you can move the text in the layout of the page and where causes error
 I'm also not keen on the grey plot. We can change the plot colour inside `hist()`
 
 ```{r plot-colors}
-      # draw the histogram with the specified number of bins
-      hist(x, breaks = bins, col = 'steelblue3', border = 'grey30')
+# draw the histogram with the specified number of bins
+hist(x, breaks = bins, col = 'steelblue3', border = 'grey30')
 ```
 
 There are a lot of ways to represent colour in R. The easiest three are:
@@ -189,15 +189,15 @@ library(ggplot2)
 You can replace all of the code in `r func("renderPlot")` with the code below.
 
 ```{r, ggplot}
-  output$distPlot <- renderPlot({
-    # create plot
-    ggplot(faithful, aes(waiting)) +
-      geom_histogram(bins = input$bins,
-                     fill = "steelblue3",
-                     colour = "grey30") +
-      xlab("What are we even plotting here?") +
-      theme_minimal()
-  })
+output$distPlot <- renderPlot({
+  # create plot
+  ggplot(faithful, aes(waiting)) +
+    geom_histogram(bins = input$bins,
+                   fill = "steelblue3",
+                   colour = "grey30") +
+    xlab("What are we even plotting here?") +
+    theme_minimal()
+})
 ```
 
 ::: {.info data-latex=""}
@@ -228,12 +228,12 @@ Add the following code as the first argument to `r func("sidebarPanel")`, which 
 For `r arg("choices")`, the label is what gets shown to the user and the value is what gets used by the code (these can be the same, but you often want the user label to be more descriptive).
 
 ```{r add-radiobuttons}
-         radioButtons(inputId = "display_var",
-                      label = "Which variable to display",
-                      choices = c("Waiting time to next eruption" = "waiting",
-                                  "Eruption time" = "eruptions"),
-                      selected = "waiting"
-         ),
+ radioButtons(inputId = "display_var",
+              label = "Which variable to display",
+              choices = c("Waiting time to next eruption" = "waiting",
+                          "Eruption time" = "eruptions"),
+              selected = "waiting"
+ ),
 ```
 
 Save this and re-run the app.
@@ -247,12 +247,12 @@ You should have a radio button interface now. You can click on the options to sw
 First, we need to change the x-axis label depending on what we're graphing. We use an if/else statement to set the variable `xlabel` to one thing if `input$display_var` is equivalent to `r dt("eruptions")`, and to something else if it's equivalent to `r dt("waiting")`. Put this code at the very beginning of the code block for `r func("renderPlot")` (after the line `output$distPlot <- renderPlot({`).
 
 ```{r plot-switch1}
-      # set x-axis label depending on the value of display_var
-      if (input$display_var == "eruptions") {
-        xlabel <- "Eruption Time (in minutes)"
-      } else if (input$display_var == "waiting") {
-        xlabel <- "Waiting Time to Next Eruption (in minutes)"
-      }
+# set x-axis label depending on the value of display_var
+if (input$display_var == "eruptions") {
+  xlabel <- "Eruption Time (in minutes)"
+} else if (input$display_var == "waiting") {
+  xlabel <- "Waiting Time to Next Eruption (in minutes)"
+}
 ```
 
 ::: {.warning data-latex=""}
@@ -262,13 +262,13 @@ The double-equal-signs `==` means "equivalent to and is how you check if two thi
 Then we have to edit `r arg("ggplot")` to use the new label and to plot the correct column. The variable `input$display_var` gives you the user-input value of the widget called `"display_var"`.
 
 ```{r plot-switch2}
-      # create plot
-      ggplot(faithful, aes(.data[[input$display_var]])) +
-        geom_histogram(bins = input$bins,
-                       fill = "steelblue3",
-                       colour = "grey30") +
-        xlab(xlabel) +
-        theme_minimal()
+# create plot
+ggplot(faithful, aes(.data[[input$display_var]])) +
+  geom_histogram(bins = input$bins,
+                 fill = "steelblue3",
+                 colour = "grey30") +
+  xlab(xlabel) +
+  theme_minimal()
 ```
 
 ::: {.warning data-latex=""}
@@ -298,8 +298,7 @@ library(shiny)
 ui <- fluidPage()
 
 # Define server logic ----
-server <- function(input, output) {
-}
+server <- function(input, output) {}
 
 # Run the application ----
 shinyApp(ui = ui, server = server)

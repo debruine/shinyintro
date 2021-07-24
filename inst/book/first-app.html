@@ -556,7 +556,7 @@ Figure 1.3: Demo application interface
 <div class="info">
 <p>You can close the app by closing the window or browser tab it’s running in and clicking the red stop sign in the console tab, or leave it running while you edit the code. If you have multiple screens, it can be useful to have the app open on one screen and the code on another.</p>
 </div>
-<p>Find the application title. It is the first <a href="defs.html#argument">argument</a> to the <a href="defs.html#function">function</a> <code><span class="fu">titlePanel</span>()</code>. Change the <code><span class="at">title</span></code> to <code><span class="st">"My First App"</span></code>. Make sure the title is inside quotes and the whole quoted <a class='glossary' target='_blank' title='A piece of text inside of quotes.' href='https://psyteachr.github.io/glossary/s#string'>string</a> is inside the parentheses. Save the file (<code>cmd-S</code> or <code>File &gt; Save</code>).</p>
+<p>Find the application title. It is the first <a class='glossary' target='_blank' title='A variable that provides input to a function.' href='https://psyteachr.github.io/glossary/a#argument'>argument</a> to the <a class='glossary' target='_blank' title='A named section of code that can be reused.' href='https://psyteachr.github.io/glossary/f#function'>function</a> <code><span class="fu">titlePanel</span>()</code>. Change the <code><span class="at">title</span></code> to <code><span class="st">"My First App"</span></code>. Make sure the title is inside quotes and the whole quoted <a class='glossary' target='_blank' title='A piece of text inside of quotes.' href='https://psyteachr.github.io/glossary/s#string'>string</a> is inside the parentheses. Save the file (<code>cmd-S</code> or <code>File &gt; Save</code>).</p>
 <div class="figure" style="text-align: center"><span id="fig:first-change-title"></span>
 <img src="images/demo_app/06-change-title.png" alt="App with changed title." width="100%" />
 <p class="caption">
@@ -582,13 +582,13 @@ Figure 1.5: Sidebar with an added paragraph.
 <p>The sidebar shows up on the left if your window is wide enough, but moves to the top of the screen if it’s too narrow.</p>
 </div>
 <p>I don’t like it there, so we can move this text out of the sidebar and to the top of the page, just under the title. Try this and re-run the app.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="first-app.html#cb9-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Application title</span></span>
-<span id="cb9-2"><a href="first-app.html#cb9-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">titlePanel</span>(<span class="st">&quot;My First App&quot;</span>),</span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="first-app.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Application title</span></span>
+<span id="cb9-2"><a href="first-app.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">titlePanel</span>(<span class="st">&quot;My First App&quot;</span>),</span>
 <span id="cb9-3"><a href="first-app.html#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="first-app.html#cb9-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">p</span>(<span class="st">&quot;I am explaining this perfectly&quot;</span>),</span>
+<span id="cb9-4"><a href="first-app.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">p</span>(<span class="st">&quot;I am explaining this perfectly&quot;</span>),</span>
 <span id="cb9-5"><a href="first-app.html#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="first-app.html#cb9-6" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Sidebar with a slider input for number of bins</span></span>
-<span id="cb9-7"><a href="first-app.html#cb9-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">sidebarLayout</span>(...)</span></code></pre></div>
+<span id="cb9-6"><a href="first-app.html#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Sidebar with a slider input for number of bins</span></span>
+<span id="cb9-7"><a href="first-app.html#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sidebarLayout</span>(...)</span></code></pre></div>
 <div class="try">
 <p>See where you can move the text in the layout of the page and where causes errors.</p>
 </div>
@@ -633,12 +633,12 @@ Figure 1.5: Sidebar with an added paragraph.
 <li><code><span class="at">selected</span></code>: the value of the default choice</li>
 </ul>
 <p>For <code><span class="at">choices</span></code>, the label is what gets shown to the user and the value is what gets used by the code (these can be the same, but you often want the user label to be more descriptive).</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="first-app.html#cb13-1" aria-hidden="true" tabindex="-1"></a>         <span class="fu">radioButtons</span>(<span class="at">inputId =</span> <span class="st">&quot;display_var&quot;</span>,</span>
-<span id="cb13-2"><a href="first-app.html#cb13-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">label =</span> <span class="st">&quot;Which variable to display&quot;</span>,</span>
-<span id="cb13-3"><a href="first-app.html#cb13-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">&quot;Waiting time to next eruption&quot;</span> <span class="ot">=</span> <span class="st">&quot;waiting&quot;</span>,</span>
-<span id="cb13-4"><a href="first-app.html#cb13-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;Eruption time&quot;</span> <span class="ot">=</span> <span class="st">&quot;eruptions&quot;</span>),</span>
-<span id="cb13-5"><a href="first-app.html#cb13-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">selected =</span> <span class="st">&quot;waiting&quot;</span></span>
-<span id="cb13-6"><a href="first-app.html#cb13-6" aria-hidden="true" tabindex="-1"></a>         ),</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="first-app.html#cb13-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">radioButtons</span>(<span class="at">inputId =</span> <span class="st">&quot;display_var&quot;</span>,</span>
+<span id="cb13-2"><a href="first-app.html#cb13-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="st">&quot;Which variable to display&quot;</span>,</span>
+<span id="cb13-3"><a href="first-app.html#cb13-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">&quot;Waiting time to next eruption&quot;</span> <span class="ot">=</span> <span class="st">&quot;waiting&quot;</span>,</span>
+<span id="cb13-4"><a href="first-app.html#cb13-4" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;Eruption time&quot;</span> <span class="ot">=</span> <span class="st">&quot;eruptions&quot;</span>),</span>
+<span id="cb13-5"><a href="first-app.html#cb13-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">selected =</span> <span class="st">&quot;waiting&quot;</span></span>
+<span id="cb13-6"><a href="first-app.html#cb13-6" aria-hidden="true" tabindex="-1"></a> ),</span></code></pre></div>
 <p>Save this and re-run the app.</p>
 <div class="figure" style="text-align: center"><span id="fig:first-radiobutton-widget"></span>
 <img src="images/demo_app/08-radiobutton-widget.png" alt="A radioButton widget above a sliderInput widget." width="100%" />

@@ -524,7 +524,7 @@ You can close the app by closing the window or browser tab it's running in and c
 
 \end{info}
 
-Find the application title. It is the first \href{defs.html\#argument}{argument} to the \href{defs.html\#function}{function} \texttt{titlePanel}\texttt{()}. Change the \AttributeTok{title} to \StringTok{"My\ First\ App"}. Make sure the title is inside quotes and the whole quoted string is inside the parentheses. Save the file (\texttt{cmd-S} or \texttt{File\ \textgreater{}\ Save}).
+Find the application title. It is the first argument to the function \texttt{titlePanel}\texttt{()}. Change the \AttributeTok{title} to \StringTok{"My\ First\ App"}. Make sure the title is inside quotes and the whole quoted string is inside the parentheses. Save the file (\texttt{cmd-S} or \texttt{File\ \textgreater{}\ Save}).
 
 \begin{figure}
 
@@ -577,13 +577,13 @@ I don't like it there, so we can move this text out of the sidebar and to the to
 
 \begin{Shaded}
 \begin{Highlighting}[]
-   \CommentTok{\# Application title}
-   \FunctionTok{titlePanel}\NormalTok{(}\StringTok{"My First App"}\NormalTok{),}
+\CommentTok{\# Application title}
+\FunctionTok{titlePanel}\NormalTok{(}\StringTok{"My First App"}\NormalTok{),}
 
-   \FunctionTok{p}\NormalTok{(}\StringTok{"I am explaining this perfectly"}\NormalTok{),}
+\FunctionTok{p}\NormalTok{(}\StringTok{"I am explaining this perfectly"}\NormalTok{),}
 
-   \CommentTok{\# Sidebar with a slider input for number of bins}
-   \FunctionTok{sidebarLayout}\NormalTok{(...)}
+\CommentTok{\# Sidebar with a slider input for number of bins}
+\FunctionTok{sidebarLayout}\NormalTok{(...)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -677,12 +677,12 @@ For \AttributeTok{choices}, the label is what gets shown to the user and the val
 
 \begin{Shaded}
 \begin{Highlighting}[]
-         \FunctionTok{radioButtons}\NormalTok{(}\AttributeTok{inputId =} \StringTok{"display\_var"}\NormalTok{,}
-                      \AttributeTok{label =} \StringTok{"Which variable to display"}\NormalTok{,}
-                      \AttributeTok{choices =} \FunctionTok{c}\NormalTok{(}\StringTok{"Waiting time to next eruption"} \OtherTok{=} \StringTok{"waiting"}\NormalTok{,}
-                                  \StringTok{"Eruption time"} \OtherTok{=} \StringTok{"eruptions"}\NormalTok{),}
-                      \AttributeTok{selected =} \StringTok{"waiting"}
-\NormalTok{         ),}
+ \FunctionTok{radioButtons}\NormalTok{(}\AttributeTok{inputId =} \StringTok{"display\_var"}\NormalTok{,}
+              \AttributeTok{label =} \StringTok{"Which variable to display"}\NormalTok{,}
+              \AttributeTok{choices =} \FunctionTok{c}\NormalTok{(}\StringTok{"Waiting time to next eruption"} \OtherTok{=} \StringTok{"waiting"}\NormalTok{,}
+                          \StringTok{"Eruption time"} \OtherTok{=} \StringTok{"eruptions"}\NormalTok{),}
+              \AttributeTok{selected =} \StringTok{"waiting"}
+\NormalTok{ ),}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2506,7 +2506,7 @@ You can set up a new Google Sheet with code. You only need to do this once for a
 
 \begin{verbatim}
 ## Spreadsheet name: demo2
-##               ID: 1_CCaLiCucoJSB6Ty2z_5uZOey1WrLPd4HEaXjgJOYg0
+##               ID: 1GudZ9IjTqs_eL68jbtzmdCoVN8jZvrTSEx56yavL3-A
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
