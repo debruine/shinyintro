@@ -470,96 +470,75 @@ Figure 13.1: Modules Demo App. You can also access this app with <code>shinyintr
 <div id="modularizing-the-ui" class="section level2" number="13.1">
 <h2><span class="header-section-number">13.1</span> Modularizing the UI</h2>
 <p>The two tabPanels below follow nearly identical patterns. You can often identify a place where modules might be useful when you use a naming convention like <code><span class='st'>"{base}_{type}"</span></code> for the <code><span class="at">id</span></code>s.</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="modules.html#cb172-1" aria-hidden="true" tabindex="-1"></a>iris_tab <span class="ot">&lt;-</span> <span class="fu">tabPanel</span>(</span>
-<span id="cb172-2"><a href="modules.html#cb172-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;iris&quot;</span>,</span>
-<span id="cb172-3"><a href="modules.html#cb172-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;iris_dv&quot;</span>, <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> <span class="fu">names</span>(iris)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]),</span>
-<span id="cb172-4"><a href="modules.html#cb172-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">&quot;iris_plot&quot;</span>),</span>
-<span id="cb172-5"><a href="modules.html#cb172-5" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="st">&quot;iris_table&quot;</span>)</span>
-<span id="cb172-6"><a href="modules.html#cb172-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb172-7"><a href="modules.html#cb172-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb172-8"><a href="modules.html#cb172-8" aria-hidden="true" tabindex="-1"></a>mtcars_tab <span class="ot">&lt;-</span> <span class="fu">tabPanel</span>(</span>
-<span id="cb172-9"><a href="modules.html#cb172-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;mtcars&quot;</span>,</span>
-<span id="cb172-10"><a href="modules.html#cb172-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;mtcars_dv&quot;</span>, <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;disp&quot;</span>, <span class="st">&quot;hp&quot;</span>, <span class="st">&quot;drat&quot;</span>)),</span>
-<span id="cb172-11"><a href="modules.html#cb172-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">&quot;mtcars_plot&quot;</span>),</span>
-<span id="cb172-12"><a href="modules.html#cb172-12" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="st">&quot;mtcars_table&quot;</span>)</span>
-<span id="cb172-13"><a href="modules.html#cb172-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="modules.html#cb173-1" aria-hidden="true" tabindex="-1"></a>iris_tab <span class="ot">&lt;-</span> <span class="fu">tabPanel</span>(<span class="st">&quot;iris&quot;</span>, <span class="fu">selectInput</span>(<span class="st">&quot;iris_dv&quot;</span>, <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> <span class="fu">names</span>(iris)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]),</span>
+<span id="cb173-2"><a href="modules.html#cb173-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plotOutput</span>(<span class="st">&quot;iris_plot&quot;</span>), DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="st">&quot;iris_table&quot;</span>))</span>
+<span id="cb173-3"><a href="modules.html#cb173-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb173-4"><a href="modules.html#cb173-4" aria-hidden="true" tabindex="-1"></a>mtcars_tab <span class="ot">&lt;-</span> <span class="fu">tabPanel</span>(<span class="st">&quot;mtcars&quot;</span>, <span class="fu">selectInput</span>(<span class="st">&quot;mtcars_dv&quot;</span>, <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>,</span>
+<span id="cb173-5"><a href="modules.html#cb173-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;disp&quot;</span>, <span class="st">&quot;hp&quot;</span>, <span class="st">&quot;drat&quot;</span>)), <span class="fu">plotOutput</span>(<span class="st">&quot;mtcars_plot&quot;</span>), DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="st">&quot;mtcars_table&quot;</span>))</span></code></pre></div>
 <p>The first step in modularising your code is to make a function that creates the UIs above from the base ID and any other changing aspects. In the example above, the choices are different for each <code><span class="fu">selectInput</span>()</code>, so we’ll make a function that has the arguments <code><span class="at">id</span></code> and <code><span class="at">choices</span></code>.</p>
 <p>The first line of a UI module function is always <code>ns &lt;- NS(id)</code>, which creates a shorthand way to add the base id to the id type. So instead of the <code><span class="fu">selectInput</span>()</code>’s name being <code><span class="st">"iris_dv"</span></code> or <code><span class="st">"mtcars_dv"</span></code>, we set it as <code><span class="fu">ns</span>(dv)</code>. All ids need to use <code><span class="fu">ns</span>()</code> to add the namespace to their ID.</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="modules.html#cb173-1" aria-hidden="true" tabindex="-1"></a>tabPanelUI <span class="ot">&lt;-</span> <span class="cf">function</span>(id, choices) {</span>
-<span id="cb173-2"><a href="modules.html#cb173-2" aria-hidden="true" tabindex="-1"></a>    ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(id)</span>
-<span id="cb173-3"><a href="modules.html#cb173-3" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb173-4"><a href="modules.html#cb173-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(</span>
-<span id="cb173-5"><a href="modules.html#cb173-5" aria-hidden="true" tabindex="-1"></a>        id,</span>
-<span id="cb173-6"><a href="modules.html#cb173-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">selectInput</span>(<span class="fu">ns</span>(<span class="st">&quot;dv&quot;</span>), <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> choices),</span>
-<span id="cb173-7"><a href="modules.html#cb173-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">plotOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;plot&quot;</span>)),</span>
-<span id="cb173-8"><a href="modules.html#cb173-8" aria-hidden="true" tabindex="-1"></a>        DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;table&quot;</span>))</span>
-<span id="cb173-9"><a href="modules.html#cb173-9" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb173-10"><a href="modules.html#cb173-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="modules.html#cb174-1" aria-hidden="true" tabindex="-1"></a>tabPanelUI <span class="ot">&lt;-</span> <span class="cf">function</span>(id, choices) {</span>
+<span id="cb174-2"><a href="modules.html#cb174-2" aria-hidden="true" tabindex="-1"></a>    ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(id)</span>
+<span id="cb174-3"><a href="modules.html#cb174-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb174-4"><a href="modules.html#cb174-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(id, <span class="fu">selectInput</span>(<span class="fu">ns</span>(<span class="st">&quot;dv&quot;</span>), <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> choices), <span class="fu">plotOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;plot&quot;</span>)),</span>
+<span id="cb174-5"><a href="modules.html#cb174-5" aria-hidden="true" tabindex="-1"></a>        DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;table&quot;</span>)))</span>
+<span id="cb174-6"><a href="modules.html#cb174-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Now, you can replace two tabPanel definitions with just the following code.</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="modules.html#cb174-1" aria-hidden="true" tabindex="-1"></a>iris_tab <span class="ot">&lt;-</span> <span class="fu">tabPanelUI</span>(<span class="st">&quot;iris&quot;</span>, <span class="fu">names</span>(iris)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span>
-<span id="cb174-2"><a href="modules.html#cb174-2" aria-hidden="true" tabindex="-1"></a>mtcars_tab <span class="ot">&lt;-</span> <span class="fu">tabPanelUI</span>(<span class="st">&quot;mtcars&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;disp&quot;</span>, <span class="st">&quot;hp&quot;</span>, <span class="st">&quot;drat&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="modules.html#cb175-1" aria-hidden="true" tabindex="-1"></a>iris_tab <span class="ot">&lt;-</span> <span class="fu">tabPanelUI</span>(<span class="st">&quot;iris&quot;</span>, <span class="fu">names</span>(iris)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span>
+<span id="cb175-2"><a href="modules.html#cb175-2" aria-hidden="true" tabindex="-1"></a>mtcars_tab <span class="ot">&lt;-</span> <span class="fu">tabPanelUI</span>(<span class="st">&quot;mtcars&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;disp&quot;</span>, <span class="st">&quot;hp&quot;</span>, <span class="st">&quot;drat&quot;</span>))</span></code></pre></div>
 </div>
 <div id="modularizing-server-functions" class="section level2" number="13.2">
 <h2><span class="header-section-number">13.2</span> Modularizing server functions</h2>
 <p>In our original code, we have four functions that create the two output tables and two output plots, but these are also largely redundant.</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="modules.html#cb175-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>iris_table <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
-<span id="cb175-2"><a href="modules.html#cb175-2" aria-hidden="true" tabindex="-1"></a>    iris</span>
-<span id="cb175-3"><a href="modules.html#cb175-3" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb175-4"><a href="modules.html#cb175-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-5"><a href="modules.html#cb175-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>iris_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb175-6"><a href="modules.html#cb175-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, </span>
-<span id="cb175-7"><a href="modules.html#cb175-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> .data[[input<span class="sc">$</span>iris_dv]],</span>
-<span id="cb175-8"><a href="modules.html#cb175-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb175-9"><a href="modules.html#cb175-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb175-10"><a href="modules.html#cb175-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_fill_viridis_d</span>()</span>
-<span id="cb175-11"><a href="modules.html#cb175-11" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb175-12"><a href="modules.html#cb175-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-13"><a href="modules.html#cb175-13" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>mtcars_table <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
-<span id="cb175-14"><a href="modules.html#cb175-14" aria-hidden="true" tabindex="-1"></a>    mtcars</span>
-<span id="cb175-15"><a href="modules.html#cb175-15" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb175-16"><a href="modules.html#cb175-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-17"><a href="modules.html#cb175-17" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>mtcars_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb175-18"><a href="modules.html#cb175-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># handle non-string grouping</span></span>
-<span id="cb175-19"><a href="modules.html#cb175-19" aria-hidden="true" tabindex="-1"></a>    mtcars<span class="sc">$</span>vs <span class="ot">&lt;-</span> <span class="fu">factor</span>(mtcars<span class="sc">$</span>vs)</span>
-<span id="cb175-20"><a href="modules.html#cb175-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> vs, </span>
-<span id="cb175-21"><a href="modules.html#cb175-21" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> .data[[input<span class="sc">$</span>mtcars_dv]],</span>
-<span id="cb175-22"><a href="modules.html#cb175-22" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill =</span> vs)) <span class="sc">+</span></span>
-<span id="cb175-23"><a href="modules.html#cb175-23" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb175-24"><a href="modules.html#cb175-24" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_fill_viridis_d</span>()</span>
-<span id="cb175-25"><a href="modules.html#cb175-25" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="modules.html#cb176-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>iris_table <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
+<span id="cb176-2"><a href="modules.html#cb176-2" aria-hidden="true" tabindex="-1"></a>    iris</span>
+<span id="cb176-3"><a href="modules.html#cb176-3" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb176-4"><a href="modules.html#cb176-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb176-5"><a href="modules.html#cb176-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>iris_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb176-6"><a href="modules.html#cb176-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> .data[[input<span class="sc">$</span>iris_dv]], <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb176-7"><a href="modules.html#cb176-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">scale_fill_viridis_d</span>()</span>
+<span id="cb176-8"><a href="modules.html#cb176-8" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb176-9"><a href="modules.html#cb176-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb176-10"><a href="modules.html#cb176-10" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>mtcars_table <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
+<span id="cb176-11"><a href="modules.html#cb176-11" aria-hidden="true" tabindex="-1"></a>    mtcars</span>
+<span id="cb176-12"><a href="modules.html#cb176-12" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb176-13"><a href="modules.html#cb176-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb176-14"><a href="modules.html#cb176-14" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>mtcars_plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb176-15"><a href="modules.html#cb176-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># handle non-string grouping</span></span>
+<span id="cb176-16"><a href="modules.html#cb176-16" aria-hidden="true" tabindex="-1"></a>    mtcars<span class="sc">$</span>vs <span class="ot">&lt;-</span> <span class="fu">factor</span>(mtcars<span class="sc">$</span>vs)</span>
+<span id="cb176-17"><a href="modules.html#cb176-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> vs, <span class="at">y =</span> .data[[input<span class="sc">$</span>mtcars_dv]], <span class="at">fill =</span> vs)) <span class="sc">+</span> <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb176-18"><a href="modules.html#cb176-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">scale_fill_viridis_d</span>()</span>
+<span id="cb176-19"><a href="modules.html#cb176-19" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <p>The second step to modularising code is creating a server function. You can put all the functions the relate to the inputs and outputs in the UI function here, so we will include one to make the output table and one to make the output plot.</p>
 <p>The server function takes the base id as the first argument, and then any arguments you need to specify things that change between base implementations. Above, the tables show different data and the plots use different groupings for the x axis and fill, so we’ll add arguments for <code><span class="at">data</span></code> and <code><span class="at">group_by</span></code>.</p>
 <p>A server function <strong>always</strong> contains <code>moduleServer()</code> set up like below.</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="modules.html#cb176-1" aria-hidden="true" tabindex="-1"></a>tabPanelServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, data, group_by) {</span>
-<span id="cb176-2"><a href="modules.html#cb176-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
-<span id="cb176-3"><a href="modules.html#cb176-3" aria-hidden="true" tabindex="-1"></a>      <span class="co"># code ...</span></span>
-<span id="cb176-4"><a href="modules.html#cb176-4" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb176-5"><a href="modules.html#cb176-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>No you can copy in one set of server functions above, remove the base name (e.g., “iris_” or “mtcars_”) from and inputs or outputs, and replace specific instances of the data or grouping columns with <code>data</code> and <code>group_by</code>.</p>
 <div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="modules.html#cb177-1" aria-hidden="true" tabindex="-1"></a>tabPanelServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, data, group_by) {</span>
 <span id="cb177-2"><a href="modules.html#cb177-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
-<span id="cb177-3"><a href="modules.html#cb177-3" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>table <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
-<span id="cb177-4"><a href="modules.html#cb177-4" aria-hidden="true" tabindex="-1"></a>            data</span>
-<span id="cb177-5"><a href="modules.html#cb177-5" aria-hidden="true" tabindex="-1"></a>        })</span>
-<span id="cb177-6"><a href="modules.html#cb177-6" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb177-7"><a href="modules.html#cb177-7" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb177-8"><a href="modules.html#cb177-8" aria-hidden="true" tabindex="-1"></a>            <span class="co"># handle non-string groupings</span></span>
-<span id="cb177-9"><a href="modules.html#cb177-9" aria-hidden="true" tabindex="-1"></a>            data[[group_by]] <span class="ot">&lt;-</span> <span class="fu">factor</span>(data[[group_by]])</span>
-<span id="cb177-10"><a href="modules.html#cb177-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> .data[[group_by]], </span>
-<span id="cb177-11"><a href="modules.html#cb177-11" aria-hidden="true" tabindex="-1"></a>                             <span class="at">y =</span> .data[[input<span class="sc">$</span>dv]],</span>
-<span id="cb177-12"><a href="modules.html#cb177-12" aria-hidden="true" tabindex="-1"></a>                             <span class="at">fill =</span> .data[[group_by]])) <span class="sc">+</span></span>
-<span id="cb177-13"><a href="modules.html#cb177-13" aria-hidden="true" tabindex="-1"></a>                <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb177-14"><a href="modules.html#cb177-14" aria-hidden="true" tabindex="-1"></a>                <span class="fu">scale_fill_viridis_d</span>()</span>
-<span id="cb177-15"><a href="modules.html#cb177-15" aria-hidden="true" tabindex="-1"></a>        })</span>
-<span id="cb177-16"><a href="modules.html#cb177-16" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb177-17"><a href="modules.html#cb177-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb177-3"><a href="modules.html#cb177-3" aria-hidden="true" tabindex="-1"></a>        <span class="co"># code ...</span></span>
+<span id="cb177-4"><a href="modules.html#cb177-4" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb177-5"><a href="modules.html#cb177-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>No you can copy in one set of server functions above, remove the base name (e.g., “iris_” or “mtcars_”) from and inputs or outputs, and replace specific instances of the data or grouping columns with <code>data</code> and <code>group_by</code>.</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="modules.html#cb178-1" aria-hidden="true" tabindex="-1"></a>tabPanelServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, data, group_by) {</span>
+<span id="cb178-2"><a href="modules.html#cb178-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb178-3"><a href="modules.html#cb178-3" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>table <span class="ot">&lt;-</span> DT<span class="sc">::</span><span class="fu">renderDataTable</span>({</span>
+<span id="cb178-4"><a href="modules.html#cb178-4" aria-hidden="true" tabindex="-1"></a>            data</span>
+<span id="cb178-5"><a href="modules.html#cb178-5" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb178-6"><a href="modules.html#cb178-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb178-7"><a href="modules.html#cb178-7" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>plot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb178-8"><a href="modules.html#cb178-8" aria-hidden="true" tabindex="-1"></a>            <span class="co"># handle non-string groupings</span></span>
+<span id="cb178-9"><a href="modules.html#cb178-9" aria-hidden="true" tabindex="-1"></a>            data[[group_by]] <span class="ot">&lt;-</span> <span class="fu">factor</span>(data[[group_by]])</span>
+<span id="cb178-10"><a href="modules.html#cb178-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> .data[[group_by]], <span class="at">y =</span> .data[[input<span class="sc">$</span>dv]], <span class="at">fill =</span> .data[[group_by]])) <span class="sc">+</span></span>
+<span id="cb178-11"><a href="modules.html#cb178-11" aria-hidden="true" tabindex="-1"></a>                <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">scale_fill_viridis_d</span>()</span>
+<span id="cb178-12"><a href="modules.html#cb178-12" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb178-13"><a href="modules.html#cb178-13" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb178-14"><a href="modules.html#cb178-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <div class="warning">
 <p>In the original code, the grouping variables were unquoted, but it’s tricky to pass unquoted variable names to custom functions, and we already know how to refer to columns by a character object using <code>.data[[char_obj]]</code>.</p>
 <p>The grouping column <code>Species</code> in <code>iris</code> is already a factor, but recasting it as a factor won’t hurt, and is required for the <code>mtcars</code> grouping column <code>vs</code>.</p>
 </div>
 <p>Now, you can replace the four functions inside the server function with these two lines of code.</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="modules.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabPanelServer</span>(<span class="st">&quot;iris&quot;</span>, <span class="at">data =</span> iris, <span class="at">group_by =</span> <span class="st">&quot;Species&quot;</span>)</span>
-<span id="cb178-2"><a href="modules.html#cb178-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tabPanelServer</span>(<span class="st">&quot;mtcars&quot;</span>, <span class="at">data =</span> mtcars, <span class="at">group_by =</span> <span class="st">&quot;vs&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="modules.html#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabPanelServer</span>(<span class="st">&quot;iris&quot;</span>, <span class="at">data =</span> iris, <span class="at">group_by =</span> <span class="st">&quot;Species&quot;</span>)</span>
+<span id="cb179-2"><a href="modules.html#cb179-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tabPanelServer</span>(<span class="st">&quot;mtcars&quot;</span>, <span class="at">data =</span> mtcars, <span class="at">group_by =</span> <span class="st">&quot;vs&quot;</span>)</span></code></pre></div>
 <p>Our example only reduced our code by 4 lines, but it can save a lot of time, effort, and debugging on projects with many similar modules. For example, if you want to change the plots in your app to use a different geom, now you only have to change one function instead of two.</p>
 </div>
 <div id="exercises-modules" class="section level2" number="13.3">
@@ -582,14 +561,14 @@ Figure 13.1: Modules Demo App. You can also access this app with <code>shinyintr
 UI Solution
 </button>
 <p>You can choose any of the numeric columns for the choices.</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="modules.html#cb179-1" aria-hidden="true" tabindex="-1"></a>diamonds_tab <span class="ot">&lt;-</span> <span class="fu">tabPanelUI</span>(<span class="st">&quot;diamonds&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;carat&quot;</span>, <span class="st">&quot;depth&quot;</span>, <span class="st">&quot;table&quot;</span>, <span class="st">&quot;price&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="modules.html#cb180-1" aria-hidden="true" tabindex="-1"></a>diamonds_tab <span class="ot">&lt;-</span> <span class="fu">tabPanelUI</span>(<span class="st">&quot;diamonds&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;carat&quot;</span>, <span class="st">&quot;depth&quot;</span>, <span class="st">&quot;table&quot;</span>, <span class="st">&quot;price&quot;</span>))</span></code></pre></div>
 </div>
 <div class="webex-solution">
 <button>
 Server Solution
 </button>
 <p>You can group by any of the categorical columns: cut, color, or clarity.</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="modules.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabPanelServer</span>(<span class="st">&quot;diamonds&quot;</span>, <span class="at">data =</span> diamonds, <span class="at">group_by =</span> <span class="st">&quot;cut&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="modules.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabPanelServer</span>(<span class="st">&quot;diamonds&quot;</span>, <span class="at">data =</span> diamonds, <span class="at">group_by =</span> <span class="st">&quot;cut&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="altering-modules" class="section level3" number="13.3.3">
@@ -602,17 +581,12 @@ Server Solution
 UI Solution
 </button>
 <p>You need to add a new <code><span class="fu">selectInput</span>()</code> to the <code><span class="fu">tabPanel</span>()</code>. Remember to use <code><span class="fu">ns</span>()</code> for the id. The choices for this select will also differ by data set, so you need to add <code><span class="at">group_choices</span></code> to the arguments of this function.</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="modules.html#cb181-1" aria-hidden="true" tabindex="-1"></a>tabPanelUI <span class="ot">&lt;-</span> <span class="cf">function</span>(id, choices, group_choices) {</span>
-<span id="cb181-2"><a href="modules.html#cb181-2" aria-hidden="true" tabindex="-1"></a>   ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(id)</span>
-<span id="cb181-3"><a href="modules.html#cb181-3" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb181-4"><a href="modules.html#cb181-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">tabPanel</span>(</span>
-<span id="cb181-5"><a href="modules.html#cb181-5" aria-hidden="true" tabindex="-1"></a>       id,</span>
-<span id="cb181-6"><a href="modules.html#cb181-6" aria-hidden="true" tabindex="-1"></a>       <span class="fu">selectInput</span>(<span class="fu">ns</span>(<span class="st">&quot;dv&quot;</span>), <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> choices),</span>
-<span id="cb181-7"><a href="modules.html#cb181-7" aria-hidden="true" tabindex="-1"></a>       <span class="fu">selectInput</span>(<span class="fu">ns</span>(<span class="st">&quot;group_by&quot;</span>), <span class="st">&quot;Group By&quot;</span>, <span class="at">choices =</span> group_choices),</span>
-<span id="cb181-8"><a href="modules.html#cb181-8" aria-hidden="true" tabindex="-1"></a>       <span class="fu">plotOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;plot&quot;</span>)),</span>
-<span id="cb181-9"><a href="modules.html#cb181-9" aria-hidden="true" tabindex="-1"></a>       DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;table&quot;</span>))</span>
-<span id="cb181-10"><a href="modules.html#cb181-10" aria-hidden="true" tabindex="-1"></a>   )</span>
-<span id="cb181-11"><a href="modules.html#cb181-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="modules.html#cb182-1" aria-hidden="true" tabindex="-1"></a>tabPanelUI <span class="ot">&lt;-</span> <span class="cf">function</span>(id, choices, group_choices) {</span>
+<span id="cb182-2"><a href="modules.html#cb182-2" aria-hidden="true" tabindex="-1"></a>    ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(id)</span>
+<span id="cb182-3"><a href="modules.html#cb182-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb182-4"><a href="modules.html#cb182-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(id, <span class="fu">selectInput</span>(<span class="fu">ns</span>(<span class="st">&quot;dv&quot;</span>), <span class="st">&quot;DV&quot;</span>, <span class="at">choices =</span> choices), <span class="fu">selectInput</span>(<span class="fu">ns</span>(<span class="st">&quot;group_by&quot;</span>),</span>
+<span id="cb182-5"><a href="modules.html#cb182-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Group By&quot;</span>, <span class="at">choices =</span> group_choices), <span class="fu">plotOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;plot&quot;</span>)), DT<span class="sc">::</span><span class="fu">dataTableOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;table&quot;</span>)))</span>
+<span id="cb182-6"><a href="modules.html#cb182-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <ul>
 <li>Update the plot function to use the value of this new input instead of “Species,” “vs,” and whatever you chose for <code>diamonds</code>.</li>
@@ -623,13 +597,13 @@ Server Solution
 </button>
 <p>You no longer need <code>group_by</code> in the arguments for this function because you are getting that info from an input.</p>
 <p>Instead of changing <code><span class="at">group_by</span></code> to <code>input$group_by</code> in three places in the code below, I just added the line <code>group_by &lt;- input$group_by</code> at the top of <code><span class="fu">moduleServer</span>()</code>.</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="modules.html#cb182-1" aria-hidden="true" tabindex="-1"></a>tabPanelServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, data) {</span>
-<span id="cb182-2"><a href="modules.html#cb182-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
-<span id="cb182-3"><a href="modules.html#cb182-3" aria-hidden="true" tabindex="-1"></a>        group_by <span class="ot">&lt;-</span> input<span class="sc">$</span>group_by</span>
-<span id="cb182-4"><a href="modules.html#cb182-4" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb182-5"><a href="modules.html#cb182-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># rest of the code is the same ...</span></span>
-<span id="cb182-6"><a href="modules.html#cb182-6" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb182-7"><a href="modules.html#cb182-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="modules.html#cb183-1" aria-hidden="true" tabindex="-1"></a>tabPanelServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, data) {</span>
+<span id="cb183-2"><a href="modules.html#cb183-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb183-3"><a href="modules.html#cb183-3" aria-hidden="true" tabindex="-1"></a>        group_by <span class="ot">&lt;-</span> input<span class="sc">$</span>group_by</span>
+<span id="cb183-4"><a href="modules.html#cb183-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-5"><a href="modules.html#cb183-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># rest of the code is the same ...</span></span>
+<span id="cb183-6"><a href="modules.html#cb183-6" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb183-7"><a href="modules.html#cb183-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 </div>
 <div id="new-module" class="section level3" number="13.3.4">
@@ -640,46 +614,40 @@ Server Solution
 <button>
 UI Function
 </button>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="modules.html#cb183-1" aria-hidden="true" tabindex="-1"></a>infoBoxUI <span class="ot">&lt;-</span> <span class="cf">function</span>(id, <span class="at">width =</span> <span class="dv">4</span>) {</span>
-<span id="cb183-2"><a href="modules.html#cb183-2" aria-hidden="true" tabindex="-1"></a>    ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(id)</span>
-<span id="cb183-3"><a href="modules.html#cb183-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb183-4"><a href="modules.html#cb183-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">infoBoxOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;box&quot;</span>), width)</span>
-<span id="cb183-5"><a href="modules.html#cb183-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="modules.html#cb184-1" aria-hidden="true" tabindex="-1"></a>infoBoxUI <span class="ot">&lt;-</span> <span class="cf">function</span>(id, <span class="at">width =</span> <span class="dv">4</span>) {</span>
+<span id="cb184-2"><a href="modules.html#cb184-2" aria-hidden="true" tabindex="-1"></a>    ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(id)</span>
+<span id="cb184-3"><a href="modules.html#cb184-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-4"><a href="modules.html#cb184-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">infoBoxOutput</span>(<span class="fu">ns</span>(<span class="st">&quot;box&quot;</span>), width)</span>
+<span id="cb184-5"><a href="modules.html#cb184-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div class="webex-solution">
 <button>
 Server Function
 </button>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="modules.html#cb184-1" aria-hidden="true" tabindex="-1"></a>infoBoxServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, title, fmt, icon, <span class="at">color =</span> <span class="st">&quot;purple&quot;</span>) {</span>
-<span id="cb184-2"><a href="modules.html#cb184-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
-<span id="cb184-3"><a href="modules.html#cb184-3" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>box <span class="ot">&lt;-</span> <span class="fu">renderInfoBox</span>({</span>
-<span id="cb184-4"><a href="modules.html#cb184-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">infoBox</span>(<span class="at">title =</span> title,</span>
-<span id="cb184-5"><a href="modules.html#cb184-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">value =</span> <span class="fu">format</span>(<span class="fu">Sys.Date</span>(), fmt),</span>
-<span id="cb184-6"><a href="modules.html#cb184-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">icon =</span> <span class="fu">icon</span>(icon),</span>
-<span id="cb184-7"><a href="modules.html#cb184-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">color =</span> color)</span>
-<span id="cb184-8"><a href="modules.html#cb184-8" aria-hidden="true" tabindex="-1"></a>        })</span>
-<span id="cb184-9"><a href="modules.html#cb184-9" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb184-10"><a href="modules.html#cb184-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="modules.html#cb185-1" aria-hidden="true" tabindex="-1"></a>infoBoxServer <span class="ot">&lt;-</span> <span class="cf">function</span>(id, title, fmt, icon, <span class="at">color =</span> <span class="st">&quot;purple&quot;</span>) {</span>
+<span id="cb185-2"><a href="modules.html#cb185-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">moduleServer</span>(id, <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb185-3"><a href="modules.html#cb185-3" aria-hidden="true" tabindex="-1"></a>        output<span class="sc">$</span>box <span class="ot">&lt;-</span> <span class="fu">renderInfoBox</span>({</span>
+<span id="cb185-4"><a href="modules.html#cb185-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">infoBox</span>(<span class="at">title =</span> title, <span class="at">value =</span> <span class="fu">format</span>(<span class="fu">Sys.Date</span>(), fmt), <span class="at">icon =</span> <span class="fu">icon</span>(icon),</span>
+<span id="cb185-5"><a href="modules.html#cb185-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">color =</span> color)</span>
+<span id="cb185-6"><a href="modules.html#cb185-6" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb185-7"><a href="modules.html#cb185-7" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb185-8"><a href="modules.html#cb185-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div class="webex-solution">
 <button>
 UI Code
 </button>
 <p>In the <code>ui</code>, replace the <code><span class="fu">fluidRow</span>()</code> with this:</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="modules.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fluidRow</span>(</span>
-<span id="cb185-2"><a href="modules.html#cb185-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">infoBoxUI</span>(<span class="st">&quot;day&quot;</span>),</span>
-<span id="cb185-3"><a href="modules.html#cb185-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">infoBoxUI</span>(<span class="st">&quot;month&quot;</span>),</span>
-<span id="cb185-4"><a href="modules.html#cb185-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">infoBoxUI</span>(<span class="st">&quot;year&quot;</span>)</span>
-<span id="cb185-5"><a href="modules.html#cb185-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="modules.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fluidRow</span>(<span class="fu">infoBoxUI</span>(<span class="st">&quot;day&quot;</span>), <span class="fu">infoBoxUI</span>(<span class="st">&quot;month&quot;</span>), <span class="fu">infoBoxUI</span>(<span class="st">&quot;year&quot;</span>))</span></code></pre></div>
 </div>
 <div class="webex-solution">
 <button>
 Server Code
 </button>
 <p>In <code><span class="fu">server</span>()</code>, replace <code><span class="fu">renderInfoBox</span>()</code> with this:</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="modules.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="fu">infoBoxServer</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;Year&quot;</span>, <span class="st">&quot;%Y&quot;</span>, <span class="st">&quot;calendar&quot;</span>),</span>
-<span id="cb186-2"><a href="modules.html#cb186-2" aria-hidden="true" tabindex="-1"></a><span class="fu">infoBoxServer</span>(<span class="st">&quot;month&quot;</span>, <span class="st">&quot;Month&quot;</span>, <span class="st">&quot;%m&quot;</span>, <span class="st">&quot;calendar-alt&quot;</span>),</span>
-<span id="cb186-3"><a href="modules.html#cb186-3" aria-hidden="true" tabindex="-1"></a><span class="fu">infoBoxServer</span>(<span class="st">&quot;day&quot;</span>, <span class="st">&quot;Day&quot;</span>, <span class="st">&quot;%d&quot;</span>, <span class="st">&quot;calendar-day&quot;</span>)<span class="er">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="modules.html#cb187-1" aria-hidden="true" tabindex="-1"></a><span class="fu">infoBoxServer</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;Year&quot;</span>, <span class="st">&quot;%Y&quot;</span>, <span class="st">&quot;calendar&quot;</span>),</span>
+<span id="cb187-2"><a href="modules.html#cb187-2" aria-hidden="true" tabindex="-1"></a><span class="fu">infoBoxServer</span>(<span class="st">&quot;month&quot;</span>, <span class="st">&quot;Month&quot;</span>, <span class="st">&quot;%m&quot;</span>, <span class="st">&quot;calendar-alt&quot;</span>),</span>
+<span id="cb187-3"><a href="modules.html#cb187-3" aria-hidden="true" tabindex="-1"></a><span class="fu">infoBoxServer</span>(<span class="st">&quot;day&quot;</span>, <span class="st">&quot;Day&quot;</span>, <span class="st">&quot;%d&quot;</span>, <span class="st">&quot;calendar-day&quot;</span>)<span class="er">)</span></span></code></pre></div>
 </div>
 </div>
 </div>
