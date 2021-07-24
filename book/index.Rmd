@@ -18,12 +18,15 @@ description: "This class will teach you the basics of Shiny app programming, giv
 knitr::write_bib(c(
   .packages(), 'bookdown', 'tidyverse'
 ), 'packages.bib')
-
 ```
 
 # Overview {-}
 
-![](images/shinyintro.png){style="float: right; width: 200px; height: 200px;"}
+```{r, echo = FALSE, eval = TRUE, results='asis'}
+if (is_html) {
+  cat('![](images/shinyintro.png){style="float: right; width: 200px; height: 200px;" alt="Shinyintro Hex Logo"}')
+}
+```
 
 `r glossary("Shiny")` lets you make web applications that do anything you can code in R. For example, you can share your data analysis in a dynamic way with people who don't use R, collect and visualize data, or even make [data aRt](https://towardsdatascience.com/getting-started-with-generative-art-in-r-3bc50067d34b){target="_blank"}.
 
@@ -168,6 +171,12 @@ Notes about things that could cause serious errors.
 ::: {.try data-latex=""}
 Try it yourself.
 :::
+
+```{r}
+# code chunks
+shinyApp(ui = ui, server = server)
+```
+
 
 
 

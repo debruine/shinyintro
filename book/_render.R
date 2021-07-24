@@ -13,8 +13,7 @@ file.remove("../docs/shinyintro.pdf")
 file.rename("../docs/_main.pdf", "../docs/shinyintro.pdf")
 
 # make EPUB
-epub <- bookdown::epub_book() #stylesheet = c("include/epub.css"))
-bookdown::render_book("index.Rmd", epub, preview = preview)
+bookdown::render_book("index.Rmd", "bookdown::epub_book", preview = preview)
 file.remove("../docs/shinyintro.epub")
 file.rename("../docs/_main.epub", "../docs/shinyintro.epub")
 

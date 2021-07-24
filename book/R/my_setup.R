@@ -2,16 +2,26 @@
 suppressPackageStartupMessages({
   library(shiny)
   library(shinydashboard)
+  library(formatR)
 })
+
+pandoc_to <- knitr::opts_knit$get("rmarkdown.pandoc.to")
+is_html <- pandoc_to == "html"
+is_epub <- substr(pandoc_to, 1, 4) == "epub"
+is_latex <- pandoc_to == "latex"
+
+code_width <- switch(pandoc_to, html = 80, epub3 = 35, latex = 80)
 
 knitr::opts_chunk$set(
   warning = FALSE,
-  message = FALSE
+  message = FALSE,
+  tidy.opts=list(width.cutoff=code_width), 
+  tidy=TRUE
 )
 
 theme_set(theme_minimal())
 
-is_html <- knitr::opts_knit$get("rmarkdown.pandoc.to") == "html"
+
 
 tex_replace <- function(txt) {
   for (char in c("#", "_", " ", "$", "{", "}")) {
@@ -21,27 +31,27 @@ tex_replace <- function(txt) {
 }
 
 path <- function(txt) {
-  if (is_html) {
-    sprintf("<code class='path'>%s</code>", txt)
-  } else {
+  if (is_latex) {
     sprintf("\\textit{\\texttt{%s}}", tex_replace(txt))
+  } else {
+    sprintf("<code class='path'>%s</code>", txt)
   }
 }
 
 pkg <- function(txt) {
-  if (is_html) {
-    sprintf("<code class='package'>%s</code>", txt)
-  } else {
+  if (is_latex) {
     sprintf("\\textbf{\\texttt{%s}}", tex_replace(txt))
+  } else {
+    sprintf("<code class='package'>%s</code>", txt)
   }
 }
 
 
 func <- function(txt, args = "") {
-  if (is_html) {
-    sprintf("<code><span class='fu'>%s</span>(%s)</code>", txt, args)
-  } else {
+  if (is_latex) {
     sprintf("\\texttt{%s}\\texttt{(%s)}", tex_replace(txt), tex_replace(args))
+  } else {
+    sprintf("<code><span class='fu'>%s</span>(%s)</code>", txt, args)
   }
 }
 
@@ -61,11 +71,7 @@ dt <- function(val, class = NULL) {
   }
   txt <- toString(val)
   
-  if (is_html) {
-    if (class == "st") txt <- sprintf("&quot;%s&quot;", txt)
-    txt <- gsub("<", "&lt;", txt, fixed = TRUE)
-    sprintf("<code><span class='%s'>%s</span></code>", class, txt)
-  } else {
+  if (is_latex) {
     if (class == "st") txt <- sprintf("\"%s\"", txt)
     textok <- switch(
       class,
@@ -78,5 +84,9 @@ dt <- function(val, class = NULL) {
     )
     
     sprintf("\\%sTok{%s}", textok, tex_replace(txt))
+  } else {
+    if (class == "st") txt <- sprintf("&quot;%s&quot;", txt)
+    txt <- gsub("<", "&lt;", txt, fixed = TRUE)
+    sprintf("<code><span class='%s'>%s</span></code>", class, txt)
   }
 }

@@ -10,42 +10,55 @@
   --purple: #61589C; /* hsl(248, 28%, 48%) */
 }
 
+a {
+  text-decoration: underline;
+}
+
+a.glossary {
+  font-style: italic;
+}
+
+a[target="_blank"]:not(.glossary) {
+  font-variant: small-caps;
+}
+
 
 pre {
   border: 2px solid grey !important;
   border-radius: 5px;
   white-space: pre-wrap;
   word-wrap: break-word;
+  padding: 0.25em !important;
 }
 
 /* set styles for alert boxes */
 
-.danger, .warning, .info , .alert, .try {
-  padding: 1em 1em 0.25em 1em;
+.dangerous, .warning, .info , .alert, .try {
+  padding: 0.25em;
   margin-bottom: 10px;
-  background-color: hsla(0, 0%, 100%, .1);
-  background-position: 0.5em 0.5em;
-  background-size: 2.5em;
-  background-repeat: no-repeat;
   border-radius: 0.5em;
 }
 
-.danger {
-  background-color: hsla(315, 42%, 42%, .10);
+.dangerous p, .warning p, .info p, .alert p, .try p {
+  margin: 0;
+}
+
+.dangerous p+p, .warning p+p, .info p+p, .alert p+p, .try p+p {
+  margin-top: 0.5em;
+}
+
+.dangerous {
   border: 2px solid var(--pink);
 }
 
 .warning {
-  background-color: hsla(49, 87%, 70%, .1);
   border: 2px solid var(--yellow);
 }
 
 .info {
-  background-color: hsla(209, 42%, 47%, .1);
   border: 2px solid var(--blue);
 }
 
 .try {
-  background-color: hsla(248, 28%, 48%, .1);
   border: 2px solid var(--purple);
 }
