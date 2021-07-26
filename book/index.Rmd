@@ -14,7 +14,7 @@ url: "https://debruine.github.io/shinyintro/"
 github-repo: "debruine/shinyintro"
 cover-image: "images/shinyintro_card.png"
 apple-touch-icon: "images/touch-icon.png"
-apple-touch-icon-size: 120
+apple-touch-icon-size: 152
 favicon: "images/favicon.ico"
 ---
 

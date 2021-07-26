@@ -292,12 +292,12 @@ Each lecture session will conclude with a hands-on exercise reviewing the conten
 \end{itemize}
 
 \hypertarget{computing}{%
-\section{Computing}\label{computing}}
+\subsection{Computing}\label{computing}}
 
 To participate in the hands-on exercises, you are strongly encouraged to use a computer with the most recent version of \href{https://www.r-project.org/}{R installed}. Participants are also encouraged to download and install \href{https://www.rstudio.com/products/rstudio/download/}{RStudio}, a front-end for R that makes it easier to work with. This software is free and available for Windows, Mac, and Linux platforms.
 
 \hypertarget{who-should-register}{%
-\section{Who Should Register?}\label{who-should-register}}
+\subsection{Who Should Register?}\label{who-should-register}}
 
 You need to have basic familiarity with R, including data import, data processing, visualization, and functions and control structures (e.g., if/else). Instruction will be done using RStudio. Some familiarity with ggplot2 and dplyr would be useful. You definitely do not need to be an expert coder, but the following code should not be challenging to understand.
 
@@ -384,7 +384,7 @@ Try it yourself.
 \hypertarget{further-resources}{%
 \section{Further Resources}\label{further-resources}}
 
-There are a lot of great resources online to reinforce or continue your learning about Shiny.
+There are a lot of great resources online to reinforce or continue your learning about Shiny. I advise going back to learning materials periodically because things that don't make sense the first (or second or third\ldots) time around often click after you've had some experience.
 
 \begin{itemize}
 \tightlist
@@ -1039,9 +1039,10 @@ Compare the app behaviour with the first pattern versus the second. How are they
 \section{Exercises}\label{exercises-first-app}}
 
 \hypertarget{addition-app---ui}{%
-\subsection{Addition App - UI}\label{addition-app---ui}}
+\subsection*{Addition App - UI}\label{addition-app---ui}}
+\addcontentsline{toc}{subsection}{Addition App - UI}
 
-Create the UI for following \href{https://shiny.psy.gla.ac.uk/debruine/add_demo/}{addition app}. Use \texttt{numericInput}\texttt{()} to create the inputs.
+Create the UI for following app. Use \texttt{numericInput}\texttt{()} to create the inputs.
 
 Solution
 
@@ -1060,7 +1061,8 @@ Solution
 \end{Shaded}
 
 \hypertarget{observeevent}{%
-\subsection{observeEvent}\label{observeevent}}
+\subsection*{observeEvent}\label{observeevent}}
+\addcontentsline{toc}{subsection}{observeEvent}
 
 Use \texttt{observeEvent}\texttt{()} to write a server function that displays ``n1 + n2 = sum'' when you click the action button.
 
@@ -1080,7 +1082,8 @@ Solution
 \end{Shaded}
 
 \hypertarget{reactive}{%
-\subsection{reactive}\label{reactive}}
+\subsection*{reactive}\label{reactive}}
+\addcontentsline{toc}{subsection}{reactive}
 
 Use \texttt{reactive}\texttt{()} to accomplish the same behaviour.
 
@@ -1520,10 +1523,10 @@ Alternatively, you can arrange boxes or other elements inside a \texttt{column}\
 \hypertarget{inputs}{%
 \chapter{Inputs}\label{inputs}}
 
+Inputs are ways that users can communicate information to the Shiny app. Explore some different input types in the embedded app below before you read about how to set up each type.
+
 \hypertarget{input-functions}{%
 \section{Input functions}\label{input-functions}}
-
-Inputs are ways that users can communicate information to the Shiny app. Explore some different input types in the embedded app below before you read about how to set up each type.
 
 \hypertarget{textinput}{%
 \subsection{textInput}\label{textinput}}
@@ -1742,7 +1745,7 @@ Note that select inputs, checkbox groups, and radio buttons use the argument \At
 \end{warning}
 
 \hypertarget{resources-inputs}{%
-\section{Further Reources}\label{resources-inputs}}
+\section{Further Resources}\label{resources-inputs}}
 
 \begin{itemize}
 \tightlist
@@ -1756,7 +1759,8 @@ Note that select inputs, checkbox groups, and radio buttons use the argument \At
 \section{Exercises}\label{exercises-inputs}}
 
 \hypertarget{pets}{%
-\subsection{Pets}\label{pets}}
+\subsection*{Pets}\label{pets}}
+\addcontentsline{toc}{subsection}{Pets}
 
 Create an interface that gets people to rate the following pets on a 9-point scale. You can use any option labels or input type you like.
 
@@ -2008,12 +2012,14 @@ The function \texttt{htmlOutput}\texttt{()} is a synonym for \texttt{uiOutput}\t
 \section{Exercises}\label{exercises-outputs}}
 
 \hypertarget{modify-the-demo}{%
-\subsection{Modify the demo}\label{modify-the-demo}}
+\subsection*{Modify the demo}\label{modify-the-demo}}
+\addcontentsline{toc}{subsection}{Modify the demo}
 
 Clone the ``output\_demo'' app and modify it to use a different dataset.
 
 \hypertarget{pets-1}{%
-\subsection{Pets}\label{pets-1}}
+\subsection*{Pets}\label{pets-1}}
+\addcontentsline{toc}{subsection}{Pets}
 
 Add outputs and appropriate render functions to show a plot and the data from the pets questionnaire you made for the exercise in Section~\ref{inputs}.
 
@@ -2428,7 +2434,8 @@ Hint
 \end{verbatim}
 
 \hypertarget{render}{%
-\subsection{render}\label{render}}
+\subsection*{render}\label{render}}
+\addcontentsline{toc}{subsection}{render}
 
 Use render functions to update the output table and caption whenever group or stat change.
 
@@ -2451,7 +2458,8 @@ Solution
 \end{Shaded}
 
 \hypertarget{reactive-2}{%
-\subsection{reactive}\label{reactive-2}}
+\subsection*{reactive}\label{reactive-2}}
+\addcontentsline{toc}{subsection}{reactive}
 
 Use \texttt{reactive}\texttt{()} to update the output table and caption whenever group or stat change. Ignore the update button.
 
@@ -2476,7 +2484,8 @@ Solution
 \end{Shaded}
 
 \hypertarget{observeevent-2}{%
-\subsection{observeEvent}\label{observeevent-2}}
+\subsection*{observeEvent}\label{observeevent-2}}
+\addcontentsline{toc}{subsection}{observeEvent}
 
 Use \texttt{observeEvent}\texttt{()} to update the output table with the appropriate summary table and to update the caption with an appropriate caption only when the update button is clicked.
 
@@ -2500,7 +2509,8 @@ Solution
 \end{Shaded}
 
 \hypertarget{reactiveval-1}{%
-\subsection{reactiveVal}\label{reactiveval-1}}
+\subsection*{reactiveVal}\label{reactiveval-1}}
+\addcontentsline{toc}{subsection}{reactiveVal}
 
 Use \texttt{reactiveVal}\texttt{()} to update the output table and caption only when the update button is clicked.
 
@@ -2531,7 +2541,8 @@ Solution
 \end{Shaded}
 
 \hypertarget{reactivevalues}{%
-\subsection{reactiveValues}\label{reactivevalues}}
+\subsection*{reactiveValues}\label{reactivevalues}}
+\addcontentsline{toc}{subsection}{reactiveValues}
 
 Use \texttt{reactiveValues}\texttt{()} to update the output table and caption only when the update button is clicked.
 
@@ -2558,7 +2569,8 @@ Solution
 \end{Shaded}
 
 \hypertarget{eventreactive-1}{%
-\subsection{eventReactive}\label{eventreactive-1}}
+\subsection*{eventReactive}\label{eventreactive-1}}
+\addcontentsline{toc}{subsection}{eventReactive}
 
 Use \texttt{eventReactive}\texttt{()} to update the output table and caption only when the update button is clicked.
 
@@ -2747,7 +2759,7 @@ You can set up a new Google Sheet with code. You only need to do this once for a
 
 \begin{verbatim}
 ## Spreadsheet name: demo2
-##               ID: 192hLrsNdiKLgOYsm_muS90flmLLeGqAS-5s0Zl4lyHE
+##               ID: 1pEkoveruK27whl721bgITdPuiM-oBvN2D-FMhmVy6Wo
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -2887,7 +2899,8 @@ The demo app ``radiotables'' has a custom function \texttt{gs4\_write\_csv}\text
 \section{Exercises}\label{exercises-data}}
 
 \hypertarget{read-others-data}{%
-\subsection{Read others' data}\label{read-others-data}}
+\subsection*{Read others' data}\label{read-others-data}}
+\addcontentsline{toc}{subsection}{Read others' data}
 
 Read in data from the public google sheet at \url{https://docs.google.com/spreadsheets/d/1QjpRZPNOOL0pfRO6IVT5WiafnyNdahsch1A03iHdv7s/}. Find the sheet ID and figure out which sheet has data on US states (assign this to the object \texttt{states}) and which has data on Eutherian mammals (assign this to \texttt{mammals}).
 
@@ -2908,7 +2921,8 @@ Solution
 \end{Shaded}
 
 \hypertarget{read-your-own-data}{%
-\subsection{Read your own data}\label{read-your-own-data}}
+\subsection*{Read your own data}\label{read-your-own-data}}
+\addcontentsline{toc}{subsection}{Read your own data}
 
 Create a google sheet online and read its contents in R. You will need to either make it public first (click on the green Share icon in the upper right) or authorise googlesheets to access your account.
 
@@ -2923,7 +2937,8 @@ Solution
 \end{Shaded}
 
 \hypertarget{write-data}{%
-\subsection{Write data}\label{write-data}}
+\subsection*{Write data}\label{write-data}}
+\addcontentsline{toc}{subsection}{Write data}
 
 Append some data to your google sheet.
 
@@ -3250,6 +3265,8 @@ The javaScript function \texttt{Shiny.setInputValue(input\_id,\ value)} is a way
 \item
   \href{https://shiny.rstudio.com/articles/packaging-javascript.html}{Packaging JavaScript Code for Shiny}
 \item
+  \href{https://shiny.rstudio.com/articles/communicating-with-js.html}{Communicating with Shiny via JavaScript}
+\item
   \href{https://www.w3schools.com/jquERy/default.asp}{W3 Schools jQuery Tutorial}
 \item
   \href{https://www.codecademy.com/en/tracks/htmlcss}{Codeacademy interactive tutorials}
@@ -3261,7 +3278,8 @@ The javaScript function \texttt{Shiny.setInputValue(input\_id,\ value)} is a way
 Clone the basic template for these exercises.
 
 \hypertarget{add-html}{%
-\subsection{Add HTML}\label{add-html}}
+\subsection*{Add HTML}\label{add-html}}
+\addcontentsline{toc}{subsection}{Add HTML}
 
 Add the following HTML before the image in \texttt{demo\_tab} using `\texttt{HTML}\texttt{()}:
 
@@ -3290,7 +3308,8 @@ Solution
 \end{Shaded}
 
 \hypertarget{class-html}{%
-\subsection{Class HTML}\label{class-html}}
+\subsection*{Class HTML}\label{class-html}}
+\addcontentsline{toc}{subsection}{Class HTML}
 
 Add an unordered list under the paragraph that contains the following text and links:
 
@@ -3323,7 +3342,8 @@ Solution
 \end{Shaded}
 
 \hypertarget{style-links}{%
-\subsection{Style links}\label{style-links}}
+\subsection*{Style links}\label{style-links}}
+\addcontentsline{toc}{subsection}{Style links}
 
 Change the style of all the links to make them \texttt{hotpink}. Use the inline CSS method. As a bonus, change the colour of links when you hover over them, too.
 
@@ -3339,7 +3359,8 @@ Solution
 \end{Shaded}
 
 \hypertarget{style-a-single-link-directly}{%
-\subsection{Style a single link directly}\label{style-a-single-link-directly}}
+\subsection*{Style a single link directly}\label{style-a-single-link-directly}}
+\addcontentsline{toc}{subsection}{Style a single link directly}
 
 Change the style of just the first link in the list to make it \texttt{green}.
 
@@ -3355,7 +3376,8 @@ Solution
 \end{Shaded}
 
 \hypertarget{external-css-1}{%
-\subsection{External CSS}\label{external-css-1}}
+\subsection*{External CSS}\label{external-css-1}}
+\addcontentsline{toc}{subsection}{External CSS}
 
 Change the style of just the links inside paragraphs with the \AttributeTok{class} \StringTok{"help"} to have an underline. Use external CSS.
 
@@ -3561,12 +3583,14 @@ Here's an example of how you would programatically create select inputs for each
 \section{Exercises}\label{exercises-structure}}
 
 \hypertarget{ui-1}{%
-\subsection{UI}\label{ui-1}}
+\subsection*{UI}\label{ui-1}}
+\addcontentsline{toc}{subsection}{UI}
 
 Clone the reactive\_demo, move the boxes in the ui to an external file, and source them in.
 
 \hypertarget{server}{%
-\subsection{Server}\label{server}}
+\subsection*{Server}\label{server}}
+\addcontentsline{toc}{subsection}{Server}
 
 Make a custom function in \textit{\texttt{scripts/func.R}} that creates the plot. Use that in \texttt{server}\texttt{()}.
 
@@ -3775,7 +3799,8 @@ You can also use \texttt{validate}\texttt{()} and \texttt{need}\texttt{()} to te
 \section{Exercises}\label{exercises-debugging}}
 
 \hypertarget{required-selections}{%
-\subsection{Required selections}\label{required-selections}}
+\subsection*{Required selections}\label{required-selections}}
+\addcontentsline{toc}{subsection}{Required selections}
 
 Write an app that creates the plot below for any checked values of a \texttt{checkboxGroupInput}\texttt{()} that lists all the orders in \texttt{msleep}.
 
@@ -3800,7 +3825,9 @@ Add error checking to the app to deal with what happens when \texttt{input\$orde
 \hypertarget{your-app-debugging}{%
 \section{Your App}\label{your-app-debugging}}
 
-In the app you're developing, find anywhere that a user could enter invalid information or cause an error and add a way to handle this.
+In the app you're developing, add \texttt{debug\_msg}\texttt{()} messages to the start of any reactive functions. Run your app and look at the Rstudio console and JavaScript console outputs.
+
+Find anywhere that a user could enter invalid information or cause an error and add a way to handle this.
 
 \hypertarget{contingency}{%
 \chapter{Contingent Display}\label{contingency}}
@@ -4076,11 +4103,21 @@ What happens when you unselect all the columns? How can you fix this?
 
 \end{try}
 
+\hypertarget{resources-contingency}{%
+\section{Further Resources}\label{resources-contingency}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://mastering-shiny.org/action-dynamic.html}{Mastering Shiny: Packages: Dynamic UI}
+\end{itemize}
+
 \hypertarget{exercises-contingency}{%
 \section{Exercises}\label{exercises-contingency}}
 
 \hypertarget{filtered-data}{%
-\subsection{Filtered data}\label{filtered-data}}
+\subsection*{Filtered data}\label{filtered-data}}
+\addcontentsline{toc}{subsection}{Filtered data}
 
 Create an app where you use inputs to filter a dataset and display a table of the filtered dataset. For example, with the \texttt{msleep} dataset, you could have inputs that select \texttt{vore}, \texttt{order} and \texttt{conservation}. Since some values will exclude categories (e.g., there are no omnivores in the order Cetacea), update the available categories in each input when values are selected. Make sure you have a way to reset the values.
 
@@ -4244,11 +4281,23 @@ Once it's uploaded to GitHub, other people can install it with the following cod
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{resources-sharing}{%
+\section{Further Resources}\label{resources-sharing}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://mastering-shiny.org/scaling-packaging.html}{Mastering Shiny: Packages}
+\item
+  \href{https://happygitwithr.com/}{Happy Git and GitHub for the useR}
+\end{itemize}
+
 \hypertarget{exercises-sharing}{%
 \section{Exercises}\label{exercises-sharing}}
 
 \hypertarget{shinyapps.io-1}{%
-\subsection{Shinyapps.io}\label{shinyapps.io-1}}
+\subsection*{Shinyapps.io}\label{shinyapps.io-1}}
+\addcontentsline{toc}{subsection}{Shinyapps.io}
 
 \begin{itemize}
 \tightlist
@@ -4261,7 +4310,8 @@ Once it's uploaded to GitHub, other people can install it with the following cod
 \end{itemize}
 
 \hypertarget{github-1}{%
-\subsection{GitHub}\label{github-1}}
+\subsection*{GitHub}\label{github-1}}
+\addcontentsline{toc}{subsection}{GitHub}
 
 \begin{itemize}
 \tightlist
@@ -4274,7 +4324,8 @@ Once it's uploaded to GitHub, other people can install it with the following cod
 \end{itemize}
 
 \hypertarget{r-package}{%
-\subsection{R Package}\label{r-package}}
+\subsection*{R Package}\label{r-package}}
+\addcontentsline{toc}{subsection}{R Package}
 
 \begin{itemize}
 \tightlist
@@ -4485,11 +4536,25 @@ On your own computer, you don't need to set \texttt{intermediates\_dir\ =\ tempd
 
 \end{dangerous}
 
+\hypertarget{resources-reports}{%
+\section{Further Resources}\label{resources-reports}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://mastering-shiny.org/action-transfer.html}{Mastering Shiny: Uploads and Downloads}
+\item
+  \href{https://rmarkdown.rstudio.com/}{R Markdown}
+\item
+  \href{https://bookdown.org/yihui/rmarkdown/}{R Markdown: The Definitive Guide}
+\end{itemize}
+
 \hypertarget{exercises-reports}{%
 \section{Exercises}\label{exercises-reports}}
 
 \hypertarget{food-data}{%
-\subsection{Food Data}\label{food-data}}
+\subsection*{Food Data}\label{food-data}}
+\addcontentsline{toc}{subsection}{Food Data}
 
 Create a button that downloads the food data.
 
@@ -4514,7 +4579,8 @@ Solution
 \end{Shaded}
 
 \hypertarget{food-image}{%
-\subsection{Food Image}\label{food-image}}
+\subsection*{Food Image}\label{food-image}}
+\addcontentsline{toc}{subsection}{Food Image}
 
 Create a button that downloads the food summary plot
 
@@ -4554,7 +4620,8 @@ Solution
 \end{Shaded}
 
 \hypertarget{food-report}{%
-\subsection{Food Report}\label{food-report}}
+\subsection*{Food Report}\label{food-report}}
+\addcontentsline{toc}{subsection}{Food Report}
 
 Create a downloadable report for the food data.
 
@@ -4740,11 +4807,25 @@ Now, you can replace the four functions inside the server function with these tw
 
 Our example only reduced our code by 4 lines, but it can save a lot of time, effort, and debugging on projects with many similar modules. For example, if you want to change the plots in your app to use a different geom, now you only have to change one function instead of two.
 
+\hypertarget{resources-modules}{%
+\section{Further Resources}\label{resources-modules}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://mastering-shiny.org/scaling-modules.html}{Mastering Shiny: Modules}
+\item
+  \href{https://shiny.rstudio.com/articles/modules.html}{Modularizing Shiny app code}
+\item
+  \href{https://www.rstudio.com/resources/shiny-dev-con/modules/}{How to use Shiny Modules} (video)
+\end{itemize}
+
 \hypertarget{exercises-modules}{%
 \section{Exercises}\label{exercises-modules}}
 
 \hypertarget{repeat-example}{%
-\subsection{Repeat Example}\label{repeat-example}}
+\subsection*{Repeat Example}\label{repeat-example}}
+\addcontentsline{toc}{subsection}{Repeat Example}
 
 Try to implement the code above on your own.
 
@@ -4761,7 +4842,8 @@ Try to implement the code above on your own.
 \end{itemize}
 
 \hypertarget{new-instance}{%
-\subsection{New Instance}\label{new-instance}}
+\subsection*{New Instance}\label{new-instance}}
+\addcontentsline{toc}{subsection}{New Instance}
 
 Add a new tab called ``diamonds'' that visualises the \texttt{diamonds} dataset. Choose the columns you want as choices in the \texttt{selectInput}\texttt{()} and the grouping column.
 
@@ -4786,7 +4868,8 @@ You can group by any of the categorical columns: cut, color, or clarity.
 \end{Shaded}
 
 \hypertarget{altering-modules}{%
-\subsection{Altering modules}\label{altering-modules}}
+\subsection*{Altering modules}\label{altering-modules}}
+\addcontentsline{toc}{subsection}{Altering modules}
 
 \begin{itemize}
 \tightlist
@@ -4839,7 +4922,8 @@ Instead of changing \AttributeTok{group\_by} to \texttt{input\$group\_by} in thr
 \end{Shaded}
 
 \hypertarget{new-module}{%
-\subsection{New module}\label{new-module}}
+\subsection*{New module}\label{new-module}}
+\addcontentsline{toc}{subsection}{New module}
 
 There is a \texttt{fluidRow}\texttt{()} before the \texttt{tabsetPanel}\texttt{()} in the ui that contains three \texttt{infoBoxOutput}\texttt{()} and three \texttt{renderInfoBoxOutput}\texttt{()} functions in the server function.
 
