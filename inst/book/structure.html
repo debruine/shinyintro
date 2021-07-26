@@ -10,27 +10,27 @@
 
   <meta property="og:title" content="8 Structuring a complex app | Building Web Apps with R Shiny" />
   <meta property="og:type" content="book" />
-  
-  
+  <meta property="og:url" content="https://debruine.github.io/shinyintro/" />
+  <meta property="og:image" content="https://debruine.github.io/shinyintro//images/shinyintro_card.png" />
   <meta property="og:description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
-  
+  <meta name="github-repo" content="debruine/shinyintro" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="8 Structuring a complex app | Building Web Apps with R Shiny" />
   
   <meta name="twitter:description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
-  
+  <meta name="twitter:image" content="https://debruine.github.io/shinyintro//images/shinyintro_card.png" />
 
 <meta name="author" content="Lisa DeBruine" />
 
 
-<meta name="date" content="2021-07-24" />
+<meta name="date" content="2021-07-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/touch-icon.png" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="web.html"/>
 <link rel="next" href="debugging.html"/>
 <script src="libs/header-attrs-2.9.4/header-attrs.js"></script>
@@ -285,15 +285,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.3" data-path="data.html"><a href="data.html#make-a-new-sheet"><i class="fa fa-check"></i><b>6.2.3</b> Make a new sheet</a></li>
 <li class="chapter" data-level="6.2.4" data-path="data.html"><a href="data.html#add-data"><i class="fa fa-check"></i><b>6.2.4</b> Add data</a></li>
 <li class="chapter" data-level="6.2.5" data-path="data.html"><a href="data.html#appending-data"><i class="fa fa-check"></i><b>6.2.5</b> Appending data</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data.html"><a href="data.html#gs4_save"><i class="fa fa-check"></i><b>6.2.6</b> Saving data</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="data.html"><a href="data.html#gs4_save"><i class="fa fa-check"></i><b>6.3</b> Saving Googlesheet data</a></li>
-<li class="chapter" data-level="6.4" data-path="data.html"><a href="data.html#exercises-data"><i class="fa fa-check"></i><b>6.4</b> Exercises</a>
+<li class="chapter" data-level="6.3" data-path="data.html"><a href="data.html#exercises-data"><i class="fa fa-check"></i><b>6.3</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="data.html"><a href="data.html#read-others-data"><i class="fa fa-check"></i><b>6.4.1</b> Read others’ data</a></li>
-<li class="chapter" data-level="6.4.2" data-path="data.html"><a href="data.html#read-your-own-data"><i class="fa fa-check"></i><b>6.4.2</b> Read your own data</a></li>
-<li class="chapter" data-level="6.4.3" data-path="data.html"><a href="data.html#write-data"><i class="fa fa-check"></i><b>6.4.3</b> Write data</a></li>
+<li class="chapter" data-level="6.3.1" data-path="data.html"><a href="data.html#read-others-data"><i class="fa fa-check"></i><b>6.3.1</b> Read others’ data</a></li>
+<li class="chapter" data-level="6.3.2" data-path="data.html"><a href="data.html#read-your-own-data"><i class="fa fa-check"></i><b>6.3.2</b> Read your own data</a></li>
+<li class="chapter" data-level="6.3.3" data-path="data.html"><a href="data.html#write-data"><i class="fa fa-check"></i><b>6.3.3</b> Write data</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="data.html"><a href="data.html#your-app-data"><i class="fa fa-check"></i><b>6.5</b> Your App</a></li>
+<li class="chapter" data-level="6.4" data-path="data.html"><a href="data.html#your-app-data"><i class="fa fa-check"></i><b>6.4</b> Your App</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="web.html"><a href="web.html"><i class="fa fa-check"></i><b>7</b> HTML, CSS, and JavaScript</a>
 <ul>
@@ -463,7 +463,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="external-server-functions" class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> External Server Functions</h2>
 <p>You can define <a class='glossary' target='_blank' title='A named section of code that can be reused.' href='https://psyteachr.github.io/glossary/f#function'>functions</a> you want to use in your app at the top of the <code class='path'>app.R</code> file, but that can make that file difficult to parse pretty quickly. The basic template includes external functions with the line:</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="structure.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/func.R&quot;</span>)  <span class="co"># helper functions</span></span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="structure.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/func.R&quot;</span>) <span class="co"># helper functions</span></span></code></pre></div>
 <p>This file contains definitions for the functions <code><span class="fu">debug_msg</span>()</code> and <code><span class="fu">debug_sprintf</span>()</code>. You can add your own custom functions to this file or to another file that you source in separately.</p>
 <div class="warning">
 <p>All <code class='path'>.R</code> files inside a directory called <code class='path'>R</code> will run before the app starts up, even if you don’t source them into the app. You can use this to set up any functions your app needs without having to use <code><span class="fu">source</span>()</code>, but I prefer to explicitly include external files, so I keep external functions in a directory called <code>scripts</code>.</p>
@@ -473,56 +473,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>It can be tricky to use shiny functions to external files. For example, you can’t just move the contents of <code><span class="fu">server</span>()</code> to an external file called <code class='path'>scripts/logo.R</code> and source the file in like this:</p>
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="structure.html#cb121-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
 <span id="cb121-2"><a href="structure.html#cb121-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">source</span>(<span class="st">&quot;scripts/logo.R&quot;</span>)</span>
-<span id="cb121-3"><a href="structure.html#cb121-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb121-3"><a href="structure.html#cb121-3" aria-hidden="true" tabindex="-1"></a>} </span></code></pre></div>
 <p>You’ll get an error like: “Error in output$logo &lt;- renderImage({ : object ‘output’ not found.” This is because the input and output objects only work like you’d expect when they are inside <code><span class="fu">server</span>()</code></p>
 <p>However, you can source in external code inside <code><span class="fu">server</span>()</code> by setting the <code>local</code> <a class='glossary' target='_blank' title='A variable that provides input to a function.' href='https://psyteachr.github.io/glossary/a#argument'>argument</a> to TRUE.</p>
 <div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="structure.html#cb122-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
 <span id="cb122-2"><a href="structure.html#cb122-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">source</span>(<span class="st">&quot;scripts/logo.R&quot;</span>, <span class="at">local =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb122-3"><a href="structure.html#cb122-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb122-3"><a href="structure.html#cb122-3" aria-hidden="true" tabindex="-1"></a>} </span></code></pre></div>
 <p>You might find it useful to break up parts of the server logic for a very big app into separate files like this, but it’s more common to keep any code that uses reactive functions inside <code><span class="fu">server</span>()</code> in the <code class='path'>app.R</code> file, and move large sections of code inside those functions to externally defined functions.</p>
 <p>For example, you could define the function <code><span class="fu">logo_image</span>()</code> in the external file <code class='path'>scripts/logo.R</code> like this:</p>
 <div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="structure.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logo_image</span>() <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb123-2"><a href="structure.html#cb123-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(<span class="at">src =</span> <span class="st">&quot;www/img/shinyintro.png&quot;</span>, <span class="at">width =</span> <span class="st">&quot;300px&quot;</span>, <span class="at">height =</span> <span class="st">&quot;300px&quot;</span>, <span class="at">alt =</span> <span class="st">&quot;ShinyIntro hex logo&quot;</span>)</span>
-<span id="cb123-3"><a href="structure.html#cb123-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb123-2"><a href="structure.html#cb123-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">src =</span> <span class="st">&quot;www/img/shinyintro.png&quot;</span>,</span>
+<span id="cb123-3"><a href="structure.html#cb123-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="st">&quot;300px&quot;</span>,</span>
+<span id="cb123-4"><a href="structure.html#cb123-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="st">&quot;300px&quot;</span>,</span>
+<span id="cb123-5"><a href="structure.html#cb123-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">alt =</span> <span class="st">&quot;ShinyIntro hex logo&quot;</span>)</span>
+<span id="cb123-6"><a href="structure.html#cb123-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>The following in the <code class='path'>app.R</code> file keeps the reactive function <code><span class="fu">renderImage</span>()</code> inside <code><span class="fu">server</span>()</code>, but lets you reduce the number of lines of code.</p>
 <div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="structure.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/logo.R&quot;</span>)</span>
 <span id="cb124-2"><a href="structure.html#cb124-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb124-3"><a href="structure.html#cb124-3" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
 <span id="cb124-4"><a href="structure.html#cb124-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">source</span>(<span class="st">&quot;scripts/logo.R&quot;</span>, <span class="at">local =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb124-5"><a href="structure.html#cb124-5" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>logo <span class="ot">&lt;-</span> <span class="fu">renderImage</span>(<span class="fu">logo_image</span>(), <span class="at">deleteFile =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb124-6"><a href="structure.html#cb124-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb124-6"><a href="structure.html#cb124-6" aria-hidden="true" tabindex="-1"></a>} </span></code></pre></div>
 </div>
 <div id="inputs-and-outputs" class="section level3" number="8.1.2">
 <h3><span class="header-section-number">8.1.2</span> Inputs and Outputs</h3>
 <p>The objects <code>input</code> and <code>output</code> aren’t available by default to externally defined functions. Let’s add an action button to the ui for our app, <code>actionButton("change", "Change Image")</code>, and change the <code><span class="fu">logo_image</span>()</code> function so that it returns the ShinyIntro logo on odd-numbered clicks of the change button, and the psyTeachR logo on even-numbered clicks.</p>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="structure.html#cb125-1" aria-hidden="true" tabindex="-1"></a>logo_image <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb125-2"><a href="structure.html#cb125-2" aria-hidden="true" tabindex="-1"></a>    odd_clicks <span class="ot">&lt;-</span> input<span class="sc">$</span>change<span class="sc">%%</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">1</span></span>
-<span id="cb125-3"><a href="structure.html#cb125-3" aria-hidden="true" tabindex="-1"></a>    src <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(odd_clicks, <span class="st">&quot;www/img/shinyintro.png&quot;</span>, <span class="st">&quot;www/img/psyteachr.png&quot;</span>)</span>
-<span id="cb125-4"><a href="structure.html#cb125-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb125-5"><a href="structure.html#cb125-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(<span class="at">src =</span> src, <span class="at">width =</span> <span class="st">&quot;300px&quot;</span>, <span class="at">height =</span> <span class="st">&quot;300px&quot;</span>, <span class="at">alt =</span> <span class="st">&quot;ShinyIntro hex logo&quot;</span>)</span>
-<span id="cb125-6"><a href="structure.html#cb125-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb125-2"><a href="structure.html#cb125-2" aria-hidden="true" tabindex="-1"></a>  odd_clicks <span class="ot">&lt;-</span> input<span class="sc">$</span>change<span class="sc">%%</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">1</span></span>
+<span id="cb125-3"><a href="structure.html#cb125-3" aria-hidden="true" tabindex="-1"></a>  src <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(odd_clicks, </span>
+<span id="cb125-4"><a href="structure.html#cb125-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;www/img/shinyintro.png&quot;</span>, </span>
+<span id="cb125-5"><a href="structure.html#cb125-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;www/img/psyteachr.png&quot;</span>)</span>
+<span id="cb125-6"><a href="structure.html#cb125-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb125-7"><a href="structure.html#cb125-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">src =</span> src,</span>
+<span id="cb125-8"><a href="structure.html#cb125-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="st">&quot;300px&quot;</span>,</span>
+<span id="cb125-9"><a href="structure.html#cb125-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="st">&quot;300px&quot;</span>,</span>
+<span id="cb125-10"><a href="structure.html#cb125-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">alt =</span> <span class="st">&quot;ShinyIntro hex logo&quot;</span>)</span>
+<span id="cb125-11"><a href="structure.html#cb125-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>If you try to run this, you’ll get an error message like, “Error in logo_image: object ‘input’ not found.” This is because the external function doesn’t have access to reactive objects like <code>input</code>, <code>output</code>, <code>session</code>, or any <code><span class="fu">reactiveValues</span>()</code>.</p>
 <p>The best solution is to pass any variables to the function that you need. In some circumstances, you can pass the whole <code>input</code> object, but that’s seldom necessary.</p>
 <p>Here, we change <code><span class="fu">logo_image</span>()</code> to take a single argument called <code><span class="at">change</span></code> and replace <code>input$change</code> with this argument.</p>
 <div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="structure.html#cb126-1" aria-hidden="true" tabindex="-1"></a>logo_image <span class="ot">&lt;-</span> <span class="cf">function</span>(change) {</span>
-<span id="cb126-2"><a href="structure.html#cb126-2" aria-hidden="true" tabindex="-1"></a>    odd_clicks <span class="ot">&lt;-</span> change<span class="sc">%%</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">1</span></span>
-<span id="cb126-3"><a href="structure.html#cb126-3" aria-hidden="true" tabindex="-1"></a>    src <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(odd_clicks, <span class="st">&quot;www/img/shinyintro.png&quot;</span>, <span class="st">&quot;www/img/psyteachr.png&quot;</span>)</span>
-<span id="cb126-4"><a href="structure.html#cb126-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-5"><a href="structure.html#cb126-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(<span class="at">src =</span> src, <span class="at">width =</span> <span class="st">&quot;300px&quot;</span>, <span class="at">height =</span> <span class="st">&quot;300px&quot;</span>, <span class="at">alt =</span> <span class="st">&quot;ShinyIntro hex logo&quot;</span>)</span>
-<span id="cb126-6"><a href="structure.html#cb126-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb126-2"><a href="structure.html#cb126-2" aria-hidden="true" tabindex="-1"></a>  odd_clicks <span class="ot">&lt;-</span> change<span class="sc">%%</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">1</span></span>
+<span id="cb126-3"><a href="structure.html#cb126-3" aria-hidden="true" tabindex="-1"></a>  src <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(odd_clicks, </span>
+<span id="cb126-4"><a href="structure.html#cb126-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;www/img/shinyintro.png&quot;</span>, </span>
+<span id="cb126-5"><a href="structure.html#cb126-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;www/img/psyteachr.png&quot;</span>)</span>
+<span id="cb126-6"><a href="structure.html#cb126-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb126-7"><a href="structure.html#cb126-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">src =</span> src,</span>
+<span id="cb126-8"><a href="structure.html#cb126-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="st">&quot;300px&quot;</span>,</span>
+<span id="cb126-9"><a href="structure.html#cb126-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="st">&quot;300px&quot;</span>,</span>
+<span id="cb126-10"><a href="structure.html#cb126-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">alt =</span> <span class="st">&quot;ShinyIntro hex logo&quot;</span>)</span>
+<span id="cb126-11"><a href="structure.html#cb126-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Then we just have to pass the value of <code>input$change</code> to <code><span class="fu">logo_image</span>()</code> inside <code><span class="fu">renderImage</span>()</code>, where the <code>input</code> object is available.</p>
 <div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="structure.html#cb127-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
 <span id="cb127-2"><a href="structure.html#cb127-2" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>logo <span class="ot">&lt;-</span> <span class="fu">renderImage</span>({</span>
 <span id="cb127-3"><a href="structure.html#cb127-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">logo_image</span>(input<span class="sc">$</span>change)</span>
 <span id="cb127-4"><a href="structure.html#cb127-4" aria-hidden="true" tabindex="-1"></a>    }, <span class="at">deleteFile =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb127-5"><a href="structure.html#cb127-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb127-5"><a href="structure.html#cb127-5" aria-hidden="true" tabindex="-1"></a>} </span></code></pre></div>
 <p>Don’t worry too much if this isn’t making a lot of sense yet. The main thing I want you to take away from this section is that when you try to move some server code to external files, you might get errors (I frequently do). I hope that will remind you of this lesson and you’ll have a better idea about where to start looking for the solution.</p>
 </div>
 </div>
 <div id="external-ui-files" class="section level2" number="8.2">
 <h2><span class="header-section-number">8.2</span> External UI Files</h2>
 <p>Defining a complex UI can be very challenging. The basic template uses a pattern that I find helpful with apps that have multiple tab items. I assign each tab to an object and then include the tabs of the app in <code><span class="fu">dashboardBody</span>()</code> like this:</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="structure.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabItems</span>(intro_tab, questionnaire_tab, feedback_tab, info_tab)</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="structure.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabItems</span>(</span>
+<span id="cb128-2"><a href="structure.html#cb128-2" aria-hidden="true" tabindex="-1"></a>    intro_tab,</span>
+<span id="cb128-3"><a href="structure.html#cb128-3" aria-hidden="true" tabindex="-1"></a>    questionnaire_tab,</span>
+<span id="cb128-4"><a href="structure.html#cb128-4" aria-hidden="true" tabindex="-1"></a>    feedback_tab,</span>
+<span id="cb128-5"><a href="structure.html#cb128-5" aria-hidden="true" tabindex="-1"></a>    info_tab</span>
+<span id="cb128-6"><a href="structure.html#cb128-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>For a simple app, you can define the tabs in <code class='path'>app.R</code> just before you define the <code>ui</code>. You can do the same for any components of the <code>ui</code>, such as <code><span class="fu">dashboardHeader</span>()</code> or <code><span class="fu">dashboardSidebar</span>()</code>. When the sections start getting complex, you can move them into external files and source them in.</p>
 <div id="ui-lists" class="section level3" number="8.2.1">
 <h3><span class="header-section-number">8.2.1</span> UI Lists</h3>
@@ -535,12 +553,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb129-4"><a href="structure.html#cb129-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb129-5"><a href="structure.html#cb129-5" aria-hidden="true" tabindex="-1"></a><span class="co"># set up the selectInputs</span></span>
 <span id="cb129-6"><a href="structure.html#cb129-6" aria-hidden="true" tabindex="-1"></a>select_inputs <span class="ot">&lt;-</span> <span class="fu">lapply</span>(categorical_cols, <span class="cf">function</span>(col) {</span>
-<span id="cb129-7"><a href="structure.html#cb129-7" aria-hidden="true" tabindex="-1"></a>    unique_vals <span class="ot">&lt;-</span> <span class="fu">unique</span>(starwars[[col]])</span>
-<span id="cb129-8"><a href="structure.html#cb129-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb129-9"><a href="structure.html#cb129-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">selectInput</span>(<span class="at">inputId =</span> col, <span class="at">label =</span> col, <span class="at">choices =</span> unique_vals)</span>
+<span id="cb129-7"><a href="structure.html#cb129-7" aria-hidden="true" tabindex="-1"></a>  unique_vals <span class="ot">&lt;-</span> <span class="fu">unique</span>(starwars[[col]])</span>
+<span id="cb129-8"><a href="structure.html#cb129-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb129-9"><a href="structure.html#cb129-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="at">inputId =</span> col, <span class="at">label =</span> col, <span class="at">choices =</span> unique_vals)</span>
 <span id="cb129-10"><a href="structure.html#cb129-10" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb129-11"><a href="structure.html#cb129-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb129-12"><a href="structure.html#cb129-12" aria-hidden="true" tabindex="-1"></a><span class="co"># add container arguments to select_inputs</span></span>
+<span id="cb129-12"><a href="structure.html#cb129-12" aria-hidden="true" tabindex="-1"></a><span class="co"># add container arguments to select_inputs </span></span>
 <span id="cb129-13"><a href="structure.html#cb129-13" aria-hidden="true" tabindex="-1"></a>select_inputs<span class="sc">$</span>title <span class="ot">=</span> <span class="st">&quot;Select the Categories&quot;</span></span>
 <span id="cb129-14"><a href="structure.html#cb129-14" aria-hidden="true" tabindex="-1"></a>select_inputs<span class="sc">$</span>solidHeader <span class="ot">=</span> <span class="cn">TRUE</span></span>
 <span id="cb129-15"><a href="structure.html#cb129-15" aria-hidden="true" tabindex="-1"></a>select_inputs<span class="sc">$</span>width <span class="ot">=</span> <span class="dv">4</span></span>
@@ -715,8 +733,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/debruine/shinyintro/edit/main/book/08_structure.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,

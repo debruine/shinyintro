@@ -10,27 +10,27 @@
 
   <meta property="og:title" content="2 ShinyDashboard | Building Web Apps with R Shiny" />
   <meta property="og:type" content="book" />
-  
-  
+  <meta property="og:url" content="https://debruine.github.io/shinyintro/" />
+  <meta property="og:image" content="https://debruine.github.io/shinyintro//images/shinyintro_card.png" />
   <meta property="og:description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
-  
+  <meta name="github-repo" content="debruine/shinyintro" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="2 ShinyDashboard | Building Web Apps with R Shiny" />
   
   <meta name="twitter:description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
-  
+  <meta name="twitter:image" content="https://debruine.github.io/shinyintro//images/shinyintro_card.png" />
 
 <meta name="author" content="Lisa DeBruine" />
 
 
-<meta name="date" content="2021-07-24" />
+<meta name="date" content="2021-07-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/touch-icon.png" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="first-app.html"/>
 <link rel="next" href="inputs.html"/>
 <script src="libs/header-attrs-2.9.4/header-attrs.js"></script>
@@ -285,15 +285,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.3" data-path="data.html"><a href="data.html#make-a-new-sheet"><i class="fa fa-check"></i><b>6.2.3</b> Make a new sheet</a></li>
 <li class="chapter" data-level="6.2.4" data-path="data.html"><a href="data.html#add-data"><i class="fa fa-check"></i><b>6.2.4</b> Add data</a></li>
 <li class="chapter" data-level="6.2.5" data-path="data.html"><a href="data.html#appending-data"><i class="fa fa-check"></i><b>6.2.5</b> Appending data</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data.html"><a href="data.html#gs4_save"><i class="fa fa-check"></i><b>6.2.6</b> Saving data</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="data.html"><a href="data.html#gs4_save"><i class="fa fa-check"></i><b>6.3</b> Saving Googlesheet data</a></li>
-<li class="chapter" data-level="6.4" data-path="data.html"><a href="data.html#exercises-data"><i class="fa fa-check"></i><b>6.4</b> Exercises</a>
+<li class="chapter" data-level="6.3" data-path="data.html"><a href="data.html#exercises-data"><i class="fa fa-check"></i><b>6.3</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="data.html"><a href="data.html#read-others-data"><i class="fa fa-check"></i><b>6.4.1</b> Read others’ data</a></li>
-<li class="chapter" data-level="6.4.2" data-path="data.html"><a href="data.html#read-your-own-data"><i class="fa fa-check"></i><b>6.4.2</b> Read your own data</a></li>
-<li class="chapter" data-level="6.4.3" data-path="data.html"><a href="data.html#write-data"><i class="fa fa-check"></i><b>6.4.3</b> Write data</a></li>
+<li class="chapter" data-level="6.3.1" data-path="data.html"><a href="data.html#read-others-data"><i class="fa fa-check"></i><b>6.3.1</b> Read others’ data</a></li>
+<li class="chapter" data-level="6.3.2" data-path="data.html"><a href="data.html#read-your-own-data"><i class="fa fa-check"></i><b>6.3.2</b> Read your own data</a></li>
+<li class="chapter" data-level="6.3.3" data-path="data.html"><a href="data.html#write-data"><i class="fa fa-check"></i><b>6.3.3</b> Write data</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="data.html"><a href="data.html#your-app-data"><i class="fa fa-check"></i><b>6.5</b> Your App</a></li>
+<li class="chapter" data-level="6.4" data-path="data.html"><a href="data.html#your-app-data"><i class="fa fa-check"></i><b>6.4</b> Your App</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="web.html"><a href="web.html"><i class="fa fa-check"></i><b>7</b> HTML, CSS, and JavaScript</a>
 <ul>
@@ -467,7 +467,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <iframe src="https://shiny.psy.gla.ac.uk/debruine/basic_template/?showcase=0" width="100%" height="400px">
 </iframe>
 <p class="caption">
-Figure 2.1: Basic Template.App You can also access this app with <code>shinyintro::app("basic_template")</code>or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/basic_template/" target="_blank">showcase interface</a>.
+Figure 2.1: Basic Template.App You can also access this app with <code>shinyintro::app("basic_template")</code>or view it in a <a href="https://shiny.psy.gla.ac.uk/debruine/basic_template/" target="_blank">separate tab</a>.
 </p>
 </div>
 <hr />
@@ -485,7 +485,10 @@ Figure 2.1: Basic Template.App You can also access this app with <code>shinyintr
 <h2><span class="header-section-number">2.2</span> Dashboard Structure</h2>
 <p>Notice that the ui is created with <code><span class="fu">dashboardPage</span>()</code> now. This needs to be set up a little differently than <code><span class="fu">fluidPage</span>()</code>. The main parts of a dashboard page are the header, sidebar, and body.</p>
 <p>You can also change the default <code><span class="at">skin</span></code> colour. Possible skin colours are: <code><span class="st">"red"</span></code>, <code><span class="st">"yellow"</span></code> (looks orange to me), <code><span class="st">"green"</span></code>, <code><span class="st">"blue"</span></code>, <code><span class="st">"purple"</span></code>, and <code><span class="st">"black"</span></code>.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="shinydashboard.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dashboardPage</span>(<span class="at">skin =</span> <span class="st">&quot;purple&quot;</span>, <span class="fu">dashboardHeader</span>(), <span class="fu">dashboardSidebar</span>(), <span class="fu">dashboardBody</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="shinydashboard.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dashboardPage</span>(<span class="at">skin =</span> <span class="st">&quot;purple&quot;</span>,</span>
+<span id="cb30-2"><a href="shinydashboard.html#cb30-2" aria-hidden="true" tabindex="-1"></a>              <span class="fu">dashboardHeader</span>(),</span>
+<span id="cb30-3"><a href="shinydashboard.html#cb30-3" aria-hidden="true" tabindex="-1"></a>              <span class="fu">dashboardSidebar</span>(),</span>
+<span id="cb30-4"><a href="shinydashboard.html#cb30-4" aria-hidden="true" tabindex="-1"></a>              <span class="fu">dashboardBody</span>())</span></code></pre></div>
 <div id="dashboardheader" class="section level3" number="2.2.1">
 <h3><span class="header-section-number">2.2.1</span> dashboardHeader</h3>
 <p>You can add a title to the header, and change the title width.</p>
@@ -501,9 +504,17 @@ Figure 2.1: Basic Template.App You can also access this app with <code>shinyintr
 <h3><span class="header-section-number">2.2.2</span> dashboardSidebar</h3>
 <p>The sidebar usually contains a <code><span class="fu">sidebarMenu</span>()</code>, which needs a unique ID and a list of menu items. Each <code><span class="fu">menuItem</span>()</code> consists of the <code><span class="at">title</span></code>, a <code><span class="at">tabName</span></code> that will be used to refer to the tab later, and an <code><span class="at">icon</span></code>. You can find a list of the available free icons at <a href="https://fontawesome.com/icons?d=gallery&amp;m=free" target="_blank">fontawesome</a>.</p>
 <p>You can also add in any other elements to the sidebar. The code below adds a link using <code><span class="fu">tags$a</span>()</code> Text inside of the sidebar usually looks too close to the edges, so we use <a href="web.html#CSS">css</a> to style the link and add padding.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="shinydashboard.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dashboardSidebar</span>(<span class="fu">sidebarMenu</span>(<span class="at">id =</span> <span class="st">&quot;tabs&quot;</span>, <span class="fu">menuItem</span>(<span class="st">&quot;Tab Title&quot;</span>, <span class="at">tabName =</span> <span class="st">&quot;demo_tab&quot;</span>,</span>
-<span id="cb32-2"><a href="shinydashboard.html#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">icon =</span> <span class="fu">icon</span>(<span class="st">&quot;dragon&quot;</span>))), tags<span class="sc">$</span><span class="fu">a</span>(<span class="st">&quot;ShinyIntro book&quot;</span>, <span class="at">href =</span> <span class="st">&quot;https://debruine.github.io/shinyintro/&quot;</span>,</span>
-<span id="cb32-3"><a href="shinydashboard.html#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="st">&quot;padding: 1em;&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="shinydashboard.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dashboardSidebar</span>(</span>
+<span id="cb32-2"><a href="shinydashboard.html#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarMenu</span>(<span class="at">id =</span> <span class="st">&quot;tabs&quot;</span>,</span>
+<span id="cb32-3"><a href="shinydashboard.html#cb32-3" aria-hidden="true" tabindex="-1"></a>              <span class="fu">menuItem</span>(</span>
+<span id="cb32-4"><a href="shinydashboard.html#cb32-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;Tab Title&quot;</span>,</span>
+<span id="cb32-5"><a href="shinydashboard.html#cb32-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">tabName =</span> <span class="st">&quot;demo_tab&quot;</span>,</span>
+<span id="cb32-6"><a href="shinydashboard.html#cb32-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">icon =</span> <span class="fu">icon</span>(<span class="st">&quot;dragon&quot;</span>)</span>
+<span id="cb32-7"><a href="shinydashboard.html#cb32-7" aria-hidden="true" tabindex="-1"></a>              )),</span>
+<span id="cb32-8"><a href="shinydashboard.html#cb32-8" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">a</span>(<span class="st">&quot;ShinyIntro book&quot;</span>,</span>
+<span id="cb32-9"><a href="shinydashboard.html#cb32-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">href =</span> <span class="st">&quot;https://debruine.github.io/shinyintro/&quot;</span>,</span>
+<span id="cb32-10"><a href="shinydashboard.html#cb32-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">style =</span> <span class="st">&quot;padding: 1em;&quot;</span>)</span>
+<span id="cb32-11"><a href="shinydashboard.html#cb32-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <div class="info">
 <p>If you don’t want to use a sidebar, include <code>dashboardSidebar(disable = TRUE)</code> inside <code><span class="fu">dashboardPage</span>()</code>.</p>
 </div>
@@ -528,15 +539,31 @@ Figure 2.1: Basic Template.App You can also access this app with <code>shinyintr
 <div id="body-structure" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Body Structure</h2>
 <p>Tab items can be structured in several ways. At the simplest, you can just list each element after the <code><span class="at">tabName</span></code>.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="shinydashboard.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabItem</span>(<span class="at">tabName =</span> <span class="st">&quot;demo_tab&quot;</span>, <span class="fu">textInput</span>(<span class="st">&quot;given&quot;</span>, <span class="st">&quot;Given Name&quot;</span>), <span class="fu">textInput</span>(<span class="st">&quot;surname&quot;</span>,</span>
-<span id="cb34-2"><a href="shinydashboard.html#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Surname&quot;</span>), <span class="fu">selectInput</span>(<span class="st">&quot;pet&quot;</span>, <span class="st">&quot;What is your favourite pet?&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;cats&quot;</span>, <span class="st">&quot;dogs&quot;</span>,</span>
-<span id="cb34-3"><a href="shinydashboard.html#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;ferrets&quot;</span>)), <span class="fu">textAreaInput</span>(<span class="st">&quot;bio&quot;</span>, <span class="cn">NULL</span>, <span class="at">height =</span> <span class="st">&quot;100px&quot;</span>, <span class="at">placeholder =</span> <span class="st">&quot;brief bio&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="shinydashboard.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabItem</span>(</span>
+<span id="cb34-2"><a href="shinydashboard.html#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">tabName =</span> <span class="st">&quot;demo_tab&quot;</span>,</span>
+<span id="cb34-3"><a href="shinydashboard.html#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textInput</span>(<span class="st">&quot;given&quot;</span>, <span class="st">&quot;Given Name&quot;</span>),</span>
+<span id="cb34-4"><a href="shinydashboard.html#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textInput</span>(<span class="st">&quot;surname&quot;</span>, <span class="st">&quot;Surname&quot;</span>),</span>
+<span id="cb34-5"><a href="shinydashboard.html#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;pet&quot;</span>, <span class="st">&quot;What is your favourite pet?&quot;</span>,</span>
+<span id="cb34-6"><a href="shinydashboard.html#cb34-6" aria-hidden="true" tabindex="-1"></a>              <span class="fu">c</span>(<span class="st">&quot;cats&quot;</span>, <span class="st">&quot;dogs&quot;</span>, <span class="st">&quot;ferrets&quot;</span>)),</span>
+<span id="cb34-7"><a href="shinydashboard.html#cb34-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textAreaInput</span>(<span class="st">&quot;bio&quot;</span>, <span class="cn">NULL</span>,</span>
+<span id="cb34-8"><a href="shinydashboard.html#cb34-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">height =</span> <span class="st">&quot;100px&quot;</span>,</span>
+<span id="cb34-9"><a href="shinydashboard.html#cb34-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">placeholder =</span> <span class="st">&quot;brief bio&quot;</span>)</span>
+<span id="cb34-10"><a href="shinydashboard.html#cb34-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <div id="boxes" class="section level3" number="2.3.1">
 <h3><span class="header-section-number">2.3.1</span> Boxes</h3>
 <p>Most <code class='package'>shinydashboard</code> apps organise the parts inside boxes.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="shinydashboard.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabItem</span>(<span class="at">tabName =</span> <span class="st">&quot;demo_tab&quot;</span>, <span class="fu">box</span>(<span class="fu">textInput</span>(<span class="st">&quot;given&quot;</span>, <span class="st">&quot;Given Name&quot;</span>), <span class="fu">textInput</span>(<span class="st">&quot;surname&quot;</span>,</span>
-<span id="cb35-2"><a href="shinydashboard.html#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Surname&quot;</span>), <span class="fu">selectInput</span>(<span class="st">&quot;pet&quot;</span>, <span class="st">&quot;What is your favourite pet?&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;cats&quot;</span>, <span class="st">&quot;dogs&quot;</span>,</span>
-<span id="cb35-3"><a href="shinydashboard.html#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;ferrets&quot;</span>))), <span class="fu">box</span>(<span class="fu">textAreaInput</span>(<span class="st">&quot;bio&quot;</span>, <span class="cn">NULL</span>, <span class="at">height =</span> <span class="st">&quot;100px&quot;</span>, <span class="at">placeholder =</span> <span class="st">&quot;brief bio&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="shinydashboard.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabItem</span>(<span class="at">tabName =</span> <span class="st">&quot;demo_tab&quot;</span>,</span>
+<span id="cb35-2"><a href="shinydashboard.html#cb35-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">box</span>(</span>
+<span id="cb35-3"><a href="shinydashboard.html#cb35-3" aria-hidden="true" tabindex="-1"></a>          <span class="fu">textInput</span>(<span class="st">&quot;given&quot;</span>, <span class="st">&quot;Given Name&quot;</span>),</span>
+<span id="cb35-4"><a href="shinydashboard.html#cb35-4" aria-hidden="true" tabindex="-1"></a>          <span class="fu">textInput</span>(<span class="st">&quot;surname&quot;</span>, <span class="st">&quot;Surname&quot;</span>),</span>
+<span id="cb35-5"><a href="shinydashboard.html#cb35-5" aria-hidden="true" tabindex="-1"></a>          <span class="fu">selectInput</span>(<span class="st">&quot;pet&quot;</span>, <span class="st">&quot;What is your favourite pet?&quot;</span>,</span>
+<span id="cb35-6"><a href="shinydashboard.html#cb35-6" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">c</span>(<span class="st">&quot;cats&quot;</span>, <span class="st">&quot;dogs&quot;</span>, <span class="st">&quot;ferrets&quot;</span>))</span>
+<span id="cb35-7"><a href="shinydashboard.html#cb35-7" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb35-8"><a href="shinydashboard.html#cb35-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">box</span>(</span>
+<span id="cb35-9"><a href="shinydashboard.html#cb35-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">textAreaInput</span>(<span class="st">&quot;bio&quot;</span>, <span class="cn">NULL</span>,</span>
+<span id="cb35-10"><a href="shinydashboard.html#cb35-10" aria-hidden="true" tabindex="-1"></a>                        <span class="at">height =</span> <span class="st">&quot;100px&quot;</span>,</span>
+<span id="cb35-11"><a href="shinydashboard.html#cb35-11" aria-hidden="true" tabindex="-1"></a>                        <span class="at">placeholder =</span> <span class="st">&quot;brief bio&quot;</span>)</span>
+<span id="cb35-12"><a href="shinydashboard.html#cb35-12" aria-hidden="true" tabindex="-1"></a>        ))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:sdb-layout2"></span>
 <img src="images/sdb_layout2.png" alt="Organizing elements inside boxes." width="100%" />
 <p class="caption">
@@ -544,17 +571,30 @@ Figure 2.2: Organizing elements inside boxes.
 </p>
 </div>
 <p>You can add titles to the boxes, make them collapsible and/or give them solid headers.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="shinydashboard.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabItem</span>(<span class="at">tabName =</span> <span class="st">&quot;demo_tab&quot;</span>, <span class="fu">box</span>(<span class="at">title =</span> <span class="st">&quot;Personal Info&quot;</span>, <span class="at">collapsible =</span> <span class="cn">TRUE</span>, <span class="fu">textInput</span>(<span class="st">&quot;given&quot;</span>,</span>
-<span id="cb36-2"><a href="shinydashboard.html#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Given Name&quot;</span>), <span class="fu">textInput</span>(<span class="st">&quot;surname&quot;</span>, <span class="st">&quot;Surname&quot;</span>), <span class="fu">selectInput</span>(<span class="st">&quot;pet&quot;</span>, <span class="st">&quot;What is your favourite pet?&quot;</span>,</span>
-<span id="cb36-3"><a href="shinydashboard.html#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">&quot;cats&quot;</span>, <span class="st">&quot;dogs&quot;</span>, <span class="st">&quot;ferrets&quot;</span>))), <span class="fu">box</span>(<span class="at">title =</span> <span class="st">&quot;Biography&quot;</span>, <span class="at">solidHeader =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb36-4"><a href="shinydashboard.html#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">textAreaInput</span>(<span class="st">&quot;bio&quot;</span>, <span class="cn">NULL</span>, <span class="at">height =</span> <span class="st">&quot;100px&quot;</span>, <span class="at">placeholder =</span> <span class="st">&quot;brief bio&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="shinydashboard.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabItem</span>(</span>
+<span id="cb36-2"><a href="shinydashboard.html#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">tabName =</span> <span class="st">&quot;demo_tab&quot;</span>,</span>
+<span id="cb36-3"><a href="shinydashboard.html#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">box</span>(<span class="at">title =</span> <span class="st">&quot;Personal Info&quot;</span>,</span>
+<span id="cb36-4"><a href="shinydashboard.html#cb36-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">collapsible =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb36-5"><a href="shinydashboard.html#cb36-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">textInput</span>(<span class="st">&quot;given&quot;</span>, <span class="st">&quot;Given Name&quot;</span>),</span>
+<span id="cb36-6"><a href="shinydashboard.html#cb36-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">textInput</span>(<span class="st">&quot;surname&quot;</span>, <span class="st">&quot;Surname&quot;</span>),</span>
+<span id="cb36-7"><a href="shinydashboard.html#cb36-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">selectInput</span>(<span class="st">&quot;pet&quot;</span>, <span class="st">&quot;What is your favourite pet?&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;cats&quot;</span>, <span class="st">&quot;dogs&quot;</span>, <span class="st">&quot;ferrets&quot;</span>))</span>
+<span id="cb36-8"><a href="shinydashboard.html#cb36-8" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb36-9"><a href="shinydashboard.html#cb36-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">box</span>(<span class="at">title =</span> <span class="st">&quot;Biography&quot;</span>,</span>
+<span id="cb36-10"><a href="shinydashboard.html#cb36-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">solidHeader =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb36-11"><a href="shinydashboard.html#cb36-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">textAreaInput</span>(<span class="st">&quot;bio&quot;</span>, <span class="cn">NULL</span>, <span class="at">height =</span> <span class="st">&quot;100px&quot;</span>, <span class="at">placeholder =</span> <span class="st">&quot;brief bio&quot;</span>)</span>
+<span id="cb36-12"><a href="shinydashboard.html#cb36-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb36-13"><a href="shinydashboard.html#cb36-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="images/sdb_box_collapse.gif" /></p>
 <p>In the normal shinydashboard style, solid headers only have a colour if the box also has the status argument set. In the basic template provided in this class, there is custom CSS to make solid headers the same colour as the theme skin, but you can also set the <code><span class="at">status</span></code>.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="shinydashboard.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabItem</span>(<span class="at">tabName =</span> <span class="st">&quot;demo_tab&quot;</span>, <span class="fu">box</span>(<span class="at">title =</span> <span class="st">&quot;No Status&quot;</span>, <span class="at">solidHeader =</span> <span class="cn">TRUE</span>), <span class="fu">box</span>(<span class="at">title =</span> <span class="st">&quot;Primary&quot;</span>,</span>
-<span id="cb37-2"><a href="shinydashboard.html#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">solidHeader =</span> <span class="cn">TRUE</span>, <span class="at">status =</span> <span class="st">&quot;primary&quot;</span>), <span class="fu">box</span>(<span class="at">title =</span> <span class="st">&quot;Success&quot;</span>, <span class="at">solidHeader =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb37-3"><a href="shinydashboard.html#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">status =</span> <span class="st">&quot;success&quot;</span>), <span class="fu">box</span>(<span class="at">title =</span> <span class="st">&quot;Info&quot;</span>, <span class="at">solidHeader =</span> <span class="cn">TRUE</span>, <span class="at">status =</span> <span class="st">&quot;info&quot;</span>),</span>
-<span id="cb37-4"><a href="shinydashboard.html#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">box</span>(<span class="at">title =</span> <span class="st">&quot;Warning&quot;</span>, <span class="at">solidHeader =</span> <span class="cn">TRUE</span>, <span class="at">status =</span> <span class="st">&quot;warning&quot;</span>), <span class="fu">box</span>(<span class="at">title =</span> <span class="st">&quot;Danger&quot;</span>,</span>
-<span id="cb37-5"><a href="shinydashboard.html#cb37-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">solidHeader =</span> <span class="cn">TRUE</span>, <span class="at">status =</span> <span class="st">&quot;danger&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="shinydashboard.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabItem</span>(</span>
+<span id="cb37-2"><a href="shinydashboard.html#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">tabName =</span> <span class="st">&quot;demo_tab&quot;</span>,</span>
+<span id="cb37-3"><a href="shinydashboard.html#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">box</span>(<span class="at">title =</span> <span class="st">&quot;No Status&quot;</span>, <span class="at">solidHeader =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb37-4"><a href="shinydashboard.html#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">box</span>(<span class="at">title =</span> <span class="st">&quot;Primary&quot;</span>,   <span class="at">solidHeader =</span> <span class="cn">TRUE</span>, <span class="at">status =</span> <span class="st">&quot;primary&quot;</span>),</span>
+<span id="cb37-5"><a href="shinydashboard.html#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">box</span>(<span class="at">title =</span> <span class="st">&quot;Success&quot;</span>,   <span class="at">solidHeader =</span> <span class="cn">TRUE</span>, <span class="at">status =</span> <span class="st">&quot;success&quot;</span>),</span>
+<span id="cb37-6"><a href="shinydashboard.html#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">box</span>(<span class="at">title =</span> <span class="st">&quot;Info&quot;</span>,      <span class="at">solidHeader =</span> <span class="cn">TRUE</span>, <span class="at">status =</span> <span class="st">&quot;info&quot;</span>),</span>
+<span id="cb37-7"><a href="shinydashboard.html#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">box</span>(<span class="at">title =</span> <span class="st">&quot;Warning&quot;</span>,   <span class="at">solidHeader =</span> <span class="cn">TRUE</span>, <span class="at">status =</span> <span class="st">&quot;warning&quot;</span>),</span>
+<span id="cb37-8"><a href="shinydashboard.html#cb37-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">box</span>(<span class="at">title =</span> <span class="st">&quot;Danger&quot;</span>,    <span class="at">solidHeader =</span> <span class="cn">TRUE</span>, <span class="at">status =</span> <span class="st">&quot;danger&quot;</span>)</span>
+<span id="cb37-9"><a href="shinydashboard.html#cb37-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:sdb-box-status"></span>
 <img src="images/sdb_box_status.png" alt="Shinydashboard Box Statuses." width="100%" />
 <p class="caption">
@@ -565,8 +605,12 @@ Figure 2.3: Shinydashboard Box Statuses.
 <div id="info-and-value-boxes" class="section level3" number="2.3.2">
 <h3><span class="header-section-number">2.3.2</span> Info and Value Boxes</h3>
 <p>You can use an <code><span class="fu">infoBox</span>()</code> or a <code><span class="fu">valueBox</span>()</code> to highlight a small amount of information. The default background is aqua, but the basic template changes this to the skin colour. However, you can customise this by setting the <code><span class="at">color</span></code> argument.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="shinydashboard.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabItem</span>(<span class="at">tabName =</span> <span class="st">&quot;demo_tab&quot;</span>, <span class="fu">infoBox</span>(<span class="st">&quot;Default InfoBox&quot;</span>, <span class="st">&quot;Value&quot;</span>, <span class="st">&quot;Subtitle&quot;</span>), <span class="fu">valueBox</span>(<span class="st">&quot;Default ValueBox&quot;</span>,</span>
-<span id="cb38-2"><a href="shinydashboard.html#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;With subtitle&quot;</span>), <span class="fu">valueBox</span>(<span class="st">&quot;No subtitle&quot;</span>, <span class="st">&quot;&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="shinydashboard.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabItem</span>(</span>
+<span id="cb38-2"><a href="shinydashboard.html#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">tabName =</span> <span class="st">&quot;demo_tab&quot;</span>,</span>
+<span id="cb38-3"><a href="shinydashboard.html#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">infoBox</span>(<span class="st">&quot;Default InfoBox&quot;</span>, <span class="st">&quot;Value&quot;</span>, <span class="st">&quot;Subtitle&quot;</span>),</span>
+<span id="cb38-4"><a href="shinydashboard.html#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">valueBox</span>(<span class="st">&quot;Default ValueBox&quot;</span>, <span class="st">&quot;With subtitle&quot;</span>),</span>
+<span id="cb38-5"><a href="shinydashboard.html#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">valueBox</span>(<span class="st">&quot;No subtitle&quot;</span>, <span class="st">&quot;&quot;</span>)</span>
+<span id="cb38-6"><a href="shinydashboard.html#cb38-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:sdb-value-info"></span>
 <img src="images/sdb_value_info.png" alt="Examples of value and info boxes you can make." width="100%" />
 <p class="caption">
@@ -581,10 +625,21 @@ Figure 2.4: Examples of value and info boxes you can make.
 <div id="tab-boxes" class="section level3" number="2.3.3">
 <h3><span class="header-section-number">2.3.3</span> Tab Boxes</h3>
 <p>Create a box with multiple tabs using <code><span class="fu">tabBox</span>()</code>, which contains <code><span class="fu">tabPanel</span>()</code>.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="shinydashboard.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabItem</span>(<span class="at">tabName =</span> <span class="st">&quot;demo_tab&quot;</span>, <span class="fu">tabBox</span>(<span class="at">title =</span> <span class="st">&quot;Test Yourself 1&quot;</span>, <span class="fu">tabPanel</span>(<span class="st">&quot;Question&quot;</span>,</span>
-<span id="cb39-2"><a href="shinydashboard.html#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;What function creates tabBox contents?&quot;</span>), <span class="fu">tabPanel</span>(<span class="st">&quot;Answer&quot;</span>, <span class="st">&quot;tabPanel()&quot;</span>)),</span>
-<span id="cb39-3"><a href="shinydashboard.html#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabBox</span>(<span class="at">title =</span> <span class="st">&quot;Test Yourself 2&quot;</span>, <span class="at">side =</span> <span class="st">&quot;right&quot;</span>, <span class="at">selected =</span> <span class="st">&quot;Question&quot;</span>, <span class="fu">tabPanel</span>(<span class="st">&quot;Answer&quot;</span>,</span>
-<span id="cb39-4"><a href="shinydashboard.html#cb39-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;selected&quot;</span>), <span class="fu">tabPanel</span>(<span class="st">&quot;Question&quot;</span>, <span class="st">&quot;What attribute changes the default tab?&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="shinydashboard.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabItem</span>(</span>
+<span id="cb39-2"><a href="shinydashboard.html#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">tabName =</span> <span class="st">&quot;demo_tab&quot;</span>,</span>
+<span id="cb39-3"><a href="shinydashboard.html#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabBox</span>(</span>
+<span id="cb39-4"><a href="shinydashboard.html#cb39-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">&quot;Test Yourself 1&quot;</span>,</span>
+<span id="cb39-5"><a href="shinydashboard.html#cb39-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">tabPanel</span>(<span class="st">&quot;Question&quot;</span>, <span class="st">&quot;What function creates tabBox contents?&quot;</span>),</span>
+<span id="cb39-6"><a href="shinydashboard.html#cb39-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">tabPanel</span>(<span class="st">&quot;Answer&quot;</span>, <span class="st">&quot;tabPanel()&quot;</span>)</span>
+<span id="cb39-7"><a href="shinydashboard.html#cb39-7" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb39-8"><a href="shinydashboard.html#cb39-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabBox</span>(</span>
+<span id="cb39-9"><a href="shinydashboard.html#cb39-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">&quot;Test Yourself 2&quot;</span>,</span>
+<span id="cb39-10"><a href="shinydashboard.html#cb39-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">side =</span> <span class="st">&quot;right&quot;</span>,</span>
+<span id="cb39-11"><a href="shinydashboard.html#cb39-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">selected =</span> <span class="st">&quot;Question&quot;</span>,</span>
+<span id="cb39-12"><a href="shinydashboard.html#cb39-12" aria-hidden="true" tabindex="-1"></a>        <span class="fu">tabPanel</span>(<span class="st">&quot;Answer&quot;</span>, <span class="st">&quot;selected&quot;</span>),</span>
+<span id="cb39-13"><a href="shinydashboard.html#cb39-13" aria-hidden="true" tabindex="-1"></a>        <span class="fu">tabPanel</span>(<span class="st">&quot;Question&quot;</span>, <span class="st">&quot;What attribute changes the default tab?&quot;</span>)</span>
+<span id="cb39-14"><a href="shinydashboard.html#cb39-14" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb39-15"><a href="shinydashboard.html#cb39-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:sdb-tab-box"></span>
 <img src="images/sdb_tab_box.png" alt="Tab Boxes" width="100%" />
 <p class="caption">
@@ -595,11 +650,18 @@ Figure 2.5: Tab Boxes
 <div id="row-layout" class="section level3" number="2.3.4">
 <h3><span class="header-section-number">2.3.4</span> Row Layout</h3>
 <p>You can arrange the boxes inside a <code><span class="fu">fluidRow</span>()</code>. Set the box height in pixels. If the window gets too narrow, the boxes will move to stack instead of be in rows.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="shinydashboard.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabItem</span>(<span class="at">tabName =</span> <span class="st">&quot;demo_tab&quot;</span>, <span class="fu">fluidRow</span>(<span class="fu">box</span>(<span class="st">&quot;A&quot;</span>, <span class="at">title =</span> <span class="st">&quot;2x100&quot;</span>, <span class="at">width =</span> <span class="dv">2</span>, <span class="at">height =</span> <span class="dv">100</span>),</span>
-<span id="cb40-2"><a href="shinydashboard.html#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">box</span>(<span class="st">&quot;B&quot;</span>, <span class="at">title =</span> <span class="st">&quot;1x100&quot;</span>, <span class="at">width =</span> <span class="dv">1</span>, <span class="at">height =</span> <span class="dv">100</span>), <span class="fu">box</span>(<span class="st">&quot;C&quot;</span>, <span class="at">title =</span> <span class="st">&quot;2x200&quot;</span>,</span>
-<span id="cb40-3"><a href="shinydashboard.html#cb40-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">width =</span> <span class="dv">2</span>, <span class="at">height =</span> <span class="dv">200</span>), <span class="fu">box</span>(<span class="st">&quot;D&quot;</span>, <span class="at">title =</span> <span class="st">&quot;3x300&quot;</span>, <span class="at">width =</span> <span class="dv">3</span>, <span class="at">height =</span> <span class="dv">300</span>),</span>
-<span id="cb40-4"><a href="shinydashboard.html#cb40-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">box</span>(<span class="st">&quot;E&quot;</span>, <span class="at">title =</span> <span class="st">&quot;4x100&quot;</span>, <span class="at">width =</span> <span class="dv">4</span>, <span class="at">height =</span> <span class="dv">100</span>), <span class="fu">box</span>(<span class="st">&quot;F&quot;</span>, <span class="at">title =</span> <span class="st">&quot;5x100&quot;</span>,</span>
-<span id="cb40-5"><a href="shinydashboard.html#cb40-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="dv">100</span>), <span class="fu">box</span>(<span class="st">&quot;G&quot;</span>, <span class="at">title =</span> <span class="st">&quot;7x100&quot;</span>, <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="dv">100</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="shinydashboard.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabItem</span>(</span>
+<span id="cb40-2"><a href="shinydashboard.html#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">tabName =</span> <span class="st">&quot;demo_tab&quot;</span>,</span>
+<span id="cb40-3"><a href="shinydashboard.html#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fluidRow</span>(</span>
+<span id="cb40-4"><a href="shinydashboard.html#cb40-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">box</span>(<span class="st">&quot;A&quot;</span>, <span class="at">title =</span> <span class="st">&quot;2x100&quot;</span>, <span class="at">width =</span> <span class="dv">2</span>, <span class="at">height =</span> <span class="dv">100</span>),</span>
+<span id="cb40-5"><a href="shinydashboard.html#cb40-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">box</span>(<span class="st">&quot;B&quot;</span>, <span class="at">title =</span> <span class="st">&quot;1x100&quot;</span>, <span class="at">width =</span> <span class="dv">1</span>, <span class="at">height =</span> <span class="dv">100</span>),</span>
+<span id="cb40-6"><a href="shinydashboard.html#cb40-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">box</span>(<span class="st">&quot;C&quot;</span>, <span class="at">title =</span> <span class="st">&quot;2x200&quot;</span>, <span class="at">width =</span> <span class="dv">2</span>, <span class="at">height =</span> <span class="dv">200</span>),</span>
+<span id="cb40-7"><a href="shinydashboard.html#cb40-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">box</span>(<span class="st">&quot;D&quot;</span>, <span class="at">title =</span> <span class="st">&quot;3x300&quot;</span>, <span class="at">width =</span> <span class="dv">3</span>, <span class="at">height =</span> <span class="dv">300</span>),</span>
+<span id="cb40-8"><a href="shinydashboard.html#cb40-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">box</span>(<span class="st">&quot;E&quot;</span>, <span class="at">title =</span> <span class="st">&quot;4x100&quot;</span>, <span class="at">width =</span> <span class="dv">4</span>, <span class="at">height =</span> <span class="dv">100</span>),</span>
+<span id="cb40-9"><a href="shinydashboard.html#cb40-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">box</span>(<span class="st">&quot;F&quot;</span>, <span class="at">title =</span> <span class="st">&quot;5x100&quot;</span>, <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="dv">100</span>),</span>
+<span id="cb40-10"><a href="shinydashboard.html#cb40-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">box</span>(<span class="st">&quot;G&quot;</span>, <span class="at">title =</span> <span class="st">&quot;7x100&quot;</span>, <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="dv">100</span>)</span>
+<span id="cb40-11"><a href="shinydashboard.html#cb40-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb40-12"><a href="shinydashboard.html#cb40-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:sdb-row-layout"></span>
 <img src="images/sdb_row_layout.png" alt="An example fluidRow layout of boxes with different widths and heights." width="100%" />
 <p class="caption">
@@ -610,12 +672,22 @@ Figure 2.6: An example fluidRow layout of boxes with different widths and height
 <div id="column-layout" class="section level3" number="2.3.5">
 <h3><span class="header-section-number">2.3.5</span> Column Layout</h3>
 <p>Alternatively, you can arrange boxes or other elements inside a <code><span class="fu">column</span>()</code> with a specific <code><span class="at">width</span></code>. Elements inside this column have a width relative to the column width, so no matter what value you set the column <code><span class="at">width</span></code> to, an element inside with a <code><span class="at">width</span></code> of <code><span class="fl">6</span></code> will be half the column width.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="shinydashboard.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabItem</span>(<span class="at">tabName =</span> <span class="st">&quot;demo_tab&quot;</span>, <span class="fu">column</span>(<span class="at">width =</span> <span class="dv">6</span>, <span class="fu">box</span>(<span class="st">&quot;A&quot;</span>, <span class="at">title =</span> <span class="st">&quot;12x100&quot;</span>, <span class="at">width =</span> <span class="dv">12</span>,</span>
-<span id="cb41-2"><a href="shinydashboard.html#cb41-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">height =</span> <span class="dv">100</span>), <span class="fu">box</span>(<span class="st">&quot;B&quot;</span>, <span class="at">title =</span> <span class="st">&quot;6x100&quot;</span>, <span class="at">width =</span> <span class="dv">6</span>, <span class="at">height =</span> <span class="dv">100</span>), <span class="fu">box</span>(<span class="st">&quot;C&quot;</span>, <span class="at">title =</span> <span class="st">&quot;6x200&quot;</span>,</span>
-<span id="cb41-3"><a href="shinydashboard.html#cb41-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="dv">6</span>, <span class="at">height =</span> <span class="dv">200</span>)), <span class="fu">column</span>(<span class="at">width =</span> <span class="dv">4</span>, <span class="fu">box</span>(<span class="st">&quot;D&quot;</span>, <span class="at">title =</span> <span class="st">&quot;12x300&quot;</span>, <span class="at">width =</span> <span class="dv">12</span>,</span>
-<span id="cb41-4"><a href="shinydashboard.html#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">height =</span> <span class="dv">300</span>), <span class="fu">box</span>(<span class="st">&quot;E&quot;</span>, <span class="at">title =</span> <span class="st">&quot;12x100&quot;</span>, <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">100</span>)), <span class="fu">column</span>(<span class="at">width =</span> <span class="dv">2</span>,</span>
-<span id="cb41-5"><a href="shinydashboard.html#cb41-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">box</span>(<span class="st">&quot;F&quot;</span>, <span class="at">title =</span> <span class="st">&quot;12x100&quot;</span>, <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">100</span>), <span class="fu">box</span>(<span class="st">&quot;G&quot;</span>, <span class="at">title =</span> <span class="st">&quot;12x100&quot;</span>,</span>
-<span id="cb41-6"><a href="shinydashboard.html#cb41-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">100</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="shinydashboard.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabItem</span>(</span>
+<span id="cb41-2"><a href="shinydashboard.html#cb41-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">tabName =</span> <span class="st">&quot;demo_tab&quot;</span>,</span>
+<span id="cb41-3"><a href="shinydashboard.html#cb41-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">column</span>(<span class="at">width =</span> <span class="dv">6</span>,</span>
+<span id="cb41-4"><a href="shinydashboard.html#cb41-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">box</span>(<span class="st">&quot;A&quot;</span>, <span class="at">title =</span> <span class="st">&quot;12x100&quot;</span>, <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">100</span>),</span>
+<span id="cb41-5"><a href="shinydashboard.html#cb41-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">box</span>(<span class="st">&quot;B&quot;</span>, <span class="at">title =</span> <span class="st">&quot;6x100&quot;</span>, <span class="at">width =</span> <span class="dv">6</span>, <span class="at">height =</span> <span class="dv">100</span>),</span>
+<span id="cb41-6"><a href="shinydashboard.html#cb41-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">box</span>(<span class="st">&quot;C&quot;</span>, <span class="at">title =</span> <span class="st">&quot;6x200&quot;</span>, <span class="at">width =</span> <span class="dv">6</span>, <span class="at">height =</span> <span class="dv">200</span>)</span>
+<span id="cb41-7"><a href="shinydashboard.html#cb41-7" aria-hidden="true" tabindex="-1"></a>    ), </span>
+<span id="cb41-8"><a href="shinydashboard.html#cb41-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">column</span>(<span class="at">width =</span> <span class="dv">4</span>,</span>
+<span id="cb41-9"><a href="shinydashboard.html#cb41-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">box</span>(<span class="st">&quot;D&quot;</span>, <span class="at">title =</span> <span class="st">&quot;12x300&quot;</span>, <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">300</span>),</span>
+<span id="cb41-10"><a href="shinydashboard.html#cb41-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">box</span>(<span class="st">&quot;E&quot;</span>, <span class="at">title =</span> <span class="st">&quot;12x100&quot;</span>, <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">100</span>)</span>
+<span id="cb41-11"><a href="shinydashboard.html#cb41-11" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb41-12"><a href="shinydashboard.html#cb41-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">column</span>(<span class="at">width =</span> <span class="dv">2</span>,</span>
+<span id="cb41-13"><a href="shinydashboard.html#cb41-13" aria-hidden="true" tabindex="-1"></a>        <span class="fu">box</span>(<span class="st">&quot;F&quot;</span>, <span class="at">title =</span> <span class="st">&quot;12x100&quot;</span>, <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">100</span>),</span>
+<span id="cb41-14"><a href="shinydashboard.html#cb41-14" aria-hidden="true" tabindex="-1"></a>        <span class="fu">box</span>(<span class="st">&quot;G&quot;</span>, <span class="at">title =</span> <span class="st">&quot;12x100&quot;</span>, <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">100</span>)</span>
+<span id="cb41-15"><a href="shinydashboard.html#cb41-15" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb41-16"><a href="shinydashboard.html#cb41-16" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:sdb-column-layout"></span>
 <img src="images/sdb_column_layout.png" alt="An example for column layout." width="100%" />
 <p class="caption">
@@ -819,8 +891,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/debruine/shinyintro/edit/main/book/02_shinydashboard.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,

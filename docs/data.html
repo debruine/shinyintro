@@ -10,27 +10,27 @@
 
   <meta property="og:title" content="6 Reading and saving data | Building Web Apps with R Shiny" />
   <meta property="og:type" content="book" />
-  
-  
+  <meta property="og:url" content="https://debruine.github.io/shinyintro/" />
+  <meta property="og:image" content="https://debruine.github.io/shinyintro//images/shinyintro_card.png" />
   <meta property="og:description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
-  
+  <meta name="github-repo" content="debruine/shinyintro" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="6 Reading and saving data | Building Web Apps with R Shiny" />
   
   <meta name="twitter:description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
-  
+  <meta name="twitter:image" content="https://debruine.github.io/shinyintro//images/shinyintro_card.png" />
 
 <meta name="author" content="Lisa DeBruine" />
 
 
-<meta name="date" content="2021-07-24" />
+<meta name="date" content="2021-07-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/touch-icon.png" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="reactives.html"/>
 <link rel="next" href="web.html"/>
 <script src="libs/header-attrs-2.9.4/header-attrs.js"></script>
@@ -285,15 +285,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.3" data-path="data.html"><a href="data.html#make-a-new-sheet"><i class="fa fa-check"></i><b>6.2.3</b> Make a new sheet</a></li>
 <li class="chapter" data-level="6.2.4" data-path="data.html"><a href="data.html#add-data"><i class="fa fa-check"></i><b>6.2.4</b> Add data</a></li>
 <li class="chapter" data-level="6.2.5" data-path="data.html"><a href="data.html#appending-data"><i class="fa fa-check"></i><b>6.2.5</b> Appending data</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data.html"><a href="data.html#gs4_save"><i class="fa fa-check"></i><b>6.2.6</b> Saving data</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="data.html"><a href="data.html#gs4_save"><i class="fa fa-check"></i><b>6.3</b> Saving Googlesheet data</a></li>
-<li class="chapter" data-level="6.4" data-path="data.html"><a href="data.html#exercises-data"><i class="fa fa-check"></i><b>6.4</b> Exercises</a>
+<li class="chapter" data-level="6.3" data-path="data.html"><a href="data.html#exercises-data"><i class="fa fa-check"></i><b>6.3</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="data.html"><a href="data.html#read-others-data"><i class="fa fa-check"></i><b>6.4.1</b> Read others’ data</a></li>
-<li class="chapter" data-level="6.4.2" data-path="data.html"><a href="data.html#read-your-own-data"><i class="fa fa-check"></i><b>6.4.2</b> Read your own data</a></li>
-<li class="chapter" data-level="6.4.3" data-path="data.html"><a href="data.html#write-data"><i class="fa fa-check"></i><b>6.4.3</b> Write data</a></li>
+<li class="chapter" data-level="6.3.1" data-path="data.html"><a href="data.html#read-others-data"><i class="fa fa-check"></i><b>6.3.1</b> Read others’ data</a></li>
+<li class="chapter" data-level="6.3.2" data-path="data.html"><a href="data.html#read-your-own-data"><i class="fa fa-check"></i><b>6.3.2</b> Read your own data</a></li>
+<li class="chapter" data-level="6.3.3" data-path="data.html"><a href="data.html#write-data"><i class="fa fa-check"></i><b>6.3.3</b> Write data</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="data.html"><a href="data.html#your-app-data"><i class="fa fa-check"></i><b>6.5</b> Your App</a></li>
+<li class="chapter" data-level="6.4" data-path="data.html"><a href="data.html#your-app-data"><i class="fa fa-check"></i><b>6.4</b> Your App</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="web.html"><a href="web.html"><i class="fa fa-check"></i><b>7</b> HTML, CSS, and JavaScript</a>
 <ul>
@@ -459,6 +459,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="data" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> Reading and saving data</h1>
+<div class="figure" style="text-align: center"><span id="fig:radiotables-app"></span>
+<iframe src="https://shiny.psy.gla.ac.uk/debruine/radiotables/?showcase=0" width="100%" height="800px">
+</iframe>
+<p class="caption">
+Figure 6.1: RadioTables Demo App. You can also access this app with <code>shinyintro::app("radiotables")</code>or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/radiotables/" target="_blank">showcase interface</a>.
+</p>
+</div>
 <div id="local-data" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Local Data</h2>
 <p>You can read and write data from a Shiny app the same way you do from any R script. We will focus on reading data, since writing data locally can cause problems and is better done with <a href="data.html#google_sheets">Google Sheets</a>.</p>
@@ -522,11 +529,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb87-2"><a href="data.html#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gs4_auth</span>(<span class="at">email =</span> <span class="st">&quot;debruine@gmail.com&quot;</span>, <span class="at">cache =</span> <span class="st">&quot;.secrets&quot;</span>)</span>
 <span id="cb87-3"><a href="data.html#cb87-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb87-4"><a href="data.html#cb87-4" aria-hidden="true" tabindex="-1"></a><span class="co"># optionally, authorise google drive to search your drive</span></span>
-<span id="cb87-5"><a href="data.html#cb87-5" aria-hidden="true" tabindex="-1"></a><span class="co"># googledrive::drive_auth(email = &#39;debruine@gmail.com&#39;, cache = &#39;.secrets&#39;)</span></span></code></pre></div>
+<span id="cb87-5"><a href="data.html#cb87-5" aria-hidden="true" tabindex="-1"></a><span class="co"># googledrive::drive_auth(email = &quot;debruine@gmail.com&quot;, cache = &quot;.secrets&quot;)</span></span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:gs4-auth"></span>
 <img src="images/gs4_choose_account.png" alt="Prompts to choose an account, grant permissions, and confirm." width="30%" /><img src="images/gs4_auth.png" alt="Prompts to choose an account, grant permissions, and confirm." width="30%" /><img src="images/gs4_confirm_auth.png" alt="Prompts to choose an account, grant permissions, and confirm." width="30%" />
 <p class="caption">
-Figure 6.1: Prompts to choose an account, grant permissions, and confirm.
+Figure 6.2: Prompts to choose an account, grant permissions, and confirm.
 </p>
 </div>
 <p>When you have finished, you will see a page that says something like, “Authentication complete. Please close this page and return to R.” In the file pane in RStudio, you should now see a directory called <code class='path'>.secrets</code> in the app directory.</p>
@@ -578,7 +585,7 @@ Figure 6.1: Prompts to choose an account, grant permissions, and confirm.
 <div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data.html#cb91-1" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="fu">gs4_create</span>(<span class="st">&quot;demo2&quot;</span>, <span class="at">sheets =</span> <span class="fu">c</span>(<span class="st">&quot;demographics&quot;</span>, <span class="st">&quot;questionnaire&quot;</span>))</span>
 <span id="cb91-2"><a href="data.html#cb91-2" aria-hidden="true" tabindex="-1"></a>id</span></code></pre></div>
 <pre><code>## Spreadsheet name: demo2
-##               ID: 1fmRGFsfhS5OXoZ7Eztc6ch_j6t0aNs6JReMNOIejEEU
+##               ID: 1z4T4YZOaOeu2JtYhXiFSWllnZxF6vJvWcCTfVwjkikc
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -587,23 +594,31 @@ Figure 6.1: Prompts to choose an account, grant permissions, and confirm.
 ##  demographics: 1000 x 26
 ## questionnaire: 1000 x 26</code></pre>
 <p>Include the ID at the top of your app like this:</p>
-<pre><code>SHEET_ID <- "1fmRGFsfhS5OXoZ7Eztc6ch_j6t0aNs6JReMNOIejEEU"</code></pre>
+<pre><code>SHEET_ID <- "1z4T4YZOaOeu2JtYhXiFSWllnZxF6vJvWcCTfVwjkikc"</code></pre>
 </div>
 <div id="add-data" class="section level3" number="6.2.4">
 <h3><span class="header-section-number">6.2.4</span> Add data</h3>
 <p>You can add an empty data structure to your sheet by specifying the <a class='glossary' target='_blank' title='The kind of data represented by an object.' href='https://psyteachr.github.io/glossary/d#data-type'>data types</a> of each column like this:</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data.html#cb93-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="fu">character</span>(<span class="dv">0</span>), <span class="at">birthyear =</span> <span class="fu">integer</span>(<span class="dv">0</span>), <span class="at">R_user =</span> <span class="fu">logical</span>(<span class="dv">0</span>),</span>
-<span id="cb93-2"><a href="data.html#cb93-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">score =</span> <span class="fu">double</span>(<span class="dv">0</span>))</span>
-<span id="cb93-3"><a href="data.html#cb93-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb93-4"><a href="data.html#cb93-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write_sheet</span>(data, SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span>
-<span id="cb93-5"><a href="data.html#cb93-5" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(SHEET_ID, <span class="st">&quot;demographics&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb93-6"><a href="data.html#cb93-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">names</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data.html#cb93-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb93-2"><a href="data.html#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="fu">character</span>(<span class="dv">0</span>),</span>
+<span id="cb93-3"><a href="data.html#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">birthyear =</span> <span class="fu">integer</span>(<span class="dv">0</span>),</span>
+<span id="cb93-4"><a href="data.html#cb93-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">R_user =</span> <span class="fu">logical</span>(<span class="dv">0</span>),</span>
+<span id="cb93-5"><a href="data.html#cb93-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="fu">double</span>(<span class="dv">0</span>)</span>
+<span id="cb93-6"><a href="data.html#cb93-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb93-7"><a href="data.html#cb93-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-8"><a href="data.html#cb93-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write_sheet</span>(data, SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span>
+<span id="cb93-9"><a href="data.html#cb93-9" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(SHEET_ID, <span class="st">&quot;demographics&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">names</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;name&quot;      &quot;birthyear&quot; &quot;R_user&quot;    &quot;score&quot;</code></pre>
 <p>Or you can populate the table with starting data.</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data.html#cb95-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="st">&quot;Lisa&quot;</span>, <span class="at">birthyear =</span> 1976L, <span class="at">R_user =</span> <span class="cn">TRUE</span>, <span class="at">score =</span> <span class="fl">10.2</span>)</span>
-<span id="cb95-2"><a href="data.html#cb95-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb95-3"><a href="data.html#cb95-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write_sheet</span>(data, SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span>
-<span id="cb95-4"><a href="data.html#cb95-4" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data.html#cb95-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb95-2"><a href="data.html#cb95-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">&quot;Lisa&quot;</span>,</span>
+<span id="cb95-3"><a href="data.html#cb95-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">birthyear =</span> 1976L,</span>
+<span id="cb95-4"><a href="data.html#cb95-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">R_user =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb95-5"><a href="data.html#cb95-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="fl">10.2</span></span>
+<span id="cb95-6"><a href="data.html#cb95-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb95-7"><a href="data.html#cb95-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-8"><a href="data.html#cb95-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write_sheet</span>(data, SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span>
+<span id="cb95-9"><a href="data.html#cb95-9" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span></code></pre></div>
 <div class="kable-table">
 <table>
 <thead>
@@ -631,10 +646,15 @@ Figure 6.1: Prompts to choose an account, grant permissions, and confirm.
 <div id="appending-data" class="section level3" number="6.2.5">
 <h3><span class="header-section-number">6.2.5</span> Appending data</h3>
 <p>Then you can append new rows of data to the sheet.</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="data.html#cb96-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="st">&quot;Robbie&quot;</span>, <span class="at">birthyear =</span> <span class="dv">2007</span>, <span class="at">R_user =</span> <span class="cn">FALSE</span>, <span class="at">score =</span> <span class="fl">12.1</span>)</span>
-<span id="cb96-2"><a href="data.html#cb96-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb96-3"><a href="data.html#cb96-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sheet_append</span>(SHEET_ID, data, <span class="st">&quot;demographics&quot;</span>)</span>
-<span id="cb96-4"><a href="data.html#cb96-4" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="data.html#cb96-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb96-2"><a href="data.html#cb96-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">&quot;Robbie&quot;</span>,</span>
+<span id="cb96-3"><a href="data.html#cb96-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">birthyear =</span> <span class="dv">2007</span>,</span>
+<span id="cb96-4"><a href="data.html#cb96-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">R_user =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb96-5"><a href="data.html#cb96-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="fl">12.1</span></span>
+<span id="cb96-6"><a href="data.html#cb96-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb96-7"><a href="data.html#cb96-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-8"><a href="data.html#cb96-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sheet_append</span>(SHEET_ID, data, <span class="st">&quot;demographics&quot;</span>)</span>
+<span id="cb96-9"><a href="data.html#cb96-9" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span></code></pre></div>
 <div class="kable-table">
 <table>
 <thead>
@@ -662,10 +682,15 @@ Figure 6.1: Prompts to choose an account, grant permissions, and confirm.
 </table>
 </div>
 <p>If you try to append data of a different <a class='glossary' target='_blank' title='The kind of data represented by an object.' href='https://psyteachr.github.io/glossary/d#data-type'>data type</a>, some weird things can happen. <a class='glossary' target='_blank' title='A data type representing TRUE or FALSE values.' href='https://psyteachr.github.io/glossary/l#logical'>Logical</a> values added to a <a class='glossary' target='_blank' title='A data type representing a real decimal number or integer.' href='https://psyteachr.github.io/glossary/n#numeric'>numeric</a> column are cast as <code><span class="fl">0</span></code> (<code><span class="fl">1</span></code>) and <code><span class="fl">1</span></code> (<code><span class="cn">TRUE</span></code>), while numeric values added to a logical column change the column to numeric. If you mix <a class='glossary' target='_blank' title='A data type representing strings of text.' href='https://psyteachr.github.io/glossary/c#character'>character</a> and numeric values in a column, the resulting column is a column of one-item lists so that each list can have the appropriate data type. (Data frames in R cannot mix data types in the same column.)</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data.html#cb97-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="dv">1</span>, <span class="at">birthyear =</span> <span class="cn">FALSE</span>, <span class="at">R_user =</span> <span class="dv">0</span>, <span class="at">score =</span> <span class="st">&quot;No&quot;</span>)</span>
-<span id="cb97-2"><a href="data.html#cb97-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-3"><a href="data.html#cb97-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sheet_append</span>(SHEET_ID, data, <span class="st">&quot;demographics&quot;</span>)</span>
-<span id="cb97-4"><a href="data.html#cb97-4" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data.html#cb97-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb97-2"><a href="data.html#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="dv">1</span>,</span>
+<span id="cb97-3"><a href="data.html#cb97-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">birthyear =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb97-4"><a href="data.html#cb97-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">R_user =</span> <span class="dv">0</span>,</span>
+<span id="cb97-5"><a href="data.html#cb97-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="st">&quot;No&quot;</span></span>
+<span id="cb97-6"><a href="data.html#cb97-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb97-7"><a href="data.html#cb97-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-8"><a href="data.html#cb97-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sheet_append</span>(SHEET_ID, data, <span class="st">&quot;demographics&quot;</span>)</span>
+<span id="cb97-9"><a href="data.html#cb97-9" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span></code></pre></div>
 <div class="kable-table">
 <table>
 <thead>
@@ -703,19 +728,18 @@ Figure 6.1: Prompts to choose an account, grant permissions, and confirm.
 </div>
 <p>The demo app “radiotables” has a safer version of <code><span class="fu">sheet_append</span>()</code> that you can use when you’re developing on your machine. It’s defined in <code class='path'>scripts/gs4.R</code>. This version gracefully handles data with new columns, missing columns, columns in a different order, and columns with a different data type. However, it reads the whole data sheet before deciding whether to append or overwrite the data, which can slow down your app, so is best used only during development when you’re changing things a lot. If it’s not running locally, it uses the original <code><span class="fu">googlesheets4::sheet_append</span>()</code> function instead.</p>
 </div>
-</div>
-<div id="gs4_save" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Saving Googlesheet data</h2>
+<div id="gs4_save" class="section level3" number="6.2.6">
+<h3><span class="header-section-number">6.2.6</span> Saving data</h3>
 <p>If you mix data types in a column, the data frame returned by <code><span class="fu">read_sheet</span>()</code> has list columns for any mixed columns. Dates can also get written in different ways that look the same when you print to the console, but are a mix of characters and doubles, so you have to convert them to strings like this before you can save as CSV.</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="data.html#cb98-1" aria-hidden="true" tabindex="-1"></a>string_data <span class="ot">&lt;-</span> <span class="fu">lapply</span>(data, sapply, toString) <span class="sc">%&gt;%</span></span>
-<span id="cb98-2"><a href="data.html#cb98-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.data.frame</span>()</span>
-<span id="cb98-3"><a href="data.html#cb98-3" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(string_data, <span class="st">&quot;data.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="data.html#cb98-1" aria-hidden="true" tabindex="-1"></a>string_data <span class="ot">&lt;-</span> <span class="fu">lapply</span>(data, sapply, toString) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
+<span id="cb98-2"><a href="data.html#cb98-2" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(string_data, <span class="st">&quot;data.csv&quot;</span>)</span></code></pre></div>
 <p>The demo app “radiotables” has a custom function <code><span class="fu">gs4_write_csv</span>()</code> defined in <code class='path'>scripts/gs4.R</code> that does the above for you.</p>
 </div>
-<div id="exercises-data" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Exercises</h2>
-<div id="read-others-data" class="section level3" number="6.4.1">
-<h3><span class="header-section-number">6.4.1</span> Read others’ data</h3>
+</div>
+<div id="exercises-data" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Exercises</h2>
+<div id="read-others-data" class="section level3" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Read others’ data</h3>
 <p>Read in data from the public google sheet at <a href="https://docs.google.com/spreadsheets/d/1QjpRZPNOOL0pfRO6IVT5WiafnyNdahsch1A03iHdv7s/" class="uri">https://docs.google.com/spreadsheets/d/1QjpRZPNOOL0pfRO6IVT5WiafnyNdahsch1A03iHdv7s/</a>. Find the sheet ID and figure out which sheet has data on US states (assign this to the object <code>states</code>) and which has data on Eutherian mammals (assign this to <code>mammals</code>).</p>
 <div class="webex-solution">
 <button>
@@ -732,8 +756,8 @@ Solution
 <span id="cb99-9"><a href="data.html#cb99-9" aria-hidden="true" tabindex="-1"></a>mammals <span class="ot">&lt;-</span> <span class="fu">read_sheet</span>(sheet_id, <span class="dv">2</span>)</span></code></pre></div>
 </div>
 </div>
-<div id="read-your-own-data" class="section level3" number="6.4.2">
-<h3><span class="header-section-number">6.4.2</span> Read your own data</h3>
+<div id="read-your-own-data" class="section level3" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Read your own data</h3>
 <p>Create a google sheet online and read its contents in R. You will need to either make it public first (click on the green Share icon in the upper right) or authorise googlesheets to access your account.</p>
 <div class="webex-solution">
 <button>
@@ -744,13 +768,13 @@ Solution
 <span id="cb100-3"><a href="data.html#cb100-3" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">read_sheet</span>(my_sheet_url)</span></code></pre></div>
 </div>
 </div>
-<div id="write-data" class="section level3" number="6.4.3">
-<h3><span class="header-section-number">6.4.3</span> Write data</h3>
+<div id="write-data" class="section level3" number="6.3.3">
+<h3><span class="header-section-number">6.3.3</span> Write data</h3>
 <p>Append some data to your google sheet.</p>
 </div>
 </div>
-<div id="your-app-data" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Your App</h2>
+<div id="your-app-data" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Your App</h2>
 <p>In the app you’re developing, determine what data need to be saved and set up a google sheet (or local data if you’re having trouble with google). Add the authorisation code to your app (see <code class='path'>scripts/gs4.R</code> in the radiotables demo). Write the server function to save data from your app when an action button is pressed.</p>
 
 </div>
@@ -904,8 +928,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/debruine/shinyintro/edit/main/book/06_data.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,

@@ -265,12 +265,12 @@ fluidRow(
 
 `r hide("Server Code")`
 
-In `r func("server")`, replace `r func("renderInfoBox")` with this:
+In `r func("server")`, replace the three `r func("renderInfoBox")` with this:
 
 ```{r}
-infoBoxServer("year", "Year", "%Y", "calendar"),
-infoBoxServer("month", "Month", "%m", "calendar-alt"),
-infoBoxServer("day", "Day", "%d", "calendar-day"))
+infoBoxServer("year", "Year", "%Y", "calendar")
+infoBoxServer("month", "Month", "%m", "calendar-alt")
+infoBoxServer("day", "Day", "%d", "calendar-day")
 ```
 `r unhide()`
 

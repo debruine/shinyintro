@@ -10,6 +10,12 @@ classoption: oneside
 geometry: margin=1in
 link-citations: yes
 description: "This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports."
+url: "https://debruine.github.io/shinyintro/"
+github-repo: "debruine/shinyintro"
+cover-image: "images/shinyintro_card.png"
+apple-touch-icon: "images/touch-icon.png"
+apple-touch-icon-size: 120
+favicon: "images/favicon.ico"
 ---
 
 ```{r cite-packages, include = FALSE}

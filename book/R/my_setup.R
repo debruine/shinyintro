@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
   warning = FALSE,
   message = FALSE,
   tidy.opts=list(width.cutoff=code_width), 
-  tidy=TRUE
+  tidy=FALSE
 )
 
 theme_set(theme_minimal())

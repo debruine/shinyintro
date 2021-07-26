@@ -1,5 +1,10 @@
 # Reading and saving data {#data}
 
+```{r radiotables-app, eval=TRUE, echo=FALSE, fig.cap="RadioTables Demo App. You can also access this app with `shinyintro::app(\"radiotables\")`or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/radiotables/){target=\"_blank\"}."}
+knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/radiotables/",
+height = "800px")
+```
+
 ## Local Data
 
 You can read and write data from a Shiny app the same way you do from any R script. We will focus on reading data, since writing data locally can cause problems and is better done with [Google Sheets](#google_sheets).
@@ -190,7 +195,7 @@ You must append data that has the same number and order of columns as the Google
 
 The demo app "radiotables" has a safer version of `r func("sheet_append")` that you can use when you're developing on your machine. It's defined in `r path("scripts/gs4.R")`. This version gracefully handles data with new columns, missing columns, columns in a different order, and columns with a different data type. However, it reads the whole data sheet before deciding whether to append or overwrite the data, which can slow down your app, so is best used only during development when you're changing things a lot. If it's not running locally, it uses the original `r func("googlesheets4::sheet_append")` function instead.
 
-## Saving Googlesheet data {#gs4_save}
+### Saving data {#gs4_save}
 
 If you mix data types in a column, the data frame returned by `r func("read_sheet")` has list columns for any mixed columns. Dates can also get written in different ways that look the same when you print to the console, but are a mix of characters and doubles, so you have to convert them to strings like this before you can save as CSV.
 

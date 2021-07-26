@@ -10,27 +10,27 @@
 
   <meta property="og:title" content="11 Sharing your Apps | Building Web Apps with R Shiny" />
   <meta property="og:type" content="book" />
-  
-  
+  <meta property="og:url" content="https://debruine.github.io/shinyintro/" />
+  <meta property="og:image" content="https://debruine.github.io/shinyintro//images/shinyintro_card.png" />
   <meta property="og:description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
-  
+  <meta name="github-repo" content="debruine/shinyintro" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="11 Sharing your Apps | Building Web Apps with R Shiny" />
   
   <meta name="twitter:description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
-  
+  <meta name="twitter:image" content="https://debruine.github.io/shinyintro//images/shinyintro_card.png" />
 
 <meta name="author" content="Lisa DeBruine" />
 
 
-<meta name="date" content="2021-07-24" />
+<meta name="date" content="2021-07-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/touch-icon.png" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="contingency.html"/>
 <link rel="next" href="reports.html"/>
 <script src="libs/header-attrs-2.9.4/header-attrs.js"></script>
@@ -285,15 +285,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.3" data-path="data.html"><a href="data.html#make-a-new-sheet"><i class="fa fa-check"></i><b>6.2.3</b> Make a new sheet</a></li>
 <li class="chapter" data-level="6.2.4" data-path="data.html"><a href="data.html#add-data"><i class="fa fa-check"></i><b>6.2.4</b> Add data</a></li>
 <li class="chapter" data-level="6.2.5" data-path="data.html"><a href="data.html#appending-data"><i class="fa fa-check"></i><b>6.2.5</b> Appending data</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data.html"><a href="data.html#gs4_save"><i class="fa fa-check"></i><b>6.2.6</b> Saving data</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="data.html"><a href="data.html#gs4_save"><i class="fa fa-check"></i><b>6.3</b> Saving Googlesheet data</a></li>
-<li class="chapter" data-level="6.4" data-path="data.html"><a href="data.html#exercises-data"><i class="fa fa-check"></i><b>6.4</b> Exercises</a>
+<li class="chapter" data-level="6.3" data-path="data.html"><a href="data.html#exercises-data"><i class="fa fa-check"></i><b>6.3</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="data.html"><a href="data.html#read-others-data"><i class="fa fa-check"></i><b>6.4.1</b> Read others’ data</a></li>
-<li class="chapter" data-level="6.4.2" data-path="data.html"><a href="data.html#read-your-own-data"><i class="fa fa-check"></i><b>6.4.2</b> Read your own data</a></li>
-<li class="chapter" data-level="6.4.3" data-path="data.html"><a href="data.html#write-data"><i class="fa fa-check"></i><b>6.4.3</b> Write data</a></li>
+<li class="chapter" data-level="6.3.1" data-path="data.html"><a href="data.html#read-others-data"><i class="fa fa-check"></i><b>6.3.1</b> Read others’ data</a></li>
+<li class="chapter" data-level="6.3.2" data-path="data.html"><a href="data.html#read-your-own-data"><i class="fa fa-check"></i><b>6.3.2</b> Read your own data</a></li>
+<li class="chapter" data-level="6.3.3" data-path="data.html"><a href="data.html#write-data"><i class="fa fa-check"></i><b>6.3.3</b> Write data</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="data.html"><a href="data.html#your-app-data"><i class="fa fa-check"></i><b>6.5</b> Your App</a></li>
+<li class="chapter" data-level="6.4" data-path="data.html"><a href="data.html#your-app-data"><i class="fa fa-check"></i><b>6.4</b> Your App</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="web.html"><a href="web.html"><i class="fa fa-check"></i><b>7</b> HTML, CSS, and JavaScript</a>
 <ul>
@@ -508,7 +508,7 @@ You can test this by creating a simple app. If you have the shinyintro package, 
 <div id="in-an-r-package" class="section level2" number="11.4">
 <h2><span class="header-section-number">11.4</span> In an R package</h2>
 <p>You can put your app in a custom R package to make it even easier for people to run the app. The usethis package is incredibly helpful for setting up packages.</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="sharing.html#cb157-1" aria-hidden="true" tabindex="-1"></a>mypackagename <span class="ot">&lt;-</span> <span class="st">&quot;mypackagename&quot;</span>  <span class="co"># change this</span></span>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="sharing.html#cb157-1" aria-hidden="true" tabindex="-1"></a>mypackagename <span class="ot">&lt;-</span> <span class="st">&quot;mypackagename&quot;</span> <span class="co"># change this</span></span>
 <span id="cb157-2"><a href="sharing.html#cb157-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_package</span>(mypackagename)</span>
 <span id="cb157-3"><a href="sharing.html#cb157-3" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_ccby_license</span>()</span>
 <span id="cb157-4"><a href="sharing.html#cb157-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -529,18 +529,17 @@ You can test this by creating a simple app. If you have the shinyintro package, 
 <span id="cb158-6"><a href="sharing.html#cb158-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
 <span id="cb158-7"><a href="sharing.html#cb158-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
 <span id="cb158-8"><a href="sharing.html#cb158-8" aria-hidden="true" tabindex="-1"></a>app <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">name =</span> <span class="st">&quot;default_app&quot;</span>, ...) {</span>
-<span id="cb158-9"><a href="sharing.html#cb158-9" aria-hidden="true" tabindex="-1"></a>    appDir <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="fu">paste0</span>(<span class="st">&quot;apps/&quot;</span>, name), <span class="at">package =</span> <span class="st">&quot;mypackagename&quot;</span>)</span>
-<span id="cb158-10"><a href="sharing.html#cb158-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (appDir <span class="sc">==</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb158-11"><a href="sharing.html#cb158-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">stop</span>(<span class="st">&quot;The shiny app &quot;</span>, name, <span class="st">&quot; does not exist&quot;</span>)</span>
-<span id="cb158-12"><a href="sharing.html#cb158-12" aria-hidden="true" tabindex="-1"></a>    shiny<span class="sc">::</span><span class="fu">runApp</span>(appDir, ...)</span>
-<span id="cb158-13"><a href="sharing.html#cb158-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb158-9"><a href="sharing.html#cb158-9" aria-hidden="true" tabindex="-1"></a>  appDir <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="fu">paste0</span>(<span class="st">&quot;apps/&quot;</span>, name), <span class="at">package =</span> <span class="st">&quot;mypackagename&quot;</span>)</span>
+<span id="cb158-10"><a href="sharing.html#cb158-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (appDir <span class="sc">==</span> <span class="st">&quot;&quot;</span>) <span class="fu">stop</span>(<span class="st">&quot;The shiny app &quot;</span>, name, <span class="st">&quot; does not exist&quot;</span>)</span>
+<span id="cb158-11"><a href="sharing.html#cb158-11" aria-hidden="true" tabindex="-1"></a>  shiny<span class="sc">::</span><span class="fu">runApp</span>(appDir, ...)</span>
+<span id="cb158-12"><a href="sharing.html#cb158-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Next, open the <code class='path'>DESCRIPTION</code> file and edit the title, author and description. Now run the following code in the console.</p>
 <div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="sharing.html#cb159-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">document</span>()</span>
 <span id="cb159-2"><a href="sharing.html#cb159-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install</span>()</span></code></pre></div>
 <p>This will create the help documentation for your package function and install the package on your computer. You should now be able to run your app with <code><span class="fu">mypackagename::app</span>()</code>.</p>
 <p>Set up git and save your package to GitHub to share it with others:</p>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="sharing.html#cb160-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git</span>()</span>
-<span id="cb160-2"><a href="sharing.html#cb160-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_github</span>(<span class="at">protocol =</span> <span class="st">&quot;https&quot;</span>)</span></code></pre></div>
+<span id="cb160-2"><a href="sharing.html#cb160-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_github</span>(<span class="at">protocol=</span><span class="st">&quot;https&quot;</span>)</span></code></pre></div>
 <p>Once it’s uploaded to GitHub, other people can install it with the following code:</p>
 <div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="sharing.html#cb161-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;myaccountname/mypackagename&quot;</span>)</span></code></pre></div>
 </div>
@@ -724,8 +723,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/debruine/shinyintro/edit/main/book/11_sharing.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,

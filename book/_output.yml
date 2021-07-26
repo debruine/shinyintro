@@ -26,6 +26,7 @@ bookdown::gitbook:
       - ["shinyintro.pdf", "PDF"]
       - ["shinyintro.epub", "EPUB"]
       - ["shinyintro.mobi", "MOBI"]
+    edit: "https://github.com/debruine/shinyintro/edit/main/book/%s"
     fontsettings:
       theme: white
       family: sans
@@ -50,4 +51,5 @@ bookdown::epub_book:
   cover_image: images/shinyintro.png
   toc: true
   toc_depth: 2
+
 

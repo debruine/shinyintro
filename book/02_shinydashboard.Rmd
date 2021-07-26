@@ -6,7 +6,7 @@
 
 The `r pkg("shinyintro")` package provides a basic template for a shinydashboard `r glossary("project")`.
 
-```{r basic-template-app, eval=TRUE, echo=FALSE, fig.cap="Basic Template.App You can also access this app with `shinyintro::app(\"basic_template\")`or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/basic_template/){target=\"_blank\"}."}
+```{r basic-template-app, eval=TRUE, echo=FALSE, fig.cap="Basic Template.App You can also access this app with `shinyintro::app(\"basic_template\")`or view it in a [separate tab](https://shiny.psy.gla.ac.uk/debruine/basic_template/){target=\"_blank\"}."}
 if (is_html)
   knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/basic_template/",
 height = "400px")

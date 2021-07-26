@@ -10,27 +10,27 @@
 
   <meta property="og:title" content="9 Debugging and error handling | Building Web Apps with R Shiny" />
   <meta property="og:type" content="book" />
-  
-  
+  <meta property="og:url" content="https://debruine.github.io/shinyintro/" />
+  <meta property="og:image" content="https://debruine.github.io/shinyintro//images/shinyintro_card.png" />
   <meta property="og:description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
-  
+  <meta name="github-repo" content="debruine/shinyintro" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="9 Debugging and error handling | Building Web Apps with R Shiny" />
   
   <meta name="twitter:description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
-  
+  <meta name="twitter:image" content="https://debruine.github.io/shinyintro//images/shinyintro_card.png" />
 
 <meta name="author" content="Lisa DeBruine" />
 
 
-<meta name="date" content="2021-07-24" />
+<meta name="date" content="2021-07-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/touch-icon.png" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="structure.html"/>
 <link rel="next" href="contingency.html"/>
 <script src="libs/header-attrs-2.9.4/header-attrs.js"></script>
@@ -285,15 +285,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.3" data-path="data.html"><a href="data.html#make-a-new-sheet"><i class="fa fa-check"></i><b>6.2.3</b> Make a new sheet</a></li>
 <li class="chapter" data-level="6.2.4" data-path="data.html"><a href="data.html#add-data"><i class="fa fa-check"></i><b>6.2.4</b> Add data</a></li>
 <li class="chapter" data-level="6.2.5" data-path="data.html"><a href="data.html#appending-data"><i class="fa fa-check"></i><b>6.2.5</b> Appending data</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data.html"><a href="data.html#gs4_save"><i class="fa fa-check"></i><b>6.2.6</b> Saving data</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="data.html"><a href="data.html#gs4_save"><i class="fa fa-check"></i><b>6.3</b> Saving Googlesheet data</a></li>
-<li class="chapter" data-level="6.4" data-path="data.html"><a href="data.html#exercises-data"><i class="fa fa-check"></i><b>6.4</b> Exercises</a>
+<li class="chapter" data-level="6.3" data-path="data.html"><a href="data.html#exercises-data"><i class="fa fa-check"></i><b>6.3</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="data.html"><a href="data.html#read-others-data"><i class="fa fa-check"></i><b>6.4.1</b> Read others’ data</a></li>
-<li class="chapter" data-level="6.4.2" data-path="data.html"><a href="data.html#read-your-own-data"><i class="fa fa-check"></i><b>6.4.2</b> Read your own data</a></li>
-<li class="chapter" data-level="6.4.3" data-path="data.html"><a href="data.html#write-data"><i class="fa fa-check"></i><b>6.4.3</b> Write data</a></li>
+<li class="chapter" data-level="6.3.1" data-path="data.html"><a href="data.html#read-others-data"><i class="fa fa-check"></i><b>6.3.1</b> Read others’ data</a></li>
+<li class="chapter" data-level="6.3.2" data-path="data.html"><a href="data.html#read-your-own-data"><i class="fa fa-check"></i><b>6.3.2</b> Read your own data</a></li>
+<li class="chapter" data-level="6.3.3" data-path="data.html"><a href="data.html#write-data"><i class="fa fa-check"></i><b>6.3.3</b> Write data</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="data.html"><a href="data.html#your-app-data"><i class="fa fa-check"></i><b>6.5</b> Your App</a></li>
+<li class="chapter" data-level="6.4" data-path="data.html"><a href="data.html#your-app-data"><i class="fa fa-check"></i><b>6.4</b> Your App</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="web.html"><a href="web.html"><i class="fa fa-check"></i><b>7</b> HTML, CSS, and JavaScript</a>
 <ul>
@@ -464,21 +464,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">9.1</span> RStudio Console Messages</h2>
 <p>Sending messages to the <a class='glossary' target='_blank' title='The pane in RStudio where you can type in commands and view output messages.' href='https://psyteachr.github.io/glossary/c#console'>console</a> is a simple way to debug your code.</p>
 <p>I like to keep track of what functions are being called by starting every function inside the server function with a message. The template includes a custom message logging function that helps you use this with both development and deployed apps: <code><span class="fu">debug_msg</span>()</code>.</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="debugging.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="co"># display debugging messages in R (if local) and in the console log (if running</span></span>
-<span id="cb130-2"><a href="debugging.html#cb130-2" aria-hidden="true" tabindex="-1"></a><span class="co"># in shiny)</span></span>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="debugging.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="co"># display debugging messages in R (if local) </span></span>
+<span id="cb130-2"><a href="debugging.html#cb130-2" aria-hidden="true" tabindex="-1"></a><span class="co"># and in the console log (if running in shiny)</span></span>
 <span id="cb130-3"><a href="debugging.html#cb130-3" aria-hidden="true" tabindex="-1"></a>debug_msg <span class="ot">&lt;-</span> <span class="cf">function</span>(...) {</span>
-<span id="cb130-4"><a href="debugging.html#cb130-4" aria-hidden="true" tabindex="-1"></a>    is_local <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">&quot;SHINY_PORT&quot;</span>) <span class="sc">==</span> <span class="st">&quot;&quot;</span></span>
-<span id="cb130-5"><a href="debugging.html#cb130-5" aria-hidden="true" tabindex="-1"></a>    in_shiny <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.null</span>(shiny<span class="sc">::</span><span class="fu">getDefaultReactiveDomain</span>())</span>
-<span id="cb130-6"><a href="debugging.html#cb130-6" aria-hidden="true" tabindex="-1"></a>    txt <span class="ot">&lt;-</span> <span class="fu">toString</span>(<span class="fu">list</span>(...))</span>
-<span id="cb130-7"><a href="debugging.html#cb130-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (is_local)</span>
-<span id="cb130-8"><a href="debugging.html#cb130-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">message</span>(txt)</span>
-<span id="cb130-9"><a href="debugging.html#cb130-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (in_shiny)</span>
-<span id="cb130-10"><a href="debugging.html#cb130-10" aria-hidden="true" tabindex="-1"></a>        shinyjs<span class="sc">::</span><span class="fu">runjs</span>(<span class="fu">sprintf</span>(<span class="st">&quot;console.debug(</span><span class="sc">\&quot;</span><span class="st">%s</span><span class="sc">\&quot;</span><span class="st">)&quot;</span>, txt))</span>
-<span id="cb130-11"><a href="debugging.html#cb130-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb130-4"><a href="debugging.html#cb130-4" aria-hidden="true" tabindex="-1"></a>  is_local <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">&#39;SHINY_PORT&#39;</span>) <span class="sc">==</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb130-5"><a href="debugging.html#cb130-5" aria-hidden="true" tabindex="-1"></a>  in_shiny <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.null</span>(shiny<span class="sc">::</span><span class="fu">getDefaultReactiveDomain</span>())</span>
+<span id="cb130-6"><a href="debugging.html#cb130-6" aria-hidden="true" tabindex="-1"></a>  txt <span class="ot">&lt;-</span> <span class="fu">toString</span>(<span class="fu">list</span>(...))</span>
+<span id="cb130-7"><a href="debugging.html#cb130-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (is_local) <span class="fu">message</span>(txt)</span>
+<span id="cb130-8"><a href="debugging.html#cb130-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (in_shiny) shinyjs<span class="sc">::</span><span class="fu">runjs</span>(<span class="fu">sprintf</span>(<span class="st">&quot;console.debug(</span><span class="sc">\&quot;</span><span class="st">%s</span><span class="sc">\&quot;</span><span class="st">)&quot;</span>, txt))</span>
+<span id="cb130-9"><a href="debugging.html#cb130-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>For example, the code below prints “questionnaire submitted” every time the action button <code>q_submit</code> is pressed. It prints to the javascript console and also to the RStudio console when you’re developing.</p>
 <div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="debugging.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">observeEvent</span>(input<span class="sc">$</span>q_submit, {</span>
-<span id="cb131-2"><a href="debugging.html#cb131-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">debug_msg</span>(<span class="st">&quot;questionnaire submitted&quot;</span>)</span>
-<span id="cb131-3"><a href="debugging.html#cb131-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># rest of code ...</span></span>
+<span id="cb131-2"><a href="debugging.html#cb131-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">debug_msg</span>(<span class="st">&quot;questionnaire submitted&quot;</span>)</span>
+<span id="cb131-3"><a href="debugging.html#cb131-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># rest of code ...</span></span>
 <span id="cb131-4"><a href="debugging.html#cb131-4" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 </div>
 <div id="javascript-console" class="section level2" number="9.2">
@@ -518,17 +516,17 @@ Figure 9.2: Showcase mode.
 <pre><code>## Error in input$n1 + input$n2: non-numeric argument to binary operator</code></pre>
 <p>The following code tries to run the code inside the curly brackets (<code>{}</code>), but if it creates an error, the error function will run. The object <code>e</code> is the error object, and you can print the message from it using <code><span class="fu">debug_msg</span>()</code> (this won’t crash the app).</p>
 <div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="debugging.html#cb135-1" aria-hidden="true" tabindex="-1"></a>sum <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>({</span>
-<span id="cb135-2"><a href="debugging.html#cb135-2" aria-hidden="true" tabindex="-1"></a>    input<span class="sc">$</span>n1 <span class="sc">+</span> input<span class="sc">$</span>n2</span>
+<span id="cb135-2"><a href="debugging.html#cb135-2" aria-hidden="true" tabindex="-1"></a>  input<span class="sc">$</span>n1 <span class="sc">+</span> input<span class="sc">$</span>n2</span>
 <span id="cb135-3"><a href="debugging.html#cb135-3" aria-hidden="true" tabindex="-1"></a>}, <span class="at">error =</span> <span class="cf">function</span>(e) {</span>
-<span id="cb135-4"><a href="debugging.html#cb135-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">debug_msg</span>(e<span class="sc">$</span>message)</span>
-<span id="cb135-5"><a href="debugging.html#cb135-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="dv">0</span>)</span>
+<span id="cb135-4"><a href="debugging.html#cb135-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">debug_msg</span>(e<span class="sc">$</span>message)</span>
+<span id="cb135-5"><a href="debugging.html#cb135-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="dv">0</span>)</span>
 <span id="cb135-6"><a href="debugging.html#cb135-6" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <p>The return value from the error message is the value assigned to <code>sum</code> if there is an error. Sometimes it won’t make sense to have a default value, or the code you’re checking doesn’t have a return value. In that case, you can just put all the code inside the brackets and not return anything from the error function.</p>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="debugging.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tryCatch</span>({</span>
-<span id="cb136-2"><a href="debugging.html#cb136-2" aria-hidden="true" tabindex="-1"></a>    sum <span class="ot">&lt;-</span> input<span class="sc">$</span>n1 <span class="sc">+</span> input<span class="sc">$</span>n2</span>
-<span id="cb136-3"><a href="debugging.html#cb136-3" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>sum <span class="ot">&lt;-</span> <span class="fu">renderText</span>(sum)</span>
+<span id="cb136-2"><a href="debugging.html#cb136-2" aria-hidden="true" tabindex="-1"></a>  sum <span class="ot">&lt;-</span> input<span class="sc">$</span>n1 <span class="sc">+</span> input<span class="sc">$</span>n2</span>
+<span id="cb136-3"><a href="debugging.html#cb136-3" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>sum <span class="ot">&lt;-</span> <span class="fu">renderText</span>(sum)</span>
 <span id="cb136-4"><a href="debugging.html#cb136-4" aria-hidden="true" tabindex="-1"></a>}, <span class="at">error =</span> <span class="cf">function</span>(e) {</span>
-<span id="cb136-5"><a href="debugging.html#cb136-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">debug_msg</span>(e<span class="sc">$</span>message)</span>
+<span id="cb136-5"><a href="debugging.html#cb136-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">debug_msg</span>(e<span class="sc">$</span>message)</span>
 <span id="cb136-6"><a href="debugging.html#cb136-6" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 </div>
 <div id="input-checking" class="section level2" number="9.5">
@@ -538,36 +536,45 @@ Figure 9.2: Showcase mode.
 <h3><span class="header-section-number">9.5.1</span> Modal Dialogs</h3>
 <p>One method is to check your input values, generate an appropriate error message if anything is wrong, and show the message in a <code><span class="fu">modalDialog</span>()</code>.</p>
 <div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="debugging.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">observeEvent</span>(input<span class="sc">$</span>submit, {</span>
-<span id="cb137-2"><a href="debugging.html#cb137-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># check inputs</span></span>
-<span id="cb137-3"><a href="debugging.html#cb137-3" aria-hidden="true" tabindex="-1"></a>    input_error <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(<span class="sc">!</span><span class="fu">is.numeric</span>(input<span class="sc">$</span>n1) <span class="sc">~</span> <span class="st">&quot;N1 needs to be a number&quot;</span>,</span>
-<span id="cb137-4"><a href="debugging.html#cb137-4" aria-hidden="true" tabindex="-1"></a>        <span class="sc">!</span><span class="fu">is.numeric</span>(input<span class="sc">$</span>n2) <span class="sc">~</span> <span class="st">&quot;N2 needs to be a number&quot;</span>, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb137-5"><a href="debugging.html#cb137-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (input_error <span class="sc">!=</span> <span class="st">&quot;&quot;</span>) {</span>
-<span id="cb137-6"><a href="debugging.html#cb137-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">showModal</span>(<span class="fu">modalDialog</span>(<span class="at">title =</span> <span class="st">&quot;input_error&quot;</span>, input_error, <span class="at">easyClose =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb137-7"><a href="debugging.html#cb137-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>()  <span class="co"># exit the function here</span></span>
-<span id="cb137-8"><a href="debugging.html#cb137-8" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb137-9"><a href="debugging.html#cb137-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb137-10"><a href="debugging.html#cb137-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># no input errors</span></span>
-<span id="cb137-11"><a href="debugging.html#cb137-11" aria-hidden="true" tabindex="-1"></a>    sum <span class="ot">&lt;-</span> input<span class="sc">$</span>n1 <span class="sc">+</span> input<span class="sc">$</span>n2</span>
-<span id="cb137-12"><a href="debugging.html#cb137-12" aria-hidden="true" tabindex="-1"></a>    add_text <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">&quot;%d + %d = %d&quot;</span>, input<span class="sc">$</span>n1, input<span class="sc">$</span>n2, sum)</span>
-<span id="cb137-13"><a href="debugging.html#cb137-13" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>n1_plus_n2 <span class="ot">&lt;-</span> <span class="fu">renderText</span>(add_text)</span>
-<span id="cb137-14"><a href="debugging.html#cb137-14" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<span id="cb137-2"><a href="debugging.html#cb137-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># check inputs</span></span>
+<span id="cb137-3"><a href="debugging.html#cb137-3" aria-hidden="true" tabindex="-1"></a>  input_error <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
+<span id="cb137-4"><a href="debugging.html#cb137-4" aria-hidden="true" tabindex="-1"></a>    <span class="sc">!</span><span class="fu">is.numeric</span>(input<span class="sc">$</span>n1) <span class="sc">~</span> <span class="st">&quot;N1 needs to be a number&quot;</span>,</span>
+<span id="cb137-5"><a href="debugging.html#cb137-5" aria-hidden="true" tabindex="-1"></a>    <span class="sc">!</span><span class="fu">is.numeric</span>(input<span class="sc">$</span>n2) <span class="sc">~</span> <span class="st">&quot;N2 needs to be a number&quot;</span>,</span>
+<span id="cb137-6"><a href="debugging.html#cb137-6" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb137-7"><a href="debugging.html#cb137-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb137-8"><a href="debugging.html#cb137-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (input_error <span class="sc">!=</span> <span class="st">&quot;&quot;</span>) {</span>
+<span id="cb137-9"><a href="debugging.html#cb137-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">showModal</span>(<span class="fu">modalDialog</span>(</span>
+<span id="cb137-10"><a href="debugging.html#cb137-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&quot;input_error&quot;</span>,</span>
+<span id="cb137-11"><a href="debugging.html#cb137-11" aria-hidden="true" tabindex="-1"></a>      input_error,</span>
+<span id="cb137-12"><a href="debugging.html#cb137-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">easyClose =</span> <span class="cn">TRUE</span></span>
+<span id="cb137-13"><a href="debugging.html#cb137-13" aria-hidden="true" tabindex="-1"></a>    ))</span>
+<span id="cb137-14"><a href="debugging.html#cb137-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>() <span class="co"># exit the function here</span></span>
+<span id="cb137-15"><a href="debugging.html#cb137-15" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb137-16"><a href="debugging.html#cb137-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb137-17"><a href="debugging.html#cb137-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># no input errors</span></span>
+<span id="cb137-18"><a href="debugging.html#cb137-18" aria-hidden="true" tabindex="-1"></a>    sum <span class="ot">&lt;-</span> input<span class="sc">$</span>n1 <span class="sc">+</span> input<span class="sc">$</span>n2</span>
+<span id="cb137-19"><a href="debugging.html#cb137-19" aria-hidden="true" tabindex="-1"></a>    add_text <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">&quot;%d + %d = %d&quot;</span>, input<span class="sc">$</span>n1, input<span class="sc">$</span>n2, sum)</span>
+<span id="cb137-20"><a href="debugging.html#cb137-20" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>n1_plus_n2 <span class="ot">&lt;-</span> <span class="fu">renderText</span>(add_text)</span>
+<span id="cb137-21"><a href="debugging.html#cb137-21" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 </div>
 <div id="validate" class="section level3" number="9.5.2">
 <h3><span class="header-section-number">9.5.2</span> Validate</h3>
 <p>You can also use <code><span class="fu">validate</span>()</code> and <code><span class="fu">need</span>()</code> to test for required inputs to an output. However, this only works from inside a render function or a reactive function called inside a render function. I prefer to make my own pop-up messages like above, because they will work from any type of function.</p>
 <div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="debugging.html#cb138-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
-<span id="cb138-2"><a href="debugging.html#cb138-2" aria-hidden="true" tabindex="-1"></a>    add_text <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
-<span id="cb138-3"><a href="debugging.html#cb138-3" aria-hidden="true" tabindex="-1"></a>        input<span class="sc">$</span>add  <span class="co"># triggers reactive</span></span>
-<span id="cb138-4"><a href="debugging.html#cb138-4" aria-hidden="true" tabindex="-1"></a>        n1 <span class="ot">&lt;-</span> <span class="fu">isolate</span>(input<span class="sc">$</span>n1)</span>
-<span id="cb138-5"><a href="debugging.html#cb138-5" aria-hidden="true" tabindex="-1"></a>        n2 <span class="ot">&lt;-</span> <span class="fu">isolate</span>(input<span class="sc">$</span>n2)</span>
-<span id="cb138-6"><a href="debugging.html#cb138-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">validate</span>(<span class="fu">need</span>(<span class="sc">!</span><span class="fu">is.na</span>(n1), <span class="st">&quot;The first value must a number&quot;</span>), <span class="fu">need</span>(<span class="sc">!</span><span class="fu">is.na</span>(n2),</span>
-<span id="cb138-7"><a href="debugging.html#cb138-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;The second value must a number&quot;</span>))</span>
-<span id="cb138-8"><a href="debugging.html#cb138-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb138-9"><a href="debugging.html#cb138-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sprintf</span>(<span class="st">&quot;%d + %d = %d&quot;</span>, n1, n2, n1 <span class="sc">+</span> n2)</span>
-<span id="cb138-10"><a href="debugging.html#cb138-10" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb138-11"><a href="debugging.html#cb138-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb138-12"><a href="debugging.html#cb138-12" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>n1_plus_n2 <span class="ot">&lt;-</span> <span class="fu">renderText</span>(<span class="fu">add_text</span>())</span>
-<span id="cb138-13"><a href="debugging.html#cb138-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb138-2"><a href="debugging.html#cb138-2" aria-hidden="true" tabindex="-1"></a>  add_text <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb138-3"><a href="debugging.html#cb138-3" aria-hidden="true" tabindex="-1"></a>    input<span class="sc">$</span>add <span class="co"># triggers reactive</span></span>
+<span id="cb138-4"><a href="debugging.html#cb138-4" aria-hidden="true" tabindex="-1"></a>    n1 <span class="ot">&lt;-</span> <span class="fu">isolate</span>(input<span class="sc">$</span>n1)</span>
+<span id="cb138-5"><a href="debugging.html#cb138-5" aria-hidden="true" tabindex="-1"></a>    n2 <span class="ot">&lt;-</span> <span class="fu">isolate</span>(input<span class="sc">$</span>n2)</span>
+<span id="cb138-6"><a href="debugging.html#cb138-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">validate</span>(</span>
+<span id="cb138-7"><a href="debugging.html#cb138-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">need</span>(<span class="sc">!</span><span class="fu">is.na</span>(n1), <span class="st">&quot;The first value must a number&quot;</span>),</span>
+<span id="cb138-8"><a href="debugging.html#cb138-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">need</span>(<span class="sc">!</span><span class="fu">is.na</span>(n2), <span class="st">&quot;The second value must a number&quot;</span>)</span>
+<span id="cb138-9"><a href="debugging.html#cb138-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb138-10"><a href="debugging.html#cb138-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb138-11"><a href="debugging.html#cb138-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sprintf</span>(<span class="st">&quot;%d + %d = %d&quot;</span>, n1, n2, n1 <span class="sc">+</span> n2)</span>
+<span id="cb138-12"><a href="debugging.html#cb138-12" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb138-13"><a href="debugging.html#cb138-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-14"><a href="debugging.html#cb138-14" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>n1_plus_n2 <span class="ot">&lt;-</span> <span class="fu">renderText</span>(<span class="fu">add_text</span>())</span>
+<span id="cb138-15"><a href="debugging.html#cb138-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 </div>
 <div id="resources-debugging" class="section level2" number="9.6">
@@ -585,13 +592,13 @@ Figure 9.2: Showcase mode.
 <p>Write an app that creates the plot below for any checked values of a <code><span class="fu">checkboxGroupInput</span>()</code> that lists all the orders in <code>msleep</code>.</p>
 <div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="debugging.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this input is just an example for testing the code below</span></span>
 <span id="cb139-2"><a href="debugging.html#cb139-2" aria-hidden="true" tabindex="-1"></a>input <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">orders =</span> <span class="fu">c</span>(<span class="st">&quot;Carnivora&quot;</span>, <span class="st">&quot;Chiroptera&quot;</span>, <span class="st">&quot;Primates&quot;</span>))</span>
-<span id="cb139-3"><a href="debugging.html#cb139-3" aria-hidden="true" tabindex="-1"></a><span class="co"># input &lt;- list(orders = c()) # check this to see what happens with no</span></span>
-<span id="cb139-4"><a href="debugging.html#cb139-4" aria-hidden="true" tabindex="-1"></a><span class="co"># selections</span></span>
-<span id="cb139-5"><a href="debugging.html#cb139-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb139-6"><a href="debugging.html#cb139-6" aria-hidden="true" tabindex="-1"></a>filtered_data <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(msleep, order <span class="sc">%in%</span> input<span class="sc">$</span>orders)</span>
-<span id="cb139-7"><a href="debugging.html#cb139-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb139-8"><a href="debugging.html#cb139-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(filtered_data, <span class="fu">aes</span>(<span class="at">x =</span> sleep_total, <span class="at">fill =</span> order)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb139-9"><a href="debugging.html#cb139-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>order)</span></code></pre></div>
+<span id="cb139-3"><a href="debugging.html#cb139-3" aria-hidden="true" tabindex="-1"></a><span class="co"># input &lt;- list(orders = c()) # check this to see what happens with no selections</span></span>
+<span id="cb139-4"><a href="debugging.html#cb139-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb139-5"><a href="debugging.html#cb139-5" aria-hidden="true" tabindex="-1"></a>filtered_data <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(msleep, order <span class="sc">%in%</span> input<span class="sc">$</span>orders)</span>
+<span id="cb139-6"><a href="debugging.html#cb139-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb139-7"><a href="debugging.html#cb139-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(filtered_data, <span class="fu">aes</span>(<span class="at">x =</span> sleep_total, <span class="at">fill =</span> order)) <span class="sc">+</span></span>
+<span id="cb139-8"><a href="debugging.html#cb139-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb139-9"><a href="debugging.html#cb139-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>order)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-127-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>Add error checking to the app to deal with what happens when <code>input$order</code> has no selections.</p>
 </div>
@@ -751,8 +758,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/debruine/shinyintro/edit/main/book/09_debugging.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
