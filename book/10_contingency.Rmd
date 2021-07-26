@@ -235,10 +235,13 @@ mydata <- reactive({
 What happens when you unselect all the columns? How can you fix this?
 :::
 
+## Further Resources {#resources-contingency}
+
+* [Mastering Shiny: Packages: Dynamic UI](https://mastering-shiny.org/action-dynamic.html){target="_blank"}
 
 ## Exercises {#exercises-contingency}
 
-### Filtered data 
+### Filtered data  {-}
 
 Create an app where you use inputs to filter a dataset and display a table of the filtered dataset. For example, with the `msleep` dataset, you could have inputs that select `vore`, `order` and `conservation`. Since some values will exclude categories (e.g., there are no omnivores in the order Cetacea), update the available categories in each input when values are selected. Make sure you have a way to reset the values.
 

@@ -362,7 +362,7 @@ msleep %>%
 ```
 `r unhide()`
 
-### render
+### render {-}
 
 Use render functions to update the output table and caption whenever group or stat change.
 
@@ -383,7 +383,7 @@ server <- function(input, output, session) {
 `r unhide()`
 
 
-### reactive
+### reactive {-}
 
 Use `r func("reactive")` to update the output table and caption whenever group or stat change. Ignore the update button.
 
@@ -406,7 +406,7 @@ server <- function(input, output, session) {
 `r unhide()`
 
 
-### observeEvent
+### observeEvent {-}
 
 Use `r func("observeEvent")` to update the output table with the appropriate summary table and to update the caption with an appropriate caption only when the update button is clicked.
 
@@ -428,7 +428,7 @@ server <- function(input, output, session) {
 `r unhide()`
 
 
-### reactiveVal
+### reactiveVal {-}
 
 Use `r func("reactiveVal")` to update the output table and caption only when the update button is clicked.
 
@@ -457,7 +457,7 @@ server <- function(input, output, session) {
 `r unhide()`
 
 
-### reactiveValues
+### reactiveValues {-}
 
 Use `r func("reactiveValues")` to update the output table and caption only when the update button is clicked.
 
@@ -481,7 +481,7 @@ server <- function(input, output, session) {
 ```
 `r unhide()`
 
-### eventReactive
+### eventReactive {-}
 
 Use `r func("eventReactive")` to update the output table and caption only when the update button is clicked.
 

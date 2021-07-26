@@ -120,22 +120,27 @@ Once it's uploaded to GitHub, other people can install it with the following cod
 devtools::install_github("myaccountname/mypackagename")
 ```
 
+## Further Resources {#resources-sharing}
+
+* [Mastering Shiny: Packages](https://mastering-shiny.org/scaling-packaging.html){target="_blank"}
+* [Happy Git and GitHub for the useR](https://happygitwithr.com/){target="_blank"}
+
 
 ## Exercises {#exercises-sharing}
 
-### Shinyapps.io
+### Shinyapps.io {-}
 
 * Upload a cloned demo app to shinyapps.io
 * Check that you can access it online
 * Archive the app in the shinyapps.io dashboard
 
-### GitHub
+### GitHub {-}
 
 * Set up a GitHub account
 * Create a New Project in RStudio from version control using <https://github.com/debruine/demoapp>
 * Create a project that contains a demo app and upload it to GitHub. 
 
-### R Package
+### R Package {-}
 
 * Create an R package for a demo app and upload it to GitHub.
 

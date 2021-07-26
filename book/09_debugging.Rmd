@@ -155,7 +155,7 @@ server <- function(input, output) {
 
 ## Exercises {#exercises-debugging}
 
-### Required selections
+### Required selections {-}
 
 Write an app that creates the plot below for any checked values of a `r func("checkboxGroupInput")` that lists all the orders in `msleep`.
 
@@ -175,4 +175,6 @@ Add error checking to the app to deal with what happens when `input$order` has n
 
 ## Your App {#your-app-debugging}
 
-In the app you're developing, find anywhere that a user could enter invalid information or cause an error and add a way to handle this.
+In the app you're developing, add `r func("debug_msg")` messages to the start of any reactive functions. Run your app and look at the Rstudio  console and JavaScript console outputs.
+
+Find anywhere that a user could enter invalid information or cause an error and add a way to handle this.

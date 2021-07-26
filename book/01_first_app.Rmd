@@ -518,9 +518,9 @@ Compare the app behaviour with the first pattern versus the second. How are they
 
 ## Exercises {#exercises-first-app}
 
-### Addition App - UI
+### Addition App - UI  {-}
 
-Create the UI for following [addition app](https://shiny.psy.gla.ac.uk/debruine/add_demo/){target="_blank"}. Use `r func("numericInput")` to create the inputs.
+Create the UI for following app. Use `r func("numericInput")` to create the inputs.
 
 ```{r add-demo-app, eval=TRUE, echo=FALSE, fig.cap="Add Demo App. You can also access this app with `shinyintro::app(\"add_demo\")`or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/add_demo/){target=\"_blank\"}."}
 if (is_html)
@@ -544,7 +544,7 @@ ui <- fluidPage(titlePanel("Addition Demo"),
 
 `r unhide()`
 
-### observeEvent
+### observeEvent {-}
 
 Use `r func("observeEvent")` to write a server function that displays "n1 + n2 = sum" when you click the action button.
 
@@ -563,7 +563,7 @@ server <- function(input, output) {
 
 `r unhide()`
 
-### reactive
+### reactive {-}
 
 Use `r func("reactive")` to accomplish the same behaviour.
 

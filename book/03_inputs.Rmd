@@ -1,7 +1,5 @@
 # Inputs {#inputs}
 
-## Input functions
-
 Inputs are ways that users can communicate information to the Shiny app. Explore some different input types in the embedded app below before you read about how to set up each type.
 
 ```{r input-demo-app, eval = TRUE, echo=FALSE, fig.cap="Input Demo App. You can also access this app with `shinyintro::app(\"input_demo\")` or view it in a separate tab with the [showcase interface](https://shiny.psy.gla.ac.uk/debruine/input_demo/){target=\"_blank\"}."}
@@ -9,6 +7,8 @@ if (is_html)
   knitr::include_app("https://shiny.psy.gla.ac.uk/debruine/input_demo/",
   height = "625px")
 ```
+
+## Input functions
 
 ### textInput
 
@@ -193,14 +193,14 @@ updateDateInput(session, "demo_date", value = NULL)
 Note that select inputs, checkbox groups, and radio buttons use the argument `r arg("selected")` and not `r func("value")`. If you want to set all the values in a checkbox group or radio button group to unchecked, set `selected = character(0)`.
 :::
 
-## Further Reources {#resources-inputs}
+## Further Resources {#resources-inputs}
 
 * [Mastering Shiny Section 2.2](https://mastering-shiny.org/basic-ui.html#inputs){target="_blank"}
 * [RStudio Shiny Tutorials](https://vimeo.com/rstudioinc/review/131218530/212d8a5a7a/#t=10m41s){target="_blank"}
 
 ## Exercises {#exercises-inputs}
 
-### Pets
+### Pets {-}
 
 Create an interface that gets people to rate the following pets on a 9-point scale. You can use any option labels or input type you like.
 

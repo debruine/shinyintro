@@ -255,6 +255,7 @@ The javaScript function `Shiny.setInputValue(input_id, value)` is a way for you 
 * [Using Custom CSS in your App](https://shiny.rstudio.com/articles/css.html){target="_blank"}
 * [CSS Selectors Reference](https://www.w3schools.com/cssref/css_selectors.asp){target="_blank"}
 * [Packaging JavaScript Code for Shiny](https://shiny.rstudio.com/articles/packaging-javascript.html){target="_blank"}
+* [Communicating with Shiny via JavaScript](https://shiny.rstudio.com/articles/communicating-with-js.html){target="_blank"}
 * [W3 Schools jQuery Tutorial](https://www.w3schools.com/jquERy/default.asp){target="_blank"}
 * [Codeacademy interactive tutorials](https://www.codecademy.com/en/tracks/htmlcss){target="_blank"}
 
@@ -262,7 +263,7 @@ The javaScript function `Shiny.setInputValue(input_id, value)` is a way for you 
 
 Clone the basic template for these exercises.
 
-### Add HTML
+### Add HTML {-}
 
 Add the following HTML before the image in `demo_tab` using ``r func("HTML")`:
 
@@ -286,7 +287,7 @@ demo_tab <- tabItem(
 ```
 `r unhide()`
 
-### Class HTML
+### Class HTML {-}
 
 Add an unordered list under the paragraph that contains the following text and links:
 
@@ -311,7 +312,7 @@ demo_tab <- tabItem(
 ```
 `r unhide()`
 
-### Style links
+### Style links {-}
 
 Change the style of all the links to make them `hotpink`. Use the inline CSS method. As a bonus, change the colour of links when you hover over them, too.
 
@@ -324,7 +325,7 @@ tags$head(
 ```
 `r unhide()`
 
-### Style a single link directly
+### Style a single link directly {-}
 
 Change the style of just the first link in the list to make it `green`. 
 
@@ -337,7 +338,7 @@ tags$ul(
 ```
 `r unhide()`
 
-### External CSS
+### External CSS {-}
 
 Change the style of just the links inside paragraphs with the `r arg("class")` `r dt("help")` to have an underline. Use external CSS.
 

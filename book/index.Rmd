@@ -116,11 +116,11 @@ Each lecture session will conclude with a hands-on exercise reviewing the conten
 * [Shiny modules for repeated structures](#modules)
 
 
-## Computing
+### Computing
 
 To participate in the hands-on exercises, you are strongly encouraged to use a computer with the most recent version of [R installed](https://www.r-project.org/){target="_blank"}. Participants are also encouraged to download and install [RStudio](https://www.rstudio.com/products/rstudio/download/){target="_blank"}, a front-end for R that makes it easier to work with. This software is free and available for Windows, Mac, and Linux platforms.
 
-## Who Should Register?
+### Who Should Register?
 
 You need to have basic familiarity with R, including data import, `r glossary("data wrangling", "data processing")`, visualization, and `r glossary("function", "functions")` and control structures (e.g., if/else). Instruction will be done using `r glossary("RStudio")`. Some familiarity with ggplot2 and dplyr would be useful. You definitely do not need to be an expert coder, but the following code should not be challenging to understand.
 
@@ -184,11 +184,9 @@ shinyApp(ui = ui, server = server)
 ```
 
 
-
-
 ## Further Resources
 
-There are a lot of great resources online to reinforce or continue your learning about Shiny.
+There are a lot of great resources online to reinforce or continue your learning about Shiny. I advise going back to learning materials periodically because things that don't make sense the first (or second or third...) time around often click after you've had some experience.
 
 * [Mastering Shiny](https://mastering-shiny.org/){target="_blank"}
 * [RStudio Shiny Tutorials](https://shiny.rstudio.com/tutorial/){target="_blank"}

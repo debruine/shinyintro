@@ -140,10 +140,15 @@ tabPanelServer("mtcars", data = mtcars, group_by = "vs")
 
 Our example only reduced our code by 4 lines, but it can save a lot of time, effort, and debugging on projects with many similar modules. For example, if you want to change the plots in your app to use a different geom, now you only have to change one function instead of two.
 
+## Further Resources {#resources-modules}
+
+* [Mastering Shiny: Modules](https://mastering-shiny.org/scaling-modules.html){target="_blank"}
+* [Modularizing Shiny app code](https://shiny.rstudio.com/articles/modules.html){target="_blank"}
+* [How to use Shiny Modules](https://www.rstudio.com/resources/shiny-dev-con/modules/){target="_blank"} (video)
 
 ## Exercises {#exercises-modules}
 
-### Repeat Example
+### Repeat Example {-}
 
 Try to implement the code above on your own.
 
@@ -152,7 +157,7 @@ Try to implement the code above on your own.
 * Create the UI module function and use it to replace `iris_tab` and `mtcars_tab`
 * Create the server function and use it to replace the server functions
 
-### New Instance
+### New Instance {-}
 
 Add a new tab called "diamonds" that visualises the `diamonds` dataset. Choose the columns you want as choices in the `r func("selectInput")` and the grouping column.
 
@@ -174,7 +179,7 @@ tabPanelServer("diamonds", data = diamonds, group_by = "cut")
 ```
 `r unhide()`
 
-### Altering modules
+### Altering modules {-}
 
 * Add another `r func("selectInput")` to the UI that allows the user to select the grouping variable. (`iris` only has one possibility, but `mtcars` and `diamonds` should have several)
 
@@ -216,7 +221,7 @@ tabPanelServer <- function(id, data) {
 ```
 `r unhide()`
 
-### New module
+### New module {-}
 
 There is a `r func("fluidRow")` before the `r func("tabsetPanel")` in the ui that contains three `r func("infoBoxOutput")` and three `r func("renderInfoBoxOutput")` functions in the server function.
 

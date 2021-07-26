@@ -193,10 +193,17 @@ Setting the `r arg("envir")` argument to `r func("new.env")` makes sure that set
 On your own computer, you don't need to set `intermediates_dir = tempdir()`, but you will need to do this if you want to deploy your app on a shiny server. When rmarkdown renders an Rmd file, it creates several intermediate files in the working directory and then deletes them. you have permission to write to the app's working directory on your own computer, but might not on a shiny server. `r func("tempdir")` is almost always a safe place to write temporary files to.
 :::
 
+## Further Resources {#resources-reports}
+
+* [Mastering Shiny: Uploads and Downloads](https://mastering-shiny.org/action-transfer.html){target="_blank"}
+* [R Markdown](https://rmarkdown.rstudio.com/){target="_blank"}
+* [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/){target="_blank"}
+
+
 
 ## Exercises {#exercises-reports}
 
-### Food Data
+### Food Data {-}
 
 Create a button that downloads the food data.
 
@@ -218,7 +225,7 @@ output$food_data_dl <- downloadHandler(
 ```
 `r unhide()`
 
-### Food Image
+### Food Image {-}
 
 Create a button that downloads the food summary plot
 
@@ -255,7 +262,7 @@ output$food_plot_dl <- downloadHandler(
 ```
 `r unhide()`
 
-### Food Report
+### Food Report {-}
 
 Create a downloadable report for the food data.
 

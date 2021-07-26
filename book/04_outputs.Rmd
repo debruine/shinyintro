@@ -182,11 +182,11 @@ The function `r func("htmlOutput")` is a synonym for `r func("uiOutput")`, so yo
 
 ## Exercises {#exercises-outputs}
 
-### Modify the demo
+### Modify the demo {-}
 
 Clone the "output_demo" app and modify it to use a different dataset.
 
-### Pets
+### Pets {-}
 
 Add outputs and appropriate render functions to show a plot and the data from the pets questionnaire you made for the exercise in Section\ \@ref(inputs).
 

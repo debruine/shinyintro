@@ -208,7 +208,7 @@ The demo app "radiotables" has a custom function `r func("gs4_write_csv")` defin
 
 ## Exercises {#exercises-data}
 
-### Read others' data
+### Read others' data {-}
 
 Read in data from the public google sheet at <https://docs.google.com/spreadsheets/d/1QjpRZPNOOL0pfRO6IVT5WiafnyNdahsch1A03iHdv7s/>. Find the sheet ID and figure out which sheet has data on US states (assign this to the object `states`) and which has data on Eutherian mammals (assign this to `mammals`).
 
@@ -228,7 +228,7 @@ mammals <- read_sheet(sheet_id, 2)
 `r unhide()`
 
 
-### Read your own data
+### Read your own data {-}
 
 Create a google sheet online and read its contents in R. You will need to either make it public first (click on the green Share icon in the upper right) or authorise googlesheets to access your account.
 
@@ -240,7 +240,7 @@ mydata <- read_sheet(my_sheet_url)
 ```
 `r unhide()`
 
-### Write data
+### Write data {-}
 
 Append some data to your google sheet.
 

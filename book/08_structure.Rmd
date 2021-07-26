@@ -158,11 +158,11 @@ select_box <- do.call(box, select_inputs)
 
 ## Exercises {#exercises-structure}
 
-### UI 
+### UI {-}
 
 Clone the reactive_demo, move the boxes in the ui to an external file, and source them in.
 
-### Server
+### Server {-}
 
 Make a custom function in `r path("scripts/func.R")` that creates the plot. Use that in `r func("server")`.
 
