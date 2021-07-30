@@ -16,7 +16,7 @@ theme_set(theme_minimal(base_size = 16)) # ggplot theme
 source("scripts/quest_vars.R") # questionnaire Q&A lists
 source("scripts/func.R") # helper functions
 source("scripts/radio_table.R") # radio button tables
-source("scripts/gs4.R") # save data using googlesheets
+#source("scripts/gs4.R") # save data using googlesheets
 
 # checks if you're using googlesheets
 USING_GS4 <- "googlesheets4" %in% (.packages()) && gs4_has_token()
@@ -57,6 +57,7 @@ ui <- dashboardPage(
             tags$script(src = "radio-table.js"),
             tags$script(src = "custom.js")
         ),
+        fileInput("myfile", "Upload", multiple = TRUE),
         tabItems(
             pet_tab,
             food_tab,
@@ -71,6 +72,12 @@ server <- function(input, output, session) {
     ## set up reactives ----
     v <- reactiveValues()
     v$small_screen <- FALSE
+    
+    observe({
+        req(input$myfile)
+        browser()
+    })
+        
     
     ## window resize function ----
     observeEvent(input$window_width, {
@@ -132,7 +139,11 @@ server <- function(input, output, session) {
         },
         content = function(file) {
             data <- as.list(v$pet_summary_data)
-            gs4_write_csv(data, file)
+            if (USING_GS4) {
+                gs4_write_csv(data, file)
+            } else {
+                readr::write_csv(data, file)
+            }
         }
     )
     
@@ -206,7 +217,12 @@ server <- function(input, output, session) {
             paste0("food-data_", Sys.Date(), ".csv")
         },
         content = function(file) {
-            gs4_write_csv(v$food_summary_data, file)
+            data <- v$food_summary_data
+            if (USING_GS4) {
+                gs4_write_csv(data, file)
+            } else {
+                readr::write_csv(data, file)
+            }
         }
     )
     

@@ -1,9 +1,9 @@
 message("initialising googlesheets")
 
 # set variables ----
-email <- "debruine@gmail.com"
-SHEET_ID <- "1jAU_dRpBdmkf9gHC2oS2hUIE9tRKVlPITN91TmiD7Vk"
-sheet_name <- "questionnaire-demo3"
+email <- NULL # "debruine@gmail.com"
+SHEET_ID <- NULL # "1jAU_dRpBdmkf9gHC2oS2hUIE9tRKVlPITN91TmiD7Vk"
+sheet_name <- "change-me"
 sheet_tabs <- c("food", "pet")
 
 # load packages ----

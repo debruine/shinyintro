@@ -259,7 +259,7 @@ if (input$display_var == "eruptions") {
 The double-equal-signs `==` means "equivalent to and is how you check if two things are the same; if you only use one equal sign, you set the variable on the left to the value on the right.
 :::
 
-Then we have to edit `r arg("ggplot")` to use the new label and to plot the correct column. The variable `input$display_var` gives you the user-input value of the widget called `"display_var"`.
+Then we have to edit `r func("ggplot")` to use the new label and to plot the correct column. The variable `input$display_var` gives you the user-input value of the widget called `"display_var"`.
 
 ```{r plot-switch2}
 # create plot
@@ -272,7 +272,7 @@ ggplot(faithful, aes(.data[[input$display_var]])) +
 ```
 
 ::: {.warning data-latex=""}
-Notice that the code `aes(waiting)` from before has changed to `aes(.data[[input$display_var]])`. Because `input$display_var` is a `r glossary("string")`, we have to select it from the `.data` placeholder (which refers to the `faithful` data table) using double brackets.
+Notice that the code `r func("aes", "waiting")` from before has changed to `r func("aes", ".data[[input$display_var]]")`. Because `input$display_var` is a `r glossary("string")`, we have to select it from the `.data` placeholder (which refers to the `faithful` data table) using double brackets.
 :::
 
 Re-run your app and see if you can change the data and x-axis label with your new widget. 
@@ -298,7 +298,7 @@ library(shiny)
 ui <- fluidPage()
 
 # Define server logic ----
-server <- function(input, output) {}
+server <- function(input, output, session) {}
 
 # Run the application ----
 shinyApp(ui = ui, server = server)
