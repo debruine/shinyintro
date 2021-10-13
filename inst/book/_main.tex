@@ -109,6 +109,8 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+
 \usepackage{tcolorbox}
 \usepackage[T1]{fontenc}
 
@@ -152,11 +154,11 @@
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage[]{natbib}
-\bibliographystyle{apalike}
+\bibliographystyle{plainnat}
 
 \title{Building Web Apps with R Shiny}
 \author{Lisa DeBruine}
-\date{2021-07-26}
+\date{2021-10-13}
 
 \begin{document}
 \maketitle
@@ -732,7 +734,7 @@ The double-equal-signs \texttt{==} means "equivalent to and is how you check if 
 
 \end{warning}
 
-Then we have to edit \AttributeTok{ggplot} to use the new label and to plot the correct column. The variable \texttt{input\$display\_var} gives you the user-input value of the widget called \texttt{"display\_var"}.
+Then we have to edit \texttt{ggplot}\texttt{()} to use the new label and to plot the correct column. The variable \texttt{input\$display\_var} gives you the user-input value of the widget called \texttt{"display\_var"}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -747,7 +749,7 @@ Then we have to edit \AttributeTok{ggplot} to use the new label and to plot the 
 \end{Shaded}
 
 \begin{warning}
-Notice that the code \texttt{aes(waiting)} from before has changed to \texttt{aes(.data{[}{[}input\$display\_var{]}{]})}. Because \texttt{input\$display\_var} is a string, we have to select it from the \texttt{.data} placeholder (which refers to the \texttt{faithful} data table) using double brackets.
+Notice that the code \texttt{aes}\texttt{(waiting)} from before has changed to \texttt{aes}\texttt{(.data[[input\$display\_var]])}. Because \texttt{input\$display\_var} is a string, we have to select it from the \texttt{.data} placeholder (which refers to the \texttt{faithful} data table) using double brackets.
 
 \end{warning}
 
@@ -769,7 +771,7 @@ A shiny app is made of two main parts, a UI, which defines what the user interfa
 \NormalTok{ui }\OtherTok{\textless{}{-}} \FunctionTok{fluidPage}\NormalTok{()}
 
 \CommentTok{\# Define server logic {-}{-}{-}{-}}
-\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output) \{\}}
+\NormalTok{server }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(input, output, session) \{\}}
 
 \CommentTok{\# Run the application {-}{-}{-}{-}}
 \FunctionTok{shinyApp}\NormalTok{(}\AttributeTok{ui =}\NormalTok{ ui, }\AttributeTok{server =}\NormalTok{ server)}
@@ -816,7 +818,7 @@ For example, the code below displays:
 \NormalTok{          tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Cooking"}\NormalTok{)),}
   \FunctionTok{p}\NormalTok{(}\StringTok{"This is a very basic demo."}\NormalTok{),}
 \NormalTok{  tags}\SpecialCharTok{$}\FunctionTok{img}\NormalTok{(}
-    \AttributeTok{src =} \StringTok{"https://debruine.github.io/shinyintro/images/shinyintro.png"}\NormalTok{,}
+    \AttributeTok{src =} \StringTok{"https://debruine.github.io/shinyintro/images/logos/shinyintro.png"}\NormalTok{,}
     \AttributeTok{width =} \StringTok{"100px"}\NormalTok{,}
     \AttributeTok{height =} \StringTok{"100px"}
 \NormalTok{  )}
@@ -846,7 +848,7 @@ You usually want your apps to have a more complex layout than just each element 
 \NormalTok{                          tags}\SpecialCharTok{$}\FunctionTok{li}\NormalTok{(}\StringTok{"Cooking"}\NormalTok{)),}
                   \FunctionTok{p}\NormalTok{(}\StringTok{"This is a very basic demo."}\NormalTok{),}
 \NormalTok{                  tags}\SpecialCharTok{$}\FunctionTok{img}\NormalTok{(}
-                    \AttributeTok{src =} \StringTok{"https://debruine.github.io/shinyintro/images/shinyintro.png"}\NormalTok{,}
+                    \AttributeTok{src =} \StringTok{"https://debruine.github.io/shinyintro/images/logos/shinyintro.png"}\NormalTok{,}
                     \AttributeTok{width =} \StringTok{"100px"}\NormalTok{,}
                     \AttributeTok{height =} \StringTok{"100px"}
 \NormalTok{                  )}
@@ -873,7 +875,7 @@ You can use a \texttt{sidebarLayout}\texttt{()} to arrange your elements into a 
                 \FunctionTok{mainPanel}\NormalTok{(}
                   \FunctionTok{p}\NormalTok{(}\StringTok{"This is a very basic demo."}\NormalTok{),}
 \NormalTok{                  tags}\SpecialCharTok{$}\FunctionTok{img}\NormalTok{(}
-                    \AttributeTok{src =} \StringTok{"https://debruine.github.io/shinyintro/images/shinyintro.png"}\NormalTok{,}
+                    \AttributeTok{src =} \StringTok{"https://debruine.github.io/shinyintro/images/logos/shinyintro.png"}\NormalTok{,}
                     \AttributeTok{width =} \StringTok{"100px"}\NormalTok{,}
                     \AttributeTok{height =} \StringTok{"100px"}
 \NormalTok{                  )}
@@ -1567,7 +1569,7 @@ Experiment with the values of \AttributeTok{label}, \AttributeTok{value}, \Attri
 \end{Shaded}
 
 What is the \AttributeTok{inputId} of the widget above?
-textAreaInput demo\_textarea Biography
+textAreaInputdemo\_textareaBiography
 
 \hypertarget{selectinput}{%
 \subsection{selectInput}\label{selectinput}}
@@ -1625,7 +1627,7 @@ However, this interface almost always looks better with \texttt{checkboxGroupInp
 \end{Shaded}
 
 How can you get the checkboxes to display horizontally instead of vertically?\\
-display = 'horizontal' class = 'horiz' inline = TRUE class = 'shiny-input-container-inline'
+display = `horizontal'class = `horiz'inline = TRUEclass = `shiny-input-container-inline'
 
 \hypertarget{checkboxinput}{%
 \subsection{checkboxInput}\label{checkboxinput}}
@@ -1701,7 +1703,7 @@ IMHO, the default of \StringTok{"yyyy-mm-dd"} is the best because it sorts into 
 \end{info}
 
 What would you set \AttributeTok{format} to in order to display dates like ``Sunday July 4, 2021''?\\
-D M d, Y DD MM d, yyyy DAY MONTH day, YEAR D MM dd, yyyy
+D M d, YDD MM d, yyyyDAY MONTH day, YEARD MM dd, yyyy
 
 \hypertarget{fileinput}{%
 \subsection{fileInput}\label{fileinput}}
@@ -1719,7 +1721,7 @@ Users can upload one or more files with \texttt{fileInput}\texttt{()}. The argum
 \end{Shaded}
 
 What would you set \AttributeTok{accept} to to accept any image file?\\
-image/* .jpg jpg images .img
+image/*.jpgjpgimages.img
 
 \hypertarget{setting-inputs-programatically}{%
 \section{Setting inputs programatically}\label{setting-inputs-programatically}}
@@ -1851,9 +1853,9 @@ If you use \texttt{verbatimTextOutput}\texttt{()} in the UI (no change to the re
 \end{Shaded}
 
 What is the default value for \AttributeTok{width}?\\
-100\% 400px 400 5in 7in\\
+100\%400px4005in7in\\
 What is the default value for \AttributeTok{height}?\\
-100\% 400px 400 5in 7in
+100\%400px4005in7in
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2092,10 +2094,10 @@ Functions that render an output, like \texttt{renderText}\texttt{()} or \texttt{
 \end{Shaded}
 
 In the example above, which inputs will trigger \texttt{renderPlot}\texttt{()} to run and produce a new plot?\\
-cut color clarity update cut, color \& clarity all of the above
+cutcolorclarityupdatecut, color \& clarityall of the above
 
 Which inputs will trigger \texttt{renderText}\texttt{()} to run and produce a new title?\\
-cut color clarity update cut, color \& clarity all of the above
+cutcolorclarityupdatecut, color \& clarityall of the above
 
 \hypertarget{reactive-1}{%
 \section{reactive()}\label{reactive-1}}
@@ -2133,10 +2135,10 @@ However, we can put the data filtering inside \texttt{reactive}\texttt{()}. This
 \end{Shaded}
 
 In the example above, which inputs will trigger \texttt{renderPlot}\texttt{()} to run and produce a new plot?\\
-cut color clarity update cut, color \& clarity all of the above
+cutcolorclarityupdatecut, color \& clarityall of the above
 
 Which inputs will trigger \texttt{renderText}\texttt{()} to run and produce a new title?\\
-cut color clarity update cut, color \& clarity all of the above
+cutcolorclarityupdatecut, color \& clarityall of the above
 
 \begin{warning}
 My most common error is trying to use \texttt{data} or \texttt{title} as an object instead of as a function. Notice how the first argument to ggplot is no longer \texttt{data}, but \texttt{data}\texttt{()} and you set the value of data with \texttt{data(newdata)}, not \texttt{data\ \textless{}-\ newdata}. For now, just remember this as a quirk of shiny.
@@ -2178,11 +2180,11 @@ We learned about \texttt{observeEvent}\texttt{()} in Section~\ref{first-reactive
 
 In the example above, which inputs will trigger \texttt{renderPlot}\texttt{()} to run and produce a new plot?
 
-cut color clarity update cut, color \& clarity all of the above
+cutcolorclarityupdatecut, color \& clarityall of the above
 
 In the example above, which inputs will trigger \texttt{renderText}\texttt{()} to run and produce a new title?
 
-cut color clarity update cut, color \& clarity all of the above
+cutcolorclarityupdatecut, color \& clarityall of the above
 
 \begin{warning}
 You should avoid creating reactive functions inside other functions like I did above. That is because those functions \emph{will} be triggered by changes to any reactive inputs inside them. It doesn't make a difference in this example because the render functions don't have any reactive values in them, but this can cause huge problems in more complex apps.
@@ -2231,10 +2233,10 @@ Because \texttt{data}\texttt{()} returns a reactive value, it will trigger \text
 \end{Shaded}
 
 In the example above, which inputs will trigger \texttt{renderPlot}\texttt{()} to run and produce a new plot?\\
-cut color clarity update cut, color \& clarity all of the above
+cutcolorclarityupdatecut, color \& clarityall of the above
 
 Which inputs will trigger \texttt{renderText}\texttt{()} to run and produce a new title?\\
-cut color clarity update cut, color \& clarity all of the above
+cutcolorclarityupdatecut, color \& clarityall of the above
 
 \begin{info}
 We used \texttt{data\ \textless{}-\ reactiveVal(diamonds)} in order for \texttt{data}\texttt{()} to have a value that didn't cause an error when \texttt{renderPlot}\texttt{()} runs for the first time.
@@ -2280,10 +2282,10 @@ You can just set your new object to \texttt{reactiveValues}\texttt{()} or you ca
 \end{Shaded}
 
 In the example above, which inputs will trigger \texttt{renderPlot}\texttt{()} to run and produce a new plot?\\
-cut color clarity update cut, color \& clarity all of the above
+cutcolorclarityupdatecut, color \& clarityall of the above
 
 Which inputs will trigger \texttt{renderText}\texttt{()} to run and produce a new title?\\
-cut color clarity update cut, color \& clarity all of the above
+cutcolorclarityupdatecut, color \& clarityall of the above
 
 \begin{warning}
 Note that you refer to reactive values set up this way as \texttt{v\$data} and \texttt{v\$title}, not \texttt{data}\texttt{()} and \texttt{title}\texttt{()}, as set them \texttt{v\$data\ \textless{}-\ newdata}, not \texttt{v\$data(newdata)}.
@@ -2325,11 +2327,11 @@ While \texttt{reactive}\texttt{()} is triggered whenever any input values inside
 
 In the example above, which inputs will trigger \texttt{renderPlot}\texttt{()} to run and produce a new plot?
 
-cut color clarity update cut, color \& clarity all of the above
+cutcolorclarityupdatecut, color \& clarityall of the above
 
 Which inputs will trigger \texttt{renderText}\texttt{()} to run and produce a new title?
 
-cut color clarity update cut, color \& clarity all of the above
+cutcolorclarityupdatecut, color \& clarityall of the above
 
 \hypertarget{isolate}{%
 \section{isolate()}\label{isolate}}
@@ -2372,10 +2374,10 @@ If you want to use an input or reactive value inside a reactive function, but do
 \end{Shaded}
 
 In the example above, which inputs will trigger \texttt{renderPlot}\texttt{()} to run and produce a new plot?\\
-cut color clarity update cut, color \& clarity all of the above
+cutcolorclarityupdatecut, color \& clarityall of the above
 
 Which inputs will trigger \texttt{renderText}\texttt{()} to run and produce a new title?\\
-cut color clarity update cut, color \& clarity all of the above
+cutcolorclarityupdatecut, color \& clarityall of the above
 
 \hypertarget{resources-reactive}{%
 \section{Further Resources}\label{resources-reactive}}
@@ -2660,11 +2662,11 @@ However, even if a Google Sheet is publicly editable, you can't add data to it w
 
 \begin{verbatim}
 ## Error: Client error: (401) UNAUTHENTICATED
-## * Request not authenticated due to missing, invalid, or
-##   expired OAuth token.
-## * Request is missing required authentication credential.
-##   Expected OAuth 2 access token, login cookie or other
-##   valid authentication credential. See
+## * Request not authenticated due to missing, invalid, or expired OAuth
+##   token.
+## * Request is missing required authentication credential. Expected
+##   OAuth 2 access token, login cookie or other valid authentication
+##   credential. See
 ##   https://developers.google.com/identity/sign-in/web/devconsole-project.
 \end{verbatim}
 
@@ -2759,7 +2761,7 @@ You can set up a new Google Sheet with code. You only need to do this once for a
 
 \begin{verbatim}
 ## Spreadsheet name: demo2
-##               ID: 1pEkoveruK27whl721bgITdPuiM-oBvN2D-FMhmVy6Wo
+##               ID: 1wCJ4IcpgQSbzPAMUesrHBhpwPRxzRBcOcfG4WrAVEcs
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -4132,8 +4134,6 @@ Check for places in your app that could use contingency.
 \hypertarget{shinyapps.io}{%
 \section{shinyapps.io}\label{shinyapps.io}}
 
-\includegraphics{images/saio_connect.png}
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
@@ -4153,7 +4153,7 @@ Check for places in your app that could use contingency.
   Add a token
 \item
   Click \textbf{\texttt{Show}} next to the token and copy the text to the clipboard
-  \includegraphics{images/saio_secret.png}
+  \includegraphics[width=1\textwidth,height=\textheight]{images/saio_secret.png}
 \item
   Go back to RStudio and paste the text in the box and click \textbf{\texttt{Connect\ Account}}
 \item
@@ -4167,8 +4167,6 @@ Check for places in your app that could use contingency.
 \NormalTok{shinyintro}\SpecialCharTok{::}\FunctionTok{clone}\NormalTok{(}\StringTok{"input\_demo"}\NormalTok{, }\StringTok{"mytestapp"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
-
-\includegraphics{images/saio_publish.png}
 
 Open the \textit{\texttt{app.R}} file and go to \textbf{\texttt{File\ \textgreater{}\ Publish...}} in the menu (or click on the blue icon in the upper right corner of the source pane). Make sure these are the right files for your app, edit the title if you want, and click \textbf{\texttt{Publish}}. A web browser window will open after a few seconds showing your app online! You can now share it with your friends and colleagues.
 
@@ -4884,15 +4882,15 @@ You need to add a new \texttt{selectInput}\texttt{()} to the \texttt{tabPanel}\t
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{tabPanelUI }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(id, choices, group\_choices) \{}
-\NormalTok{   ns }\OtherTok{\textless{}{-}} \FunctionTok{NS}\NormalTok{(id)}
-   
-   \FunctionTok{tabPanel}\NormalTok{(}
-\NormalTok{       id,}
-       \FunctionTok{selectInput}\NormalTok{(}\FunctionTok{ns}\NormalTok{(}\StringTok{"dv"}\NormalTok{), }\StringTok{"DV"}\NormalTok{, }\AttributeTok{choices =}\NormalTok{ choices),}
-       \FunctionTok{selectInput}\NormalTok{(}\FunctionTok{ns}\NormalTok{(}\StringTok{"group\_by"}\NormalTok{), }\StringTok{"Group By"}\NormalTok{, }\AttributeTok{choices =}\NormalTok{ group\_choices),}
-       \FunctionTok{plotOutput}\NormalTok{(}\FunctionTok{ns}\NormalTok{(}\StringTok{"plot"}\NormalTok{)),}
-\NormalTok{       DT}\SpecialCharTok{::}\FunctionTok{dataTableOutput}\NormalTok{(}\FunctionTok{ns}\NormalTok{(}\StringTok{"table"}\NormalTok{))}
-\NormalTok{   )}
+\NormalTok{    ns }\OtherTok{\textless{}{-}} \FunctionTok{NS}\NormalTok{(id)}
+    
+    \FunctionTok{tabPanel}\NormalTok{(}
+\NormalTok{        id,}
+        \FunctionTok{selectInput}\NormalTok{(}\FunctionTok{ns}\NormalTok{(}\StringTok{"dv"}\NormalTok{), }\StringTok{"DV"}\NormalTok{, }\AttributeTok{choices =}\NormalTok{ choices),}
+        \FunctionTok{selectInput}\NormalTok{(}\FunctionTok{ns}\NormalTok{(}\StringTok{"group\_by"}\NormalTok{), }\StringTok{"Group By"}\NormalTok{, }\AttributeTok{choices =}\NormalTok{ group\_choices),}
+        \FunctionTok{plotOutput}\NormalTok{(}\FunctionTok{ns}\NormalTok{(}\StringTok{"plot"}\NormalTok{)),}
+\NormalTok{        DT}\SpecialCharTok{::}\FunctionTok{dataTableOutput}\NormalTok{(}\FunctionTok{ns}\NormalTok{(}\StringTok{"table"}\NormalTok{))}
+\NormalTok{    )}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -5021,25 +5019,7 @@ There are a few settings you should fix immediately after updating RStudio. Go t
 
 You may also want to change the appearance of your code. Different fonts and themes can sometimes help with visual difficulties or {[}dyslexia{]}((\url{https://datacarpentry.org/blog/2017/09/coding-and-dyslexia})\{target="\_blank"\}. I prefer a dark background and the FiraCode font for my own coding, but I will use the default theme for screenshots in this book.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.45\linewidth]{images/rstudio_settings_general} \includegraphics[width=0.45\linewidth]{images/rstudio_settings_appearance} 
-
-}
-
-\caption{My RStudio General and Appearance settings}\label{fig:settings-general}
-\end{figure}
-
 You may also want to change the settings in the Code tab. I prefer two spaces instead of tabs for my code and I like to be able to see the whitespace characters. But these are all a matter of personal preference.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.45\linewidth]{images/rstudio_settings_code_editing} \includegraphics[width=0.45\linewidth]{images/rstudio_settings_code_display} 
-
-}
-
-\caption{My RStudio Code settings}\label{fig:settings-code}
-\end{figure}
 
 \hypertarget{installing-shinyintro-1}{%
 \subsection{Installing shinyintro}\label{installing-shinyintro-1}}
@@ -5133,11 +5113,11 @@ attribute-html & Extra information about an HTML element\\
 \hline
 base-r & The set of R functions that come with a basic installation of R, before you add external packages\\
 \hline
-cache-web & In a web browser, external files like CSS, JavaScript, and images are usually cached so that they don’t have to be repeatedly downloaded.\\
+cache-web & In a web browser, external files like CSS, JavaScript, and images are usually cached so that they don\&\#39;t have to be repeatedly downloaded.\\
 \hline
 character & A data type representing strings of text.\\
 \hline
-commit & The action of storing a new snapshot of a project’s state in the git history.\\
+commit & The action of storing a new snapshot of a project\&\#39;s state in the git history.\\
 \hline
 console & The pane in RStudio where you can type in commands and view output messages.\\
 \hline
@@ -5147,7 +5127,7 @@ data-type & The kind of data represented by an object.\\
 \hline
 data-wrangling & The process of preparing data for visualisation and statistical analysis.\\
 \hline
-directory & A collection or “folder” of files on a computer.\\
+directory & A collection or "folder" of files on a computer.\\
 \hline
 double & A data type representing a real decimal number\\
 \hline
@@ -5181,7 +5161,7 @@ package & A group of R functions.\\
 \hline
 pandoc & A universal document convertor, used by R to make PDF or Word documents from R Markdown\\
 \hline
-panes & RStudio is arranged with four window “panes.”\\
+panes & RStudio is arranged with four window "panes".\\
 \hline
 project & A way to organise related files in RStudio\\
 \hline
@@ -5205,7 +5185,7 @@ tidyverse & A set of R packages that help you create and work with tidy data\\
 \hline
 ui & The User Interface. This usually refers to a Shiny App as the user will see it.\\
 \hline
-vector & A type of data structure that is basically a list of things like T/F values, numbers, or strings.\\
+vector & A type of data structure that collects values with the same data type, like T/F values, numbers, or strings.\\
 \hline
 version-control & A way to save a record of changes to your files.\\
 \hline

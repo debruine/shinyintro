@@ -4,3 +4,7 @@
 ^book$
 ^docs$
 ^stuff$
+^_render.R$
+^CITATION$
+^LICENSE.md$
+^README.Rmd$

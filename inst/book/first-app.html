@@ -1,552 +1,173 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>1 Your First Shiny App | Building Web Apps with R Shiny</title>
+<meta name="author" content="Lisa DeBruine">
+<meta name="description" content="1.1 The Demo App To start, let's walk through the basics of setting up a shiny app, starting with the example built into RStudio. I won't explain yet how shiny apps are structured; the goal is to...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="1 Your First Shiny App | Building Web Apps with R Shiny">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://debruine.github.io/shinyintro/first-app.html">
+<meta property="og:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png">
+<meta property="og:description" content="1.1 The Demo App To start, let's walk through the basics of setting up a shiny app, starting with the example built into RStudio. I won't explain yet how shiny apps are structured; the goal is to...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1 Your First Shiny App | Building Web Apps with R Shiny">
+<meta name="twitter:description" content="1.1 The Demo App To start, let's walk through the basics of setting up a shiny app, starting with the example built into RStudio. I won't explain yet how shiny apps are structured; the goal is to...">
+<meta name="twitter:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 Your First Shiny App | Building Web Apps with R Shiny</title>
-  <meta name="description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
-
-  <meta property="og:title" content="1 Your First Shiny App | Building Web Apps with R Shiny" />
-  <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://debruine.github.io/shinyintro/" />
-  <meta property="og:image" content="https://debruine.github.io/shinyintro//images/shinyintro_card.png" />
-  <meta property="og:description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
-  <meta name="github-repo" content="debruine/shinyintro" />
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 Your First Shiny App | Building Web Apps with R Shiny" />
-  
-  <meta name="twitter:description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
-  <meta name="twitter:image" content="https://debruine.github.io/shinyintro//images/shinyintro_card.png" />
-
-<meta name="author" content="Lisa DeBruine" />
-
-
-<meta name="date" content="2021-07-26" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/touch-icon.png" />
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="index.html"/>
-<link rel="next" href="shinydashboard.html"/>
-<script src="libs/header-attrs-2.9.4/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
-
-
-
-
-
-
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<meta property="og:title" content="ShinyIntro">
-<meta property="og:description" content="1 Your First Shiny App | Building Web Apps with R Shiny">
-<meta property="og:image" content="https://debruine.github.io/shinyintro/images/shinyintro_card.png">
-<meta property="og:url" content="https://debruine.github.io/shinyintro/">
-<meta property="twitter:card" content="summary_large_image">
-
-<link rel="shortcut icon" href="https://debruine.github.io/shinyintro/images/shinyintro.png">
-
-
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
-
-
-<link rel="stylesheet" href="include/psyteachr.css" type="text/css" />
-<link rel="stylesheet" href="include/webex.css" type="text/css" />
-<link rel="stylesheet" href="include/style.css" type="text/css" />
+      gtag('config', 'G-6NP3MF25W3');
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="include/psyteachr.css">
+<link rel="stylesheet" href="include/webex.css">
+<link rel="stylesheet" href="include/style.css">
 </head>
+<body data-spy="scroll" data-target="#toc">
 
-<body>
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
-
-
-  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
-
-    <div class="book-summary">
-      <nav role="navigation">
-
-<ul class="summary">
-<li><a href="./">Building Web Apps with R Shiny</a></li>
-<li><a href="https://zenodo.org/badge/latestdoi/166559207"><img src="https://zenodo.org/badge/166559207.svg" alt="DOI"></a></li>
-
-<li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
-<ul>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#installing-shinyintro"><i class="fa fa-check"></i><b>0.1</b> Installing shinyintro</a></li>
-<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#example-apps"><i class="fa fa-check"></i><b>0.2</b> Example Apps</a></li>
-<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#code-horizons-course-27-30-july-2021"><i class="fa fa-check"></i><b>0.3</b> Code Horizons Course (27-30 July 2021)</a>
-<ul>
-<li class="chapter" data-level="0.3.1" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i><b>0.3.1</b> Schedule</a></li>
-<li class="chapter" data-level="0.3.2" data-path="index.html"><a href="index.html#computing"><i class="fa fa-check"></i><b>0.3.2</b> Computing</a></li>
-<li class="chapter" data-level="0.3.3" data-path="index.html"><a href="index.html#who-should-register"><i class="fa fa-check"></i><b>0.3.3</b> Who Should Register?</a></li>
-</ul></li>
-<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#conventions"><i class="fa fa-check"></i><b>0.4</b> Conventions</a></li>
-<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#further-resources"><i class="fa fa-check"></i><b>0.5</b> Further Resources</a></li>
-</ul></li>
-<li class="chapter" data-level="1" data-path="first-app.html"><a href="first-app.html"><i class="fa fa-check"></i><b>1</b> Your First Shiny App</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="first-app.html"><a href="first-app.html#the-demo-app"><i class="fa fa-check"></i><b>1.1</b> The Demo App</a>
-<ul>
-<li class="chapter" data-level="1.1.1" data-path="first-app.html"><a href="first-app.html#set-up-the-demo-app"><i class="fa fa-check"></i><b>1.1.1</b> Set Up the Demo App</a></li>
-<li class="chapter" data-level="1.1.2" data-path="first-app.html"><a href="first-app.html#modify-the-demo-app"><i class="fa fa-check"></i><b>1.1.2</b> Modify the Demo App</a></li>
-<li class="chapter" data-level="1.1.3" data-path="first-app.html"><a href="first-app.html#add-new-things"><i class="fa fa-check"></i><b>1.1.3</b> Add New Things</a></li>
-</ul></li>
-<li class="chapter" data-level="1.2" data-path="first-app.html"><a href="first-app.html#app-structure"><i class="fa fa-check"></i><b>1.2</b> App Structure</a>
-<ul>
-<li class="chapter" data-level="1.2.1" data-path="first-app.html"><a href="first-app.html#ui"><i class="fa fa-check"></i><b>1.2.1</b> UI</a></li>
-<li class="chapter" data-level="1.2.2" data-path="first-app.html"><a href="first-app.html#tags"><i class="fa fa-check"></i><b>1.2.2</b> Tags</a></li>
-<li class="chapter" data-level="1.2.3" data-path="first-app.html"><a href="first-app.html#page-layout"><i class="fa fa-check"></i><b>1.2.3</b> Page Layout</a></li>
-</ul></li>
-<li class="chapter" data-level="1.3" data-path="first-app.html"><a href="first-app.html#dynamic-elements"><i class="fa fa-check"></i><b>1.3</b> Dynamic Elements</a>
-<ul>
-<li class="chapter" data-level="1.3.1" data-path="first-app.html"><a href="first-app.html#inputs-intro"><i class="fa fa-check"></i><b>1.3.1</b> Inputs</a></li>
-<li class="chapter" data-level="1.3.2" data-path="first-app.html"><a href="first-app.html#outputs-intro"><i class="fa fa-check"></i><b>1.3.2</b> Outputs</a></li>
-<li class="chapter" data-level="1.3.3" data-path="first-app.html"><a href="first-app.html#action-buttons"><i class="fa fa-check"></i><b>1.3.3</b> Action buttons</a></li>
-</ul></li>
-<li class="chapter" data-level="1.4" data-path="first-app.html"><a href="first-app.html#first-reactive"><i class="fa fa-check"></i><b>1.4</b> Reactive functions</a></li>
-<li class="chapter" data-level="1.5" data-path="first-app.html"><a href="first-app.html#resources-first-app"><i class="fa fa-check"></i><b>1.5</b> Further Resources</a></li>
-<li class="chapter" data-level="1.6" data-path="first-app.html"><a href="first-app.html#exercises-first-app"><i class="fa fa-check"></i><b>1.6</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="first-app.html"><a href="first-app.html#addition-app---ui"><i class="fa fa-check"></i>Addition App - UI</a></li>
-<li class="chapter" data-level="" data-path="first-app.html"><a href="first-app.html#observeevent"><i class="fa fa-check"></i>observeEvent</a></li>
-<li class="chapter" data-level="" data-path="first-app.html"><a href="first-app.html#reactive"><i class="fa fa-check"></i>reactive</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="shinydashboard.html"><a href="shinydashboard.html"><i class="fa fa-check"></i><b>2</b> ShinyDashboard</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="shinydashboard.html"><a href="shinydashboard.html#basic-template-for-shinydashboard-projects"><i class="fa fa-check"></i><b>2.1</b> Basic template for shinydashboard projects</a></li>
-<li class="chapter" data-level="2.2" data-path="shinydashboard.html"><a href="shinydashboard.html#dashboard-structure"><i class="fa fa-check"></i><b>2.2</b> Dashboard Structure</a>
-<ul>
-<li class="chapter" data-level="2.2.1" data-path="shinydashboard.html"><a href="shinydashboard.html#dashboardheader"><i class="fa fa-check"></i><b>2.2.1</b> dashboardHeader</a></li>
-<li class="chapter" data-level="2.2.2" data-path="shinydashboard.html"><a href="shinydashboard.html#dashboardsidebar"><i class="fa fa-check"></i><b>2.2.2</b> dashboardSidebar</a></li>
-<li class="chapter" data-level="2.2.3" data-path="shinydashboard.html"><a href="shinydashboard.html#dashboardbody"><i class="fa fa-check"></i><b>2.2.3</b> dashboardBody</a></li>
-</ul></li>
-<li class="chapter" data-level="2.3" data-path="shinydashboard.html"><a href="shinydashboard.html#body-structure"><i class="fa fa-check"></i><b>2.3</b> Body Structure</a>
-<ul>
-<li class="chapter" data-level="2.3.1" data-path="shinydashboard.html"><a href="shinydashboard.html#boxes"><i class="fa fa-check"></i><b>2.3.1</b> Boxes</a></li>
-<li class="chapter" data-level="2.3.2" data-path="shinydashboard.html"><a href="shinydashboard.html#info-and-value-boxes"><i class="fa fa-check"></i><b>2.3.2</b> Info and Value Boxes</a></li>
-<li class="chapter" data-level="2.3.3" data-path="shinydashboard.html"><a href="shinydashboard.html#tab-boxes"><i class="fa fa-check"></i><b>2.3.3</b> Tab Boxes</a></li>
-<li class="chapter" data-level="2.3.4" data-path="shinydashboard.html"><a href="shinydashboard.html#row-layout"><i class="fa fa-check"></i><b>2.3.4</b> Row Layout</a></li>
-<li class="chapter" data-level="2.3.5" data-path="shinydashboard.html"><a href="shinydashboard.html#column-layout"><i class="fa fa-check"></i><b>2.3.5</b> Column Layout</a></li>
-</ul></li>
-<li class="chapter" data-level="2.4" data-path="shinydashboard.html"><a href="shinydashboard.html#resources-shinydashboard"><i class="fa fa-check"></i><b>2.4</b> Further Resources</a></li>
-<li class="chapter" data-level="2.5" data-path="shinydashboard.html"><a href="shinydashboard.html#your-app-sdb"><i class="fa fa-check"></i><b>2.5</b> Your App</a>
-<ul>
-<li class="chapter" data-level="2.5.1" data-path="shinydashboard.html"><a href="shinydashboard.html#create-an-app-from-the-basic-template"><i class="fa fa-check"></i><b>2.5.1</b> Create an app from the basic template</a></li>
-<li class="chapter" data-level="2.5.2" data-path="shinydashboard.html"><a href="shinydashboard.html#customize-the-header"><i class="fa fa-check"></i><b>2.5.2</b> Customize the header</a></li>
-<li class="chapter" data-level="2.5.3" data-path="shinydashboard.html"><a href="shinydashboard.html#customize-the-sidebar"><i class="fa fa-check"></i><b>2.5.3</b> Customize the sidebar</a></li>
-<li class="chapter" data-level="2.5.4" data-path="shinydashboard.html"><a href="shinydashboard.html#customize-the-body"><i class="fa fa-check"></i><b>2.5.4</b> Customize the body</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="inputs.html"><a href="inputs.html"><i class="fa fa-check"></i><b>3</b> Inputs</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="inputs.html"><a href="inputs.html#input-functions"><i class="fa fa-check"></i><b>3.1</b> Input functions</a>
-<ul>
-<li class="chapter" data-level="3.1.1" data-path="inputs.html"><a href="inputs.html#textinput"><i class="fa fa-check"></i><b>3.1.1</b> textInput</a></li>
-<li class="chapter" data-level="3.1.2" data-path="inputs.html"><a href="inputs.html#textareainput"><i class="fa fa-check"></i><b>3.1.2</b> textAreaInput</a></li>
-<li class="chapter" data-level="3.1.3" data-path="inputs.html"><a href="inputs.html#selectinput"><i class="fa fa-check"></i><b>3.1.3</b> selectInput</a></li>
-<li class="chapter" data-level="3.1.4" data-path="inputs.html"><a href="inputs.html#checkboxgroupinput"><i class="fa fa-check"></i><b>3.1.4</b> checkboxGroupInput</a></li>
-<li class="chapter" data-level="3.1.5" data-path="inputs.html"><a href="inputs.html#checkboxinput"><i class="fa fa-check"></i><b>3.1.5</b> checkboxInput</a></li>
-<li class="chapter" data-level="3.1.6" data-path="inputs.html"><a href="inputs.html#radiobuttons"><i class="fa fa-check"></i><b>3.1.6</b> radioButtons</a></li>
-<li class="chapter" data-level="3.1.7" data-path="inputs.html"><a href="inputs.html#dateinput"><i class="fa fa-check"></i><b>3.1.7</b> dateInput</a></li>
-<li class="chapter" data-level="3.1.8" data-path="inputs.html"><a href="inputs.html#fileinput"><i class="fa fa-check"></i><b>3.1.8</b> fileInput</a></li>
-</ul></li>
-<li class="chapter" data-level="3.2" data-path="inputs.html"><a href="inputs.html#setting-inputs-programatically"><i class="fa fa-check"></i><b>3.2</b> Setting inputs programatically</a></li>
-<li class="chapter" data-level="3.3" data-path="inputs.html"><a href="inputs.html#resources-inputs"><i class="fa fa-check"></i><b>3.3</b> Further Resources</a></li>
-<li class="chapter" data-level="3.4" data-path="inputs.html"><a href="inputs.html#exercises-inputs"><i class="fa fa-check"></i><b>3.4</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="inputs.html"><a href="inputs.html#pets"><i class="fa fa-check"></i>Pets</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="inputs.html"><a href="inputs.html#your-app-inputs"><i class="fa fa-check"></i><b>3.5</b> Your App</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="outputs.html"><a href="outputs.html"><i class="fa fa-check"></i><b>4</b> Outputs</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="outputs.html"><a href="outputs.html#text"><i class="fa fa-check"></i><b>4.1</b> Text</a></li>
-<li class="chapter" data-level="4.2" data-path="outputs.html"><a href="outputs.html#plots"><i class="fa fa-check"></i><b>4.2</b> Plots</a></li>
-<li class="chapter" data-level="4.3" data-path="outputs.html"><a href="outputs.html#images"><i class="fa fa-check"></i><b>4.3</b> Images</a></li>
-<li class="chapter" data-level="4.4" data-path="outputs.html"><a href="outputs.html#tables"><i class="fa fa-check"></i><b>4.4</b> Tables</a>
-<ul>
-<li class="chapter" data-level="4.4.1" data-path="outputs.html"><a href="outputs.html#data-tables"><i class="fa fa-check"></i><b>4.4.1</b> Data Tables</a></li>
-</ul></li>
-<li class="chapter" data-level="4.5" data-path="outputs.html"><a href="outputs.html#dynamic-html"><i class="fa fa-check"></i><b>4.5</b> Dynamic HTML</a></li>
-<li class="chapter" data-level="4.6" data-path="outputs.html"><a href="outputs.html#reosurces-outputs"><i class="fa fa-check"></i><b>4.6</b> Further Resources</a></li>
-<li class="chapter" data-level="4.7" data-path="outputs.html"><a href="outputs.html#exercises-outputs"><i class="fa fa-check"></i><b>4.7</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="outputs.html"><a href="outputs.html#modify-the-demo"><i class="fa fa-check"></i>Modify the demo</a></li>
-<li class="chapter" data-level="" data-path="outputs.html"><a href="outputs.html#pets-1"><i class="fa fa-check"></i>Pets</a></li>
-</ul></li>
-<li class="chapter" data-level="4.8" data-path="outputs.html"><a href="outputs.html#your-app-outputs"><i class="fa fa-check"></i><b>4.8</b> Your App</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="reactives.html"><a href="reactives.html"><i class="fa fa-check"></i><b>5</b> Reactive functions</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="reactives.html"><a href="reactives.html#render-functions"><i class="fa fa-check"></i><b>5.1</b> Render functions</a></li>
-<li class="chapter" data-level="5.2" data-path="reactives.html"><a href="reactives.html#reactive-1"><i class="fa fa-check"></i><b>5.2</b> reactive()</a></li>
-<li class="chapter" data-level="5.3" data-path="reactives.html"><a href="reactives.html#observeevent-1"><i class="fa fa-check"></i><b>5.3</b> observeEvent()</a></li>
-<li class="chapter" data-level="5.4" data-path="reactives.html"><a href="reactives.html#reactiveval"><i class="fa fa-check"></i><b>5.4</b> reactiveVal()</a></li>
-<li class="chapter" data-level="5.5" data-path="reactives.html"><a href="reactives.html#reactivevalue"><i class="fa fa-check"></i><b>5.5</b> reactiveValue()</a></li>
-<li class="chapter" data-level="5.6" data-path="reactives.html"><a href="reactives.html#eventreactive"><i class="fa fa-check"></i><b>5.6</b> eventReactive()</a></li>
-<li class="chapter" data-level="5.7" data-path="reactives.html"><a href="reactives.html#isolate"><i class="fa fa-check"></i><b>5.7</b> isolate()</a></li>
-<li class="chapter" data-level="5.8" data-path="reactives.html"><a href="reactives.html#resources-reactive"><i class="fa fa-check"></i><b>5.8</b> Further Resources</a></li>
-<li class="chapter" data-level="5.9" data-path="reactives.html"><a href="reactives.html#exercises-reactive"><i class="fa fa-check"></i><b>5.9</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="reactives.html"><a href="reactives.html#render"><i class="fa fa-check"></i>render</a></li>
-<li class="chapter" data-level="" data-path="reactives.html"><a href="reactives.html#reactive-2"><i class="fa fa-check"></i>reactive</a></li>
-<li class="chapter" data-level="" data-path="reactives.html"><a href="reactives.html#observeevent-2"><i class="fa fa-check"></i>observeEvent</a></li>
-<li class="chapter" data-level="" data-path="reactives.html"><a href="reactives.html#reactiveval-1"><i class="fa fa-check"></i>reactiveVal</a></li>
-<li class="chapter" data-level="" data-path="reactives.html"><a href="reactives.html#reactivevalues"><i class="fa fa-check"></i>reactiveValues</a></li>
-<li class="chapter" data-level="" data-path="reactives.html"><a href="reactives.html#eventreactive-1"><i class="fa fa-check"></i>eventReactive</a></li>
-</ul></li>
-<li class="chapter" data-level="5.10" data-path="reactives.html"><a href="reactives.html#your-app-reactive"><i class="fa fa-check"></i><b>5.10</b> Your App</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>6</b> Reading and saving data</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="data.html"><a href="data.html#local-data"><i class="fa fa-check"></i><b>6.1</b> Local Data</a></li>
-<li class="chapter" data-level="6.2" data-path="data.html"><a href="data.html#google_sheets"><i class="fa fa-check"></i><b>6.2</b> Google Sheets</a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="data.html"><a href="data.html#authorisation-for-apps"><i class="fa fa-check"></i><b>6.2.1</b> Authorisation for Apps</a></li>
-<li class="chapter" data-level="6.2.2" data-path="data.html"><a href="data.html#accessing-an-existing-sheet"><i class="fa fa-check"></i><b>6.2.2</b> Accessing an existing sheet</a></li>
-<li class="chapter" data-level="6.2.3" data-path="data.html"><a href="data.html#make-a-new-sheet"><i class="fa fa-check"></i><b>6.2.3</b> Make a new sheet</a></li>
-<li class="chapter" data-level="6.2.4" data-path="data.html"><a href="data.html#add-data"><i class="fa fa-check"></i><b>6.2.4</b> Add data</a></li>
-<li class="chapter" data-level="6.2.5" data-path="data.html"><a href="data.html#appending-data"><i class="fa fa-check"></i><b>6.2.5</b> Appending data</a></li>
-<li class="chapter" data-level="6.2.6" data-path="data.html"><a href="data.html#gs4_save"><i class="fa fa-check"></i><b>6.2.6</b> Saving data</a></li>
-</ul></li>
-<li class="chapter" data-level="6.3" data-path="data.html"><a href="data.html#exercises-data"><i class="fa fa-check"></i><b>6.3</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="data.html"><a href="data.html#read-others-data"><i class="fa fa-check"></i>Read others’ data</a></li>
-<li class="chapter" data-level="" data-path="data.html"><a href="data.html#read-your-own-data"><i class="fa fa-check"></i>Read your own data</a></li>
-<li class="chapter" data-level="" data-path="data.html"><a href="data.html#write-data"><i class="fa fa-check"></i>Write data</a></li>
-</ul></li>
-<li class="chapter" data-level="6.4" data-path="data.html"><a href="data.html#your-app-data"><i class="fa fa-check"></i><b>6.4</b> Your App</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="web.html"><a href="web.html"><i class="fa fa-check"></i><b>7</b> HTML, CSS, and JavaScript</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="web.html"><a href="web.html#html"><i class="fa fa-check"></i><b>7.1</b> HTML</a>
-<ul>
-<li class="chapter" data-level="7.1.1" data-path="web.html"><a href="web.html#html-tags"><i class="fa fa-check"></i><b>7.1.1</b> HTML Tags</a></li>
-<li class="chapter" data-level="7.1.2" data-path="web.html"><a href="web.html#viewing-html"><i class="fa fa-check"></i><b>7.1.2</b> Viewing HTML</a></li>
-</ul></li>
-<li class="chapter" data-level="7.2" data-path="web.html"><a href="web.html#CSS"><i class="fa fa-check"></i><b>7.2</b> CSS</a>
-<ul>
-<li class="chapter" data-level="7.2.1" data-path="web.html"><a href="web.html#css-basics"><i class="fa fa-check"></i><b>7.2.1</b> CSS Basics</a></li>
-<li class="chapter" data-level="7.2.2" data-path="web.html"><a href="web.html#styling-a-single-element"><i class="fa fa-check"></i><b>7.2.2</b> Styling a single element</a></li>
-<li class="chapter" data-level="7.2.3" data-path="web.html"><a href="web.html#inline-css"><i class="fa fa-check"></i><b>7.2.3</b> Inline CSS</a></li>
-<li class="chapter" data-level="7.2.4" data-path="web.html"><a href="web.html#external-css"><i class="fa fa-check"></i><b>7.2.4</b> External CSS</a></li>
-</ul></li>
-<li class="chapter" data-level="7.3" data-path="web.html"><a href="web.html#JavaScript"><i class="fa fa-check"></i><b>7.3</b> JavaScript</a>
-<ul>
-<li class="chapter" data-level="7.3.1" data-path="web.html"><a href="web.html#shinyjs"><i class="fa fa-check"></i><b>7.3.1</b> shinyjs</a></li>
-<li class="chapter" data-level="7.3.2" data-path="web.html"><a href="web.html#external-js"><i class="fa fa-check"></i><b>7.3.2</b> External JS</a></li>
-</ul></li>
-<li class="chapter" data-level="7.4" data-path="web.html"><a href="web.html#resources-web"><i class="fa fa-check"></i><b>7.4</b> Further Resources</a></li>
-<li class="chapter" data-level="7.5" data-path="web.html"><a href="web.html#exercises-web"><i class="fa fa-check"></i><b>7.5</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="web.html"><a href="web.html#add-html"><i class="fa fa-check"></i>Add HTML</a></li>
-<li class="chapter" data-level="" data-path="web.html"><a href="web.html#class-html"><i class="fa fa-check"></i>Class HTML</a></li>
-<li class="chapter" data-level="" data-path="web.html"><a href="web.html#style-links"><i class="fa fa-check"></i>Style links</a></li>
-<li class="chapter" data-level="" data-path="web.html"><a href="web.html#style-a-single-link-directly"><i class="fa fa-check"></i>Style a single link directly</a></li>
-<li class="chapter" data-level="" data-path="web.html"><a href="web.html#external-css-1"><i class="fa fa-check"></i>External CSS</a></li>
-</ul></li>
-<li class="chapter" data-level="7.6" data-path="web.html"><a href="web.html#your-app-web"><i class="fa fa-check"></i><b>7.6</b> Your App</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="structure.html"><a href="structure.html"><i class="fa fa-check"></i><b>8</b> Structuring a complex app</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="structure.html"><a href="structure.html#external-server-functions"><i class="fa fa-check"></i><b>8.1</b> External Server Functions</a>
-<ul>
-<li class="chapter" data-level="8.1.1" data-path="structure.html"><a href="structure.html#sourcing-locally"><i class="fa fa-check"></i><b>8.1.1</b> Sourcing Locally</a></li>
-<li class="chapter" data-level="8.1.2" data-path="structure.html"><a href="structure.html#inputs-and-outputs"><i class="fa fa-check"></i><b>8.1.2</b> Inputs and Outputs</a></li>
-</ul></li>
-<li class="chapter" data-level="8.2" data-path="structure.html"><a href="structure.html#external-ui-files"><i class="fa fa-check"></i><b>8.2</b> External UI Files</a>
-<ul>
-<li class="chapter" data-level="8.2.1" data-path="structure.html"><a href="structure.html#ui-lists"><i class="fa fa-check"></i><b>8.2.1</b> UI Lists</a></li>
-</ul></li>
-<li class="chapter" data-level="8.3" data-path="structure.html"><a href="structure.html#exercises-structure"><i class="fa fa-check"></i><b>8.3</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="structure.html"><a href="structure.html#ui-1"><i class="fa fa-check"></i>UI</a></li>
-<li class="chapter" data-level="" data-path="structure.html"><a href="structure.html#server"><i class="fa fa-check"></i>Server</a></li>
-</ul></li>
-<li class="chapter" data-level="8.4" data-path="structure.html"><a href="structure.html#your-app-structure"><i class="fa fa-check"></i><b>8.4</b> Your App</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="debugging.html"><a href="debugging.html"><i class="fa fa-check"></i><b>9</b> Debugging and error handling</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="debugging.html"><a href="debugging.html#rstudio-console-messages"><i class="fa fa-check"></i><b>9.1</b> RStudio Console Messages</a></li>
-<li class="chapter" data-level="9.2" data-path="debugging.html"><a href="debugging.html#javascript-console"><i class="fa fa-check"></i><b>9.2</b> JavaScript Console</a></li>
-<li class="chapter" data-level="9.3" data-path="debugging.html"><a href="debugging.html#showcase-mode"><i class="fa fa-check"></i><b>9.3</b> Showcase Mode</a></li>
-<li class="chapter" data-level="9.4" data-path="debugging.html"><a href="debugging.html#trycatch"><i class="fa fa-check"></i><b>9.4</b> tryCatch</a></li>
-<li class="chapter" data-level="9.5" data-path="debugging.html"><a href="debugging.html#input-checking"><i class="fa fa-check"></i><b>9.5</b> Input Checking</a>
-<ul>
-<li class="chapter" data-level="9.5.1" data-path="debugging.html"><a href="debugging.html#modal-dialogs"><i class="fa fa-check"></i><b>9.5.1</b> Modal Dialogs</a></li>
-<li class="chapter" data-level="9.5.2" data-path="debugging.html"><a href="debugging.html#validate"><i class="fa fa-check"></i><b>9.5.2</b> Validate</a></li>
-</ul></li>
-<li class="chapter" data-level="9.6" data-path="debugging.html"><a href="debugging.html#resources-debugging"><i class="fa fa-check"></i><b>9.6</b> Further Resources</a></li>
-<li class="chapter" data-level="9.7" data-path="debugging.html"><a href="debugging.html#exercises-debugging"><i class="fa fa-check"></i><b>9.7</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="debugging.html"><a href="debugging.html#required-selections"><i class="fa fa-check"></i>Required selections</a></li>
-</ul></li>
-<li class="chapter" data-level="9.8" data-path="debugging.html"><a href="debugging.html#your-app-debugging"><i class="fa fa-check"></i><b>9.8</b> Your App</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="contingency.html"><a href="contingency.html"><i class="fa fa-check"></i><b>10</b> Contingent Display</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="contingency.html"><a href="contingency.html#hide-and-show"><i class="fa fa-check"></i><b>10.1</b> Hide and Show</a>
-<ul>
-<li class="chapter" data-level="10.1.1" data-path="contingency.html"><a href="contingency.html#groups"><i class="fa fa-check"></i><b>10.1.1</b> Groups</a></li>
-<li class="chapter" data-level="10.1.2" data-path="contingency.html"><a href="contingency.html#toggle"><i class="fa fa-check"></i><b>10.1.2</b> Toggle</a></li>
-</ul></li>
-<li class="chapter" data-level="10.2" data-path="contingency.html"><a href="contingency.html#changing-styles"><i class="fa fa-check"></i><b>10.2</b> Changing Styles</a>
-<ul>
-<li class="chapter" data-level="10.2.1" data-path="contingency.html"><a href="contingency.html#changing-non-shiny-elements"><i class="fa fa-check"></i><b>10.2.1</b> Changing non-shiny elements</a></li>
-</ul></li>
-<li class="chapter" data-level="10.3" data-path="contingency.html"><a href="contingency.html#changing-input-options"><i class="fa fa-check"></i><b>10.3</b> Changing input options</a></li>
-<li class="chapter" data-level="10.4" data-path="contingency.html"><a href="contingency.html#resources-contingency"><i class="fa fa-check"></i><b>10.4</b> Further Resources</a></li>
-<li class="chapter" data-level="10.5" data-path="contingency.html"><a href="contingency.html#exercises-contingency"><i class="fa fa-check"></i><b>10.5</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="contingency.html"><a href="contingency.html#filtered-data"><i class="fa fa-check"></i>Filtered data</a></li>
-</ul></li>
-<li class="chapter" data-level="10.6" data-path="contingency.html"><a href="contingency.html#your-app-contingency"><i class="fa fa-check"></i><b>10.6</b> Your App</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="sharing.html"><a href="sharing.html"><i class="fa fa-check"></i><b>11</b> Sharing your Apps</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="sharing.html"><a href="sharing.html#shinyapps.io"><i class="fa fa-check"></i><b>11.1</b> shinyapps.io</a></li>
-<li class="chapter" data-level="11.2" data-path="sharing.html"><a href="sharing.html#self-hosting-a-shiny-server"><i class="fa fa-check"></i><b>11.2</b> Self-hosting a shiny server</a></li>
-<li class="chapter" data-level="11.3" data-path="sharing.html"><a href="sharing.html#github"><i class="fa fa-check"></i><b>11.3</b> GitHub</a></li>
-<li class="chapter" data-level="11.4" data-path="sharing.html"><a href="sharing.html#in-an-r-package"><i class="fa fa-check"></i><b>11.4</b> In an R package</a></li>
-<li class="chapter" data-level="11.5" data-path="sharing.html"><a href="sharing.html#resources-sharing"><i class="fa fa-check"></i><b>11.5</b> Further Resources</a></li>
-<li class="chapter" data-level="11.6" data-path="sharing.html"><a href="sharing.html#exercises-sharing"><i class="fa fa-check"></i><b>11.6</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="sharing.html"><a href="sharing.html#shinyapps.io-1"><i class="fa fa-check"></i>Shinyapps.io</a></li>
-<li class="chapter" data-level="" data-path="sharing.html"><a href="sharing.html#github-1"><i class="fa fa-check"></i>GitHub</a></li>
-<li class="chapter" data-level="" data-path="sharing.html"><a href="sharing.html#r-package"><i class="fa fa-check"></i>R Package</a></li>
-</ul></li>
-<li class="chapter" data-level="11.7" data-path="sharing.html"><a href="sharing.html#your-app-sharing"><i class="fa fa-check"></i><b>11.7</b> Your App</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="reports.html"><a href="reports.html"><i class="fa fa-check"></i><b>12</b> Customized reports</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="reports.html"><a href="reports.html#download-data"><i class="fa fa-check"></i><b>12.1</b> Download Data</a></li>
-<li class="chapter" data-level="12.2" data-path="reports.html"><a href="reports.html#download-images"><i class="fa fa-check"></i><b>12.2</b> Download Images</a></li>
-<li class="chapter" data-level="12.3" data-path="reports.html"><a href="reports.html#r-markdown"><i class="fa fa-check"></i><b>12.3</b> R Markdown</a></li>
-<li class="chapter" data-level="12.4" data-path="reports.html"><a href="reports.html#resources-reports"><i class="fa fa-check"></i><b>12.4</b> Further Resources</a></li>
-<li class="chapter" data-level="12.5" data-path="reports.html"><a href="reports.html#exercises-reports"><i class="fa fa-check"></i><b>12.5</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="reports.html"><a href="reports.html#food-data"><i class="fa fa-check"></i>Food Data</a></li>
-<li class="chapter" data-level="" data-path="reports.html"><a href="reports.html#food-image"><i class="fa fa-check"></i>Food Image</a></li>
-<li class="chapter" data-level="" data-path="reports.html"><a href="reports.html#food-report"><i class="fa fa-check"></i>Food Report</a></li>
-</ul></li>
-<li class="chapter" data-level="12.6" data-path="reports.html"><a href="reports.html#your-app-reports"><i class="fa fa-check"></i><b>12.6</b> Your app</a></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="modules.html"><a href="modules.html"><i class="fa fa-check"></i><b>13</b> Shiny modules for repeated structures</a>
-<ul>
-<li class="chapter" data-level="13.1" data-path="modules.html"><a href="modules.html#modularizing-the-ui"><i class="fa fa-check"></i><b>13.1</b> Modularizing the UI</a></li>
-<li class="chapter" data-level="13.2" data-path="modules.html"><a href="modules.html#modularizing-server-functions"><i class="fa fa-check"></i><b>13.2</b> Modularizing server functions</a></li>
-<li class="chapter" data-level="13.3" data-path="modules.html"><a href="modules.html#resources-modules"><i class="fa fa-check"></i><b>13.3</b> Further Resources</a></li>
-<li class="chapter" data-level="13.4" data-path="modules.html"><a href="modules.html#exercises-modules"><i class="fa fa-check"></i><b>13.4</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#repeat-example"><i class="fa fa-check"></i>Repeat Example</a></li>
-<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#new-instance"><i class="fa fa-check"></i>New Instance</a></li>
-<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#altering-modules"><i class="fa fa-check"></i>Altering modules</a></li>
-<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#new-module"><i class="fa fa-check"></i>New module</a></li>
-</ul></li>
-<li class="chapter" data-level="13.5" data-path="modules.html"><a href="modules.html#your-app-modules"><i class="fa fa-check"></i><b>13.5</b> Your app</a></li>
-</ul></li>
-<li class="appendix"><span><b>Appendices</b></span></li>
-<li class="chapter" data-level="A" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i><b>A</b> Installing <code>R</code></a>
-<ul>
-<li class="chapter" data-level="A.1" data-path="installing-r.html"><a href="installing-r.html#installing-base-r"><i class="fa fa-check"></i><b>A.1</b> Installing Base R</a></li>
-<li class="chapter" data-level="A.2" data-path="installing-r.html"><a href="installing-r.html#installing-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing RStudio</a>
-<ul>
-<li class="chapter" data-level="A.2.1" data-path="installing-r.html"><a href="installing-r.html#rstudio-settings"><i class="fa fa-check"></i><b>A.2.1</b> RStudio Settings</a></li>
-<li class="chapter" data-level="A.2.2" data-path="installing-r.html"><a href="installing-r.html#installing-shinyintro-1"><i class="fa fa-check"></i><b>A.2.2</b> Installing shinyintro</a></li>
-</ul></li>
-<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.3</b> Installing LaTeX</a></li>
-</ul></li>
-<li class="chapter" data-level="B" data-path="symbols.html"><a href="symbols.html"><i class="fa fa-check"></i><b>B</b> Symbols</a></li>
-<li class="chapter" data-level="C" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>C</b> Glossary</a></li>
-<li class="divider"></li>
-<li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
-    target="blank"><img alt="Creative Commons License" 
-    style="border-width:0" 
-    src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></li>
-<li><img alt="ShinyIntro hex Logo"
-    src="https://debruine.github.io/shinyintro/images/shinyintro.png" style="width: 100%"/></li>
-
-</ul>
-
-      </nav>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Building Web Apps with R Shiny</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
 
-    <div class="book-body">
-      <div class="body-inner">
-        <div class="book-header" role="navigation">
-          <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Building Web Apps with R Shiny</a>
-          </h1>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Overview</a></li>
+<li><a class="active" href="first-app.html"><span class="header-section-number">1</span> Your First Shiny App</a></li>
+<li><a class="" href="shinydashboard.html"><span class="header-section-number">2</span> ShinyDashboard</a></li>
+<li><a class="" href="inputs.html"><span class="header-section-number">3</span> Inputs</a></li>
+<li><a class="" href="outputs.html"><span class="header-section-number">4</span> Outputs</a></li>
+<li><a class="" href="reactives.html"><span class="header-section-number">5</span> Reactive functions</a></li>
+<li><a class="" href="data.html"><span class="header-section-number">6</span> Reading and saving data</a></li>
+<li><a class="" href="web.html"><span class="header-section-number">7</span> HTML, CSS, and JavaScript</a></li>
+<li><a class="" href="structure.html"><span class="header-section-number">8</span> Structuring a complex app</a></li>
+<li><a class="" href="debugging.html"><span class="header-section-number">9</span> Debugging and error handling</a></li>
+<li><a class="" href="contingency.html"><span class="header-section-number">10</span> Contingent Display</a></li>
+<li><a class="" href="sharing.html"><span class="header-section-number">11</span> Sharing your Apps</a></li>
+<li><a class="" href="reports.html"><span class="header-section-number">12</span> Customized reports</a></li>
+<li><a class="" href="modules.html"><span class="header-section-number">13</span> Shiny modules for repeated structures</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">B</span> Symbols</a></li>
+<li><a class="" href="glossary.html"><span class="header-section-number">C</span> Glossary</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/pdebruine/shinyintro">View book source <i class="fab fa-github"></i></a></p>
         </div>
-
-        <div class="page-wrapper" tabindex="-1" role="main">
-          <div class="page-inner">
-
-            <section class="normal" id="section-">
-<div id="first-app" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Your First Shiny App</h1>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="first-app" class="section level1" number="1">
+<h1>
+<span class="header-section-number">1</span> Your First Shiny App<a class="anchor" aria-label="anchor" href="#first-app"><i class="fas fa-link"></i></a>
+</h1>
 <div id="the-demo-app" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> The Demo App</h2>
-<p>To start, let’s walk through the basics of setting up a <a class='glossary' target='_blank' title='An R package that builds interactive web apps' href='https://psyteachr.github.io/glossary/s#shiny'>shiny</a> app, starting with the example built into <a class='glossary' target='_blank' title='An integrated development environment (IDE) that helps you process R code.' href='https://psyteachr.github.io/glossary/r#rstudio'>RStudio</a>. I won’t explain yet how shiny apps are structured; the goal is to just get something up and running, and give you some familiarity with the layout of a fairly simple app.</p>
+<h2>
+<span class="header-section-number">1.1</span> The Demo App<a class="anchor" aria-label="anchor" href="#the-demo-app"><i class="fas fa-link"></i></a>
+</h2>
+<p>To start, let's walk through the basics of setting up a <a class="glossary" target="_blank" title="An R package that builds interactive web apps" href="https://psyteachr.github.io/glossary/s#shiny">shiny</a> app, starting with the example built into <a class="glossary" target="_blank" title="An integrated development environment (IDE) that helps you process R code." href="https://psyteachr.github.io/glossary/r#rstudio">RStudio</a>. I won't explain yet how shiny apps are structured; the goal is to just get something up and running, and give you some familiarity with the layout of a fairly simple app.</p>
 <div id="set-up-the-demo-app" class="section level3" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> Set Up the Demo App</h3>
-<div class="figure" style="text-align: center"><span id="fig:first-demo"></span>
-<img src="images/demo_app/01-create-project.png" alt="Creating a demo app." width="30%" /><img src="images/demo_app/02-project-type.png" alt="Creating a demo app." width="30%" /><img src="images/demo_app/03-project-directory.png" alt="Creating a demo app." width="30%" />
-<p class="caption">
+<h3>
+<span class="header-section-number">1.1.1</span> Set Up the Demo App<a class="anchor" aria-label="anchor" href="#set-up-the-demo-app"><i class="fas fa-link"></i></a>
+</h3>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:first-demo"></span>
+<img src="images/demo_app/01-create-project.png" alt="Creating a demo app." width="30%"><img src="images/demo_app/02-project-type.png" alt="Creating a demo app." width="30%"><img src="images/demo_app/03-project-directory.png" alt="Creating a demo app." width="30%"><p class="caption">
 Figure 1.1: Creating a demo app.
 </p>
 </div>
 <ol style="list-style-type: decimal">
 <li><p>Under the <strong><code>File</code></strong> menu, choose <strong><code>New Project...</code></strong>. You will see a popup window like the one above. Choose <strong><code>New Directory</code></strong>.</p></li>
-<li><p>Choose <strong><code>Shiny Web Application</code></strong> as the <a class='glossary' target='_blank' title='A way to organise related files in RStudio' href='https://psyteachr.github.io/glossary/p#project'>project</a> type.</p></li>
-<li><p>I like to put all of my apps in the same <a class='glossary' target='_blank' title='A collection or “folder” of files on a computer.' href='https://psyteachr.github.io/glossary/d#directory'>directory</a>, but it doesn’t matter where you save it.</p></li>
+<li><p>Choose <strong><code>Shiny Web Application</code></strong> as the <a class="glossary" target="_blank" title="A way to organise related files in RStudio" href="https://psyteachr.github.io/glossary/p#project">project</a> type.</p></li>
+<li><p>I like to put all of my apps in the same <a class="glossary" target="_blank" title='A collection or "folder" of files on a computer.' href="https://psyteachr.github.io/glossary/d#directory">directory</a>, but it doesn't matter where you save it.</p></li>
 </ol>
 <p>Your RStudio interface should look like this now.</p>
-<div class="figure" style="text-align: center"><span id="fig:first-rstudio-interface"></span>
-<img src="images/demo_app/04-rstudio-interface.png" alt="RStudio interface with the built-in demo app loaded." width="100%" />
-<p class="caption">
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:first-rstudio-interface"></span>
+<img src="images/demo_app/04-rstudio-interface.png" alt="RStudio interface with the built-in demo app loaded." width="100%"><p class="caption">
 Figure 1.2: RStudio interface with the built-in demo app loaded.
 </p>
 </div>
 <div class="warning">
-<p>If you are not using RStudio or your source code doesn’t look like this, replace it with the code below:</p>
+<p>If you are not using RStudio or your source code doesn't look like this, replace it with the code below:</p>
 <div class="webex-solution">
 <button>
 View Code
 </button>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="first-app.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb6-2"><a href="first-app.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a Shiny web application. You can run the application by clicking</span></span>
-<span id="cb6-3"><a href="first-app.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the &#39;Run App&#39; button above.</span></span>
-<span id="cb6-4"><a href="first-app.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb6-5"><a href="first-app.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Find out more about building applications with Shiny here:</span></span>
-<span id="cb6-6"><a href="first-app.html#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb6-7"><a href="first-app.html#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#    http://shiny.rstudio.com/</span></span>
-<span id="cb6-8"><a href="first-app.html#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb6-9"><a href="first-app.html#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="first-app.html#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
-<span id="cb6-11"><a href="first-app.html#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="first-app.html#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Define UI for application that draws a histogram</span></span>
-<span id="cb6-13"><a href="first-app.html#cb6-13" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
-<span id="cb6-14"><a href="first-app.html#cb6-14" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb6-15"><a href="first-app.html#cb6-15" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Application title</span></span>
-<span id="cb6-16"><a href="first-app.html#cb6-16" aria-hidden="true" tabindex="-1"></a>   <span class="fu">titlePanel</span>(<span class="st">&quot;Old Faithful Geyser Data&quot;</span>),</span>
-<span id="cb6-17"><a href="first-app.html#cb6-17" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb6-18"><a href="first-app.html#cb6-18" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Sidebar with a slider input for number of bins </span></span>
-<span id="cb6-19"><a href="first-app.html#cb6-19" aria-hidden="true" tabindex="-1"></a>   <span class="fu">sidebarLayout</span>(</span>
-<span id="cb6-20"><a href="first-app.html#cb6-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sidebarPanel</span>(</span>
-<span id="cb6-21"><a href="first-app.html#cb6-21" aria-hidden="true" tabindex="-1"></a>         <span class="fu">sliderInput</span>(<span class="st">&quot;bins&quot;</span>,</span>
-<span id="cb6-22"><a href="first-app.html#cb6-22" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Number of bins:&quot;</span>,</span>
-<span id="cb6-23"><a href="first-app.html#cb6-23" aria-hidden="true" tabindex="-1"></a>                     <span class="at">min =</span> <span class="dv">1</span>,</span>
-<span id="cb6-24"><a href="first-app.html#cb6-24" aria-hidden="true" tabindex="-1"></a>                     <span class="at">max =</span> <span class="dv">50</span>,</span>
-<span id="cb6-25"><a href="first-app.html#cb6-25" aria-hidden="true" tabindex="-1"></a>                     <span class="at">value =</span> <span class="dv">30</span>)</span>
-<span id="cb6-26"><a href="first-app.html#cb6-26" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb6-27"><a href="first-app.html#cb6-27" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb6-28"><a href="first-app.html#cb6-28" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Show a plot of the generated distribution</span></span>
-<span id="cb6-29"><a href="first-app.html#cb6-29" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mainPanel</span>(</span>
-<span id="cb6-30"><a href="first-app.html#cb6-30" aria-hidden="true" tabindex="-1"></a>         <span class="fu">plotOutput</span>(<span class="st">&quot;distPlot&quot;</span>)</span>
-<span id="cb6-31"><a href="first-app.html#cb6-31" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb6-32"><a href="first-app.html#cb6-32" aria-hidden="true" tabindex="-1"></a>   )</span>
-<span id="cb6-33"><a href="first-app.html#cb6-33" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-34"><a href="first-app.html#cb6-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-35"><a href="first-app.html#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Define server logic required to draw a histogram</span></span>
-<span id="cb6-36"><a href="first-app.html#cb6-36" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
-<span id="cb6-37"><a href="first-app.html#cb6-37" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb6-38"><a href="first-app.html#cb6-38" aria-hidden="true" tabindex="-1"></a>   output<span class="sc">$</span>distPlot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb6-39"><a href="first-app.html#cb6-39" aria-hidden="true" tabindex="-1"></a>      <span class="co"># generate bins based on input$bins from ui.R</span></span>
-<span id="cb6-40"><a href="first-app.html#cb6-40" aria-hidden="true" tabindex="-1"></a>      x    <span class="ot">&lt;-</span> faithful[, <span class="dv">2</span>] </span>
-<span id="cb6-41"><a href="first-app.html#cb6-41" aria-hidden="true" tabindex="-1"></a>      bins <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(x), <span class="fu">max</span>(x), <span class="at">length.out =</span> input<span class="sc">$</span>bins <span class="sc">+</span> <span class="dv">1</span>)</span>
-<span id="cb6-42"><a href="first-app.html#cb6-42" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb6-43"><a href="first-app.html#cb6-43" aria-hidden="true" tabindex="-1"></a>      <span class="co"># draw the histogram with the specified number of bins</span></span>
-<span id="cb6-44"><a href="first-app.html#cb6-44" aria-hidden="true" tabindex="-1"></a>      <span class="fu">hist</span>(x, <span class="at">breaks =</span> bins, <span class="at">col =</span> <span class="st">&#39;darkgray&#39;</span>, <span class="at">border =</span> <span class="st">&#39;white&#39;</span>)</span>
-<span id="cb6-45"><a href="first-app.html#cb6-45" aria-hidden="true" tabindex="-1"></a>   })</span>
-<span id="cb6-46"><a href="first-app.html#cb6-46" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-47"><a href="first-app.html#cb6-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-48"><a href="first-app.html#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the application </span></span>
-<span id="cb6-49"><a href="first-app.html#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#</span>
+<span class="co"># This is a Shiny web application. You can run the application by clicking</span>
+<span class="co"># the 'Run App' button above.</span>
+<span class="co">#</span>
+<span class="co"># Find out more about building applications with Shiny here:</span>
+<span class="co">#</span>
+<span class="co">#    http://shiny.rstudio.com/</span>
+<span class="co">#</span>
+
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/">shiny</a></span><span class="op">)</span>
+
+<span class="co"># Define UI for application that draws a histogram</span>
+<span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span>
+   
+   <span class="co"># Application title</span>
+   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/titlePanel.html">titlePanel</a></span><span class="op">(</span><span class="st">"Old Faithful Geyser Data"</span><span class="op">)</span>,
+   
+   <span class="co"># Sidebar with a slider input for number of bins </span>
+   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarLayout</a></span><span class="op">(</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarPanel</a></span><span class="op">(</span>
+         <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html">sliderInput</a></span><span class="op">(</span><span class="st">"bins"</span>,
+                     <span class="st">"Number of bins:"</span>,
+                     min <span class="op">=</span> <span class="fl">1</span>,
+                     max <span class="op">=</span> <span class="fl">50</span>,
+                     value <span class="op">=</span> <span class="fl">30</span><span class="op">)</span>
+      <span class="op">)</span>,
+      
+      <span class="co"># Show a plot of the generated distribution</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">mainPanel</a></span><span class="op">(</span>
+         <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/plotOutput.html">plotOutput</a></span><span class="op">(</span><span class="st">"distPlot"</span><span class="op">)</span>
+      <span class="op">)</span>
+   <span class="op">)</span>
+<span class="op">)</span>
+
+<span class="co"># Define server logic required to draw a histogram</span>
+<span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
+   
+   <span class="va">output</span><span class="op">$</span><span class="va">distPlot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span><span class="op">(</span><span class="op">{</span>
+      <span class="co"># generate bins based on input$bins from ui.R</span>
+      <span class="va">x</span>    <span class="op">&lt;-</span> <span class="va">faithful</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span> 
+      <span class="va">bins</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, length.out <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">bins</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span>
+      
+      <span class="co"># draw the histogram with the specified number of bins</span>
+      <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">x</span>, breaks <span class="op">=</span> <span class="va">bins</span>, col <span class="op">=</span> <span class="st">'darkgray'</span>, border <span class="op">=</span> <span class="st">'white'</span><span class="op">)</span>
+   <span class="op">}</span><span class="op">)</span>
+<span class="op">}</span>
+
+<span class="co"># Run the application </span>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>ui <span class="op">=</span> <span class="va">ui</span>, server <span class="op">=</span> <span class="va">server</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
-<p>Click on <strong><code>Run App</code></strong> in the top right corner of the <a class='glossary' target='_blank' title='RStudio is arranged with four window “panes.”' href='https://psyteachr.github.io/glossary/p#panes'>source pane</a>. The app will open up in a new window. Play with the slider and watch the histogram change.</p>
-<div class="figure" style="text-align: center"><span id="fig:first-app-interface"></span>
-<img src="images/demo_app/05-app-interface.png" alt="Demo application interface" width="100%" />
-<p class="caption">
+<p>Click on <strong><code>Run App</code></strong> in the top right corner of the <a class="glossary" target="_blank" title='RStudio is arranged with four window "panes".' href="https://psyteachr.github.io/glossary/p#panes">source pane</a>. The app will open up in a new window. Play with the slider and watch the histogram change.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:first-app-interface"></span>
+<img src="images/demo_app/05-app-interface.png" alt="Demo application interface" width="100%"><p class="caption">
 Figure 1.3: Demo application interface
 </p>
 </div>
@@ -555,140 +176,157 @@ Figure 1.3: Demo application interface
 </div>
 </div>
 <div id="modify-the-demo-app" class="section level3" number="1.1.2">
-<h3><span class="header-section-number">1.1.2</span> Modify the Demo App</h3>
-<p>Now we’re going to make a series of changes to the demo app until it’s all your own.</p>
+<h3>
+<span class="header-section-number">1.1.2</span> Modify the Demo App<a class="anchor" aria-label="anchor" href="#modify-the-demo-app"><i class="fas fa-link"></i></a>
+</h3>
+<p>Now we're going to make a series of changes to the demo app until it's all your own.</p>
 <div class="info">
-<p>You can close the app by closing the window or browser tab it’s running in and clicking the red stop sign in the console tab, or leave it running while you edit the code. If you have multiple screens, it can be useful to have the app open on one screen and the code on another.</p>
+<p>You can close the app by closing the window or browser tab it's running in and clicking the red stop sign in the console tab, or leave it running while you edit the code. If you have multiple screens, it can be useful to have the app open on one screen and the code on another.</p>
 </div>
-<p>Find the application title. It is the first <a class='glossary' target='_blank' title='A variable that provides input to a function.' href='https://psyteachr.github.io/glossary/a#argument'>argument</a> to the <a class='glossary' target='_blank' title='A named section of code that can be reused.' href='https://psyteachr.github.io/glossary/f#function'>function</a> <code><span class="fu">titlePanel</span>()</code>. Change the <code><span class="at">title</span></code> to <code><span class="st">"My First App"</span></code>. Make sure the title is inside quotes and the whole quoted <a class='glossary' target='_blank' title='A piece of text inside of quotes.' href='https://psyteachr.github.io/glossary/s#string'>string</a> is inside the parentheses. Save the file (<code>cmd-S</code> or <code>File &gt; Save</code>).</p>
-<div class="figure" style="text-align: center"><span id="fig:first-change-title"></span>
-<img src="images/demo_app/06-change-title.png" alt="App with changed title." width="100%" />
-<p class="caption">
+<p>Find the application title. It is the first <a class="glossary" target="_blank" title="A variable that provides input to a function." href="https://psyteachr.github.io/glossary/a#argument">argument</a> to the <a class="glossary" target="_blank" title="A named section of code that can be reused." href="https://psyteachr.github.io/glossary/f#function">function</a> <code><span class="fu">titlePanel</span>()</code>. Change the <code><span class="at">title</span></code> to <code><span class="st">"My First App"</span></code>. Make sure the title is inside quotes and the whole quoted <a class="glossary" target="_blank" title="A piece of text inside of quotes." href="https://psyteachr.github.io/glossary/s#string">string</a> is inside the parentheses. Save the file (<code>cmd-S</code> or <code>File &gt; Save</code>).</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:first-change-title"></span>
+<img src="images/demo_app/06-change-title.png" alt="App with changed title." width="100%"><p class="caption">
 Figure 1.4: App with changed title.
 </p>
 </div>
-<p>Click <strong><code>Run App</code></strong> (or <strong><code>Reload App</code></strong> if you haven’t closed the app window) in the <a class='glossary' target='_blank' title='RStudio is arranged with four window “panes.”' href='https://psyteachr.github.io/glossary/p#panes'>source pane</a>. If you haven’t saved your changes, it will prompt you to do so. Check that the app title has changed.</p>
-<p>Now let’s change the input. Find the function <code><span class="fu">sliderInput</span>()</code> (line 21). The first <a class='glossary' target='_blank' title='A variable that provides input to a function.' href='https://psyteachr.github.io/glossary/a#argument'>argument</a> is the name you can use in the code to find the value of this input, so don’t change it just yet. The second argument is the text that displays before the slider. Change this to something else and re-run the app.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="first-app.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sliderInput</span>(<span class="st">&quot;bins&quot;</span>,</span>
-<span id="cb7-2"><a href="first-app.html#cb7-2" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Number of bins:&quot;</span>,</span>
-<span id="cb7-3"><a href="first-app.html#cb7-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">min =</span> <span class="dv">0</span>,</span>
-<span id="cb7-4"><a href="first-app.html#cb7-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">max =</span> <span class="dv">50</span>,</span>
-<span id="cb7-5"><a href="first-app.html#cb7-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">value =</span> <span class="dv">30</span>)</span></code></pre></div>
+<p>Click <strong><code>Run App</code></strong> (or <strong><code>Reload App</code></strong> if you haven't closed the app window) in the <a class="glossary" target="_blank" title='RStudio is arranged with four window "panes".' href="https://psyteachr.github.io/glossary/p#panes">source pane</a>. If you haven't saved your changes, it will prompt you to do so. Check that the app title has changed.</p>
+<p>Now let's change the input. Find the function <code><span class="fu">sliderInput</span>()</code> (line 21). The first <a class="glossary" target="_blank" title="A variable that provides input to a function." href="https://psyteachr.github.io/glossary/a#argument">argument</a> is the name you can use in the code to find the value of this input, so don't change it just yet. The second argument is the text that displays before the slider. Change this to something else and re-run the app.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html">sliderInput</a></span><span class="op">(</span><span class="st">"bins"</span>,
+            <span class="st">"Number of bins:"</span>,
+            min <span class="op">=</span> <span class="fl">0</span>,
+            max <span class="op">=</span> <span class="fl">50</span>,
+            value <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></code></pre></div>
 <div class="try">
-<p>See if you can figure out what the next three arguments to <code><span class="fu">sliderInput</span>()</code> do. Change them to different <a class='glossary' target='_blank' title='A data type representing whole numbers.' href='https://psyteachr.github.io/glossary/i#integer'>integers</a>, then re-run the app to see what’s changed.</p>
+<p>See if you can figure out what the next three arguments to <code><span class="fu">sliderInput</span>()</code> do. Change them to different <a class="glossary" target="_blank" title="A data type representing whole numbers." href="https://psyteachr.github.io/glossary/i#integer">integers</a>, then re-run the app to see what's changed.</p>
 </div>
 <p>The arguments to the function <code><span class="fu">sidebarPanel</span>()</code> are just a list of things you want to display in the sidebar. To add some explanatory text in a paragraph before <code><span class="fu">sliderInput</span>()</code>, just use the paragraph function <code><span class="fu">p</span>()</code>.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="first-app.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sidebarPanel</span>(</span>
-<span id="cb8-2"><a href="first-app.html#cb8-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">p</span>(<span class="st">&quot;I am explaining this perfectly&quot;</span>),</span>
-<span id="cb8-3"><a href="first-app.html#cb8-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">sliderInput</span>(<span class="st">&quot;bins&quot;</span>,</span>
-<span id="cb8-4"><a href="first-app.html#cb8-4" aria-hidden="true" tabindex="-1"></a>               <span class="st">&quot;Choose the best bin number:&quot;</span>,</span>
-<span id="cb8-5"><a href="first-app.html#cb8-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">min =</span> <span class="dv">10</span>,</span>
-<span id="cb8-6"><a href="first-app.html#cb8-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">max =</span> <span class="dv">40</span>,</span>
-<span id="cb8-7"><a href="first-app.html#cb8-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">value =</span> <span class="dv">25</span>)</span>
-<span id="cb8-8"><a href="first-app.html#cb8-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:first-app-sidebar-p"></span>
-<img src="images/demo_app/07-app-sidebar-p.png" alt="Sidebar with an added paragraph." width="100%" />
-<p class="caption">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarPanel</a></span><span class="op">(</span>
+   <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span><span class="op">(</span><span class="st">"I am explaining this perfectly"</span><span class="op">)</span>,
+   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html">sliderInput</a></span><span class="op">(</span><span class="st">"bins"</span>,
+               <span class="st">"Choose the best bin number:"</span>,
+               min <span class="op">=</span> <span class="fl">10</span>,
+               max <span class="op">=</span> <span class="fl">40</span>,
+               value <span class="op">=</span> <span class="fl">25</span><span class="op">)</span>
+<span class="op">)</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:first-app-sidebar-p"></span>
+<img src="images/demo_app/07-app-sidebar-p.png" alt="Sidebar with an added paragraph." width="100%"><p class="caption">
 Figure 1.5: Sidebar with an added paragraph.
 </p>
 </div>
 <div class="info">
-<p>The sidebar shows up on the left if your window is wide enough, but moves to the top of the screen if it’s too narrow.</p>
+<p>The sidebar shows up on the left if your window is wide enough, but moves to the top of the screen if it's too narrow.</p>
 </div>
-<p>I don’t like it there, so we can move this text out of the sidebar and to the top of the page, just under the title. Try this and re-run the app.</p>
+<p>I don't like it there, so we can move this text out of the sidebar and to the top of the page, just under the title. Try this and re-run the app.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="first-app.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Application title</span></span>
-<span id="cb9-2"><a href="first-app.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">titlePanel</span>(<span class="st">&quot;My First App&quot;</span>),</span>
+<span id="cb9-2"><a href="first-app.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">titlePanel</span>(<span class="st">"My First App"</span>),</span>
 <span id="cb9-3"><a href="first-app.html#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="first-app.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">p</span>(<span class="st">&quot;I am explaining this perfectly&quot;</span>),</span>
+<span id="cb9-4"><a href="first-app.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">p</span>(<span class="st">"I am explaining this perfectly"</span>),</span>
 <span id="cb9-5"><a href="first-app.html#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-6"><a href="first-app.html#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Sidebar with a slider input for number of bins</span></span>
 <span id="cb9-7"><a href="first-app.html#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sidebarLayout</span>(...)</span></code></pre></div>
 <div class="try">
 <p>See where you can move the text in the layout of the page and where causes errors.</p>
 </div>
-<p>I’m also not keen on the grey plot. We can change the plot colour inside <code>hist()</code></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="first-app.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># draw the histogram with the specified number of bins</span></span>
-<span id="cb10-2"><a href="first-app.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">breaks =</span> bins, <span class="at">col =</span> <span class="st">&#39;steelblue3&#39;</span>, <span class="at">border =</span> <span class="st">&#39;grey30&#39;</span>)</span></code></pre></div>
+<p>I'm also not keen on the grey plot. We can change the plot colour inside <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code></p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># draw the histogram with the specified number of bins</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">x</span>, breaks <span class="op">=</span> <span class="va">bins</span>, col <span class="op">=</span> <span class="st">'steelblue3'</span>, border <span class="op">=</span> <span class="st">'grey30'</span><span class="op">)</span></code></pre></div>
 <p>There are a lot of ways to represent colour in R. The easiest three are:</p>
 <ol style="list-style-type: decimal">
 <li>hexadecimal colours (e.g., <code><span class="st">"#0066CC"</span></code>)</li>
-<li>the <code>rgb</code> or <code>hsl</code> functions (e.g., <code>rgb(0, .4, .8)</code>)</li>
+<li>the <code>rgb</code> or <code>hsl</code> functions (e.g., <code><a href="https://rdrr.io/r/grDevices/rgb.html">rgb(0, .4, .8)</a></code>)</li>
 <li>colour names (type <code><span class="fu">colours</span>()</code> in the console)</li>
 </ol>
 <p>The color <code><span class="st">"steelblue3"</span></code> is pretty close to the shiny interface default colour, but feel free to choose whatever you like.</p>
-<p>I prefer ggplots, so let’s make the plot with <code><span class="fu">geom_histogram</span>()</code> instead of <code><span class="fu">hist</span>()</code> (which is a great function for really quick plots, but not very visually appealing). Since we need several functions from the <code class='package'>ggplot2</code> <a class='glossary' target='_blank' title='A group of R functions.' href='https://psyteachr.github.io/glossary/p#package'>package</a>, we’ll need to load that package at the top of the script, just under where the <code class='package'>shiny</code> package is loaded:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="first-app.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
-<span id="cb11-2"><a href="first-app.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<p>I prefer ggplots, so let's make the plot with <code><span class="fu">geom_histogram</span>()</code> instead of <code><span class="fu">hist</span>()</code> (which is a great function for really quick plots, but not very visually appealing). Since we need several functions from the <code class="package">ggplot2</code> <a class="glossary" target="_blank" title="A group of R functions." href="https://psyteachr.github.io/glossary/p#package">package</a>, we'll need to load that package at the top of the script, just under where the <code class="package">shiny</code> package is loaded:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/">shiny</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></code></pre></div>
 <p>You can replace all of the code in <code><span class="fu">renderPlot</span>()</code> with the code below.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="first-app.html#cb12-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>distPlot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb12-2"><a href="first-app.html#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># create plot</span></span>
-<span id="cb12-3"><a href="first-app.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(faithful, <span class="fu">aes</span>(waiting)) <span class="sc">+</span></span>
-<span id="cb12-4"><a href="first-app.html#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> input<span class="sc">$</span>bins,</span>
-<span id="cb12-5"><a href="first-app.html#cb12-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fill =</span> <span class="st">&quot;steelblue3&quot;</span>,</span>
-<span id="cb12-6"><a href="first-app.html#cb12-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">colour =</span> <span class="st">&quot;grey30&quot;</span>) <span class="sc">+</span></span>
-<span id="cb12-7"><a href="first-app.html#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;What are we even plotting here?&quot;</span>) <span class="sc">+</span></span>
-<span id="cb12-8"><a href="first-app.html#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span>
-<span id="cb12-9"><a href="first-app.html#cb12-9" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">output</span><span class="op">$</span><span class="va">distPlot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span><span class="op">(</span><span class="op">{</span>
+  <span class="co"># create plot</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">faithful</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span><span class="va">waiting</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">bins</span>,
+                   fill <span class="op">=</span> <span class="st">"steelblue3"</span>,
+                   colour <span class="op">=</span> <span class="st">"grey30"</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/labs.html">xlab</a></span><span class="op">(</span><span class="st">"What are we even plotting here?"</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span>
+<span class="op">}</span><span class="op">)</span></code></pre></div>
 <div class="info">
 <p>You can set <code><span class="at">fill</span></code> and <code><span class="at">colour</span></code> to whatever colours you like, and change <code><span class="fu">theme_minimal</span>()</code> to one of the other <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html#examples" target="_blank">built-in ggplot themes</a>.</p>
 </div>
 <div class="try">
-<p>What <em>are</em> we even plotting here? Type <code>?faithful</code> into the console pane to see what the <code>waiting</code> column represents (<code>faithful</code> is a built-in demo dataset). Change the label on the x-axis to something more sensible.</p>
+<p>What <em>are</em> we even plotting here? Type <code><a href="https://rdrr.io/r/datasets/faithful.html">?faithful</a></code> into the console pane to see what the <code>waiting</code> column represents (<code>faithful</code> is a built-in demo dataset). Change the label on the x-axis to something more sensible.</p>
 </div>
 </div>
 <div id="add-new-things" class="section level3" number="1.1.3">
-<h3><span class="header-section-number">1.1.3</span> Add New Things</h3>
-<p>The <code>faithful</code> dataset includes two columns: <code>eruptions</code> and <code>waiting</code>. We’ve been plotting the <code>waiting</code> variable, but what if you wanted to plot the <code>eruptions</code> variable instead?</p>
+<h3>
+<span class="header-section-number">1.1.3</span> Add New Things<a class="anchor" aria-label="anchor" href="#add-new-things"><i class="fas fa-link"></i></a>
+</h3>
+<p>The <code>faithful</code> dataset includes two columns: <code>eruptions</code> and <code>waiting</code>. We've been plotting the <code>waiting</code> variable, but what if you wanted to plot the <code>eruptions</code> variable instead?</p>
 <div class="try">
 <p>Try plotting the eruption time (<code>eruptions</code>) instead of the waiting time. You just have to change one word in <code><span class="fu">ggplot</span>()</code> and update the x-axis label.</p>
 </div>
-<p>We can add another input <a class='glossary' target='_blank' title='A interactive web element, like a dropdown menu or a slider.' href='https://psyteachr.github.io/glossary/w#widget'>widget</a> to let the user switch between plotting eruption time and wait time. We’ll learn more about the different input options in Section <a href="inputs.html#inputs">3</a>. We need to toggle between two options, so we can use either radio buttons or a select box. Radio buttons are probably best if you have only a few options and the user will want to see them all at the same time to decide.</p>
-<p>Add the following code as the first argument to <code><span class="fu">sidebarPanel</span>()</code>, which just takes a list of different widgets. <code><span class="fu">radioButtons</span>()</code> is the widget we’re using. We’ll set four <a class='glossary' target='_blank' title='A variable that provides input to a function.' href='https://psyteachr.github.io/glossary/a#argument'>arguments</a>:</p>
+<p>We can add another input <a class="glossary" target="_blank" title="A interactive web element, like a dropdown menu or a slider." href="https://psyteachr.github.io/glossary/w#widget">widget</a> to let the user switch between plotting eruption time and wait time. We'll learn more about the different input options in Section <a href="inputs.html#inputs">3</a>. We need to toggle between two options, so we can use either radio buttons or a select box. Radio buttons are probably best if you have only a few options and the user will want to see them all at the same time to decide.</p>
+<p>Add the following code as the first argument to <code><span class="fu">sidebarPanel</span>()</code>, which just takes a list of different widgets. <code><span class="fu">radioButtons</span>()</code> is the widget we're using. We'll set four <a class="glossary" target="_blank" title="A variable that provides input to a function." href="https://psyteachr.github.io/glossary/a#argument">arguments</a>:</p>
 <ul>
-<li><code><span class="at">inputId</span></code>: a unique identifier that we will use later in the code to find the value of this widget</li>
-<li><code><span class="at">label</span></code>: the text to display to the user</li>
-<li><code><span class="at">choices</span></code>: a list of choices in the format <code>c("label1" = "value1", "label2" = "value2", ...)</code></li>
-<li><code><span class="at">selected</span></code>: the value of the default choice</li>
+<li>
+<code><span class="at">inputId</span></code>: a unique identifier that we will use later in the code to find the value of this widget</li>
+<li>
+<code><span class="at">label</span></code>: the text to display to the user</li>
+<li>
+<code><span class="at">choices</span></code>: a list of choices in the format <code><a href="https://rdrr.io/r/base/c.html">c("label1" = "value1", "label2" = "value2", ...)</a></code>
+</li>
+<li>
+<code><span class="at">selected</span></code>: the value of the default choice</li>
 </ul>
 <p>For <code><span class="at">choices</span></code>, the label is what gets shown to the user and the value is what gets used by the code (these can be the same, but you often want the user label to be more descriptive).</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="first-app.html#cb13-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">radioButtons</span>(<span class="at">inputId =</span> <span class="st">&quot;display_var&quot;</span>,</span>
-<span id="cb13-2"><a href="first-app.html#cb13-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="st">&quot;Which variable to display&quot;</span>,</span>
-<span id="cb13-3"><a href="first-app.html#cb13-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">&quot;Waiting time to next eruption&quot;</span> <span class="ot">=</span> <span class="st">&quot;waiting&quot;</span>,</span>
-<span id="cb13-4"><a href="first-app.html#cb13-4" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;Eruption time&quot;</span> <span class="ot">=</span> <span class="st">&quot;eruptions&quot;</span>),</span>
-<span id="cb13-5"><a href="first-app.html#cb13-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">selected =</span> <span class="st">&quot;waiting&quot;</span></span>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="first-app.html#cb13-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">radioButtons</span>(<span class="at">inputId =</span> <span class="st">"display_var"</span>,</span>
+<span id="cb13-2"><a href="first-app.html#cb13-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="st">"Which variable to display"</span>,</span>
+<span id="cb13-3"><a href="first-app.html#cb13-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"Waiting time to next eruption"</span> <span class="ot">=</span> <span class="st">"waiting"</span>,</span>
+<span id="cb13-4"><a href="first-app.html#cb13-4" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"Eruption time"</span> <span class="ot">=</span> <span class="st">"eruptions"</span>),</span>
+<span id="cb13-5"><a href="first-app.html#cb13-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">selected =</span> <span class="st">"waiting"</span></span>
 <span id="cb13-6"><a href="first-app.html#cb13-6" aria-hidden="true" tabindex="-1"></a> ),</span></code></pre></div>
 <p>Save this and re-run the app.</p>
-<div class="figure" style="text-align: center"><span id="fig:first-radiobutton-widget"></span>
-<img src="images/demo_app/08-radiobutton-widget.png" alt="A radioButton widget above a sliderInput widget." width="100%" />
-<p class="caption">
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:first-radiobutton-widget"></span>
+<img src="images/demo_app/08-radiobutton-widget.png" alt="A radioButton widget above a sliderInput widget." width="100%"><p class="caption">
 Figure 1.6: A radioButton widget above a sliderInput widget.
 </p>
 </div>
-<p>You should have a radio button interface now. You can click on the options to switch the button, but it won’t do anything to your plot yet. We need to edit the plot-generating code to make that happen.</p>
-<p>First, we need to change the x-axis label depending on what we’re graphing. We use an if/else statement to set the variable <code>xlabel</code> to one thing if <code>input$display_var</code> is equivalent to <code><span class="st">"eruptions"</span></code>, and to something else if it’s equivalent to <code><span class="st">"waiting"</span></code>. Put this code at the very beginning of the code block for <code><span class="fu">renderPlot</span>()</code> (after the line <code>output$distPlot &lt;- renderPlot({</code>).</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="first-app.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set x-axis label depending on the value of display_var</span></span>
-<span id="cb14-2"><a href="first-app.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (input<span class="sc">$</span>display_var <span class="sc">==</span> <span class="st">&quot;eruptions&quot;</span>) {</span>
-<span id="cb14-3"><a href="first-app.html#cb14-3" aria-hidden="true" tabindex="-1"></a>  xlabel <span class="ot">&lt;-</span> <span class="st">&quot;Eruption Time (in minutes)&quot;</span></span>
-<span id="cb14-4"><a href="first-app.html#cb14-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (input<span class="sc">$</span>display_var <span class="sc">==</span> <span class="st">&quot;waiting&quot;</span>) {</span>
-<span id="cb14-5"><a href="first-app.html#cb14-5" aria-hidden="true" tabindex="-1"></a>  xlabel <span class="ot">&lt;-</span> <span class="st">&quot;Waiting Time to Next Eruption (in minutes)&quot;</span></span>
-<span id="cb14-6"><a href="first-app.html#cb14-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>You should have a radio button interface now. You can click on the options to switch the button, but it won't do anything to your plot yet. We need to edit the plot-generating code to make that happen.</p>
+<p>First, we need to change the x-axis label depending on what we're graphing. We use an if/else statement to set the variable <code>xlabel</code> to one thing if <code>input$display_var</code> is equivalent to <code><span class="st">"eruptions"</span></code>, and to something else if it's equivalent to <code><span class="st">"waiting"</span></code>. Put this code at the very beginning of the code block for <code><span class="fu">renderPlot</span>()</code> (after the line <code>output$distPlot &lt;- renderPlot({</code>).</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># set x-axis label depending on the value of display_var</span>
+<span class="kw">if</span> <span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">display_var</span> <span class="op">==</span> <span class="st">"eruptions"</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">xlabel</span> <span class="op">&lt;-</span> <span class="st">"Eruption Time (in minutes)"</span>
+<span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">display_var</span> <span class="op">==</span> <span class="st">"waiting"</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">xlabel</span> <span class="op">&lt;-</span> <span class="st">"Waiting Time to Next Eruption (in minutes)"</span>
+<span class="op">}</span></code></pre></div>
 <div class="warning">
-<p>The double-equal-signs <code>==</code> means "equivalent to and is how you check if two things are the same; if you only use one equal sign, you set the variable on the left to the value on the right.</p>
+<p>The double-equal-signs <code><a href="https://rdrr.io/r/base/Comparison.html">==</a></code> means "equivalent to and is how you check if two things are the same; if you only use one equal sign, you set the variable on the left to the value on the right.</p>
 </div>
-<p>Then we have to edit <code><span class="at">ggplot</span></code> to use the new label and to plot the correct column. The variable <code>input$display_var</code> gives you the user-input value of the widget called <code>"display_var"</code>.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="first-app.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create plot</span></span>
-<span id="cb15-2"><a href="first-app.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(faithful, <span class="fu">aes</span>(.data[[input<span class="sc">$</span>display_var]])) <span class="sc">+</span></span>
-<span id="cb15-3"><a href="first-app.html#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> input<span class="sc">$</span>bins,</span>
-<span id="cb15-4"><a href="first-app.html#cb15-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">fill =</span> <span class="st">&quot;steelblue3&quot;</span>,</span>
-<span id="cb15-5"><a href="first-app.html#cb15-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">colour =</span> <span class="st">&quot;grey30&quot;</span>) <span class="sc">+</span></span>
-<span id="cb15-6"><a href="first-app.html#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(xlabel) <span class="sc">+</span></span>
-<span id="cb15-7"><a href="first-app.html#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p>Then we have to edit <code><span class="fu">ggplot</span>()</code> to use the new label and to plot the correct column. The variable <code>input$display_var</code> gives you the user-input value of the widget called <code>"display_var"</code>.</p>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># create plot</span>
+<span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">faithful</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span><span class="va">.data</span><span class="op">[[</span><span class="va">input</span><span class="op">$</span><span class="va">display_var</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">bins</span>,
+                 fill <span class="op">=</span> <span class="st">"steelblue3"</span>,
+                 colour <span class="op">=</span> <span class="st">"grey30"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/labs.html">xlab</a></span><span class="op">(</span><span class="va">xlabel</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="warning">
-<p>Notice that the code <code>aes(waiting)</code> from before has changed to <code>aes(.data[[input$display_var]])</code>. Because <code>input$display_var</code> is a <a class='glossary' target='_blank' title='A piece of text inside of quotes.' href='https://psyteachr.github.io/glossary/s#string'>string</a>, we have to select it from the <code>.data</code> placeholder (which refers to the <code>faithful</code> data table) using double brackets.</p>
+<p>Notice that the code <code><span class="fu">aes</span>(waiting)</code> from before has changed to <code><span class="fu">aes</span>(.data[[input$display_var]])</code>. Because <code>input$display_var</code> is a <a class="glossary" target="_blank" title="A piece of text inside of quotes." href="https://psyteachr.github.io/glossary/s#string">string</a>, we have to select it from the <code>.data</code> placeholder (which refers to the <code>faithful</code> data table) using double brackets.</p>
 </div>
 <p>Re-run your app and see if you can change the data and x-axis label with your new widget.</p>
-<div class="figure" style="text-align: center"><span id="fig:first-demo-app"></span>
-<iframe src="https://shiny.psy.gla.ac.uk/debruine/first_demo/?showcase=0" width="100%" height="520px">
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:first-demo-app"></span>
+<iframe src="https://shiny.psy.gla.ac.uk/debruine/first_demo/?showcase=0" width="100%" height="520px" data-external="1">
 </iframe>
 <p class="caption">
 Figure 1.7: First Demo App. You can also access this app with <code>shinyintro::app("first_demo")</code>or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/first_demo/" target="_blank">showcase interface</a>.
@@ -697,174 +335,203 @@ Figure 1.7: First Demo App. You can also access this app with <code>shinyintro::
 </div>
 </div>
 <div id="app-structure" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> App Structure</h2>
-<p>Now that we’ve made and modified our first working app, it’s time to learn a bit about how a shiny app is structured.</p>
-<p>A shiny app is made of two main parts, a <a class='glossary' target='_blank' title='The User Interface. This usually refers to a Shiny App as the user will see it.' href='https://psyteachr.github.io/glossary/u#ui'>UI</a>, which defines what the user interface looks like, and a <a class='glossary' target='_blank' title='This is the part of a Shiny app that works with logic.' href='https://psyteachr.github.io/glossary/s#server'>server</a> function, which defines how the interface behaves. The function <code><span class="fu">shinyApp</span>()</code> puts the two together to run the application in a web browser.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="first-app.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup ----</span></span>
-<span id="cb16-2"><a href="first-app.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
-<span id="cb16-3"><a href="first-app.html#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="first-app.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define UI ----</span></span>
-<span id="cb16-5"><a href="first-app.html#cb16-5" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>()</span>
-<span id="cb16-6"><a href="first-app.html#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="first-app.html#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Define server logic ----</span></span>
-<span id="cb16-8"><a href="first-app.html#cb16-8" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {}</span>
-<span id="cb16-9"><a href="first-app.html#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-10"><a href="first-app.html#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the application ----</span></span>
-<span id="cb16-11"><a href="first-app.html#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code></pre></div>
+<h2>
+<span class="header-section-number">1.2</span> App Structure<a class="anchor" aria-label="anchor" href="#app-structure"><i class="fas fa-link"></i></a>
+</h2>
+<p>Now that we've made and modified our first working app, it's time to learn a bit about how a shiny app is structured.</p>
+<p>A shiny app is made of two main parts, a <a class="glossary" target="_blank" title="The User Interface. This usually refers to a Shiny App as the user will see it." href="https://psyteachr.github.io/glossary/u#ui">UI</a>, which defines what the user interface looks like, and a <a class="glossary" target="_blank" title="This is the part of a Shiny app that works with logic." href="https://psyteachr.github.io/glossary/s#server">server</a> function, which defines how the interface behaves. The function <code><span class="fu">shinyApp</span>()</code> puts the two together to run the application in a web browser.</p>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Setup ----</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/">shiny</a></span><span class="op">)</span>
+
+<span class="co"># Define UI ----</span>
+<span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span><span class="op">)</span>
+
+<span class="co"># Define server logic ----</span>
+<span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span>
+
+<span class="co"># Run the application ----</span>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>ui <span class="op">=</span> <span class="va">ui</span>, server <span class="op">=</span> <span class="va">server</span><span class="op">)</span></code></pre></div>
 <div class="try">
-<p>Create a new app called “basic_demo” and replace all the text in app.R with the code above. You should be able to run the app and see just a blank page.</p>
+<p>Create a new app called "basic_demo" and replace all the text in app.R with the code above. You should be able to run the app and see just a blank page.</p>
 </div>
 <div id="ui" class="section level3" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> UI</h3>
-<p>The UI is created by one of the ui-building <code>****Page()</code> functions, such as <code><span class="fu">fluidPage</span>()</code>, <code><span class="fu">fixedPage</span>()</code>, <code><span class="fu">fillPage</span>()</code> or <code><span class="fu">dashboardPage</span>()</code> (which we’ll learn more about in Section <a href="shinydashboard.html#shinydashboard">2</a>). The ui-building functions set up the parts of the webpage, which are created by more shiny functions that you list inside of the page function, separated by commas.</p>
+<h3>
+<span class="header-section-number">1.2.1</span> UI<a class="anchor" aria-label="anchor" href="#ui"><i class="fas fa-link"></i></a>
+</h3>
+<p>The UI is created by one of the ui-building <code>****Page()</code> functions, such as <code><span class="fu">fluidPage</span>()</code>, <code><span class="fu">fixedPage</span>()</code>, <code><span class="fu">fillPage</span>()</code> or <code><span class="fu">dashboardPage</span>()</code> (which we'll learn more about in Section <a href="shinydashboard.html#shinydashboard">2</a>). The ui-building functions set up the parts of the webpage, which are created by more shiny functions that you list inside of the page function, separated by commas.</p>
 </div>
 <div id="tags" class="section level3" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Tags</h3>
+<h3>
+<span class="header-section-number">1.2.2</span> Tags<a class="anchor" aria-label="anchor" href="#tags"><i class="fas fa-link"></i></a>
+</h3>
 <p>For example, the code below displays:</p>
 <ol style="list-style-type: decimal">
-<li>a title panel with the text “Basic Demo”</li>
-<li>a level-two header with the text “My favourite things”</li>
+<li>a title panel with the text "Basic Demo"</li>
+<li>a level-two header with the text "My favourite things"</li>
 <li>an unordered list containing several list items</li>
-<li>a paragraph with the text “This is a very basic demo.”</li>
-<li>an image of the <code class='package'>shinyintro</code> logo with a width and height of 100 pixels</li>
+<li>a paragraph with the text "This is a very basic demo."</li>
+<li>an image of the <code class="package">shinyintro</code> logo with a width and height of 100 pixels</li>
 </ol>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="first-app.html#cb17-1" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
-<span id="cb17-2"><a href="first-app.html#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">&quot;Basic Demo&quot;</span>),</span>
-<span id="cb17-3"><a href="first-app.html#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">h2</span>(<span class="st">&quot;My favourite things&quot;</span>),</span>
-<span id="cb17-4"><a href="first-app.html#cb17-4" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">ul</span>(tags<span class="sc">$</span><span class="fu">li</span>(<span class="st">&quot;Coding&quot;</span>),</span>
-<span id="cb17-5"><a href="first-app.html#cb17-5" aria-hidden="true" tabindex="-1"></a>          tags<span class="sc">$</span><span class="fu">li</span>(<span class="st">&quot;Cycling&quot;</span>),</span>
-<span id="cb17-6"><a href="first-app.html#cb17-6" aria-hidden="true" tabindex="-1"></a>          tags<span class="sc">$</span><span class="fu">li</span>(<span class="st">&quot;Cooking&quot;</span>)),</span>
-<span id="cb17-7"><a href="first-app.html#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">p</span>(<span class="st">&quot;This is a very basic demo.&quot;</span>),</span>
-<span id="cb17-8"><a href="first-app.html#cb17-8" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">img</span>(</span>
-<span id="cb17-9"><a href="first-app.html#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">src =</span> <span class="st">&quot;https://debruine.github.io/shinyintro/images/shinyintro.png&quot;</span>,</span>
-<span id="cb17-10"><a href="first-app.html#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="st">&quot;100px&quot;</span>,</span>
-<span id="cb17-11"><a href="first-app.html#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">height =</span> <span class="st">&quot;100px&quot;</span></span>
-<span id="cb17-12"><a href="first-app.html#cb17-12" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb17-13"><a href="first-app.html#cb17-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p>Many of the functions used to create parts of the website are the same as <a class='glossary' target='_blank' title='A way to mark the start and end of HTML elements.' href='https://psyteachr.github.io/glossary/t#tag'>HTML tags</a>, which are ways to mark the beginning and end of different types of text. Most HTML tags are available in shiny by using one of the <code><span class="fu">tags</span>()</code> sub-functions, but some of the more common tags, like <code><span class="fu">p</span>()</code> or <code><span class="fu">h1</span>()</code>-<code><span class="fu">h6</span>()</code>also have a version where you can omit the <code>tags$</code> part. You can see a list of all of the tags available in Shiny at the <a href="https://shiny.rstudio.com/articles/tag-glossary.html" target="_blank">tag glossary</a></p>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/titlePanel.html">titlePanel</a></span><span class="op">(</span><span class="st">"Basic Demo"</span><span class="op">)</span>,
+  <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">h2</a></span><span class="op">(</span><span class="st">"My favourite things"</span><span class="op">)</span>,
+  <span class="va">tags</span><span class="op">$</span><span class="fu">ul</span><span class="op">(</span><span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"Coding"</span><span class="op">)</span>,
+          <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"Cycling"</span><span class="op">)</span>,
+          <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"Cooking"</span><span class="op">)</span><span class="op">)</span>,
+  <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span><span class="op">(</span><span class="st">"This is a very basic demo."</span><span class="op">)</span>,
+  <span class="va">tags</span><span class="op">$</span><span class="fu">img</span><span class="op">(</span>
+    src <span class="op">=</span> <span class="st">"https://debruine.github.io/shinyintro/images/logos/shinyintro.png"</span>,
+    width <span class="op">=</span> <span class="st">"100px"</span>,
+    height <span class="op">=</span> <span class="st">"100px"</span>
+  <span class="op">)</span>
+<span class="op">)</span></code></pre></div>
+<p>Many of the functions used to create parts of the website are the same as <a class="glossary" target="_blank" title="A way to mark the start and end of HTML elements." href="https://psyteachr.github.io/glossary/t#tag">HTML tags</a>, which are ways to mark the beginning and end of different types of text. Most HTML tags are available in shiny by using one of the <code><span class="fu">tags</span>()</code> sub-functions, but some of the more common tags, like <code><span class="fu">p</span>()</code> or <code><span class="fu">h1</span>()</code>-<code><span class="fu">h6</span>()</code>also have a version where you can omit the <code>tags$</code> part. You can see a list of all of the tags available in Shiny at the <a href="https://shiny.rstudio.com/articles/tag-glossary.html" target="_blank">tag glossary</a></p>
 <div class="try">
 <p>Add the code above to your basic_demo app and replace my favourite things with yours. Make the list an ordered list (instead of unordered) and change the image size.</p>
 </div>
 </div>
 <div id="page-layout" class="section level3" number="1.2.3">
-<h3><span class="header-section-number">1.2.3</span> Page Layout</h3>
+<h3>
+<span class="header-section-number">1.2.3</span> Page Layout<a class="anchor" aria-label="anchor" href="#page-layout"><i class="fas fa-link"></i></a>
+</h3>
 <p>You usually want your apps to have a more complex layout than just each element stacked below the previous one. The code below wraps the elements after the title panel inside <code><span class="fu">flowLayout</span>()</code>.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="first-app.html#cb18-1" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(<span class="fu">titlePanel</span>(<span class="st">&quot;Basic Demo&quot;</span>),</span>
-<span id="cb18-2"><a href="first-app.html#cb18-2" aria-hidden="true" tabindex="-1"></a>                <span class="fu">flowLayout</span>(</span>
-<span id="cb18-3"><a href="first-app.html#cb18-3" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">h2</span>(<span class="st">&quot;My favourite things&quot;</span>),</span>
-<span id="cb18-4"><a href="first-app.html#cb18-4" aria-hidden="true" tabindex="-1"></a>                  tags<span class="sc">$</span><span class="fu">ul</span>(tags<span class="sc">$</span><span class="fu">li</span>(<span class="st">&quot;Coding&quot;</span>),</span>
-<span id="cb18-5"><a href="first-app.html#cb18-5" aria-hidden="true" tabindex="-1"></a>                          tags<span class="sc">$</span><span class="fu">li</span>(<span class="st">&quot;Cycling&quot;</span>),</span>
-<span id="cb18-6"><a href="first-app.html#cb18-6" aria-hidden="true" tabindex="-1"></a>                          tags<span class="sc">$</span><span class="fu">li</span>(<span class="st">&quot;Cooking&quot;</span>)),</span>
-<span id="cb18-7"><a href="first-app.html#cb18-7" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">p</span>(<span class="st">&quot;This is a very basic demo.&quot;</span>),</span>
-<span id="cb18-8"><a href="first-app.html#cb18-8" aria-hidden="true" tabindex="-1"></a>                  tags<span class="sc">$</span><span class="fu">img</span>(</span>
-<span id="cb18-9"><a href="first-app.html#cb18-9" aria-hidden="true" tabindex="-1"></a>                    <span class="at">src =</span> <span class="st">&quot;https://debruine.github.io/shinyintro/images/shinyintro.png&quot;</span>,</span>
-<span id="cb18-10"><a href="first-app.html#cb18-10" aria-hidden="true" tabindex="-1"></a>                    <span class="at">width =</span> <span class="st">&quot;100px&quot;</span>,</span>
-<span id="cb18-11"><a href="first-app.html#cb18-11" aria-hidden="true" tabindex="-1"></a>                    <span class="at">height =</span> <span class="st">&quot;100px&quot;</span></span>
-<span id="cb18-12"><a href="first-app.html#cb18-12" aria-hidden="true" tabindex="-1"></a>                  )</span>
-<span id="cb18-13"><a href="first-app.html#cb18-13" aria-hidden="true" tabindex="-1"></a>                ))</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/titlePanel.html">titlePanel</a></span><span class="op">(</span><span class="st">"Basic Demo"</span><span class="op">)</span>,
+                <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/flowLayout.html">flowLayout</a></span><span class="op">(</span>
+                  <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">h2</a></span><span class="op">(</span><span class="st">"My favourite things"</span><span class="op">)</span>,
+                  <span class="va">tags</span><span class="op">$</span><span class="fu">ul</span><span class="op">(</span><span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"Coding"</span><span class="op">)</span>,
+                          <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"Cycling"</span><span class="op">)</span>,
+                          <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"Cooking"</span><span class="op">)</span><span class="op">)</span>,
+                  <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span><span class="op">(</span><span class="st">"This is a very basic demo."</span><span class="op">)</span>,
+                  <span class="va">tags</span><span class="op">$</span><span class="fu">img</span><span class="op">(</span>
+                    src <span class="op">=</span> <span class="st">"https://debruine.github.io/shinyintro/images/logos/shinyintro.png"</span>,
+                    width <span class="op">=</span> <span class="st">"100px"</span>,
+                    height <span class="op">=</span> <span class="st">"100px"</span>
+                  <span class="op">)</span>
+                <span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="try">
 <p>Replace the ui code in your basic_demo app with the code above and run it in a web browser. What happens when you change the width of the web browser? Change <code><span class="fu">flowLayout</span>()</code> to <code><span class="fu">verticalLayout</span>()</code> or <code><span class="fu">splitLayout</span>()</code> and see what changes.</p>
 </div>
 <p>You can use a <code><span class="fu">sidebarLayout</span>()</code> to arrange your elements into a <code><span class="fu">sidebarPanel</span>()</code> and a <code><span class="fu">mainPanel</span>()</code>. If the browser width is too narrow, the sidebar will display on top of the main panel.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="first-app.html#cb19-1" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(<span class="fu">titlePanel</span>(<span class="st">&quot;Basic Demo&quot;</span>),</span>
-<span id="cb19-2"><a href="first-app.html#cb19-2" aria-hidden="true" tabindex="-1"></a>                <span class="fu">sidebarLayout</span>(<span class="fu">sidebarPanel</span>(</span>
-<span id="cb19-3"><a href="first-app.html#cb19-3" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">h2</span>(<span class="st">&quot;My favourite things&quot;</span>),</span>
-<span id="cb19-4"><a href="first-app.html#cb19-4" aria-hidden="true" tabindex="-1"></a>                  tags<span class="sc">$</span><span class="fu">ul</span>(tags<span class="sc">$</span><span class="fu">li</span>(<span class="st">&quot;Coding&quot;</span>),</span>
-<span id="cb19-5"><a href="first-app.html#cb19-5" aria-hidden="true" tabindex="-1"></a>                          tags<span class="sc">$</span><span class="fu">li</span>(<span class="st">&quot;Cycling&quot;</span>),</span>
-<span id="cb19-6"><a href="first-app.html#cb19-6" aria-hidden="true" tabindex="-1"></a>                          tags<span class="sc">$</span><span class="fu">li</span>(<span class="st">&quot;Cooking&quot;</span>))</span>
-<span id="cb19-7"><a href="first-app.html#cb19-7" aria-hidden="true" tabindex="-1"></a>                ),</span>
-<span id="cb19-8"><a href="first-app.html#cb19-8" aria-hidden="true" tabindex="-1"></a>                <span class="fu">mainPanel</span>(</span>
-<span id="cb19-9"><a href="first-app.html#cb19-9" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">p</span>(<span class="st">&quot;This is a very basic demo.&quot;</span>),</span>
-<span id="cb19-10"><a href="first-app.html#cb19-10" aria-hidden="true" tabindex="-1"></a>                  tags<span class="sc">$</span><span class="fu">img</span>(</span>
-<span id="cb19-11"><a href="first-app.html#cb19-11" aria-hidden="true" tabindex="-1"></a>                    <span class="at">src =</span> <span class="st">&quot;https://debruine.github.io/shinyintro/images/shinyintro.png&quot;</span>,</span>
-<span id="cb19-12"><a href="first-app.html#cb19-12" aria-hidden="true" tabindex="-1"></a>                    <span class="at">width =</span> <span class="st">&quot;100px&quot;</span>,</span>
-<span id="cb19-13"><a href="first-app.html#cb19-13" aria-hidden="true" tabindex="-1"></a>                    <span class="at">height =</span> <span class="st">&quot;100px&quot;</span></span>
-<span id="cb19-14"><a href="first-app.html#cb19-14" aria-hidden="true" tabindex="-1"></a>                  )</span>
-<span id="cb19-15"><a href="first-app.html#cb19-15" aria-hidden="true" tabindex="-1"></a>                )))</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/titlePanel.html">titlePanel</a></span><span class="op">(</span><span class="st">"Basic Demo"</span><span class="op">)</span>,
+                <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarLayout</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarPanel</a></span><span class="op">(</span>
+                  <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">h2</a></span><span class="op">(</span><span class="st">"My favourite things"</span><span class="op">)</span>,
+                  <span class="va">tags</span><span class="op">$</span><span class="fu">ul</span><span class="op">(</span><span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"Coding"</span><span class="op">)</span>,
+                          <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"Cycling"</span><span class="op">)</span>,
+                          <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"Cooking"</span><span class="op">)</span><span class="op">)</span>
+                <span class="op">)</span>,
+                <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">mainPanel</a></span><span class="op">(</span>
+                  <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span><span class="op">(</span><span class="st">"This is a very basic demo."</span><span class="op">)</span>,
+                  <span class="va">tags</span><span class="op">$</span><span class="fu">img</span><span class="op">(</span>
+                    src <span class="op">=</span> <span class="st">"https://debruine.github.io/shinyintro/images/logos/shinyintro.png"</span>,
+                    width <span class="op">=</span> <span class="st">"100px"</span>,
+                    height <span class="op">=</span> <span class="st">"100px"</span>
+                  <span class="op">)</span>
+                <span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 <div id="dynamic-elements" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Dynamic Elements</h2>
-<p>So far, we’ve just put <a class='glossary' target='_blank' title='Something that does not change in response to user actions' href='https://psyteachr.github.io/glossary/s#static'>static</a> elements into our UI. What makes Shiny apps work is <a class='glossary' target='_blank' title='Something that can change in response to user actions' href='https://psyteachr.github.io/glossary/d#dynamic'>dynamic</a> elements like inputs, outputs, and action buttons.</p>
+<h2>
+<span class="header-section-number">1.3</span> Dynamic Elements<a class="anchor" aria-label="anchor" href="#dynamic-elements"><i class="fas fa-link"></i></a>
+</h2>
+<p>So far, we've just put <a class="glossary" target="_blank" title="Something that does not change in response to user actions" href="https://psyteachr.github.io/glossary/s#static">static</a> elements into our UI. What makes Shiny apps work is <a class="glossary" target="_blank" title="Something that can change in response to user actions" href="https://psyteachr.github.io/glossary/d#dynamic">dynamic</a> elements like inputs, outputs, and action buttons.</p>
 <div id="inputs-intro" class="section level3" number="1.3.1">
-<h3><span class="header-section-number">1.3.1</span> Inputs</h3>
-<p>Inputs are ways for the users of your app to communicate with the app, like drop-down menus or checkboxes. We’ll go into the different types of inputs in Section <a href="inputs.html#inputs">3</a>. Below we’ll turn the list of favourite things into a group of checkboxes</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="first-app.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">checkboxGroupInput</span>(</span>
-<span id="cb20-2"><a href="first-app.html#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">inputId =</span> <span class="st">&quot;fav_things&quot;</span>,</span>
-<span id="cb20-3"><a href="first-app.html#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">label =</span> <span class="st">&quot;What are your favourite things?&quot;</span>,</span>
-<span id="cb20-4"><a href="first-app.html#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">&quot;Coding&quot;</span>, <span class="st">&quot;Cycling&quot;</span>, <span class="st">&quot;Cooking&quot;</span>)</span>
-<span id="cb20-5"><a href="first-app.html#cb20-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<h3>
+<span class="header-section-number">1.3.1</span> Inputs<a class="anchor" aria-label="anchor" href="#inputs-intro"><i class="fas fa-link"></i></a>
+</h3>
+<p>Inputs are ways for the users of your app to communicate with the app, like drop-down menus or checkboxes. We'll go into the different types of inputs in Section <a href="inputs.html#inputs">3</a>. Below we'll turn the list of favourite things into a group of checkboxes</p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/checkboxGroupInput.html">checkboxGroupInput</a></span><span class="op">(</span>
+  inputId <span class="op">=</span> <span class="st">"fav_things"</span>,
+  label <span class="op">=</span> <span class="st">"What are your favourite things?"</span>,
+  choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Coding"</span>, <span class="st">"Cycling"</span>, <span class="st">"Cooking"</span><span class="op">)</span>
+<span class="op">)</span></code></pre></div>
 <p>Most inputs are structured like this, with an <code><span class="at">inputId</span></code>, which needs to be a unique string not used as the ID for any other input or output in your app, a <code><span class="at">label</span></code> that contains the question, and a list of <code><span class="at">choices</span></code> or other parameters that determine what type of values the input will record.</p>
 <div class="info">
-<p>You might have noticed that the <code><span class="fu">sliderInput</span>()</code> in the demo app didn’t use the argument names for the <code><span class="at">inputId</span></code> or the <code><span class="at">label</span></code>. All inputs need these first two arguments, so almost everyone omits their names.</p>
+<p>You might have noticed that the <code><span class="fu">sliderInput</span>()</code> in the demo app didn't use the argument names for the <code><span class="at">inputId</span></code> or the <code><span class="at">label</span></code>. All inputs need these first two arguments, so almost everyone omits their names.</p>
 </div>
 </div>
 <div id="outputs-intro" class="section level3" number="1.3.2">
-<h3><span class="header-section-number">1.3.2</span> Outputs</h3>
-<p>Outputs are placeholders for things that <code><span class="fu">server</span>()</code> will create. There are different output functions for different types of outputs, like text, plots, and tables. We’ll go into the different types of outputs in detail in Section <a href="outputs.html#outputs">4</a>. Below, we’ll make a placeholder for some text that we’ll display after counting the number of favourite things.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="first-app.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">textOutput</span>(<span class="at">outputId =</span> <span class="st">&quot;n_fav_things&quot;</span>)</span></code></pre></div>
+<h3>
+<span class="header-section-number">1.3.2</span> Outputs<a class="anchor" aria-label="anchor" href="#outputs-intro"><i class="fas fa-link"></i></a>
+</h3>
+<p>Outputs are placeholders for things that <code><span class="fu">server</span>()</code> will create. There are different output functions for different types of outputs, like text, plots, and tables. We'll go into the different types of outputs in detail in Section <a href="outputs.html#outputs">4</a>. Below, we'll make a placeholder for some text that we'll display after counting the number of favourite things.</p>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html">textOutput</a></span><span class="op">(</span>outputId <span class="op">=</span> <span class="st">"n_fav_things"</span><span class="op">)</span></code></pre></div>
 <p>Most outputs are structured like this, with just a unique <code><span class="at">outputId</span></code> (the argument name is also usually omitted).</p>
 </div>
 <div id="action-buttons" class="section level3" number="1.3.3">
-<h3><span class="header-section-number">1.3.3</span> Action buttons</h3>
-<p>Action buttons are a special type of input that register button clicks. Below we’ll make an action button that users can click once they’ve selected all of their favourite things.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="first-app.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">actionButton</span>(<span class="at">inputId =</span> <span class="st">&quot;count_fav_things&quot;</span>,</span>
-<span id="cb22-2"><a href="first-app.html#cb22-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">&quot;Count&quot;</span>,</span>
-<span id="cb22-3"><a href="first-app.html#cb22-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">icon =</span> <span class="fu">icon</span>(<span class="st">&quot;calculator&quot;</span>))</span></code></pre></div>
+<h3>
+<span class="header-section-number">1.3.3</span> Action buttons<a class="anchor" aria-label="anchor" href="#action-buttons"><i class="fas fa-link"></i></a>
+</h3>
+<p>Action buttons are a special type of input that register button clicks. Below we'll make an action button that users can click once they've selected all of their favourite things.</p>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"count_fav_things"</span>,
+             label <span class="op">=</span> <span class="st">"Count"</span>,
+             icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"calculator"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Action buttons require a unique <code><span class="at">inputId</span></code> and a <code><span class="at">label</span></code> for the button text. You can also add an <code><span class="at">icon</span></code>. Choose a free icon from <a href="https://fontawesome.com/icons?d=gallery&amp;m=free" target="_blank">fontawesome</a>.</p>
 <p>Put the input, output, and action button into the ui and run it. You will see that the input checkboxes are selectable and the button is clickable, but nothing is displayed in the text output. We need some code in <code><span class="fu">server</span>()</code> to handle that.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="first-app.html#cb23-1" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(<span class="fu">titlePanel</span>(<span class="st">&quot;Basic Demo&quot;</span>),</span>
-<span id="cb23-2"><a href="first-app.html#cb23-2" aria-hidden="true" tabindex="-1"></a>                <span class="fu">sidebarLayout</span>(</span>
-<span id="cb23-3"><a href="first-app.html#cb23-3" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">sidebarPanel</span>(</span>
-<span id="cb23-4"><a href="first-app.html#cb23-4" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">checkboxGroupInput</span>(</span>
-<span id="cb23-5"><a href="first-app.html#cb23-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">inputId =</span> <span class="st">&quot;fav_things&quot;</span>,</span>
-<span id="cb23-6"><a href="first-app.html#cb23-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">label =</span> <span class="st">&quot;What are your favourite things?&quot;</span>,</span>
-<span id="cb23-7"><a href="first-app.html#cb23-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">&quot;Coding&quot;</span>, <span class="st">&quot;Cycling&quot;</span>, <span class="st">&quot;Cooking&quot;</span>)</span>
-<span id="cb23-8"><a href="first-app.html#cb23-8" aria-hidden="true" tabindex="-1"></a>                    ),</span>
-<span id="cb23-9"><a href="first-app.html#cb23-9" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">actionButton</span>(</span>
-<span id="cb23-10"><a href="first-app.html#cb23-10" aria-hidden="true" tabindex="-1"></a>                      <span class="at">inputId =</span> <span class="st">&quot;count_fav_things&quot;</span>,</span>
-<span id="cb23-11"><a href="first-app.html#cb23-11" aria-hidden="true" tabindex="-1"></a>                      <span class="at">label =</span> <span class="st">&quot;Count&quot;</span>,</span>
-<span id="cb23-12"><a href="first-app.html#cb23-12" aria-hidden="true" tabindex="-1"></a>                      <span class="at">icon =</span> <span class="fu">icon</span>(<span class="st">&quot;calculator&quot;</span>)</span>
-<span id="cb23-13"><a href="first-app.html#cb23-13" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb23-14"><a href="first-app.html#cb23-14" aria-hidden="true" tabindex="-1"></a>                  ),</span>
-<span id="cb23-15"><a href="first-app.html#cb23-15" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">mainPanel</span>(<span class="fu">textOutput</span>(<span class="at">outputId =</span> <span class="st">&quot;n_fav_things&quot;</span>))</span>
-<span id="cb23-16"><a href="first-app.html#cb23-16" aria-hidden="true" tabindex="-1"></a>                ))</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/titlePanel.html">titlePanel</a></span><span class="op">(</span><span class="st">"Basic Demo"</span><span class="op">)</span>,
+                <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarLayout</a></span><span class="op">(</span>
+                  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarPanel</a></span><span class="op">(</span>
+                    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/checkboxGroupInput.html">checkboxGroupInput</a></span><span class="op">(</span>
+                      inputId <span class="op">=</span> <span class="st">"fav_things"</span>,
+                      label <span class="op">=</span> <span class="st">"What are your favourite things?"</span>,
+                      choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Coding"</span>, <span class="st">"Cycling"</span>, <span class="st">"Cooking"</span><span class="op">)</span>
+                    <span class="op">)</span>,
+                    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span>
+                      inputId <span class="op">=</span> <span class="st">"count_fav_things"</span>,
+                      label <span class="op">=</span> <span class="st">"Count"</span>,
+                      icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"calculator"</span><span class="op">)</span>
+                    <span class="op">)</span>
+                  <span class="op">)</span>,
+                  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">mainPanel</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html">textOutput</a></span><span class="op">(</span>outputId <span class="op">=</span> <span class="st">"n_fav_things"</span><span class="op">)</span><span class="op">)</span>
+                <span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 <div id="first-reactive" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Reactive functions</h2>
-<p>Reactive functions are functions that only run when certain types of inputs change. Inside <code><span class="fu">server</span>()</code>, the <a class='glossary' target='_blank' title='A word that identifies and stores the value of some data for later use.' href='https://psyteachr.github.io/glossary/o#object'>object</a> <code>input</code> is a named <a class='glossary' target='_blank' title='A container data type that allows items with different data types to be grouped together.' href='https://psyteachr.github.io/glossary/l#list'>list</a> of the values of all of the inputs. For example, if you want to know which items in the select input named <code><span class="st">"fav_things"</span></code> were selected, you would use <code>input$fav_things</code>.</p>
+<h2>
+<span class="header-section-number">1.4</span> Reactive functions<a class="anchor" aria-label="anchor" href="#first-reactive"><i class="fas fa-link"></i></a>
+</h2>
+<p>Reactive functions are functions that only run when certain types of inputs change. Inside <code><span class="fu">server</span>()</code>, the <a class="glossary" target="_blank" title="A word that identifies and stores the value of some data for later use." href="https://psyteachr.github.io/glossary/o#object">object</a> <code>input</code> is a named <a class="glossary" target="_blank" title="A container data type that allows items with different data types to be grouped together." href="https://psyteachr.github.io/glossary/l#list">list</a> of the values of all of the inputs. For example, if you want to know which items in the select input named <code><span class="st">"fav_things"</span></code> were selected, you would use <code>input$fav_things</code>.</p>
 <p>Here, we just want to count how many items are checked. We want to do this whenever the button <code><span class="st">"count_fav_things"</span></code> is clicked, so we can use the reactive function <code><span class="fu">observeEvent</span>()</code> to do this. Every time the value of <code>input$count_fav_things</code> changes (which happens when it is clicked), it will run the code inside of the curly brackets <code>{}</code>. The code will only run when <code>input$count_fav_things</code> changes, not when any inputs inside the function change.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="first-app.html#cb24-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
-<span id="cb24-2"><a href="first-app.html#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># count favourite things</span></span>
-<span id="cb24-3"><a href="first-app.html#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>count_fav_things, {</span>
-<span id="cb24-4"><a href="first-app.html#cb24-4" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">&lt;-</span> <span class="fu">length</span>(input<span class="sc">$</span>fav_things)</span>
-<span id="cb24-5"><a href="first-app.html#cb24-5" aria-hidden="true" tabindex="-1"></a>    count_text <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">&quot;You have %d favourite things&quot;</span>, n)</span>
-<span id="cb24-6"><a href="first-app.html#cb24-6" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb24-7"><a href="first-app.html#cb24-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>Now we want to display this text in the output <code><span class="st">"n_fav_things"</span></code>. We need to use a render function that is paired with our output function. Since “n_fav_things” was made with <code><span class="fu">textOutput</span>()</code>, we fill it with <code><span class="fu">renderText</span>()</code>.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="first-app.html#cb25-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
-<span id="cb25-2"><a href="first-app.html#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># count favourite things</span></span>
-<span id="cb25-3"><a href="first-app.html#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>count_fav_things, {</span>
-<span id="cb25-4"><a href="first-app.html#cb25-4" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">&lt;-</span> <span class="fu">length</span>(input<span class="sc">$</span>fav_things)</span>
-<span id="cb25-5"><a href="first-app.html#cb25-5" aria-hidden="true" tabindex="-1"></a>    count_text <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">&quot;You have %d favourite things&quot;</span>, n)</span>
-<span id="cb25-6"><a href="first-app.html#cb25-6" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>n_fav_things <span class="ot">&lt;-</span> <span class="fu">renderText</span>(count_text)</span>
-<span id="cb25-7"><a href="first-app.html#cb25-7" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb25-8"><a href="first-app.html#cb25-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>As always in coding, there are many ways to accomplish the same thing. These methods have different pros and cons that we’ll learn more about in Section <a href="reactives.html#reactives">5</a>. Here is another (better) pattern that does that same as above.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="first-app.html#cb26-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
-<span id="cb26-2"><a href="first-app.html#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># update count_text on fav_things</span></span>
-<span id="cb26-3"><a href="first-app.html#cb26-3" aria-hidden="true" tabindex="-1"></a>  count_text <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
-<span id="cb26-4"><a href="first-app.html#cb26-4" aria-hidden="true" tabindex="-1"></a>    input<span class="sc">$</span>count_fav_things <span class="co"># just here to trigger the reactive</span></span>
-<span id="cb26-5"><a href="first-app.html#cb26-5" aria-hidden="true" tabindex="-1"></a>    fav_things <span class="ot">&lt;-</span></span>
-<span id="cb26-6"><a href="first-app.html#cb26-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">isolate</span>(input<span class="sc">$</span>fav_things) <span class="co"># don&#39;t trigger on checks</span></span>
-<span id="cb26-7"><a href="first-app.html#cb26-7" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">&lt;-</span> <span class="fu">length</span>(fav_things)</span>
-<span id="cb26-8"><a href="first-app.html#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sprintf</span>(<span class="st">&quot;You have %d favourite things&quot;</span>, n)</span>
-<span id="cb26-9"><a href="first-app.html#cb26-9" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb26-10"><a href="first-app.html#cb26-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb26-11"><a href="first-app.html#cb26-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># display count_text when it updates</span></span>
-<span id="cb26-12"><a href="first-app.html#cb26-12" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>n_fav_things <span class="ot">&lt;-</span> <span class="fu">renderText</span>(<span class="fu">count_text</span>())</span>
-<span id="cb26-13"><a href="first-app.html#cb26-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
+  <span class="co"># count favourite things</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">count_fav_things</span>, <span class="op">{</span>
+    <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">fav_things</span><span class="op">)</span>
+    <span class="va">count_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"You have %d favourite things"</span>, <span class="va">n</span><span class="op">)</span>
+  <span class="op">}</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+<p>Now we want to display this text in the output <code><span class="st">"n_fav_things"</span></code>. We need to use a render function that is paired with our output function. Since "n_fav_things" was made with <code><span class="fu">textOutput</span>()</code>, we fill it with <code><span class="fu">renderText</span>()</code>.</p>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
+  <span class="co"># count favourite things</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">count_fav_things</span>, <span class="op">{</span>
+    <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">fav_things</span><span class="op">)</span>
+    <span class="va">count_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"You have %d favourite things"</span>, <span class="va">n</span><span class="op">)</span>
+    <span class="va">output</span><span class="op">$</span><span class="va">n_fav_things</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderText</a></span><span class="op">(</span><span class="va">count_text</span><span class="op">)</span>
+  <span class="op">}</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+<p>As always in coding, there are many ways to accomplish the same thing. These methods have different pros and cons that we'll learn more about in Section <a href="reactives.html#reactives">5</a>. Here is another (better) pattern that does that same as above.</p>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
+  <span class="co"># update count_text on fav_things</span>
+  <span class="va">count_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span><span class="op">(</span><span class="op">{</span>
+    <span class="va">input</span><span class="op">$</span><span class="va">count_fav_things</span> <span class="co"># just here to trigger the reactive</span>
+    <span class="va">fav_things</span> <span class="op">&lt;-</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/isolate.html">isolate</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">fav_things</span><span class="op">)</span> <span class="co"># don't trigger on checks</span>
+    <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">fav_things</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"You have %d favourite things"</span>, <span class="va">n</span><span class="op">)</span>
+  <span class="op">}</span><span class="op">)</span>
+  
+  <span class="co"># display count_text when it updates</span>
+  <span class="va">output</span><span class="op">$</span><span class="va">n_fav_things</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderText</a></span><span class="op">(</span><span class="fu">count_text</span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
 <p>This pattern uses <code><span class="fu">reactive</span>()</code> to create a new function called <code><span class="fu">count_text</span>()</code>, which updates the value it returns whenever any inputs inside the reactive function change. We use <code><span class="fu">isolate</span>()</code> to prevent <code><span class="fu">count_text</span>()</code> from changing when users click the checkboxes.</p>
 <p>Whenever the returned value of <code><span class="fu">count_text</span>()</code> changes, this triggers an update of the <code><span class="st">"n_fav_things"</span></code> output.</p>
 <div class="try">
@@ -872,7 +539,9 @@ Figure 1.7: First Demo App. You can also access this app with <code>shinyintro::
 </div>
 </div>
 <div id="resources-first-app" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Further Resources</h2>
+<h2>
+<span class="header-section-number">1.5</span> Further Resources<a class="anchor" aria-label="anchor" href="#resources-first-app"><i class="fas fa-link"></i></a>
+</h2>
 <ul>
 <li><a href="https://mastering-shiny.org/" target="_blank">Mastering Shiny: Chapters 1-3</a></li>
 <li><a href="https://shiny.rstudio.com/tutorial/" target="_blank">RStudio Shiny Tutorials: Videos 1-6</a></li>
@@ -880,12 +549,16 @@ Figure 1.7: First Demo App. You can also access this app with <code>shinyintro::
 </ul>
 </div>
 <div id="exercises-first-app" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Exercises</h2>
+<h2>
+<span class="header-section-number">1.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-first-app"><i class="fas fa-link"></i></a>
+</h2>
 <div id="addition-app---ui" class="section level3 unnumbered">
-<h3>Addition App - UI</h3>
+<h3>Addition App - UI<a class="anchor" aria-label="anchor" href="#addition-app---ui"><i class="fas fa-link"></i></a>
+</h3>
 <p>Create the UI for following app. Use <code><span class="fu">numericInput</span>()</code> to create the inputs.</p>
-<div class="figure" style="text-align: center"><span id="fig:add-demo-app"></span>
-<iframe src="https://shiny.psy.gla.ac.uk/debruine/add_demo/?showcase=0" width="100%" height="400px">
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:add-demo-app"></span>
+<iframe src="https://shiny.psy.gla.ac.uk/debruine/add_demo/?showcase=0" width="100%" height="400px" data-external="1">
 </iframe>
 <p class="caption">
 Figure 1.8: Add Demo App. You can also access this app with <code>shinyintro::app("add_demo")</code>or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/add_demo/" target="_blank">showcase interface</a>.
@@ -895,72 +568,81 @@ Figure 1.8: Add Demo App. You can also access this app with <code>shinyintro::ap
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="first-app.html#cb27-1" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(<span class="fu">titlePanel</span>(<span class="st">&quot;Addition Demo&quot;</span>),</span>
-<span id="cb27-2"><a href="first-app.html#cb27-2" aria-hidden="true" tabindex="-1"></a>                <span class="fu">sidebarLayout</span>(</span>
-<span id="cb27-3"><a href="first-app.html#cb27-3" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">sidebarPanel</span>(</span>
-<span id="cb27-4"><a href="first-app.html#cb27-4" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">numericInput</span>(<span class="st">&quot;n1&quot;</span>, <span class="st">&quot;First number&quot;</span>, <span class="dv">0</span>),</span>
-<span id="cb27-5"><a href="first-app.html#cb27-5" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">numericInput</span>(<span class="st">&quot;n2&quot;</span>, <span class="st">&quot;Second number&quot;</span>, <span class="dv">0</span>),</span>
-<span id="cb27-6"><a href="first-app.html#cb27-6" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">actionButton</span>(<span class="st">&quot;add&quot;</span>, <span class="st">&quot;Add Numbers&quot;</span>)</span>
-<span id="cb27-7"><a href="first-app.html#cb27-7" aria-hidden="true" tabindex="-1"></a>                  ),</span>
-<span id="cb27-8"><a href="first-app.html#cb27-8" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">mainPanel</span>(<span class="fu">textOutput</span>(<span class="at">outputId =</span> <span class="st">&quot;n1_plus_n2&quot;</span>))</span>
-<span id="cb27-9"><a href="first-app.html#cb27-9" aria-hidden="true" tabindex="-1"></a>                ))</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/titlePanel.html">titlePanel</a></span><span class="op">(</span><span class="st">"Addition Demo"</span><span class="op">)</span>,
+                <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarLayout</a></span><span class="op">(</span>
+                  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarPanel</a></span><span class="op">(</span>
+                    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/numericInput.html">numericInput</a></span><span class="op">(</span><span class="st">"n1"</span>, <span class="st">"First number"</span>, <span class="fl">0</span><span class="op">)</span>,
+                    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/numericInput.html">numericInput</a></span><span class="op">(</span><span class="st">"n2"</span>, <span class="st">"Second number"</span>, <span class="fl">0</span><span class="op">)</span>,
+                    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"add"</span>, <span class="st">"Add Numbers"</span><span class="op">)</span>
+                  <span class="op">)</span>,
+                  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">mainPanel</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html">textOutput</a></span><span class="op">(</span>outputId <span class="op">=</span> <span class="st">"n1_plus_n2"</span><span class="op">)</span><span class="op">)</span>
+                <span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 <div id="observeevent" class="section level3 unnumbered">
-<h3>observeEvent</h3>
-<p>Use <code><span class="fu">observeEvent</span>()</code> to write a server function that displays “n1 + n2 = sum” when you click the action button.</p>
+<h3>observeEvent<a class="anchor" aria-label="anchor" href="#observeevent"><i class="fas fa-link"></i></a>
+</h3>
+<p>Use <code><span class="fu">observeEvent</span>()</code> to write a server function that displays "n1 + n2 = sum" when you click the action button.</p>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="first-app.html#cb28-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
-<span id="cb28-2"><a href="first-app.html#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add numbers</span></span>
-<span id="cb28-3"><a href="first-app.html#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">observeEvent</span>(input<span class="sc">$</span>add, {</span>
-<span id="cb28-4"><a href="first-app.html#cb28-4" aria-hidden="true" tabindex="-1"></a>    sum <span class="ot">&lt;-</span> input<span class="sc">$</span>n1 <span class="sc">+</span> input<span class="sc">$</span>n2</span>
-<span id="cb28-5"><a href="first-app.html#cb28-5" aria-hidden="true" tabindex="-1"></a>    add_text <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">&quot;%d + %d = %d&quot;</span>, input<span class="sc">$</span>n1, input<span class="sc">$</span>n2, sum)</span>
-<span id="cb28-6"><a href="first-app.html#cb28-6" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>n1_plus_n2 <span class="ot">&lt;-</span> <span class="fu">renderText</span>(add_text)</span>
-<span id="cb28-7"><a href="first-app.html#cb28-7" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb28-8"><a href="first-app.html#cb28-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
+  <span class="co"># add numbers</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">add</span>, <span class="op">{</span>
+    <span class="va">sum</span> <span class="op">&lt;-</span> <span class="va">input</span><span class="op">$</span><span class="va">n1</span> <span class="op">+</span> <span class="va">input</span><span class="op">$</span><span class="va">n2</span>
+    <span class="va">add_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"%d + %d = %d"</span>, <span class="va">input</span><span class="op">$</span><span class="va">n1</span>, <span class="va">input</span><span class="op">$</span><span class="va">n2</span>, <span class="va">sum</span><span class="op">)</span>
+    <span class="va">output</span><span class="op">$</span><span class="va">n1_plus_n2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderText</a></span><span class="op">(</span><span class="va">add_text</span><span class="op">)</span>
+  <span class="op">}</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
 </div>
 </div>
 <div id="reactive" class="section level3 unnumbered">
-<h3>reactive</h3>
+<h3>reactive<a class="anchor" aria-label="anchor" href="#reactive"><i class="fas fa-link"></i></a>
+</h3>
 <p>Use <code><span class="fu">reactive</span>()</code> to accomplish the same behaviour.</p>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="first-app.html#cb29-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
-<span id="cb29-2"><a href="first-app.html#cb29-2" aria-hidden="true" tabindex="-1"></a>  add_text <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
-<span id="cb29-3"><a href="first-app.html#cb29-3" aria-hidden="true" tabindex="-1"></a>    input<span class="sc">$</span>add <span class="co"># triggers reactive</span></span>
-<span id="cb29-4"><a href="first-app.html#cb29-4" aria-hidden="true" tabindex="-1"></a>    n1 <span class="ot">&lt;-</span> <span class="fu">isolate</span>(input<span class="sc">$</span>n1)</span>
-<span id="cb29-5"><a href="first-app.html#cb29-5" aria-hidden="true" tabindex="-1"></a>    n2 <span class="ot">&lt;-</span> <span class="fu">isolate</span>(input<span class="sc">$</span>n2)</span>
-<span id="cb29-6"><a href="first-app.html#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sprintf</span>(<span class="st">&quot;%d + %d = %d&quot;</span>, n1, n2, n1 <span class="sc">+</span> n2)</span>
-<span id="cb29-7"><a href="first-app.html#cb29-7" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb29-8"><a href="first-app.html#cb29-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb29-9"><a href="first-app.html#cb29-9" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>n1_plus_n2 <span class="ot">&lt;-</span> <span class="fu">renderText</span>(<span class="fu">add_text</span>())</span>
-<span id="cb29-10"><a href="first-app.html#cb29-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">add_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span><span class="op">(</span><span class="op">{</span>
+    <span class="va">input</span><span class="op">$</span><span class="va">add</span> <span class="co"># triggers reactive</span>
+    <span class="va">n1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/isolate.html">isolate</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">n1</span><span class="op">)</span>
+    <span class="va">n2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/isolate.html">isolate</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">n2</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"%d + %d = %d"</span>, <span class="va">n1</span>, <span class="va">n2</span>, <span class="va">n1</span> <span class="op">+</span> <span class="va">n2</span><span class="op">)</span>
+  <span class="op">}</span><span class="op">)</span>
+  
+  <span class="va">output</span><span class="op">$</span><span class="va">n1_plus_n2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderText</a></span><span class="op">(</span><span class="fu">add_text</span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
 </div>
 
 </div>
 </div>
-</div>
-<div class="psyteachr_footer">
-  
 </div>
 <script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
+  console.log("webex: update total_correct");
+
   if (t = document.getElementById("webex-total_correct")) {
-    t.innerHTML =
-      document.getElementsByClassName("webex-correct").length + " of " +
-      document.getElementsByClassName("webex-solveme").length + " correct";
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
   }
 }
 
 /* webex-solution button toggling function */
 b_func = function() {
+  console.log("webex: toggle hide");
+
   var cl = this.parentElement.classList;
   if (cl.contains('open')) {
     cl.remove("open");
@@ -971,6 +653,8 @@ b_func = function() {
 
 /* function for checking solveme answers */
 solveme_func = function(e) {
+  console.log("webex: check solveme");
+
   var real_answers = JSON.parse(this.dataset.answer);
   var my_answer = this.value;
   var cl = this.classList;
@@ -980,7 +664,7 @@ solveme_func = function(e) {
   if (cl.contains("nospaces")) {
     my_answer = my_answer.replace(/ /g, "")
   }
-  
+
   if (my_answer == "") {
     cl.remove("webex-correct");
     cl.remove("webex-incorrect");
@@ -994,13 +678,13 @@ solveme_func = function(e) {
 
   // match numeric answers within a specified tolerance
   if(this.dataset.tol > 0){
-    var tol = JSON.parse(this.dataset.tol);  
+    var tol = JSON.parse(this.dataset.tol);
     var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
     if (matches.reduce((a, b) => a + b, 0) > 0) {
       cl.add("webex-correct");
     } else {
       cl.remove("webex-correct");
-    }  
+    }
   }
 
   // added regex bit
@@ -1008,13 +692,56 @@ solveme_func = function(e) {
     answer_regex = RegExp(real_answers.join("|"))
     if (answer_regex.test(my_answer)) {
       cl.add("webex-correct");
-    }  
+    }
   }
-  
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
   update_total_correct();
 }
 
 window.onload = function() {
+  console.log("webex onload");
   /* set up solution buttons */
   var buttons = document.getElementsByTagName("button");
 
@@ -1023,7 +750,7 @@ window.onload = function() {
       buttons[i].onclick = b_func;
     }
   }
-  
+
   /* set up webex-solveme inputs */
   var solveme = document.getElementsByClassName("webex-solveme");
 
@@ -1031,10 +758,10 @@ window.onload = function() {
     /* make sure input boxes don't auto-anything */
     solveme[i].setAttribute("autocomplete","off");
     solveme[i].setAttribute("autocorrect", "off");
-    solveme[i].setAttribute("autocapitalize", "off"); 
+    solveme[i].setAttribute("autocapitalize", "off");
     solveme[i].setAttribute("spellcheck", "false");
     solveme[i].value = "";
-    
+
     /* adjust answer for ignorecase or nospaces */
     var cl = solveme[i].classList;
     var real_answer = solveme[i].dataset.answer;
@@ -1045,75 +772,120 @@ window.onload = function() {
       real_answer = real_answer.replace(/ /g, "");
     }
     solveme[i].dataset.answer = real_answer;
-    
+
     /* attach checking function */
     solveme[i].onkeyup = solveme_func;
     solveme[i].onchange = solveme_func;
+
+    $(solveme[i]).after(" <span class='webex-icon'></span>");
   }
-  
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    $(selects[i]).after(" <span class='webex-icon'></span>");
+  }
+
   update_total_correct();
 }
 
-</script>
-            </section>
+</script><script>
+$( document ).ready(function() {
+  var cite = ' ';
+  var psyteachr = ' <a href="https://psyteachr.github.io/"><img src="images/logos/psyteachr_logo.png" style="height: 31px; color: white;" alt="psyTeachR: Reproducible Research" /></a>';
+  var license = ' <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" target="blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>';
 
-          </div>
-        </div>
-      </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="shinydashboard.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
-    </div>
+  $("footer div.row div:eq(1) p").html(
+    psyteachr + license + cite
+  );
+
+  // open rdrr links externally
+  $("a[href^='https://rdrr.io']").click(function(){
+    window.open(this.href);
+    return false;
+  });
+
+  // visible second sidebar in mobile
+  function move_sidebar() {
+    var w = window.innerWidth;
+    if (w < 992) {
+      $("#toc").appendTo($("#main-nav"));
+    } else {
+      $("#toc").appendTo($("div.sidebar-chapter"));
+    }
+  }
+  move_sidebar();
+  window.onresize = move_sidebar;
+});
+</script><div class="chapter-nav">
+<div class="prev"><a href="index.html">Overview</a></div>
+<div class="next"><a href="shinydashboard.html"><span class="header-section-number">2</span> ShinyDashboard</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#first-app"><span class="header-section-number">1</span> Your First Shiny App</a></li>
+<li>
+<a class="nav-link" href="#the-demo-app"><span class="header-section-number">1.1</span> The Demo App</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#set-up-the-demo-app"><span class="header-section-number">1.1.1</span> Set Up the Demo App</a></li>
+<li><a class="nav-link" href="#modify-the-demo-app"><span class="header-section-number">1.1.2</span> Modify the Demo App</a></li>
+<li><a class="nav-link" href="#add-new-things"><span class="header-section-number">1.1.3</span> Add New Things</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#app-structure"><span class="header-section-number">1.2</span> App Structure</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#ui"><span class="header-section-number">1.2.1</span> UI</a></li>
+<li><a class="nav-link" href="#tags"><span class="header-section-number">1.2.2</span> Tags</a></li>
+<li><a class="nav-link" href="#page-layout"><span class="header-section-number">1.2.3</span> Page Layout</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#dynamic-elements"><span class="header-section-number">1.3</span> Dynamic Elements</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#inputs-intro"><span class="header-section-number">1.3.1</span> Inputs</a></li>
+<li><a class="nav-link" href="#outputs-intro"><span class="header-section-number">1.3.2</span> Outputs</a></li>
+<li><a class="nav-link" href="#action-buttons"><span class="header-section-number">1.3.3</span> Action buttons</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#first-reactive"><span class="header-section-number">1.4</span> Reactive functions</a></li>
+<li><a class="nav-link" href="#resources-first-app"><span class="header-section-number">1.5</span> Further Resources</a></li>
+<li>
+<a class="nav-link" href="#exercises-first-app"><span class="header-section-number">1.6</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#addition-app---ui">Addition App - UI</a></li>
+<li><a class="nav-link" href="#observeevent">observeEvent</a></li>
+<li><a class="nav-link" href="#reactive">reactive</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/pdebruine/shinyintro/blob/master/book/01_first_app.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/pdebruine/shinyintro/edit/master/book/01_first_app.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Building Web Apps with R Shiny</strong>" was written by Lisa DeBruine. It was last built on 2021-10-13.</p>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
-<script>
-gitbook.require(["gitbook"], function(gitbook) {
-gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"],
-"google": false
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/debruine/shinyintro/edit/main/book/01_first_app.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["shinyintro.pdf", "PDF"], ["shinyintro.epub", "EPUB"], ["shinyintro.mobi", "MOBI"]],
-"toc": {
-"collapse": "section",
-"scroll_highlight": true
-}
-});
-});
-</script>
 
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
 </body>
-
 </html>
