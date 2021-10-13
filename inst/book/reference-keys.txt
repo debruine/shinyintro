@@ -16,10 +16,8 @@ fig:js-console
 fig:showcase-mode
 installing-shinyintro
 example-apps
-code-horizons-course-27-30-july-2021
-schedule
 computing
-who-should-register
+what-experience-do-i-need
 conventions
 further-resources
 first-app

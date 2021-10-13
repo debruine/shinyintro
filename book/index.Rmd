@@ -70,10 +70,11 @@ shinyintro::clone("basic_template", "myapps/newapp")
 
 The following are some diverse examples of Shiny apps that the instructor has made.
 
+* [Word Cloud](https://shiny.psy.gla.ac.uk/debruine/wordcloud/){target="_blank"} Create a word cloud from text and customize its appearance. Created during the live-coding event at [Hack Your Data Beautiful](https://psyteachr.github.io/hack-your-data/){target="_blank"}.
+* [Faux](https://shiny.psy.gla.ac.uk/debruine/fauxapp/){target="_blank"} Simulate data with a specified factorial design.
 * [Plot Demo](https://shiny.psy.gla.ac.uk/debruine/plotdemo/){target="_blank"} Simulate data from a 2×2 factorial design and visualize it with 6 different plot styles.
 * [Simulating for LMEM](https://shiny.psy.gla.ac.uk/lmem_sim/){target="_blank"} companion to Understanding mixed effects models through data simulation (DeBruine & Barr, AMPPS 2021)
 * [Scienceverse](http://shiny.ieis.tue.nl/scienceverse/){target="_blank"} is an ambitious (but in-progress) app for creating machine-readable descriptions of studies and human-readable summaries.
-* [Word Cloud](https://shiny.psy.gla.ac.uk/debruine/wordcloud/){target="_blank"} Create a word cloud from text and customize its appearance. Created during the live-coding event at [Hack Your Data Beautiful](https://psyteachr.github.io/hack-your-data/){target="_blank"}.
 
 ```{r word-cloud-app, echo=FALSE, fig.cap="Word Cloud App"}
 if (is_html)
@@ -81,6 +82,7 @@ if (is_html)
   height = "600px")
 ```
 
+<!--
 
 ## Code Horizons Course (27-30 July 2021)
 
@@ -115,12 +117,13 @@ Each lecture session will conclude with a hands-on exercise reviewing the conten
 * [Creating and downloading a customized report](#reports)
 * [Shiny modules for repeated structures](#modules)
 
+-->
 
 ### Computing
 
 To participate in the hands-on exercises, you are strongly encouraged to use a computer with the most recent version of [R installed](https://www.r-project.org/){target="_blank"}. Participants are also encouraged to download and install [RStudio](https://www.rstudio.com/products/rstudio/download/){target="_blank"}, a front-end for R that makes it easier to work with. This software is free and available for Windows, Mac, and Linux platforms.
 
-### Who Should Register?
+### What experience do I need?
 
 You need to have basic familiarity with R, including data import, `r glossary("data wrangling", "data processing")`, visualization, and `r glossary("function", "functions")` and control structures (e.g., if/else). Instruction will be done using `r glossary("RStudio")`. Some familiarity with ggplot2 and dplyr would be useful. You definitely do not need to be an expert coder, but the following code should not be challenging to understand.
 
