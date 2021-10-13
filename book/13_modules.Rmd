@@ -187,7 +187,7 @@ tabPanelServer("diamonds", data = diamonds, group_by = "cut")
 
 You need to add a new `r func("selectInput")` to the `r func("tabPanel")`. Remember to use `r func("ns")` for the id. The choices for this select will also differ by data set, so you need to add `r arg("group_choices")` to the arguments of this function.
 
- ```{r}
+```{r}
 tabPanelUI <- function(id, choices, group_choices) {
     ns <- NS(id)
     

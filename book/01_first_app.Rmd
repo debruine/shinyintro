@@ -331,7 +331,7 @@ ui <- fluidPage(
           tags$li("Cooking")),
   p("This is a very basic demo."),
   tags$img(
-    src = "https://debruine.github.io/shinyintro/images/shinyintro.png",
+    src = "https://debruine.github.io/shinyintro/images/logos/shinyintro.png",
     width = "100px",
     height = "100px"
   )
@@ -357,7 +357,7 @@ ui <- fluidPage(titlePanel("Basic Demo"),
                           tags$li("Cooking")),
                   p("This is a very basic demo."),
                   tags$img(
-                    src = "https://debruine.github.io/shinyintro/images/shinyintro.png",
+                    src = "https://debruine.github.io/shinyintro/images/logos/shinyintro.png",
                     width = "100px",
                     height = "100px"
                   )
@@ -381,7 +381,7 @@ ui <- fluidPage(titlePanel("Basic Demo"),
                 mainPanel(
                   p("This is a very basic demo."),
                   tags$img(
-                    src = "https://debruine.github.io/shinyintro/images/shinyintro.png",
+                    src = "https://debruine.github.io/shinyintro/images/logos/shinyintro.png",
                     width = "100px",
                     height = "100px"
                   )

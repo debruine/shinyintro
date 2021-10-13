@@ -1,55 +1,34 @@
-bookdown::gitbook: 
-  highlight: default
-  default: true
-  smart: false
+bookdown::bs4_book:
+  default: yes
+  md_extensions: -smart
   df_print: kable
+  repo:
+    base: https://github.com/pdebruine/shinyintro
+    branch: master
+    subdir: book
   includes:
     in_header: include/header.html
-    after_body: [include/footer.html, include/webex.js]
-  css: [include/psyteachr.css, include/webex.css, include/style.css]
-  csl: apa.csl
-  config:
-    toc:
-      collapse: section
-      scroll_highlight: yes
-      before: |
-        <li><a href="./">Building Web Apps with R Shiny</a></li>
-        <li><a href="https://zenodo.org/badge/latestdoi/166559207"><img src="https://zenodo.org/badge/166559207.svg" alt="DOI"></a></li>
-      after: |
-        <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
-            target="blank"><img alt="Creative Commons License" 
-            style="border-width:0" 
-            src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></li>
-        <li><img alt="ShinyIntro hex Logo"
-            src="https://debruine.github.io/shinyintro/images/shinyintro.png" style="width: 100%"/></li>
-    download: 
-      - ["shinyintro.pdf", "PDF"]
-      - ["shinyintro.epub", "EPUB"]
-      - ["shinyintro.mobi", "MOBI"]
-    edit: "https://github.com/debruine/shinyintro/edit/main/book/%s"
-    fontsettings:
-      theme: white
-      family: sans
-      size: 2
-    sharing:
-      facebook: yes
-      twitter: yes
-      google: no
-      linkedin: no
-      weibo: no
-      instapaper: no
-      vk: no
-      all: ['facebook', 'google', 'twitter', 'linkedin', 'weibo', 'instapaper']
+    after_body:
+    - include/webex.js
+    - include/script.js
+  css:
+  - include/psyteachr.css
+  - include/webex.css
+  - include/style.css
+  theme:
+    primary: '#467AAC'
 bookdown::pdf_book:
   includes:
-    in_header: preamble.tex
+    in_header: include/preamble.tex
   latex_engine: xelatex
   citation_package: natbib
   keep_tex: yes
 bookdown::epub_book:
-  stylesheet: [include/epub.css]
+  stylesheet:
+  - include/webex.css
+  - include/epub.css
   cover_image: images/shinyintro.png
-  toc: true
+  toc: yes
   toc_depth: 2
 
 

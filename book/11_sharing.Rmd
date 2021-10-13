@@ -2,7 +2,7 @@
 
 ## shinyapps.io
 
-![](images/saio_connect.png){style="max-width:300px; float: right;"}
+<div class="small_right"><img src="images/saio_connect.png" alt="Connect shiny apps account widget" /></div>
 
 1. Open **`Tools > Global Options ...`**
 2. Go to the **`Publishing`** tab 
@@ -12,7 +12,7 @@
 6. You should now be in your shinyapps.io dashboard; click on your name in the upper right and choose **`Tokens`**
 7. Add a token
 8. Click **`Show`** next to the token and copy the text to the clipboard
-    ![](images/saio_secret.png)
+    ![](images/saio_secret.png){width="100%"}
 9. Go back to RStudio and paste the text in the box and click **`Connect Account`**
 10. Make sure the box next to "Enable publishing..." is ticked, click **`Apply`**, and close the options window
 ˙
@@ -22,7 +22,7 @@ You can test this by creating a simple app. If you have the shinyintro package, 
 shinyintro::clone("input_demo", "mytestapp")
 ```
 
-![](images/saio_publish.png){style="max-width:300px; float: right;"}
+<div class="small_right"><img src="images/saio_publish.png" alt="Publish to server widget" /></div>
 
 Open the `r path("app.R")` file and go to **`File > Publish...`** in the menu (or click on the blue icon in the upper right corner of the source pane). Make sure these are the right files for your app, edit the title if you want, and click **`Publish`**. A web browser window will open after a few seconds showing your app online! You can now share it with your friends and colleagues.
 

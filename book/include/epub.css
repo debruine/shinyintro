@@ -22,6 +22,10 @@ a[target="_blank"]:not(.glossary) {
   font-variant: small-caps;
 }
 
+code a[target="_blank"]:not(.glossary) }
+  font-variant: normal;
+}
+
 
 pre {
   border: 2px solid grey !important;
@@ -61,4 +65,14 @@ pre {
 
 .try {
   border: 2px solid var(--purple);
+}
+
+.webex-radiogroup label {
+  border: none;
+}
+
+.webex-solution {
+    height: auto;
+    border: 2px solid var(--blue);
+    border-radius: 5px;
 }

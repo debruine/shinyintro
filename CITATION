@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this book, please cite it as below."
+authors:
+- family-names: "Lisa"
+  given-names: "DeBruine"
+  orcid: "https://orcid.org/0000-0002-7523-5539"
+title: "Building Web Apps with R Shiny"
+version: 1.0
+date-released: 2021
+url: "https://github.com/debruine/shinyintro/"

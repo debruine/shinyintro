@@ -5,17 +5,17 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
-biblio-style: apalike
+csl: include/apa.csl
 classoption: oneside
 geometry: margin=1in
 link-citations: yes
 description: "This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports."
-url: "https://debruine.github.io/shinyintro/"
-github-repo: "debruine/shinyintro"
-cover-image: "images/shinyintro_card.png"
-apple-touch-icon: "images/touch-icon.png"
+url: https://debruine.github.io/shinyintro/
+github-repo: debruine/shinyintro
+cover-image: images/logos/shinyintro.png
+apple-touch-icon: images/logos/touch-icon.png
 apple-touch-icon-size: 152
-favicon: "images/favicon.ico"
+favicon: images/logos/favicon.ico
 ---
 
 ```{r cite-packages, include = FALSE}
@@ -30,7 +30,7 @@ knitr::write_bib(c(
 
 ```{r, echo = FALSE, eval = TRUE, results='asis'}
 if (is_html) {
-  cat('![](images/shinyintro.png){style="float: right; width: 200px; height: 200px;" alt="Shinyintro Hex Logo"}')
+  cat('<div class="small_right"><img src="images/logos/shinyintro.png" alt="Hex sticker, text: ShinyIntro" /></div>')
 }
 ```
 

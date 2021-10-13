@@ -19,14 +19,15 @@ Imports:
     tidyr,
     readr,
     knitr,
-    webex,
-    glossary,
     shiny,
     shinyjs,
     shinydashboard,
     googlesheets4,
     DT,
     R.utils
+Suggests:
+    webexercises,
+    glossary
 Depends: 
     R (>= 2.10)
 Remotes:

@@ -1,502 +1,123 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>6 Reading and saving data | Building Web Apps with R Shiny</title>
+<meta name="author" content="Lisa DeBruine">
+<meta name="description" content='Figure 6.1: RadioTables Demo App. You can also access this app with shinyintro::app("radiotables")or view it in a separate tab with the showcase interface.   6.1 Local Data You can read and write...'>
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="6 Reading and saving data | Building Web Apps with R Shiny">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://debruine.github.io/shinyintro/data.html">
+<meta property="og:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png">
+<meta property="og:description" content='Figure 6.1: RadioTables Demo App. You can also access this app with shinyintro::app("radiotables")or view it in a separate tab with the showcase interface.   6.1 Local Data You can read and write...'>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="6 Reading and saving data | Building Web Apps with R Shiny">
+<meta name="twitter:description" content='Figure 6.1: RadioTables Demo App. You can also access this app with shinyintro::app("radiotables")or view it in a separate tab with the showcase interface.   6.1 Local Data You can read and write...'>
+<meta name="twitter:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6 Reading and saving data | Building Web Apps with R Shiny</title>
-  <meta name="description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
-
-  <meta property="og:title" content="6 Reading and saving data | Building Web Apps with R Shiny" />
-  <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://debruine.github.io/shinyintro/" />
-  <meta property="og:image" content="https://debruine.github.io/shinyintro//images/shinyintro_card.png" />
-  <meta property="og:description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
-  <meta name="github-repo" content="debruine/shinyintro" />
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 Reading and saving data | Building Web Apps with R Shiny" />
-  
-  <meta name="twitter:description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
-  <meta name="twitter:image" content="https://debruine.github.io/shinyintro//images/shinyintro_card.png" />
-
-<meta name="author" content="Lisa DeBruine" />
-
-
-<meta name="date" content="2021-07-26" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/touch-icon.png" />
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="reactives.html"/>
-<link rel="next" href="web.html"/>
-<script src="libs/header-attrs-2.9.4/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
-
-
-
-
-
-
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<meta property="og:title" content="ShinyIntro">
-<meta property="og:description" content="6 Reading and saving data | Building Web Apps with R Shiny">
-<meta property="og:image" content="https://debruine.github.io/shinyintro/images/shinyintro_card.png">
-<meta property="og:url" content="https://debruine.github.io/shinyintro/">
-<meta property="twitter:card" content="summary_large_image">
-
-<link rel="shortcut icon" href="https://debruine.github.io/shinyintro/images/shinyintro.png">
-
-
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
-
-
-<link rel="stylesheet" href="include/psyteachr.css" type="text/css" />
-<link rel="stylesheet" href="include/webex.css" type="text/css" />
-<link rel="stylesheet" href="include/style.css" type="text/css" />
+      gtag('config', 'G-6NP3MF25W3');
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="include/psyteachr.css">
+<link rel="stylesheet" href="include/webex.css">
+<link rel="stylesheet" href="include/style.css">
 </head>
+<body data-spy="scroll" data-target="#toc">
 
-<body>
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
-
-
-  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
-
-    <div class="book-summary">
-      <nav role="navigation">
-
-<ul class="summary">
-<li><a href="./">Building Web Apps with R Shiny</a></li>
-<li><a href="https://zenodo.org/badge/latestdoi/166559207"><img src="https://zenodo.org/badge/166559207.svg" alt="DOI"></a></li>
-
-<li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
-<ul>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#installing-shinyintro"><i class="fa fa-check"></i><b>0.1</b> Installing shinyintro</a></li>
-<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#example-apps"><i class="fa fa-check"></i><b>0.2</b> Example Apps</a></li>
-<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#code-horizons-course-27-30-july-2021"><i class="fa fa-check"></i><b>0.3</b> Code Horizons Course (27-30 July 2021)</a>
-<ul>
-<li class="chapter" data-level="0.3.1" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i><b>0.3.1</b> Schedule</a></li>
-<li class="chapter" data-level="0.3.2" data-path="index.html"><a href="index.html#computing"><i class="fa fa-check"></i><b>0.3.2</b> Computing</a></li>
-<li class="chapter" data-level="0.3.3" data-path="index.html"><a href="index.html#who-should-register"><i class="fa fa-check"></i><b>0.3.3</b> Who Should Register?</a></li>
-</ul></li>
-<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#conventions"><i class="fa fa-check"></i><b>0.4</b> Conventions</a></li>
-<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#further-resources"><i class="fa fa-check"></i><b>0.5</b> Further Resources</a></li>
-</ul></li>
-<li class="chapter" data-level="1" data-path="first-app.html"><a href="first-app.html"><i class="fa fa-check"></i><b>1</b> Your First Shiny App</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="first-app.html"><a href="first-app.html#the-demo-app"><i class="fa fa-check"></i><b>1.1</b> The Demo App</a>
-<ul>
-<li class="chapter" data-level="1.1.1" data-path="first-app.html"><a href="first-app.html#set-up-the-demo-app"><i class="fa fa-check"></i><b>1.1.1</b> Set Up the Demo App</a></li>
-<li class="chapter" data-level="1.1.2" data-path="first-app.html"><a href="first-app.html#modify-the-demo-app"><i class="fa fa-check"></i><b>1.1.2</b> Modify the Demo App</a></li>
-<li class="chapter" data-level="1.1.3" data-path="first-app.html"><a href="first-app.html#add-new-things"><i class="fa fa-check"></i><b>1.1.3</b> Add New Things</a></li>
-</ul></li>
-<li class="chapter" data-level="1.2" data-path="first-app.html"><a href="first-app.html#app-structure"><i class="fa fa-check"></i><b>1.2</b> App Structure</a>
-<ul>
-<li class="chapter" data-level="1.2.1" data-path="first-app.html"><a href="first-app.html#ui"><i class="fa fa-check"></i><b>1.2.1</b> UI</a></li>
-<li class="chapter" data-level="1.2.2" data-path="first-app.html"><a href="first-app.html#tags"><i class="fa fa-check"></i><b>1.2.2</b> Tags</a></li>
-<li class="chapter" data-level="1.2.3" data-path="first-app.html"><a href="first-app.html#page-layout"><i class="fa fa-check"></i><b>1.2.3</b> Page Layout</a></li>
-</ul></li>
-<li class="chapter" data-level="1.3" data-path="first-app.html"><a href="first-app.html#dynamic-elements"><i class="fa fa-check"></i><b>1.3</b> Dynamic Elements</a>
-<ul>
-<li class="chapter" data-level="1.3.1" data-path="first-app.html"><a href="first-app.html#inputs-intro"><i class="fa fa-check"></i><b>1.3.1</b> Inputs</a></li>
-<li class="chapter" data-level="1.3.2" data-path="first-app.html"><a href="first-app.html#outputs-intro"><i class="fa fa-check"></i><b>1.3.2</b> Outputs</a></li>
-<li class="chapter" data-level="1.3.3" data-path="first-app.html"><a href="first-app.html#action-buttons"><i class="fa fa-check"></i><b>1.3.3</b> Action buttons</a></li>
-</ul></li>
-<li class="chapter" data-level="1.4" data-path="first-app.html"><a href="first-app.html#first-reactive"><i class="fa fa-check"></i><b>1.4</b> Reactive functions</a></li>
-<li class="chapter" data-level="1.5" data-path="first-app.html"><a href="first-app.html#resources-first-app"><i class="fa fa-check"></i><b>1.5</b> Further Resources</a></li>
-<li class="chapter" data-level="1.6" data-path="first-app.html"><a href="first-app.html#exercises-first-app"><i class="fa fa-check"></i><b>1.6</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="first-app.html"><a href="first-app.html#addition-app---ui"><i class="fa fa-check"></i>Addition App - UI</a></li>
-<li class="chapter" data-level="" data-path="first-app.html"><a href="first-app.html#observeevent"><i class="fa fa-check"></i>observeEvent</a></li>
-<li class="chapter" data-level="" data-path="first-app.html"><a href="first-app.html#reactive"><i class="fa fa-check"></i>reactive</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="shinydashboard.html"><a href="shinydashboard.html"><i class="fa fa-check"></i><b>2</b> ShinyDashboard</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="shinydashboard.html"><a href="shinydashboard.html#basic-template-for-shinydashboard-projects"><i class="fa fa-check"></i><b>2.1</b> Basic template for shinydashboard projects</a></li>
-<li class="chapter" data-level="2.2" data-path="shinydashboard.html"><a href="shinydashboard.html#dashboard-structure"><i class="fa fa-check"></i><b>2.2</b> Dashboard Structure</a>
-<ul>
-<li class="chapter" data-level="2.2.1" data-path="shinydashboard.html"><a href="shinydashboard.html#dashboardheader"><i class="fa fa-check"></i><b>2.2.1</b> dashboardHeader</a></li>
-<li class="chapter" data-level="2.2.2" data-path="shinydashboard.html"><a href="shinydashboard.html#dashboardsidebar"><i class="fa fa-check"></i><b>2.2.2</b> dashboardSidebar</a></li>
-<li class="chapter" data-level="2.2.3" data-path="shinydashboard.html"><a href="shinydashboard.html#dashboardbody"><i class="fa fa-check"></i><b>2.2.3</b> dashboardBody</a></li>
-</ul></li>
-<li class="chapter" data-level="2.3" data-path="shinydashboard.html"><a href="shinydashboard.html#body-structure"><i class="fa fa-check"></i><b>2.3</b> Body Structure</a>
-<ul>
-<li class="chapter" data-level="2.3.1" data-path="shinydashboard.html"><a href="shinydashboard.html#boxes"><i class="fa fa-check"></i><b>2.3.1</b> Boxes</a></li>
-<li class="chapter" data-level="2.3.2" data-path="shinydashboard.html"><a href="shinydashboard.html#info-and-value-boxes"><i class="fa fa-check"></i><b>2.3.2</b> Info and Value Boxes</a></li>
-<li class="chapter" data-level="2.3.3" data-path="shinydashboard.html"><a href="shinydashboard.html#tab-boxes"><i class="fa fa-check"></i><b>2.3.3</b> Tab Boxes</a></li>
-<li class="chapter" data-level="2.3.4" data-path="shinydashboard.html"><a href="shinydashboard.html#row-layout"><i class="fa fa-check"></i><b>2.3.4</b> Row Layout</a></li>
-<li class="chapter" data-level="2.3.5" data-path="shinydashboard.html"><a href="shinydashboard.html#column-layout"><i class="fa fa-check"></i><b>2.3.5</b> Column Layout</a></li>
-</ul></li>
-<li class="chapter" data-level="2.4" data-path="shinydashboard.html"><a href="shinydashboard.html#resources-shinydashboard"><i class="fa fa-check"></i><b>2.4</b> Further Resources</a></li>
-<li class="chapter" data-level="2.5" data-path="shinydashboard.html"><a href="shinydashboard.html#your-app-sdb"><i class="fa fa-check"></i><b>2.5</b> Your App</a>
-<ul>
-<li class="chapter" data-level="2.5.1" data-path="shinydashboard.html"><a href="shinydashboard.html#create-an-app-from-the-basic-template"><i class="fa fa-check"></i><b>2.5.1</b> Create an app from the basic template</a></li>
-<li class="chapter" data-level="2.5.2" data-path="shinydashboard.html"><a href="shinydashboard.html#customize-the-header"><i class="fa fa-check"></i><b>2.5.2</b> Customize the header</a></li>
-<li class="chapter" data-level="2.5.3" data-path="shinydashboard.html"><a href="shinydashboard.html#customize-the-sidebar"><i class="fa fa-check"></i><b>2.5.3</b> Customize the sidebar</a></li>
-<li class="chapter" data-level="2.5.4" data-path="shinydashboard.html"><a href="shinydashboard.html#customize-the-body"><i class="fa fa-check"></i><b>2.5.4</b> Customize the body</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="inputs.html"><a href="inputs.html"><i class="fa fa-check"></i><b>3</b> Inputs</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="inputs.html"><a href="inputs.html#input-functions"><i class="fa fa-check"></i><b>3.1</b> Input functions</a>
-<ul>
-<li class="chapter" data-level="3.1.1" data-path="inputs.html"><a href="inputs.html#textinput"><i class="fa fa-check"></i><b>3.1.1</b> textInput</a></li>
-<li class="chapter" data-level="3.1.2" data-path="inputs.html"><a href="inputs.html#textareainput"><i class="fa fa-check"></i><b>3.1.2</b> textAreaInput</a></li>
-<li class="chapter" data-level="3.1.3" data-path="inputs.html"><a href="inputs.html#selectinput"><i class="fa fa-check"></i><b>3.1.3</b> selectInput</a></li>
-<li class="chapter" data-level="3.1.4" data-path="inputs.html"><a href="inputs.html#checkboxgroupinput"><i class="fa fa-check"></i><b>3.1.4</b> checkboxGroupInput</a></li>
-<li class="chapter" data-level="3.1.5" data-path="inputs.html"><a href="inputs.html#checkboxinput"><i class="fa fa-check"></i><b>3.1.5</b> checkboxInput</a></li>
-<li class="chapter" data-level="3.1.6" data-path="inputs.html"><a href="inputs.html#radiobuttons"><i class="fa fa-check"></i><b>3.1.6</b> radioButtons</a></li>
-<li class="chapter" data-level="3.1.7" data-path="inputs.html"><a href="inputs.html#dateinput"><i class="fa fa-check"></i><b>3.1.7</b> dateInput</a></li>
-<li class="chapter" data-level="3.1.8" data-path="inputs.html"><a href="inputs.html#fileinput"><i class="fa fa-check"></i><b>3.1.8</b> fileInput</a></li>
-</ul></li>
-<li class="chapter" data-level="3.2" data-path="inputs.html"><a href="inputs.html#setting-inputs-programatically"><i class="fa fa-check"></i><b>3.2</b> Setting inputs programatically</a></li>
-<li class="chapter" data-level="3.3" data-path="inputs.html"><a href="inputs.html#resources-inputs"><i class="fa fa-check"></i><b>3.3</b> Further Resources</a></li>
-<li class="chapter" data-level="3.4" data-path="inputs.html"><a href="inputs.html#exercises-inputs"><i class="fa fa-check"></i><b>3.4</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="inputs.html"><a href="inputs.html#pets"><i class="fa fa-check"></i>Pets</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="inputs.html"><a href="inputs.html#your-app-inputs"><i class="fa fa-check"></i><b>3.5</b> Your App</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="outputs.html"><a href="outputs.html"><i class="fa fa-check"></i><b>4</b> Outputs</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="outputs.html"><a href="outputs.html#text"><i class="fa fa-check"></i><b>4.1</b> Text</a></li>
-<li class="chapter" data-level="4.2" data-path="outputs.html"><a href="outputs.html#plots"><i class="fa fa-check"></i><b>4.2</b> Plots</a></li>
-<li class="chapter" data-level="4.3" data-path="outputs.html"><a href="outputs.html#images"><i class="fa fa-check"></i><b>4.3</b> Images</a></li>
-<li class="chapter" data-level="4.4" data-path="outputs.html"><a href="outputs.html#tables"><i class="fa fa-check"></i><b>4.4</b> Tables</a>
-<ul>
-<li class="chapter" data-level="4.4.1" data-path="outputs.html"><a href="outputs.html#data-tables"><i class="fa fa-check"></i><b>4.4.1</b> Data Tables</a></li>
-</ul></li>
-<li class="chapter" data-level="4.5" data-path="outputs.html"><a href="outputs.html#dynamic-html"><i class="fa fa-check"></i><b>4.5</b> Dynamic HTML</a></li>
-<li class="chapter" data-level="4.6" data-path="outputs.html"><a href="outputs.html#reosurces-outputs"><i class="fa fa-check"></i><b>4.6</b> Further Resources</a></li>
-<li class="chapter" data-level="4.7" data-path="outputs.html"><a href="outputs.html#exercises-outputs"><i class="fa fa-check"></i><b>4.7</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="outputs.html"><a href="outputs.html#modify-the-demo"><i class="fa fa-check"></i>Modify the demo</a></li>
-<li class="chapter" data-level="" data-path="outputs.html"><a href="outputs.html#pets-1"><i class="fa fa-check"></i>Pets</a></li>
-</ul></li>
-<li class="chapter" data-level="4.8" data-path="outputs.html"><a href="outputs.html#your-app-outputs"><i class="fa fa-check"></i><b>4.8</b> Your App</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="reactives.html"><a href="reactives.html"><i class="fa fa-check"></i><b>5</b> Reactive functions</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="reactives.html"><a href="reactives.html#render-functions"><i class="fa fa-check"></i><b>5.1</b> Render functions</a></li>
-<li class="chapter" data-level="5.2" data-path="reactives.html"><a href="reactives.html#reactive-1"><i class="fa fa-check"></i><b>5.2</b> reactive()</a></li>
-<li class="chapter" data-level="5.3" data-path="reactives.html"><a href="reactives.html#observeevent-1"><i class="fa fa-check"></i><b>5.3</b> observeEvent()</a></li>
-<li class="chapter" data-level="5.4" data-path="reactives.html"><a href="reactives.html#reactiveval"><i class="fa fa-check"></i><b>5.4</b> reactiveVal()</a></li>
-<li class="chapter" data-level="5.5" data-path="reactives.html"><a href="reactives.html#reactivevalue"><i class="fa fa-check"></i><b>5.5</b> reactiveValue()</a></li>
-<li class="chapter" data-level="5.6" data-path="reactives.html"><a href="reactives.html#eventreactive"><i class="fa fa-check"></i><b>5.6</b> eventReactive()</a></li>
-<li class="chapter" data-level="5.7" data-path="reactives.html"><a href="reactives.html#isolate"><i class="fa fa-check"></i><b>5.7</b> isolate()</a></li>
-<li class="chapter" data-level="5.8" data-path="reactives.html"><a href="reactives.html#resources-reactive"><i class="fa fa-check"></i><b>5.8</b> Further Resources</a></li>
-<li class="chapter" data-level="5.9" data-path="reactives.html"><a href="reactives.html#exercises-reactive"><i class="fa fa-check"></i><b>5.9</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="reactives.html"><a href="reactives.html#render"><i class="fa fa-check"></i>render</a></li>
-<li class="chapter" data-level="" data-path="reactives.html"><a href="reactives.html#reactive-2"><i class="fa fa-check"></i>reactive</a></li>
-<li class="chapter" data-level="" data-path="reactives.html"><a href="reactives.html#observeevent-2"><i class="fa fa-check"></i>observeEvent</a></li>
-<li class="chapter" data-level="" data-path="reactives.html"><a href="reactives.html#reactiveval-1"><i class="fa fa-check"></i>reactiveVal</a></li>
-<li class="chapter" data-level="" data-path="reactives.html"><a href="reactives.html#reactivevalues"><i class="fa fa-check"></i>reactiveValues</a></li>
-<li class="chapter" data-level="" data-path="reactives.html"><a href="reactives.html#eventreactive-1"><i class="fa fa-check"></i>eventReactive</a></li>
-</ul></li>
-<li class="chapter" data-level="5.10" data-path="reactives.html"><a href="reactives.html#your-app-reactive"><i class="fa fa-check"></i><b>5.10</b> Your App</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>6</b> Reading and saving data</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="data.html"><a href="data.html#local-data"><i class="fa fa-check"></i><b>6.1</b> Local Data</a></li>
-<li class="chapter" data-level="6.2" data-path="data.html"><a href="data.html#google_sheets"><i class="fa fa-check"></i><b>6.2</b> Google Sheets</a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="data.html"><a href="data.html#authorisation-for-apps"><i class="fa fa-check"></i><b>6.2.1</b> Authorisation for Apps</a></li>
-<li class="chapter" data-level="6.2.2" data-path="data.html"><a href="data.html#accessing-an-existing-sheet"><i class="fa fa-check"></i><b>6.2.2</b> Accessing an existing sheet</a></li>
-<li class="chapter" data-level="6.2.3" data-path="data.html"><a href="data.html#make-a-new-sheet"><i class="fa fa-check"></i><b>6.2.3</b> Make a new sheet</a></li>
-<li class="chapter" data-level="6.2.4" data-path="data.html"><a href="data.html#add-data"><i class="fa fa-check"></i><b>6.2.4</b> Add data</a></li>
-<li class="chapter" data-level="6.2.5" data-path="data.html"><a href="data.html#appending-data"><i class="fa fa-check"></i><b>6.2.5</b> Appending data</a></li>
-<li class="chapter" data-level="6.2.6" data-path="data.html"><a href="data.html#gs4_save"><i class="fa fa-check"></i><b>6.2.6</b> Saving data</a></li>
-</ul></li>
-<li class="chapter" data-level="6.3" data-path="data.html"><a href="data.html#exercises-data"><i class="fa fa-check"></i><b>6.3</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="data.html"><a href="data.html#read-others-data"><i class="fa fa-check"></i>Read others’ data</a></li>
-<li class="chapter" data-level="" data-path="data.html"><a href="data.html#read-your-own-data"><i class="fa fa-check"></i>Read your own data</a></li>
-<li class="chapter" data-level="" data-path="data.html"><a href="data.html#write-data"><i class="fa fa-check"></i>Write data</a></li>
-</ul></li>
-<li class="chapter" data-level="6.4" data-path="data.html"><a href="data.html#your-app-data"><i class="fa fa-check"></i><b>6.4</b> Your App</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="web.html"><a href="web.html"><i class="fa fa-check"></i><b>7</b> HTML, CSS, and JavaScript</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="web.html"><a href="web.html#html"><i class="fa fa-check"></i><b>7.1</b> HTML</a>
-<ul>
-<li class="chapter" data-level="7.1.1" data-path="web.html"><a href="web.html#html-tags"><i class="fa fa-check"></i><b>7.1.1</b> HTML Tags</a></li>
-<li class="chapter" data-level="7.1.2" data-path="web.html"><a href="web.html#viewing-html"><i class="fa fa-check"></i><b>7.1.2</b> Viewing HTML</a></li>
-</ul></li>
-<li class="chapter" data-level="7.2" data-path="web.html"><a href="web.html#CSS"><i class="fa fa-check"></i><b>7.2</b> CSS</a>
-<ul>
-<li class="chapter" data-level="7.2.1" data-path="web.html"><a href="web.html#css-basics"><i class="fa fa-check"></i><b>7.2.1</b> CSS Basics</a></li>
-<li class="chapter" data-level="7.2.2" data-path="web.html"><a href="web.html#styling-a-single-element"><i class="fa fa-check"></i><b>7.2.2</b> Styling a single element</a></li>
-<li class="chapter" data-level="7.2.3" data-path="web.html"><a href="web.html#inline-css"><i class="fa fa-check"></i><b>7.2.3</b> Inline CSS</a></li>
-<li class="chapter" data-level="7.2.4" data-path="web.html"><a href="web.html#external-css"><i class="fa fa-check"></i><b>7.2.4</b> External CSS</a></li>
-</ul></li>
-<li class="chapter" data-level="7.3" data-path="web.html"><a href="web.html#JavaScript"><i class="fa fa-check"></i><b>7.3</b> JavaScript</a>
-<ul>
-<li class="chapter" data-level="7.3.1" data-path="web.html"><a href="web.html#shinyjs"><i class="fa fa-check"></i><b>7.3.1</b> shinyjs</a></li>
-<li class="chapter" data-level="7.3.2" data-path="web.html"><a href="web.html#external-js"><i class="fa fa-check"></i><b>7.3.2</b> External JS</a></li>
-</ul></li>
-<li class="chapter" data-level="7.4" data-path="web.html"><a href="web.html#resources-web"><i class="fa fa-check"></i><b>7.4</b> Further Resources</a></li>
-<li class="chapter" data-level="7.5" data-path="web.html"><a href="web.html#exercises-web"><i class="fa fa-check"></i><b>7.5</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="web.html"><a href="web.html#add-html"><i class="fa fa-check"></i>Add HTML</a></li>
-<li class="chapter" data-level="" data-path="web.html"><a href="web.html#class-html"><i class="fa fa-check"></i>Class HTML</a></li>
-<li class="chapter" data-level="" data-path="web.html"><a href="web.html#style-links"><i class="fa fa-check"></i>Style links</a></li>
-<li class="chapter" data-level="" data-path="web.html"><a href="web.html#style-a-single-link-directly"><i class="fa fa-check"></i>Style a single link directly</a></li>
-<li class="chapter" data-level="" data-path="web.html"><a href="web.html#external-css-1"><i class="fa fa-check"></i>External CSS</a></li>
-</ul></li>
-<li class="chapter" data-level="7.6" data-path="web.html"><a href="web.html#your-app-web"><i class="fa fa-check"></i><b>7.6</b> Your App</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="structure.html"><a href="structure.html"><i class="fa fa-check"></i><b>8</b> Structuring a complex app</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="structure.html"><a href="structure.html#external-server-functions"><i class="fa fa-check"></i><b>8.1</b> External Server Functions</a>
-<ul>
-<li class="chapter" data-level="8.1.1" data-path="structure.html"><a href="structure.html#sourcing-locally"><i class="fa fa-check"></i><b>8.1.1</b> Sourcing Locally</a></li>
-<li class="chapter" data-level="8.1.2" data-path="structure.html"><a href="structure.html#inputs-and-outputs"><i class="fa fa-check"></i><b>8.1.2</b> Inputs and Outputs</a></li>
-</ul></li>
-<li class="chapter" data-level="8.2" data-path="structure.html"><a href="structure.html#external-ui-files"><i class="fa fa-check"></i><b>8.2</b> External UI Files</a>
-<ul>
-<li class="chapter" data-level="8.2.1" data-path="structure.html"><a href="structure.html#ui-lists"><i class="fa fa-check"></i><b>8.2.1</b> UI Lists</a></li>
-</ul></li>
-<li class="chapter" data-level="8.3" data-path="structure.html"><a href="structure.html#exercises-structure"><i class="fa fa-check"></i><b>8.3</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="structure.html"><a href="structure.html#ui-1"><i class="fa fa-check"></i>UI</a></li>
-<li class="chapter" data-level="" data-path="structure.html"><a href="structure.html#server"><i class="fa fa-check"></i>Server</a></li>
-</ul></li>
-<li class="chapter" data-level="8.4" data-path="structure.html"><a href="structure.html#your-app-structure"><i class="fa fa-check"></i><b>8.4</b> Your App</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="debugging.html"><a href="debugging.html"><i class="fa fa-check"></i><b>9</b> Debugging and error handling</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="debugging.html"><a href="debugging.html#rstudio-console-messages"><i class="fa fa-check"></i><b>9.1</b> RStudio Console Messages</a></li>
-<li class="chapter" data-level="9.2" data-path="debugging.html"><a href="debugging.html#javascript-console"><i class="fa fa-check"></i><b>9.2</b> JavaScript Console</a></li>
-<li class="chapter" data-level="9.3" data-path="debugging.html"><a href="debugging.html#showcase-mode"><i class="fa fa-check"></i><b>9.3</b> Showcase Mode</a></li>
-<li class="chapter" data-level="9.4" data-path="debugging.html"><a href="debugging.html#trycatch"><i class="fa fa-check"></i><b>9.4</b> tryCatch</a></li>
-<li class="chapter" data-level="9.5" data-path="debugging.html"><a href="debugging.html#input-checking"><i class="fa fa-check"></i><b>9.5</b> Input Checking</a>
-<ul>
-<li class="chapter" data-level="9.5.1" data-path="debugging.html"><a href="debugging.html#modal-dialogs"><i class="fa fa-check"></i><b>9.5.1</b> Modal Dialogs</a></li>
-<li class="chapter" data-level="9.5.2" data-path="debugging.html"><a href="debugging.html#validate"><i class="fa fa-check"></i><b>9.5.2</b> Validate</a></li>
-</ul></li>
-<li class="chapter" data-level="9.6" data-path="debugging.html"><a href="debugging.html#resources-debugging"><i class="fa fa-check"></i><b>9.6</b> Further Resources</a></li>
-<li class="chapter" data-level="9.7" data-path="debugging.html"><a href="debugging.html#exercises-debugging"><i class="fa fa-check"></i><b>9.7</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="debugging.html"><a href="debugging.html#required-selections"><i class="fa fa-check"></i>Required selections</a></li>
-</ul></li>
-<li class="chapter" data-level="9.8" data-path="debugging.html"><a href="debugging.html#your-app-debugging"><i class="fa fa-check"></i><b>9.8</b> Your App</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="contingency.html"><a href="contingency.html"><i class="fa fa-check"></i><b>10</b> Contingent Display</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="contingency.html"><a href="contingency.html#hide-and-show"><i class="fa fa-check"></i><b>10.1</b> Hide and Show</a>
-<ul>
-<li class="chapter" data-level="10.1.1" data-path="contingency.html"><a href="contingency.html#groups"><i class="fa fa-check"></i><b>10.1.1</b> Groups</a></li>
-<li class="chapter" data-level="10.1.2" data-path="contingency.html"><a href="contingency.html#toggle"><i class="fa fa-check"></i><b>10.1.2</b> Toggle</a></li>
-</ul></li>
-<li class="chapter" data-level="10.2" data-path="contingency.html"><a href="contingency.html#changing-styles"><i class="fa fa-check"></i><b>10.2</b> Changing Styles</a>
-<ul>
-<li class="chapter" data-level="10.2.1" data-path="contingency.html"><a href="contingency.html#changing-non-shiny-elements"><i class="fa fa-check"></i><b>10.2.1</b> Changing non-shiny elements</a></li>
-</ul></li>
-<li class="chapter" data-level="10.3" data-path="contingency.html"><a href="contingency.html#changing-input-options"><i class="fa fa-check"></i><b>10.3</b> Changing input options</a></li>
-<li class="chapter" data-level="10.4" data-path="contingency.html"><a href="contingency.html#resources-contingency"><i class="fa fa-check"></i><b>10.4</b> Further Resources</a></li>
-<li class="chapter" data-level="10.5" data-path="contingency.html"><a href="contingency.html#exercises-contingency"><i class="fa fa-check"></i><b>10.5</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="contingency.html"><a href="contingency.html#filtered-data"><i class="fa fa-check"></i>Filtered data</a></li>
-</ul></li>
-<li class="chapter" data-level="10.6" data-path="contingency.html"><a href="contingency.html#your-app-contingency"><i class="fa fa-check"></i><b>10.6</b> Your App</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="sharing.html"><a href="sharing.html"><i class="fa fa-check"></i><b>11</b> Sharing your Apps</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="sharing.html"><a href="sharing.html#shinyapps.io"><i class="fa fa-check"></i><b>11.1</b> shinyapps.io</a></li>
-<li class="chapter" data-level="11.2" data-path="sharing.html"><a href="sharing.html#self-hosting-a-shiny-server"><i class="fa fa-check"></i><b>11.2</b> Self-hosting a shiny server</a></li>
-<li class="chapter" data-level="11.3" data-path="sharing.html"><a href="sharing.html#github"><i class="fa fa-check"></i><b>11.3</b> GitHub</a></li>
-<li class="chapter" data-level="11.4" data-path="sharing.html"><a href="sharing.html#in-an-r-package"><i class="fa fa-check"></i><b>11.4</b> In an R package</a></li>
-<li class="chapter" data-level="11.5" data-path="sharing.html"><a href="sharing.html#resources-sharing"><i class="fa fa-check"></i><b>11.5</b> Further Resources</a></li>
-<li class="chapter" data-level="11.6" data-path="sharing.html"><a href="sharing.html#exercises-sharing"><i class="fa fa-check"></i><b>11.6</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="sharing.html"><a href="sharing.html#shinyapps.io-1"><i class="fa fa-check"></i>Shinyapps.io</a></li>
-<li class="chapter" data-level="" data-path="sharing.html"><a href="sharing.html#github-1"><i class="fa fa-check"></i>GitHub</a></li>
-<li class="chapter" data-level="" data-path="sharing.html"><a href="sharing.html#r-package"><i class="fa fa-check"></i>R Package</a></li>
-</ul></li>
-<li class="chapter" data-level="11.7" data-path="sharing.html"><a href="sharing.html#your-app-sharing"><i class="fa fa-check"></i><b>11.7</b> Your App</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="reports.html"><a href="reports.html"><i class="fa fa-check"></i><b>12</b> Customized reports</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="reports.html"><a href="reports.html#download-data"><i class="fa fa-check"></i><b>12.1</b> Download Data</a></li>
-<li class="chapter" data-level="12.2" data-path="reports.html"><a href="reports.html#download-images"><i class="fa fa-check"></i><b>12.2</b> Download Images</a></li>
-<li class="chapter" data-level="12.3" data-path="reports.html"><a href="reports.html#r-markdown"><i class="fa fa-check"></i><b>12.3</b> R Markdown</a></li>
-<li class="chapter" data-level="12.4" data-path="reports.html"><a href="reports.html#resources-reports"><i class="fa fa-check"></i><b>12.4</b> Further Resources</a></li>
-<li class="chapter" data-level="12.5" data-path="reports.html"><a href="reports.html#exercises-reports"><i class="fa fa-check"></i><b>12.5</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="reports.html"><a href="reports.html#food-data"><i class="fa fa-check"></i>Food Data</a></li>
-<li class="chapter" data-level="" data-path="reports.html"><a href="reports.html#food-image"><i class="fa fa-check"></i>Food Image</a></li>
-<li class="chapter" data-level="" data-path="reports.html"><a href="reports.html#food-report"><i class="fa fa-check"></i>Food Report</a></li>
-</ul></li>
-<li class="chapter" data-level="12.6" data-path="reports.html"><a href="reports.html#your-app-reports"><i class="fa fa-check"></i><b>12.6</b> Your app</a></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="modules.html"><a href="modules.html"><i class="fa fa-check"></i><b>13</b> Shiny modules for repeated structures</a>
-<ul>
-<li class="chapter" data-level="13.1" data-path="modules.html"><a href="modules.html#modularizing-the-ui"><i class="fa fa-check"></i><b>13.1</b> Modularizing the UI</a></li>
-<li class="chapter" data-level="13.2" data-path="modules.html"><a href="modules.html#modularizing-server-functions"><i class="fa fa-check"></i><b>13.2</b> Modularizing server functions</a></li>
-<li class="chapter" data-level="13.3" data-path="modules.html"><a href="modules.html#resources-modules"><i class="fa fa-check"></i><b>13.3</b> Further Resources</a></li>
-<li class="chapter" data-level="13.4" data-path="modules.html"><a href="modules.html#exercises-modules"><i class="fa fa-check"></i><b>13.4</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#repeat-example"><i class="fa fa-check"></i>Repeat Example</a></li>
-<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#new-instance"><i class="fa fa-check"></i>New Instance</a></li>
-<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#altering-modules"><i class="fa fa-check"></i>Altering modules</a></li>
-<li class="chapter" data-level="" data-path="modules.html"><a href="modules.html#new-module"><i class="fa fa-check"></i>New module</a></li>
-</ul></li>
-<li class="chapter" data-level="13.5" data-path="modules.html"><a href="modules.html#your-app-modules"><i class="fa fa-check"></i><b>13.5</b> Your app</a></li>
-</ul></li>
-<li class="appendix"><span><b>Appendices</b></span></li>
-<li class="chapter" data-level="A" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i><b>A</b> Installing <code>R</code></a>
-<ul>
-<li class="chapter" data-level="A.1" data-path="installing-r.html"><a href="installing-r.html#installing-base-r"><i class="fa fa-check"></i><b>A.1</b> Installing Base R</a></li>
-<li class="chapter" data-level="A.2" data-path="installing-r.html"><a href="installing-r.html#installing-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing RStudio</a>
-<ul>
-<li class="chapter" data-level="A.2.1" data-path="installing-r.html"><a href="installing-r.html#rstudio-settings"><i class="fa fa-check"></i><b>A.2.1</b> RStudio Settings</a></li>
-<li class="chapter" data-level="A.2.2" data-path="installing-r.html"><a href="installing-r.html#installing-shinyintro-1"><i class="fa fa-check"></i><b>A.2.2</b> Installing shinyintro</a></li>
-</ul></li>
-<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.3</b> Installing LaTeX</a></li>
-</ul></li>
-<li class="chapter" data-level="B" data-path="symbols.html"><a href="symbols.html"><i class="fa fa-check"></i><b>B</b> Symbols</a></li>
-<li class="chapter" data-level="C" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>C</b> Glossary</a></li>
-<li class="divider"></li>
-<li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
-    target="blank"><img alt="Creative Commons License" 
-    style="border-width:0" 
-    src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></li>
-<li><img alt="ShinyIntro hex Logo"
-    src="https://debruine.github.io/shinyintro/images/shinyintro.png" style="width: 100%"/></li>
-
-</ul>
-
-      </nav>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Building Web Apps with R Shiny</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
 
-    <div class="book-body">
-      <div class="body-inner">
-        <div class="book-header" role="navigation">
-          <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Building Web Apps with R Shiny</a>
-          </h1>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Overview</a></li>
+<li><a class="" href="first-app.html"><span class="header-section-number">1</span> Your First Shiny App</a></li>
+<li><a class="" href="shinydashboard.html"><span class="header-section-number">2</span> ShinyDashboard</a></li>
+<li><a class="" href="inputs.html"><span class="header-section-number">3</span> Inputs</a></li>
+<li><a class="" href="outputs.html"><span class="header-section-number">4</span> Outputs</a></li>
+<li><a class="" href="reactives.html"><span class="header-section-number">5</span> Reactive functions</a></li>
+<li><a class="active" href="data.html"><span class="header-section-number">6</span> Reading and saving data</a></li>
+<li><a class="" href="web.html"><span class="header-section-number">7</span> HTML, CSS, and JavaScript</a></li>
+<li><a class="" href="structure.html"><span class="header-section-number">8</span> Structuring a complex app</a></li>
+<li><a class="" href="debugging.html"><span class="header-section-number">9</span> Debugging and error handling</a></li>
+<li><a class="" href="contingency.html"><span class="header-section-number">10</span> Contingent Display</a></li>
+<li><a class="" href="sharing.html"><span class="header-section-number">11</span> Sharing your Apps</a></li>
+<li><a class="" href="reports.html"><span class="header-section-number">12</span> Customized reports</a></li>
+<li><a class="" href="modules.html"><span class="header-section-number">13</span> Shiny modules for repeated structures</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">B</span> Symbols</a></li>
+<li><a class="" href="glossary.html"><span class="header-section-number">C</span> Glossary</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/pdebruine/shinyintro">View book source <i class="fab fa-github"></i></a></p>
         </div>
-
-        <div class="page-wrapper" tabindex="-1" role="main">
-          <div class="page-inner">
-
-            <section class="normal" id="section-">
-<div id="data" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Reading and saving data</h1>
-<div class="figure" style="text-align: center"><span id="fig:radiotables-app"></span>
-<iframe src="https://shiny.psy.gla.ac.uk/debruine/radiotables/?showcase=0" width="100%" height="800px">
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="data" class="section level1" number="6">
+<h1>
+<span class="header-section-number">6</span> Reading and saving data<a class="anchor" aria-label="anchor" href="#data"><i class="fas fa-link"></i></a>
+</h1>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:radiotables-app"></span>
+<iframe src="https://shiny.psy.gla.ac.uk/debruine/radiotables/?showcase=0" width="100%" height="800px" data-external="1">
 </iframe>
 <p class="caption">
 Figure 6.1: RadioTables Demo App. You can also access this app with <code>shinyintro::app("radiotables")</code>or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/radiotables/" target="_blank">showcase interface</a>.
 </p>
 </div>
 <div id="local-data" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Local Data</h2>
+<h2>
+<span class="header-section-number">6.1</span> Local Data<a class="anchor" aria-label="anchor" href="#local-data"><i class="fas fa-link"></i></a>
+</h2>
 <p>You can read and write data from a Shiny app the same way you do from any R script. We will focus on reading data, since writing data locally can cause problems and is better done with <a href="data.html#google_sheets">Google Sheets</a>.</p>
-<p>The <a class='glossary' target='_blank' title='The filepath where R is currently reading and writing files.' href='https://psyteachr.github.io/glossary/w#working-directory'>working directory</a> for a Shiny app is the directory that app.R is in. I recommend keeping your data in a directory called <code class='path'>data</code> to keep things tidy.</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="data.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read local data</span></span>
-<span id="cb82-2"><a href="data.html#cb82-2" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xls</span>(<span class="st">&quot;data/my_data.xls&quot;</span>)</span>
-<span id="cb82-3"><a href="data.html#cb82-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb82-4"><a href="data.html#cb82-4" aria-hidden="true" tabindex="-1"></a><span class="co"># read data on the web</span></span>
-<span id="cb82-5"><a href="data.html#cb82-5" aria-hidden="true" tabindex="-1"></a>countries <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;https://datahub.io/core/country-list/r/data.csv&quot;</span>)</span>
-<span id="cb82-6"><a href="data.html#cb82-6" aria-hidden="true" tabindex="-1"></a>languages <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">read_json</span>(<span class="st">&quot;https://datahub.io/core/language-codes/r/language-codes.json&quot;</span>)</span></code></pre></div>
+<p>The <a class="glossary" target="_blank" title="The filepath where R is currently reading and writing files." href="https://psyteachr.github.io/glossary/w#working-directory">working directory</a> for a Shiny app is the directory that app.R is in. I recommend keeping your data in a directory called <code class="path">data</code> to keep things tidy.</p>
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># read local data</span>
+<span class="va">my_data</span> <span class="op">&lt;-</span> <span class="fu">readxl</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/readxl/man/read_excel.html">read_xls</a></span><span class="op">(</span><span class="st">"data/my_data.xls"</span><span class="op">)</span>
+
+<span class="co"># read data on the web</span>
+<span class="va">countries</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/readr/man/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"https://datahub.io/core/country-list/r/data.csv"</span><span class="op">)</span>
+<span class="va">languages</span> <span class="op">&lt;-</span> <span class="fu">jsonlite</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/jsonlite/man/read_json.html">read_json</a></span><span class="op">(</span><span class="st">"https://datahub.io/core/language-codes/r/language-codes.json"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="google_sheets" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Google Sheets</h2>
-<p>One of the best ways to start collecting data with a Shiny app is with Google Sheets. This allows you to collect data to the same place from multiple servers, which might happen if you’re running the app locally on more than one computer or through a service like <a href="https://shinyapps.io" target="_blank">shinyapps.io</a>. The R package <code class='package'>googlesheets4</code> makes it easy to work with Google Sheets from R.</p>
-<p>If you just want to read data from a public Google Sheet, you don’t need any authorisation. Just start your code with <code><span class="fu">gs4_deauth</span>()</code> after you load <code class='package'>googlesheets4</code> (otherwise you’ll be prompted to log in). Then you can read data like this:</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(googlesheets4)</span>
-<span id="cb83-2"><a href="data.html#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gs4_deauth</span>()</span>
-<span id="cb83-3"><a href="data.html#cb83-3" aria-hidden="true" tabindex="-1"></a>sheet_id <span class="ot">&lt;-</span> <span class="st">&quot;https://docs.google.com/spreadsheets/d/1tQCYQrI4xITlPyxb9dQ-JpMDYeADovIeiZZRNHkctGA/&quot;</span></span>
-<span id="cb83-4"><a href="data.html#cb83-4" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(sheet_id)</span></code></pre></div>
+<h2>
+<span class="header-section-number">6.2</span> Google Sheets<a class="anchor" aria-label="anchor" href="#google_sheets"><i class="fas fa-link"></i></a>
+</h2>
+<p>One of the best ways to start collecting data with a Shiny app is with Google Sheets. This allows you to collect data to the same place from multiple servers, which might happen if you're running the app locally on more than one computer or through a service like <a href="https://shinyapps.io" target="_blank">shinyapps.io</a>. The R package <code class="package">googlesheets4</code> makes it easy to work with Google Sheets from R.</p>
+<p>If you just want to read data from a public Google Sheet, you don't need any authorisation. Just start your code with <code><span class="fu">gs4_deauth</span>()</code> after you load <code class="package">googlesheets4</code> (otherwise you'll be prompted to log in). Then you can read data like this:</p>
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://googlesheets4.tidyverse.org">googlesheets4</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/gs4_deauth.html">gs4_deauth</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">sheet_id</span> <span class="op">&lt;-</span> <span class="st">"https://docs.google.com/spreadsheets/d/1tQCYQrI4xITlPyxb9dQ-JpMDYeADovIeiZZRNHkctGA/"</span>
+<span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/range_read.html">read_sheet</a></span><span class="op">(</span><span class="va">sheet_id</span><span class="op">)</span></code></pre></div>
 <div class="kable-table">
-<table>
-<thead>
-<tr class="header">
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
 <th align="right">number</th>
 <th align="left">letter</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td align="right">1</td>
@@ -511,57 +132,65 @@ Figure 6.1: RadioTables Demo App. You can also access this app with <code>shinyi
 <td align="left">C</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
-<p>However, even if a Google Sheet is publicly editable, you can’t add data to it without authorising your account. If you try, you’ll get the error below.</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="data.html#cb84-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">number =</span> <span class="dv">4</span>, <span class="at">letter =</span> <span class="st">&quot;D&quot;</span>)</span>
-<span id="cb84-2"><a href="data.html#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sheet_append</span>(sheet_id, data)</span></code></pre></div>
+<p>However, even if a Google Sheet is publicly editable, you can't add data to it without authorising your account. If you try, you'll get the error below.</p>
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>number <span class="op">=</span> <span class="fl">4</span>, letter <span class="op">=</span> <span class="st">"D"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/sheet_append.html">sheet_append</a></span><span class="op">(</span><span class="va">sheet_id</span>, <span class="va">data</span><span class="op">)</span></code></pre></div>
 <pre><code>## Error: Client error: (401) UNAUTHENTICATED
-## • Request not authenticated due to missing, invalid, or
-##   expired OAuth token.
-## • Request is missing required authentication credential.
-##   Expected OAuth 2 access token, login cookie or other
-##   valid authentication credential. See
+## • Request not authenticated due to missing, invalid, or expired OAuth
+##   token.
+## • Request is missing required authentication credential. Expected
+##   OAuth 2 access token, login cookie or other valid authentication
+##   credential. See
 ##   https://developers.google.com/identity/sign-in/web/devconsole-project.</code></pre>
-<p>You can authorise interactively using the following code (and your own email), which will prompt you to authorise “Tidyverse API Packages” the first time you do this.</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="data.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gs4_auth</span>(<span class="at">email =</span> <span class="st">&quot;debruine@gmail.com&quot;</span>)</span></code></pre></div>
-<p>However, this won’t work if you want your Shiny apps to be able to access your Google Sheets.</p>
+<p>You can authorise interactively using the following code (and your own email), which will prompt you to authorise "Tidyverse API Packages" the first time you do this.</p>
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/gs4_auth.html">gs4_auth</a></span><span class="op">(</span>email <span class="op">=</span> <span class="st">"debruine@gmail.com"</span><span class="op">)</span></code></pre></div>
+<p>However, this won't work if you want your Shiny apps to be able to access your Google Sheets.</p>
 <div id="authorisation-for-apps" class="section level3" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Authorisation for Apps</h3>
-<p>First, you need to get a token and store it in a cache folder in your app directory. We’re going to call that directory <code class='path'>.secrets</code>. Run the following code in your console (NOT in an Rmd file). This will open up a web browser window and prompt you to choose your Google account and authorise “Tidyverse API Packages.”</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="data.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(app_directory)</span>
-<span id="cb87-2"><a href="data.html#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gs4_auth</span>(<span class="at">email =</span> <span class="st">&quot;debruine@gmail.com&quot;</span>, <span class="at">cache =</span> <span class="st">&quot;.secrets&quot;</span>)</span>
-<span id="cb87-3"><a href="data.html#cb87-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-4"><a href="data.html#cb87-4" aria-hidden="true" tabindex="-1"></a><span class="co"># optionally, authorise google drive to search your drive</span></span>
-<span id="cb87-5"><a href="data.html#cb87-5" aria-hidden="true" tabindex="-1"></a><span class="co"># googledrive::drive_auth(email = &quot;debruine@gmail.com&quot;, cache = &quot;.secrets&quot;)</span></span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:gs4-auth"></span>
-<img src="images/gs4_choose_account.png" alt="Prompts to choose an account, grant permissions, and confirm." width="30%" /><img src="images/gs4_auth.png" alt="Prompts to choose an account, grant permissions, and confirm." width="30%" /><img src="images/gs4_confirm_auth.png" alt="Prompts to choose an account, grant permissions, and confirm." width="30%" />
-<p class="caption">
+<h3>
+<span class="header-section-number">6.2.1</span> Authorisation for Apps<a class="anchor" aria-label="anchor" href="#authorisation-for-apps"><i class="fas fa-link"></i></a>
+</h3>
+<p>First, you need to get a token and store it in a cache folder in your app directory. We're going to call that directory <code class="path">.secrets</code>. Run the following code in your console (NOT in an Rmd file). This will open up a web browser window and prompt you to choose your Google account and authorise "Tidyverse API Packages".</p>
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="va">app_directory</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/gs4_auth.html">gs4_auth</a></span><span class="op">(</span>email <span class="op">=</span> <span class="st">"debruine@gmail.com"</span>, cache <span class="op">=</span> <span class="st">".secrets"</span><span class="op">)</span>
+
+<span class="co"># optionally, authorise google drive to search your drive</span>
+<span class="co"># googledrive::drive_auth(email = "debruine@gmail.com", cache = ".secrets")</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:gs4-auth"></span>
+<img src="images/gs4_choose_account.png" alt="Prompts to choose an account, grant permissions, and confirm." width="30%"><img src="images/gs4_auth.png" alt="Prompts to choose an account, grant permissions, and confirm." width="30%"><img src="images/gs4_confirm_auth.png" alt="Prompts to choose an account, grant permissions, and confirm." width="30%"><p class="caption">
 Figure 6.2: Prompts to choose an account, grant permissions, and confirm.
 </p>
 </div>
-<p>When you have finished, you will see a page that says something like, “Authentication complete. Please close this page and return to R.” In the file pane in RStudio, you should now see a directory called <code class='path'>.secrets</code> in the app directory.</p>
-<p>If you are using GitHub, you don’t want to save your secret info to a public repository, so run the following code to ignore any directories called <code class='path'>.secrets</code> (so they will only exist on your computer and not on GitHub).</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="data.html#cb88-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_ignore</span>(<span class="st">&quot;.secrets&quot;</span>)</span>
-<span id="cb88-2"><a href="data.html#cb88-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_ignore</span>(<span class="st">&quot;*/.secrets&quot;</span>)</span></code></pre></div>
-<p>Now, you can include the following code at the top of your <code class='path'>app.R</code> script to authorise the app to read from and write to your files.</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gs4_auth</span>(<span class="at">cache =</span> <span class="st">&quot;.secrets&quot;</span>, <span class="at">email =</span> <span class="st">&quot;debruine@gmail.com&quot;</span>)</span></code></pre></div>
+<p>When you have finished, you will see a page that says something like, "Authentication complete. Please close this page and return to R." In the file pane in RStudio, you should now see a directory called <code class="path">.secrets</code> in the app directory.</p>
+<p>If you are using GitHub, you don't want to save your secret info to a public repository, so run the following code to ignore any directories called <code class="path">.secrets</code> (so they will only exist on your computer and not on GitHub).</p>
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/usethis/man/use_git_ignore.html">use_git_ignore</a></span><span class="op">(</span><span class="st">".secrets"</span><span class="op">)</span>
+<span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/usethis/man/use_git_ignore.html">use_git_ignore</a></span><span class="op">(</span><span class="st">"*/.secrets"</span><span class="op">)</span></code></pre></div>
+<p>Now, you can include the following code at the top of your <code class="path">app.R</code> script to authorise the app to read from and write to your files.</p>
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/gs4_auth.html">gs4_auth</a></span><span class="op">(</span>cache <span class="op">=</span> <span class="st">".secrets"</span>, email <span class="op">=</span> <span class="st">"debruine@gmail.com"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="accessing-an-existing-sheet" class="section level3" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> Accessing an existing sheet</h3>
+<h3>
+<span class="header-section-number">6.2.2</span> Accessing an existing sheet<a class="anchor" aria-label="anchor" href="#accessing-an-existing-sheet"><i class="fas fa-link"></i></a>
+</h3>
 <p>If you have an existing <a href="https://docs.google.com/spreadsheets/u/0/" target="_blank">Google Sheet</a>, you can access it by URL.</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="data.html#cb90-1" aria-hidden="true" tabindex="-1"></a>sheet_id <span class="ot">&lt;-</span> <span class="st">&quot;https://docs.google.com/spreadsheets/d/1tQCYQrI4xITlPyxb9dQ-JpMDYeADovIeiZZRNHkctGA/&quot;</span></span>
-<span id="cb90-2"><a href="data.html#cb90-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">number =</span> <span class="dv">4</span>, <span class="at">letter =</span> <span class="st">&quot;D&quot;</span>)</span>
-<span id="cb90-3"><a href="data.html#cb90-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sheet_append</span>(sheet_id, data)</span>
-<span id="cb90-4"><a href="data.html#cb90-4" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(sheet_id)</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">sheet_id</span> <span class="op">&lt;-</span> <span class="st">"https://docs.google.com/spreadsheets/d/1tQCYQrI4xITlPyxb9dQ-JpMDYeADovIeiZZRNHkctGA/"</span>
+<span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>number <span class="op">=</span> <span class="fl">4</span>, letter <span class="op">=</span> <span class="st">"D"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/sheet_append.html">sheet_append</a></span><span class="op">(</span><span class="va">sheet_id</span>, <span class="va">data</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/range_read.html">read_sheet</a></span><span class="op">(</span><span class="va">sheet_id</span><span class="op">)</span></code></pre></div>
 <div class="kable-table">
-<table>
-<thead>
-<tr class="header">
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
 <th align="right">number</th>
 <th align="left">letter</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td align="right">1</td>
@@ -580,16 +209,19 @@ Figure 6.2: Prompts to choose an account, grant permissions, and confirm.
 <td align="left">D</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 <div id="make-a-new-sheet" class="section level3" number="6.2.3">
-<h3><span class="header-section-number">6.2.3</span> Make a new sheet</h3>
-<p>You can set up a new Google Sheet with code. You only need to do this once for a sheet that you will use with a Shiny app, and you will need to save the sheet ID. If you don’t specify the tab name(s), the sheet will be created with one tab called “Sheet1.” I recommend making only one sheet per app and saving each table in a separate tab.</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data.html#cb91-1" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="fu">gs4_create</span>(<span class="st">&quot;demo2&quot;</span>, <span class="at">sheets =</span> <span class="fu">c</span>(<span class="st">&quot;demographics&quot;</span>, <span class="st">&quot;questionnaire&quot;</span>))</span>
-<span id="cb91-2"><a href="data.html#cb91-2" aria-hidden="true" tabindex="-1"></a>id</span></code></pre></div>
+<h3>
+<span class="header-section-number">6.2.3</span> Make a new sheet<a class="anchor" aria-label="anchor" href="#make-a-new-sheet"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can set up a new Google Sheet with code. You only need to do this once for a sheet that you will use with a Shiny app, and you will need to save the sheet ID. If you don't specify the tab name(s), the sheet will be created with one tab called "Sheet1". I recommend making only one sheet per app and saving each table in a separate tab.</p>
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">id</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/gs4_create.html">gs4_create</a></span><span class="op">(</span><span class="st">"demo2"</span>, sheets <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"demographics"</span>, <span class="st">"questionnaire"</span><span class="op">)</span><span class="op">)</span>
+<span class="va">id</span></code></pre></div>
 <pre><code>## Spreadsheet name: demo2
-##               ID: 139DthN2L66q3J_fSysU9uD1tbmEbWtRSWVqU2PvjCwA
+##               ID: 1UoNad4dLWPcJj2s9j1u2GjkCB_XXUYEE1qhvX5Z4Ms8
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -598,77 +230,78 @@ Figure 6.2: Prompts to choose an account, grant permissions, and confirm.
 ##  demographics: 1000 x 26
 ## questionnaire: 1000 x 26</code></pre>
 <p>Include the ID at the top of your app like this:</p>
-<pre><code>SHEET_ID <- "139DthN2L66q3J_fSysU9uD1tbmEbWtRSWVqU2PvjCwA"</code></pre>
+<pre><code>SHEET_ID </code></pre>
 </div>
 <div id="add-data" class="section level3" number="6.2.4">
-<h3><span class="header-section-number">6.2.4</span> Add data</h3>
-<p>You can add an empty data structure to your sheet by specifying the <a class='glossary' target='_blank' title='The kind of data represented by an object.' href='https://psyteachr.github.io/glossary/d#data-type'>data types</a> of each column like this:</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data.html#cb93-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb93-2"><a href="data.html#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="fu">character</span>(<span class="dv">0</span>),</span>
-<span id="cb93-3"><a href="data.html#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">birthyear =</span> <span class="fu">integer</span>(<span class="dv">0</span>),</span>
-<span id="cb93-4"><a href="data.html#cb93-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">R_user =</span> <span class="fu">logical</span>(<span class="dv">0</span>),</span>
-<span id="cb93-5"><a href="data.html#cb93-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="fu">double</span>(<span class="dv">0</span>)</span>
-<span id="cb93-6"><a href="data.html#cb93-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb93-7"><a href="data.html#cb93-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb93-8"><a href="data.html#cb93-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write_sheet</span>(data, SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span>
-<span id="cb93-9"><a href="data.html#cb93-9" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(SHEET_ID, <span class="st">&quot;demographics&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">names</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;name&quot;      &quot;birthyear&quot; &quot;R_user&quot;    &quot;score&quot;</code></pre>
+<h3>
+<span class="header-section-number">6.2.4</span> Add data<a class="anchor" aria-label="anchor" href="#add-data"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can add an empty data structure to your sheet by specifying the <a class="glossary" target="_blank" title="The kind of data represented by an object." href="https://psyteachr.github.io/glossary/d#data-type">data types</a> of each column like this:</p>
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
+  name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>,
+  birthyear <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">integer</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>,
+  R_user <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/logical.html">logical</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>,
+  score <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/double.html">double</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>
+<span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/sheet_write.html">write_sheet</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">SHEET_ID</span>, <span class="st">"demographics"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/range_read.html">read_sheet</a></span><span class="op">(</span><span class="va">SHEET_ID</span>, <span class="st">"demographics"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] "name"      "birthyear" "R_user"    "score"</code></pre>
 <p>Or you can populate the table with starting data.</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data.html#cb95-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb95-2"><a href="data.html#cb95-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">&quot;Lisa&quot;</span>,</span>
-<span id="cb95-3"><a href="data.html#cb95-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">birthyear =</span> 1976L,</span>
-<span id="cb95-4"><a href="data.html#cb95-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">R_user =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb95-5"><a href="data.html#cb95-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="fl">10.2</span></span>
-<span id="cb95-6"><a href="data.html#cb95-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb95-7"><a href="data.html#cb95-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb95-8"><a href="data.html#cb95-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write_sheet</span>(data, SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span>
-<span id="cb95-9"><a href="data.html#cb95-9" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
+  name <span class="op">=</span> <span class="st">"Lisa"</span>,
+  birthyear <span class="op">=</span> <span class="fl">1976L</span>,
+  R_user <span class="op">=</span> <span class="cn">TRUE</span>,
+  score <span class="op">=</span> <span class="fl">10.2</span>
+<span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/sheet_write.html">write_sheet</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">SHEET_ID</span>, <span class="st">"demographics"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/range_read.html">read_sheet</a></span><span class="op">(</span><span class="va">SHEET_ID</span>, <span class="st">"demographics"</span><span class="op">)</span></code></pre></div>
 <div class="kable-table">
-<table>
-<thead>
-<tr class="header">
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
 <th align="left">name</th>
 <th align="right">birthyear</th>
 <th align="left">R_user</th>
 <th align="right">score</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
+</tr></thead>
+<tbody><tr class="odd">
 <td align="left">Lisa</td>
 <td align="right">1976</td>
 <td align="left">TRUE</td>
 <td align="right">10.2</td>
-</tr>
-</tbody>
-</table>
+</tr></tbody>
+</table></div>
 </div>
 <div class="info">
-<p>Notice that <code>birthyear</code> is a <a class='glossary' target='_blank' title='A data type representing a real decimal number' href='https://psyteachr.github.io/glossary/d#double'>double</a>, not an <a class='glossary' target='_blank' title='A data type representing whole numbers.' href='https://psyteachr.github.io/glossary/i#integer'>integer</a>. Google Sheets only have one numeric type, so both doubles and integers are coerced to doubles.</p>
+<p>Notice that <code>birthyear</code> is a <a class="glossary" target="_blank" title="A data type representing a real decimal number" href="https://psyteachr.github.io/glossary/d#double">double</a>, not an <a class="glossary" target="_blank" title="A data type representing whole numbers." href="https://psyteachr.github.io/glossary/i#integer">integer</a>. Google Sheets only have one numeric type, so both doubles and integers are coerced to doubles.</p>
 </div>
 </div>
 <div id="appending-data" class="section level3" number="6.2.5">
-<h3><span class="header-section-number">6.2.5</span> Appending data</h3>
+<h3>
+<span class="header-section-number">6.2.5</span> Appending data<a class="anchor" aria-label="anchor" href="#appending-data"><i class="fas fa-link"></i></a>
+</h3>
 <p>Then you can append new rows of data to the sheet.</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="data.html#cb96-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb96-2"><a href="data.html#cb96-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">&quot;Robbie&quot;</span>,</span>
-<span id="cb96-3"><a href="data.html#cb96-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">birthyear =</span> <span class="dv">2007</span>,</span>
-<span id="cb96-4"><a href="data.html#cb96-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">R_user =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb96-5"><a href="data.html#cb96-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="fl">12.1</span></span>
-<span id="cb96-6"><a href="data.html#cb96-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb96-7"><a href="data.html#cb96-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb96-8"><a href="data.html#cb96-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sheet_append</span>(SHEET_ID, data, <span class="st">&quot;demographics&quot;</span>)</span>
-<span id="cb96-9"><a href="data.html#cb96-9" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
+  name <span class="op">=</span> <span class="st">"Robbie"</span>,
+  birthyear <span class="op">=</span> <span class="fl">2007</span>,
+  R_user <span class="op">=</span> <span class="cn">FALSE</span>,
+  score <span class="op">=</span> <span class="fl">12.1</span>
+<span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/sheet_append.html">sheet_append</a></span><span class="op">(</span><span class="va">SHEET_ID</span>, <span class="va">data</span>, <span class="st">"demographics"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/range_read.html">read_sheet</a></span><span class="op">(</span><span class="va">SHEET_ID</span>, <span class="st">"demographics"</span><span class="op">)</span></code></pre></div>
 <div class="kable-table">
-<table>
-<thead>
-<tr class="header">
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
 <th align="left">name</th>
 <th align="right">birthyear</th>
 <th align="left">R_user</th>
 <th align="right">score</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td align="left">Lisa</td>
@@ -683,28 +316,27 @@ Figure 6.2: Prompts to choose an account, grant permissions, and confirm.
 <td align="right">12.1</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
-<p>If you try to append data of a different <a class='glossary' target='_blank' title='The kind of data represented by an object.' href='https://psyteachr.github.io/glossary/d#data-type'>data type</a>, some weird things can happen. <a class='glossary' target='_blank' title='A data type representing TRUE or FALSE values.' href='https://psyteachr.github.io/glossary/l#logical'>Logical</a> values added to a <a class='glossary' target='_blank' title='A data type representing a real decimal number or integer.' href='https://psyteachr.github.io/glossary/n#numeric'>numeric</a> column are cast as <code><span class="fl">0</span></code> (<code><span class="fl">1</span></code>) and <code><span class="fl">1</span></code> (<code><span class="cn">TRUE</span></code>), while numeric values added to a logical column change the column to numeric. If you mix <a class='glossary' target='_blank' title='A data type representing strings of text.' href='https://psyteachr.github.io/glossary/c#character'>character</a> and numeric values in a column, the resulting column is a column of one-item lists so that each list can have the appropriate data type. (Data frames in R cannot mix data types in the same column.)</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data.html#cb97-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb97-2"><a href="data.html#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="dv">1</span>,</span>
-<span id="cb97-3"><a href="data.html#cb97-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">birthyear =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb97-4"><a href="data.html#cb97-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">R_user =</span> <span class="dv">0</span>,</span>
-<span id="cb97-5"><a href="data.html#cb97-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="st">&quot;No&quot;</span></span>
-<span id="cb97-6"><a href="data.html#cb97-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb97-7"><a href="data.html#cb97-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-8"><a href="data.html#cb97-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sheet_append</span>(SHEET_ID, data, <span class="st">&quot;demographics&quot;</span>)</span>
-<span id="cb97-9"><a href="data.html#cb97-9" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(SHEET_ID, <span class="st">&quot;demographics&quot;</span>)</span></code></pre></div>
+<p>If you try to append data of a different <a class="glossary" target="_blank" title="The kind of data represented by an object." href="https://psyteachr.github.io/glossary/d#data-type">data type</a>, some weird things can happen. <a class="glossary" target="_blank" title="A data type representing TRUE or FALSE values." href="https://psyteachr.github.io/glossary/l#logical">Logical</a> values added to a <a class="glossary" target="_blank" title="A data type representing a real decimal number or integer." href="https://psyteachr.github.io/glossary/n#numeric">numeric</a> column are cast as <code><span class="fl">0</span></code> (<code><span class="fl">1</span></code>) and <code><span class="fl">1</span></code> (<code><span class="cn">TRUE</span></code>), while numeric values added to a logical column change the column to numeric. If you mix <a class="glossary" target="_blank" title="A data type representing strings of text." href="https://psyteachr.github.io/glossary/c#character">character</a> and numeric values in a column, the resulting column is a column of one-item lists so that each list can have the appropriate data type. (Data frames in R cannot mix data types in the same column.)</p>
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
+  name <span class="op">=</span> <span class="fl">1</span>,
+  birthyear <span class="op">=</span> <span class="cn">FALSE</span>,
+  R_user <span class="op">=</span> <span class="fl">0</span>,
+  score <span class="op">=</span> <span class="st">"No"</span>
+<span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/sheet_append.html">sheet_append</a></span><span class="op">(</span><span class="va">SHEET_ID</span>, <span class="va">data</span>, <span class="st">"demographics"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/range_read.html">read_sheet</a></span><span class="op">(</span><span class="va">SHEET_ID</span>, <span class="st">"demographics"</span><span class="op">)</span></code></pre></div>
 <div class="kable-table">
-<table>
-<thead>
-<tr class="header">
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
 <th align="left">name</th>
 <th align="right">birthyear</th>
 <th align="right">R_user</th>
 <th align="left">score</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td align="left">Lisa</td>
@@ -725,80 +357,96 @@ Figure 6.2: Prompts to choose an account, grant permissions, and confirm.
 <td align="left">No</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 <div class="dangerous">
 <p>You must append data that has the same number and order of columns as the Google Sheet. If you send columns out of order, they will be recorded in the order you sent them, not in the order of the column names. If you send extra columns, the append will fail.</p>
 </div>
-<p>The demo app “radiotables” has a safer version of <code><span class="fu">sheet_append</span>()</code> that you can use when you’re developing on your machine. It’s defined in <code class='path'>scripts/gs4.R</code>. This version gracefully handles data with new columns, missing columns, columns in a different order, and columns with a different data type. However, it reads the whole data sheet before deciding whether to append or overwrite the data, which can slow down your app, so is best used only during development when you’re changing things a lot. If it’s not running locally, it uses the original <code><span class="fu">googlesheets4::sheet_append</span>()</code> function instead.</p>
+<p>The demo app "radiotables" has a safer version of <code><span class="fu">sheet_append</span>()</code> that you can use when you're developing on your machine. It's defined in <code class="path">scripts/gs4.R</code>. This version gracefully handles data with new columns, missing columns, columns in a different order, and columns with a different data type. However, it reads the whole data sheet before deciding whether to append or overwrite the data, which can slow down your app, so is best used only during development when you're changing things a lot. If it's not running locally, it uses the original <code><span class="fu">googlesheets4::sheet_append</span>()</code> function instead.</p>
 </div>
 <div id="gs4_save" class="section level3" number="6.2.6">
-<h3><span class="header-section-number">6.2.6</span> Saving data</h3>
+<h3>
+<span class="header-section-number">6.2.6</span> Saving data<a class="anchor" aria-label="anchor" href="#gs4_save"><i class="fas fa-link"></i></a>
+</h3>
 <p>If you mix data types in a column, the data frame returned by <code><span class="fu">read_sheet</span>()</code> has list columns for any mixed columns. Dates can also get written in different ways that look the same when you print to the console, but are a mix of characters and doubles, so you have to convert them to strings like this before you can save as CSV.</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="data.html#cb98-1" aria-hidden="true" tabindex="-1"></a>string_data <span class="ot">&lt;-</span> <span class="fu">lapply</span>(data, sapply, toString) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
-<span id="cb98-2"><a href="data.html#cb98-2" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(string_data, <span class="st">&quot;data.csv&quot;</span>)</span></code></pre></div>
-<p>The demo app “radiotables” has a custom function <code><span class="fu">gs4_write_csv</span>()</code> defined in <code class='path'>scripts/gs4.R</code> that does the above for you.</p>
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">string_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">sapply</span>, <span class="va">toString</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/readr/man/write_delim.html">write_csv</a></span><span class="op">(</span><span class="va">string_data</span>, <span class="st">"data.csv"</span><span class="op">)</span></code></pre></div>
+<p>The demo app "radiotables" has a custom function <code><span class="fu">gs4_write_csv</span>()</code> defined in <code class="path">scripts/gs4.R</code> that does the above for you.</p>
 </div>
 </div>
 <div id="exercises-data" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Exercises</h2>
+<h2>
+<span class="header-section-number">6.3</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-data"><i class="fas fa-link"></i></a>
+</h2>
 <div id="read-others-data" class="section level3 unnumbered">
-<h3>Read others’ data</h3>
+<h3>Read others' data<a class="anchor" aria-label="anchor" href="#read-others-data"><i class="fas fa-link"></i></a>
+</h3>
 <p>Read in data from the public google sheet at <a href="https://docs.google.com/spreadsheets/d/1QjpRZPNOOL0pfRO6IVT5WiafnyNdahsch1A03iHdv7s/" class="uri">https://docs.google.com/spreadsheets/d/1QjpRZPNOOL0pfRO6IVT5WiafnyNdahsch1A03iHdv7s/</a>. Find the sheet ID and figure out which sheet has data on US states (assign this to the object <code>states</code>) and which has data on Eutherian mammals (assign this to <code>mammals</code>).</p>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="data.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(googlesheets4)</span>
-<span id="cb99-2"><a href="data.html#cb99-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-3"><a href="data.html#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="fu">gs4_deauth</span>()</span>
-<span id="cb99-4"><a href="data.html#cb99-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-5"><a href="data.html#cb99-5" aria-hidden="true" tabindex="-1"></a>sheet_url <span class="ot">&lt;-</span> <span class="st">&quot;https://docs.google.com/spreadsheets/d/1QjpRZPNOOL0pfRO6IVT5WiafnyNdahsch1A03iHdv7s/&quot;</span></span>
-<span id="cb99-6"><a href="data.html#cb99-6" aria-hidden="true" tabindex="-1"></a>sheet_id <span class="ot">&lt;-</span> <span class="fu">as_sheets_id</span>(sheet_url)</span>
-<span id="cb99-7"><a href="data.html#cb99-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-8"><a href="data.html#cb99-8" aria-hidden="true" tabindex="-1"></a>states <span class="ot">&lt;-</span> <span class="fu">read_sheet</span>(sheet_id, <span class="dv">1</span>)</span>
-<span id="cb99-9"><a href="data.html#cb99-9" aria-hidden="true" tabindex="-1"></a>mammals <span class="ot">&lt;-</span> <span class="fu">read_sheet</span>(sheet_id, <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://googlesheets4.tidyverse.org">googlesheets4</a></span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/gs4_deauth.html">gs4_deauth</a></span><span class="op">(</span><span class="op">)</span>
+
+<span class="va">sheet_url</span> <span class="op">&lt;-</span> <span class="st">"https://docs.google.com/spreadsheets/d/1QjpRZPNOOL0pfRO6IVT5WiafnyNdahsch1A03iHdv7s/"</span>
+<span class="va">sheet_id</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/sheets_id.html">as_sheets_id</a></span><span class="op">(</span><span class="va">sheet_url</span><span class="op">)</span>
+
+<span class="va">states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/range_read.html">read_sheet</a></span><span class="op">(</span><span class="va">sheet_id</span>, <span class="fl">1</span><span class="op">)</span>
+<span class="va">mammals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/range_read.html">read_sheet</a></span><span class="op">(</span><span class="va">sheet_id</span>, <span class="fl">2</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 <div id="read-your-own-data" class="section level3 unnumbered">
-<h3>Read your own data</h3>
+<h3>Read your own data<a class="anchor" aria-label="anchor" href="#read-your-own-data"><i class="fas fa-link"></i></a>
+</h3>
 <p>Create a google sheet online and read its contents in R. You will need to either make it public first (click on the green Share icon in the upper right) or authorise googlesheets to access your account.</p>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="data.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gs4_auth</span>()</span>
-<span id="cb100-2"><a href="data.html#cb100-2" aria-hidden="true" tabindex="-1"></a>my_sheet_url <span class="ot">&lt;-</span> <span class="st">&quot;&quot;</span></span>
-<span id="cb100-3"><a href="data.html#cb100-3" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">read_sheet</span>(my_sheet_url)</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/gs4_auth.html">gs4_auth</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">my_sheet_url</span> <span class="op">&lt;-</span> <span class="st">""</span>
+<span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/range_read.html">read_sheet</a></span><span class="op">(</span><span class="va">my_sheet_url</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 <div id="write-data" class="section level3 unnumbered">
-<h3>Write data</h3>
+<h3>Write data<a class="anchor" aria-label="anchor" href="#write-data"><i class="fas fa-link"></i></a>
+</h3>
 <p>Append some data to your google sheet.</p>
 </div>
 </div>
 <div id="your-app-data" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Your App</h2>
-<p>In the app you’re developing, determine what data need to be saved and set up a google sheet (or local data if you’re having trouble with google). Add the authorisation code to your app (see <code class='path'>scripts/gs4.R</code> in the radiotables demo). Write the server function to save data from your app when an action button is pressed.</p>
+<h2>
+<span class="header-section-number">6.4</span> Your App<a class="anchor" aria-label="anchor" href="#your-app-data"><i class="fas fa-link"></i></a>
+</h2>
+<p>In the app you're developing, determine what data need to be saved and set up a google sheet (or local data if you're having trouble with google). Add the authorisation code to your app (see <code class="path">scripts/gs4.R</code> in the radiotables demo). Write the server function to save data from your app when an action button is pressed.</p>
 
 </div>
-</div>
-<div class="psyteachr_footer">
-  
 </div>
 <script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
+  console.log("webex: update total_correct");
+
   if (t = document.getElementById("webex-total_correct")) {
-    t.innerHTML =
-      document.getElementsByClassName("webex-correct").length + " of " +
-      document.getElementsByClassName("webex-solveme").length + " correct";
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
   }
 }
 
 /* webex-solution button toggling function */
 b_func = function() {
+  console.log("webex: toggle hide");
+
   var cl = this.parentElement.classList;
   if (cl.contains('open')) {
     cl.remove("open");
@@ -809,6 +457,8 @@ b_func = function() {
 
 /* function for checking solveme answers */
 solveme_func = function(e) {
+  console.log("webex: check solveme");
+
   var real_answers = JSON.parse(this.dataset.answer);
   var my_answer = this.value;
   var cl = this.classList;
@@ -818,7 +468,7 @@ solveme_func = function(e) {
   if (cl.contains("nospaces")) {
     my_answer = my_answer.replace(/ /g, "")
   }
-  
+
   if (my_answer == "") {
     cl.remove("webex-correct");
     cl.remove("webex-incorrect");
@@ -832,13 +482,13 @@ solveme_func = function(e) {
 
   // match numeric answers within a specified tolerance
   if(this.dataset.tol > 0){
-    var tol = JSON.parse(this.dataset.tol);  
+    var tol = JSON.parse(this.dataset.tol);
     var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
     if (matches.reduce((a, b) => a + b, 0) > 0) {
       cl.add("webex-correct");
     } else {
       cl.remove("webex-correct");
-    }  
+    }
   }
 
   // added regex bit
@@ -846,13 +496,56 @@ solveme_func = function(e) {
     answer_regex = RegExp(real_answers.join("|"))
     if (answer_regex.test(my_answer)) {
       cl.add("webex-correct");
-    }  
+    }
   }
-  
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
   update_total_correct();
 }
 
 window.onload = function() {
+  console.log("webex onload");
   /* set up solution buttons */
   var buttons = document.getElementsByTagName("button");
 
@@ -861,7 +554,7 @@ window.onload = function() {
       buttons[i].onclick = b_func;
     }
   }
-  
+
   /* set up webex-solveme inputs */
   var solveme = document.getElementsByClassName("webex-solveme");
 
@@ -869,10 +562,10 @@ window.onload = function() {
     /* make sure input boxes don't auto-anything */
     solveme[i].setAttribute("autocomplete","off");
     solveme[i].setAttribute("autocorrect", "off");
-    solveme[i].setAttribute("autocapitalize", "off"); 
+    solveme[i].setAttribute("autocapitalize", "off");
     solveme[i].setAttribute("spellcheck", "false");
     solveme[i].value = "";
-    
+
     /* adjust answer for ignorecase or nospaces */
     var cl = solveme[i].classList;
     var real_answer = solveme[i].dataset.answer;
@@ -883,75 +576,109 @@ window.onload = function() {
       real_answer = real_answer.replace(/ /g, "");
     }
     solveme[i].dataset.answer = real_answer;
-    
+
     /* attach checking function */
     solveme[i].onkeyup = solveme_func;
     solveme[i].onchange = solveme_func;
+
+    $(solveme[i]).after(" <span class='webex-icon'></span>");
   }
-  
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    $(selects[i]).after(" <span class='webex-icon'></span>");
+  }
+
   update_total_correct();
 }
 
-</script>
-            </section>
+</script><script>
+$( document ).ready(function() {
+  var cite = ' ';
+  var psyteachr = ' <a href="https://psyteachr.github.io/"><img src="images/logos/psyteachr_logo.png" style="height: 31px; color: white;" alt="psyTeachR: Reproducible Research" /></a>';
+  var license = ' <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" target="blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>';
 
-          </div>
-        </div>
-      </div>
-<a href="reactives.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="web.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
-    </div>
+  $("footer div.row div:eq(1) p").html(
+    psyteachr + license + cite
+  );
+
+  // open rdrr links externally
+  $("a[href^='https://rdrr.io']").click(function(){
+    window.open(this.href);
+    return false;
+  });
+
+  // visible second sidebar in mobile
+  function move_sidebar() {
+    var w = window.innerWidth;
+    if (w < 992) {
+      $("#toc").appendTo($("#main-nav"));
+    } else {
+      $("#toc").appendTo($("div.sidebar-chapter"));
+    }
+  }
+  move_sidebar();
+  window.onresize = move_sidebar;
+});
+</script><div class="chapter-nav">
+<div class="prev"><a href="reactives.html"><span class="header-section-number">5</span> Reactive functions</a></div>
+<div class="next"><a href="web.html"><span class="header-section-number">7</span> HTML, CSS, and JavaScript</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#data"><span class="header-section-number">6</span> Reading and saving data</a></li>
+<li><a class="nav-link" href="#local-data"><span class="header-section-number">6.1</span> Local Data</a></li>
+<li>
+<a class="nav-link" href="#google_sheets"><span class="header-section-number">6.2</span> Google Sheets</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#authorisation-for-apps"><span class="header-section-number">6.2.1</span> Authorisation for Apps</a></li>
+<li><a class="nav-link" href="#accessing-an-existing-sheet"><span class="header-section-number">6.2.2</span> Accessing an existing sheet</a></li>
+<li><a class="nav-link" href="#make-a-new-sheet"><span class="header-section-number">6.2.3</span> Make a new sheet</a></li>
+<li><a class="nav-link" href="#add-data"><span class="header-section-number">6.2.4</span> Add data</a></li>
+<li><a class="nav-link" href="#appending-data"><span class="header-section-number">6.2.5</span> Appending data</a></li>
+<li><a class="nav-link" href="#gs4_save"><span class="header-section-number">6.2.6</span> Saving data</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#exercises-data"><span class="header-section-number">6.3</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#read-others-data">Read others' data</a></li>
+<li><a class="nav-link" href="#read-your-own-data">Read your own data</a></li>
+<li><a class="nav-link" href="#write-data">Write data</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#your-app-data"><span class="header-section-number">6.4</span> Your App</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/pdebruine/shinyintro/blob/master/book/06_data.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/pdebruine/shinyintro/edit/master/book/06_data.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Building Web Apps with R Shiny</strong>" was written by Lisa DeBruine. It was last built on 2021-10-13.</p>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
-<script>
-gitbook.require(["gitbook"], function(gitbook) {
-gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"],
-"google": false
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/debruine/shinyintro/edit/main/book/06_data.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["shinyintro.pdf", "PDF"], ["shinyintro.epub", "EPUB"], ["shinyintro.mobi", "MOBI"]],
-"toc": {
-"collapse": "section",
-"scroll_highlight": true
-}
-});
-});
-</script>
 
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
 </body>
-
 </html>
