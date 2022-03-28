@@ -40,11 +40,13 @@ path <- function(txt) {
   }
 }
 
-pkg <- function(txt) {
+pkg <- function(txt, url = NULL) {
   if (is_latex) {
     sprintf("\\textbf{\\texttt{%s}}", tex_replace(txt))
-  } else {
+  } else if (is.null(url)) {
     sprintf("<code class='package'>%s</code>", txt)
+  } else {
+    sprintf("<code class='package'><a href='%s' target='_blank'>%s</a></code>", url, txt)
   }
 }
 

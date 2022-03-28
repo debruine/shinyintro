@@ -19,8 +19,9 @@
 <meta name="twitter:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1.9000/transition.js"></script><script src="libs/bs3compat-0.3.1.9000/tabs.js"></script><script src="libs/bs3compat-0.3.1.9000/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -38,7 +39,8 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Building Web Apps with R Shiny</a>
+        <a href="index.html" title="&lt;a href='/shinyintro.pdf'&gt;PDF&lt;/a&gt; | &lt;a href='/shinyintro.mobi'&gt;MOBI&lt;/a&gt;">Building Web Apps with R Shiny</a>:
+        <small class="text-muted"><a href="/shinyintro.pdf">PDF</a> | <a href="/shinyintro.mobi">MOBI</a></small>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -65,13 +67,14 @@
 <li><a class="" href="reports.html"><span class="header-section-number">12</span> Customized reports</a></li>
 <li><a class="" href="modules.html"><span class="header-section-number">13</span> Shiny modules for repeated structures</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
-<li><a class="" href="symbols.html"><span class="header-section-number">B</span> Symbols</a></li>
-<li><a class="" href="glossary.html"><span class="header-section-number">C</span> Glossary</a></li>
+<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing and Updating</a></li>
+<li><a class="" href="conventions.html"><span class="header-section-number">B</span> Conventions</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">C</span> Symbols</a></li>
+<li><a class="" href="glossary.html"><span class="header-section-number">D</span> Glossary</a></li>
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/pdebruine/shinyintro">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/debruine/shinyintro">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -112,7 +115,7 @@ Figure 1.2: RStudio interface with the built-in demo app loaded.
 <button>
 View Code
 </button>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#</span>
 <span class="co"># This is a Shiny web application. You can run the application by clicking</span>
 <span class="co"># the 'Run App' button above.</span>
@@ -192,7 +195,7 @@ Figure 1.4: App with changed title.
 </div>
 <p>Click <strong><code>Run App</code></strong> (or <strong><code>Reload App</code></strong> if you haven't closed the app window) in the <a class="glossary" target="_blank" title='RStudio is arranged with four window "panes".' href="https://psyteachr.github.io/glossary/p#panes">source pane</a>. If you haven't saved your changes, it will prompt you to do so. Check that the app title has changed.</p>
 <p>Now let's change the input. Find the function <code><span class="fu">sliderInput</span>()</code> (line 21). The first <a class="glossary" target="_blank" title="A variable that provides input to a function." href="https://psyteachr.github.io/glossary/a#argument">argument</a> is the name you can use in the code to find the value of this input, so don't change it just yet. The second argument is the text that displays before the slider. Change this to something else and re-run the app.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html">sliderInput</a></span><span class="op">(</span><span class="st">"bins"</span>,
             <span class="st">"Number of bins:"</span>,
             min <span class="op">=</span> <span class="fl">0</span>,
@@ -202,7 +205,7 @@ Figure 1.4: App with changed title.
 <p>See if you can figure out what the next three arguments to <code><span class="fu">sliderInput</span>()</code> do. Change them to different <a class="glossary" target="_blank" title="A data type representing whole numbers." href="https://psyteachr.github.io/glossary/i#integer">integers</a>, then re-run the app to see what's changed.</p>
 </div>
 <p>The arguments to the function <code><span class="fu">sidebarPanel</span>()</code> are just a list of things you want to display in the sidebar. To add some explanatory text in a paragraph before <code><span class="fu">sliderInput</span>()</code>, just use the paragraph function <code><span class="fu">p</span>()</code>.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarPanel</a></span><span class="op">(</span>
    <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span><span class="op">(</span><span class="st">"I am explaining this perfectly"</span><span class="op">)</span>,
    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html">sliderInput</a></span><span class="op">(</span><span class="st">"bins"</span>,
@@ -221,33 +224,33 @@ Figure 1.5: Sidebar with an added paragraph.
 <p>The sidebar shows up on the left if your window is wide enough, but moves to the top of the screen if it's too narrow.</p>
 </div>
 <p>I don't like it there, so we can move this text out of the sidebar and to the top of the page, just under the title. Try this and re-run the app.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="first-app.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Application title</span></span>
-<span id="cb9-2"><a href="first-app.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">titlePanel</span>(<span class="st">"My First App"</span>),</span>
-<span id="cb9-3"><a href="first-app.html#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="first-app.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">p</span>(<span class="st">"I am explaining this perfectly"</span>),</span>
-<span id="cb9-5"><a href="first-app.html#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="first-app.html#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Sidebar with a slider input for number of bins</span></span>
-<span id="cb9-7"><a href="first-app.html#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sidebarLayout</span>(...)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="first-app.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Application title</span></span>
+<span id="cb8-2"><a href="first-app.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">titlePanel</span>(<span class="st">"My First App"</span>),</span>
+<span id="cb8-3"><a href="first-app.html#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="first-app.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">p</span>(<span class="st">"I am explaining this perfectly"</span>),</span>
+<span id="cb8-5"><a href="first-app.html#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="first-app.html#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Sidebar with a slider input for number of bins</span></span>
+<span id="cb8-7"><a href="first-app.html#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sidebarLayout</span>(...)</span></code></pre></div>
 <div class="try">
 <p>See where you can move the text in the layout of the page and where causes errors.</p>
 </div>
 <p>I'm also not keen on the grey plot. We can change the plot colour inside <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code></p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># draw the histogram with the specified number of bins</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">x</span>, breaks <span class="op">=</span> <span class="va">bins</span>, col <span class="op">=</span> <span class="st">'steelblue3'</span>, border <span class="op">=</span> <span class="st">'grey30'</span><span class="op">)</span></code></pre></div>
 <p>There are a lot of ways to represent colour in R. The easiest three are:</p>
 <ol style="list-style-type: decimal">
 <li>hexadecimal colours (e.g., <code><span class="st">"#0066CC"</span></code>)</li>
-<li>the <code>rgb</code> or <code>hsl</code> functions (e.g., <code><a href="https://rdrr.io/r/grDevices/rgb.html">rgb(0, .4, .8)</a></code>)</li>
+<li>the <code>rgb</code> or <code>hsl</code> functions (e.g., <code>rgb(0, .4, .8)</code>)</li>
 <li>colour names (type <code><span class="fu">colours</span>()</code> in the console)</li>
 </ol>
 <p>The color <code><span class="st">"steelblue3"</span></code> is pretty close to the shiny interface default colour, but feel free to choose whatever you like.</p>
 <p>I prefer ggplots, so let's make the plot with <code><span class="fu">geom_histogram</span>()</code> instead of <code><span class="fu">hist</span>()</code> (which is a great function for really quick plots, but not very visually appealing). Since we need several functions from the <code class="package">ggplot2</code> <a class="glossary" target="_blank" title="A group of R functions." href="https://psyteachr.github.io/glossary/p#package">package</a>, we'll need to load that package at the top of the script, just under where the <code class="package">shiny</code> package is loaded:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/">shiny</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></code></pre></div>
 <p>You can replace all of the code in <code><span class="fu">renderPlot</span>()</code> with the code below.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">output</span><span class="op">$</span><span class="va">distPlot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span><span class="op">(</span><span class="op">{</span>
   <span class="co"># create plot</span>
   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">faithful</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span><span class="va">waiting</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -280,18 +283,18 @@ Figure 1.5: Sidebar with an added paragraph.
 <li>
 <code><span class="at">label</span></code>: the text to display to the user</li>
 <li>
-<code><span class="at">choices</span></code>: a list of choices in the format <code><a href="https://rdrr.io/r/base/c.html">c("label1" = "value1", "label2" = "value2", ...)</a></code>
+<code><span class="at">choices</span></code>: a list of choices in the format <code>c("label1" = "value1", "label2" = "value2", ...)</code>
 </li>
 <li>
 <code><span class="at">selected</span></code>: the value of the default choice</li>
 </ul>
 <p>For <code><span class="at">choices</span></code>, the label is what gets shown to the user and the value is what gets used by the code (these can be the same, but you often want the user label to be more descriptive).</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="first-app.html#cb13-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">radioButtons</span>(<span class="at">inputId =</span> <span class="st">"display_var"</span>,</span>
-<span id="cb13-2"><a href="first-app.html#cb13-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="st">"Which variable to display"</span>,</span>
-<span id="cb13-3"><a href="first-app.html#cb13-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"Waiting time to next eruption"</span> <span class="ot">=</span> <span class="st">"waiting"</span>,</span>
-<span id="cb13-4"><a href="first-app.html#cb13-4" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"Eruption time"</span> <span class="ot">=</span> <span class="st">"eruptions"</span>),</span>
-<span id="cb13-5"><a href="first-app.html#cb13-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">selected =</span> <span class="st">"waiting"</span></span>
-<span id="cb13-6"><a href="first-app.html#cb13-6" aria-hidden="true" tabindex="-1"></a> ),</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="first-app.html#cb12-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">radioButtons</span>(<span class="at">inputId =</span> <span class="st">"display_var"</span>,</span>
+<span id="cb12-2"><a href="first-app.html#cb12-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="st">"Which variable to display"</span>,</span>
+<span id="cb12-3"><a href="first-app.html#cb12-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"Waiting time to next eruption"</span> <span class="ot">=</span> <span class="st">"waiting"</span>,</span>
+<span id="cb12-4"><a href="first-app.html#cb12-4" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"Eruption time"</span> <span class="ot">=</span> <span class="st">"eruptions"</span>),</span>
+<span id="cb12-5"><a href="first-app.html#cb12-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">selected =</span> <span class="st">"waiting"</span></span>
+<span id="cb12-6"><a href="first-app.html#cb12-6" aria-hidden="true" tabindex="-1"></a> ),</span></code></pre></div>
 <p>Save this and re-run the app.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:first-radiobutton-widget"></span>
@@ -301,7 +304,7 @@ Figure 1.6: A radioButton widget above a sliderInput widget.
 </div>
 <p>You should have a radio button interface now. You can click on the options to switch the button, but it won't do anything to your plot yet. We need to edit the plot-generating code to make that happen.</p>
 <p>First, we need to change the x-axis label depending on what we're graphing. We use an if/else statement to set the variable <code>xlabel</code> to one thing if <code>input$display_var</code> is equivalent to <code><span class="st">"eruptions"</span></code>, and to something else if it's equivalent to <code><span class="st">"waiting"</span></code>. Put this code at the very beginning of the code block for <code><span class="fu">renderPlot</span>()</code> (after the line <code>output$distPlot &lt;- renderPlot({</code>).</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># set x-axis label depending on the value of display_var</span>
 <span class="kw">if</span> <span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">display_var</span> <span class="op">==</span> <span class="st">"eruptions"</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">xlabel</span> <span class="op">&lt;-</span> <span class="st">"Eruption Time (in minutes)"</span>
@@ -309,10 +312,10 @@ Figure 1.6: A radioButton widget above a sliderInput widget.
   <span class="va">xlabel</span> <span class="op">&lt;-</span> <span class="st">"Waiting Time to Next Eruption (in minutes)"</span>
 <span class="op">}</span></code></pre></div>
 <div class="warning">
-<p>The double-equal-signs <code><a href="https://rdrr.io/r/base/Comparison.html">==</a></code> means "equivalent to and is how you check if two things are the same; if you only use one equal sign, you set the variable on the left to the value on the right.</p>
+<p>The double-equal-signs <code>==</code> means "equivalent to and is how you check if two things are the same; if you only use one equal sign, you set the variable on the left to the value on the right.</p>
 </div>
 <p>Then we have to edit <code><span class="fu">ggplot</span>()</code> to use the new label and to plot the correct column. The variable <code>input$display_var</code> gives you the user-input value of the widget called <code>"display_var"</code>.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># create plot</span>
 <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">faithful</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span><span class="va">.data</span><span class="op">[[</span><span class="va">input</span><span class="op">$</span><span class="va">display_var</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">bins</span>,
@@ -329,7 +332,7 @@ Figure 1.6: A radioButton widget above a sliderInput widget.
 <iframe src="https://shiny.psy.gla.ac.uk/debruine/first_demo/?showcase=0" width="100%" height="520px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 1.7: First Demo App. You can also access this app with <code><a href="https://rdrr.io/pkg/shinyintro/man/app.html">shinyintro::app("first_demo")</a></code>or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/first_demo/" target="_blank">showcase interface</a>.
+Figure 1.7: First Demo App. You can also access this app with <code>shinyintro::app("first_demo")</code>or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/first_demo/" target="_blank">showcase interface</a>.
 </p>
 </div>
 </div>
@@ -340,7 +343,7 @@ Figure 1.7: First Demo App. You can also access this app with <code><a href="htt
 </h2>
 <p>Now that we've made and modified our first working app, it's time to learn a bit about how a shiny app is structured.</p>
 <p>A shiny app is made of two main parts, a <a class="glossary" target="_blank" title="The User Interface. This usually refers to a Shiny App as the user will see it." href="https://psyteachr.github.io/glossary/u#ui">UI</a>, which defines what the user interface looks like, and a <a class="glossary" target="_blank" title="This is the part of a Shiny app that works with logic." href="https://psyteachr.github.io/glossary/s#server">server</a> function, which defines how the interface behaves. The function <code><span class="fu">shinyApp</span>()</code> puts the two together to run the application in a web browser.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Setup ----</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/">shiny</a></span><span class="op">)</span>
 
@@ -373,7 +376,7 @@ Figure 1.7: First Demo App. You can also access this app with <code><a href="htt
 <li>a paragraph with the text "This is a very basic demo."</li>
 <li>an image of the <code class="package">shinyintro</code> logo with a width and height of 100 pixels</li>
 </ol>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span>
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/titlePanel.html">titlePanel</a></span><span class="op">(</span><span class="st">"Basic Demo"</span><span class="op">)</span>,
   <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">h2</a></span><span class="op">(</span><span class="st">"My favourite things"</span><span class="op">)</span>,
@@ -397,7 +400,7 @@ Figure 1.7: First Demo App. You can also access this app with <code><a href="htt
 <span class="header-section-number">1.2.3</span> Page Layout<a class="anchor" aria-label="anchor" href="#page-layout"><i class="fas fa-link"></i></a>
 </h3>
 <p>You usually want your apps to have a more complex layout than just each element stacked below the previous one. The code below wraps the elements after the title panel inside <code><span class="fu">flowLayout</span>()</code>.</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/titlePanel.html">titlePanel</a></span><span class="op">(</span><span class="st">"Basic Demo"</span><span class="op">)</span>,
                 <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/flowLayout.html">flowLayout</a></span><span class="op">(</span>
                   <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">h2</a></span><span class="op">(</span><span class="st">"My favourite things"</span><span class="op">)</span>,
@@ -415,7 +418,7 @@ Figure 1.7: First Demo App. You can also access this app with <code><a href="htt
 <p>Replace the ui code in your basic_demo app with the code above and run it in a web browser. What happens when you change the width of the web browser? Change <code><span class="fu">flowLayout</span>()</code> to <code><span class="fu">verticalLayout</span>()</code> or <code><span class="fu">splitLayout</span>()</code> and see what changes.</p>
 </div>
 <p>You can use a <code><span class="fu">sidebarLayout</span>()</code> to arrange your elements into a <code><span class="fu">sidebarPanel</span>()</code> and a <code><span class="fu">mainPanel</span>()</code>. If the browser width is too narrow, the sidebar will display on top of the main panel.</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/titlePanel.html">titlePanel</a></span><span class="op">(</span><span class="st">"Basic Demo"</span><span class="op">)</span>,
                 <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarLayout</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarPanel</a></span><span class="op">(</span>
                   <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">h2</a></span><span class="op">(</span><span class="st">"My favourite things"</span><span class="op">)</span>,
@@ -443,7 +446,7 @@ Figure 1.7: First Demo App. You can also access this app with <code><a href="htt
 <span class="header-section-number">1.3.1</span> Inputs<a class="anchor" aria-label="anchor" href="#inputs-intro"><i class="fas fa-link"></i></a>
 </h3>
 <p>Inputs are ways for the users of your app to communicate with the app, like drop-down menus or checkboxes. We'll go into the different types of inputs in Section <a href="inputs.html#inputs">3</a>. Below we'll turn the list of favourite things into a group of checkboxes</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/checkboxGroupInput.html">checkboxGroupInput</a></span><span class="op">(</span>
   inputId <span class="op">=</span> <span class="st">"fav_things"</span>,
   label <span class="op">=</span> <span class="st">"What are your favourite things?"</span>,
@@ -459,7 +462,7 @@ Figure 1.7: First Demo App. You can also access this app with <code><a href="htt
 <span class="header-section-number">1.3.2</span> Outputs<a class="anchor" aria-label="anchor" href="#outputs-intro"><i class="fas fa-link"></i></a>
 </h3>
 <p>Outputs are placeholders for things that <code><span class="fu">server</span>()</code> will create. There are different output functions for different types of outputs, like text, plots, and tables. We'll go into the different types of outputs in detail in Section <a href="outputs.html#outputs">4</a>. Below, we'll make a placeholder for some text that we'll display after counting the number of favourite things.</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html">textOutput</a></span><span class="op">(</span>outputId <span class="op">=</span> <span class="st">"n_fav_things"</span><span class="op">)</span></code></pre></div>
 <p>Most outputs are structured like this, with just a unique <code><span class="at">outputId</span></code> (the argument name is also usually omitted).</p>
 </div>
@@ -468,13 +471,13 @@ Figure 1.7: First Demo App. You can also access this app with <code><a href="htt
 <span class="header-section-number">1.3.3</span> Action buttons<a class="anchor" aria-label="anchor" href="#action-buttons"><i class="fas fa-link"></i></a>
 </h3>
 <p>Action buttons are a special type of input that register button clicks. Below we'll make an action button that users can click once they've selected all of their favourite things.</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"count_fav_things"</span>,
              label <span class="op">=</span> <span class="st">"Count"</span>,
              icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"calculator"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Action buttons require a unique <code><span class="at">inputId</span></code> and a <code><span class="at">label</span></code> for the button text. You can also add an <code><span class="at">icon</span></code>. Choose a free icon from <a href="https://fontawesome.com/icons?d=gallery&amp;m=free" target="_blank">fontawesome</a>.</p>
 <p>Put the input, output, and action button into the ui and run it. You will see that the input checkboxes are selectable and the button is clickable, but nothing is displayed in the text output. We need some code in <code><span class="fu">server</span>()</code> to handle that.</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/titlePanel.html">titlePanel</a></span><span class="op">(</span><span class="st">"Basic Demo"</span><span class="op">)</span>,
                 <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarLayout</a></span><span class="op">(</span>
                   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarPanel</a></span><span class="op">(</span>
@@ -498,8 +501,8 @@ Figure 1.7: First Demo App. You can also access this app with <code><a href="htt
 <span class="header-section-number">1.4</span> Reactive functions<a class="anchor" aria-label="anchor" href="#first-reactive"><i class="fas fa-link"></i></a>
 </h2>
 <p>Reactive functions are functions that only run when certain types of inputs change. Inside <code><span class="fu">server</span>()</code>, the <a class="glossary" target="_blank" title="A word that identifies and stores the value of some data for later use." href="https://psyteachr.github.io/glossary/o#object">object</a> <code>input</code> is a named <a class="glossary" target="_blank" title="A container data type that allows items with different data types to be grouped together." href="https://psyteachr.github.io/glossary/l#list">list</a> of the values of all of the inputs. For example, if you want to know which items in the select input named <code><span class="st">"fav_things"</span></code> were selected, you would use <code>input$fav_things</code>.</p>
-<p>Here, we just want to count how many items are checked. We want to do this whenever the button <code><span class="st">"count_fav_things"</span></code> is clicked, so we can use the reactive function <code><span class="fu">observeEvent</span>()</code> to do this. Every time the value of <code>input$count_fav_things</code> changes (which happens when it is clicked), it will run the code inside of the curly brackets <code>{}</code>. The code will only run when <code>input$count_fav_things</code> changes, not when any inputs inside the function change.</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<p>Here, we just want to count how many items are checked. We want to do this whenever the button <code><span class="st">"count_fav_things"</span></code> is clicked, so we can use the reactive function <code><span class="fu">observeEvent</span>()</code> to do this. Every time the value of <code>input$count_fav_things</code> changes (which happens when it is clicked), it will run the code inside of the curly brackets <code><a href="https://rdrr.io/r/base/Paren.html">{}</a></code>. The code will only run when <code>input$count_fav_things</code> changes, not when any inputs inside the function change.</p>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
   <span class="co"># count favourite things</span>
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">count_fav_things</span>, <span class="op">{</span>
@@ -508,7 +511,7 @@ Figure 1.7: First Demo App. You can also access this app with <code><a href="htt
   <span class="op">}</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
 <p>Now we want to display this text in the output <code><span class="st">"n_fav_things"</span></code>. We need to use a render function that is paired with our output function. Since "n_fav_things" was made with <code><span class="fu">textOutput</span>()</code>, we fill it with <code><span class="fu">renderText</span>()</code>.</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
   <span class="co"># count favourite things</span>
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">count_fav_things</span>, <span class="op">{</span>
@@ -518,7 +521,7 @@ Figure 1.7: First Demo App. You can also access this app with <code><a href="htt
   <span class="op">}</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
 <p>As always in coding, there are many ways to accomplish the same thing. These methods have different pros and cons that we'll learn more about in Section <a href="reactives.html#reactives">5</a>. Here is another (better) pattern that does that same as above.</p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
   <span class="co"># update count_text on fav_things</span>
   <span class="va">count_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span><span class="op">(</span><span class="op">{</span>
@@ -561,14 +564,14 @@ Figure 1.7: First Demo App. You can also access this app with <code><a href="htt
 <iframe src="https://shiny.psy.gla.ac.uk/debruine/add_demo/?showcase=0" width="100%" height="400px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 1.8: Add Demo App. You can also access this app with <code><a href="https://rdrr.io/pkg/shinyintro/man/app.html">shinyintro::app("add_demo")</a></code>or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/add_demo/" target="_blank">showcase interface</a>.
+Figure 1.8: Add Demo App. You can also access this app with <code>shinyintro::app("add_demo")</code>or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/add_demo/" target="_blank">showcase interface</a>.
 </p>
 </div>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/titlePanel.html">titlePanel</a></span><span class="op">(</span><span class="st">"Addition Demo"</span><span class="op">)</span>,
                 <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarLayout</a></span><span class="op">(</span>
                   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarPanel</a></span><span class="op">(</span>
@@ -588,7 +591,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
   <span class="co"># add numbers</span>
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">add</span>, <span class="op">{</span>
@@ -607,7 +610,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">add_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span><span class="op">(</span><span class="op">{</span>
     <span class="va">input</span><span class="op">$</span><span class="va">add</span> <span class="co"># triggers reactive</span>
@@ -865,8 +868,8 @@ $( document ).ready(function() {
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/pdebruine/shinyintro/blob/master/book/01_first_app.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/pdebruine/shinyintro/edit/master/book/01_first_app.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/debruine/shinyintro/blob/master/book/01_first_app.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/debruine/shinyintro/edit/master/book/01_first_app.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -878,7 +881,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Building Web Apps with R Shiny</strong>" was written by Lisa DeBruine. It was last built on 2021-10-13.</p>
+    <p>"<strong>Building Web Apps with R Shiny</strong>: <a href="/shinyintro.pdf">PDF</a> | <a href="/shinyintro.mobi">MOBI</a>" was written by Lisa DeBruine. It was last built on 2022-03-28.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

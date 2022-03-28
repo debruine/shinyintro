@@ -19,8 +19,9 @@
 <meta name="twitter:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1.9000/transition.js"></script><script src="libs/bs3compat-0.3.1.9000/tabs.js"></script><script src="libs/bs3compat-0.3.1.9000/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -38,7 +39,8 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Building Web Apps with R Shiny</a>
+        <a href="index.html" title="&lt;a href='/shinyintro.pdf'&gt;PDF&lt;/a&gt; | &lt;a href='/shinyintro.mobi'&gt;MOBI&lt;/a&gt;">Building Web Apps with R Shiny</a>:
+        <small class="text-muted"><a href="/shinyintro.pdf">PDF</a> | <a href="/shinyintro.mobi">MOBI</a></small>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -65,13 +67,14 @@
 <li><a class="" href="reports.html"><span class="header-section-number">12</span> Customized reports</a></li>
 <li><a class="" href="modules.html"><span class="header-section-number">13</span> Shiny modules for repeated structures</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
-<li><a class="" href="symbols.html"><span class="header-section-number">B</span> Symbols</a></li>
-<li><a class="" href="glossary.html"><span class="header-section-number">C</span> Glossary</a></li>
+<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing and Updating</a></li>
+<li><a class="" href="conventions.html"><span class="header-section-number">B</span> Conventions</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">C</span> Symbols</a></li>
+<li><a class="" href="glossary.html"><span class="header-section-number">D</span> Glossary</a></li>
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/pdebruine/shinyintro">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/debruine/shinyintro">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -92,13 +95,13 @@
 <p>We learned about the <code><span class="fu">tags</span>()</code> function in <a href="first-app.html#tags">Chapter 1</a> and how it is linked to <a class="glossary" target="_blank" title="A way to mark the start and end of HTML elements." href="https://psyteachr.github.io/glossary/t#tag">HTML tags</a>. For example, the R code <code>tags$h2("Methods")</code> creates the HTML <code>&lt;h2&gt;Methods&lt;/h2&gt;</code>. It surrounds the text content with a starting tag (<code><span class="kw">&lt;h2&gt;</span></code>) and an ending tag (<code><span class="kw">&lt;/h2&gt;</span></code>).</p>
 <p>Tags create <a class="glossary" target="_blank" title="A unit of HTML, such as a header, paragraph, or image." href="https://psyteachr.github.io/glossary/e#element-html">elements</a>, which can be thought of kind of like boxes. An element can contain one or more elements. Elements can have <a class="glossary" target="_blank" title="Extra information about an HTML element" href="https://psyteachr.github.io/glossary/a#attribute-html">attributes</a> that provide more information such as the element's <code><span class="er">id</span></code> or <code><span class="er">class</span></code>, which can be used by CSS or JavaScript to refer to the element or a group of elements.</p>
 <p>For example, the following code creates an unordered list (<code><span class="kw">&lt;ul&gt;</span></code>) with the <code><span class="er">class</span></code> <code><span class="st">"animals"</span></code>. It contains three list item elements (<code><span class="kw">&lt;li&gt;</span></code>), each with its own <code><span class="er">id</span></code> and <code><span class="er">class</span></code>.</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb101-1"><a href="web.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;ul</span> <span class="er">class</span><span class="ot">=</span><span class="st">"animals"</span><span class="kw">&gt;</span></span>
-<span id="cb101-2"><a href="web.html#cb101-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;li</span> <span class="er">class</span><span class="ot">=</span><span class="st">"mammal"</span> <span class="er">id</span><span class="ot">=</span><span class="st">"aardvark"</span> <span class="kw">&gt;</span>Aardvarks<span class="kw">&lt;/li&gt;</span></span>
-<span id="cb101-3"><a href="web.html#cb101-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;li</span> <span class="er">class</span><span class="ot">=</span><span class="st">"insect"</span> <span class="er">id</span><span class="ot">=</span><span class="st">"bee"</span><span class="kw">&gt;</span>Bees<span class="kw">&lt;/li&gt;</span></span>
-<span id="cb101-4"><a href="web.html#cb101-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;li</span> <span class="er">class</span><span class="ot">=</span><span class="st">"mammal"</span> <span class="er">id</span><span class="ot">=</span><span class="st">"capybara"</span><span class="kw">&gt;</span>Capybaras<span class="kw">&lt;/li&gt;</span></span>
-<span id="cb101-5"><a href="web.html#cb101-5" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/ul&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb100-1"><a href="web.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;ul</span> <span class="er">class</span><span class="ot">=</span><span class="st">"animals"</span><span class="kw">&gt;</span></span>
+<span id="cb100-2"><a href="web.html#cb100-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;li</span> <span class="er">class</span><span class="ot">=</span><span class="st">"mammal"</span> <span class="er">id</span><span class="ot">=</span><span class="st">"aardvark"</span> <span class="kw">&gt;</span>Aardvarks<span class="kw">&lt;/li&gt;</span></span>
+<span id="cb100-3"><a href="web.html#cb100-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;li</span> <span class="er">class</span><span class="ot">=</span><span class="st">"insect"</span> <span class="er">id</span><span class="ot">=</span><span class="st">"bee"</span><span class="kw">&gt;</span>Bees<span class="kw">&lt;/li&gt;</span></span>
+<span id="cb100-4"><a href="web.html#cb100-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;li</span> <span class="er">class</span><span class="ot">=</span><span class="st">"mammal"</span> <span class="er">id</span><span class="ot">=</span><span class="st">"capybara"</span><span class="kw">&gt;</span>Capybaras<span class="kw">&lt;/li&gt;</span></span>
+<span id="cb100-5"><a href="web.html#cb100-5" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/ul&gt;</span></span></code></pre></div>
 <p>You seldom <em>have to</em> write HTML directly in Shiny, but if you have experience with HTML, it can sometimes be easier to create something in HTML than with the relevant Shiny functions. For example, the code above in Shiny would be:</p>
-<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">tags</span><span class="op">$</span><span class="fu">ul</span><span class="op">(</span>
   class <span class="op">=</span> <span class="st">"animals"</span>,
   <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"Aardvark"</span>, class <span class="op">=</span> <span class="st">"mammal"</span>, id <span class="op">=</span> <span class="st">"aardvark"</span><span class="op">)</span>,
@@ -106,7 +109,7 @@
   <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"Capybara"</span>, class <span class="op">=</span> <span class="st">"mammal"</span>, id <span class="op">=</span> <span class="st">"capybara"</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
 <p>Alternatively, you can use <code><span class="fu">HTML</span>()</code> to include raw HTML in a ui function.</p>
-<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/HTML.html">HTML</a></span><span class="op">(</span><span class="st">'&lt;ul class="animals"&gt;
     &lt;li class="mammal" id="aardvark" &gt;Aardvarks&lt;/li&gt;
     &lt;li class="insect" id="bee"&gt;Bees&lt;/li&gt;
@@ -119,23 +122,23 @@
 </h3>
 <p>But the main reason for you to learn a little about HTML is that it can help you to customise the appearance of your Shiny apps using <a href="web.html#CSS">CSS</a> and their behaviour using <a href="web.html#JavaScript">JavaScript</a>.</p>
 <p>Often, you'll need to find out how to refer to a specific element or group of elements that were created by a <code class="package">shiny</code> ui function. For example, it isn't obvious how you'd refer to the sidebar tab for <code><span class="st">"demo_tab"</span></code> in the following code:</p>
-<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">sidebarMenu</span><span class="op">(</span>
     id <span class="op">=</span> <span class="st">"tabs"</span>,
     <span class="fu">menuItem</span><span class="op">(</span><span class="st">"Tab Title"</span>, tabName <span class="op">=</span> <span class="st">"demo_tab"</span>, icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"dragon"</span><span class="op">)</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
 <p>If you open the resulting app in a web browser, right click on the page, and choose <strong><code>View Page Source</code></strong>, you'll (eventually) find that the code above created the HTML below.</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb105-1"><a href="web.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;ul</span> <span class="er">class</span><span class="ot">=</span><span class="st">"sidebar-menu"</span><span class="kw">&gt;</span></span>
-<span id="cb105-2"><a href="web.html#cb105-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;li&gt;</span></span>
-<span id="cb105-3"><a href="web.html#cb105-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;a</span> <span class="er">href</span><span class="ot">=</span><span class="st">"#shiny-tab-demo_tab"</span> <span class="er">data-toggle</span><span class="ot">=</span><span class="st">"tab"</span> <span class="er">data-value</span><span class="ot">=</span><span class="st">"demo_tab"</span><span class="kw">&gt;</span></span>
-<span id="cb105-4"><a href="web.html#cb105-4" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&lt;i</span> <span class="er">class</span><span class="ot">=</span><span class="st">"fa fa-dragon"</span> <span class="er">role</span><span class="ot">=</span><span class="st">"presentation"</span> <span class="er">aria-label</span><span class="ot">=</span><span class="st">"dragon icon"</span><span class="kw">&gt;&lt;/i&gt;</span></span>
-<span id="cb105-5"><a href="web.html#cb105-5" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&lt;span&gt;</span>Tab Title<span class="kw">&lt;/span&gt;</span></span>
-<span id="cb105-6"><a href="web.html#cb105-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/a&gt;</span></span>
-<span id="cb105-7"><a href="web.html#cb105-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/li&gt;</span></span>
-<span id="cb105-8"><a href="web.html#cb105-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;div</span> <span class="er">id</span><span class="ot">=</span><span class="st">"tabs"</span> <span class="er">class</span><span class="ot">=</span><span class="st">"sidebarMenuSelectedTabItem"</span> <span class="er">data-value</span><span class="ot">=</span><span class="st">"null"</span><span class="kw">&gt;&lt;/div&gt;</span></span>
-<span id="cb105-9"><a href="web.html#cb105-9" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/ul&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb104-1"><a href="web.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;ul</span> <span class="er">class</span><span class="ot">=</span><span class="st">"sidebar-menu"</span><span class="kw">&gt;</span></span>
+<span id="cb104-2"><a href="web.html#cb104-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;li&gt;</span></span>
+<span id="cb104-3"><a href="web.html#cb104-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;a</span> <span class="er">href</span><span class="ot">=</span><span class="st">"#shiny-tab-demo_tab"</span> <span class="er">data-toggle</span><span class="ot">=</span><span class="st">"tab"</span> <span class="er">data-value</span><span class="ot">=</span><span class="st">"demo_tab"</span><span class="kw">&gt;</span></span>
+<span id="cb104-4"><a href="web.html#cb104-4" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&lt;i</span> <span class="er">class</span><span class="ot">=</span><span class="st">"fa fa-dragon"</span> <span class="er">role</span><span class="ot">=</span><span class="st">"presentation"</span> <span class="er">aria-label</span><span class="ot">=</span><span class="st">"dragon icon"</span><span class="kw">&gt;&lt;/i&gt;</span></span>
+<span id="cb104-5"><a href="web.html#cb104-5" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&lt;span&gt;</span>Tab Title<span class="kw">&lt;/span&gt;</span></span>
+<span id="cb104-6"><a href="web.html#cb104-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/a&gt;</span></span>
+<span id="cb104-7"><a href="web.html#cb104-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/li&gt;</span></span>
+<span id="cb104-8"><a href="web.html#cb104-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;div</span> <span class="er">id</span><span class="ot">=</span><span class="st">"tabs"</span> <span class="er">class</span><span class="ot">=</span><span class="st">"sidebarMenuSelectedTabItem"</span> <span class="er">data-value</span><span class="ot">=</span><span class="st">"null"</span><span class="kw">&gt;&lt;/div&gt;</span></span>
+<span id="cb104-9"><a href="web.html#cb104-9" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/ul&gt;</span></span></code></pre></div>
 <p>Now you know that the dragon icon is made by an italics tag (<code><span class="kw">&lt;i&gt;</span></code>) that's inside an anchor (<code><span class="kw">&lt;a&gt;</span></code>) with the <code><span class="er">id</span></code> <code><span class="pp">#shiny-tab-demo_tab</span></code>. Therefore, you can change the colour of this icon using the following CSS:</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb106-1"><a href="web.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#shiny-tab-demo_tab</span> i { <span class="kw">color</span>: <span class="cn">red</span><span class="op">;</span> }</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb105-1"><a href="web.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#shiny-tab-demo_tab</span> i { <span class="kw">color</span>: <span class="cn">red</span><span class="op">;</span> }</span></code></pre></div>
 <p>It can be tricky to find what code you're looking for, but developer tools can help. I use <a href="https://www.mozilla.org/en-US/firefox/developer/" target="_blank">FireFox Developer Edition</a> when I'm developing web apps, but Chrome also has developer tools. In FireFox, go to <strong><code>Tools &gt; Browser Tools &gt; Web Developer Tools</code></strong> (opt-cmd-I). In Chrome, go to <strong><code>View &gt; Developer &gt; Developer Tools</code></strong> (opt-cmd-I). You can dock the tools to the bottom, right , or left of the window, or as a separate window.</p>
 <p>Open the Inspector (FireFox) or Elements (Chrome) tab of the tools and click on the icon that looks like an arrow pointing into a box. When you hover over parts of the web page, now you will see boxes outlining each element. You can click on an element to highlight its HTML in the tools.</p>
 <div class="figure" style="text-align: center">
@@ -156,18 +159,18 @@ Figure 7.1: Viewing the HTML with the inspector.
 <span class="header-section-number">7.2.1</span> CSS Basics<a class="anchor" aria-label="anchor" href="#css-basics"><i class="fas fa-link"></i></a>
 </h3>
 <p>CSS is structured as follows:</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb107-1"><a href="web.html#cb107-1" aria-hidden="true" tabindex="-1"></a>selector { property: value<span class="op">;</span> }</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb106-1"><a href="web.html#cb106-1" aria-hidden="true" tabindex="-1"></a>selector { property: value<span class="op">;</span> }</span></code></pre></div>
 <p>Selectors are how you refer to the parts of the HTML you want to style. There are dozens of <a href="https://www.w3schools.com/cssref/css_selectors.asp" target="_blank">selectors</a> and they can get very complex. We'll focus on some basic examples below.</p>
 <p>Properties are aspects of the visual style that you want to change, such as <code><span class="kw">color</span></code> (text color), <code><span class="kw">background-color</span></code>, or <code><span class="kw">border</span></code>. Values have specific formats for each property, such as <code><span class="st">"1px"</span></code> or <code><span class="st">"0.5em"</span></code> to describe lengths, or <code>red</code> or <code>#FF0000</code> to describe colours.</p>
 <div class="info">
 <p>There are hundreds of <a href="https://www.w3schools.com/cssref/default.asp" target="_blank">properties</a> and you can't memorise them all. I usually Google something like "css font type" or "css underline text" and choose the first link from <a href="https://www.w3schools.com" target="_blank">ww3schools</a>.</p>
 </div>
 <p>For example, if you have HTML that looks like this:</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb108-1"><a href="web.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;ul</span> <span class="er">class</span><span class="ot">=</span><span class="st">"animals"</span><span class="kw">&gt;</span></span>
-<span id="cb108-2"><a href="web.html#cb108-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;li</span> <span class="er">class</span><span class="ot">=</span><span class="st">"mammal"</span> <span class="er">id</span><span class="ot">=</span><span class="st">"aardvark"</span> <span class="kw">&gt;</span>Aardvarks<span class="kw">&lt;/li&gt;</span></span>
-<span id="cb108-3"><a href="web.html#cb108-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;li</span> <span class="er">class</span><span class="ot">=</span><span class="st">"insect"</span> <span class="er">id</span><span class="ot">=</span><span class="st">"bee"</span><span class="kw">&gt;</span>Bees<span class="kw">&lt;/li&gt;</span></span>
-<span id="cb108-4"><a href="web.html#cb108-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;li</span> <span class="er">class</span><span class="ot">=</span><span class="st">"mammal"</span> <span class="er">id</span><span class="ot">=</span><span class="st">"capybara"</span><span class="kw">&gt;</span>Capybaras<span class="kw">&lt;/li&gt;</span></span>
-<span id="cb108-5"><a href="web.html#cb108-5" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/ul&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb107-1"><a href="web.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;ul</span> <span class="er">class</span><span class="ot">=</span><span class="st">"animals"</span><span class="kw">&gt;</span></span>
+<span id="cb107-2"><a href="web.html#cb107-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;li</span> <span class="er">class</span><span class="ot">=</span><span class="st">"mammal"</span> <span class="er">id</span><span class="ot">=</span><span class="st">"aardvark"</span> <span class="kw">&gt;</span>Aardvarks<span class="kw">&lt;/li&gt;</span></span>
+<span id="cb107-3"><a href="web.html#cb107-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;li</span> <span class="er">class</span><span class="ot">=</span><span class="st">"insect"</span> <span class="er">id</span><span class="ot">=</span><span class="st">"bee"</span><span class="kw">&gt;</span>Bees<span class="kw">&lt;/li&gt;</span></span>
+<span id="cb107-4"><a href="web.html#cb107-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;li</span> <span class="er">class</span><span class="ot">=</span><span class="st">"mammal"</span> <span class="er">id</span><span class="ot">=</span><span class="st">"capybara"</span><span class="kw">&gt;</span>Capybaras<span class="kw">&lt;/li&gt;</span></span>
+<span id="cb107-5"><a href="web.html#cb107-5" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/ul&gt;</span></span></code></pre></div>
 <p>You can refer to different parts of the list in many ways:</p>
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
@@ -207,7 +210,7 @@ Figure 7.1: Viewing the HTML with the inspector.
 <span class="header-section-number">7.2.2</span> Styling a single element<a class="anchor" aria-label="anchor" href="#styling-a-single-element"><i class="fas fa-link"></i></a>
 </h3>
 <p>You can add styles to most elements that you make with shiny ui functions by adding an argument called <code><span class="at">style</span></code>. You don't need to give them a <code><span class="kw">class</span></code> or <code><span class="kw">id</span></code> this way, but this is inefficient if you're styling many related elements in the same way.</p>
-<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">tags</span><span class="op">$</span><span class="fu">ul</span><span class="op">(</span>
   style <span class="op">=</span> <span class="st">"width: 10em;"</span>,
   <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"Aardvark"</span><span class="op">)</span>,
@@ -220,7 +223,7 @@ Figure 7.1: Viewing the HTML with the inspector.
 <span class="header-section-number">7.2.3</span> Inline CSS<a class="anchor" aria-label="anchor" href="#inline-css"><i class="fas fa-link"></i></a>
 </h3>
 <p>You can add CSS to an app inside the header using the style tag. The code below makes the element with the <code><span class="at">class</span></code> <code><span class="st">"animal"</span></code> <code><span class="st">"10em"</span></code> in <code><span class="kw">width</span></code> (<em>em</em> is a unit of size that is proportional to text size). It also makes the element with the <code><span class="at">id</span></code> <code><span class="st">"bee"</span></code> italic and gives it a black <code><span class="at">background-color</span></code> with yellow text <code><span class="at">color</span></code>. If the element is a list item, it makes the marker a bee emoji.</p>
-<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mystyle</span> <span class="op">&lt;-</span> <span class="st">'
   .animal { width: 10em; }
   #bee {
@@ -264,7 +267,7 @@ Capybaras
 <span class="header-section-number">7.2.4</span> External CSS<a class="anchor" aria-label="anchor" href="#external-css"><i class="fas fa-link"></i></a>
 </h3>
 <p>For anything longer than a few lines, you can see how this can get tedious. You can put all of your CSS in an external file and reference that in the header instead using <code><span class="fu">tags$link</span>()</code>. The CSS file needs to be inside the <code class="path">www</code> directory to let Shiny know that it's meant to be included like this. The template we're using in this class comes with a CSS file called <code class="path">www/custom.css</code>.</p>
-<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">tags</span><span class="op">$</span><span class="fu">head</span><span class="op">(</span>
   <span class="va">tags</span><span class="op">$</span><span class="fu">link</span><span class="op">(</span>rel <span class="op">=</span> <span class="st">"stylesheet"</span>, type <span class="op">=</span> <span class="st">"text/css"</span>, href <span class="op">=</span> <span class="st">"custom.css"</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
@@ -312,22 +315,22 @@ Capybaras
 <span class="header-section-number">7.3.2</span> External JS<a class="anchor" aria-label="anchor" href="#external-js"><i class="fas fa-link"></i></a>
 </h3>
 <p>To do anything more complicated, it's best to put your JavaScript in an external file in the <code class="path">www</code> directory. You can include a link to this script in the header. The template we're using in this class comes with a JavaScript file called <code class="path">www/custom.js</code>.</p>
-<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">tags</span><span class="op">$</span><span class="fu">head</span><span class="op">(</span>
   <span class="va">tags</span><span class="op">$</span><span class="fu">script</span><span class="op">(</span>src <span class="op">=</span> <span class="st">"custom.js"</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
 <p>Shiny apps use <a href="https://jquery.com/" target="_blank">jQuery</a>, a framework for making JavaScript easier to write. It lets you refer to elements using their CSS selectors.</p>
 <p>Here is some example code from the <code class="path">www/custom.js</code> file in the basic template.</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb113-1"><a href="web.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$</span>(<span class="bu">document</span>)<span class="op">.</span><span class="fu">on</span>(<span class="st">"shiny:connected"</span><span class="op">,</span> <span class="kw">function</span>() {</span>
-<span id="cb113-2"><a href="web.html#cb113-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// send window width to shiny</span></span>
-<span id="cb113-3"><a href="web.html#cb113-3" aria-hidden="true" tabindex="-1"></a>  shiny_size <span class="op">=</span> <span class="kw">function</span>() {</span>
-<span id="cb113-4"><a href="web.html#cb113-4" aria-hidden="true" tabindex="-1"></a>    Shiny<span class="op">.</span><span class="fu">setInputValue</span>(<span class="st">"window_width"</span><span class="op">,</span> <span class="bu">window</span><span class="op">.</span><span class="at">innerWidth</span>)<span class="op">;</span></span>
-<span id="cb113-5"><a href="web.html#cb113-5" aria-hidden="true" tabindex="-1"></a>    Shiny<span class="op">.</span><span class="fu">setInputValue</span>(<span class="st">"window_height"</span><span class="op">,</span> <span class="bu">window</span><span class="op">.</span><span class="at">innerHeight</span>)<span class="op">;</span></span>
-<span id="cb113-6"><a href="web.html#cb113-6" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb113-7"><a href="web.html#cb113-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb113-8"><a href="web.html#cb113-8" aria-hidden="true" tabindex="-1"></a>  <span class="bu">window</span><span class="op">.</span><span class="at">onresize</span> <span class="op">=</span> shiny_size<span class="op">;</span></span>
-<span id="cb113-9"><a href="web.html#cb113-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shiny_size</span>()<span class="op">;</span> <span class="co">// trigger once at start</span></span>
-<span id="cb113-10"><a href="web.html#cb113-10" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb112-1"><a href="web.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$</span>(<span class="bu">document</span>)<span class="op">.</span><span class="fu">on</span>(<span class="st">"shiny:connected"</span><span class="op">,</span> <span class="kw">function</span>() {</span>
+<span id="cb112-2"><a href="web.html#cb112-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// send window width to shiny</span></span>
+<span id="cb112-3"><a href="web.html#cb112-3" aria-hidden="true" tabindex="-1"></a>  shiny_size <span class="op">=</span> <span class="kw">function</span>() {</span>
+<span id="cb112-4"><a href="web.html#cb112-4" aria-hidden="true" tabindex="-1"></a>    Shiny<span class="op">.</span><span class="fu">setInputValue</span>(<span class="st">"window_width"</span><span class="op">,</span> <span class="bu">window</span><span class="op">.</span><span class="at">innerWidth</span>)<span class="op">;</span></span>
+<span id="cb112-5"><a href="web.html#cb112-5" aria-hidden="true" tabindex="-1"></a>    Shiny<span class="op">.</span><span class="fu">setInputValue</span>(<span class="st">"window_height"</span><span class="op">,</span> <span class="bu">window</span><span class="op">.</span><span class="at">innerHeight</span>)<span class="op">;</span></span>
+<span id="cb112-6"><a href="web.html#cb112-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb112-7"><a href="web.html#cb112-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb112-8"><a href="web.html#cb112-8" aria-hidden="true" tabindex="-1"></a>  <span class="bu">window</span><span class="op">.</span><span class="at">onresize</span> <span class="op">=</span> shiny_size<span class="op">;</span></span>
+<span id="cb112-9"><a href="web.html#cb112-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shiny_size</span>()<span class="op">;</span> <span class="co">// trigger once at start</span></span>
+<span id="cb112-10"><a href="web.html#cb112-10" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <p>JavaScript is similar to R in some ways, and maddeningly different in others. One big difference is that lines of code <strong><em>have to</em></strong> end with a semi-colon.</p>
 <p>In the code above, the function <code>$(document).on("shiny:connected", function() { ... })</code> is jQuery shorthand for making sure that the code inside doesn't run until the whole webpage has been downloaded and the extra javascript for shiny is available. Otherwise, you might try to run some code that references an element that hasn't been created yet (HTML pages don't always download all in one go) or uses a Shiny javascript function that isn't available yet.</p>
 <p>The we create a new function called <code><span class="fu">shiny_size</span>()</code>, which creates two new Shiny input variables, <code><span class="st">"window_width"</span></code> and <code><span class="st">"window_height"</span></code>, and sets then to the values of the window dimensions (in pixels). The line <code>window.onresize = shiny_size;</code> sets this function to run every time the window is resized and the function is run once at the start to initialise those values.</p>
@@ -357,7 +360,7 @@ Capybaras
 <h3>Add HTML<a class="anchor" aria-label="anchor" href="#add-html"><i class="fas fa-link"></i></a>
 </h3>
 <p>Add the following HTML before the image in <code>demo_tab</code> using `<code><span class="fu">HTML</span>()</code>:</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb114-1"><a href="web.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;p</span> <span class="er">class</span><span class="ot">=</span><span class="st">"help"</span><span class="kw">&gt;</span>For more help, you can go to <span class="kw">&lt;a</span> <span class="er">href</span><span class="ot">=</span><span class="st">"https://shiny.rstudio.com/articles/html-tags.html"</span><span class="kw">&gt;</span>Customize your UI with HTML<span class="kw">&lt;/a&gt;</span>.<span class="kw">&lt;/p&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb113-1"><a href="web.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;p</span> <span class="er">class</span><span class="ot">=</span><span class="st">"help"</span><span class="kw">&gt;</span>For more help, you can go to <span class="kw">&lt;a</span> <span class="er">href</span><span class="ot">=</span><span class="st">"https://shiny.rstudio.com/articles/html-tags.html"</span><span class="kw">&gt;</span>Customize your UI with HTML<span class="kw">&lt;/a&gt;</span>.<span class="kw">&lt;/p&gt;</span></span></code></pre></div>
 <div class="webex-solution">
 <button>
 Hint
@@ -368,7 +371,7 @@ Hint
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">demo_tab</span> <span class="op">&lt;-</span> <span class="fu">tabItem</span><span class="op">(</span>
   tabName <span class="op">=</span> <span class="st">"demo_tab"</span>,
   <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/HTML.html">HTML</a></span><span class="op">(</span>
@@ -390,7 +393,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">demo_tab</span> <span class="op">&lt;-</span> <span class="fu">tabItem</span><span class="op">(</span>
   tabName <span class="op">=</span> <span class="st">"demo_tab"</span>,
   <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/HTML.html">HTML</a></span><span class="op">(</span>
@@ -414,7 +417,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">tags</span><span class="op">$</span><span class="fu">head</span><span class="op">(</span>
   <span class="va">tags</span><span class="op">$</span><span class="fu">style</span><span class="op">(</span><span class="st">"a { color: hotpink; }
               a:hover { color: red; }"</span><span class="op">)</span>
@@ -429,7 +432,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">tags</span><span class="op">$</span><span class="fu">ul</span><span class="op">(</span>
         <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="va">tags</span><span class="op">$</span><span class="fu">a</span><span class="op">(</span>href <span class="op">=</span> <span class="st">"https://shiny.rstudio.com/articles/tag-glossary.html"</span>, <span class="st">"Tags Glossary"</span><span class="op">)</span>, style<span class="op">=</span><span class="st">"color: green;"</span><span class="op">)</span>,
         <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="va">tags</span><span class="op">$</span><span class="fu">a</span><span class="op">(</span>href <span class="op">=</span> <span class="st">"https://www.w3schools.com/html/"</span>, <span class="st">"HTML Tutorial"</span><span class="op">)</span><span class="op">)</span>
@@ -445,7 +448,7 @@ Solution
 Solution
 </button>
 <p>Add the following to <code class="path">www/custom.css</code>:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb119-1"><a href="web.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.help</span> a { <span class="kw">text-decoration</span>: <span class="dv">underline</span><span class="op">;</span> }</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb118-1"><a href="web.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.help</span> a { <span class="kw">text-decoration</span>: <span class="dv">underline</span><span class="op">;</span> }</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -700,8 +703,8 @@ $( document ).ready(function() {
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/pdebruine/shinyintro/blob/master/book/07_css_html_js.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/pdebruine/shinyintro/edit/master/book/07_css_html_js.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/debruine/shinyintro/blob/master/book/07_css_html_js.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/debruine/shinyintro/edit/master/book/07_css_html_js.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -713,7 +716,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Building Web Apps with R Shiny</strong>" was written by Lisa DeBruine. It was last built on 2021-10-13.</p>
+    <p>"<strong>Building Web Apps with R Shiny</strong>: <a href="/shinyintro.pdf">PDF</a> | <a href="/shinyintro.mobi">MOBI</a>" was written by Lisa DeBruine. It was last built on 2022-03-28.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

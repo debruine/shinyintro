@@ -19,8 +19,9 @@
 <meta name="twitter:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1.9000/transition.js"></script><script src="libs/bs3compat-0.3.1.9000/tabs.js"></script><script src="libs/bs3compat-0.3.1.9000/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -38,7 +39,8 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Building Web Apps with R Shiny</a>
+        <a href="index.html" title="&lt;a href='/shinyintro.pdf'&gt;PDF&lt;/a&gt; | &lt;a href='/shinyintro.mobi'&gt;MOBI&lt;/a&gt;">Building Web Apps with R Shiny</a>:
+        <small class="text-muted"><a href="/shinyintro.pdf">PDF</a> | <a href="/shinyintro.mobi">MOBI</a></small>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -65,13 +67,14 @@
 <li><a class="" href="reports.html"><span class="header-section-number">12</span> Customized reports</a></li>
 <li><a class="" href="modules.html"><span class="header-section-number">13</span> Shiny modules for repeated structures</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
-<li><a class="" href="symbols.html"><span class="header-section-number">B</span> Symbols</a></li>
-<li><a class="" href="glossary.html"><span class="header-section-number">C</span> Glossary</a></li>
+<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing and Updating</a></li>
+<li><a class="" href="conventions.html"><span class="header-section-number">B</span> Conventions</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">C</span> Symbols</a></li>
+<li><a class="" href="glossary.html"><span class="header-section-number">D</span> Glossary</a></li>
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/pdebruine/shinyintro">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/debruine/shinyintro">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -90,11 +93,11 @@
 <iframe src="https://shiny.psy.gla.ac.uk/debruine/basic_template/?showcase=0" width="100%" height="400px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 2.1: Basic Template.App You can also access this app with <code><a href="https://rdrr.io/pkg/shinyintro/man/app.html">shinyintro::app("basic_template")</a></code>or view it in a <a href="https://shiny.psy.gla.ac.uk/debruine/basic_template/" target="_blank">separate tab</a>.
+Figure 2.1: Basic Template.App You can also access this app with <code>shinyintro::app("basic_template")</code>or view it in a <a href="https://shiny.psy.gla.ac.uk/debruine/basic_template/" target="_blank">separate tab</a>.
 </p>
 </div>
 <hr>
-<p>You can start a new app using the template with the code <code><a href="https://rdrr.io/pkg/shinyintro/man/clone.html">shinyintro::clone("basic_template", "myapp")</a></code>. This will create a new directory called <code class="path">myapp</code> in your <a class="glossary" target="_blank" title="The filepath where R is currently reading and writing files." href="https://psyteachr.github.io/glossary/w#working-directory">working directory</a> and open the <code class="path">app.R</code> file in RStudio.</p>
+<p>You can start a new app using the template with the code <code>shinyintro::clone("basic_template", "myapp")</code>. This will create a new directory called <code class="path">myapp</code> in your <a class="glossary" target="_blank" title="The filepath where R is currently reading and writing files." href="https://psyteachr.github.io/glossary/w#working-directory">working directory</a> and open the <code class="path">app.R</code> file in RStudio.</p>
 <p>This directory contains:</p>
 <ul>
 <li>
@@ -117,7 +120,7 @@ Figure 2.1: Basic Template.App You can also access this app with <code><a href="
 </h2>
 <p>Notice that the ui is created with <code><span class="fu">dashboardPage</span>()</code> now. This needs to be set up a little differently than <code><span class="fu">fluidPage</span>()</code>. The main parts of a dashboard page are the header, sidebar, and body.</p>
 <p>You can also change the default <code><span class="at">skin</span></code> colour. Possible skin colours are: <code><span class="st">"red"</span></code>, <code><span class="st">"yellow"</span></code> (looks orange to me), <code><span class="st">"green"</span></code>, <code><span class="st">"blue"</span></code>, <code><span class="st">"purple"</span></code>, and <code><span class="st">"black"</span></code>.</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">dashboardPage</span><span class="op">(</span>skin <span class="op">=</span> <span class="st">"purple"</span>,
               <span class="fu">dashboardHeader</span><span class="op">(</span><span class="op">)</span>,
               <span class="fu">dashboardSidebar</span><span class="op">(</span><span class="op">)</span>,
@@ -127,7 +130,7 @@ Figure 2.1: Basic Template.App You can also access this app with <code><a href="
 <span class="header-section-number">2.2.1</span> dashboardHeader<a class="anchor" aria-label="anchor" href="#dashboardheader"><i class="fas fa-link"></i></a>
 </h3>
 <p>You can add a title to the header, and change the title width.</p>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">dashboardHeader</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Basic Template"</span>,
                 <span class="co"># puts sidebar toggle on right</span>
                 titleWidth <span class="op">=</span> <span class="st">"calc(100% - 44px)"</span><span class="op">)</span></code></pre></div>
@@ -142,7 +145,7 @@ Figure 2.1: Basic Template.App You can also access this app with <code><a href="
 </h3>
 <p>The sidebar usually contains a <code><span class="fu">sidebarMenu</span>()</code>, which needs a unique ID and a list of menu items. Each <code><span class="fu">menuItem</span>()</code> consists of the <code><span class="at">title</span></code>, a <code><span class="at">tabName</span></code> that will be used to refer to the tab later, and an <code><span class="at">icon</span></code>. You can find a list of the available free icons at <a href="https://fontawesome.com/icons?d=gallery&amp;m=free" target="_blank">fontawesome</a>.</p>
 <p>You can also add in any other elements to the sidebar. The code below adds a link using <code><span class="fu">tags$a</span>()</code> Text inside of the sidebar usually looks too close to the edges, so we use <a href="web.html#CSS">css</a> to style the link and add padding.</p>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">dashboardSidebar</span><span class="op">(</span>
   <span class="fu">sidebarMenu</span><span class="op">(</span>id <span class="op">=</span> <span class="st">"tabs"</span>,
               <span class="fu">menuItem</span><span class="op">(</span>
@@ -164,7 +167,7 @@ Figure 2.1: Basic Template.App You can also access this app with <code><a href="
 </h3>
 <p>The main part of the app goes inside <code><span class="fu">dashboardBody</span>()</code> If you're going to use <a class="glossary" target="_blank" title="An object-oriented computer programming language commonly used to create interactive effects in web browsers." href="https://psyteachr.github.io/glossary/j#javascript">javascript</a> functions (which the basic template does and we'll learn more about in Section <a href="web.html#shinyjs">7.3.1</a>), you need to put <code><span class="fu">useShinyjs</span>()</code> first. Then you include the header, linking to any custom CSS or JavaScript files.</p>
 <p>The contents of the body go after that. The most common pattern is a multi-page tabbed pattern, which is set up with <code><span class="fu">tabItems</span>()</code>, which contains a <code><span class="fu">tabItem</span>()</code> for each tab. The <code><span class="at">tabName</span></code> has to match the name you used in the sidebar <code><span class="fu">menuItem</span>()</code>, so that tab shows when the user clicks on the corresponding menu item.</p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">dashboardBody</span><span class="op">(</span><span class="fu">shinyjs</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shinyjs/man/useShinyjs.html">useShinyjs</a></span><span class="op">(</span><span class="op">)</span>,
               <span class="va">tags</span><span class="op">$</span><span class="fu">head</span><span class="op">(</span>
                 <span class="co"># links to files in www/</span>
@@ -183,7 +186,7 @@ Figure 2.1: Basic Template.App You can also access this app with <code><a href="
 <span class="header-section-number">2.3</span> Body Structure<a class="anchor" aria-label="anchor" href="#body-structure"><i class="fas fa-link"></i></a>
 </h2>
 <p>Tab items can be structured in several ways. At the simplest, you can just list each element after the <code><span class="at">tabName</span></code>.</p>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">tabItem</span><span class="op">(</span>
   tabName <span class="op">=</span> <span class="st">"demo_tab"</span>,
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textInput.html">textInput</a></span><span class="op">(</span><span class="st">"given"</span>, <span class="st">"Given Name"</span><span class="op">)</span>,
@@ -199,7 +202,7 @@ Figure 2.1: Basic Template.App You can also access this app with <code><a href="
 <span class="header-section-number">2.3.1</span> Boxes<a class="anchor" aria-label="anchor" href="#boxes"><i class="fas fa-link"></i></a>
 </h3>
 <p>Most <code class="package">shinydashboard</code> apps organise the parts inside boxes.</p>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">tabItem</span><span class="op">(</span>tabName <span class="op">=</span> <span class="st">"demo_tab"</span>,
         <span class="fu"><a href="https://rdrr.io/r/graphics/box.html">box</a></span><span class="op">(</span>
           <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textInput.html">textInput</a></span><span class="op">(</span><span class="st">"given"</span>, <span class="st">"Given Name"</span><span class="op">)</span>,
@@ -219,7 +222,7 @@ Figure 2.2: Organizing elements inside boxes.
 </p>
 </div>
 <p>You can add titles to the boxes, make them collapsible and/or give them solid headers.</p>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">tabItem</span><span class="op">(</span>
     tabName <span class="op">=</span> <span class="st">"demo_tab"</span>,
     <span class="fu"><a href="https://rdrr.io/r/graphics/box.html">box</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Personal Info"</span>,
@@ -235,7 +238,7 @@ Figure 2.2: Organizing elements inside boxes.
 <span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="images/sdb_box_collapse.gif"></div>
 <p>In the normal shinydashboard style, solid headers only have a colour if the box also has the status argument set. In the basic template provided in this class, there is custom CSS to make solid headers the same colour as the theme skin, but you can also set the <code><span class="at">status</span></code>.</p>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">tabItem</span><span class="op">(</span>
     tabName <span class="op">=</span> <span class="st">"demo_tab"</span>,
     <span class="fu"><a href="https://rdrr.io/r/graphics/box.html">box</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"No Status"</span>, solidHeader <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
@@ -257,7 +260,7 @@ Figure 2.3: Shinydashboard Box Statuses.
 <span class="header-section-number">2.3.2</span> Info and Value Boxes<a class="anchor" aria-label="anchor" href="#info-and-value-boxes"><i class="fas fa-link"></i></a>
 </h3>
 <p>You can use an <code><span class="fu">infoBox</span>()</code> or a <code><span class="fu">valueBox</span>()</code> to highlight a small amount of information. The default background is aqua, but the basic template changes this to the skin colour. However, you can customise this by setting the <code><span class="at">color</span></code> argument.</p>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">tabItem</span><span class="op">(</span>
     tabName <span class="op">=</span> <span class="st">"demo_tab"</span>,
     <span class="fu">infoBox</span><span class="op">(</span><span class="st">"Default InfoBox"</span>, <span class="st">"Value"</span>, <span class="st">"Subtitle"</span><span class="op">)</span>,
@@ -280,7 +283,7 @@ Figure 2.4: Examples of value and info boxes you can make.
 <span class="header-section-number">2.3.3</span> Tab Boxes<a class="anchor" aria-label="anchor" href="#tab-boxes"><i class="fas fa-link"></i></a>
 </h3>
 <p>Create a box with multiple tabs using <code><span class="fu">tabBox</span>()</code>, which contains <code><span class="fu">tabPanel</span>()</code>.</p>
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">tabItem</span><span class="op">(</span>
     tabName <span class="op">=</span> <span class="st">"demo_tab"</span>,
     <span class="fu">tabBox</span><span class="op">(</span>
@@ -308,7 +311,7 @@ Figure 2.5: Tab Boxes
 <span class="header-section-number">2.3.4</span> Row Layout<a class="anchor" aria-label="anchor" href="#row-layout"><i class="fas fa-link"></i></a>
 </h3>
 <p>You can arrange the boxes inside a <code><span class="fu">fluidRow</span>()</code>. Set the box height in pixels. If the window gets too narrow, the boxes will move to stack instead of be in rows.</p>
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">tabItem</span><span class="op">(</span>
     tabName <span class="op">=</span> <span class="st">"demo_tab"</span>,
     <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidRow</a></span><span class="op">(</span>
@@ -333,7 +336,7 @@ Figure 2.6: An example fluidRow layout of boxes with different widths and height
 <span class="header-section-number">2.3.5</span> Column Layout<a class="anchor" aria-label="anchor" href="#column-layout"><i class="fas fa-link"></i></a>
 </h3>
 <p>Alternatively, you can arrange boxes or other elements inside a <code><span class="fu">column</span>()</code> with a specific <code><span class="at">width</span></code>. Elements inside this column have a width relative to the column width, so no matter what value you set the column <code><span class="at">width</span></code> to, an element inside with a <code><span class="at">width</span></code> of <code><span class="fl">6</span></code> will be half the column width.</p>
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">tabItem</span><span class="op">(</span>
     tabName <span class="op">=</span> <span class="st">"demo_tab"</span>,
     <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/column.html">column</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fl">6</span>,
@@ -653,8 +656,8 @@ $( document ).ready(function() {
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/pdebruine/shinyintro/blob/master/book/02_shinydashboard.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/pdebruine/shinyintro/edit/master/book/02_shinydashboard.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/debruine/shinyintro/blob/master/book/02_shinydashboard.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/debruine/shinyintro/edit/master/book/02_shinydashboard.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -666,7 +669,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Building Web Apps with R Shiny</strong>" was written by Lisa DeBruine. It was last built on 2021-10-13.</p>
+    <p>"<strong>Building Web Apps with R Shiny</strong>: <a href="/shinyintro.pdf">PDF</a> | <a href="/shinyintro.mobi">MOBI</a>" was written by Lisa DeBruine. It was last built on 2022-03-28.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

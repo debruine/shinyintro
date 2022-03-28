@@ -1,5 +1,6 @@
 --- 
 title: "Building Web Apps with R Shiny"
+subtitle: "<a href='/shinyintro.pdf'>PDF</a> | <a href='/shinyintro.mobi'>MOBI</a>"
 author: "Lisa DeBruine"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -16,6 +17,7 @@ cover-image: images/logos/shinyintro.png
 apple-touch-icon: images/logos/touch-icon.png
 apple-touch-icon-size: 152
 favicon: images/logos/favicon.ico
+always_allow_html: true
 ---
 ```{r include=FALSE, cache=FALSE}
 suppressPackageStartupMessages({
@@ -99,7 +101,7 @@ psyteachr_colors <- psyteachr_colours
 
 hl <- function(code) {
   txt <- rlang::enexpr(code) %>% rlang::as_label()
-
+  
   downlit::highlight(txt, classes = downlit::classes_pandoc()) %>%
     gsub("a href", "a target='_blank' href", .) %>%
     paste0("<code>", . , "</code>")
@@ -158,11 +160,13 @@ path <- function(txt) {
   }
 }
 
-pkg <- function(txt) {
+pkg <- function(txt, url = NULL) {
   if (is_latex) {
     sprintf("\\textbf{\\texttt{%s}}", tex_replace(txt))
-  } else {
+  } else if (is.null(url)) {
     sprintf("<code class='package'>%s</code>", txt)
+  } else {
+    sprintf("<code class='package'><a href='%s' target='_blank'>%s</a></code>", url, txt)
   }
 }
 
@@ -319,7 +323,7 @@ To participate in the hands-on exercises, you are strongly encouraged to use a c
 
 ### What experience do I need?
 
-You need to have basic familiarity with R, including data import, `r glossary("data wrangling", "data processing")`, visualization, and `r glossary("function", "functions")` and control structures (e.g., if/else). Instruction will be done using `r glossary("RStudio")`. Some familiarity with ggplot2 and dplyr would be useful. You definitely do not need to be an expert coder, but the following code should not be challenging to understand.
+You need to have basic familiarity with R, including data import, `r glossary("data wrangling", "data processing")`, visualization, and `r glossary("function", "functions")` and control structures (e.g., if/else). Instruction will be done using `r glossary("RStudio")`. Some familiarity with `r pkg("ggplot2")` and `r pkg("dplyr")` would be useful. You definitely do not need to be an expert coder, but the following code should not be challenging to understand.
 
 ```{r, eval = FALSE}
 
@@ -340,45 +344,7 @@ g + geom_violin(alpha = 0.5)
 ```
 
 
-If you want to brush up on your R (especially `r glossary("tidyverse")`), and also gain familiarity with the instructor's teaching style, the first seven chapters of [Data Skills for Reproducible Science](https://psyteachr.github.io/msc-data-skills/){target="_blank"} provide a good overview.
-
-## Conventions
-
-This book will use the following conventions:
-
-* File paths: `r path("www/style.css")`
-* R Packages: `r pkg("shinydashboard")`
-* Functions: `r func("observeEvent", "input$button, {}")`
-* Arguments: `r arg("width")`
-* Strings: `r dt("Lisa")`
-* Numbers: `r dt(100)`
-* Logical values: `r dt(TRUE)`
-* Other code: `x <- list(a = "Alligator", b = "Loki")`
-* Glossary items: `r glossary("shiny")`
-* Internal links: Section\ \@ref(first-app)
-* External links: [Mastering Shiny](https://mastering-shiny.org/){target="_blank"}
-* Menu/interface options: **`New File...`**
-
-::: {.info data-latex=""}
-Informational asides.
-:::
-
-::: {.warning data-latex=""}
-Notes to warn you about something.
-:::
-
-::: {.dangerous data-latex=""}
-Notes about things that could cause serious errors.
-:::
-
-::: {.try data-latex=""}
-Try it yourself.
-:::
-
-```{r}
-# code chunks
-shinyApp(ui = ui, server = server)
-```
+If you want to brush up on your R (especially `r glossary("tidyverse")`), and also gain familiarity with the instructor's teaching style, the book [Applied Data Skills](https://psyteachr.github.io/ads/){target="_blank"} provides a good overview.
 
 
 ## Further Resources
@@ -475,7 +441,7 @@ psyteachr_colors <- psyteachr_colours
 
 hl <- function(code) {
   txt <- rlang::enexpr(code) %>% rlang::as_label()
-
+  
   downlit::highlight(txt, classes = downlit::classes_pandoc()) %>%
     gsub("a href", "a target='_blank' href", .) %>%
     paste0("<code>", . , "</code>")
@@ -534,11 +500,13 @@ path <- function(txt) {
   }
 }
 
-pkg <- function(txt) {
+pkg <- function(txt, url = NULL) {
   if (is_latex) {
     sprintf("\\textbf{\\texttt{%s}}", tex_replace(txt))
-  } else {
+  } else if (is.null(url)) {
     sprintf("<code class='package'>%s</code>", txt)
+  } else {
+    sprintf("<code class='package'><a href='%s' target='_blank'>%s</a></code>", url, txt)
   }
 }
 
@@ -1257,7 +1225,7 @@ psyteachr_colors <- psyteachr_colours
 
 hl <- function(code) {
   txt <- rlang::enexpr(code) %>% rlang::as_label()
-
+  
   downlit::highlight(txt, classes = downlit::classes_pandoc()) %>%
     gsub("a href", "a target='_blank' href", .) %>%
     paste0("<code>", . , "</code>")
@@ -1316,11 +1284,13 @@ path <- function(txt) {
   }
 }
 
-pkg <- function(txt) {
+pkg <- function(txt, url = NULL) {
   if (is_latex) {
     sprintf("\\textbf{\\texttt{%s}}", tex_replace(txt))
-  } else {
+  } else if (is.null(url)) {
     sprintf("<code class='package'>%s</code>", txt)
+  } else {
+    sprintf("<code class='package'><a href='%s' target='_blank'>%s</a></code>", url, txt)
   }
 }
 
@@ -1767,7 +1737,7 @@ psyteachr_colors <- psyteachr_colours
 
 hl <- function(code) {
   txt <- rlang::enexpr(code) %>% rlang::as_label()
-
+  
   downlit::highlight(txt, classes = downlit::classes_pandoc()) %>%
     gsub("a href", "a target='_blank' href", .) %>%
     paste0("<code>", . , "</code>")
@@ -1826,11 +1796,13 @@ path <- function(txt) {
   }
 }
 
-pkg <- function(txt) {
+pkg <- function(txt, url = NULL) {
   if (is_latex) {
     sprintf("\\textbf{\\texttt{%s}}", tex_replace(txt))
-  } else {
+  } else if (is.null(url)) {
     sprintf("<code class='package'>%s</code>", txt)
+  } else {
+    sprintf("<code class='package'><a href='%s' target='_blank'>%s</a></code>", url, txt)
   }
 }
 
@@ -2183,7 +2155,7 @@ psyteachr_colors <- psyteachr_colours
 
 hl <- function(code) {
   txt <- rlang::enexpr(code) %>% rlang::as_label()
-
+  
   downlit::highlight(txt, classes = downlit::classes_pandoc()) %>%
     gsub("a href", "a target='_blank' href", .) %>%
     paste0("<code>", . , "</code>")
@@ -2242,11 +2214,13 @@ path <- function(txt) {
   }
 }
 
-pkg <- function(txt) {
+pkg <- function(txt, url = NULL) {
   if (is_latex) {
     sprintf("\\textbf{\\texttt{%s}}", tex_replace(txt))
-  } else {
+  } else if (is.null(url)) {
     sprintf("<code class='package'>%s</code>", txt)
+  } else {
+    sprintf("<code class='package'><a href='%s' target='_blank'>%s</a></code>", url, txt)
   }
 }
 
@@ -2575,7 +2549,7 @@ psyteachr_colors <- psyteachr_colours
 
 hl <- function(code) {
   txt <- rlang::enexpr(code) %>% rlang::as_label()
-
+  
   downlit::highlight(txt, classes = downlit::classes_pandoc()) %>%
     gsub("a href", "a target='_blank' href", .) %>%
     paste0("<code>", . , "</code>")
@@ -2634,11 +2608,13 @@ path <- function(txt) {
   }
 }
 
-pkg <- function(txt) {
+pkg <- function(txt, url = NULL) {
   if (is_latex) {
     sprintf("\\textbf{\\texttt{%s}}", tex_replace(txt))
-  } else {
+  } else if (is.null(url)) {
     sprintf("<code class='package'>%s</code>", txt)
+  } else {
+    sprintf("<code class='package'><a href='%s' target='_blank'>%s</a></code>", url, txt)
   }
 }
 
@@ -3282,7 +3258,7 @@ psyteachr_colors <- psyteachr_colours
 
 hl <- function(code) {
   txt <- rlang::enexpr(code) %>% rlang::as_label()
-
+  
   downlit::highlight(txt, classes = downlit::classes_pandoc()) %>%
     gsub("a href", "a target='_blank' href", .) %>%
     paste0("<code>", . , "</code>")
@@ -3341,11 +3317,13 @@ path <- function(txt) {
   }
 }
 
-pkg <- function(txt) {
+pkg <- function(txt, url = NULL) {
   if (is_latex) {
     sprintf("\\textbf{\\texttt{%s}}", tex_replace(txt))
-  } else {
+  } else if (is.null(url)) {
     sprintf("<code class='package'>%s</code>", txt)
+  } else {
+    sprintf("<code class='package'><a href='%s' target='_blank'>%s</a></code>", url, txt)
   }
 }
 
@@ -3728,7 +3706,7 @@ psyteachr_colors <- psyteachr_colours
 
 hl <- function(code) {
   txt <- rlang::enexpr(code) %>% rlang::as_label()
-
+  
   downlit::highlight(txt, classes = downlit::classes_pandoc()) %>%
     gsub("a href", "a target='_blank' href", .) %>%
     paste0("<code>", . , "</code>")
@@ -3787,11 +3765,13 @@ path <- function(txt) {
   }
 }
 
-pkg <- function(txt) {
+pkg <- function(txt, url = NULL) {
   if (is_latex) {
     sprintf("\\textbf{\\texttt{%s}}", tex_replace(txt))
-  } else {
+  } else if (is.null(url)) {
     sprintf("<code class='package'>%s</code>", txt)
+  } else {
+    sprintf("<code class='package'><a href='%s' target='_blank'>%s</a></code>", url, txt)
   }
 }
 
@@ -4283,7 +4263,7 @@ psyteachr_colors <- psyteachr_colours
 
 hl <- function(code) {
   txt <- rlang::enexpr(code) %>% rlang::as_label()
-
+  
   downlit::highlight(txt, classes = downlit::classes_pandoc()) %>%
     gsub("a href", "a target='_blank' href", .) %>%
     paste0("<code>", . , "</code>")
@@ -4342,11 +4322,13 @@ path <- function(txt) {
   }
 }
 
-pkg <- function(txt) {
+pkg <- function(txt, url = NULL) {
   if (is_latex) {
     sprintf("\\textbf{\\texttt{%s}}", tex_replace(txt))
-  } else {
+  } else if (is.null(url)) {
     sprintf("<code class='package'>%s</code>", txt)
+  } else {
+    sprintf("<code class='package'><a href='%s' target='_blank'>%s</a></code>", url, txt)
   }
 }
 
@@ -4651,7 +4633,7 @@ psyteachr_colors <- psyteachr_colours
 
 hl <- function(code) {
   txt <- rlang::enexpr(code) %>% rlang::as_label()
-
+  
   downlit::highlight(txt, classes = downlit::classes_pandoc()) %>%
     gsub("a href", "a target='_blank' href", .) %>%
     paste0("<code>", . , "</code>")
@@ -4710,11 +4692,13 @@ path <- function(txt) {
   }
 }
 
-pkg <- function(txt) {
+pkg <- function(txt, url = NULL) {
   if (is_latex) {
     sprintf("\\textbf{\\texttt{%s}}", tex_replace(txt))
-  } else {
+  } else if (is.null(url)) {
     sprintf("<code class='package'>%s</code>", txt)
+  } else {
+    sprintf("<code class='package'><a href='%s' target='_blank'>%s</a></code>", url, txt)
   }
 }
 
@@ -5028,7 +5012,7 @@ psyteachr_colors <- psyteachr_colours
 
 hl <- function(code) {
   txt <- rlang::enexpr(code) %>% rlang::as_label()
-
+  
   downlit::highlight(txt, classes = downlit::classes_pandoc()) %>%
     gsub("a href", "a target='_blank' href", .) %>%
     paste0("<code>", . , "</code>")
@@ -5087,11 +5071,13 @@ path <- function(txt) {
   }
 }
 
-pkg <- function(txt) {
+pkg <- function(txt, url = NULL) {
   if (is_latex) {
     sprintf("\\textbf{\\texttt{%s}}", tex_replace(txt))
-  } else {
+  } else if (is.null(url)) {
     sprintf("<code class='package'>%s</code>", txt)
+  } else {
+    sprintf("<code class='package'><a href='%s' target='_blank'>%s</a></code>", url, txt)
   }
 }
 
@@ -5476,7 +5462,7 @@ psyteachr_colors <- psyteachr_colours
 
 hl <- function(code) {
   txt <- rlang::enexpr(code) %>% rlang::as_label()
-
+  
   downlit::highlight(txt, classes = downlit::classes_pandoc()) %>%
     gsub("a href", "a target='_blank' href", .) %>%
     paste0("<code>", . , "</code>")
@@ -5535,11 +5521,13 @@ path <- function(txt) {
   }
 }
 
-pkg <- function(txt) {
+pkg <- function(txt, url = NULL) {
   if (is_latex) {
     sprintf("\\textbf{\\texttt{%s}}", tex_replace(txt))
-  } else {
+  } else if (is.null(url)) {
     sprintf("<code class='package'>%s</code>", txt)
+  } else {
+    sprintf("<code class='package'><a href='%s' target='_blank'>%s</a></code>", url, txt)
   }
 }
 
@@ -5827,7 +5815,7 @@ psyteachr_colors <- psyteachr_colours
 
 hl <- function(code) {
   txt <- rlang::enexpr(code) %>% rlang::as_label()
-
+  
   downlit::highlight(txt, classes = downlit::classes_pandoc()) %>%
     gsub("a href", "a target='_blank' href", .) %>%
     paste0("<code>", . , "</code>")
@@ -5886,11 +5874,13 @@ path <- function(txt) {
   }
 }
 
-pkg <- function(txt) {
+pkg <- function(txt, url = NULL) {
   if (is_latex) {
     sprintf("\\textbf{\\texttt{%s}}", tex_replace(txt))
-  } else {
+  } else if (is.null(url)) {
     sprintf("<code class='package'>%s</code>", txt)
+  } else {
+    sprintf("<code class='package'><a href='%s' target='_blank'>%s</a></code>", url, txt)
   }
 }
 
@@ -6321,7 +6311,7 @@ psyteachr_colors <- psyteachr_colours
 
 hl <- function(code) {
   txt <- rlang::enexpr(code) %>% rlang::as_label()
-
+  
   downlit::highlight(txt, classes = downlit::classes_pandoc()) %>%
     gsub("a href", "a target='_blank' href", .) %>%
     paste0("<code>", . , "</code>")
@@ -6380,11 +6370,13 @@ path <- function(txt) {
   }
 }
 
-pkg <- function(txt) {
+pkg <- function(txt, url = NULL) {
   if (is_latex) {
     sprintf("\\textbf{\\texttt{%s}}", tex_replace(txt))
-  } else {
+  } else if (is.null(url)) {
     sprintf("<code class='package'>%s</code>", txt)
+  } else {
+    sprintf("<code class='package'><a href='%s' target='_blank'>%s</a></code>", url, txt)
   }
 }
 
@@ -6802,7 +6794,7 @@ psyteachr_colors <- psyteachr_colours
 
 hl <- function(code) {
   txt <- rlang::enexpr(code) %>% rlang::as_label()
-
+  
   downlit::highlight(txt, classes = downlit::classes_pandoc()) %>%
     gsub("a href", "a target='_blank' href", .) %>%
     paste0("<code>", . , "</code>")
@@ -6861,11 +6853,13 @@ path <- function(txt) {
   }
 }
 
-pkg <- function(txt) {
+pkg <- function(txt, url = NULL) {
   if (is_latex) {
     sprintf("\\textbf{\\texttt{%s}}", tex_replace(txt))
-  } else {
+  } else if (is.null(url)) {
     sprintf("<code class='package'>%s</code>", txt)
+  } else {
+    sprintf("<code class='package'><a href='%s' target='_blank'>%s</a></code>", url, txt)
   }
 }
 
@@ -7000,7 +6994,7 @@ psyteachr_colors <- psyteachr_colours
 
 hl <- function(code) {
   txt <- rlang::enexpr(code) %>% rlang::as_label()
-
+  
   downlit::highlight(txt, classes = downlit::classes_pandoc()) %>%
     gsub("a href", "a target='_blank' href", .) %>%
     paste0("<code>", . , "</code>")
@@ -7059,11 +7053,13 @@ path <- function(txt) {
   }
 }
 
-pkg <- function(txt) {
+pkg <- function(txt, url = NULL) {
   if (is_latex) {
     sprintf("\\textbf{\\texttt{%s}}", tex_replace(txt))
-  } else {
+  } else if (is.null(url)) {
     sprintf("<code class='package'>%s</code>", txt)
+  } else {
+    sprintf("<code class='package'><a href='%s' target='_blank'>%s</a></code>", url, txt)
   }
 }
 
@@ -7112,66 +7108,209 @@ dt <- function(val, class = NULL) {
   }
 }
 ```
-# Installing `R` {#installing-r}
+# Installing and Updating {#installing-r}
 
-Installing R and RStudio is usually straightforward. The sections below explain how and [there is a helpful YouTube video here](https://www.youtube.com/watch?v=lVKMsaWju8w).
+Installing R and RStudio is usually straightforward. The sections below explain how and [there is a helpful YouTube video here](https://www.youtube.com/watch?v=lVKMsaWju8w){target="_blank"}. If you have an older installation, you will want to update it to the newest versions of R and RStudio your computer can use.
 
-## Installing Base R
+## Base R
 
-Install base R from <https://cran.rstudio.com/>. Choose the download link for your operating system (Linux, Mac OS X, or Windows).
+### Installing R
 
-If you have a Mac, install the latest release from the newest `R-x.x.x.pkg` link (or a legacy version if you have an older operating system). After you install R, you should also install [XQuartz](http://xquartz.macosforge.org/) to be able to use some visualisation packages.
+[Install base R](https://cran.rstudio.com/){target="_blank"}. Choose the download link for your operating system (Linux, Mac OS X, or Windows).
 
-If you are installing the Windows version, choose the "[base](https://cran.rstudio.com/bin/windows/base/)" subdirectory and click on the download link at the top of the page. After you install R, you should also install [RTools](https://cran.rstudio.com/bin/windows/Rtools/); use the "recommended" version highlighted near the top of the list.
+If you have a Mac, install the latest release from the newest `R-x.x.x.pkg` link (or a legacy version if you have an older operating system). You may also need to install [XQuartz](http://xquartz.macosforge.org/){target="_blank"} to be able to use some visualisation packages.
+
+If you are installing the Windows version, choose the "[base](https://cran.rstudio.com/bin/windows/base/)" subdirectory and click on the download link at the top of the page. 
 
 If you are using Linux, choose your specific operating system and follow the installation instructions.
 
+### Updating R
+
+Finally, you may also wish to update R itself. The key thing to be aware of is that when you update R, if you just download the latest version from the website, you will lose all your packages. 
+
+#### Windows
+
+The easiest way to update R on Windows and not cause yourself a huge headache is to use the `installr` package. When you use the `updateR()` function, a series of dialogue boxes will appear. These should be fairly self-explanatory but there is a [full step-by-step guide available](https://www.r-statistics.com/2015/06/a-step-by-step-screenshots-tutorial-for-upgrading-r-on-windows/) for how to use `installr`, the important bit is to select "Yes" when it asked if you would like to copy your packages from the older version of R.
+
+```{r installr, eval = FALSE}
+# Install the installr package
+install.packages("installr")
+
+# Run the update function
+installR::updateR()
+```
+
+#### Mac
+
+For a Mac, you can use the `r pkg("updateR", "https://github.com/AndreaCirilloAC/updateR")` package. You'll need to install this from GitHub. You will be asked to type your system password (that you use to log into your computer) in the console pane. If relevant, it will ask you if you want to restore your packages for a new major version.
+
+```{r, eval = FALSE}
+# install from github
+devtools::install_github("AndreaCirilloAC/updateR")
+
+# update your R version, you will need your system password
+updateR::updateR()
+```
+
 ## Installing RStudio
 
-Go to [rstudio.com](https://www.rstudio.com/products/rstudio/download/#download) and download the RStudio Desktop (Open Source License) version for your operating system under the list titled **Installers for Supported Platforms**.
+Go to [rstudio.com](https://www.rstudio.com/products/rstudio/download/#download){target="_blank"} and download the RStudio Desktop (Open Source License) version for your operating system under the list titled **Installers for Supported Platforms**.
 
-### RStudio Settings
+### Installing RTools
+
+If you are using Windows, after you install R, you should also install [RTools](https://cran.rstudio.com/bin/windows/Rtools/){target="_blank"}; use the "recommended" version highlighted near the top of the list. RTools is used for installing and loading some packages. You can get started without installing RTools, but if you're having problems with installing and loading some packages, this should be the first thing you try.
+
+RTools will require you to put it "on the PATH". The instructions for this can seem a bit vague - the easiest way to do it is to open RStudio, run the below code in the console:
+
+```{r eval  = FALSE}
+write('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', file = "~/.Renviron", append = TRUE)
+```
+
+Once you've done that, restart R by clicking `Session - Restart R` and then run the below code in the console which should give you the path to your RTools installation:
+
+```{r}
+Sys.which("make")
+```
+
+### Updating RStudio
+
+Typically, updates to RStudio won't affect your code, instead they add in new features, like spell-check or upgrades to what RStudio can do. There's usually very little downside to updating RStudio and it's easy to do.
+
+Click `Help - Check for updates`
+
+```{r img-updaterstudio, echo=FALSE, fig.cap="Updating RStudio"}
+knitr::include_graphics("images/update_rstudio.jpg")
+```
+
+If an update is available, it will prompt you to download it and you can install it as usual.
+
+
+### RStudio Settings {#rstudio-settings}
 
 There are a few settings you should fix immediately after updating RStudio. Go to **`Global Options...`** under the **`Tools`** menu (&#8984;,), and in the General tab, uncheck the box that says **`Restore .RData into workspace at startup`**.  If you keep things around in your workspace, things will get messy, and unexpected things will happen. You should always start with a clear workspace. This also means that you never want to save your workspace when you exit, so set this to **`Never`**. The only thing you want to save are your scripts.
 
-You may also want to change the appearance of your code. Different fonts and themes can sometimes help with visual difficulties or [dyslexia]((https://datacarpentry.org/blog/2017/09/coding-and-dyslexia){target="_blank"}. I prefer a dark background and the FiraCode font for my own coding, but I will use the default theme for screenshots in this book.
+You may also want to change the appearance of your code. Different fonts and themes can sometimes help with visual difficulties or [dyslexia](https://datacarpentry.org/blog/2017/09/coding-and-dyslexia){target="_blank"}. 
 
-```{r settings-general, eval = F, echo=FALSE, out.width = "45%", fig.cap = "My RStudio General and Appearance settings"}
-knitr::include_graphics(
-  c('images/rstudio_settings_general.png', 
-    'images/rstudio_settings_appearance.png'))
+```{r settings-general, eval = TRUE, echo=FALSE, fig.cap = "RStudio General and Appearance settings"}
+knitr::include_graphics('images/rstudio_settings_general_appearance.png')
 ```
 
-You may also want to change the settings in the Code tab. I prefer two spaces instead of tabs for my code and I like to be able to see the `r glossary("whitespace")` characters. But these are all a matter of personal preference.
+You may also want to change the settings in the Code tab. For example, Lisa prefers two spaces instead of tabs for my code and likes to be able to see the `r glossary("whitespace")` characters. But these are all a matter of personal preference.
 
-```{r settings-code, eval = F, echo=FALSE, out.width = "45%", fig.cap = 'My RStudio Code settings'}
-knitr::include_graphics(
-  c("images/rstudio_settings_code_editing.png",
-    "images/rstudio_settings_code_display.png"))
+```{r settings-code, eval = TRUE, echo=FALSE, fig.cap = 'RStudio Code settings'}
+knitr::include_graphics("images/rstudio_settings_code.png")
 ```
 
-### Installing shinyintro
 
-To install the class package, which will provide you with a copy of all of the shiny apps we'll use for demos and the basic template, paste the following code into the console in RStudio.
+## Packages
 
-```{r}
-# you may have to install devtools first with 
-# install.packages("devtools")
+### Installing Packages
 
+This is done using `r hl(install.packages())`. This is like installing an app on your phone: you only have to do it once and the app will remain installed until you remove it. For instance, if you want to use PokemonGo on your phone, you install it once from the App Store or Play Store; you don't have to re-install it each time you want to use it. Once you launch the app, it will run in the background until you close it or restart your phone. Likewise, when you install a package, the package will be available (but not *loaded*) every time you open up R.
+
+```{r install-devtools, eval = FALSE}
+# type this in the console pane
+install.packages("devtools")
+```
+
+Install the `r pkg("shinyintro")` package on your system. This package is the main package we will use throughout this book and is not on CRAN, so you will need to get it from github using the function `devtools::install_github()`.
+
+```{r install-pckg, eval = FALSE}
+# type this in the console pane
 devtools::install_github("debruine/shinyintro")
+```
+
+If you get a message that says something like `package ‘shinyintro’ successfully unpacked and MD5 sums checked`, the installation was successful. If you get an error and the package wasn't installed, check the troubleshooting section \@ref(package-install-troubleshooting).
+
+::: {.dangerous data-latex=""}
+Never install a package from inside a script. Only do this from the console pane.
+:::
+
+### Updating packages
+
+Package developers will occasionally release updates to their packages. This is typically to add in new functions to the package, or to fix or amend existing functions. **Be aware that some package updates may cause your previous code to stop working**. This does not tend to happen with minor updates to packages, but occasionally with major updates, you can have serious issues if the developer has made fundamental changes to how the code works. For this reason, we recommend updating all your packages once at the beginning of each academic year (or semester) - don't do it before an assessment or deadline just in case!
+
+To update an individual package, the easiest way is to use the `install.packages()` function, as this always installs the most recent version of the package.
+
+```{r update_one, eval = FALSE}
+install.packages("tidyverse")
+```
+
+To update multiple packages, or indeed all packages, RStudio provides helpful tools. Click `Tools - Check for Package Updates`. A dialogue box will appear and you can select the packages you wish to update. Be aware that if you select all packages, this may take some time and you will be unable to use R whilst the process completes.
+
+```{r img-updateall, echo=FALSE, fig.cap="Updating packages with RStudio"}
+knitr::include_graphics("images/update_packages.png")
 ```
 
 
 ## Installing LaTeX
 
-You can install the LaTeX typesetting system to produce PDF reports from RStudio. Without this additional installation, you will be able to produce reports in HTML but not PDF. This course will not require you to make PDFs. To generate PDF reports, you will additionally need: 
+You can install the LaTeX typesetting system to produce PDF reports from RStudio. Without this additional installation, you will be able to produce reports in HTML but not PDF. To generate PDF reports, you will additionally need to install `r pkg("tinytex")` [@R-tinytex] and run the following code:
 
-1.  [pandoc](http://pandoc.org/installing.html), and
-2.  LaTeX, a typesetting language, available for
-    -   WINDOWS: [MikTeX](http://miktex.org/)
-    -   Mac OS: [MacTex](https://tug.org/mactex/downloading.html) (3.2GB download) or [BasicTeX](http://ww.tug.org/mactex/morepackages.html) (78MB download, but should work fine)
-    -   Linux: [TeX Live](https://www.tug.org/texlive/)
+```{r eval=FALSE}
+# run this in the console
+install.packages("tinytex")
+tinytex::install_tinytex()
+```
 
+
+
+
+
+
+
+
+
+
+
+## Troubleshooting {#package-install-troubleshooting}
+
+Occasionally, you might have a few problem packages that seemingly refuse to update. For me, `rlang` and `vctrs` cause me no end of trouble. These aren't packages that you will likely every explicitly load, but they're required beneath the surface for R to do things like knit your Markdown files etc.
+
+### Non-zero exit status
+
+If you try to update a package and get an error message that says something like `Warning in install.packages : installation of package ‘vctrs’ had non-zero exit status` or perhaps `Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) :  namespace 'rlang' 0.4.9 is being loaded, but >= 0.4.10 is required` one solution I have found is to manually uninstall the package, restart R, and then install the package new, rather than trying to update an existing version. The `installr` package also has a useful function for uninstalling packages.
+
+```{r problem_packages, eval = FALSE}
+# Load installr
+library(installr)
+
+# Uninstall the problem package
+uninstall.packages("package_name")
+
+# Then restart R using session - restart R
+# Then install the package fresh
+
+install.packages("package")
+
+```
+
+### Cannot open file
+
+You may get the following error after trying to install any packages at all:
+
+> Error in install packages : Cannot open file 'C:/.....': Permission denied
+
+This usually indicates a permissions problem with writing to the default library (the folder that packages are kept in). Sometimes this means that you need to install R and RStudio as administrator or run it as administrator. 
+
+One other fix may be to change the library location using the following code (check in "C:/Program Files/R" for what version you should have instead of "R-3.5.2"):
+
+```{r, eval = FALSE}
+# change the library path
+.libPaths(c("C:/Program Files/R/R-3.5.2/library"))
+```
+
+If that works and you can install packages, set this library path permanently:
+
+1. Install the `r pkg("usethis")` package
+2. Run `usethis::edit_r_profile()` in the console; it will open up a blank file
+3. Paste into the file (your version of): `.libPaths(c("C:/Program Files/R/R-3.5.2/library"))`
+4. Save and close the file
+5. Restart R for changes to take effect
+
+The code in your .Rprofile will now run every time you start up R. 
+
+As always, if you're having issues, please ask on Teams or come to office hours.
 
 <!--chapter:end:appendix-a-installing-r.Rmd-->
 
@@ -7257,7 +7396,7 @@ psyteachr_colors <- psyteachr_colours
 
 hl <- function(code) {
   txt <- rlang::enexpr(code) %>% rlang::as_label()
-
+  
   downlit::highlight(txt, classes = downlit::classes_pandoc()) %>%
     gsub("a href", "a target='_blank' href", .) %>%
     paste0("<code>", . , "</code>")
@@ -7316,11 +7455,13 @@ path <- function(txt) {
   }
 }
 
-pkg <- function(txt) {
+pkg <- function(txt, url = NULL) {
   if (is_latex) {
     sprintf("\\textbf{\\texttt{%s}}", tex_replace(txt))
-  } else {
+  } else if (is.null(url)) {
     sprintf("<code class='package'>%s</code>", txt)
+  } else {
+    sprintf("<code class='package'><a href='%s' target='_blank'>%s</a></code>", url, txt)
   }
 }
 
@@ -7369,41 +7510,78 @@ dt <- function(val, class = NULL) {
   }
 }
 ```
-# Symbols {#symbols}
+# Conventions
 
-| Symbol | Book Term         | Also Known As     |
-|:------:|:------------------|:------------------|
-| `()`     | (round) brackets  | parentheses       |
-| `[]`     | square brackets   | brackets          |
-| `{}`     | curly brackets    | squiggly brackets |
-| `<>`     | chevrons          | angled brackets / guillemets |
-| `<`      | less than         |                   |
-| `>`      | greater than      |                   |
-| `&`      | ampersand         | "and" symbol      |
-| `#`      | hash              | pound / octothorpe|
-| `/`      | slash             | forward slash     |
-| `\\`     | backslash         |                   |
-| `-`      | dash              | hyphen / minus    |
-| `_`      | underscore        |                   |
-| `*`      | asterisk          | star              |
-| `^`      | caret             | power symbol      |
-| `~`      | tilde             | twiddle / squiggle|
-| `=`      | equal sign        |                   |
-| `==`     | double equal sign |                   |
-| `.`      | full stop         | period / point    |
-| `!`      | exclamation mark  | bang / not        |
-| `?`      | question mark     |                   |
-| `'`      | single quote      | quote / apostrophe|
-| `"`      | double quote      | quote             |
-| `%>%`    | pipe              | magrittr pipe     |
-| `\|`     | vertical bar      | pipe              |
-| `,`      | comma             |                   |
-| `;`      | semi-colon        |                   |
-| `:`      | colon             |                   |
-| `@`      | "at" symbol       | [various hilarious regional terms](https://www.theguardian.com/notesandqueries/query/0,5753,-1773,00.html) |
+This book will use the following conventions:
+
+* Generic code: `list(number = 1, letter = "A")`
+* Highlighted code: `r hl(list(number = 1, letter = "A"))`
+* File paths: `r path("data/sales.csv")`
+* R Packages: `r pkg("tidyverse")`
+* Functions: `r hl(paste())`
+* Strings: `r dt("R")`, `r dt("Shiny")`
+* Numbers: `r dt(100)`, `r dt(3.14)`
+* Logical values: `r dt(TRUE)`, `r dt(FALSE)`
+* Glossary items: `r glossary("ordinal")`
+* Citations: @R-tidyverse
+* Internal links: Chapter\ \@ref(glossary)
+* External links: [Mastering Shiny](https://mastering-shiny.org/){target="_blank"}
+* Menu/interface options: **`New File...`**
+* Quiz question: I am going to learn a lot: `r torf(TRUE)`
+
+```{r, echo=FALSE, results='asis'}
+opts <- c(
+   "the probability that the null hypothesis is true",
+   answer = "the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true",
+   "the probability of making an error in your conclusion"
+)
+
+cat("* What is a p-value?", longmcq(opts))
+```
 
 
-<!--chapter:end:appendix-b-symbols.Rmd-->
+```{block, webex.hide="Hidden Solutions"}
+You found it!
+```
+
+::: {.info data-latex=""}
+Informational asides.
+:::
+
+::: {.warning data-latex=""}
+Notes to warn you about something.
+:::
+
+::: {.dangerous data-latex=""}
+Notes about things that could cause serious errors.
+:::
+
+::: {.try data-latex=""}
+Try it yourself.
+:::
+
+```{r}
+# code chunks
+paste("Code", "Output", 1, sep = " ")
+```
+
+```{r, eval = FALSE, verbatim="r, fig.width = 2, fig.height = 2"}
+# code chunks with headers
+hist(rnorm(100000))
+```
+
+```{verbatim, lang = "md"}
+## Markdown Example
+
+* Inline code: `r nrow(iris)`
+* *Italics*
+* **Bold**
+```
+
+
+
+
+<!--chapter:end:appendix-b-conventions.Rmd-->
 
 ```{r include=FALSE, cache=FALSE}
 suppressPackageStartupMessages({
@@ -7487,7 +7665,7 @@ psyteachr_colors <- psyteachr_colours
 
 hl <- function(code) {
   txt <- rlang::enexpr(code) %>% rlang::as_label()
-
+  
   downlit::highlight(txt, classes = downlit::classes_pandoc()) %>%
     gsub("a href", "a target='_blank' href", .) %>%
     paste0("<code>", . , "</code>")
@@ -7546,11 +7724,256 @@ path <- function(txt) {
   }
 }
 
-pkg <- function(txt) {
+pkg <- function(txt, url = NULL) {
   if (is_latex) {
     sprintf("\\textbf{\\texttt{%s}}", tex_replace(txt))
-  } else {
+  } else if (is.null(url)) {
     sprintf("<code class='package'>%s</code>", txt)
+  } else {
+    sprintf("<code class='package'><a href='%s' target='_blank'>%s</a></code>", url, txt)
+  }
+}
+
+
+func <- function(txt, args = "") {
+  if (is_latex) {
+    sprintf("\\texttt{%s}\\texttt{(%s)}", tex_replace(txt), tex_replace(args))
+  } else {
+    sprintf("<code><span class='fu'>%s</span>(%s)</code>", txt, args)
+  }
+}
+
+arg <- function(txt) {
+  dt(txt, "at")
+}
+
+dt <- function(val, class = NULL) {
+  if (is.null(class)) {
+    class <- switch(typeof(val), 
+                    character = "st", 
+                    integer = "fl", 
+                    double = "fl", 
+                    logical = "cn",
+                    closure = "fu",
+                    "")
+  }
+  txt <- toString(val)
+  
+  if (is_latex) {
+    if (class == "st") txt <- sprintf("\"%s\"", txt)
+    textok <- switch(
+      class,
+      st = "String",
+      fu = "Function",
+      at = "Attribute",
+      fl = "DecVal",
+      cn = "Constant",
+      "Normal"
+    )
+    
+    sprintf("\\%sTok{%s}", textok, tex_replace(txt))
+  } else {
+    if (class == "st") txt <- sprintf("&quot;%s&quot;", txt)
+    txt <- gsub("<", "&lt;", txt, fixed = TRUE)
+    sprintf("<code><span class='%s'>%s</span></code>", class, txt)
+  }
+}
+```
+# Symbols {#symbols}
+
+| Symbol | psyTeachR Term    | Also Known As     |
+|:------:|:------------------|:------------------|
+| ()     | (round) brackets  | parentheses       |
+| []     | square brackets   | brackets          |
+| {}     | curly brackets    | squiggly brackets |
+| <>     | chevrons          | angled brackets / guillemets |
+| <      | less than         |                   |
+| >      | greater than      |                   |
+| &      | ampersand         | "and" symbol      |
+| #      | hash              | pound / octothorpe|
+| /      | slash             | forward slash     |
+| \\     | backslash         |                   |
+| -      | dash              | hyphen / minus    |
+| _      | underscore        |                   |
+| *      | asterisk          | star              |
+| ^      | caret             | power symbol      |
+| ~      | tilde             | twiddle / squiggle|
+| =      | equal sign        |                   |
+| ==     | double equal sign |                   |
+| .      | full stop         | period / point    |
+| !      | exclamation mark  | bang / not        |
+| ?      | question mark     |                   |
+| '      | single quote      | quote / apostrophe|
+| "      | double quote      | quote             |
+| %>%    | pipe              | magrittr pipe     |
+| \|     | vertical bar      | pipe              |
+| ,      | comma             |                   |
+| ;      | semi-colon        |                   |
+| :      | colon             |                   |
+| @      | "at" symbol       | [various hilarious regional terms](https://www.theguardian.com/notesandqueries/query/0,5753,-1773,00.html) |
+| ...    | `glossary("ellipsis")`| dots     |
+
+
+```{r img-soundimals-hash, echo=FALSE, fig.cap="[Image by James Chapman/Soundimals](https://soundimals.tumblr.com/post/167354564886/chapmangamo-the-symbol-has-too-many-names)"}
+
+knitr::include_graphics("images/appx/soundimals_hash.png")
+
+```
+
+
+
+
+
+<!--chapter:end:appendix-c-symbols.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+suppressPackageStartupMessages({
+  library(webexercises)
+})
+
+knitr::knit_hooks$set(webex.hide = function(before, options, envir) {
+  if (before) {
+    if (is.character(options$webex.hide)) {
+      hide(options$webex.hide)
+    } else {
+      hide()
+    }
+  } else {
+    unhide()
+  }
+})
+# psyTeachR styles and functions
+# do not edit!!!!!
+
+suppressPackageStartupMessages({
+  library(tidyverse)
+  library(glossary)
+})
+
+# default knitr options
+knitr::opts_chunk$set(
+  echo       = TRUE,
+  results    = "hold",
+  out.width  = '100%',
+  fig.width  = 8,
+  fig.height = 5,
+  fig.align  = 'center'
+)
+
+## set global theme options for figures
+theme_set(theme_bw())
+
+## set class for a chunk using class="className"
+knitr::knit_hooks$set(class = function(before, options, envir) {
+  if (before) {
+    sprintf("<div class = '%s'>", options$class)
+  } else {
+    "</div>"
+  }
+})
+
+## verbatim code chunks
+knitr::knit_hooks$set(verbatim = function(before, options, envir) {
+  if (before) {
+    sprintf("<div class='verbatim'><pre class='sourceCode r'><code class='sourceCode R'>&#96;&#96;&#96;{%s}</code></pre>", options$verbatim)
+  } else {
+    "<pre class='sourceCode r'><code class='sourceCode R'>&#96;&#96;&#96;</code></pre></div>"
+  }
+})
+
+## verbatim inline R in backticks
+backtick <- function(code) {
+  #warning("The backtick() function is deprecated. Use two backticks and a space to surround text with verbatim backticks, e.g. `` `in_backticks` ``")
+  # removes inline math coding when you use >1 $ in a line
+  code <- gsub("\\$", "\\\\$", code)
+  paste0("<code>&#096;", code, "&#096;</code>")
+}
+
+## palette with psyTeachR logo colour
+psyteachr_colours <- function(vals = 1:6) {
+  ptrc <- c(
+    "pink" = "#983E82",
+    "orange" = "#E2A458",
+    "yellow" = "#F5DC70",
+    "green" = "#59935B",
+    "blue" = "#467AAC",
+    "purple" = "#61589C"
+  )
+
+  unname(ptrc[vals])
+}
+psyteachr_colors <- psyteachr_colours
+
+# inline code highlighting and styles
+
+hl <- function(code) {
+  txt <- rlang::enexpr(code) %>% rlang::as_label()
+  
+  downlit::highlight(txt, classes = downlit::classes_pandoc()) %>%
+    gsub("a href", "a target='_blank' href", .) %>%
+    paste0("<code>", . , "</code>")
+}
+
+path <- function(txt) {
+  sprintf("<code class='path'>%s</code>", txt)
+}
+
+pkg <- function(txt, url = NULL) {
+  if (is.null(url)) {
+    sprintf("<code class='package'>%s</code>", txt)
+  } else {
+    sprintf("<code class='package'><a href='%s' target='_blank'>%s</a></code>", url, txt)
+  }
+}
+# book-specific code to include on every page
+suppressPackageStartupMessages({
+  library(shiny)
+  library(shinydashboard)
+  library(formatR)
+})
+
+pandoc_to <- knitr::opts_knit$get("rmarkdown.pandoc.to")
+is_html <- pandoc_to == "html"
+is_epub <- substr(pandoc_to, 1, 4) == "epub"
+is_latex <- pandoc_to == "latex"
+
+code_width <- switch(pandoc_to, html = 80, epub3 = 35, latex = 80)
+
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  tidy.opts=list(width.cutoff=code_width), 
+  tidy=FALSE,
+  eval = FALSE,
+  fig.show   = "hold"
+)
+
+theme_set(theme_minimal())
+
+
+
+tex_replace <- function(txt) {
+  for (char in c("#", "_", " ", "$", "{", "}")) {
+    txt <- gsub(char, paste0("\\", char), txt, fixed = TRUE)
+  }
+  txt
+}
+
+path <- function(txt) {
+  if (is_latex) {
+    sprintf("\\textit{\\texttt{%s}}", tex_replace(txt))
+  } else {
+    sprintf("<code class='path'>%s</code>", txt)
+  }
+}
+
+pkg <- function(txt, url = NULL) {
+  if (is_latex) {
+    sprintf("\\textbf{\\texttt{%s}}", tex_replace(txt))
+  } else if (is.null(url)) {
+    sprintf("<code class='package'>%s</code>", txt)
+  } else {
+    sprintf("<code class='package'><a href='%s' target='_blank'>%s</a></code>", url, txt)
   }
 }
 
@@ -7605,5 +8028,5 @@ See the [psyTeachR Glossary](https://psyteachr.github.io/glossary/){target="_bla
 
 `r glossary_table()`
 
-<!--chapter:end:appendix-c-glossary.Rmd-->
+<!--chapter:end:appendix-d-glossary.Rmd-->
 

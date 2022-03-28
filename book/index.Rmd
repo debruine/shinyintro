@@ -1,5 +1,6 @@
 --- 
 title: "Building Web Apps with R Shiny"
+subtitle: "<a href='/shinyintro.pdf'>PDF</a> | <a href='/shinyintro.mobi'>MOBI</a>"
 author: "Lisa DeBruine"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -16,6 +17,7 @@ cover-image: images/logos/shinyintro.png
 apple-touch-icon: images/logos/touch-icon.png
 apple-touch-icon-size: 152
 favicon: images/logos/favicon.ico
+always_allow_html: true
 ---
 
 ```{r cite-packages, include = FALSE}
@@ -125,7 +127,7 @@ To participate in the hands-on exercises, you are strongly encouraged to use a c
 
 ### What experience do I need?
 
-You need to have basic familiarity with R, including data import, `r glossary("data wrangling", "data processing")`, visualization, and `r glossary("function", "functions")` and control structures (e.g., if/else). Instruction will be done using `r glossary("RStudio")`. Some familiarity with ggplot2 and dplyr would be useful. You definitely do not need to be an expert coder, but the following code should not be challenging to understand.
+You need to have basic familiarity with R, including data import, `r glossary("data wrangling", "data processing")`, visualization, and `r glossary("function", "functions")` and control structures (e.g., if/else). Instruction will be done using `r glossary("RStudio")`. Some familiarity with `r pkg("ggplot2")` and `r pkg("dplyr")` would be useful. You definitely do not need to be an expert coder, but the following code should not be challenging to understand.
 
 ```{r, eval = FALSE}
 
@@ -146,45 +148,7 @@ g + geom_violin(alpha = 0.5)
 ```
 
 
-If you want to brush up on your R (especially `r glossary("tidyverse")`), and also gain familiarity with the instructor's teaching style, the first seven chapters of [Data Skills for Reproducible Science](https://psyteachr.github.io/msc-data-skills/){target="_blank"} provide a good overview.
-
-## Conventions
-
-This book will use the following conventions:
-
-* File paths: `r path("www/style.css")`
-* R Packages: `r pkg("shinydashboard")`
-* Functions: `r func("observeEvent", "input$button, {}")`
-* Arguments: `r arg("width")`
-* Strings: `r dt("Lisa")`
-* Numbers: `r dt(100)`
-* Logical values: `r dt(TRUE)`
-* Other code: `x <- list(a = "Alligator", b = "Loki")`
-* Glossary items: `r glossary("shiny")`
-* Internal links: Section\ \@ref(first-app)
-* External links: [Mastering Shiny](https://mastering-shiny.org/){target="_blank"}
-* Menu/interface options: **`New File...`**
-
-::: {.info data-latex=""}
-Informational asides.
-:::
-
-::: {.warning data-latex=""}
-Notes to warn you about something.
-:::
-
-::: {.dangerous data-latex=""}
-Notes about things that could cause serious errors.
-:::
-
-::: {.try data-latex=""}
-Try it yourself.
-:::
-
-```{r}
-# code chunks
-shinyApp(ui = ui, server = server)
-```
+If you want to brush up on your R (especially `r glossary("tidyverse")`), and also gain familiarity with the instructor's teaching style, the book [Applied Data Skills](https://psyteachr.github.io/ads/){target="_blank"} provides a good overview.
 
 
 ## Further Resources

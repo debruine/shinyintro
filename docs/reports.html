@@ -19,8 +19,9 @@
 <meta name="twitter:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1.9000/transition.js"></script><script src="libs/bs3compat-0.3.1.9000/tabs.js"></script><script src="libs/bs3compat-0.3.1.9000/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -38,7 +39,8 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Building Web Apps with R Shiny</a>
+        <a href="index.html" title="&lt;a href='/shinyintro.pdf'&gt;PDF&lt;/a&gt; | &lt;a href='/shinyintro.mobi'&gt;MOBI&lt;/a&gt;">Building Web Apps with R Shiny</a>:
+        <small class="text-muted"><a href="/shinyintro.pdf">PDF</a> | <a href="/shinyintro.mobi">MOBI</a></small>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -65,13 +67,14 @@
 <li><a class="active" href="reports.html"><span class="header-section-number">12</span> Customized reports</a></li>
 <li><a class="" href="modules.html"><span class="header-section-number">13</span> Shiny modules for repeated structures</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
-<li><a class="" href="symbols.html"><span class="header-section-number">B</span> Symbols</a></li>
-<li><a class="" href="glossary.html"><span class="header-section-number">C</span> Glossary</a></li>
+<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing and Updating</a></li>
+<li><a class="" href="conventions.html"><span class="header-section-number">B</span> Conventions</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">C</span> Symbols</a></li>
+<li><a class="" href="glossary.html"><span class="header-section-number">D</span> Glossary</a></li>
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/pdebruine/shinyintro">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/debruine/shinyintro">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -85,7 +88,7 @@
 <iframe src="https://shiny.psy.gla.ac.uk/debruine/reports_demo/?showcase=0" width="100%" height="475px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 12.1: Reports Demo App. You can also access this app with <code><a href="https://rdrr.io/pkg/shinyintro/man/app.html">shinyintro::app("reports_demo")</a></code>or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/reports_demo/" target="_blank">showcase interface</a>.
+Figure 12.1: Reports Demo App. You can also access this app with <code>shinyintro::app("reports_demo")</code>or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/reports_demo/" target="_blank">showcase interface</a>.
 </p>
 </div>
 <div id="download-data" class="section level2" number="12.1">
@@ -93,7 +96,7 @@ Figure 12.1: Reports Demo App. You can also access this app with <code><a href="
 <span class="header-section-number">12.1</span> Download Data<a class="anchor" aria-label="anchor" href="#download-data"><i class="fas fa-link"></i></a>
 </h2>
 <p>First, we need to add the appropriate UI to our questionnaire app. Create a new tab called <code><span class="st">"report_tab"</span></code> with two <code><span class="fu">downloadButton</span>()</code>s, one for the pets data and one for the food data.</p>
-<div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb161"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">report_tab</span> <span class="op">&lt;-</span> <span class="fu">tabItem</span><span class="op">(</span>
   tabName <span class="op">=</span> <span class="st">"report_tab"</span>,
   <span class="fu"><a href="https://rdrr.io/r/graphics/box.html">box</a></span><span class="op">(</span>
@@ -108,7 +111,7 @@ Figure 12.1: Reports Demo App. You can also access this app with <code><a href="
 <p>Remember to add this to <code><span class="fu">tabItems</span>()</code> in <code><span class="fu">dashboardBody</span>()</code> and also add a corresponding <code><span class="fu">menuItem</span>()</code> in <code><span class="fu">sidebarMenu</span>()</code>. Run the app to make sure the UI looks like you expect before you proceed.</p>
 </div>
 <p>Now we need to add code to <code><span class="fu">server</span>()</code> to handle the downloads. <code><span class="fu">downloadButton</span>()</code> is a special type of output that is handled by <code><span class="fu">downloadHandler</span>()</code>. This function takes two arguments, a function to create the <code><span class="at">filename</span></code> and a function to create the <code><span class="at">content</span></code>.</p>
-<div class="sourceCode" id="cb163"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">### pet_data_dl ----</span>
 <span class="va">output</span><span class="op">$</span><span class="va">pet_data_dl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/downloadHandler.html">downloadHandler</a></span><span class="op">(</span>
   filename <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span>
@@ -128,7 +131,7 @@ Figure 12.1: Reports Demo App. You can also access this app with <code><a href="
 <span class="header-section-number">12.2</span> Download Images<a class="anchor" aria-label="anchor" href="#download-images"><i class="fas fa-link"></i></a>
 </h2>
 <p>Now that we need to use the summary plot in more than one place, it doesn't make sense to build it twice. Move all of the code from the <code><span class="fu">renderPlot</span>()</code> for <code>output$pet_summary</code> into a <code><span class="fu">reactive</span>()</code> called <code>pet_summary_plot</code>. Then we can build the plot whenever the inputs change and refer to it anywhere as <code><span class="fu">pet_summary_plot</span>()</code>.</p>
-<div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb163"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">### pet_summary_plot ----</span>
 <span class="va">pet_summary_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span><span class="op">(</span><span class="op">{</span> <span class="fu">debug_msg</span><span class="op">(</span><span class="st">"pet_summary_plot"</span><span class="op">)</span>
   <span class="co"># code from output$pet_summary ...</span>
@@ -139,7 +142,7 @@ Figure 12.1: Reports Demo App. You can also access this app with <code><a href="
     <span class="fu">pet_summary_plot</span><span class="op">(</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span></code></pre></div>
 <p>The <code><span class="fu">downloadHandler</span>()</code> works the same as for downloading a CSV file. You can use <code><span class="fu">ggsave</span>()</code> to write the plot.</p>
-<div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># pet_plot_dl ----</span>
 <span class="va">output</span><span class="op">$</span><span class="va">pet_plot_dl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/downloadHandler.html">downloadHandler</a></span><span class="op">(</span>
   filename <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span>
@@ -158,7 +161,7 @@ Figure 12.1: Reports Demo App. You can also access this app with <code><a href="
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb166"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># add to report_tab ui</span>
 <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/numericInput.html">numericInput</a></span><span class="op">(</span><span class="st">"plot_width"</span>, <span class="st">"Plot Width (inches)"</span>, <span class="fl">7</span>, min <span class="op">=</span> <span class="fl">1</span>, max <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/numericInput.html">numericInput</a></span><span class="op">(</span><span class="st">"plot_height"</span>, <span class="st">"Plot Height (inches)"</span>, <span class="fl">5</span>, min <span class="op">=</span> <span class="fl">1</span>, max <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>
@@ -187,15 +190,15 @@ Solution
 </h2>
 <p>You can render an <a class="glossary" target="_blank" title="The R-specific version of markdown: a way to specify formatting, such as headers, paragraphs, lists, bolding, and links, as well as code blocks and inline code." href="https://psyteachr.github.io/glossary/r#r-markdown">R Markdown</a> report for users to download.</p>
 <p>First, you need to save an R Markdown file (save the one below as <code class="path">reports/report.Rmd</code>). You need to set up <code>params</code> for any info that you want to pass from the Shiny app in th <a class="glossary" target="_blank" title="A structured format for information" href="https://psyteachr.github.io/glossary/y#yaml">YAML</a> header. Here, we will dynamically update the title, data, and plot. You can set the values to <code>NULL</code> or another default value.</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb167-1"><a href="reports.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb167-2"><a href="reports.html#cb167-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"`r params$title`"</span></span>
-<span id="cb167-3"><a href="reports.html#cb167-3" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"`r format(Sys.time(), '%d %B, %Y')`"</span><span class="at"> </span></span>
-<span id="cb167-4"><a href="reports.html#cb167-4" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span>
-<span id="cb167-5"><a href="reports.html#cb167-5" aria-hidden="true" tabindex="-1"></a><span class="fu">params</span><span class="kw">:</span></span>
-<span id="cb167-6"><a href="reports.html#cb167-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Report</span></span>
-<span id="cb167-7"><a href="reports.html#cb167-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">data</span><span class="kw">:</span><span class="at"> </span><span class="ch">NULL</span></span>
-<span id="cb167-8"><a href="reports.html#cb167-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">plot</span><span class="kw">:</span><span class="at"> </span><span class="ch">NULL</span></span>
-<span id="cb167-9"><a href="reports.html#cb167-9" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb166-1"><a href="reports.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb166-2"><a href="reports.html#cb166-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"`r params$title`"</span></span>
+<span id="cb166-3"><a href="reports.html#cb166-3" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"`r format(Sys.time(), '%d %B, %Y')`"</span><span class="at"> </span></span>
+<span id="cb166-4"><a href="reports.html#cb166-4" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span>
+<span id="cb166-5"><a href="reports.html#cb166-5" aria-hidden="true" tabindex="-1"></a><span class="fu">params</span><span class="kw">:</span></span>
+<span id="cb166-6"><a href="reports.html#cb166-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Report</span></span>
+<span id="cb166-7"><a href="reports.html#cb166-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">data</span><span class="kw">:</span><span class="at"> </span><span class="ch">NULL</span></span>
+<span id="cb166-8"><a href="reports.html#cb166-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">plot</span><span class="kw">:</span><span class="at"> </span><span class="ch">NULL</span></span>
+<span id="cb166-9"><a href="reports.html#cb166-9" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <p>Then you can refer to these params in the R Markdown file as <code>params$name</code>. If you knit the report, these will take on the default values.</p>
 <pre><code>
 
@@ -217,7 +220,7 @@ We asked people to rate how much they like pets. We have obtained `r n_responses
 params$plot
 ```</code></pre>
 <p>The <code>content</code> function uses <code><span class="fu">rmarkdown::render</span>()</code> to create the output file from Rmd. We are using <code>html_document</code> as the output type, but you can also render as a PDF or Word document if you have <a class="glossary" target="_blank" title="A universal document convertor, used by R to make PDF or Word documents from R Markdown" href="https://psyteachr.github.io/glossary/p#pandoc">pandoc</a> or <a class="glossary" target="_blank" title="A typesetting program needed to create PDF files from R Markdown documents." href="https://psyteachr.github.io/glossary/l#latex">latex</a> installed. Include the <code><span class="at">title</span></code>, <code><span class="at">data</span></code> and <code><span class="at">plot</span></code> as a named list to the <code><span class="at">params</span></code> argument.</p>
-<div class="sourceCode" id="cb169"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb168"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">### pet_report_dl ----</span>
 <span class="va">output</span><span class="op">$</span><span class="va">pet_report_dl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/downloadHandler.html">downloadHandler</a></span><span class="op">(</span>
   filename <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span>
@@ -263,7 +266,7 @@ params$plot
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb170"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb169"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># add to report_tab ui ----</span>
 <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/downloadButton.html">downloadButton</a></span><span class="op">(</span><span class="st">"food_data_dl"</span>, <span class="st">"Food Data"</span><span class="op">)</span>
 
@@ -287,7 +290,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb171"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb170"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># add to report_tab ui ----</span>
 <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/downloadButton.html">downloadButton</a></span><span class="op">(</span><span class="st">"food_plot_dl"</span>, <span class="st">"Food Plot"</span><span class="op">)</span>
 
@@ -326,7 +329,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb172"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb171"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># add to report_tab ui ----</span>
 <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/downloadButton.html">downloadButton</a></span><span class="op">(</span><span class="st">"food_report_dl"</span>, <span class="st">"Food Report"</span><span class="op">)</span>
 
@@ -583,8 +586,8 @@ $( document ).ready(function() {
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/pdebruine/shinyintro/blob/master/book/12_reports.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/pdebruine/shinyintro/edit/master/book/12_reports.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/debruine/shinyintro/blob/master/book/12_reports.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/debruine/shinyintro/edit/master/book/12_reports.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -596,7 +599,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Building Web Apps with R Shiny</strong>" was written by Lisa DeBruine. It was last built on 2021-10-13.</p>
+    <p>"<strong>Building Web Apps with R Shiny</strong>: <a href="/shinyintro.pdf">PDF</a> | <a href="/shinyintro.mobi">MOBI</a>" was written by Lisa DeBruine. It was last built on 2022-03-28.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

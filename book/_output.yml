@@ -3,7 +3,7 @@ bookdown::bs4_book:
   md_extensions: -smart
   df_print: kable
   repo:
-    base: https://github.com/pdebruine/shinyintro
+    base: https://github.com/debruine/shinyintro
     branch: master
     subdir: book
   includes:

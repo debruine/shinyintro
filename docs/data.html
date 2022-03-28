@@ -19,8 +19,9 @@
 <meta name="twitter:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1.9000/transition.js"></script><script src="libs/bs3compat-0.3.1.9000/tabs.js"></script><script src="libs/bs3compat-0.3.1.9000/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -38,7 +39,8 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Building Web Apps with R Shiny</a>
+        <a href="index.html" title="&lt;a href='/shinyintro.pdf'&gt;PDF&lt;/a&gt; | &lt;a href='/shinyintro.mobi'&gt;MOBI&lt;/a&gt;">Building Web Apps with R Shiny</a>:
+        <small class="text-muted"><a href="/shinyintro.pdf">PDF</a> | <a href="/shinyintro.mobi">MOBI</a></small>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -65,13 +67,14 @@
 <li><a class="" href="reports.html"><span class="header-section-number">12</span> Customized reports</a></li>
 <li><a class="" href="modules.html"><span class="header-section-number">13</span> Shiny modules for repeated structures</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
-<li><a class="" href="symbols.html"><span class="header-section-number">B</span> Symbols</a></li>
-<li><a class="" href="glossary.html"><span class="header-section-number">C</span> Glossary</a></li>
+<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing and Updating</a></li>
+<li><a class="" href="conventions.html"><span class="header-section-number">B</span> Conventions</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">C</span> Symbols</a></li>
+<li><a class="" href="glossary.html"><span class="header-section-number">D</span> Glossary</a></li>
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/pdebruine/shinyintro">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/debruine/shinyintro">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -84,7 +87,7 @@
 <iframe src="https://shiny.psy.gla.ac.uk/debruine/radiotables/?showcase=0" width="100%" height="800px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 6.1: RadioTables Demo App. You can also access this app with <code><a href="https://rdrr.io/pkg/shinyintro/man/app.html">shinyintro::app("radiotables")</a></code>or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/radiotables/" target="_blank">showcase interface</a>.
+Figure 6.1: RadioTables Demo App. You can also access this app with <code>shinyintro::app("radiotables")</code>or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/radiotables/" target="_blank">showcase interface</a>.
 </p>
 </div>
 <div id="local-data" class="section level2" number="6.1">
@@ -93,7 +96,7 @@ Figure 6.1: RadioTables Demo App. You can also access this app with <code><a hre
 </h2>
 <p>You can read and write data from a Shiny app the same way you do from any R script. We will focus on reading data, since writing data locally can cause problems and is better done with <a href="data.html#google_sheets">Google Sheets</a>.</p>
 <p>The <a class="glossary" target="_blank" title="The filepath where R is currently reading and writing files." href="https://psyteachr.github.io/glossary/w#working-directory">working directory</a> for a Shiny app is the directory that app.R is in. I recommend keeping your data in a directory called <code class="path">data</code> to keep things tidy.</p>
-<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># read local data</span>
 <span class="va">my_data</span> <span class="op">&lt;-</span> <span class="fu">readxl</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/readxl/man/read_excel.html">read_xls</a></span><span class="op">(</span><span class="st">"data/my_data.xls"</span><span class="op">)</span>
 
@@ -107,46 +110,68 @@ Figure 6.1: RadioTables Demo App. You can also access this app with <code><a hre
 </h2>
 <p>One of the best ways to start collecting data with a Shiny app is with Google Sheets. This allows you to collect data to the same place from multiple servers, which might happen if you're running the app locally on more than one computer or through a service like <a href="https://shinyapps.io" target="_blank">shinyapps.io</a>. The R package <code class="package">googlesheets4</code> makes it easy to work with Google Sheets from R.</p>
 <p>If you just want to read data from a public Google Sheet, you don't need any authorisation. Just start your code with <code><span class="fu">gs4_deauth</span>()</code> after you load <code class="package">googlesheets4</code> (otherwise you'll be prompted to log in). Then you can read data like this:</p>
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://googlesheets4.tidyverse.org">googlesheets4</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/gs4_deauth.html">gs4_deauth</a></span><span class="op">(</span><span class="op">)</span>
 <span class="va">sheet_id</span> <span class="op">&lt;-</span> <span class="st">"https://docs.google.com/spreadsheets/d/1tQCYQrI4xITlPyxb9dQ-JpMDYeADovIeiZZRNHkctGA/"</span>
 <span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/range_read.html">read_sheet</a></span><span class="op">(</span><span class="va">sheet_id</span><span class="op">)</span></code></pre></div>
 <div class="kable-table">
 <div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
-<th align="right">number</th>
-<th align="left">letter</th>
+<thead><tr>
+<th style="text-align:right;">
+number
+</th>
+<th style="text-align:left;">
+letter
+</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
-<td align="right">1</td>
-<td align="left">A</td>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+A
+</td>
 </tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="left">B</td>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+B
+</td>
 </tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="left">C</td>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+C
+</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <p>However, even if a Google Sheet is publicly editable, you can't add data to it without authorising your account. If you try, you'll get the error below.</p>
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>number <span class="op">=</span> <span class="fl">4</span>, letter <span class="op">=</span> <span class="st">"D"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/sheet_append.html">sheet_append</a></span><span class="op">(</span><span class="va">sheet_id</span>, <span class="va">data</span><span class="op">)</span></code></pre></div>
 <pre><code>## Error: Client error: (401) UNAUTHENTICATED
 ## • Request not authenticated due to missing, invalid, or expired OAuth
 ##   token.
-## • Request is missing required authentication credential. Expected
-##   OAuth 2 access token, login cookie or other valid authentication
-##   credential. See
-##   https://developers.google.com/identity/sign-in/web/devconsole-project.</code></pre>
+## • API keys are not supported by this API. Expected OAuth2 access token
+##   or other authentication credentials that assert a principal. See
+##   https://cloud.google.com/docs/authentication
+## 
+## Error details:
+## • reason: CREDENTIALS_MISSING
+## • domain: googleapis.com
+## • metadata.service: sheets.googleapis.com
+## • metadata.method:
+##   google.apps.sheets.v4.SpreadsheetsService.BatchUpdateSpreadsheet</code></pre>
 <p>You can authorise interactively using the following code (and your own email), which will prompt you to authorise "Tidyverse API Packages" the first time you do this.</p>
-<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/gs4_auth.html">gs4_auth</a></span><span class="op">(</span>email <span class="op">=</span> <span class="st">"debruine@gmail.com"</span><span class="op">)</span></code></pre></div>
 <p>However, this won't work if you want your Shiny apps to be able to access your Google Sheets.</p>
 <div id="authorisation-for-apps" class="section level3" number="6.2.1">
@@ -154,7 +179,7 @@ Figure 6.1: RadioTables Demo App. You can also access this app with <code><a hre
 <span class="header-section-number">6.2.1</span> Authorisation for Apps<a class="anchor" aria-label="anchor" href="#authorisation-for-apps"><i class="fas fa-link"></i></a>
 </h3>
 <p>First, you need to get a token and store it in a cache folder in your app directory. We're going to call that directory <code class="path">.secrets</code>. Run the following code in your console (NOT in an Rmd file). This will open up a web browser window and prompt you to choose your Google account and authorise "Tidyverse API Packages".</p>
-<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="va">app_directory</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/gs4_auth.html">gs4_auth</a></span><span class="op">(</span>email <span class="op">=</span> <span class="st">"debruine@gmail.com"</span>, cache <span class="op">=</span> <span class="st">".secrets"</span><span class="op">)</span>
 
@@ -168,11 +193,11 @@ Figure 6.2: Prompts to choose an account, grant permissions, and confirm.
 </div>
 <p>When you have finished, you will see a page that says something like, "Authentication complete. Please close this page and return to R." In the file pane in RStudio, you should now see a directory called <code class="path">.secrets</code> in the app directory.</p>
 <p>If you are using GitHub, you don't want to save your secret info to a public repository, so run the following code to ignore any directories called <code class="path">.secrets</code> (so they will only exist on your computer and not on GitHub).</p>
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/usethis/man/use_git_ignore.html">use_git_ignore</a></span><span class="op">(</span><span class="st">".secrets"</span><span class="op">)</span>
 <span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/usethis/man/use_git_ignore.html">use_git_ignore</a></span><span class="op">(</span><span class="st">"*/.secrets"</span><span class="op">)</span></code></pre></div>
 <p>Now, you can include the following code at the top of your <code class="path">app.R</code> script to authorise the app to read from and write to your files.</p>
-<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/gs4_auth.html">gs4_auth</a></span><span class="op">(</span>cache <span class="op">=</span> <span class="st">".secrets"</span>, email <span class="op">=</span> <span class="st">"debruine@gmail.com"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="accessing-an-existing-sheet" class="section level3" number="6.2.2">
@@ -180,33 +205,53 @@ Figure 6.2: Prompts to choose an account, grant permissions, and confirm.
 <span class="header-section-number">6.2.2</span> Accessing an existing sheet<a class="anchor" aria-label="anchor" href="#accessing-an-existing-sheet"><i class="fas fa-link"></i></a>
 </h3>
 <p>If you have an existing <a href="https://docs.google.com/spreadsheets/u/0/" target="_blank">Google Sheet</a>, you can access it by URL.</p>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sheet_id</span> <span class="op">&lt;-</span> <span class="st">"https://docs.google.com/spreadsheets/d/1tQCYQrI4xITlPyxb9dQ-JpMDYeADovIeiZZRNHkctGA/"</span>
 <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>number <span class="op">=</span> <span class="fl">4</span>, letter <span class="op">=</span> <span class="st">"D"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/sheet_append.html">sheet_append</a></span><span class="op">(</span><span class="va">sheet_id</span>, <span class="va">data</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/range_read.html">read_sheet</a></span><span class="op">(</span><span class="va">sheet_id</span><span class="op">)</span></code></pre></div>
 <div class="kable-table">
 <div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
-<th align="right">number</th>
-<th align="left">letter</th>
+<thead><tr>
+<th style="text-align:right;">
+number
+</th>
+<th style="text-align:left;">
+letter
+</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
-<td align="right">1</td>
-<td align="left">A</td>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+A
+</td>
 </tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="left">B</td>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+B
+</td>
 </tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="left">C</td>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+C
+</td>
 </tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="left">D</td>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+D
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -217,11 +262,11 @@ Figure 6.2: Prompts to choose an account, grant permissions, and confirm.
 <span class="header-section-number">6.2.3</span> Make a new sheet<a class="anchor" aria-label="anchor" href="#make-a-new-sheet"><i class="fas fa-link"></i></a>
 </h3>
 <p>You can set up a new Google Sheet with code. You only need to do this once for a sheet that you will use with a Shiny app, and you will need to save the sheet ID. If you don't specify the tab name(s), the sheet will be created with one tab called "Sheet1". I recommend making only one sheet per app and saving each table in a separate tab.</p>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">id</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/gs4_create.html">gs4_create</a></span><span class="op">(</span><span class="st">"demo2"</span>, sheets <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"demographics"</span>, <span class="st">"questionnaire"</span><span class="op">)</span><span class="op">)</span>
 <span class="va">id</span></code></pre></div>
 <pre><code>## Spreadsheet name: demo2
-##               ID: 1UXoGnF0UmV8fdBt4nRFwTKXkyovX8yYqmY4SYYOmjiM
+##               ID: 1uTDnXgpMrXWq8pr4e8SGnfJiBMFwXpWKNL_a_yJt8Zo
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -237,7 +282,7 @@ Figure 6.2: Prompts to choose an account, grant permissions, and confirm.
 <span class="header-section-number">6.2.4</span> Add data<a class="anchor" aria-label="anchor" href="#add-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>You can add an empty data structure to your sheet by specifying the <a class="glossary" target="_blank" title="The kind of data represented by an object." href="https://psyteachr.github.io/glossary/d#data-type">data types</a> of each column like this:</p>
-<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
   name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>,
   birthyear <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">integer</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>,
@@ -246,10 +291,10 @@ Figure 6.2: Prompts to choose an account, grant permissions, and confirm.
 <span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/sheet_write.html">write_sheet</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">SHEET_ID</span>, <span class="st">"demographics"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/range_read.html">read_sheet</a></span><span class="op">(</span><span class="va">SHEET_ID</span>, <span class="st">"demographics"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/range_read.html">read_sheet</a></span><span class="op">(</span><span class="va">SHEET_ID</span>, <span class="st">"demographics"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/googlesheets4/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] "name"      "birthyear" "R_user"    "score"</code></pre>
 <p>Or you can populate the table with starting data.</p>
-<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
   name <span class="op">=</span> <span class="st">"Lisa"</span>,
   birthyear <span class="op">=</span> <span class="fl">1976L</span>,
@@ -261,17 +306,33 @@ Figure 6.2: Prompts to choose an account, grant permissions, and confirm.
 <span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/range_read.html">read_sheet</a></span><span class="op">(</span><span class="va">SHEET_ID</span>, <span class="st">"demographics"</span><span class="op">)</span></code></pre></div>
 <div class="kable-table">
 <div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
-<th align="left">name</th>
-<th align="right">birthyear</th>
-<th align="left">R_user</th>
-<th align="right">score</th>
+<thead><tr>
+<th style="text-align:left;">
+name
+</th>
+<th style="text-align:right;">
+birthyear
+</th>
+<th style="text-align:left;">
+R_user
+</th>
+<th style="text-align:right;">
+score
+</th>
 </tr></thead>
-<tbody><tr class="odd">
-<td align="left">Lisa</td>
-<td align="right">1976</td>
-<td align="left">TRUE</td>
-<td align="right">10.2</td>
+<tbody><tr>
+<td style="text-align:left;">
+Lisa
+</td>
+<td style="text-align:right;">
+1976
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+10.2
+</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -284,7 +345,7 @@ Figure 6.2: Prompts to choose an account, grant permissions, and confirm.
 <span class="header-section-number">6.2.5</span> Appending data<a class="anchor" aria-label="anchor" href="#appending-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>Then you can append new rows of data to the sheet.</p>
-<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
   name <span class="op">=</span> <span class="st">"Robbie"</span>,
   birthyear <span class="op">=</span> <span class="fl">2007</span>,
@@ -296,30 +357,54 @@ Figure 6.2: Prompts to choose an account, grant permissions, and confirm.
 <span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/range_read.html">read_sheet</a></span><span class="op">(</span><span class="va">SHEET_ID</span>, <span class="st">"demographics"</span><span class="op">)</span></code></pre></div>
 <div class="kable-table">
 <div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
-<th align="left">name</th>
-<th align="right">birthyear</th>
-<th align="left">R_user</th>
-<th align="right">score</th>
+<thead><tr>
+<th style="text-align:left;">
+name
+</th>
+<th style="text-align:right;">
+birthyear
+</th>
+<th style="text-align:left;">
+R_user
+</th>
+<th style="text-align:right;">
+score
+</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
-<td align="left">Lisa</td>
-<td align="right">1976</td>
-<td align="left">TRUE</td>
-<td align="right">10.2</td>
+<tr>
+<td style="text-align:left;">
+Lisa
+</td>
+<td style="text-align:right;">
+1976
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+10.2
+</td>
 </tr>
-<tr class="even">
-<td align="left">Robbie</td>
-<td align="right">2007</td>
-<td align="left">FALSE</td>
-<td align="right">12.1</td>
+<tr>
+<td style="text-align:left;">
+Robbie
+</td>
+<td style="text-align:right;">
+2007
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+12.1
+</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <p>If you try to append data of a different <a class="glossary" target="_blank" title="The kind of data represented by an object." href="https://psyteachr.github.io/glossary/d#data-type">data type</a>, some weird things can happen. <a class="glossary" target="_blank" title="A data type representing TRUE or FALSE values." href="https://psyteachr.github.io/glossary/l#logical">Logical</a> values added to a <a class="glossary" target="_blank" title="A data type representing a real decimal number or integer." href="https://psyteachr.github.io/glossary/n#numeric">numeric</a> column are cast as <code><span class="fl">0</span></code> (<code><span class="fl">1</span></code>) and <code><span class="fl">1</span></code> (<code><span class="cn">TRUE</span></code>), while numeric values added to a logical column change the column to numeric. If you mix <a class="glossary" target="_blank" title="A data type representing strings of text." href="https://psyteachr.github.io/glossary/c#character">character</a> and numeric values in a column, the resulting column is a column of one-item lists so that each list can have the appropriate data type. (Data frames in R cannot mix data types in the same column.)</p>
-<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
   name <span class="op">=</span> <span class="fl">1</span>,
   birthyear <span class="op">=</span> <span class="cn">FALSE</span>,
@@ -331,30 +416,62 @@ Figure 6.2: Prompts to choose an account, grant permissions, and confirm.
 <span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/range_read.html">read_sheet</a></span><span class="op">(</span><span class="va">SHEET_ID</span>, <span class="st">"demographics"</span><span class="op">)</span></code></pre></div>
 <div class="kable-table">
 <div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
-<th align="left">name</th>
-<th align="right">birthyear</th>
-<th align="right">R_user</th>
-<th align="left">score</th>
+<thead><tr>
+<th style="text-align:left;">
+name
+</th>
+<th style="text-align:right;">
+birthyear
+</th>
+<th style="text-align:right;">
+R_user
+</th>
+<th style="text-align:left;">
+score
+</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
-<td align="left">Lisa</td>
-<td align="right">1976</td>
-<td align="right">1</td>
-<td align="left">10.2</td>
+<tr>
+<td style="text-align:left;">
+Lisa
+</td>
+<td style="text-align:right;">
+1976
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+10.2
+</td>
 </tr>
-<tr class="even">
-<td align="left">Robbie</td>
-<td align="right">2007</td>
-<td align="right">0</td>
-<td align="left">12.1</td>
+<tr>
+<td style="text-align:left;">
+Robbie
+</td>
+<td style="text-align:right;">
+2007
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+12.1
+</td>
 </tr>
-<tr class="odd">
-<td align="left">1</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="left">No</td>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+No
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -369,8 +486,8 @@ Figure 6.2: Prompts to choose an account, grant permissions, and confirm.
 <span class="header-section-number">6.2.6</span> Saving data<a class="anchor" aria-label="anchor" href="#gs4_save"><i class="fas fa-link"></i></a>
 </h3>
 <p>If you mix data types in a column, the data frame returned by <code><span class="fu">read_sheet</span>()</code> has list columns for any mixed columns. Dates can also get written in different ways that look the same when you print to the console, but are a mix of characters and doubles, so you have to convert them to strings like this before you can save as CSV.</p>
-<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">string_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">sapply</span>, <span class="va">toString</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span>
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">string_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">sapply</span>, <span class="va">toString</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/googlesheets4/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span>
 <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/readr/man/write_delim.html">write_csv</a></span><span class="op">(</span><span class="va">string_data</span>, <span class="st">"data.csv"</span><span class="op">)</span></code></pre></div>
 <p>The demo app "radiotables" has a custom function <code><span class="fu">gs4_write_csv</span>()</code> defined in <code class="path">scripts/gs4.R</code> that does the above for you.</p>
 </div>
@@ -387,7 +504,7 @@ Figure 6.2: Prompts to choose an account, grant permissions, and confirm.
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://googlesheets4.tidyverse.org">googlesheets4</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/gs4_deauth.html">gs4_deauth</a></span><span class="op">(</span><span class="op">)</span>
@@ -407,7 +524,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/gs4_auth.html">gs4_auth</a></span><span class="op">(</span><span class="op">)</span>
 <span class="va">my_sheet_url</span> <span class="op">&lt;-</span> <span class="st">""</span>
 <span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/googlesheets4/man/range_read.html">read_sheet</a></span><span class="op">(</span><span class="va">my_sheet_url</span><span class="op">)</span></code></pre></div>
@@ -658,8 +775,8 @@ $( document ).ready(function() {
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/pdebruine/shinyintro/blob/master/book/06_data.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/pdebruine/shinyintro/edit/master/book/06_data.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/debruine/shinyintro/blob/master/book/06_data.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/debruine/shinyintro/edit/master/book/06_data.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -671,7 +788,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Building Web Apps with R Shiny</strong>" was written by Lisa DeBruine. It was last built on 2021-10-13.</p>
+    <p>"<strong>Building Web Apps with R Shiny</strong>: <a href="/shinyintro.pdf">PDF</a> | <a href="/shinyintro.mobi">MOBI</a>" was written by Lisa DeBruine. It was last built on 2022-03-28.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

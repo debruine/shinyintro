@@ -1,0 +1,70 @@
+# Conventions
+
+This book will use the following conventions:
+
+* Generic code: `list(number = 1, letter = "A")`
+* Highlighted code: `r hl(list(number = 1, letter = "A"))`
+* File paths: `r path("data/sales.csv")`
+* R Packages: `r pkg("tidyverse")`
+* Functions: `r hl(paste())`
+* Strings: `r dt("R")`, `r dt("Shiny")`
+* Numbers: `r dt(100)`, `r dt(3.14)`
+* Logical values: `r dt(TRUE)`, `r dt(FALSE)`
+* Glossary items: `r glossary("ordinal")`
+* Citations: @R-tidyverse
+* Internal links: Chapter\ \@ref(glossary)
+* External links: [Mastering Shiny](https://mastering-shiny.org/){target="_blank"}
+* Menu/interface options: **`New File...`**
+* Quiz question: I am going to learn a lot: `r torf(TRUE)`
+
+```{r, echo=FALSE, results='asis'}
+opts <- c(
+   "the probability that the null hypothesis is true",
+   answer = "the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true",
+   "the probability of making an error in your conclusion"
+)
+
+cat("* What is a p-value?", longmcq(opts))
+```
+
+
+```{block, webex.hide="Hidden Solutions"}
+You found it!
+```
+
+::: {.info data-latex=""}
+Informational asides.
+:::
+
+::: {.warning data-latex=""}
+Notes to warn you about something.
+:::
+
+::: {.dangerous data-latex=""}
+Notes about things that could cause serious errors.
+:::
+
+::: {.try data-latex=""}
+Try it yourself.
+:::
+
+```{r}
+# code chunks
+paste("Code", "Output", 1, sep = " ")
+```
+
+```{r, eval = FALSE, verbatim="r, fig.width = 2, fig.height = 2"}
+# code chunks with headers
+hist(rnorm(100000))
+```
+
+```{verbatim, lang = "md"}
+## Markdown Example
+
+* Inline code: `r nrow(iris)`
+* *Italics*
+* **Bold**
+```
+
+
+

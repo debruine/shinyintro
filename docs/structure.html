@@ -19,8 +19,9 @@
 <meta name="twitter:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1.9000/transition.js"></script><script src="libs/bs3compat-0.3.1.9000/tabs.js"></script><script src="libs/bs3compat-0.3.1.9000/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -38,7 +39,8 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Building Web Apps with R Shiny</a>
+        <a href="index.html" title="&lt;a href='/shinyintro.pdf'&gt;PDF&lt;/a&gt; | &lt;a href='/shinyintro.mobi'&gt;MOBI&lt;/a&gt;">Building Web Apps with R Shiny</a>:
+        <small class="text-muted"><a href="/shinyintro.pdf">PDF</a> | <a href="/shinyintro.mobi">MOBI</a></small>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -65,13 +67,14 @@
 <li><a class="" href="reports.html"><span class="header-section-number">12</span> Customized reports</a></li>
 <li><a class="" href="modules.html"><span class="header-section-number">13</span> Shiny modules for repeated structures</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
-<li><a class="" href="symbols.html"><span class="header-section-number">B</span> Symbols</a></li>
-<li><a class="" href="glossary.html"><span class="header-section-number">C</span> Glossary</a></li>
+<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing and Updating</a></li>
+<li><a class="" href="conventions.html"><span class="header-section-number">B</span> Conventions</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">C</span> Symbols</a></li>
+<li><a class="" href="glossary.html"><span class="header-section-number">D</span> Glossary</a></li>
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/pdebruine/shinyintro">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/debruine/shinyintro">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -85,7 +88,7 @@
 <span class="header-section-number">8.1</span> External Server Functions<a class="anchor" aria-label="anchor" href="#external-server-functions"><i class="fas fa-link"></i></a>
 </h2>
 <p>You can define <a class="glossary" target="_blank" title="A named section of code that can be reused." href="https://psyteachr.github.io/glossary/f#function">functions</a> you want to use in your app at the top of the <code class="path">app.R</code> file, but that can make that file difficult to parse pretty quickly. The basic template includes external functions with the line:</p>
-<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"scripts/func.R"</span><span class="op">)</span> <span class="co"># helper functions</span></code></pre></div>
 <p>This file contains definitions for the functions <code><span class="fu">debug_msg</span>()</code> and <code><span class="fu">debug_sprintf</span>()</code>. You can add your own custom functions to this file or to another file that you source in separately.</p>
 <div class="warning">
@@ -96,19 +99,19 @@
 <span class="header-section-number">8.1.1</span> Sourcing Locally<a class="anchor" aria-label="anchor" href="#sourcing-locally"><i class="fas fa-link"></i></a>
 </h3>
 <p>It can be tricky to use shiny functions to external files. For example, you can't just move the contents of <code><span class="fu">server</span>()</code> to an external file called <code class="path">scripts/logo.R</code> and source the file in like this:</p>
-<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
     <span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"scripts/logo.R"</span><span class="op">)</span>
 <span class="op">}</span> </code></pre></div>
 <p>You'll get an error like: "Error in output$logo &lt;- renderImage({ : object 'output' not found". This is because the input and output objects only work like you'd expect when they are inside <code><span class="fu">server</span>()</code></p>
 <p>However, you can source in external code inside <code><span class="fu">server</span>()</code> by setting the <code>local</code> <a class="glossary" target="_blank" title="A variable that provides input to a function." href="https://psyteachr.github.io/glossary/a#argument">argument</a> to TRUE.</p>
-<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
     <span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"scripts/logo.R"</span>, local <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="op">}</span> </code></pre></div>
 <p>You might find it useful to break up parts of the server logic for a very big app into separate files like this, but it's more common to keep any code that uses reactive functions inside <code><span class="fu">server</span>()</code> in the <code class="path">app.R</code> file, and move large sections of code inside those functions to externally defined functions.</p>
 <p>For example, you could define the function <code><span class="fu">logo_image</span>()</code> in the external file <code class="path">scripts/logo.R</code> like this:</p>
-<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">logo_image</span><span class="op">(</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span>
   <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>src <span class="op">=</span> <span class="st">"www/img/shinyintro.png"</span>,
        width <span class="op">=</span> <span class="st">"300px"</span>,
@@ -116,7 +119,7 @@
        alt <span class="op">=</span> <span class="st">"ShinyIntro hex logo"</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
 <p>The following in the <code class="path">app.R</code> file keeps the reactive function <code><span class="fu">renderImage</span>()</code> inside <code><span class="fu">server</span>()</code>, but lets you reduce the number of lines of code.</p>
-<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"scripts/logo.R"</span><span class="op">)</span>
 
 <span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
@@ -128,10 +131,10 @@
 <h3>
 <span class="header-section-number">8.1.2</span> Inputs and Outputs<a class="anchor" aria-label="anchor" href="#inputs-and-outputs"><i class="fas fa-link"></i></a>
 </h3>
-<p>The objects <code>input</code> and <code>output</code> aren't available by default to externally defined functions. Let's add an action button to the ui for our app, <code><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton("change", "Change Image")</a></code>, and change the <code><span class="fu">logo_image</span>()</code> function so that it returns the ShinyIntro logo on odd-numbered clicks of the change button, and the psyTeachR logo on even-numbered clicks.</p>
-<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
+<p>The objects <code>input</code> and <code>output</code> aren't available by default to externally defined functions. Let's add an action button to the ui for our app, <code>actionButton("change", "Change Image")</code>, and change the <code><span class="fu">logo_image</span>()</code> function so that it returns the ShinyIntro logo on odd-numbered clicks of the change button, and the psyTeachR logo on even-numbered clicks.</p>
+<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">logo_image</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">odd_clicks</span> <span class="op">&lt;-</span> <span class="va">input</span><span class="op">$</span><span class="va">change</span><span class="op">%%</span><span class="fl">2</span> <span class="op">==</span> <span class="fl">1</span>
+  <span class="va">odd_clicks</span> <span class="op">&lt;-</span> <span class="va">input</span><span class="op">$</span><span class="va">change</span><span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span><span class="fl">2</span> <span class="op">==</span> <span class="fl">1</span>
   <span class="va">src</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">odd_clicks</span>, 
                 <span class="st">"www/img/shinyintro.png"</span>, 
                 <span class="st">"www/img/psyteachr.png"</span><span class="op">)</span>
@@ -144,9 +147,9 @@
 <p>If you try to run this, you'll get an error message like, "Error in logo_image: object 'input' not found". This is because the external function doesn't have access to reactive objects like <code>input</code>, <code>output</code>, <code>session</code>, or any <code><span class="fu">reactiveValues</span>()</code>.</p>
 <p>The best solution is to pass any variables to the function that you need. In some circumstances, you can pass the whole <code>input</code> object, but that's seldom necessary.</p>
 <p>Here, we change <code><span class="fu">logo_image</span>()</code> to take a single argument called <code><span class="at">change</span></code> and replace <code>input$change</code> with this argument.</p>
-<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">logo_image</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">change</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">odd_clicks</span> <span class="op">&lt;-</span> <span class="va">change</span><span class="op">%%</span><span class="fl">2</span> <span class="op">==</span> <span class="fl">1</span>
+  <span class="va">odd_clicks</span> <span class="op">&lt;-</span> <span class="va">change</span><span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span><span class="fl">2</span> <span class="op">==</span> <span class="fl">1</span>
   <span class="va">src</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">odd_clicks</span>, 
                 <span class="st">"www/img/shinyintro.png"</span>, 
                 <span class="st">"www/img/psyteachr.png"</span><span class="op">)</span>
@@ -157,7 +160,7 @@
        alt <span class="op">=</span> <span class="st">"ShinyIntro hex logo"</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
 <p>Then we just have to pass the value of <code>input$change</code> to <code><span class="fu">logo_image</span>()</code> inside <code><span class="fu">renderImage</span>()</code>, where the <code>input</code> object is available.</p>
-<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
     <span class="va">output</span><span class="op">$</span><span class="va">logo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderImage.html">renderImage</a></span><span class="op">(</span><span class="op">{</span>
         <span class="fu">logo_image</span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">change</span><span class="op">)</span>
@@ -171,7 +174,7 @@
 <span class="header-section-number">8.2</span> External UI Files<a class="anchor" aria-label="anchor" href="#external-ui-files"><i class="fas fa-link"></i></a>
 </h2>
 <p>Defining a complex UI can be very challenging. The basic template uses a pattern that I find helpful with apps that have multiple tab items. I assign each tab to an object and then include the tabs of the app in <code><span class="fu">dashboardBody</span>()</code> like this:</p>
-<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">tabItems</span><span class="op">(</span>
     <span class="va">intro_tab</span>,
     <span class="va">questionnaire_tab</span>,
@@ -186,7 +189,7 @@
 <div class="inline-figure"><img src="images/structure_ui.png" style="float: right; width: 100%; max-width: 420px;"></div>
 <p>When parts of the UI repeat or can be created programmatically instead of manually, you can use <code><span class="fu">apply</span>()</code> or <code><span class="fu">map</span>()</code> functions to create a list of UI components. It can be a little tricky to figure out how to add a list of components into the UI, but this can be accomplished with <code><span class="fu">do.call</span>()</code>.</p>
 <p>Here's an example of how you would programatically create select inputs for each categorical column of the <code>starwars</code> dataset from <code class="package">dplyr</code> and add them to a <code><span class="fu">box</span>()</code>.</p>
-<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># get the categorical columns</span>
 <span class="va">col_is_char</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">starwars</span>, <span class="va">is.character</span><span class="op">)</span>
 <span class="va">categorical_cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">starwars</span><span class="op">)</span><span class="op">[</span><span class="va">col_is_char</span><span class="op">]</span>
@@ -458,8 +461,8 @@ $( document ).ready(function() {
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/pdebruine/shinyintro/blob/master/book/08_structure.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/pdebruine/shinyintro/edit/master/book/08_structure.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/debruine/shinyintro/blob/master/book/08_structure.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/debruine/shinyintro/edit/master/book/08_structure.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -471,7 +474,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Building Web Apps with R Shiny</strong>" was written by Lisa DeBruine. It was last built on 2021-10-13.</p>
+    <p>"<strong>Building Web Apps with R Shiny</strong>: <a href="/shinyintro.pdf">PDF</a> | <a href="/shinyintro.mobi">MOBI</a>" was written by Lisa DeBruine. It was last built on 2022-03-28.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
