@@ -19,8 +19,9 @@
 <meta name="twitter:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1.9000/transition.js"></script><script src="libs/bs3compat-0.3.1.9000/tabs.js"></script><script src="libs/bs3compat-0.3.1.9000/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -38,7 +39,8 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Building Web Apps with R Shiny</a>
+        <a href="index.html" title="&lt;a href='/shinyintro.pdf'&gt;PDF&lt;/a&gt; | &lt;a href='/shinyintro.mobi'&gt;MOBI&lt;/a&gt;">Building Web Apps with R Shiny</a>:
+        <small class="text-muted"><a href="/shinyintro.pdf">PDF</a> | <a href="/shinyintro.mobi">MOBI</a></small>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -65,13 +67,14 @@
 <li><a class="" href="reports.html"><span class="header-section-number">12</span> Customized reports</a></li>
 <li><a class="" href="modules.html"><span class="header-section-number">13</span> Shiny modules for repeated structures</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
-<li><a class="" href="symbols.html"><span class="header-section-number">B</span> Symbols</a></li>
-<li><a class="" href="glossary.html"><span class="header-section-number">C</span> Glossary</a></li>
+<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing and Updating</a></li>
+<li><a class="" href="conventions.html"><span class="header-section-number">B</span> Conventions</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">C</span> Symbols</a></li>
+<li><a class="" href="glossary.html"><span class="header-section-number">D</span> Glossary</a></li>
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/pdebruine/shinyintro">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/debruine/shinyintro">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -86,7 +89,7 @@
 <iframe src="https://shiny.psy.gla.ac.uk/debruine/output_demo/?showcase=0" width="100%" height="670px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 4.1: Output Demo App. You can also access this app with <code><a href="https://rdrr.io/pkg/shinyintro/man/app.html">shinyintro::app("output_demo")</a></code>or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/output_demo/" target="_blank">showcase interface</a>.
+Figure 4.1: Output Demo App. You can also access this app with <code>shinyintro::app("output_demo")</code>or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/output_demo/" target="_blank">showcase interface</a>.
 </p>
 </div>
 <div id="text" class="section level2" number="4.1">
@@ -94,17 +97,17 @@ Figure 4.1: Output Demo App. You can also access this app with <code><a href="ht
 <span class="header-section-number">4.1</span> Text<a class="anchor" aria-label="anchor" href="#text"><i class="fas fa-link"></i></a>
 </h2>
 <p><code><span class="fu">textOutput</span>()</code> defaults to text inside a generic <code>&lt;span&gt;</code> or <code>&lt;div&gt;</code>, but you can use a different <a class="glossary" target="_blank" title="A unit of HTML, such as a header, paragraph, or image." href="https://psyteachr.github.io/glossary/e#element-html">element</a> with the <code><span class="at">container</span></code> argument.</p>
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># in the UI function</span>
 <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html">textOutput</a></span><span class="op">(</span><span class="st">"demo_text"</span>, container <span class="op">=</span> <span class="va">tags</span><span class="op">$</span><span class="va">h3</span><span class="op">)</span></code></pre></div>
 <p><code><span class="fu">renderText</span>()</code> replaces the text of the linked element with its returned string.</p>
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># in the server function</span>
 <span class="va">output</span><span class="op">$</span><span class="va">demo_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderText</a></span><span class="op">(</span><span class="op">{</span>
     <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"Plot of %s"</span>, <span class="va">input</span><span class="op">$</span><span class="va">y</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span></code></pre></div>
 <p>If you use <code><span class="fu">verbatimTextOutput</span>()</code> in the UI (no change to the render function), it will show the output in a fixed-width font. This can be good for code or text you want the user to copy.</p>
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># in the UI function</span>
 <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html">verbatimTextOutput</a></span><span class="op">(</span><span class="st">"demo_verbatim"</span><span class="op">)</span>
 
@@ -123,7 +126,7 @@ Figure 4.1: Output Demo App. You can also access this app with <code><a href="ht
 <span class="header-section-number">4.2</span> Plots<a class="anchor" aria-label="anchor" href="#plots"><i class="fas fa-link"></i></a>
 </h2>
 <p><code><span class="fu">plotOutput</span>()</code> displays plots made with the <a class="glossary" target="_blank" title="The set of R functions that come with a basic installation of R, before you add external packages" href="https://psyteachr.github.io/glossary/b#base-r">base R</a> plotting functions (e.g., <code><span class="fu">plot</span>()</code>, <code><span class="fu">hist</span>()</code>) or <code class="package">ggplot2</code> functions.</p>
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># in the UI function</span>
 <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/plotOutput.html">plotOutput</a></span><span class="op">(</span><span class="st">"demo_plot"</span>, width <span class="op">=</span> <span class="st">"500px"</span>, height<span class="op">=</span><span class="st">"300px"</span><span class="op">)</span></code></pre></div>
 <p>What is the default value for <code><span class="at">width</span></code>?<br><select class="webex-select"><option value="blank"></option>
@@ -138,7 +141,7 @@ What is the default value for <code><span class="at">height</span></code>?<br><s
 <option value="">400</option>
 <option value="">5in</option>
 <option value="">7in</option></select></p>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># in the server function</span>
 <span class="va">output</span><span class="op">$</span><span class="va">demo_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span><span class="op">(</span><span class="op">{</span>
   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Species</span>, y <span class="op">=</span> <span class="va">.data</span><span class="op">[[</span><span class="va">input</span><span class="op">$</span><span class="va">y</span><span class="op">]</span><span class="op">]</span>, color <span class="op">=</span> <span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -155,11 +158,11 @@ What is the default value for <code><span class="at">height</span></code>?<br><s
 <span class="header-section-number">4.3</span> Images<a class="anchor" aria-label="anchor" href="#images"><i class="fas fa-link"></i></a>
 </h2>
 <p><code><span class="fu">imageOutput</span>()</code> takes the same arguments as <code><span class="fu">plotOutput</span>()</code>. You can leave <code><span class="at">width</span></code> and <code><span class="at">height</span></code> as their defaults if you are going to set those values in the render function.</p>
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># in the UI function</span>
 <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/plotOutput.html">imageOutput</a></span><span class="op">(</span><span class="st">"demo_image"</span><span class="op">)</span></code></pre></div>
 <p><code><span class="fu">renderImage</span>()</code> needs to return a named list with at least an <code><span class="at">src</span></code> with the image path. You can also set the <code><span class="at">width</span></code> and <code><span class="at">height</span></code> (numeric values are in pixels), <code><span class="at">class</span></code> and <code><span class="at">alt</span></code> (the alt-text for screen readers).</p>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># in the server function</span>
 <span class="va">output</span><span class="op">$</span><span class="va">demo_image</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderImage.html">renderImage</a></span><span class="op">(</span><span class="op">{</span>
     <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>src <span class="op">=</span> <span class="st">"images/flower.jpg"</span>,
@@ -176,11 +179,11 @@ What is the default value for <code><span class="at">height</span></code>?<br><s
 <span class="header-section-number">4.4</span> Tables<a class="anchor" aria-label="anchor" href="#tables"><i class="fas fa-link"></i></a>
 </h2>
 <p>Display a table using <code><span class="fu">tableOutput</span>()</code>.</p>
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># in the UI function</span>
 <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html">tableOutput</a></span><span class="op">(</span><span class="st">"demo_table"</span><span class="op">)</span></code></pre></div>
 <p>This is paired with <code><span class="fu">renderTable</span>()</code>, which makes a table out of any data frame it returns.</p>
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># in the server function</span>
 <span class="va">output</span><span class="op">$</span><span class="va">demo_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html">renderTable</a></span><span class="op">(</span><span class="op">{</span>
   <span class="va">iris</span> <span class="op">%&gt;%</span>
@@ -197,13 +200,13 @@ What is the default value for <code><span class="at">height</span></code>?<br><s
 </h3>
 <p>If you have a long table to show, or one that you want users to be able to sort or search, use <code><span class="fu">DT::dataTableOutput</span>()</code> (or its synonym <code><span class="fu">DTOutput</span>()</code>).</p>
 <p>The basic <code class="package">shiny</code> package has <code><span class="fu">dataTableOutput</span>()</code> and <code><span class="fu">renderDataTable</span>()</code> functions, but they can be buggy. The versions in the <code class="package">DT</code> package are better and have <a href="https://rstudio.github.io/DT/" target="_blank">many additional functions</a>, so I use those.</p>
-<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># in the UI function</span>
 <span class="fu">DT</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/DT/man/dataTableOutput.html">dataTableOutput</a></span><span class="op">(</span><span class="st">"demo_datatable"</span>,
                     width <span class="op">=</span> <span class="st">"50%"</span>,
                     height <span class="op">=</span> <span class="st">"auto"</span><span class="op">)</span></code></pre></div>
 <p>The paired render function is <code><span class="fu">renderDataTable</span>()</code> (or its synonym <code><span class="fu">renderDT</span>()</code>). You can customise data tables in many ways, but we'll stick with a basic example here that limits the number of rows shown at once to <code><span class="fl">10</span></code>.</p>
-<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># in the server function</span>
 <span class="va">output</span><span class="op">$</span><span class="va">demo_datatable</span> <span class="op">&lt;-</span> <span class="fu">DT</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/DT/man/dataTableOutput.html">renderDataTable</a></span><span class="op">(</span><span class="op">{</span>
     <span class="va">iris</span>
@@ -218,11 +221,11 @@ What is the default value for <code><span class="at">height</span></code>?<br><s
 <span class="header-section-number">4.5</span> Dynamic HTML<a class="anchor" aria-label="anchor" href="#dynamic-html"><i class="fas fa-link"></i></a>
 </h2>
 <p>If you want to dynamically create parts of the UI, you can use <code><span class="fu">uiOutput</span>()</code>.</p>
-<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># in the UI function</span>
 <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html">uiOutput</a></span><span class="op">(</span><span class="st">"demo_ui"</span><span class="op">)</span></code></pre></div>
 <p>You can create the UI using <code><span class="fu">renderUI</span>()</code> to return HTML created using the input functions we learned about in Section <a href="inputs.html#inputs">3</a>, the <a href="first-app.html#tags">tag functions</a>, or HTML that you write yourself (as an argument to <code><span class="fu">HTML</span>()</code>).</p>
-<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># in the server function</span>
 <span class="va">output</span><span class="op">$</span><span class="va">demo_ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderUI.html">renderUI</a></span><span class="op">(</span><span class="op">{</span>
   <span class="va">cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>
@@ -492,8 +495,8 @@ $( document ).ready(function() {
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/pdebruine/shinyintro/blob/master/book/04_outputs.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/pdebruine/shinyintro/edit/master/book/04_outputs.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/debruine/shinyintro/blob/master/book/04_outputs.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/debruine/shinyintro/edit/master/book/04_outputs.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -505,7 +508,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Building Web Apps with R Shiny</strong>" was written by Lisa DeBruine. It was last built on 2021-10-13.</p>
+    <p>"<strong>Building Web Apps with R Shiny</strong>: <a href="/shinyintro.pdf">PDF</a> | <a href="/shinyintro.mobi">MOBI</a>" was written by Lisa DeBruine. It was last built on 2022-03-28.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

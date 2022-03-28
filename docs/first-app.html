@@ -7,7 +7,7 @@
 <title>1 Your First Shiny App | Building Web Apps with R Shiny</title>
 <meta name="author" content="Lisa DeBruine">
 <meta name="description" content="1.1 The Demo App To start, let's walk through the basics of setting up a shiny app, starting with the example built into RStudio. I won't explain yet how shiny apps are structured; the goal is to...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.25 with bs4_book()">
 <meta property="og:title" content="1 Your First Shiny App | Building Web Apps with R Shiny">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://debruine.github.io/shinyintro/first-app.html">
@@ -17,17 +17,42 @@
 <meta name="twitter:title" content="1 Your First Shiny App | Building Web Apps with R Shiny">
 <meta name="twitter:description" content="1.1 The Demo App To start, let's walk through the basics of setting up a shiny app, starting with the example built into RStudio. I won't explain yet how shiny apps are structured; the goal is to...">
 <meta name="twitter:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1.9000/transition.js"></script><script src="libs/bs3compat-0.3.1.9000/tabs.js"></script><script src="libs/bs3compat-0.3.1.9000/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-6NP3MF25W3');
-    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="include/psyteachr.css">
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="include/psyteachr.css">
 <link rel="stylesheet" href="include/webex.css">
 <link rel="stylesheet" href="include/style.css">
 </head>
@@ -39,8 +64,8 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="&lt;a href='/shinyintro.pdf'&gt;PDF&lt;/a&gt; | &lt;a href='/shinyintro.mobi'&gt;MOBI&lt;/a&gt;">Building Web Apps with R Shiny</a>:
-        <small class="text-muted"><a href="/shinyintro.pdf">PDF</a> | <a href="/shinyintro.mobi">MOBI</a></small>
+        <a href="index.html" title="[&lt;a href='/shinyintro.pdf'&gt;PDF&lt;/a&gt; | &lt;a href='/shinyintro.epub'&gt;EPUB&lt;/a&gt; | &lt;a href='/shinyintro.mobi'&gt;MOBI&lt;/a&gt;]">Building Web Apps with R Shiny</a>:
+        <small class="text-muted">[<a href="/shinyintro.pdf">PDF</a> | <a href="/shinyintro.epub">EPUB</a> | <a href="/shinyintro.mobi">MOBI</a>]</small>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -54,23 +79,6 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Overview</a></li>
 <li><a class="active" href="first-app.html"><span class="header-section-number">1</span> Your First Shiny App</a></li>
-<li><a class="" href="shinydashboard.html"><span class="header-section-number">2</span> ShinyDashboard</a></li>
-<li><a class="" href="inputs.html"><span class="header-section-number">3</span> Inputs</a></li>
-<li><a class="" href="outputs.html"><span class="header-section-number">4</span> Outputs</a></li>
-<li><a class="" href="reactives.html"><span class="header-section-number">5</span> Reactive functions</a></li>
-<li><a class="" href="data.html"><span class="header-section-number">6</span> Reading and saving data</a></li>
-<li><a class="" href="web.html"><span class="header-section-number">7</span> HTML, CSS, and JavaScript</a></li>
-<li><a class="" href="structure.html"><span class="header-section-number">8</span> Structuring a complex app</a></li>
-<li><a class="" href="debugging.html"><span class="header-section-number">9</span> Debugging and error handling</a></li>
-<li><a class="" href="contingency.html"><span class="header-section-number">10</span> Contingent Display</a></li>
-<li><a class="" href="sharing.html"><span class="header-section-number">11</span> Sharing your Apps</a></li>
-<li><a class="" href="reports.html"><span class="header-section-number">12</span> Customized reports</a></li>
-<li><a class="" href="modules.html"><span class="header-section-number">13</span> Shiny modules for repeated structures</a></li>
-<li class="book-part">Appendices</li>
-<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing and Updating</a></li>
-<li><a class="" href="conventions.html"><span class="header-section-number">B</span> Conventions</a></li>
-<li><a class="" href="symbols.html"><span class="header-section-number">C</span> Symbols</a></li>
-<li><a class="" href="glossary.html"><span class="header-section-number">D</span> Glossary</a></li>
 </ul>
 
         <div class="book-extra">
@@ -253,12 +261,12 @@ Figure 1.5: Sidebar with an added paragraph.
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">output</span><span class="op">$</span><span class="va">distPlot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span><span class="op">(</span><span class="op">{</span>
   <span class="co"># create plot</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">faithful</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span><span class="va">waiting</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">bins</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">faithful</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">waiting</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">bins</span>,
                    fill <span class="op">=</span> <span class="st">"steelblue3"</span>,
                    colour <span class="op">=</span> <span class="st">"grey30"</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/labs.html">xlab</a></span><span class="op">(</span><span class="st">"What are we even plotting here?"</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"What are we even plotting here?"</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span></code></pre></div>
 <div class="info">
 <p>You can set <code><span class="at">fill</span></code> and <code><span class="at">colour</span></code> to whatever colours you like, and change <code><span class="fu">theme_minimal</span>()</code> to one of the other <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html#examples" target="_blank">built-in ggplot themes</a>.</p>
@@ -275,7 +283,7 @@ Figure 1.5: Sidebar with an added paragraph.
 <div class="try">
 <p>Try plotting the eruption time (<code>eruptions</code>) instead of the waiting time. You just have to change one word in <code><span class="fu">ggplot</span>()</code> and update the x-axis label.</p>
 </div>
-<p>We can add another input <a class="glossary" target="_blank" title="A interactive web element, like a dropdown menu or a slider." href="https://psyteachr.github.io/glossary/w#widget">widget</a> to let the user switch between plotting eruption time and wait time. We'll learn more about the different input options in Section <a href="inputs.html#inputs">3</a>. We need to toggle between two options, so we can use either radio buttons or a select box. Radio buttons are probably best if you have only a few options and the user will want to see them all at the same time to decide.</p>
+<p>We can add another input <a class="glossary" target="_blank" title="A interactive web element, like a dropdown menu or a slider." href="https://psyteachr.github.io/glossary/w#widget">widget</a> to let the user switch between plotting eruption time and wait time. We'll learn more about the different input options in Section <a href="#inputs"><strong>??</strong></a>. We need to toggle between two options, so we can use either radio buttons or a select box. Radio buttons are probably best if you have only a few options and the user will want to see them all at the same time to decide.</p>
 <p>Add the following code as the first argument to <code><span class="fu">sidebarPanel</span>()</code>, which just takes a list of different widgets. <code><span class="fu">radioButtons</span>()</code> is the widget we're using. We'll set four <a class="glossary" target="_blank" title="A variable that provides input to a function." href="https://psyteachr.github.io/glossary/a#argument">arguments</a>:</p>
 <ul>
 <li>
@@ -317,313 +325,188 @@ Figure 1.6: A radioButton widget above a sliderInput widget.
 <p>Then we have to edit <code><span class="fu">ggplot</span>()</code> to use the new label and to plot the correct column. The variable <code>input$display_var</code> gives you the user-input value of the widget called <code>"display_var"</code>.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># create plot</span>
-<span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">faithful</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span><span class="va">.data</span><span class="op">[[</span><span class="va">input</span><span class="op">$</span><span class="va">display_var</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">bins</span>,
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">faithful</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">.data</span><span class="op">[[</span><span class="va">input</span><span class="op">$</span><span class="va">display_var</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="va">input</span><span class="op">$</span><span class="va">bins</span>,
                  fill <span class="op">=</span> <span class="st">"steelblue3"</span>,
                  colour <span class="op">=</span> <span class="st">"grey30"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/labs.html">xlab</a></span><span class="op">(</span><span class="va">xlabel</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="warning">
-<p>Notice that the code <code><span class="fu">aes</span>(waiting)</code> from before has changed to <code><span class="fu">aes</span>(.data[[input$display_var]])</code>. Because <code>input$display_var</code> is a <a class="glossary" target="_blank" title="A piece of text inside of quotes." href="https://psyteachr.github.io/glossary/s#string">string</a>, we have to select it from the <code>.data</code> placeholder (which refers to the <code>faithful</code> data table) using double brackets.</p>
-</div>
-<p>Re-run your app and see if you can change the data and x-axis label with your new widget.</p>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:first-demo-app"></span>
-<iframe src="https://shiny.psy.gla.ac.uk/debruine/first_demo/?showcase=0" width="100%" height="520px" data-external="1">
-</iframe>
-<p class="caption">
-Figure 1.7: First Demo App. You can also access this app with <code>shinyintro::app("first_demo")</code>or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/first_demo/" target="_blank">showcase interface</a>.
-</p>
-</div>
-</div>
-</div>
-<div id="app-structure" class="section level2" number="1.2">
-<h2>
-<span class="header-section-number">1.2</span> App Structure<a class="anchor" aria-label="anchor" href="#app-structure"><i class="fas fa-link"></i></a>
-</h2>
-<p>Now that we've made and modified our first working app, it's time to learn a bit about how a shiny app is structured.</p>
-<p>A shiny app is made of two main parts, a <a class="glossary" target="_blank" title="The User Interface. This usually refers to a Shiny App as the user will see it." href="https://psyteachr.github.io/glossary/u#ui">UI</a>, which defines what the user interface looks like, and a <a class="glossary" target="_blank" title="This is the part of a Shiny app that works with logic." href="https://psyteachr.github.io/glossary/s#server">server</a> function, which defines how the interface behaves. The function <code><span class="fu">shinyApp</span>()</code> puts the two together to run the application in a web browser.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Setup ----</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/">shiny</a></span><span class="op">)</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="va">xlabel</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p>::: {.warning data-latex=""}
+Notice that the code <code><span class="fu">aes</span>(waiting)</code> from before has changed to <code><span class="fu">aes</span>(.data[[input<span class="math inline">\(display_var]])&lt;/code&gt;. Because `input\)</span>display_var<code>is a &lt;a class='glossary' target='_blank' title='A piece of text inside of quotes.' href='https://psyteachr.github.io/glossary/s#string'&gt;string&lt;/a&gt;, we have to select it from the</code>.data<code>placeholder (which refers to the</code>faithful` data table) using double brackets.
+:::]]) %&gt;%
+summarise_if(is.numeric, input$stat, na.rm = TRUE)
+})</code></p>
+<p>output<span class="math inline">\(caption &lt;- renderText({  sprintf("%ss by %s", toupper(input\)</span>stat), input$group)
+})
+}</p>
+<pre><code>
+&lt;/div&gt;
 
-<span class="co"># Define UI ----</span>
-<span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span><span class="op">)</span>
 
-<span class="co"># Define server logic ----</span>
-<span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span>
 
-<span class="co"># Run the application ----</span>
-<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span>ui <span class="op">=</span> <span class="va">ui</span>, server <span class="op">=</span> <span class="va">server</span><span class="op">)</span></code></pre></div>
-<div class="try">
-<p>Create a new app called "basic_demo" and replace all the text in app.R with the code above. You should be able to run the app and see just a blank page.</p>
-</div>
-<div id="ui" class="section level3" number="1.2.1">
-<h3>
-<span class="header-section-number">1.2.1</span> UI<a class="anchor" aria-label="anchor" href="#ui"><i class="fas fa-link"></i></a>
-</h3>
-<p>The UI is created by one of the ui-building <code>****Page()</code> functions, such as <code><span class="fu">fluidPage</span>()</code>, <code><span class="fu">fixedPage</span>()</code>, <code><span class="fu">fillPage</span>()</code> or <code><span class="fu">dashboardPage</span>()</code> (which we'll learn more about in Section <a href="shinydashboard.html#shinydashboard">2</a>). The ui-building functions set up the parts of the webpage, which are created by more shiny functions that you list inside of the page function, separated by commas.</p>
-</div>
-<div id="tags" class="section level3" number="1.2.2">
-<h3>
-<span class="header-section-number">1.2.2</span> Tags<a class="anchor" aria-label="anchor" href="#tags"><i class="fas fa-link"></i></a>
-</h3>
-<p>For example, the code below displays:</p>
-<ol style="list-style-type: decimal">
-<li>a title panel with the text "Basic Demo"</li>
-<li>a level-two header with the text "My favourite things"</li>
-<li>an unordered list containing several list items</li>
-<li>a paragraph with the text "This is a very basic demo."</li>
-<li>an image of the <code class="package">shinyintro</code> logo with a width and height of 100 pixels</li>
-</ol>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/titlePanel.html">titlePanel</a></span><span class="op">(</span><span class="st">"Basic Demo"</span><span class="op">)</span>,
-  <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">h2</a></span><span class="op">(</span><span class="st">"My favourite things"</span><span class="op">)</span>,
-  <span class="va">tags</span><span class="op">$</span><span class="fu">ul</span><span class="op">(</span><span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"Coding"</span><span class="op">)</span>,
-          <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"Cycling"</span><span class="op">)</span>,
-          <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"Cooking"</span><span class="op">)</span><span class="op">)</span>,
-  <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span><span class="op">(</span><span class="st">"This is a very basic demo."</span><span class="op">)</span>,
-  <span class="va">tags</span><span class="op">$</span><span class="fu">img</span><span class="op">(</span>
-    src <span class="op">=</span> <span class="st">"https://debruine.github.io/shinyintro/images/logos/shinyintro.png"</span>,
-    width <span class="op">=</span> <span class="st">"100px"</span>,
-    height <span class="op">=</span> <span class="st">"100px"</span>
-  <span class="op">)</span>
-<span class="op">)</span></code></pre></div>
-<p>Many of the functions used to create parts of the website are the same as <a class="glossary" target="_blank" title="A way to mark the start and end of HTML elements." href="https://psyteachr.github.io/glossary/t#tag">HTML tags</a>, which are ways to mark the beginning and end of different types of text. Most HTML tags are available in shiny by using one of the <code><span class="fu">tags</span>()</code> sub-functions, but some of the more common tags, like <code><span class="fu">p</span>()</code> or <code><span class="fu">h1</span>()</code>-<code><span class="fu">h6</span>()</code>also have a version where you can omit the <code>tags$</code> part. You can see a list of all of the tags available in Shiny at the <a href="https://shiny.rstudio.com/articles/tag-glossary.html" target="_blank">tag glossary</a></p>
-<div class="try">
-<p>Add the code above to your basic_demo app and replace my favourite things with yours. Make the list an ordered list (instead of unordered) and change the image size.</p>
-</div>
-</div>
-<div id="page-layout" class="section level3" number="1.2.3">
-<h3>
-<span class="header-section-number">1.2.3</span> Page Layout<a class="anchor" aria-label="anchor" href="#page-layout"><i class="fas fa-link"></i></a>
-</h3>
-<p>You usually want your apps to have a more complex layout than just each element stacked below the previous one. The code below wraps the elements after the title panel inside <code><span class="fu">flowLayout</span>()</code>.</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/titlePanel.html">titlePanel</a></span><span class="op">(</span><span class="st">"Basic Demo"</span><span class="op">)</span>,
-                <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/flowLayout.html">flowLayout</a></span><span class="op">(</span>
-                  <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">h2</a></span><span class="op">(</span><span class="st">"My favourite things"</span><span class="op">)</span>,
-                  <span class="va">tags</span><span class="op">$</span><span class="fu">ul</span><span class="op">(</span><span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"Coding"</span><span class="op">)</span>,
-                          <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"Cycling"</span><span class="op">)</span>,
-                          <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"Cooking"</span><span class="op">)</span><span class="op">)</span>,
-                  <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span><span class="op">(</span><span class="st">"This is a very basic demo."</span><span class="op">)</span>,
-                  <span class="va">tags</span><span class="op">$</span><span class="fu">img</span><span class="op">(</span>
-                    src <span class="op">=</span> <span class="st">"https://debruine.github.io/shinyintro/images/logos/shinyintro.png"</span>,
-                    width <span class="op">=</span> <span class="st">"100px"</span>,
-                    height <span class="op">=</span> <span class="st">"100px"</span>
-                  <span class="op">)</span>
-                <span class="op">)</span><span class="op">)</span></code></pre></div>
-<div class="try">
-<p>Replace the ui code in your basic_demo app with the code above and run it in a web browser. What happens when you change the width of the web browser? Change <code><span class="fu">flowLayout</span>()</code> to <code><span class="fu">verticalLayout</span>()</code> or <code><span class="fu">splitLayout</span>()</code> and see what changes.</p>
-</div>
-<p>You can use a <code><span class="fu">sidebarLayout</span>()</code> to arrange your elements into a <code><span class="fu">sidebarPanel</span>()</code> and a <code><span class="fu">mainPanel</span>()</code>. If the browser width is too narrow, the sidebar will display on top of the main panel.</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/titlePanel.html">titlePanel</a></span><span class="op">(</span><span class="st">"Basic Demo"</span><span class="op">)</span>,
-                <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarLayout</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarPanel</a></span><span class="op">(</span>
-                  <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">h2</a></span><span class="op">(</span><span class="st">"My favourite things"</span><span class="op">)</span>,
-                  <span class="va">tags</span><span class="op">$</span><span class="fu">ul</span><span class="op">(</span><span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"Coding"</span><span class="op">)</span>,
-                          <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"Cycling"</span><span class="op">)</span>,
-                          <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"Cooking"</span><span class="op">)</span><span class="op">)</span>
-                <span class="op">)</span>,
-                <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">mainPanel</a></span><span class="op">(</span>
-                  <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span><span class="op">(</span><span class="st">"This is a very basic demo."</span><span class="op">)</span>,
-                  <span class="va">tags</span><span class="op">$</span><span class="fu">img</span><span class="op">(</span>
-                    src <span class="op">=</span> <span class="st">"https://debruine.github.io/shinyintro/images/logos/shinyintro.png"</span>,
-                    width <span class="op">=</span> <span class="st">"100px"</span>,
-                    height <span class="op">=</span> <span class="st">"100px"</span>
-                  <span class="op">)</span>
-                <span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-</div>
-</div>
-<div id="dynamic-elements" class="section level2" number="1.3">
-<h2>
-<span class="header-section-number">1.3</span> Dynamic Elements<a class="anchor" aria-label="anchor" href="#dynamic-elements"><i class="fas fa-link"></i></a>
-</h2>
-<p>So far, we've just put <a class="glossary" target="_blank" title="Something that does not change in response to user actions" href="https://psyteachr.github.io/glossary/s#static">static</a> elements into our UI. What makes Shiny apps work is <a class="glossary" target="_blank" title="Something that can change in response to user actions" href="https://psyteachr.github.io/glossary/d#dynamic">dynamic</a> elements like inputs, outputs, and action buttons.</p>
-<div id="inputs-intro" class="section level3" number="1.3.1">
-<h3>
-<span class="header-section-number">1.3.1</span> Inputs<a class="anchor" aria-label="anchor" href="#inputs-intro"><i class="fas fa-link"></i></a>
-</h3>
-<p>Inputs are ways for the users of your app to communicate with the app, like drop-down menus or checkboxes. We'll go into the different types of inputs in Section <a href="inputs.html#inputs">3</a>. Below we'll turn the list of favourite things into a group of checkboxes</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/checkboxGroupInput.html">checkboxGroupInput</a></span><span class="op">(</span>
-  inputId <span class="op">=</span> <span class="st">"fav_things"</span>,
-  label <span class="op">=</span> <span class="st">"What are your favourite things?"</span>,
-  choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Coding"</span>, <span class="st">"Cycling"</span>, <span class="st">"Cooking"</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
-<p>Most inputs are structured like this, with an <code><span class="at">inputId</span></code>, which needs to be a unique string not used as the ID for any other input or output in your app, a <code><span class="at">label</span></code> that contains the question, and a list of <code><span class="at">choices</span></code> or other parameters that determine what type of values the input will record.</p>
-<div class="info">
-<p>You might have noticed that the <code><span class="fu">sliderInput</span>()</code> in the demo app didn't use the argument names for the <code><span class="at">inputId</span></code> or the <code><span class="at">label</span></code>. All inputs need these first two arguments, so almost everyone omits their names.</p>
-</div>
-</div>
-<div id="outputs-intro" class="section level3" number="1.3.2">
-<h3>
-<span class="header-section-number">1.3.2</span> Outputs<a class="anchor" aria-label="anchor" href="#outputs-intro"><i class="fas fa-link"></i></a>
-</h3>
-<p>Outputs are placeholders for things that <code><span class="fu">server</span>()</code> will create. There are different output functions for different types of outputs, like text, plots, and tables. We'll go into the different types of outputs in detail in Section <a href="outputs.html#outputs">4</a>. Below, we'll make a placeholder for some text that we'll display after counting the number of favourite things.</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html">textOutput</a></span><span class="op">(</span>outputId <span class="op">=</span> <span class="st">"n_fav_things"</span><span class="op">)</span></code></pre></div>
-<p>Most outputs are structured like this, with just a unique <code><span class="at">outputId</span></code> (the argument name is also usually omitted).</p>
-</div>
-<div id="action-buttons" class="section level3" number="1.3.3">
-<h3>
-<span class="header-section-number">1.3.3</span> Action buttons<a class="anchor" aria-label="anchor" href="#action-buttons"><i class="fas fa-link"></i></a>
-</h3>
-<p>Action buttons are a special type of input that register button clicks. Below we'll make an action button that users can click once they've selected all of their favourite things.</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"count_fav_things"</span>,
-             label <span class="op">=</span> <span class="st">"Count"</span>,
-             icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"calculator"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p>Action buttons require a unique <code><span class="at">inputId</span></code> and a <code><span class="at">label</span></code> for the button text. You can also add an <code><span class="at">icon</span></code>. Choose a free icon from <a href="https://fontawesome.com/icons?d=gallery&amp;m=free" target="_blank">fontawesome</a>.</p>
-<p>Put the input, output, and action button into the ui and run it. You will see that the input checkboxes are selectable and the button is clickable, but nothing is displayed in the text output. We need some code in <code><span class="fu">server</span>()</code> to handle that.</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/titlePanel.html">titlePanel</a></span><span class="op">(</span><span class="st">"Basic Demo"</span><span class="op">)</span>,
-                <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarLayout</a></span><span class="op">(</span>
-                  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarPanel</a></span><span class="op">(</span>
-                    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/checkboxGroupInput.html">checkboxGroupInput</a></span><span class="op">(</span>
-                      inputId <span class="op">=</span> <span class="st">"fav_things"</span>,
-                      label <span class="op">=</span> <span class="st">"What are your favourite things?"</span>,
-                      choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Coding"</span>, <span class="st">"Cycling"</span>, <span class="st">"Cooking"</span><span class="op">)</span>
-                    <span class="op">)</span>,
-                    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span>
-                      inputId <span class="op">=</span> <span class="st">"count_fav_things"</span>,
-                      label <span class="op">=</span> <span class="st">"Count"</span>,
-                      icon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/icon.html">icon</a></span><span class="op">(</span><span class="st">"calculator"</span><span class="op">)</span>
-                    <span class="op">)</span>
-                  <span class="op">)</span>,
-                  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">mainPanel</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html">textOutput</a></span><span class="op">(</span>outputId <span class="op">=</span> <span class="st">"n_fav_things"</span><span class="op">)</span><span class="op">)</span>
-                <span class="op">)</span><span class="op">)</span></code></pre></div>
-</div>
-</div>
-<div id="first-reactive" class="section level2" number="1.4">
-<h2>
-<span class="header-section-number">1.4</span> Reactive functions<a class="anchor" aria-label="anchor" href="#first-reactive"><i class="fas fa-link"></i></a>
-</h2>
-<p>Reactive functions are functions that only run when certain types of inputs change. Inside <code><span class="fu">server</span>()</code>, the <a class="glossary" target="_blank" title="A word that identifies and stores the value of some data for later use." href="https://psyteachr.github.io/glossary/o#object">object</a> <code>input</code> is a named <a class="glossary" target="_blank" title="A container data type that allows items with different data types to be grouped together." href="https://psyteachr.github.io/glossary/l#list">list</a> of the values of all of the inputs. For example, if you want to know which items in the select input named <code><span class="st">"fav_things"</span></code> were selected, you would use <code>input$fav_things</code>.</p>
-<p>Here, we just want to count how many items are checked. We want to do this whenever the button <code><span class="st">"count_fav_things"</span></code> is clicked, so we can use the reactive function <code><span class="fu">observeEvent</span>()</code> to do this. Every time the value of <code>input$count_fav_things</code> changes (which happens when it is clicked), it will run the code inside of the curly brackets <code><a href="https://rdrr.io/r/base/Paren.html">{}</a></code>. The code will only run when <code>input$count_fav_things</code> changes, not when any inputs inside the function change.</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
-  <span class="co"># count favourite things</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">count_fav_things</span>, <span class="op">{</span>
-    <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">fav_things</span><span class="op">)</span>
-    <span class="va">count_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"You have %d favourite things"</span>, <span class="va">n</span><span class="op">)</span>
-  <span class="op">}</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
-<p>Now we want to display this text in the output <code><span class="st">"n_fav_things"</span></code>. We need to use a render function that is paired with our output function. Since "n_fav_things" was made with <code><span class="fu">textOutput</span>()</code>, we fill it with <code><span class="fu">renderText</span>()</code>.</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
-  <span class="co"># count favourite things</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">count_fav_things</span>, <span class="op">{</span>
-    <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">fav_things</span><span class="op">)</span>
-    <span class="va">count_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"You have %d favourite things"</span>, <span class="va">n</span><span class="op">)</span>
-    <span class="va">output</span><span class="op">$</span><span class="va">n_fav_things</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderText</a></span><span class="op">(</span><span class="va">count_text</span><span class="op">)</span>
-  <span class="op">}</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
-<p>As always in coding, there are many ways to accomplish the same thing. These methods have different pros and cons that we'll learn more about in Section <a href="reactives.html#reactives">5</a>. Here is another (better) pattern that does that same as above.</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
-  <span class="co"># update count_text on fav_things</span>
-  <span class="va">count_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span><span class="op">(</span><span class="op">{</span>
-    <span class="va">input</span><span class="op">$</span><span class="va">count_fav_things</span> <span class="co"># just here to trigger the reactive</span>
-    <span class="va">fav_things</span> <span class="op">&lt;-</span>
-      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/isolate.html">isolate</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">fav_things</span><span class="op">)</span> <span class="co"># don't trigger on checks</span>
-    <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">fav_things</span><span class="op">)</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"You have %d favourite things"</span>, <span class="va">n</span><span class="op">)</span>
-  <span class="op">}</span><span class="op">)</span>
+### reactive {-}
+
+Use &lt;code&gt;&lt;span class='fu'&gt;reactive&lt;/span&gt;()&lt;/code&gt; to update the output table and caption whenever group or stat change. Ignore the update button.
+
+
+&lt;div class='webex-solution'&gt;&lt;button&gt;Solution&lt;/button&gt;
+
+
+```r
+server &lt;- function(input, output, session) {
+  data &lt;- reactive({
+    msleep %&gt;%
+      group_by(.data[[input$group]]) %&gt;%
+      summarise_if(is.numeric, input$stat, na.rm = TRUE)
+  })
+  output$table &lt;- renderTable(data())
   
-  <span class="co"># display count_text when it updates</span>
-  <span class="va">output</span><span class="op">$</span><span class="va">n_fav_things</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderText</a></span><span class="op">(</span><span class="fu">count_text</span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
-<p>This pattern uses <code><span class="fu">reactive</span>()</code> to create a new function called <code><span class="fu">count_text</span>()</code>, which updates the value it returns whenever any inputs inside the reactive function change. We use <code><span class="fu">isolate</span>()</code> to prevent <code><span class="fu">count_text</span>()</code> from changing when users click the checkboxes.</p>
-<p>Whenever the returned value of <code><span class="fu">count_text</span>()</code> changes, this triggers an update of the <code><span class="st">"n_fav_things"</span></code> output.</p>
-<div class="try">
-<p>Compare the app behaviour with the first pattern versus the second. How are they different? What happens if you remove <code><span class="fu">isolate</span>()</code> from around <code>input$fav_things</code>?</p>
-</div>
-</div>
-<div id="resources-first-app" class="section level2" number="1.5">
-<h2>
-<span class="header-section-number">1.5</span> Further Resources<a class="anchor" aria-label="anchor" href="#resources-first-app"><i class="fas fa-link"></i></a>
-</h2>
-<ul>
-<li><a href="https://mastering-shiny.org/" target="_blank">Mastering Shiny: Chapters 1-3</a></li>
-<li><a href="https://shiny.rstudio.com/tutorial/" target="_blank">RStudio Shiny Tutorials: Videos 1-6</a></li>
-<li><a href="https://shiny.rstudio.com/articles/layout-guide.html" target="_blank">Application layout guide</a></li>
-</ul>
-</div>
-<div id="exercises-first-app" class="section level2" number="1.6">
-<h2>
-<span class="header-section-number">1.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-first-app"><i class="fas fa-link"></i></a>
-</h2>
-<div id="addition-app---ui" class="section level3 unnumbered">
-<h3>Addition App - UI<a class="anchor" aria-label="anchor" href="#addition-app---ui"><i class="fas fa-link"></i></a>
-</h3>
-<p>Create the UI for following app. Use <code><span class="fu">numericInput</span>()</code> to create the inputs.</p>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:add-demo-app"></span>
-<iframe src="https://shiny.psy.gla.ac.uk/debruine/add_demo/?showcase=0" width="100%" height="400px" data-external="1">
-</iframe>
-<p class="caption">
-Figure 1.8: Add Demo App. You can also access this app with <code>shinyintro::app("add_demo")</code>or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/add_demo/" target="_blank">showcase interface</a>.
-</p>
-</div>
-<div class="webex-solution">
-<button>
-Solution
-</button>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/titlePanel.html">titlePanel</a></span><span class="op">(</span><span class="st">"Addition Demo"</span><span class="op">)</span>,
-                <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarLayout</a></span><span class="op">(</span>
-                  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">sidebarPanel</a></span><span class="op">(</span>
-                    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/numericInput.html">numericInput</a></span><span class="op">(</span><span class="st">"n1"</span>, <span class="st">"First number"</span>, <span class="fl">0</span><span class="op">)</span>,
-                    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/numericInput.html">numericInput</a></span><span class="op">(</span><span class="st">"n2"</span>, <span class="st">"Second number"</span>, <span class="fl">0</span><span class="op">)</span>,
-                    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"add"</span>, <span class="st">"Add Numbers"</span><span class="op">)</span>
-                  <span class="op">)</span>,
-                  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sidebarLayout.html">mainPanel</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html">textOutput</a></span><span class="op">(</span>outputId <span class="op">=</span> <span class="st">"n1_plus_n2"</span><span class="op">)</span><span class="op">)</span>
-                <span class="op">)</span><span class="op">)</span></code></pre></div>
+  caption &lt;- reactive({
+    sprintf("%ss by %s", toupper(input$stat), input$group)
+  })
+  output$caption &lt;- renderText(caption())
+} </code></pre>
 </div>
 </div>
 <div id="observeevent" class="section level3 unnumbered">
 <h3>observeEvent<a class="anchor" aria-label="anchor" href="#observeevent"><i class="fas fa-link"></i></a>
 </h3>
-<p>Use <code><span class="fu">observeEvent</span>()</code> to write a server function that displays "n1 + n2 = sum" when you click the action button.</p>
+<p>Use <code><span class="fu">observeEvent</span>()</code> to update the output table with the appropriate summary table and to update the caption with an appropriate caption only when the update button is clicked.</p>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
-  <span class="co"># add numbers</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">add</span>, <span class="op">{</span>
-    <span class="va">sum</span> <span class="op">&lt;-</span> <span class="va">input</span><span class="op">$</span><span class="va">n1</span> <span class="op">+</span> <span class="va">input</span><span class="op">$</span><span class="va">n2</span>
-    <span class="va">add_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"%d + %d = %d"</span>, <span class="va">input</span><span class="op">$</span><span class="va">n1</span>, <span class="va">input</span><span class="op">$</span><span class="va">n2</span>, <span class="va">sum</span><span class="op">)</span>
-    <span class="va">output</span><span class="op">$</span><span class="va">n1_plus_n2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderText</a></span><span class="op">(</span><span class="va">add_text</span><span class="op">)</span>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update</span>, <span class="op">{</span>
+    <span class="va">data</span> <span class="op">&lt;-</span> <span class="va">msleep</span> <span class="op">%&gt;%</span>
+      <span class="fu">group_by</span><span class="op">(</span><span class="va">.data</span><span class="op">[[</span><span class="va">input</span><span class="op">$</span><span class="va">group</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">%&gt;%</span>
+      <span class="fu">summarise_if</span><span class="op">(</span><span class="va">is.numeric</span>, <span class="va">input</span><span class="op">$</span><span class="va">stat</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+    <span class="va">output</span><span class="op">$</span><span class="va">table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html">renderTable</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>
+    
+    <span class="va">caption</span> <span class="op">&lt;-</span>
+      <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"%ss by %s"</span>, <span class="fu"><a href="https://rdrr.io/r/base/chartr.html">toupper</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">stat</span><span class="op">)</span>, <span class="va">input</span><span class="op">$</span><span class="va">group</span><span class="op">)</span>
+    <span class="va">output</span><span class="op">$</span><span class="va">caption</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderText</a></span><span class="op">(</span><span class="va">caption</span><span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
+<span class="op">}</span> </code></pre></div>
 </div>
 </div>
-<div id="reactive" class="section level3 unnumbered">
-<h3>reactive<a class="anchor" aria-label="anchor" href="#reactive"><i class="fas fa-link"></i></a>
+<div id="reactiveval" class="section level3 unnumbered">
+<h3>reactiveVal<a class="anchor" aria-label="anchor" href="#reactiveval"><i class="fas fa-link"></i></a>
 </h3>
-<p>Use <code><span class="fu">reactive</span>()</code> to accomplish the same behaviour.</p>
+<p>Use <code><span class="fu">reactiveVal</span>()</code> to update the output table and caption only when the update button is clicked.</p>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">add_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span><span class="op">(</span><span class="op">{</span>
-    <span class="va">input</span><span class="op">$</span><span class="va">add</span> <span class="co"># triggers reactive</span>
-    <span class="va">n1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/isolate.html">isolate</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">n1</span><span class="op">)</span>
-    <span class="va">n2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/isolate.html">isolate</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">n2</span><span class="op">)</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"%d + %d = %d"</span>, <span class="va">n1</span>, <span class="va">n2</span>, <span class="va">n1</span> <span class="op">+</span> <span class="va">n2</span><span class="op">)</span>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveVal.html">reactiveVal</a></span><span class="op">(</span><span class="op">)</span>
+  <span class="va">caption</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveVal.html">reactiveVal</a></span><span class="op">(</span><span class="op">)</span>
+  
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update</span>, <span class="op">{</span>
+    <span class="va">newdata</span> <span class="op">&lt;-</span> <span class="va">msleep</span> <span class="op">%&gt;%</span>
+      <span class="fu">group_by</span><span class="op">(</span><span class="va">.data</span><span class="op">[[</span><span class="va">input</span><span class="op">$</span><span class="va">group</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">%&gt;%</span>
+      <span class="fu">summarise_if</span><span class="op">(</span><span class="va">is.numeric</span>, <span class="va">input</span><span class="op">$</span><span class="va">stat</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">newdata</span><span class="op">)</span>
+    
+    <span class="co"># this is an alternative way to set reactiveVal</span>
+    <span class="co"># by piping the value into the function</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"%ss by %s"</span>, <span class="fu"><a href="https://rdrr.io/r/base/chartr.html">toupper</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">stat</span><span class="op">)</span>, <span class="va">input</span><span class="op">$</span><span class="va">group</span><span class="op">)</span> <span class="op">%&gt;%</span>
+      <span class="fu">caption</span><span class="op">(</span><span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
   
-  <span class="va">output</span><span class="op">$</span><span class="va">n1_plus_n2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderText</a></span><span class="op">(</span><span class="fu">add_text</span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
+  <span class="va">output</span><span class="op">$</span><span class="va">table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html">renderTable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">output</span><span class="op">$</span><span class="va">caption</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderText</a></span><span class="op">(</span><span class="fu">caption</span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
+<span class="op">}</span> </code></pre></div>
 </div>
+</div>
+<div id="reactivevalues" class="section level3 unnumbered">
+<h3>reactiveValues<a class="anchor" aria-label="anchor" href="#reactivevalues"><i class="fas fa-link"></i></a>
+</h3>
+<p>Use <code><span class="fu">reactiveValues</span>()</code> to update the output table and caption only when the update button is clicked.</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveValues.html">reactiveValues</a></span><span class="op">(</span><span class="op">)</span>
+  
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update</span>, <span class="op">{</span>
+    <span class="va">v</span><span class="op">$</span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">msleep</span> <span class="op">%&gt;%</span>
+      <span class="fu">group_by</span><span class="op">(</span><span class="va">.data</span><span class="op">[[</span><span class="va">input</span><span class="op">$</span><span class="va">group</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">%&gt;%</span>
+      <span class="fu">summarise_if</span><span class="op">(</span><span class="va">is.numeric</span>, <span class="va">input</span><span class="op">$</span><span class="va">stat</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+    
+    <span class="va">v</span><span class="op">$</span><span class="va">caption</span> <span class="op">&lt;-</span>
+      <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"%ss by %s"</span>, <span class="fu"><a href="https://rdrr.io/r/base/chartr.html">toupper</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">stat</span><span class="op">)</span>, <span class="va">input</span><span class="op">$</span><span class="va">group</span><span class="op">)</span>
+  <span class="op">}</span><span class="op">)</span>
+  
+  <span class="va">output</span><span class="op">$</span><span class="va">table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html">renderTable</a></span><span class="op">(</span><span class="va">v</span><span class="op">$</span><span class="va">data</span><span class="op">)</span>
+  <span class="va">output</span><span class="op">$</span><span class="va">caption</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderText</a></span><span class="op">(</span><span class="va">v</span><span class="op">$</span><span class="va">caption</span><span class="op">)</span>
+<span class="op">}</span> </code></pre></div>
+</div>
+</div>
+<div id="eventreactive" class="section level3 unnumbered">
+<h3>eventReactive<a class="anchor" aria-label="anchor" href="#eventreactive"><i class="fas fa-link"></i></a>
+</h3>
+<p>Use <code><span class="fu">eventReactive</span>()</code> to update the output table and caption only when the update button is clicked.</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">eventReactive</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update</span>, <span class="op">{</span>
+    <span class="va">msleep</span> <span class="op">%&gt;%</span>
+      <span class="fu">group_by</span><span class="op">(</span><span class="va">.data</span><span class="op">[[</span><span class="va">input</span><span class="op">$</span><span class="va">group</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">%&gt;%</span>
+      <span class="fu">summarise_if</span><span class="op">(</span><span class="va">is.numeric</span>, <span class="va">input</span><span class="op">$</span><span class="va">stat</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+  <span class="op">}</span><span class="op">)</span>
+  <span class="va">output</span><span class="op">$</span><span class="va">table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html">renderTable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
+  
+  <span class="va">caption</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">eventReactive</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update</span>, <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"%ss by %s"</span>, <span class="fu"><a href="https://rdrr.io/r/base/chartr.html">toupper</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">stat</span><span class="op">)</span>, <span class="va">input</span><span class="op">$</span><span class="va">group</span><span class="op">)</span>
+  <span class="op">}</span><span class="op">)</span>
+  <span class="va">output</span><span class="op">$</span><span class="va">caption</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderText</a></span><span class="op">(</span><span class="fu">caption</span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
+<span class="op">}</span> </code></pre></div>
+</div>
+</div>
+</div>
+<div id="your-app-reactive" class="section level2" number="1.2">
+<h2>
+<span class="header-section-number">1.2</span> Your App<a class="anchor" aria-label="anchor" href="#your-app-reactive"><i class="fas fa-link"></i></a>
+</h2>
+<p>Add reactive functions to your custom app. Think about which patterns are best for your app. For example, if you need to update a data table when inputs change, and then use it in more than one output, it's best to use <code><span class="fu">reactive</span>()</code> to create a function for the data and callit in the render functions for each output, rather than creating the data table in each render function.</p>
 
 </div>
+<div class="chapter-nav">
+<div class="prev"><a href="index.html">Overview</a></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#first-app"><span class="header-section-number">1</span> Your First Shiny App</a></li>
+<li>
+<a class="nav-link" href="#the-demo-app"><span class="header-section-number">1.1</span> The Demo App</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#set-up-the-demo-app"><span class="header-section-number">1.1.1</span> Set Up the Demo App</a></li>
+<li><a class="nav-link" href="#modify-the-demo-app"><span class="header-section-number">1.1.2</span> Modify the Demo App</a></li>
+<li><a class="nav-link" href="#add-new-things"><span class="header-section-number">1.1.3</span> Add New Things</a></li>
+<li><a class="nav-link" href="#observeevent">observeEvent</a></li>
+<li><a class="nav-link" href="#reactiveval">reactiveVal</a></li>
+<li><a class="nav-link" href="#reactivevalues">reactiveValues</a></li>
+<li><a class="nav-link" href="#eventreactive">eventReactive</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#your-app-reactive"><span class="header-section-number">1.2</span> Your App</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/debruine/shinyintro/blob/master/book/05_reactive.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/debruine/shinyintro/edit/master/book/05_reactive.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
 </div>
 </div>
 <script>
@@ -827,61 +710,15 @@ $( document ).ready(function() {
   move_sidebar();
   window.onresize = move_sidebar;
 });
-</script><div class="chapter-nav">
-<div class="prev"><a href="index.html">Overview</a></div>
-<div class="next"><a href="shinydashboard.html"><span class="header-section-number">2</span> ShinyDashboard</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#first-app"><span class="header-section-number">1</span> Your First Shiny App</a></li>
-<li>
-<a class="nav-link" href="#the-demo-app"><span class="header-section-number">1.1</span> The Demo App</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#set-up-the-demo-app"><span class="header-section-number">1.1.1</span> Set Up the Demo App</a></li>
-<li><a class="nav-link" href="#modify-the-demo-app"><span class="header-section-number">1.1.2</span> Modify the Demo App</a></li>
-<li><a class="nav-link" href="#add-new-things"><span class="header-section-number">1.1.3</span> Add New Things</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#app-structure"><span class="header-section-number">1.2</span> App Structure</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#ui"><span class="header-section-number">1.2.1</span> UI</a></li>
-<li><a class="nav-link" href="#tags"><span class="header-section-number">1.2.2</span> Tags</a></li>
-<li><a class="nav-link" href="#page-layout"><span class="header-section-number">1.2.3</span> Page Layout</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#dynamic-elements"><span class="header-section-number">1.3</span> Dynamic Elements</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#inputs-intro"><span class="header-section-number">1.3.1</span> Inputs</a></li>
-<li><a class="nav-link" href="#outputs-intro"><span class="header-section-number">1.3.2</span> Outputs</a></li>
-<li><a class="nav-link" href="#action-buttons"><span class="header-section-number">1.3.3</span> Action buttons</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#first-reactive"><span class="header-section-number">1.4</span> Reactive functions</a></li>
-<li><a class="nav-link" href="#resources-first-app"><span class="header-section-number">1.5</span> Further Resources</a></li>
-<li>
-<a class="nav-link" href="#exercises-first-app"><span class="header-section-number">1.6</span> Exercises</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#addition-app---ui">Addition App - UI</a></li>
-<li><a class="nav-link" href="#observeevent">observeEvent</a></li>
-<li><a class="nav-link" href="#reactive">reactive</a></li>
-</ul>
-</li>
-</ul>
-
-      <div class="book-extra">
-        <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/debruine/shinyintro/blob/master/book/01_first_app.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/debruine/shinyintro/edit/master/book/01_first_app.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
-        </ul>
-</div>
-    </nav>
-</div>
+</script>
 
 </div>
-</div> <!-- .container -->
+ <!-- .container -->
 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Building Web Apps with R Shiny</strong>: <a href="/shinyintro.pdf">PDF</a> | <a href="/shinyintro.mobi">MOBI</a>" was written by Lisa DeBruine. It was last built on 2022-03-28.</p>
+    <p>"<strong>Building Web Apps with R Shiny</strong>: [<a href="/shinyintro.pdf">PDF</a> | <a href="/shinyintro.epub">EPUB</a> | <a href="/shinyintro.mobi">MOBI</a>]" was written by Lisa DeBruine. It was last built on 2022-03-28.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -889,6 +726,34 @@ $( document ).ready(function() {
   </div>
 
 </div></div>
-</footer>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </body>
 </html>

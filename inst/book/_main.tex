@@ -157,8 +157,15 @@
 \bibliographystyle{plainnat}
 
 \title{Building Web Apps with R Shiny}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{PDF \textbar{} MOBI}
 \author{Lisa DeBruine}
-\date{2021-10-13}
+\date{2022-03-28}
 
 \begin{document}
 \maketitle
@@ -235,7 +242,7 @@ To participate in the hands-on exercises, you are strongly encouraged to use a c
 \hypertarget{what-experience-do-i-need}{%
 \subsection{What experience do I need?}\label{what-experience-do-i-need}}
 
-You need to have basic familiarity with R, including data import, data processing, visualization, and functions and control structures (e.g., if/else). Instruction will be done using RStudio. Some familiarity with ggplot2 and dplyr would be useful. You definitely do not need to be an expert coder, but the following code should not be challenging to understand.
+You need to have basic familiarity with R, including data import, data processing, visualization, and functions and control structures (e.g., if/else). Instruction will be done using RStudio. Some familiarity with \textbf{\texttt{ggplot2}} and \textbf{\texttt{dplyr}} would be useful. You definitely do not need to be an expert coder, but the following code should not be challenging to understand.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -255,67 +262,7 @@ You need to have basic familiarity with R, including data import, data processin
 \end{Highlighting}
 \end{Shaded}
 
-If you want to brush up on your R (especially tidyverse), and also gain familiarity with the instructor's teaching style, the first seven chapters of \href{https://psyteachr.github.io/msc-data-skills/}{Data Skills for Reproducible Science} provide a good overview.
-
-\hypertarget{conventions}{%
-\section{Conventions}\label{conventions}}
-
-This book will use the following conventions:
-
-\begin{itemize}
-\tightlist
-\item
-  File paths: \textit{\texttt{www/style.css}}
-\item
-  R Packages: \textbf{\texttt{shinydashboard}}
-\item
-  Functions: \texttt{observeEvent}\texttt{(input\$button,\ \{\})}
-\item
-  Arguments: \AttributeTok{width}
-\item
-  Strings: \StringTok{"Lisa"}
-\item
-  Numbers: \DecValTok{100}
-\item
-  Logical values: \ConstantTok{TRUE}
-\item
-  Other code: \texttt{x\ \textless{}-\ list(a\ =\ "Alligator",\ b\ =\ "Loki")}
-\item
-  Glossary items: shiny
-\item
-  Internal links: Section~\ref{first-app}
-\item
-  External links: \href{https://mastering-shiny.org/}{Mastering Shiny}
-\item
-  Menu/interface options: \textbf{\texttt{New\ File...}}
-\end{itemize}
-
-\begin{info}
-Informational asides.
-
-\end{info}
-
-\begin{warning}
-Notes to warn you about something.
-
-\end{warning}
-
-\begin{dangerous}
-Notes about things that could cause serious errors.
-
-\end{dangerous}
-
-\begin{try}
-Try it yourself.
-
-\end{try}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# code chunks}
-\FunctionTok{shinyApp}\NormalTok{(}\AttributeTok{ui =}\NormalTok{ ui, }\AttributeTok{server =}\NormalTok{ server)}
-\end{Highlighting}
-\end{Shaded}
+If you want to brush up on your R (especially tidyverse), and also gain familiarity with the instructor's teaching style, the book \href{https://psyteachr.github.io/ads/}{Applied Data Skills} provides a good overview.
 
 \hypertarget{further-resources}{%
 \section{Further Resources}\label{further-resources}}
@@ -664,7 +611,7 @@ First, we need to change the x-axis label depending on what we're graphing. We u
 \end{Shaded}
 
 \begin{warning}
-The double-equal-signs \texttt{==} means "equivalent to and is how you check if two things are the same; if you only use one equal sign, you set the variable on the left to the value on the right.
+The double-equal-signs \texttt{==} means ``equivalent to and is how you check if two things are the same; if you only use one equal sign, you set the variable on the left to the value on the right.
 
 \end{warning}
 
@@ -2538,9 +2485,7 @@ Add reactive functions to your custom app. Think about which patterns are best f
 \hypertarget{data}{%
 \chapter{Reading and saving data}\label{data}}
 
-\textbackslash begin\{figure\}
-
-\{\centering \href{https://shiny.psy.gla.ac.uk/debruine/radiotables/}{\includegraphics[width=1\linewidth]{_main_files/figure-latex/radiotables-app-1} }
+\label{fig:radiotables-app}RadioTables Demo App. You can also access this app with \texttt{shinyintro::app("radiotables")}or view it in a separate tab with the \href{https://shiny.psy.gla.ac.uk/debruine/radiotables/}{showcase interface}.
 
 \hypertarget{local-data}{%
 \section{Local Data}\label{local-data}}
@@ -2595,13 +2540,21 @@ However, even if a Google Sheet is publicly editable, you can't add data to it w
 \end{Shaded}
 
 \begin{verbatim}
-## Error: Client error: (401) UNAUTHENTICATED
-## * Request not authenticated due to missing, invalid, or expired OAuth
-##   token.
-## * Request is missing required authentication credential. Expected
-##   OAuth 2 access token, login cookie or other valid authentication
-##   credential. See
-##   https://developers.google.com/identity/sign-in/web/devconsole-project.
+## Error in `gargle_abort_request_failed()`:
+## ! Client error: (401) UNAUTHENTICATED
+## * Request not authenticated due to missing, invalid, or
+##   expired OAuth token.
+## * API keys are not supported by this API. Expected OAuth2
+##   access token or other authentication credentials that
+##   assert a principal. See
+##   https://cloud.google.com/docs/authentication
+## 
+## Error details:
+## * reason: CREDENTIALS_MISSING
+## * domain: googleapis.com
+## * metadata.method:
+##   google.apps.sheets.v4.SpreadsheetsService.BatchUpdateSpreadsheet
+## * metadata.service: sheets.googleapis.com
 \end{verbatim}
 
 You can authorise interactively using the following code (and your own email), which will prompt you to authorise ``Tidyverse API Packages'' the first time you do this.
@@ -2695,7 +2648,7 @@ You can set up a new Google Sheet with code. You only need to do this once for a
 
 \begin{verbatim}
 ## Spreadsheet name: demo2
-##               ID: 1s1pTYriEpbyPU9l19pYI19j1P2GrhLCC_ANL-iCBqAM
+##               ID: 1bwIuzO7VBUKUSPkCr4oabj1fW1dBC0_dVRHJksYyx9g
 ##           Locale: en_US
 ##        Time zone: Europe/London
 ##      # of sheets: 2
@@ -3030,10 +2983,14 @@ For example, if you have HTML that looks like this:
 You can refer to different parts of the list in many ways:
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.36}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.64}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.3571}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.6429}}@{}}
 \toprule
-CSS & Meaning \\
+\begin{minipage}[b]{\linewidth}\raggedright
+CSS
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Meaning
+\end{minipage} \\
 \midrule
 \endhead
 \texttt{.mammal\ \{\ border:\ 1px\ solid\ green;\ \}} & any element with the \AttributeTok{class} \StringTok{"mammal"} will get a 1-pixel green border \\
@@ -3754,7 +3711,7 @@ Write an app that creates the plot below for any checked values of a \texttt{che
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth]{_main_files/figure-latex/unnamed-chunk-127-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{_main_files/figure-latex/unnamed-chunk-126-1} \end{center}
 
 Add error checking to the app to deal with what happens when \texttt{input\$order} has no selections.
 
@@ -4926,109 +4883,377 @@ What you could modularise in your custom app?
 
 
 \hypertarget{installing-r}{%
-\chapter{\texorpdfstring{Installing \texttt{R}}{Installing R}}\label{installing-r}}
+\chapter{Installing and Updating}\label{installing-r}}
 
-Installing R and RStudio is usually straightforward. The sections below explain how and \href{https://www.youtube.com/watch?v=lVKMsaWju8w}{there is a helpful YouTube video here}.
+Installing R and RStudio is usually straightforward. The sections below explain how and \href{https://www.youtube.com/watch?v=lVKMsaWju8w}{there is a helpful YouTube video here}. If you have an older installation, you will want to update it to the newest versions of R and RStudio your computer can use.
 
-\hypertarget{installing-base-r}{%
-\section{Installing Base R}\label{installing-base-r}}
+\hypertarget{base-r}{%
+\section{Base R}\label{base-r}}
 
-Install base R from \url{https://cran.rstudio.com/}. Choose the download link for your operating system (Linux, Mac OS X, or Windows).
+\hypertarget{installing-r-1}{%
+\subsection{Installing R}\label{installing-r-1}}
 
-If you have a Mac, install the latest release from the newest \texttt{R-x.x.x.pkg} link (or a legacy version if you have an older operating system). After you install R, you should also install \href{http://xquartz.macosforge.org/}{XQuartz} to be able to use some visualisation packages.
+\href{https://cran.rstudio.com/}{Install base R}. Choose the download link for your operating system (Linux, Mac OS X, or Windows).
 
-If you are installing the Windows version, choose the ``\href{https://cran.rstudio.com/bin/windows/base/}{base}'' subdirectory and click on the download link at the top of the page. After you install R, you should also install \href{https://cran.rstudio.com/bin/windows/Rtools/}{RTools}; use the ``recommended'' version highlighted near the top of the list.
+If you have a Mac, install the latest release from the newest \texttt{R-x.x.x.pkg} link (or a legacy version if you have an older operating system). You may also need to install \href{http://xquartz.macosforge.org/}{XQuartz} to be able to use some visualisation packages.
+
+If you are installing the Windows version, choose the ``\href{https://cran.rstudio.com/bin/windows/base/}{base}'' subdirectory and click on the download link at the top of the page.
 
 If you are using Linux, choose your specific operating system and follow the installation instructions.
+
+\hypertarget{updating-r}{%
+\subsection{Updating R}\label{updating-r}}
+
+Finally, you may also wish to update R itself. The key thing to be aware of is that when you update R, if you just download the latest version from the website, you will lose all your packages.
+
+\hypertarget{windows}{%
+\subsubsection{Windows}\label{windows}}
+
+The easiest way to update R on Windows and not cause yourself a huge headache is to use the \texttt{installr} package. When you use the \texttt{updateR()} function, a series of dialogue boxes will appear. These should be fairly self-explanatory but there is a \href{https://www.r-statistics.com/2015/06/a-step-by-step-screenshots-tutorial-for-upgrading-r-on-windows/}{full step-by-step guide available} for how to use \texttt{installr}, the important bit is to select ``Yes'' when it asked if you would like to copy your packages from the older version of R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Install the installr package}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"installr"}\NormalTok{)}
+
+\CommentTok{\# Run the update function}
+\NormalTok{installR}\SpecialCharTok{::}\FunctionTok{updateR}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{mac}{%
+\subsubsection{Mac}\label{mac}}
+
+For a Mac, you can use the \textbf{\texttt{updateR}} package. You'll need to install this from GitHub. You will be asked to type your system password (that you use to log into your computer) in the console pane. If relevant, it will ask you if you want to restore your packages for a new major version.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install from github}
+\NormalTok{devtools}\SpecialCharTok{::}\FunctionTok{install\_github}\NormalTok{(}\StringTok{"AndreaCirilloAC/updateR"}\NormalTok{)}
+
+\CommentTok{\# update your R version, you will need your system password}
+\NormalTok{updateR}\SpecialCharTok{::}\FunctionTok{updateR}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{installing-rstudio}{%
 \section{Installing RStudio}\label{installing-rstudio}}
 
 Go to \href{https://www.rstudio.com/products/rstudio/download/\#download}{rstudio.com} and download the RStudio Desktop (Open Source License) version for your operating system under the list titled \textbf{Installers for Supported Platforms}.
 
+\hypertarget{installing-rtools}{%
+\subsection{Installing RTools}\label{installing-rtools}}
+
+If you are using Windows, after you install R, you should also install \href{https://cran.rstudio.com/bin/windows/Rtools/}{RTools}; use the ``recommended'' version highlighted near the top of the list. RTools is used for installing and loading some packages. You can get started without installing RTools, but if you're having problems with installing and loading some packages, this should be the first thing you try.
+
+RTools will require you to put it ``on the PATH''. The instructions for this can seem a bit vague - the easiest way to do it is to open RStudio, run the below code in the console:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{write}\NormalTok{(}\StringTok{\textquotesingle{}PATH="$\{RTOOLS40\_HOME\}}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{usr}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{bin;$\{PATH\}"\textquotesingle{}}\NormalTok{, }\AttributeTok{file =} \StringTok{"\textasciitilde{}/.Renviron"}\NormalTok{, }\AttributeTok{append =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Once you've done that, restart R by clicking \texttt{Session\ -\ Restart\ R} and then run the below code in the console which should give you the path to your RTools installation:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{Sys.which}\NormalTok{(}\StringTok{"make"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{updating-rstudio}{%
+\subsection{Updating RStudio}\label{updating-rstudio}}
+
+Typically, updates to RStudio won't affect your code, instead they add in new features, like spell-check or upgrades to what RStudio can do. There's usually very little downside to updating RStudio and it's easy to do.
+
+Click \texttt{Help\ -\ Check\ for\ updates}
+
+If an update is available, it will prompt you to download it and you can install it as usual.
+
 \hypertarget{rstudio-settings}{%
 \subsection{RStudio Settings}\label{rstudio-settings}}
 
 There are a few settings you should fix immediately after updating RStudio. Go to \textbf{\texttt{Global\ Options...}} under the \textbf{\texttt{Tools}} menu (⌘,), and in the General tab, uncheck the box that says \textbf{\texttt{Restore\ .RData\ into\ workspace\ at\ startup}}. If you keep things around in your workspace, things will get messy, and unexpected things will happen. You should always start with a clear workspace. This also means that you never want to save your workspace when you exit, so set this to \textbf{\texttt{Never}}. The only thing you want to save are your scripts.
 
-You may also want to change the appearance of your code. Different fonts and themes can sometimes help with visual difficulties or {[}dyslexia{]}((\url{https://datacarpentry.org/blog/2017/09/coding-and-dyslexia})\{target="\_blank"\}. I prefer a dark background and the FiraCode font for my own coding, but I will use the default theme for screenshots in this book.
+You may also want to change the appearance of your code. Different fonts and themes can sometimes help with visual difficulties or \href{https://datacarpentry.org/blog/2017/09/coding-and-dyslexia}{dyslexia}.
 
-You may also want to change the settings in the Code tab. I prefer two spaces instead of tabs for my code and I like to be able to see the whitespace characters. But these are all a matter of personal preference.
+\begin{figure}
 
-\hypertarget{installing-shinyintro-1}{%
-\subsection{Installing shinyintro}\label{installing-shinyintro-1}}
+{\centering \includegraphics[width=1\linewidth]{images/rstudio_settings_general_appearance} 
 
-To install the class package, which will provide you with a copy of all of the shiny apps we'll use for demos and the basic template, paste the following code into the console in RStudio.
+}
+
+\caption{RStudio General and Appearance settings}\label{fig:settings-general}
+\end{figure}
+
+You may also want to change the settings in the Code tab. For example, Lisa prefers two spaces instead of tabs for my code and likes to be able to see the whitespace characters. But these are all a matter of personal preference.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/rstudio_settings_code} 
+
+}
+
+\caption{RStudio Code settings}\label{fig:settings-code}
+\end{figure}
+
+\hypertarget{packages}{%
+\section{Packages}\label{packages}}
+
+\hypertarget{installing-packages}{%
+\subsection{Installing Packages}\label{installing-packages}}
+
+This is done using {install.packages}{(}{)}. This is like installing an app on your phone: you only have to do it once and the app will remain installed until you remove it. For instance, if you want to use PokemonGo on your phone, you install it once from the App Store or Play Store; you don't have to re-install it each time you want to use it. Once you launch the app, it will run in the background until you close it or restart your phone. Likewise, when you install a package, the package will be available (but not \emph{loaded}) every time you open up R.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# you may have to install devtools first with }
-\CommentTok{\# install.packages("devtools")}
+\CommentTok{\# type this in the console pane}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"devtools"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
+Install the \textbf{\texttt{shinyintro}} package on your system. This package is the main package we will use throughout this book and is not on CRAN, so you will need to get it from github using the function \texttt{devtools::install\_github()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# type this in the console pane}
 \NormalTok{devtools}\SpecialCharTok{::}\FunctionTok{install\_github}\NormalTok{(}\StringTok{"debruine/shinyintro"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
+If you get a message that says something like \texttt{package\ ‘shinyintro’\ successfully\ unpacked\ and\ MD5\ sums\ checked}, the installation was successful. If you get an error and the package wasn't installed, check the troubleshooting section \ref{package-install-troubleshooting}.
+
+\begin{dangerous}
+Never install a package from inside a script. Only do this from the console pane.
+
+\end{dangerous}
+
+\hypertarget{updating-packages}{%
+\subsection{Updating packages}\label{updating-packages}}
+
+Package developers will occasionally release updates to their packages. This is typically to add in new functions to the package, or to fix or amend existing functions. \textbf{Be aware that some package updates may cause your previous code to stop working}. This does not tend to happen with minor updates to packages, but occasionally with major updates, you can have serious issues if the developer has made fundamental changes to how the code works. For this reason, we recommend updating all your packages once at the beginning of each academic year (or semester) - don't do it before an assessment or deadline just in case!
+
+To update an individual package, the easiest way is to use the \texttt{install.packages()} function, as this always installs the most recent version of the package.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+To update multiple packages, or indeed all packages, RStudio provides helpful tools. Click \texttt{Tools\ -\ Check\ for\ Package\ Updates}. A dialogue box will appear and you can select the packages you wish to update. Be aware that if you select all packages, this may take some time and you will be unable to use R whilst the process completes.
+
 \hypertarget{installing-latex}{%
 \section{Installing LaTeX}\label{installing-latex}}
 
-You can install the LaTeX typesetting system to produce PDF reports from RStudio. Without this additional installation, you will be able to produce reports in HTML but not PDF. This course will not require you to make PDFs. To generate PDF reports, you will additionally need:
+You can install the LaTeX typesetting system to produce PDF reports from RStudio. Without this additional installation, you will be able to produce reports in HTML but not PDF. To generate PDF reports, you will additionally need to install \textbf{\texttt{tinytex}} \citep{R-tinytex} and run the following code:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# run this in the console}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"tinytex"}\NormalTok{)}
+\NormalTok{tinytex}\SpecialCharTok{::}\FunctionTok{install\_tinytex}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{package-install-troubleshooting}{%
+\section{Troubleshooting}\label{package-install-troubleshooting}}
+
+Occasionally, you might have a few problem packages that seemingly refuse to update. For me, \texttt{rlang} and \texttt{vctrs} cause me no end of trouble. These aren't packages that you will likely every explicitly load, but they're required beneath the surface for R to do things like knit your Markdown files etc.
+
+\hypertarget{non-zero-exit-status}{%
+\subsection{Non-zero exit status}\label{non-zero-exit-status}}
+
+If you try to update a package and get an error message that says something like \texttt{Warning\ in\ install.packages\ :\ installation\ of\ package\ ‘vctrs’\ had\ non-zero\ exit\ status} or perhaps \texttt{Error\ in\ loadNamespace(i,\ c(lib.loc,\ .libPaths()),\ versionCheck\ =\ vI{[}{[}i{]}{]})\ :\ \ namespace\ \textquotesingle{}rlang\textquotesingle{}\ 0.4.9\ is\ being\ loaded,\ but\ \textgreater{}=\ 0.4.10\ is\ required} one solution I have found is to manually uninstall the package, restart R, and then install the package new, rather than trying to update an existing version. The \texttt{installr} package also has a useful function for uninstalling packages.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load installr}
+\FunctionTok{library}\NormalTok{(installr)}
+
+\CommentTok{\# Uninstall the problem package}
+\FunctionTok{uninstall.packages}\NormalTok{(}\StringTok{"package\_name"}\NormalTok{)}
+
+\CommentTok{\# Then restart R using session {-} restart R}
+\CommentTok{\# Then install the package fresh}
+
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"package"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{cannot-open-file}{%
+\subsection{Cannot open file}\label{cannot-open-file}}
+
+You may get the following error after trying to install any packages at all:
+
+\begin{quote}
+Error in install packages : Cannot open file `C:/\ldots..': Permission denied
+\end{quote}
+
+This usually indicates a permissions problem with writing to the default library (the folder that packages are kept in). Sometimes this means that you need to install R and RStudio as administrator or run it as administrator.
+
+One other fix may be to change the library location using the following code (check in ``C:/Program Files/R'' for what version you should have instead of ``R-3.5.2''):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# change the library path}
+\FunctionTok{.libPaths}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"C:/Program Files/R/R{-}3.5.2/library"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+If that works and you can install packages, set this library path permanently:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \href{http://pandoc.org/installing.html}{pandoc}, and
+  Install the \textbf{\texttt{usethis}} package
 \item
-  LaTeX, a typesetting language, available for
-
-  \begin{itemize}
-  \tightlist
-  \item
-    WINDOWS: \href{http://miktex.org/}{MikTeX}
-  \item
-    Mac OS: \href{https://tug.org/mactex/downloading.html}{MacTex} (3.2GB download) or \href{http://ww.tug.org/mactex/morepackages.html}{BasicTeX} (78MB download, but should work fine)
-  \item
-    Linux: \href{https://www.tug.org/texlive/}{TeX Live}
-  \end{itemize}
+  Run \texttt{usethis::edit\_r\_profile()} in the console; it will open up a blank file
+\item
+  Paste into the file (your version of): \texttt{.libPaths(c("C:/Program\ Files/R/R-3.5.2/library"))}
+\item
+  Save and close the file
+\item
+  Restart R for changes to take effect
 \end{enumerate}
+
+The code in your .Rprofile will now run every time you start up R.
+
+As always, if you're having issues, please ask on Teams or come to office hours.
+
+\hypertarget{conventions}{%
+\chapter{Conventions}\label{conventions}}
+
+This book will use the following conventions:
+
+\begin{itemize}
+\tightlist
+\item
+  Generic code: \texttt{list(number\ =\ 1,\ letter\ =\ "A")}
+\item
+  Highlighted code: {list}{(}number {=} {1}, letter {=} {``A''}{)}
+\item
+  File paths: \textit{\texttt{data/sales.csv}}
+\item
+  R Packages: \textbf{\texttt{tidyverse}}
+\item
+  Functions: {paste}{(}{)}
+\item
+  Strings: \StringTok{"R"}, \StringTok{"Shiny"}
+\item
+  Numbers: \DecValTok{100}, \DecValTok{3.14}
+\item
+  Logical values: \ConstantTok{TRUE}, \ConstantTok{FALSE}
+\item
+  Glossary items: ordinal
+\item
+  Citations: \citet{R-tidyverse}
+\item
+  Internal links: Chapter~\ref{glossary}
+\item
+  External links: \href{https://mastering-shiny.org/}{Mastering Shiny}
+\item
+  Menu/interface options: \textbf{\texttt{New\ File...}}
+\item
+  Quiz question: I am going to learn a lot: TRUEFALSE
+\end{itemize}
+
+Hidden Solutions
+
+You found it!
+
+\begin{info}
+Informational asides.
+
+\end{info}
+
+\begin{warning}
+Notes to warn you about something.
+
+\end{warning}
+
+\begin{dangerous}
+Notes about things that could cause serious errors.
+
+\end{dangerous}
+
+\begin{try}
+Try it yourself.
+
+\end{try}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# code chunks}
+\FunctionTok{paste}\NormalTok{(}\StringTok{"Code"}\NormalTok{, }\StringTok{"Output"}\NormalTok{, }\DecValTok{1}\NormalTok{, }\AttributeTok{sep =} \StringTok{" "}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# code chunks with headers}
+\FunctionTok{hist}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\DecValTok{100000}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\#\# Markdown Example}
+
+\SpecialStringTok{* }\NormalTok{Inline code: }\InformationTok{\textasciigrave{}r nrow(iris)\textasciigrave{}}
+\SpecialStringTok{* }\NormalTok{*Italics*}
+\SpecialStringTok{* }\NormalTok{**Bold**}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{symbols}{%
 \chapter{Symbols}\label{symbols}}
 
-\begin{longtable}[]{@{}cll@{}}
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1739}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4130}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4130}}@{}}
 \toprule
-Symbol & Book Term & Also Known As \\
+\begin{minipage}[b]{\linewidth}\centering
+Symbol
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+psyTeachR Term
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Also Known As
+\end{minipage} \\
 \midrule
 \endhead
-\texttt{()} & (round) brackets & parentheses \\
-\texttt{{[}{]}} & square brackets & brackets \\
-\texttt{\{\}} & curly brackets & squiggly brackets \\
-\texttt{\textless{}\textgreater{}} & chevrons & angled brackets / guillemets \\
-\texttt{\textless{}} & less than & \\
-\texttt{\textgreater{}} & greater than & \\
-\texttt{\&} & ampersand & ``and'' symbol \\
-\texttt{\#} & hash & pound / octothorpe \\
-\texttt{/} & slash & forward slash \\
-\texttt{\textbackslash{}\textbackslash{}} & backslash & \\
-\texttt{-} & dash & hyphen / minus \\
-\texttt{\_} & underscore & \\
-\texttt{*} & asterisk & star \\
-\texttt{\^{}} & caret & power symbol \\
-\texttt{\textasciitilde{}} & tilde & twiddle / squiggle \\
-\texttt{=} & equal sign & \\
-\texttt{==} & double equal sign & \\
-\texttt{.} & full stop & period / point \\
-\texttt{!} & exclamation mark & bang / not \\
-\texttt{?} & question mark & \\
-\texttt{\textquotesingle{}} & single quote & quote / apostrophe \\
-\texttt{"} & double quote & quote \\
-\texttt{\%\textgreater{}\%} & pipe & magrittr pipe \\
-\texttt{\textbackslash{}\textbar{}} & vertical bar & pipe \\
-\texttt{,} & comma & \\
-\texttt{;} & semi-colon & \\
-\texttt{:} & colon & \\
-\texttt{@} & ``at'' symbol & \href{https://www.theguardian.com/notesandqueries/query/0,5753,-1773,00.html}{various hilarious regional terms} \\
+() & (round) brackets & parentheses \\
+{[}{]} & square brackets & brackets \\
+\{\} & curly brackets & squiggly brackets \\
+\textless\textgreater{} & chevrons & angled brackets / guillemets \\
+\textless{} & less than & \\
+\textgreater{} & greater than & \\
+\& & ampersand & ``and'' symbol \\
+\# & hash & pound / octothorpe \\
+/ & slash & forward slash \\
+\textbackslash{} & backslash & \\
+- & dash & hyphen / minus \\
+\_ & underscore & \\
+* & asterisk & star \\
+\^{} & caret & power symbol \\
+\textasciitilde{} & tilde & twiddle / squiggle \\
+= & equal sign & \\
+== & double equal sign & \\
+. & full stop & period / point \\
+! & exclamation mark & bang / not \\
+? & question mark & \\
+' & single quote & quote / apostrophe \\
+'' & double quote & quote \\
+\%\textgreater\% & pipe & magrittr pipe \\
+\textbar{} & vertical bar & pipe \\
+, & comma & \\
+; & semi-colon & \\
+: & colon & \\
+@ & ``at'' symbol & \href{https://www.theguardian.com/notesandqueries/query/0,5753,-1773,00.html}{various hilarious regional terms} \\
+\ldots{} & \texttt{glossary("ellipsis")} & dots \\
 \bottomrule
 \end{longtable}
 
@@ -5037,6 +5262,8 @@ Symbol & Book Term & Also Known As \\
 
 See the \href{https://psyteachr.github.io/glossary/}{psyTeachR Glossary} for more definitions of R jargon.
 
+\begin{table}
+\centering
 \begin{tabular}{l|l}
 \hline
 term & definition\\
@@ -5091,6 +5318,8 @@ numeric & A data type representing a real decimal number or integer.\\
 \hline
 object & A word that identifies and stores the value of some data for later use.\\
 \hline
+ordinal & Discrete variables that have an inherent order, such as number of legs\\
+\hline
 package & A group of R functions.\\
 \hline
 pandoc & A universal document convertor, used by R to make PDF or Word documents from R Markdown\\
@@ -5132,6 +5361,7 @@ working-directory & The filepath where R is currently reading and writing files.
 yaml & A structured format for information\\
 \hline
 \end{tabular}
+\end{table}
 
   \bibliography{book.bib,packages.bib}
 

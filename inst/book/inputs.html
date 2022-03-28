@@ -19,8 +19,9 @@
 <meta name="twitter:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1.9000/transition.js"></script><script src="libs/bs3compat-0.3.1.9000/tabs.js"></script><script src="libs/bs3compat-0.3.1.9000/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -38,7 +39,8 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Building Web Apps with R Shiny</a>
+        <a href="index.html" title="&lt;a href='/shinyintro.pdf'&gt;PDF&lt;/a&gt; | &lt;a href='/shinyintro.mobi'&gt;MOBI&lt;/a&gt;">Building Web Apps with R Shiny</a>:
+        <small class="text-muted"><a href="/shinyintro.pdf">PDF</a> | <a href="/shinyintro.mobi">MOBI</a></small>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -65,13 +67,14 @@
 <li><a class="" href="reports.html"><span class="header-section-number">12</span> Customized reports</a></li>
 <li><a class="" href="modules.html"><span class="header-section-number">13</span> Shiny modules for repeated structures</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
-<li><a class="" href="symbols.html"><span class="header-section-number">B</span> Symbols</a></li>
-<li><a class="" href="glossary.html"><span class="header-section-number">C</span> Glossary</a></li>
+<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing and Updating</a></li>
+<li><a class="" href="conventions.html"><span class="header-section-number">B</span> Conventions</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">C</span> Symbols</a></li>
+<li><a class="" href="glossary.html"><span class="header-section-number">D</span> Glossary</a></li>
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/pdebruine/shinyintro">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/debruine/shinyintro">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -85,7 +88,7 @@
 <iframe src="https://shiny.psy.gla.ac.uk/debruine/input_demo/?showcase=0" width="100%" height="625px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 3.1: Input Demo App. You can also access this app with <code><a href="https://rdrr.io/pkg/shinyintro/man/app.html">shinyintro::app("input_demo")</a></code> or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/input_demo/" target="_blank">showcase interface</a>.
+Figure 3.1: Input Demo App. You can also access this app with <code>shinyintro::app("input_demo")</code> or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/input_demo/" target="_blank">showcase interface</a>.
 </p>
 </div>
 <div id="input-functions" class="section level2" number="3.1">
@@ -97,7 +100,7 @@ Figure 3.1: Input Demo App. You can also access this app with <code><a href="htt
 <span class="header-section-number">3.1.1</span> textInput<a class="anchor" aria-label="anchor" href="#textinput"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><span class="fu">textInput</span>()</code> creates a one-line box for short text input. The first <a class="glossary" target="_blank" title="A variable that provides input to a function." href="https://psyteachr.github.io/glossary/a#argument">argument</a>, <code><span class="at">inputId</span></code> (the argument name is usually omitted), needs to be a unique <a class="glossary" target="_blank" title="A piece of text inside of quotes." href="https://psyteachr.github.io/glossary/s#string">string</a> that you cannot use for another input or output in this app.</p>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">demo_text</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textInput.html">textInput</a></span><span class="op">(</span><span class="st">"demo_text"</span>, 
             label <span class="op">=</span> <span class="st">"Name"</span>, 
@@ -113,7 +116,7 @@ Figure 3.1: Input Demo App. You can also access this app with <code><a href="htt
 <span class="header-section-number">3.1.2</span> textAreaInput<a class="anchor" aria-label="anchor" href="#textareainput"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><span class="fu">textAreaInput</span>()</code> creates a multi-line box for longer text input.</p>
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">demo_textarea</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textAreaInput.html">textAreaInput</a></span><span class="op">(</span><span class="st">"demo_textarea"</span>, 
                 label <span class="op">=</span> <span class="st">"Biography"</span>, 
@@ -132,7 +135,7 @@ Figure 3.1: Input Demo App. You can also access this app with <code><a href="htt
 <span class="header-section-number">3.1.3</span> selectInput<a class="anchor" aria-label="anchor" href="#selectinput"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><span class="fu">selectInput</span>()</code> creates a drop-down menu. Set the first <code><span class="at">choice</span></code> to <code>""</code> to default to <code>NA</code>. If your choices are a named <a class="glossary" target="_blank" title="A container data type that allows items with different data types to be grouped together." href="https://psyteachr.github.io/glossary/l#list">list</a> or <a class="glossary" target="_blank" title="A type of data structure that collects values with the same data type, like T/F values, numbers, or strings." href="https://psyteachr.github.io/glossary/v#vector">vector</a>, the names are what is shown and the values are what is recorded. If the choices aren't named, the displayed and recorded values are the same.</p>
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">demo_select</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/selectInput.html">selectInput</a></span><span class="op">(</span><span class="st">"demo_select"</span>, 
               label <span class="op">=</span> <span class="st">"Do you like Shiny?"</span>, 
@@ -142,7 +145,7 @@ Figure 3.1: Input Demo App. You can also access this app with <code><a href="htt
               selected <span class="op">=</span> <span class="cn">NULL</span>,
               width <span class="op">=</span> <span class="st">"100%"</span><span class="op">)</span></code></pre></div>
 <p>If you set <code><span class="at">multiple</span></code> to <code><span class="cn">TRUE</span></code>, you can also make a select where users can choose multiple options.</p>
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">genders</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span> <span class="co"># no blank needed</span>
   <span class="st">"Non-binary"</span> <span class="op">=</span> <span class="st">"nb"</span>,
   <span class="st">"Male"</span> <span class="op">=</span> <span class="st">"m"</span>,
@@ -165,7 +168,7 @@ Figure 3.1: Input Demo App. You can also access this app with <code><a href="htt
 <span class="header-section-number">3.1.4</span> checkboxGroupInput<a class="anchor" aria-label="anchor" href="#checkboxgroupinput"><i class="fas fa-link"></i></a>
 </h3>
 <p>However, this interface almost always looks better with <code><span class="fu">checkboxGroupInput</span>()</code>.</p>
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">demo_cbgi</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/checkboxGroupInput.html">checkboxGroupInput</a></span><span class="op">(</span><span class="st">"demo_cbgi"</span>,
                      label <span class="op">=</span> <span class="st">"Gender (select all that apply)"</span>,
@@ -181,12 +184,12 @@ Figure 3.1: Input Demo App. You can also access this app with <code><a href="htt
 <span class="header-section-number">3.1.5</span> checkboxInput<a class="anchor" aria-label="anchor" href="#checkboxinput"><i class="fas fa-link"></i></a>
 </h3>
 <p>You can also make a single checkbox with <code><span class="fu">checkboxInput</span>()</code>. The <code><span class="at">value</span></code> is <code><span class="cn">TRUE</span></code> when checked and <code><span class="cn">FALSE</span></code> when not.</p>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">demo_cb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/checkboxInput.html">checkboxInput</a></span><span class="op">(</span><span class="st">"demo_cb"</span>,
                          label <span class="op">=</span> <span class="st">"I love R"</span>,
                          value <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p><code><span class="fu">sliderInput</span>()</code> allows you to choose numbers between a <code><span class="at">min</span></code> and <code><span class="at">max</span></code> value.</p>
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">demo_slider</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/sliderInput.html">sliderInput</a></span><span class="op">(</span><span class="st">"demo_slider"</span>,
                            label <span class="op">=</span> <span class="st">"Age"</span>,
                            min <span class="op">=</span> <span class="fl">0</span>,
@@ -195,7 +198,7 @@ Figure 3.1: Input Demo App. You can also access this app with <code><a href="htt
                            step <span class="op">=</span> <span class="fl">1</span>,
                            width <span class="op">=</span> <span class="st">"100%"</span><span class="op">)</span></code></pre></div>
 <div class="try">
-<p>What happens if you change <code><span class="at">value</span></code> or <code><span class="at">step</span></code>? Try changing <code><span class="at">value</span></code> to <code><a href="https://rdrr.io/r/base/c.html">c(10, 20)</a></code>.</p>
+<p>What happens if you change <code><span class="at">value</span></code> or <code><span class="at">step</span></code>? Try changing <code><span class="at">value</span></code> to <code>c(10, 20)</code>.</p>
 </div>
 </div>
 <div id="radiobuttons" class="section level3" number="3.1.6">
@@ -203,14 +206,14 @@ Figure 3.1: Input Demo App. You can also access this app with <code><a href="htt
 <span class="header-section-number">3.1.6</span> radioButtons<a class="anchor" aria-label="anchor" href="#radiobuttons"><i class="fas fa-link"></i></a>
 </h3>
 <p>If you want users to only be able to choose one option and there are a small number of short options, <code><span class="fu">radioButton</span>()</code> is a good interface.</p>
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">demo_radio</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/radioButtons.html">radioButtons</a></span><span class="op">(</span><span class="st">"demo_radio"</span>,
                            label <span class="op">=</span> <span class="st">"Choose one"</span>,
                            choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Cats"</span>, <span class="st">"Dogs"</span><span class="op">)</span>,
                            selected <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>,
                            inline <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <div class="warning">
-<p>Radio buttons default to selecting the first item unless you set <code><span class="at">selected</span></code> to a choice value or <code><a href="https://rdrr.io/r/base/character.html">character(0)</a></code> to start with no selection.</p>
+<p>Radio buttons default to selecting the first item unless you set <code><span class="at">selected</span></code> to a choice value or <code>character(0)</code> to start with no selection.</p>
 </div>
 </div>
 <div id="dateinput" class="section level3" number="3.1.7">
@@ -218,7 +221,7 @@ Figure 3.1: Input Demo App. You can also access this app with <code><a href="htt
 <span class="header-section-number">3.1.7</span> dateInput<a class="anchor" aria-label="anchor" href="#dateinput"><i class="fas fa-link"></i></a>
 </h3>
 <p>I find the date interface a little clunky, but that might just be because I have to click the back button on the year interface 44 time to find my birthdate. However, it also allows you to type in a date following the format that you can set.</p>
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">demo_date</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/dateInput.html">dateInput</a></span><span class="op">(</span><span class="st">"demo_date"</span>,
                        label <span class="op">=</span> <span class="st">"What is your birth date?"</span>,
                        min <span class="op">=</span> <span class="st">"1900-01-01"</span>,
@@ -239,7 +242,7 @@ Figure 3.1: Input Demo App. You can also access this app with <code><a href="htt
 <span class="header-section-number">3.1.8</span> fileInput<a class="anchor" aria-label="anchor" href="#fileinput"><i class="fas fa-link"></i></a>
 </h3>
 <p>Users can upload one or more files with <code><span class="fu">fileInput</span>()</code>. The argument <code><span class="at">accept</span></code> lets you limit this to certain file types, but some browsers can bypass this requirement, so it's not fool-proof.</p>
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">demo_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fileInput.html">fileInput</a></span><span class="op">(</span><span class="st">"demo_file"</span>,
                        label <span class="op">=</span> <span class="st">"Upload a data table"</span>,
                        multiple <span class="op">=</span> <span class="cn">FALSE</span>,
@@ -258,7 +261,7 @@ Figure 3.1: Input Demo App. You can also access this app with <code><a href="htt
 <span class="header-section-number">3.2</span> Setting inputs programatically<a class="anchor" aria-label="anchor" href="#setting-inputs-programatically"><i class="fas fa-link"></i></a>
 </h2>
 <p>Sometimes you need to change the value of an input with code, such as when resetting a questionnaire or in response to an answer on another item. The following code resets all of the inputs above.</p>
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/updateTextInput.html">updateTextInput</a></span><span class="op">(</span><span class="va">session</span>, <span class="st">"demo_text"</span>, value <span class="op">=</span> <span class="st">""</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/updateTextAreaInput.html">updateTextAreaInput</a></span><span class="op">(</span><span class="va">session</span>, <span class="st">"demo_textarea"</span>, value <span class="op">=</span> <span class="st">""</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/updateSelectInput.html">updateSelectInput</a></span><span class="op">(</span><span class="va">session</span>, <span class="st">"demo_select"</span>, selected <span class="op">=</span> <span class="st">""</span><span class="op">)</span>
@@ -544,8 +547,8 @@ $( document ).ready(function() {
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/pdebruine/shinyintro/blob/master/book/03_inputs.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/pdebruine/shinyintro/edit/master/book/03_inputs.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/debruine/shinyintro/blob/master/book/03_inputs.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/debruine/shinyintro/edit/master/book/03_inputs.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -557,7 +560,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Building Web Apps with R Shiny</strong>" was written by Lisa DeBruine. It was last built on 2021-10-13.</p>
+    <p>"<strong>Building Web Apps with R Shiny</strong>: <a href="/shinyintro.pdf">PDF</a> | <a href="/shinyintro.mobi">MOBI</a>" was written by Lisa DeBruine. It was last built on 2022-03-28.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

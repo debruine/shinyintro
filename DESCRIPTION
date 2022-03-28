@@ -1,6 +1,6 @@
 Package: shinyintro
 Title: Building Web Apps with R Shiny
-Version: 0.0.0.9005
+Version: 0.0.2
 Authors@R: 
     c(person(given = "Lisa",
            family = "DeBruine",

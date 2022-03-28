@@ -19,8 +19,9 @@
 <meta name="twitter:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1.9000/transition.js"></script><script src="libs/bs3compat-0.3.1.9000/tabs.js"></script><script src="libs/bs3compat-0.3.1.9000/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -38,7 +39,8 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Building Web Apps with R Shiny</a>
+        <a href="index.html" title="&lt;a href='/shinyintro.pdf'&gt;PDF&lt;/a&gt; | &lt;a href='/shinyintro.mobi'&gt;MOBI&lt;/a&gt;">Building Web Apps with R Shiny</a>:
+        <small class="text-muted"><a href="/shinyintro.pdf">PDF</a> | <a href="/shinyintro.mobi">MOBI</a></small>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -65,13 +67,14 @@
 <li><a class="" href="reports.html"><span class="header-section-number">12</span> Customized reports</a></li>
 <li><a class="" href="modules.html"><span class="header-section-number">13</span> Shiny modules for repeated structures</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
-<li><a class="" href="symbols.html"><span class="header-section-number">B</span> Symbols</a></li>
-<li><a class="" href="glossary.html"><span class="header-section-number">C</span> Glossary</a></li>
+<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing and Updating</a></li>
+<li><a class="" href="conventions.html"><span class="header-section-number">B</span> Conventions</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">C</span> Symbols</a></li>
+<li><a class="" href="glossary.html"><span class="header-section-number">D</span> Glossary</a></li>
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/pdebruine/shinyintro">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/debruine/shinyintro">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -87,31 +90,31 @@
 <iframe src="https://shiny.psy.gla.ac.uk/debruine/reactive_demo/?showcase=0" width="100%" height="560px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 5.1: Reactive Demo App. You can also access this app with <code><a href="https://rdrr.io/pkg/shinyintro/man/app.html">shinyintro::app("reactive_demo")</a></code>or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/reactive_demo/" target="_blank">showcase interface</a>.
+Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintro::app("reactive_demo")</code>or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/reactive_demo/" target="_blank">showcase interface</a>.
 </p>
 </div>
 <p>Here is the relevant code for the UI. There are four inputs: cut, color, clarity, and update. There are two outputs: title and plot.</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="reactives.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(</span>
-<span id="cb66-2"><a href="reactives.html#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">"Diamonds"</span>,</span>
-<span id="cb66-3"><a href="reactives.html#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">solidHeader =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb66-4"><a href="reactives.html#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">"cut"</span>, <span class="st">"Cut"</span>, <span class="fu">levels</span>(diamonds<span class="sc">$</span>cut)),</span>
-<span id="cb66-5"><a href="reactives.html#cb66-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">"color"</span>, <span class="st">"Color"</span>, <span class="fu">levels</span>(diamonds<span class="sc">$</span>color)),</span>
-<span id="cb66-6"><a href="reactives.html#cb66-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">"clarity"</span>, <span class="st">"Clarity"</span>, <span class="fu">levels</span>(diamonds<span class="sc">$</span>clarity)),</span>
-<span id="cb66-7"><a href="reactives.html#cb66-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">actionButton</span>(<span class="st">"update"</span>, <span class="st">"Update Plot"</span>)</span>
-<span id="cb66-8"><a href="reactives.html#cb66-8" aria-hidden="true" tabindex="-1"></a>),</span>
-<span id="cb66-9"><a href="reactives.html#cb66-9" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(</span>
-<span id="cb66-10"><a href="reactives.html#cb66-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">"Plot"</span>,</span>
-<span id="cb66-11"><a href="reactives.html#cb66-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">solidHeader =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb66-12"><a href="reactives.html#cb66-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textOutput</span>(<span class="st">"title"</span>),</span>
-<span id="cb66-13"><a href="reactives.html#cb66-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">"plot"</span>)</span>
-<span id="cb66-14"><a href="reactives.html#cb66-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="reactives.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(</span>
+<span id="cb65-2"><a href="reactives.html#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">"Diamonds"</span>,</span>
+<span id="cb65-3"><a href="reactives.html#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">solidHeader =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb65-4"><a href="reactives.html#cb65-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">"cut"</span>, <span class="st">"Cut"</span>, <span class="fu">levels</span>(diamonds<span class="sc">$</span>cut)),</span>
+<span id="cb65-5"><a href="reactives.html#cb65-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">"color"</span>, <span class="st">"Color"</span>, <span class="fu">levels</span>(diamonds<span class="sc">$</span>color)),</span>
+<span id="cb65-6"><a href="reactives.html#cb65-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">"clarity"</span>, <span class="st">"Clarity"</span>, <span class="fu">levels</span>(diamonds<span class="sc">$</span>clarity)),</span>
+<span id="cb65-7"><a href="reactives.html#cb65-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">actionButton</span>(<span class="st">"update"</span>, <span class="st">"Update Plot"</span>)</span>
+<span id="cb65-8"><a href="reactives.html#cb65-8" aria-hidden="true" tabindex="-1"></a>),</span>
+<span id="cb65-9"><a href="reactives.html#cb65-9" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(</span>
+<span id="cb65-10"><a href="reactives.html#cb65-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">"Plot"</span>,</span>
+<span id="cb65-11"><a href="reactives.html#cb65-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">solidHeader =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb65-12"><a href="reactives.html#cb65-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textOutput</span>(<span class="st">"title"</span>),</span>
+<span id="cb65-13"><a href="reactives.html#cb65-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">"plot"</span>)</span>
+<span id="cb65-14"><a href="reactives.html#cb65-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>Whenever an input changes, it will trigger some types of functions to run.</p>
 <div id="render-functions" class="section level2" number="5.1">
 <h2>
 <span class="header-section-number">5.1</span> Render functions<a class="anchor" aria-label="anchor" href="#render-functions"><i class="fas fa-link"></i></a>
 </h2>
 <p>Functions that render an output, like <code><span class="fu">renderText</span>()</code> or <code><span class="fu">renderPlot</span>()</code> will run whenever an input in their code changes. You can trigger a render function just by putting a reactive alone on a line, even if you aren't using it in the rest of the code.</p>
-<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">output</span><span class="op">$</span><span class="va">plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span><span class="op">(</span><span class="op">{</span>
     <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">diamonds</span>,
@@ -154,7 +157,7 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code><a href="
 </h2>
 <p>If you move the <code>data</code> filtering outside of <code><span class="fu">renderPlot</span>()</code>, you'll get an error message like "Can't access reactive value 'cut' outside of reactive consumer." This means that the <code>input</code> values can only be read inside certain functions, like <code><span class="fu">reactive</span>()</code>, <code><span class="fu">observeEvent</span>()</code>, or a render function.</p>
 <p>However, we can put the data filtering inside <code><span class="fu">reactive</span>()</code>. This means that whenever an input inside that function changes, the code will run and update the value of <code><span class="fu">data</span>()</code>. This can be useful if you need to recalculate the data table each time the inputs change, and then use it in more than one function.</p>
-<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span><span class="op">(</span><span class="op">{</span>
     <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">diamonds</span>,
@@ -193,7 +196,7 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code><a href="
 <option value="answer">cut, color &amp; clarity</option>
 <option value="">all of the above</option></select></p>
 <div class="warning">
-<p>My most common error is trying to use <code>data</code> or <code>title</code> as an object instead of as a function. Notice how the first argument to ggplot is no longer <code>data</code>, but <code><span class="fu">data</span>()</code> and you set the value of data with <code><a href="https://rdrr.io/r/utils/data.html">data(newdata)</a></code>, not <code>data &lt;- newdata</code>. For now, just remember this as a quirk of shiny.</p>
+<p>My most common error is trying to use <code>data</code> or <code>title</code> as an object instead of as a function. Notice how the first argument to ggplot is no longer <code>data</code>, but <code><span class="fu">data</span>()</code> and you set the value of data with <code>data(newdata)</code>, not <code>data &lt;- newdata</code>. For now, just remember this as a quirk of shiny.</p>
 </div>
 </div>
 <div id="observeevent-1" class="section level2" number="5.3">
@@ -202,7 +205,7 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code><a href="
 </h2>
 <p>What if you only want to update things when the update button is clicked, and not whenever the user changes an option?</p>
 <p>We learned about <code><span class="fu">observeEvent</span>()</code> in Section <a href="first-app.html#first-reactive">1.4</a>. This function runs the code whenever the value of the first argument changes. If there are reactive values inside the function, they won't trigger the code to run when they change.</p>
-<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update</span>, <span class="op">{</span>
     <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">diamonds</span>,
@@ -249,9 +252,9 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code><a href="
 <span class="header-section-number">5.4</span> reactiveVal()<a class="anchor" aria-label="anchor" href="#reactiveval"><i class="fas fa-link"></i></a>
 </h2>
 <p>You can avoid the problem above of defining a render function inside a reactive function by creating a reactive value using <code><span class="fu">reactiveVal</span>()</code>. This allows you to update the value of <code><span class="fu">data</span>()</code> not just using the code inside the <code><span class="fu">observeEvent</span>()</code> function that created it, but in any function. This is useful when you have multiple functions that need to update that value.</p>
-<p>Here, we use <code><span class="fu">observeEvent</span>()</code> to trigger the data filtering code only when the update button is pressed. This new data set is assigned to <code><span class="fu">data</span>()</code> using the code <code><a href="https://rdrr.io/r/utils/data.html">data(newdata)</a></code>.</p>
+<p>Here, we use <code><span class="fu">observeEvent</span>()</code> to trigger the data filtering code only when the update button is pressed. This new data set is assigned to <code><span class="fu">data</span>()</code> using the code <code>data(newdata)</code>.</p>
 <p>Because <code><span class="fu">data</span>()</code> returns a reactive value, it will trigger <code><span class="fu">renderPlot</span>()</code> whenever it changes.</p>
-<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
     <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveVal.html">reactiveVal</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">)</span>
     <span class="va">title</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveVal.html">reactiveVal</a></span><span class="op">(</span><span class="op">)</span>
@@ -303,7 +306,7 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code><a href="
 </h2>
 <p>You need to set up a new <code><span class="fu">reactiveVal</span>()</code> for each value in an app that you want to make reactive. I prefer to use <code><span class="fu">reactiveValues</span>()</code> because it can be used for any new reactive value you need and works just like <code>input</code>, except you can assign new values to it.</p>
 <p>You can just set your new object to <code><span class="fu">reactiveValues</span>()</code> or you can initialise it with starting values like below. The object <code>v</code> is a named list, just like <code>input</code>, and when its values change, it triggers reactive functions exactly like <code>input</code> does.</p>
-<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
     <span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveValues.html">reactiveValues</a></span><span class="op">(</span>
         data <span class="op">=</span> <span class="va">diamonds</span>,
@@ -353,7 +356,7 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code><a href="
 <span class="header-section-number">5.6</span> eventReactive()<a class="anchor" aria-label="anchor" href="#eventreactive"><i class="fas fa-link"></i></a>
 </h2>
 <p>While <code><span class="fu">reactive</span>()</code> is triggered whenever any input values inside it change, <code><span class="fu">eventReactive</span>()</code> is only triggered when the value of the first argument changes, like <code><span class="fu">observeEvent</span>()</code>, but returns a reactive function like <code><span class="fu">reactive</span>()</code>.</p>
-<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">eventReactive</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update</span>, <span class="op">{</span>
     <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">diamonds</span>,
@@ -399,7 +402,7 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code><a href="
 <span class="header-section-number">5.7</span> isolate()<a class="anchor" aria-label="anchor" href="#isolate"><i class="fas fa-link"></i></a>
 </h2>
 <p>If you want to use an input or reactive value inside a reactive function, but don't want to trigger that function, you can <code><span class="fu">isolate</span>()</code> it. You can also use <code><span class="fu">isolate</span>()</code> to get a reactive value outside a reactive function.</p>
-<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span><span class="op">(</span><span class="op">{</span>
     <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span>
@@ -461,79 +464,163 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code><a href="
 <span class="header-section-number">5.9</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-reactive"><i class="fas fa-link"></i></a>
 </h2>
 <p>For the following exercises, clone "reactive_demo" and replace the boxes in the ui with the code below. Delete all the code in <code><span class="fu">server</span>()</code>. Make sure this runs before you go ahead.</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="reactives.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(<span class="at">width =</span> <span class="dv">4</span>,</span>
-<span id="cb74-2"><a href="reactives.html#cb74-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">selectInput</span>(<span class="st">"stat"</span>, <span class="st">"Statistic"</span>, <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>)),</span>
-<span id="cb74-3"><a href="reactives.html#cb74-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">selectInput</span>(<span class="st">"group"</span>, <span class="st">"Group By"</span>, <span class="fu">c</span>(<span class="st">"vore"</span>, <span class="st">"order"</span>, <span class="st">"conservation"</span>)),</span>
-<span id="cb74-4"><a href="reactives.html#cb74-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">actionButton</span>(<span class="st">"update"</span>, <span class="st">"Update Table"</span>)),</span>
-<span id="cb74-5"><a href="reactives.html#cb74-5" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(<span class="at">width =</span> <span class="dv">8</span>,</span>
-<span id="cb74-6"><a href="reactives.html#cb74-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">solidHeader =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb74-7"><a href="reactives.html#cb74-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">textOutput</span>(<span class="st">"caption"</span>),</span>
-<span id="cb74-8"><a href="reactives.html#cb74-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tableOutput</span>(<span class="st">"table"</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="reactives.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(<span class="at">width =</span> <span class="dv">4</span>,</span>
+<span id="cb73-2"><a href="reactives.html#cb73-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">selectInput</span>(<span class="st">"stat"</span>, <span class="st">"Statistic"</span>, <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>)),</span>
+<span id="cb73-3"><a href="reactives.html#cb73-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">selectInput</span>(<span class="st">"group"</span>, <span class="st">"Group By"</span>, <span class="fu">c</span>(<span class="st">"vore"</span>, <span class="st">"order"</span>, <span class="st">"conservation"</span>)),</span>
+<span id="cb73-4"><a href="reactives.html#cb73-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">actionButton</span>(<span class="st">"update"</span>, <span class="st">"Update Table"</span>)),</span>
+<span id="cb73-5"><a href="reactives.html#cb73-5" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(<span class="at">width =</span> <span class="dv">8</span>,</span>
+<span id="cb73-6"><a href="reactives.html#cb73-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">solidHeader =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb73-7"><a href="reactives.html#cb73-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">textOutput</span>(<span class="st">"caption"</span>),</span>
+<span id="cb73-8"><a href="reactives.html#cb73-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tableOutput</span>(<span class="st">"table"</span>))</span></code></pre></div>
 <p>You will grouping and summarising the <code>msleep</code> data table from <code class="package">ggplot2</code> by calculating the mean or standard deviation for all (or some) of the numeric columns grouped by the categorical columns <code>vore</code>, <code>order</code>, or <code>conservation</code>. If you're not sure how to create such a summary table with <code class="package">dplyr</code>, look at the following code for a concrete example.</p>
 <div class="webex-solution">
 <button>
 Hint
 </button>
-<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">msleep</span> <span class="op">%&gt;%</span>
   <span class="fu">group_by</span><span class="op">(</span><span class="va">vore</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">summarise_if</span><span class="op">(</span><span class="va">is.numeric</span>, <span class="st">"mean"</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <div class="kable-table">
 <div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
-<th align="left">vore</th>
-<th align="right">sleep_total</th>
-<th align="right">sleep_rem</th>
-<th align="right">sleep_cycle</th>
-<th align="right">awake</th>
-<th align="right">brainwt</th>
-<th align="right">bodywt</th>
+<thead><tr>
+<th style="text-align:left;">
+vore
+</th>
+<th style="text-align:right;">
+sleep_total
+</th>
+<th style="text-align:right;">
+sleep_rem
+</th>
+<th style="text-align:right;">
+sleep_cycle
+</th>
+<th style="text-align:right;">
+awake
+</th>
+<th style="text-align:right;">
+brainwt
+</th>
+<th style="text-align:right;">
+bodywt
+</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
-<td align="left">carni</td>
-<td align="right">10.378947</td>
-<td align="right">2.290000</td>
-<td align="right">0.3733333</td>
-<td align="right">13.62632</td>
-<td align="right">0.0792556</td>
-<td align="right">90.75111</td>
+<tr>
+<td style="text-align:left;">
+carni
+</td>
+<td style="text-align:right;">
+10.378947
+</td>
+<td style="text-align:right;">
+2.290000
+</td>
+<td style="text-align:right;">
+0.3733333
+</td>
+<td style="text-align:right;">
+13.62632
+</td>
+<td style="text-align:right;">
+0.0792556
+</td>
+<td style="text-align:right;">
+90.75111
+</td>
 </tr>
-<tr class="even">
-<td align="left">herbi</td>
-<td align="right">9.509375</td>
-<td align="right">1.366667</td>
-<td align="right">0.4180556</td>
-<td align="right">14.49062</td>
-<td align="right">0.6215975</td>
-<td align="right">366.87725</td>
+<tr>
+<td style="text-align:left;">
+herbi
+</td>
+<td style="text-align:right;">
+9.509375
+</td>
+<td style="text-align:right;">
+1.366667
+</td>
+<td style="text-align:right;">
+0.4180556
+</td>
+<td style="text-align:right;">
+14.49062
+</td>
+<td style="text-align:right;">
+0.6215975
+</td>
+<td style="text-align:right;">
+366.87725
+</td>
 </tr>
-<tr class="odd">
-<td align="left">insecti</td>
-<td align="right">14.940000</td>
-<td align="right">3.525000</td>
-<td align="right">0.1611111</td>
-<td align="right">9.06000</td>
-<td align="right">0.0215500</td>
-<td align="right">12.92160</td>
+<tr>
+<td style="text-align:left;">
+insecti
+</td>
+<td style="text-align:right;">
+14.940000
+</td>
+<td style="text-align:right;">
+3.525000
+</td>
+<td style="text-align:right;">
+0.1611111
+</td>
+<td style="text-align:right;">
+9.06000
+</td>
+<td style="text-align:right;">
+0.0215500
+</td>
+<td style="text-align:right;">
+12.92160
+</td>
 </tr>
-<tr class="even">
-<td align="left">omni</td>
-<td align="right">10.925000</td>
-<td align="right">1.955556</td>
-<td align="right">0.5924242</td>
-<td align="right">13.07500</td>
-<td align="right">0.1457312</td>
-<td align="right">12.71800</td>
+<tr>
+<td style="text-align:left;">
+omni
+</td>
+<td style="text-align:right;">
+10.925000
+</td>
+<td style="text-align:right;">
+1.955556
+</td>
+<td style="text-align:right;">
+0.5924242
+</td>
+<td style="text-align:right;">
+13.07500
+</td>
+<td style="text-align:right;">
+0.1457312
+</td>
+<td style="text-align:right;">
+12.71800
+</td>
 </tr>
-<tr class="odd">
-<td align="left">NA</td>
-<td align="right">10.185714</td>
-<td align="right">1.880000</td>
-<td align="right">0.1833333</td>
-<td align="right">13.81429</td>
-<td align="right">0.0076260</td>
-<td align="right">0.85800</td>
+<tr>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+10.185714
+</td>
+<td style="text-align:right;">
+1.880000
+</td>
+<td style="text-align:right;">
+0.1833333
+</td>
+<td style="text-align:right;">
+13.81429
+</td>
+<td style="text-align:right;">
+0.0076260
+</td>
+<td style="text-align:right;">
+0.85800
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -547,7 +634,7 @@ Hint
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">output</span><span class="op">$</span><span class="va">table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html">renderTable</a></span><span class="op">(</span><span class="op">{</span>
     <span class="va">msleep</span> <span class="op">%&gt;%</span>
@@ -569,7 +656,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span><span class="op">(</span><span class="op">{</span>
     <span class="va">msleep</span> <span class="op">%&gt;%</span>
@@ -593,7 +680,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update</span>, <span class="op">{</span>
     <span class="va">data</span> <span class="op">&lt;-</span> <span class="va">msleep</span> <span class="op">%&gt;%</span>
@@ -616,7 +703,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveVal.html">reactiveVal</a></span><span class="op">(</span><span class="op">)</span>
   <span class="va">caption</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveVal.html">reactiveVal</a></span><span class="op">(</span><span class="op">)</span>
@@ -646,7 +733,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveValues.html">reactiveValues</a></span><span class="op">(</span><span class="op">)</span>
   
@@ -672,7 +759,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">eventReactive</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update</span>, <span class="op">{</span>
     <span class="va">msleep</span> <span class="op">%&gt;%</span>
@@ -928,8 +1015,8 @@ $( document ).ready(function() {
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/pdebruine/shinyintro/blob/master/book/05_reactive.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/pdebruine/shinyintro/edit/master/book/05_reactive.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/debruine/shinyintro/blob/master/book/05_reactive.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/debruine/shinyintro/edit/master/book/05_reactive.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -941,7 +1028,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Building Web Apps with R Shiny</strong>" was written by Lisa DeBruine. It was last built on 2021-10-13.</p>
+    <p>"<strong>Building Web Apps with R Shiny</strong>: <a href="/shinyintro.pdf">PDF</a> | <a href="/shinyintro.mobi">MOBI</a>" was written by Lisa DeBruine. It was last built on 2022-03-28.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
