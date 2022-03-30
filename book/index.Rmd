@@ -1,6 +1,6 @@
 --- 
 title: "Building Web Apps with R Shiny"
-subtitle: "[<a href='/shinyintro.pdf'>PDF</a> | <a href='/shinyintro.epub'>EPUB</a> | <a href='/shinyintro.mobi'>MOBI</a>]"
+subtitle: "[<a href='/shinyintro/shinyintro.pdf'>PDF</a> | <a href='/shinyintro/shinyintro.epub'>EPUB</a> | <a href='/shinyintro/shinyintro.mobi'>MOBI</a>]"
 author: "Lisa DeBruine"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
