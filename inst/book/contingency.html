@@ -1,95 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <title>6 Contingent Display | Building Web Apps with R Shiny</title>
-
-    <meta name="author" content="Lisa DeBruine" />
-  
-   <meta name="description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
-   <meta name="generator" content="placeholder" />
-  <meta property="og:title" content="6 Contingent Display | Building Web Apps with R Shiny" />
-  <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://debruine.github.io/shinyintro/" />
-  <meta property="og:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png" />
-  <meta property="og:description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 Contingent Display | Building Web Apps with R Shiny" />
-  
-  <meta name="twitter:description" content="This class will teach you the basics of Shiny app programming, giving you skills that will form the basis of almost any app you want to build. By the end of the class, you will have created a custom app that collects and saves data, allows users to dynamically visualize the data, and produces downloadable reports." />
-  <meta name="twitter:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png" />
-  <!-- JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
-    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
-    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
-    <script src="libs/bs3compat-0.3.1/transition.js"></script>
-    <script src="libs/bs3compat-0.3.1/tabs.js"></script>
-    <script src="libs/bs3compat-0.3.1/bs3compat.js"></script>
-    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
-    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script>
-    <script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>10 Contingent Display | Building Web Apps with R Shiny</title>
+<meta name="author" content="Lisa DeBruine">
+<meta name="description" content='Figure 10.1: Contingency Demo App. You can also access this app with shinyintro::app("contingency_demo")or view it in a separate tab with the showcase interface.   10.1 Hide and Show I frequently...'>
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="10 Contingent Display | Building Web Apps with R Shiny">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://debruine.github.io/shinyintro/contingency.html">
+<meta property="og:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png">
+<meta property="og:description" content='Figure 10.1: Contingency Demo App. You can also access this app with shinyintro::app("contingency_demo")or view it in a separate tab with the showcase interface.   10.1 Hide and Show I frequently...'>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="10 Contingent Display | Building Web Apps with R Shiny">
+<meta name="twitter:description" content='Figure 10.1: Contingency Demo App. You can also access this app with shinyintro::app("contingency_demo")or view it in a separate tab with the showcase interface.   10.1 Hide and Show I frequently...'>
+<meta name="twitter:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.12/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-6NP3MF25W3');
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
-
-  <!-- CSS -->
-  <style type="text/css">
-    
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  </style>
-    <style type="text/css">
-    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-        }
-    .hanging div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }
-  </style>
-      <link rel="stylesheet" href="include/psyteachr.css" />
-    <link rel="stylesheet" href="include/webex.css" />
-    <link rel="stylesheet" href="include/style.css" />
-  
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="include/psyteachr.css">
+<link rel="stylesheet" href="include/webex.css">
+<link rel="stylesheet" href="include/style.css">
 </head>
-
 <body data-spy="scroll" data-target="#toc">
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
-    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="[<a href='/shinyintro.pdf'>PDF</a> | <a href='/shinyintro.epub'>EPUB</a> | <a href='/shinyintro.mobi'>MOBI</a>]">Building Web Apps with R Shiny</a>:
-        <small class="text-muted">[<a href='/shinyintro.pdf'>PDF</a> | <a href='/shinyintro.epub'>EPUB</a> | <a href='/shinyintro.mobi'>MOBI</a>]</small>
+        <a href="index.html" title="[&lt;a href='/shinyintro/shinyintro.pdf'&gt;PDF&lt;/a&gt; | &lt;a href='/shinyintro/shinyintro.epub'&gt;EPUB&lt;/a&gt; | &lt;a href='/shinyintro/shinyintro.mobi'&gt;MOBI&lt;/a&gt;]">Building Web Apps with R Shiny</a>:
+        <small class="text-muted">[<a href="/shinyintro/shinyintro.pdf">PDF</a> | <a href="/shinyintro/shinyintro.epub">EPUB</a> | <a href="/shinyintro/shinyintro.mobi">MOBI</a>]</small>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -97,201 +48,254 @@
     <div id="main-nav" class="collapse-lg">
       <form role="search">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-      </form>
+</form>
 
-      <nav aria-label="Table of contents">
-        <h2>Table of contents</h2>
-        <div id="book-toc"></div>
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Overview</a></li>
+<li><a class="" href="first-app.html"><span class="header-section-number">1</span> Your First Shiny App</a></li>
+<li><a class="" href="shinydashboard.html"><span class="header-section-number">2</span> ShinyDashboard</a></li>
+<li><a class="" href="inputs.html"><span class="header-section-number">3</span> Inputs</a></li>
+<li><a class="" href="outputs.html"><span class="header-section-number">4</span> Outputs</a></li>
+<li><a class="" href="reactives.html"><span class="header-section-number">5</span> Reactive functions</a></li>
+<li><a class="" href="data.html"><span class="header-section-number">6</span> Reading and saving data</a></li>
+<li><a class="" href="web.html"><span class="header-section-number">7</span> HTML, CSS, and JavaScript</a></li>
+<li><a class="" href="structure.html"><span class="header-section-number">8</span> Structuring a complex app</a></li>
+<li><a class="" href="debugging.html"><span class="header-section-number">9</span> Debugging and error handling</a></li>
+<li><a class="active" href="contingency.html"><span class="header-section-number">10</span> Contingent Display</a></li>
+<li><a class="" href="sharing.html"><span class="header-section-number">11</span> Sharing your Apps</a></li>
+<li><a class="" href="reports.html"><span class="header-section-number">12</span> Customized reports</a></li>
+<li><a class="" href="modules.html"><span class="header-section-number">13</span> Shiny modules for repeated structures</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing and Updating</a></li>
+<li><a class="" href="conventions.html"><span class="header-section-number">B</span> Conventions</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">C</span> Symbols</a></li>
+<li><a class="" href="glossary.html"><span class="header-section-number">D</span> Glossary</a></li>
+</ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+          <p><a id="book-repo" href="https://github.com/debruine/shinyintro">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
-    </div>
-  </header>
-
-  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
-<div id="contingency" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Contingent Display</h1>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:contingency-demo-app"></span>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="contingency" class="section level1" number="10">
+<h1>
+<span class="header-section-number">10</span> Contingent Display<a class="anchor" aria-label="anchor" href="#contingency"><i class="fas fa-link"></i></a>
+</h1>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:contingency-demo-app"></span>
 <iframe src="https://shiny.psy.gla.ac.uk/debruine/contingency_demo/?showcase=0" width="100%" height="600px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 6.1: Contingency Demo App. You can also access this app with <code>shinyintro::app("contingency_demo")</code>or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/contingency_demo/" target="_blank">showcase interface</a>.
+Figure 10.1: Contingency Demo App. You can also access this app with <code>shinyintro::app("contingency_demo")</code>or view it in a separate tab with the <a href="https://shiny.psy.gla.ac.uk/debruine/contingency_demo/" target="_blank">showcase interface</a>.
 </p>
 </div>
-<div id="hide-and-show" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Hide and Show</h2>
-<p>I frequently want to make some aspect of a shiny app contingent on the state of another aspect, such as only showing a text input of the value of a select input is "other". You can use the <code><span class="fu">hide</span>()</code> and <code><span class="fu">show</span>()</code> functions from <code class='package'>shinyjs</code> to accomplish this easily.</p>
+<div id="hide-and-show" class="section level2" number="10.1">
+<h2>
+<span class="header-section-number">10.1</span> Hide and Show<a class="anchor" aria-label="anchor" href="#hide-and-show"><i class="fas fa-link"></i></a>
+</h2>
+<p>I frequently want to make some aspect of a shiny app contingent on the state of another aspect, such as only showing a text input of the value of a select input is "other". You can use the <code><span class="fu">hide</span>()</code> and <code><span class="fu">show</span>()</code> functions from <code class="package">shinyjs</code> to accomplish this easily.</p>
 <p>When you set up the UI, wrap any elements that should be hidden at the start in <code><span class="fu">hidden</span>()</code>.</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="contingency.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the ui</span></span>
-<span id="cb78-2"><a href="contingency.html#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(<span class="at">title =</span> <span class="st">&quot;Questions&quot;</span>,</span>
-<span id="cb78-3"><a href="contingency.html#cb78-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">solidHeader =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb78-4"><a href="contingency.html#cb78-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">selectInput</span>(<span class="st">&quot;first_pet&quot;</span>, <span class="st">&quot;What was your first pet?&quot;</span>, </span>
-<span id="cb78-5"><a href="contingency.html#cb78-5" aria-hidden="true" tabindex="-1"></a>                <span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;cat&quot;</span>, <span class="st">&quot;ferret&quot;</span>, <span class="st">&quot;other&quot;</span>)),</span>
-<span id="cb78-6"><a href="contingency.html#cb78-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hidden</span>(<span class="fu">textInput</span>(<span class="st">&quot;first_pet_other&quot;</span>, <span class="cn">NULL</span>, </span>
-<span id="cb78-7"><a href="contingency.html#cb78-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">placeholder =</span> <span class="st">&quot;Specify the other pet&quot;</span>))</span>
-<span id="cb78-8"><a href="contingency.html#cb78-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># in the ui</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/box.html">box</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Questions"</span>,
+    solidHeader <span class="op">=</span> <span class="cn">TRUE</span>,
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/selectInput.html">selectInput</a></span><span class="op">(</span><span class="st">"first_pet"</span>, <span class="st">"What was your first pet?"</span>, 
+                <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"ferret"</span>, <span class="st">"other"</span><span class="op">)</span><span class="op">)</span>,
+    <span class="fu">hidden</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textInput.html">textInput</a></span><span class="op">(</span><span class="st">"first_pet_other"</span>, <span class="cn">NULL</span>, 
+                     placeholder <span class="op">=</span> <span class="st">"Specify the other pet"</span><span class="op">)</span><span class="op">)</span>
+<span class="op">)</span></code></pre></div>
 <p>Then set up the hide and show logic in <code><span class="fu">server</span>()</code>.</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="contingency.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in the server</span></span>
-<span id="cb79-2"><a href="contingency.html#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">observeEvent</span>(input<span class="sc">$</span>first_pet, {</span>
-<span id="cb79-3"><a href="contingency.html#cb79-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (input<span class="sc">$</span>first_pet <span class="sc">==</span> <span class="st">&quot;other&quot;</span>) {</span>
-<span id="cb79-4"><a href="contingency.html#cb79-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">show</span>(<span class="st">&quot;first_pet_other&quot;</span>)</span>
-<span id="cb79-5"><a href="contingency.html#cb79-5" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb79-6"><a href="contingency.html#cb79-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">hide</span>(<span class="st">&quot;first_pet_other&quot;</span>)</span>
-<span id="cb79-7"><a href="contingency.html#cb79-7" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb79-8"><a href="contingency.html#cb79-8" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
-<div id="groups" class="section level3" number="6.1.1">
-<h3><span class="header-section-number">6.1.1</span> Groups</h3>
+<div class="sourceCode" id="cb140"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># in the server</span>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">first_pet</span>, <span class="op">{</span>
+    <span class="kw">if</span> <span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">first_pet</span> <span class="op">==</span> <span class="st">"other"</span><span class="op">)</span> <span class="op">{</span>
+        <span class="fu"><a href="https://rdrr.io/r/methods/show.html">show</a></span><span class="op">(</span><span class="st">"first_pet_other"</span><span class="op">)</span>
+    <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
+        <span class="fu">hide</span><span class="op">(</span><span class="st">"first_pet_other"</span><span class="op">)</span>
+    <span class="op">}</span>
+<span class="op">}</span><span class="op">)</span></code></pre></div>
+<div id="groups" class="section level3" number="10.1.1">
+<h3>
+<span class="header-section-number">10.1.1</span> Groups<a class="anchor" aria-label="anchor" href="#groups"><i class="fas fa-link"></i></a>
+</h3>
 <p>Sometimes you need to hide and show a group of elements, depending on something else. You can wrap the grouped elements in a div tag with an id and hide and show that id.</p>
 <p>For example, it doesn't make sense to show the questions above to someone who has never had a pet. Add a <code><span class="fu">selectInput</span>()</code> before the previous two questions, and then wrap those questions in <code><span class="fu">tags$div</span>()</code> with an id of <code><span class="st">"first_pet_grp"</span></code></p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="contingency.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># replace in ui</span></span>
-<span id="cb80-2"><a href="contingency.html#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(</span>
-<span id="cb80-3"><a href="contingency.html#cb80-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Questions&quot;</span>,</span>
-<span id="cb80-4"><a href="contingency.html#cb80-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">solidHeader =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb80-5"><a href="contingency.html#cb80-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;had_pet&quot;</span>, <span class="st">&quot;Have you ever had a pet?&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>)),</span>
-<span id="cb80-6"><a href="contingency.html#cb80-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hidden</span>(tags<span class="sc">$</span><span class="fu">div</span>(</span>
-<span id="cb80-7"><a href="contingency.html#cb80-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="st">&quot;first_pet_grp&quot;</span>,</span>
-<span id="cb80-8"><a href="contingency.html#cb80-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">selectInput</span>(<span class="st">&quot;first_pet&quot;</span>, <span class="st">&quot;What was your first pet?&quot;</span>,</span>
-<span id="cb80-9"><a href="contingency.html#cb80-9" aria-hidden="true" tabindex="-1"></a>                <span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;cat&quot;</span>, <span class="st">&quot;ferret&quot;</span>, <span class="st">&quot;other&quot;</span>)),</span>
-<span id="cb80-10"><a href="contingency.html#cb80-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">textInput</span>(<span class="st">&quot;first_pet_other&quot;</span>, <span class="cn">NULL</span>,</span>
-<span id="cb80-11"><a href="contingency.html#cb80-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">placeholder =</span> <span class="st">&quot;Specify the other pet&quot;</span>)</span>
-<span id="cb80-12"><a href="contingency.html#cb80-12" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb80-13"><a href="contingency.html#cb80-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># replace in ui</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/box.html">box</a></span><span class="op">(</span>
+  title <span class="op">=</span> <span class="st">"Questions"</span>,
+  solidHeader <span class="op">=</span> <span class="cn">TRUE</span>,
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/selectInput.html">selectInput</a></span><span class="op">(</span><span class="st">"had_pet"</span>, <span class="st">"Have you ever had a pet?"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span><span class="op">)</span><span class="op">)</span>,
+  <span class="fu">hidden</span><span class="op">(</span><span class="va">tags</span><span class="op">$</span><span class="fu">div</span><span class="op">(</span>
+    id <span class="op">=</span> <span class="st">"first_pet_grp"</span>,
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/selectInput.html">selectInput</a></span><span class="op">(</span><span class="st">"first_pet"</span>, <span class="st">"What was your first pet?"</span>,
+                <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"ferret"</span>, <span class="st">"other"</span><span class="op">)</span><span class="op">)</span>,
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textInput.html">textInput</a></span><span class="op">(</span><span class="st">"first_pet_other"</span>, <span class="cn">NULL</span>,
+              placeholder <span class="op">=</span> <span class="st">"Specify the other pet"</span><span class="op">)</span>
+  <span class="op">)</span><span class="op">)</span>
+<span class="op">)</span></code></pre></div>
 <p>Then add the following code to the server function to hide or show <code>first_pet_grp</code> depending on the value of <code>had_pet</code>. The server code above will take care of whether or not <code>first_pet_other</code> is visible.</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="contingency.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add to server</span></span>
-<span id="cb81-2"><a href="contingency.html#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="fu">observeEvent</span>(input<span class="sc">$</span>had_pet, {</span>
-<span id="cb81-3"><a href="contingency.html#cb81-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (input<span class="sc">$</span>had_pet <span class="sc">==</span> <span class="st">&quot;Yes&quot;</span>) {</span>
-<span id="cb81-4"><a href="contingency.html#cb81-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">show</span>(<span class="st">&quot;first_pet_grp&quot;</span>)</span>
-<span id="cb81-5"><a href="contingency.html#cb81-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb81-6"><a href="contingency.html#cb81-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hide</span>(<span class="st">&quot;first_pet_grp&quot;</span>)</span>
-<span id="cb81-7"><a href="contingency.html#cb81-7" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb81-8"><a href="contingency.html#cb81-8" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># add to server</span>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">had_pet</span>, <span class="op">{</span>
+  <span class="kw">if</span> <span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">had_pet</span> <span class="op">==</span> <span class="st">"Yes"</span><span class="op">)</span> <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/r/methods/show.html">show</a></span><span class="op">(</span><span class="st">"first_pet_grp"</span><span class="op">)</span>
+  <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
+    <span class="fu">hide</span><span class="op">(</span><span class="st">"first_pet_grp"</span><span class="op">)</span>
+  <span class="op">}</span>
+<span class="op">}</span><span class="op">)</span></code></pre></div>
 <div class="try">
 <p>Try to figure out what could go wrong if you didn't wrap "first_pet" and "first_pet_other" in a group, and instead just hid or showed "first_pet" and "first_pet_other" depending on the value of <code>has_pet</code>?</p>
 </div>
 </div>
-<div id="toggle" class="section level3" number="6.1.2">
-<h3><span class="header-section-number">6.1.2</span> Toggle</h3>
+<div id="toggle" class="section level3" number="10.1.2">
+<h3>
+<span class="header-section-number">10.1.2</span> Toggle<a class="anchor" aria-label="anchor" href="#toggle"><i class="fas fa-link"></i></a>
+</h3>
 <p>Sometimes you need to change the visibility of an element when something happens, rather than specifically hide or show it. You can use <code><span class="fu">toggle</span>()</code> to hide an element if it's visible and show it if it's hidden.</p>
 <p>Add an <code><span class="fu">actionButton</span>()</code> to the sidebar menu (not inside the box) and give the box an <code><span class="at">id</span></code> of <code><span class="st">"pet_box"</span></code>. Any element that you might want to refer to in the code needs an <code><span class="at">id</span></code>.</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="contingency.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add to ui</span></span>
-<span id="cb82-2"><a href="contingency.html#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="fu">actionButton</span>(<span class="st">&quot;toggle_pet_box&quot;</span>, <span class="st">&quot;Toggle Pet Questions&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># add to ui</span>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"toggle_pet_box"</span>, <span class="st">"Toggle Pet Questions"</span><span class="op">)</span></code></pre></div>
 <p>Now, whenever you click the "toggle_pet_box" button, the contents of "pet_box" will toggle their visibility.</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="contingency.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add to server</span></span>
-<span id="cb83-2"><a href="contingency.html#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="fu">observeEvent</span>(input<span class="sc">$</span>toggle_pet_box, {</span>
-<span id="cb83-3"><a href="contingency.html#cb83-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">toggle</span>(<span class="st">&quot;pet_box&quot;</span>)</span>
-<span id="cb83-4"><a href="contingency.html#cb83-4" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># add to server</span>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">toggle_pet_box</span>, <span class="op">{</span>
+  <span class="fu">toggle</span><span class="op">(</span><span class="st">"pet_box"</span><span class="op">)</span>
+<span class="op">}</span><span class="op">)</span></code></pre></div>
 <div class="try">
 <p>What would go wrong if you put the button inside the box?</p>
 </div>
 </div>
 </div>
-<div id="changing-styles" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Changing Styles</h2>
+<div id="changing-styles" class="section level2" number="10.2">
+<h2>
+<span class="header-section-number">10.2</span> Changing Styles<a class="anchor" aria-label="anchor" href="#changing-styles"><i class="fas fa-link"></i></a>
+</h2>
 <p>You can use <code><span class="fu">addClass</span>()</code>, <code><span class="fu">removeClass</span>()</code>, and <code><span class="fu">toggleClass</span>()</code> to change element classes. You usually want to do this with classes you've defined yourself.</p>
-<p>Add the following style to the <code class='path'>www/custom.css</code> file.</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="contingency.html#cb84-1" aria-hidden="true" tabindex="-1"></a>.notice<span class="sc">-</span>me {</span>
-<span id="cb84-2"><a href="contingency.html#cb84-2" aria-hidden="true" tabindex="-1"></a>  color<span class="sc">:</span> red;</span>
-<span id="cb84-3"><a href="contingency.html#cb84-3" aria-hidden="true" tabindex="-1"></a>  text<span class="sc">-</span>decoration<span class="sc">:</span> underline;</span>
-<span id="cb84-4"><a href="contingency.html#cb84-4" aria-hidden="true" tabindex="-1"></a>  font<span class="sc">-</span>weight<span class="sc">:</span> <span class="dv">800</span>;</span>
-<span id="cb84-5"><a href="contingency.html#cb84-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Add the following style to the <code class="path">www/custom.css</code> file.</p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="contingency.html#cb145-1" aria-hidden="true" tabindex="-1"></a>.notice<span class="sc">-</span>me {</span>
+<span id="cb145-2"><a href="contingency.html#cb145-2" aria-hidden="true" tabindex="-1"></a>  color<span class="sc">:</span> red;</span>
+<span id="cb145-3"><a href="contingency.html#cb145-3" aria-hidden="true" tabindex="-1"></a>  text<span class="sc">-</span>decoration<span class="sc">:</span> underline;</span>
+<span id="cb145-4"><a href="contingency.html#cb145-4" aria-hidden="true" tabindex="-1"></a>  font<span class="sc">-</span>weight<span class="sc">:</span> <span class="dv">800</span>;</span>
+<span id="cb145-5"><a href="contingency.html#cb145-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>And add this box to the ui:</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="contingency.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(<span class="at">title =</span> <span class="st">&quot;Notice&quot;</span>, <span class="at">solidHeader =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb85-2"><a href="contingency.html#cb85-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">p</span>(<span class="at">id =</span> <span class="st">&quot;notice_text&quot;</span>, <span class="st">&quot;Please pay attention to this text.&quot;</span>),</span>
-<span id="cb85-3"><a href="contingency.html#cb85-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">actionButton</span>(<span class="st">&quot;add_notice&quot;</span>, <span class="st">&quot;Notice Me&quot;</span>),</span>
-<span id="cb85-4"><a href="contingency.html#cb85-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">actionButton</span>(<span class="st">&quot;remove_notice&quot;</span>, <span class="st">&quot;Ignore Me&quot;</span>),</span>
-<span id="cb85-5"><a href="contingency.html#cb85-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">actionButton</span>(<span class="st">&quot;toggle_notice&quot;</span>, <span class="st">&quot;Toggle Me&quot;</span>)</span>
-<span id="cb85-6"><a href="contingency.html#cb85-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/box.html">box</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Notice"</span>, solidHeader <span class="op">=</span> <span class="cn">TRUE</span>,
+    <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span><span class="op">(</span>id <span class="op">=</span> <span class="st">"notice_text"</span>, <span class="st">"Please pay attention to this text."</span><span class="op">)</span>,
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"add_notice"</span>, <span class="st">"Notice Me"</span><span class="op">)</span>,
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"remove_notice"</span>, <span class="st">"Ignore Me"</span><span class="op">)</span>,
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"toggle_notice"</span>, <span class="st">"Toggle Me"</span><span class="op">)</span>
+<span class="op">)</span></code></pre></div>
 <p>This code adds the class <code><span class="st">"notice-me"</span></code> to the paragraph element <code><span class="st">"notice_text"</span></code> whenever the "add_notice" button is pressed.</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="contingency.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">observeEvent</span>(input<span class="sc">$</span>add_notice, {</span>
-<span id="cb86-2"><a href="contingency.html#cb86-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addClass</span>(<span class="st">&quot;notice_text&quot;</span>, <span class="st">&quot;notice-me&quot;</span>)</span>
-<span id="cb86-3"><a href="contingency.html#cb86-3" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">add_notice</span>, <span class="op">{</span>
+  <span class="fu">addClass</span><span class="op">(</span><span class="st">"notice_text"</span>, <span class="st">"notice-me"</span><span class="op">)</span>
+<span class="op">}</span><span class="op">)</span></code></pre></div>
 <div class="try">
 <p>Guess how you would use <code><span class="fu">removeClass</span>()</code>, and <code><span class="fu">toggleClass</span>()</code> with the buttons set up above.</p>
 </div>
-<div id="changing-non-shiny-elements" class="section level3" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Changing non-shiny elements</h3>
+<div id="changing-non-shiny-elements" class="section level3" number="10.2.1">
+<h3>
+<span class="header-section-number">10.2.1</span> Changing non-shiny elements<a class="anchor" aria-label="anchor" href="#changing-non-shiny-elements"><i class="fas fa-link"></i></a>
+</h3>
 <p>Unfortunately, not all elements on the web page have an ID that can be altered by <code><span class="fu">addClass</span>()</code> or <code><span class="fu">removeClass</span>()</code>. For example, the skin of a shinydashboard app is determined by the css class of the body element. However, we can use <code><span class="fu">runjs</span>()</code> to run any arbitrary <a href="web.html#JavaScript">JavaScript</a> code.</p>
 <p>Add the following action button into the <code><span class="fu">sidebarMenu</span>()</code>.</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="contingency.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">actionButton</span>(<span class="st">&quot;random_skin&quot;</span>, <span class="st">&quot;Random Skin&quot;</span>)</span></code></pre></div>
-<p>The <a class='glossary' target='_blank' title='A library that makes it easier to write JavaScript.' href='https://psyteachr.github.io/glossary/j#jquery'>jQuery</a> code below changes the skin of your app on a button press by removing all possible skin-color classes and adding a random one.</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="contingency.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">observeEvent</span>(input<span class="sc">$</span>random_skin, {</span>
-<span id="cb88-2"><a href="contingency.html#cb88-2" aria-hidden="true" tabindex="-1"></a>  skins <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;purple&quot;</span>, <span class="st">&quot;black&quot;</span>)</span>
-<span id="cb88-3"><a href="contingency.html#cb88-3" aria-hidden="true" tabindex="-1"></a>  skin_color <span class="ot">&lt;-</span> <span class="fu">sample</span>(skins, <span class="dv">1</span>)</span>
-<span id="cb88-4"><a href="contingency.html#cb88-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb88-5"><a href="contingency.html#cb88-5" aria-hidden="true" tabindex="-1"></a>  js <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">&quot;$(&#39;body&#39;).removeClass(&#39;%s&#39;).addClass(&#39;skin-%s&#39;);&quot;</span>,</span>
-<span id="cb88-6"><a href="contingency.html#cb88-6" aria-hidden="true" tabindex="-1"></a>                <span class="fu">paste</span>(<span class="fu">paste0</span>(<span class="st">&quot;skin-&quot;</span>, skins), <span class="at">collapse =</span> <span class="st">&quot; &quot;</span>),</span>
-<span id="cb88-7"><a href="contingency.html#cb88-7" aria-hidden="true" tabindex="-1"></a>                skin_color)</span>
-<span id="cb88-8"><a href="contingency.html#cb88-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb88-9"><a href="contingency.html#cb88-9" aria-hidden="true" tabindex="-1"></a>  shinyjs<span class="sc">::</span><span class="fu">runjs</span>(js)</span>
-<span id="cb88-10"><a href="contingency.html#cb88-10" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"random_skin"</span>, <span class="st">"Random Skin"</span><span class="op">)</span></code></pre></div>
+<p>The <a class="glossary" target="_blank" title="A library that makes it easier to write JavaScript." href="https://psyteachr.github.io/glossary/j#jquery">jQuery</a> code below changes the skin of your app on a button press by removing all possible skin-color classes and adding a random one.</p>
+<div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">random_skin</span>, <span class="op">{</span>
+  <span class="va">skins</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"yellow"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>, <span class="st">"purple"</span>, <span class="st">"black"</span><span class="op">)</span>
+  <span class="va">skin_color</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">skins</span>, <span class="fl">1</span><span class="op">)</span>
+  
+  <span class="va">js</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"$('body').removeClass('%s').addClass('skin-%s');"</span>,
+                <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"skin-"</span>, <span class="va">skins</span><span class="op">)</span>, collapse <span class="op">=</span> <span class="st">" "</span><span class="op">)</span>,
+                <span class="va">skin_color</span><span class="op">)</span>
+  
+  <span class="fu">shinyjs</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shinyjs/man/runjs.html">runjs</a></span><span class="op">(</span><span class="va">js</span><span class="op">)</span>
+<span class="op">}</span><span class="op">)</span></code></pre></div>
 <div class="info">
 <p>Changing the skin color with a button press isn't something you'll easily find documented in online materials. I figured it out through looking at how the underlying html changed when I changed the skin color in the app code. Hacks like this require lots of trial and error, but get easier the more you understand about html, css and JavaScript.</p>
 </div>
 </div>
 </div>
-<div id="changing-input-options" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Changing input options</h2>
+<div id="changing-input-options" class="section level2" number="10.3">
+<h2>
+<span class="header-section-number">10.3</span> Changing input options<a class="anchor" aria-label="anchor" href="#changing-input-options"><i class="fas fa-link"></i></a>
+</h2>
 <p>The relevant options in a <code><span class="fu">selectInput</span>()</code> or <code><span class="fu">radioButton</span>()</code> may change depending on the values of other inputs. Sometimes you can accommodate this by creating multiple versions of a input and hiding or showing. Other times you may wish to update the input directly.</p>
 <p>Add the following box to the ui.</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="contingency.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(<span class="at">title =</span> <span class="st">&quot;Data&quot;</span>, <span class="at">solidHeader =</span> <span class="cn">TRUE</span>, <span class="at">width =</span> <span class="dv">12</span>,</span>
-<span id="cb89-2"><a href="contingency.html#cb89-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">&quot;dataset&quot;</span>, <span class="st">&quot;Choose a dataset&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;mtcars&quot;</span>, <span class="st">&quot;sleep&quot;</span>)),</span>
-<span id="cb89-3"><a href="contingency.html#cb89-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">checkboxGroupInput</span>(<span class="st">&quot;columns&quot;</span>, <span class="st">&quot;Select the columns to show&quot;</span>, <span class="at">inline =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb89-4"><a href="contingency.html#cb89-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tableOutput</span>(<span class="st">&quot;data_table&quot;</span>)</span>
-<span id="cb89-5"><a href="contingency.html#cb89-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/box.html">box</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Data"</span>, solidHeader <span class="op">=</span> <span class="cn">TRUE</span>, width <span class="op">=</span> <span class="fl">12</span>,
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/selectInput.html">selectInput</a></span><span class="op">(</span><span class="st">"dataset"</span>, <span class="st">"Choose a dataset"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"mtcars"</span>, <span class="st">"sleep"</span><span class="op">)</span><span class="op">)</span>,
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/checkboxGroupInput.html">checkboxGroupInput</a></span><span class="op">(</span><span class="st">"columns"</span>, <span class="st">"Select the columns to show"</span>, inline <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html">tableOutput</a></span><span class="op">(</span><span class="st">"data_table"</span><span class="op">)</span>
+<span class="op">)</span></code></pre></div>
 <p>First, set up the code to display the correct data in the table.</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="contingency.html#cb90-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
-<span id="cb90-2"><a href="contingency.html#cb90-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get</span>(input<span class="sc">$</span>dataset, <span class="st">&quot;package:datasets&quot;</span>)</span>
-<span id="cb90-3"><a href="contingency.html#cb90-3" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb90-4"><a href="contingency.html#cb90-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb90-5"><a href="contingency.html#cb90-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>data_table <span class="ot">&lt;-</span> <span class="fu">renderTable</span>(<span class="fu">mydata</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span><span class="op">(</span><span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">dataset</span>, <span class="st">"package:datasets"</span><span class="op">)</span>
+<span class="op">}</span><span class="op">)</span>
+
+<span class="va">output</span><span class="op">$</span><span class="va">data_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html">renderTable</a></span><span class="op">(</span><span class="fu">mydata</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Now we need to set the options for <code><span class="st">"columns"</span></code> depending on which "dataset" is selected.</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="contingency.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">observe</span>({</span>
-<span id="cb91-2"><a href="contingency.html#cb91-2" aria-hidden="true" tabindex="-1"></a>  col_names <span class="ot">&lt;-</span> <span class="fu">names</span>(<span class="fu">data</span>())</span>
-<span id="cb91-3"><a href="contingency.html#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">debug_msg</span>(col_names)</span>
-<span id="cb91-4"><a href="contingency.html#cb91-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">updateCheckboxGroupInput</span>(<span class="at">inputId =</span> <span class="st">&quot;columns&quot;</span>,</span>
-<span id="cb91-5"><a href="contingency.html#cb91-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">choices =</span> col_names,</span>
-<span id="cb91-6"><a href="contingency.html#cb91-6" aria-hidden="true" tabindex="-1"></a>                           <span class="at">selected =</span> col_names)</span>
-<span id="cb91-7"><a href="contingency.html#cb91-7" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observe.html">observe</a></span><span class="op">(</span><span class="op">{</span>
+  <span class="va">col_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
+  <span class="fu">debug_msg</span><span class="op">(</span><span class="va">col_names</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/updateCheckboxGroupInput.html">updateCheckboxGroupInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"columns"</span>,
+                           choices <span class="op">=</span> <span class="va">col_names</span>,
+                           selected <span class="op">=</span> <span class="va">col_names</span><span class="op">)</span>
+<span class="op">}</span><span class="op">)</span></code></pre></div>
 <p>Finally, we can add some code to select only the checked columns to display.</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="contingency.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">observe</span>({</span>
-<span id="cb92-2"><a href="contingency.html#cb92-2" aria-hidden="true" tabindex="-1"></a>  full_data <span class="ot">&lt;-</span> <span class="fu">get</span>(input<span class="sc">$</span>dataset, <span class="st">&quot;package:datasets&quot;</span>)</span>
-<span id="cb92-3"><a href="contingency.html#cb92-3" aria-hidden="true" tabindex="-1"></a>  col_names <span class="ot">&lt;-</span> <span class="fu">names</span>(full_data)</span>
-<span id="cb92-4"><a href="contingency.html#cb92-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">updateCheckboxGroupInput</span>(</span>
-<span id="cb92-5"><a href="contingency.html#cb92-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">inputId =</span> <span class="st">&quot;columns&quot;</span>,</span>
-<span id="cb92-6"><a href="contingency.html#cb92-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">choices =</span> col_names,</span>
-<span id="cb92-7"><a href="contingency.html#cb92-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">selected =</span> col_names,</span>
-<span id="cb92-8"><a href="contingency.html#cb92-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">inline =</span> <span class="cn">TRUE</span></span>
-<span id="cb92-9"><a href="contingency.html#cb92-9" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb92-10"><a href="contingency.html#cb92-10" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observe.html">observe</a></span><span class="op">(</span><span class="op">{</span>
+  <span class="va">full_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">dataset</span>, <span class="st">"package:datasets"</span><span class="op">)</span>
+  <span class="va">col_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">full_data</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/updateCheckboxGroupInput.html">updateCheckboxGroupInput</a></span><span class="op">(</span>
+    inputId <span class="op">=</span> <span class="st">"columns"</span>,
+    choices <span class="op">=</span> <span class="va">col_names</span>,
+    selected <span class="op">=</span> <span class="va">col_names</span>,
+    inline <span class="op">=</span> <span class="cn">TRUE</span>
+  <span class="op">)</span>
+<span class="op">}</span><span class="op">)</span></code></pre></div>
 <div class="try">
 <p>Why do we have to get the dataset again instead of using the data from <code><span class="fu">mydata</span>()</code>?</p>
 </div>
 <p>Finally, alter the reactive function to only show the selected columns.</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="contingency.html#cb93-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
-<span id="cb93-2"><a href="contingency.html#cb93-2" aria-hidden="true" tabindex="-1"></a>  d <span class="ot">&lt;-</span> <span class="fu">get</span>(input<span class="sc">$</span>dataset, <span class="st">&quot;package:datasets&quot;</span>)</span>
-<span id="cb93-3"><a href="contingency.html#cb93-3" aria-hidden="true" tabindex="-1"></a>  d[input<span class="sc">$</span>columns]</span>
-<span id="cb93-4"><a href="contingency.html#cb93-4" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span><span class="op">(</span><span class="op">{</span>
+  <span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">dataset</span>, <span class="st">"package:datasets"</span><span class="op">)</span>
+  <span class="va">d</span><span class="op">[</span><span class="va">input</span><span class="op">$</span><span class="va">columns</span><span class="op">]</span>
+<span class="op">}</span><span class="op">)</span></code></pre></div>
 <div class="try">
 <p>What happens when you unselect all the columns? How can you fix this?</p>
 </div>
 </div>
-<div id="resources-contingency" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Further Resources</h2>
+<div id="resources-contingency" class="section level2" number="10.4">
+<h2>
+<span class="header-section-number">10.4</span> Further Resources<a class="anchor" aria-label="anchor" href="#resources-contingency"><i class="fas fa-link"></i></a>
+</h2>
 <ul>
 <li><a href="https://mastering-shiny.org/action-dynamic.html" target="_blank">Mastering Shiny: Packages: Dynamic UI</a></li>
 </ul>
 </div>
-<div id="exercises-contingency" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Exercises</h2>
+<div id="exercises-contingency" class="section level2" number="10.5">
+<h2>
+<span class="header-section-number">10.5</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-contingency"><i class="fas fa-link"></i></a>
+</h2>
 <div id="filtered-data" class="section level3 unnumbered">
-<h3>Filtered data</h3>
+<h3>Filtered data<a class="anchor" aria-label="anchor" href="#filtered-data"><i class="fas fa-link"></i></a>
+</h3>
 <p>Create an app where you use inputs to filter a dataset and display a table of the filtered dataset. For example, with the <code>msleep</code> dataset, you could have inputs that select <code>vore</code>, <code>order</code> and <code>conservation</code>. Since some values will exclude categories (e.g., there are no omnivores in the order Cetacea), update the available categories in each input when values are selected. Make sure you have a way to reset the values.</p>
 </div>
 </div>
-<div id="your-app-contingency" class="section level2" number="6.6">
-<h2><span class="header-section-number">6.6</span> Your App</h2>
+<div id="your-app-contingency" class="section level2" number="10.6">
+<h2>
+<span class="header-section-number">10.6</span> Your App<a class="anchor" aria-label="anchor" href="#your-app-contingency"><i class="fas fa-link"></i></a>
+</h2>
 <p>Check for places in your app that could use contingency.</p>
 
 </div>
@@ -469,8 +473,7 @@ window.onload = function() {
   update_total_correct();
 }
 
-</script>
-<script>
+</script><script>
 $( document ).ready(function() {
   var cite = ' ';
   var psyteachr = ' <a href="https://psyteachr.github.io/"><img src="images/logos/psyteachr_logo.png" style="height: 31px; color: white;" alt="psyTeachR: Reproducible Research" /></a>';
@@ -498,31 +501,46 @@ $( document ).ready(function() {
   move_sidebar();
   window.onresize = move_sidebar;
 });
-</script>
-  </main>
-
-  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page">
-      <h2>On this page</h2>
-      <div id="book-on-this-page"></div>
+</script><div class="chapter-nav">
+<div class="prev"><a href="debugging.html"><span class="header-section-number">9</span> Debugging and error handling</a></div>
+<div class="next"><a href="sharing.html"><span class="header-section-number">11</span> Sharing your Apps</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#contingency"><span class="header-section-number">10</span> Contingent Display</a></li>
+<li>
+<a class="nav-link" href="#hide-and-show"><span class="header-section-number">10.1</span> Hide and Show</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#groups"><span class="header-section-number">10.1.1</span> Groups</a></li>
+<li><a class="nav-link" href="#toggle"><span class="header-section-number">10.1.2</span> Toggle</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#changing-styles"><span class="header-section-number">10.2</span> Changing Styles</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#changing-non-shiny-elements"><span class="header-section-number">10.2.1</span> Changing non-shiny elements</a></li></ul>
+</li>
+<li><a class="nav-link" href="#changing-input-options"><span class="header-section-number">10.3</span> Changing input options</a></li>
+<li><a class="nav-link" href="#resources-contingency"><span class="header-section-number">10.4</span> Further Resources</a></li>
+<li>
+<a class="nav-link" href="#exercises-contingency"><span class="header-section-number">10.5</span> Exercises</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#filtered-data">Filtered data</a></li></ul>
+</li>
+<li><a class="nav-link" href="#your-app-contingency"><span class="header-section-number">10.6</span> Your App</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/debruine/shinyintro/blob/master/book/10_contingency.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/debruine/shinyintro/edit/master/book/10_contingency.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
-      </div>
+</div>
     </nav>
-  </div>
+</div>
 
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5">
-  <div class="container"><div class="row">
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Building Web Apps with R Shiny</strong>: [<a href='/shinyintro.pdf'>PDF</a> | <a href='/shinyintro.epub'>EPUB</a> | <a href='/shinyintro.mobi'>MOBI</a>]" was written by Lisa DeBruine. It was last built on 2022-03-28.</p>
+    <p>"<strong>Building Web Apps with R Shiny</strong>: [<a href="/shinyintro/shinyintro.pdf">PDF</a> | <a href="/shinyintro/shinyintro.epub">EPUB</a> | <a href="/shinyintro/shinyintro.mobi">MOBI</a>]" was written by Lisa DeBruine. It was last built on 2022-03-30.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -531,39 +549,5 @@ $( document ).ready(function() {
 
 </div></div>
 </footer>
-
-
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
-<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
-for (let popover of popovers) {
-  const div = document.createElement('div');
-  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
-  div.innerHTML = popover.getAttribute('data-content');
-
-  var has_math = div.querySelector("span.math");
-  if (has_math) {
-    document.body.appendChild(div);
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
-    MathJax.Hub.Queue(function() {
-      popover.setAttribute('data-content', div.innerHTML);
-      document.body.removeChild(div);
-    })
-  }
-}
-</script>
 </body>
-
 </html>
