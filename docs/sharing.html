@@ -17,9 +17,9 @@
 <meta name="twitter:title" content="11 Sharing your Apps | Building Web Apps with R Shiny">
 <meta name="twitter:description" content="11.1 shinyapps.io  Open Tools &gt; Global Options ... Go to the Publishing tab Click the Connect button and choose ShinyApps.io Click on the link to go to your account Click the Sign Up button and...">
 <meta name="twitter:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.12/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1.9000/transition.js"></script><script src="libs/bs3compat-0.3.1.9000/tabs.js"></script><script src="libs/bs3compat-0.3.1.9000/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
@@ -110,7 +110,7 @@
 ˙
 You can test this by creating a simple app. If you have the shinyintro package, use the code below.</li>
 </ol>
-<div class="sourceCode" id="cb155"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb157"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">shinyintro</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shinyintro/man/clone.html">clone</a></span><span class="op">(</span><span class="st">"input_demo"</span>, <span class="st">"mytestapp"</span><span class="op">)</span></code></pre></div>
 <div class="small_right">
 <img src="images/saio_publish.png" alt="Publish to server widget">
@@ -150,21 +150,21 @@ You can test this by creating a simple app. If you have the shinyintro package, 
 <span class="header-section-number">11.4</span> In an R package<a class="anchor" aria-label="anchor" href="#in-an-r-package"><i class="fas fa-link"></i></a>
 </h2>
 <p>You can put your app in a custom R package to make it even easier for people to run the app. The usethis package is incredibly helpful for setting up packages.</p>
-<div class="sourceCode" id="cb156"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb158"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mypackagename</span> <span class="op">&lt;-</span> <span class="st">"mypackagename"</span> <span class="co"># change this</span>
-<span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/create_package.html">create_package</a></span><span class="op">(</span><span class="va">mypackagename</span><span class="op">)</span>
-<span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/licenses.html">use_ccby_license</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/usethis/man/create_package.html">create_package</a></span><span class="op">(</span><span class="va">mypackagename</span><span class="op">)</span>
+<span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/usethis/man/licenses.html">use_ccby_license</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="co"># add packages your app uses</span>
-<span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html">use_package</a></span><span class="op">(</span><span class="st">"shiny"</span><span class="op">)</span>
-<span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_package.html">use_package</a></span><span class="op">(</span><span class="st">"shinydashboard"</span><span class="op">)</span>
+<span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/usethis/man/use_package.html">use_package</a></span><span class="op">(</span><span class="st">"shiny"</span><span class="op">)</span>
+<span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/usethis/man/use_package.html">use_package</a></span><span class="op">(</span><span class="st">"shinydashboard"</span><span class="op">)</span>
 
 <span class="co"># add the directory for your apps</span>
 <span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.create</a></span><span class="op">(</span><span class="st">"inst"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.create</a></span><span class="op">(</span><span class="st">"inst/apps"</span><span class="op">)</span></code></pre></div>
 <p>Copy any apps you want to include in this package into the inst/apps directory.</p>
 <p>Now, create the app function by running <code>usethis::edit_file("R/app.R")</code> and copy the following text into the <code class="path">app.R</code> file that just opened. Replace <code><span class="st">"default_app"</span></code> with the directory name of the app that you want to open if a user doesn't type any name in at all.</p>
-<div class="sourceCode" id="cb157"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb159"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' Launch Shiny App</span>
 <span class="co">#'</span>
 <span class="co">#' @param name The name of the app to run</span>
@@ -178,17 +178,17 @@ You can test this by creating a simple app. If you have the shinyintro package, 
   <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/runApp.html">runApp</a></span><span class="op">(</span><span class="va">appDir</span>, <span class="va">...</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
 <p>Next, open the <code class="path">DESCRIPTION</code> file and edit the title, author and description. Now run the following code in the console.</p>
-<div class="sourceCode" id="cb158"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/document.html">document</a></span><span class="op">(</span><span class="op">)</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/install.html">install</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/devtools/man/document.html">document</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/devtools/man/install.html">install</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>This will create the help documentation for your package function and install the package on your computer. You should now be able to run your app with <code><span class="fu">mypackagename::app</span>()</code>.</p>
 <p>Set up git and save your package to GitHub to share it with others:</p>
-<div class="sourceCode" id="cb159"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_git.html">use_git</a></span><span class="op">(</span><span class="op">)</span>
-<span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github.html">use_github</a></span><span class="op">(</span>protocol<span class="op">=</span><span class="st">"https"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/usethis/man/use_git.html">use_git</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/usethis/man/use_github.html">use_github</a></span><span class="op">(</span>protocol<span class="op">=</span><span class="st">"https"</span><span class="op">)</span></code></pre></div>
 <p>Once it's uploaded to GitHub, other people can install it with the following code:</p>
-<div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"myaccountname/mypackagename"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"myaccountname/mypackagename"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="resources-sharing" class="section level2" number="11.5">
 <h2>
@@ -476,7 +476,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Building Web Apps with R Shiny</strong>: [<a href="/shinyintro/shinyintro.pdf">PDF</a> | <a href="/shinyintro/shinyintro.epub">EPUB</a> | <a href="/shinyintro/shinyintro.mobi">MOBI</a>]" was written by Lisa DeBruine. It was last built on 2022-03-30.</p>
+    <p>"<strong>Building Web Apps with R Shiny</strong>: [<a href="/shinyintro/shinyintro.pdf">PDF</a> | <a href="/shinyintro/shinyintro.epub">EPUB</a> | <a href="/shinyintro/shinyintro.mobi">MOBI</a>]" was written by Lisa DeBruine. It was last built on 2022-03-31.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

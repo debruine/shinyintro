@@ -17,9 +17,9 @@
 <meta name="twitter:title" content="10 Contingent Display | Building Web Apps with R Shiny">
 <meta name="twitter:description" content='Figure 10.1: Contingency Demo App. You can also access this app with shinyintro::app("contingency_demo")or view it in a separate tab with the showcase interface.   10.1 Hide and Show I frequently...'>
 <meta name="twitter:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.12/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1.9000/transition.js"></script><script src="libs/bs3compat-0.3.1.9000/tabs.js"></script><script src="libs/bs3compat-0.3.1.9000/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
@@ -96,7 +96,7 @@ Figure 10.1: Contingency Demo App. You can also access this app with <code>shiny
 </h2>
 <p>I frequently want to make some aspect of a shiny app contingent on the state of another aspect, such as only showing a text input of the value of a select input is "other". You can use the <code><span class="fu">hide</span>()</code> and <code><span class="fu">show</span>()</code> functions from <code class="package">shinyjs</code> to accomplish this easily.</p>
 <p>When you set up the UI, wrap any elements that should be hidden at the start in <code><span class="fu">hidden</span>()</code>.</p>
-<div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># in the ui</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/box.html">box</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Questions"</span>,
     solidHeader <span class="op">=</span> <span class="cn">TRUE</span>,
@@ -106,7 +106,7 @@ Figure 10.1: Contingency Demo App. You can also access this app with <code>shiny
                      placeholder <span class="op">=</span> <span class="st">"Specify the other pet"</span><span class="op">)</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
 <p>Then set up the hide and show logic in <code><span class="fu">server</span>()</code>.</p>
-<div class="sourceCode" id="cb140"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># in the server</span>
 <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">first_pet</span>, <span class="op">{</span>
     <span class="kw">if</span> <span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">first_pet</span> <span class="op">==</span> <span class="st">"other"</span><span class="op">)</span> <span class="op">{</span>
@@ -121,7 +121,7 @@ Figure 10.1: Contingency Demo App. You can also access this app with <code>shiny
 </h3>
 <p>Sometimes you need to hide and show a group of elements, depending on something else. You can wrap the grouped elements in a div tag with an id and hide and show that id.</p>
 <p>For example, it doesn't make sense to show the questions above to someone who has never had a pet. Add a <code><span class="fu">selectInput</span>()</code> before the previous two questions, and then wrap those questions in <code><span class="fu">tags$div</span>()</code> with an id of <code><span class="st">"first_pet_grp"</span></code></p>
-<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># replace in ui</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/box.html">box</a></span><span class="op">(</span>
   title <span class="op">=</span> <span class="st">"Questions"</span>,
@@ -136,7 +136,7 @@ Figure 10.1: Contingency Demo App. You can also access this app with <code>shiny
   <span class="op">)</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
 <p>Then add the following code to the server function to hide or show <code>first_pet_grp</code> depending on the value of <code>had_pet</code>. The server code above will take care of whether or not <code>first_pet_other</code> is visible.</p>
-<div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb144"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># add to server</span>
 <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">had_pet</span>, <span class="op">{</span>
   <span class="kw">if</span> <span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">had_pet</span> <span class="op">==</span> <span class="st">"Yes"</span><span class="op">)</span> <span class="op">{</span>
@@ -155,11 +155,11 @@ Figure 10.1: Contingency Demo App. You can also access this app with <code>shiny
 </h3>
 <p>Sometimes you need to change the visibility of an element when something happens, rather than specifically hide or show it. You can use <code><span class="fu">toggle</span>()</code> to hide an element if it's visible and show it if it's hidden.</p>
 <p>Add an <code><span class="fu">actionButton</span>()</code> to the sidebar menu (not inside the box) and give the box an <code><span class="at">id</span></code> of <code><span class="st">"pet_box"</span></code>. Any element that you might want to refer to in the code needs an <code><span class="at">id</span></code>.</p>
-<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># add to ui</span>
 <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"toggle_pet_box"</span>, <span class="st">"Toggle Pet Questions"</span><span class="op">)</span></code></pre></div>
 <p>Now, whenever you click the "toggle_pet_box" button, the contents of "pet_box" will toggle their visibility.</p>
-<div class="sourceCode" id="cb144"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb146"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># add to server</span>
 <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">toggle_pet_box</span>, <span class="op">{</span>
   <span class="fu">toggle</span><span class="op">(</span><span class="st">"pet_box"</span><span class="op">)</span>
@@ -175,13 +175,13 @@ Figure 10.1: Contingency Demo App. You can also access this app with <code>shiny
 </h2>
 <p>You can use <code><span class="fu">addClass</span>()</code>, <code><span class="fu">removeClass</span>()</code>, and <code><span class="fu">toggleClass</span>()</code> to change element classes. You usually want to do this with classes you've defined yourself.</p>
 <p>Add the following style to the <code class="path">www/custom.css</code> file.</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="contingency.html#cb145-1" aria-hidden="true" tabindex="-1"></a>.notice<span class="sc">-</span>me {</span>
-<span id="cb145-2"><a href="contingency.html#cb145-2" aria-hidden="true" tabindex="-1"></a>  color<span class="sc">:</span> red;</span>
-<span id="cb145-3"><a href="contingency.html#cb145-3" aria-hidden="true" tabindex="-1"></a>  text<span class="sc">-</span>decoration<span class="sc">:</span> underline;</span>
-<span id="cb145-4"><a href="contingency.html#cb145-4" aria-hidden="true" tabindex="-1"></a>  font<span class="sc">-</span>weight<span class="sc">:</span> <span class="dv">800</span>;</span>
-<span id="cb145-5"><a href="contingency.html#cb145-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="contingency.html#cb147-1" aria-hidden="true" tabindex="-1"></a>.notice<span class="sc">-</span>me {</span>
+<span id="cb147-2"><a href="contingency.html#cb147-2" aria-hidden="true" tabindex="-1"></a>  color<span class="sc">:</span> red;</span>
+<span id="cb147-3"><a href="contingency.html#cb147-3" aria-hidden="true" tabindex="-1"></a>  text<span class="sc">-</span>decoration<span class="sc">:</span> underline;</span>
+<span id="cb147-4"><a href="contingency.html#cb147-4" aria-hidden="true" tabindex="-1"></a>  font<span class="sc">-</span>weight<span class="sc">:</span> <span class="dv">800</span>;</span>
+<span id="cb147-5"><a href="contingency.html#cb147-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>And add this box to the ui:</p>
-<div class="sourceCode" id="cb146"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb148"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/box.html">box</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Notice"</span>, solidHeader <span class="op">=</span> <span class="cn">TRUE</span>,
     <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span><span class="op">(</span>id <span class="op">=</span> <span class="st">"notice_text"</span>, <span class="st">"Please pay attention to this text."</span><span class="op">)</span>,
     <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"add_notice"</span>, <span class="st">"Notice Me"</span><span class="op">)</span>,
@@ -189,7 +189,7 @@ Figure 10.1: Contingency Demo App. You can also access this app with <code>shiny
     <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"toggle_notice"</span>, <span class="st">"Toggle Me"</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
 <p>This code adds the class <code><span class="st">"notice-me"</span></code> to the paragraph element <code><span class="st">"notice_text"</span></code> whenever the "add_notice" button is pressed.</p>
-<div class="sourceCode" id="cb147"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">add_notice</span>, <span class="op">{</span>
   <span class="fu">addClass</span><span class="op">(</span><span class="st">"notice_text"</span>, <span class="st">"notice-me"</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span></code></pre></div>
@@ -202,10 +202,10 @@ Figure 10.1: Contingency Demo App. You can also access this app with <code>shiny
 </h3>
 <p>Unfortunately, not all elements on the web page have an ID that can be altered by <code><span class="fu">addClass</span>()</code> or <code><span class="fu">removeClass</span>()</code>. For example, the skin of a shinydashboard app is determined by the css class of the body element. However, we can use <code><span class="fu">runjs</span>()</code> to run any arbitrary <a href="web.html#JavaScript">JavaScript</a> code.</p>
 <p>Add the following action button into the <code><span class="fu">sidebarMenu</span>()</code>.</p>
-<div class="sourceCode" id="cb148"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb150"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"random_skin"</span>, <span class="st">"Random Skin"</span><span class="op">)</span></code></pre></div>
 <p>The <a class="glossary" target="_blank" title="A library that makes it easier to write JavaScript." href="https://psyteachr.github.io/glossary/j#jquery">jQuery</a> code below changes the skin of your app on a button press by removing all possible skin-color classes and adding a random one.</p>
-<div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">random_skin</span>, <span class="op">{</span>
   <span class="va">skins</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"yellow"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>, <span class="st">"purple"</span>, <span class="st">"black"</span><span class="op">)</span>
   <span class="va">skin_color</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">skins</span>, <span class="fl">1</span><span class="op">)</span>
@@ -227,21 +227,21 @@ Figure 10.1: Contingency Demo App. You can also access this app with <code>shiny
 </h2>
 <p>The relevant options in a <code><span class="fu">selectInput</span>()</code> or <code><span class="fu">radioButton</span>()</code> may change depending on the values of other inputs. Sometimes you can accommodate this by creating multiple versions of a input and hiding or showing. Other times you may wish to update the input directly.</p>
 <p>Add the following box to the ui.</p>
-<div class="sourceCode" id="cb150"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb152"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/box.html">box</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Data"</span>, solidHeader <span class="op">=</span> <span class="cn">TRUE</span>, width <span class="op">=</span> <span class="fl">12</span>,
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/selectInput.html">selectInput</a></span><span class="op">(</span><span class="st">"dataset"</span>, <span class="st">"Choose a dataset"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"mtcars"</span>, <span class="st">"sleep"</span><span class="op">)</span><span class="op">)</span>,
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/checkboxGroupInput.html">checkboxGroupInput</a></span><span class="op">(</span><span class="st">"columns"</span>, <span class="st">"Select the columns to show"</span>, inline <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html">tableOutput</a></span><span class="op">(</span><span class="st">"data_table"</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
 <p>First, set up the code to display the correct data in the table.</p>
-<div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span><span class="op">(</span><span class="op">{</span>
   <span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">dataset</span>, <span class="st">"package:datasets"</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span>
 
 <span class="va">output</span><span class="op">$</span><span class="va">data_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html">renderTable</a></span><span class="op">(</span><span class="fu">mydata</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Now we need to set the options for <code><span class="st">"columns"</span></code> depending on which "dataset" is selected.</p>
-<div class="sourceCode" id="cb152"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observe.html">observe</a></span><span class="op">(</span><span class="op">{</span>
   <span class="va">col_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
   <span class="fu">debug_msg</span><span class="op">(</span><span class="va">col_names</span><span class="op">)</span>
@@ -250,7 +250,7 @@ Figure 10.1: Contingency Demo App. You can also access this app with <code>shiny
                            selected <span class="op">=</span> <span class="va">col_names</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span></code></pre></div>
 <p>Finally, we can add some code to select only the checked columns to display.</p>
-<div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb155"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observe.html">observe</a></span><span class="op">(</span><span class="op">{</span>
   <span class="va">full_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">dataset</span>, <span class="st">"package:datasets"</span><span class="op">)</span>
   <span class="va">col_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">full_data</span><span class="op">)</span>
@@ -265,7 +265,7 @@ Figure 10.1: Contingency Demo App. You can also access this app with <code>shiny
 <p>Why do we have to get the dataset again instead of using the data from <code><span class="fu">mydata</span>()</code>?</p>
 </div>
 <p>Finally, alter the reactive function to only show the selected columns.</p>
-<div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb156"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span><span class="op">(</span><span class="op">{</span>
   <span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/get.html">get</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">dataset</span>, <span class="st">"package:datasets"</span><span class="op">)</span>
   <span class="va">d</span><span class="op">[</span><span class="va">input</span><span class="op">$</span><span class="va">columns</span><span class="op">]</span>
@@ -540,7 +540,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Building Web Apps with R Shiny</strong>: [<a href="/shinyintro/shinyintro.pdf">PDF</a> | <a href="/shinyintro/shinyintro.epub">EPUB</a> | <a href="/shinyintro/shinyintro.mobi">MOBI</a>]" was written by Lisa DeBruine. It was last built on 2022-03-30.</p>
+    <p>"<strong>Building Web Apps with R Shiny</strong>: [<a href="/shinyintro/shinyintro.pdf">PDF</a> | <a href="/shinyintro/shinyintro.epub">EPUB</a> | <a href="/shinyintro/shinyintro.mobi">MOBI</a>]" was written by Lisa DeBruine. It was last built on 2022-03-31.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

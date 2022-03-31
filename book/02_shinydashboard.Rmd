@@ -79,21 +79,25 @@ If you don't want to use a sidebar, include `dashboardSidebar(disable = TRUE)` i
 
 ### dashboardBody
 
-The main part of the app goes inside `r func("dashboardBody")` If you're going to use `r glossary("javascript")` functions (which the basic template does and we'll learn more about in Section\ \@ref(shinyjs)), you need to put `r func("useShinyjs")` first. Then you include the header, linking to any custom CSS or JavaScript files. 
+The main part of the app goes inside `r func("dashboardBody")` If you're going to use `r glossary("javascript")` functions (which the basic template does and we'll learn more about in Section\ \@ref(shinyjs)), you need to put `r func("useShinyjs")` first. Then you include the head, linking to any custom CSS or JavaScript files. 
 
-The contents of the body go after that. The most common pattern is a multi-page tabbed pattern, which is set up with `r func("tabItems")`, which contains a `r func("tabItem")` for each tab. The `r arg("tabName")` has to match the name you used in the sidebar `r func("menuItem")`, so that tab shows when the user clicks on the corresponding menu item.
+The contents of the body go after that. The most common pattern is a multi-page tabbed pattern, which is set up with `r func("tabItems")`, containing a `r func("tabItem")` for each tab. The `r arg("tabName")` has to match the name you used in the sidebar `r func("menuItem")`, so that tab shows when the user clicks on the corresponding menu item.
 
 ```{r}
-dashboardBody(shinyjs::useShinyjs(),
-              tags$head(
-                # links to files in www/
-                tags$link(rel = "stylesheet",
-                          type = "text/css",
-                          href = "custom.css"),
-                tags$script(src = "custom.js")
-              ),
-              tabItems(tabItem(tabName = "demo_tab",
-                               imageOutput("logo"))))
+dashboardBody(
+  shinyjs::useShinyjs(),
+  tags$head(
+    # links to files in www/
+    tags$link(rel = "stylesheet",
+              type = "text/css",
+              href = "custom.css"),
+    tags$script(src = "custom.js")
+  ),
+  tabItems(
+    tabItem(tabName = "demo_tab", 
+            imageOutput("logo"))
+  )
+)
 ```
 
 Since each tab is usually a quite complex list of elements, I like to define each tab outside `r func("dashboardPage")` and then just put a list of the tab objects inside `r func("tabItems")`. This way, it's easy to move the whole tab definition to an external file if it gets too complex (see Section\ \@ref(structure)).
@@ -196,7 +200,7 @@ knitr::include_graphics('images/sdb_value_info.png')
 `r pkg("Shinydashboard")` uses a grid system that is `r dt(12)` units across. The default width of boxes is `r dt(6)`, and info and value boxes are `r dt(4)`.
 
 ::: {.try data-latex=""}
-Try to write the code to create the second row of info boxes show above and the third row of value boxes.
+Try to write the code to create the second row of info boxes shown above and the third row of value boxes.
 :::
 
 ### Tab Boxes

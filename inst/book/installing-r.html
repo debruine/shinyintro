@@ -17,9 +17,9 @@
 <meta name="twitter:title" content="A Installing and Updating | Building Web Apps with R Shiny">
 <meta name="twitter:description" content="Installing R and RStudio is usually straightforward. The sections below explain how and there is a helpful YouTube video here. If you have an older installation, you will want to update it to the...">
 <meta name="twitter:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.12/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1.9000/transition.js"></script><script src="libs/bs3compat-0.3.1.9000/tabs.js"></script><script src="libs/bs3compat-0.3.1.9000/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
@@ -106,7 +106,7 @@
 <span class="header-section-number">A.1.2.1</span> Windows<a class="anchor" aria-label="anchor" href="#windows"><i class="fas fa-link"></i></a>
 </h4>
 <p>The easiest way to update R on Windows and not cause yourself a huge headache is to use the <code>installr</code> package. When you use the <code><a href="https://talgalili.github.io/installr/reference/updateR.html">updateR()</a></code> function, a series of dialogue boxes will appear. These should be fairly self-explanatory but there is a <a href="https://www.r-statistics.com/2015/06/a-step-by-step-screenshots-tutorial-for-upgrading-r-on-windows/">full step-by-step guide available</a> for how to use <code>installr</code>, the important bit is to select "Yes" when it asked if you would like to copy your packages from the older version of R.</p>
-<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Install the installr package</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"installr"</span><span class="op">)</span>
 
@@ -118,12 +118,12 @@
 <span class="header-section-number">A.1.2.2</span> Mac<a class="anchor" aria-label="anchor" href="#mac"><i class="fas fa-link"></i></a>
 </h4>
 <p>For a Mac, you can use the <code class="package"><a href="https://github.com/AndreaCirilloAC/updateR" target="_blank">updateR</a></code> package. You'll need to install this from GitHub. You will be asked to type your system password (that you use to log into your computer) in the console pane. If relevant, it will ask you if you want to restore your packages for a new major version.</p>
-<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install from github</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"AndreaCirilloAC/updateR"</span><span class="op">)</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"AndreaCirilloAC/updateR"</span><span class="op">)</span>
 
 <span class="co"># update your R version, you will need your system password</span>
-<span class="fu">updateR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/updateR/man/updateR.html">updateR</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<span class="fu">updateR</span><span class="fu">::</span><span class="fu">updateR</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -138,10 +138,10 @@
 </h3>
 <p>If you are using Windows, after you install R, you should also install <a href="https://cran.rstudio.com/bin/windows/Rtools/" target="_blank">RTools</a>; use the "recommended" version highlighted near the top of the list. RTools is used for installing and loading some packages. You can get started without installing RTools, but if you're having problems with installing and loading some packages, this should be the first thing you try.</p>
 <p>RTools will require you to put it "on the PATH". The instructions for this can seem a bit vague - the easiest way to do it is to open RStudio, run the below code in the console:</p>
-<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/write.html">write</a></span><span class="op">(</span><span class="st">'PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"'</span>, file <span class="op">=</span> <span class="st">"~/.Renviron"</span>, append <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p>Once you've done that, restart R by clicking <code>Session - Restart R</code> and then run the below code in the console which should give you the path to your RTools installation:</p>
-<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Sys.which.html">Sys.which</a></span><span class="op">(</span><span class="st">"make"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="updating-rstudio" class="section level3" number="14.2.2">
@@ -182,13 +182,13 @@ Figure A.2: RStudio Code settings
 <span class="header-section-number">A.3.1</span> Installing Packages<a class="anchor" aria-label="anchor" href="#installing-packages"><i class="fas fa-link"></i></a>
 </h3>
 <p>This is done using <code><span class="fu"><a target="_blank" href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="op">)</span></code>. This is like installing an app on your phone: you only have to do it once and the app will remain installed until you remove it. For instance, if you want to use PokemonGo on your phone, you install it once from the App Store or Play Store; you don't have to re-install it each time you want to use it. Once you launch the app, it will run in the background until you close it or restart your phone. Likewise, when you install a package, the package will be available (but not <em>loaded</em>) every time you open up R.</p>
-<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb193"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># type this in the console pane</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></code></pre></div>
-<p>Install the <code class="package">shinyintro</code> package on your system. This package is the main package we will use throughout this book and is not on CRAN, so you will need to get it from github using the function <code><a href="https://devtools.r-lib.org/reference/remote-reexports.html">devtools::install_github()</a></code>.</p>
-<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
+<p>Install the <code class="package">shinyintro</code> package on your system. This package is the main package we will use throughout this book and is not on CRAN, so you will need to get it from github using the function <code><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">devtools::install_github()</a></code>.</p>
+<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># type this in the console pane</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"debruine/shinyintro"</span><span class="op">)</span></code></pre></div>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"debruine/shinyintro"</span><span class="op">)</span></code></pre></div>
 <p>If you get a message that says something like <code>package ‘shinyintro’ successfully unpacked and MD5 sums checked</code>, the installation was successful. If you get an error and the package wasn't installed, check the troubleshooting section <a href="installing-r.html#package-install-troubleshooting">A.5</a>.</p>
 <div class="dangerous">
 <p>Never install a package from inside a script. Only do this from the console pane.</p>
@@ -200,7 +200,7 @@ Figure A.2: RStudio Code settings
 </h3>
 <p>Package developers will occasionally release updates to their packages. This is typically to add in new functions to the package, or to fix or amend existing functions. <strong>Be aware that some package updates may cause your previous code to stop working</strong>. This does not tend to happen with minor updates to packages, but occasionally with major updates, you can have serious issues if the developer has made fundamental changes to how the code works. For this reason, we recommend updating all your packages once at the beginning of each academic year (or semester) - don't do it before an assessment or deadline just in case!</p>
 <p>To update an individual package, the easiest way is to use the <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> function, as this always installs the most recent version of the package.</p>
-<div class="sourceCode" id="cb193"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb195"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span></code></pre></div>
 <p>To update multiple packages, or indeed all packages, RStudio provides helpful tools. Click <code>Tools - Check for Package Updates</code>. A dialogue box will appear and you can select the packages you wish to update. Be aware that if you select all packages, this may take some time and you will be unable to use R whilst the process completes.</p>
 </div>
@@ -210,7 +210,7 @@ Figure A.2: RStudio Code settings
 <span class="header-section-number">A.4</span> Installing LaTeX<a class="anchor" aria-label="anchor" href="#installing-latex"><i class="fas fa-link"></i></a>
 </h2>
 <p>You can install the LaTeX typesetting system to produce PDF reports from RStudio. Without this additional installation, you will be able to produce reports in HTML but not PDF. To generate PDF reports, you will additionally need to install <code class="package">tinytex</code> <span class="citation">(<a href="glossary.html#ref-R-tinytex" role="doc-biblioref">Xie, 2019</a>)</span> and run the following code:</p>
-<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># run this in the console</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tinytex"</span><span class="op">)</span>
 <span class="fu">tinytex</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tinytex/man/install_tinytex.html">install_tinytex</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
@@ -225,7 +225,7 @@ Figure A.2: RStudio Code settings
 <span class="header-section-number">A.5.1</span> Non-zero exit status<a class="anchor" aria-label="anchor" href="#non-zero-exit-status"><i class="fas fa-link"></i></a>
 </h3>
 <p>If you try to update a package and get an error message that says something like <code>Warning in install.packages : installation of package ‘vctrs’ had non-zero exit status</code> or perhaps <code>Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) :  namespace 'rlang' 0.4.9 is being loaded, but &gt;= 0.4.10 is required</code> one solution I have found is to manually uninstall the package, restart R, and then install the package new, rather than trying to update an existing version. The <code>installr</code> package also has a useful function for uninstalling packages.</p>
-<div class="sourceCode" id="cb195"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Load installr</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://talgalili.github.io/installr/">installr</a></span><span class="op">)</span>
 
@@ -247,13 +247,13 @@ Figure A.2: RStudio Code settings
 </blockquote>
 <p>This usually indicates a permissions problem with writing to the default library (the folder that packages are kept in). Sometimes this means that you need to install R and RStudio as administrator or run it as administrator.</p>
 <p>One other fix may be to change the library location using the following code (check in "C:/Program Files/R" for what version you should have instead of "R-3.5.2"):</p>
-<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># change the library path</span>
 <span class="fu"><a href="https://rdrr.io/r/base/libPaths.html">.libPaths</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C:/Program Files/R/R-3.5.2/library"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>If that works and you can install packages, set this library path permanently:</p>
 <ol style="list-style-type: decimal">
 <li>Install the <code class="package">usethis</code> package</li>
-<li>Run <code><a href="https://usethis.r-lib.org/reference/edit.html">usethis::edit_r_profile()</a></code> in the console; it will open up a blank file</li>
+<li>Run <code><a href="https://rdrr.io/pkg/usethis/man/edit.html">usethis::edit_r_profile()</a></code> in the console; it will open up a blank file</li>
 <li>Paste into the file (your version of): <code>.libPaths(c("C:/Program Files/R/R-3.5.2/library"))</code>
 </li>
 <li>Save and close the file</li>
@@ -516,7 +516,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Building Web Apps with R Shiny</strong>: [<a href="/shinyintro/shinyintro.pdf">PDF</a> | <a href="/shinyintro/shinyintro.epub">EPUB</a> | <a href="/shinyintro/shinyintro.mobi">MOBI</a>]" was written by Lisa DeBruine. It was last built on 2022-03-30.</p>
+    <p>"<strong>Building Web Apps with R Shiny</strong>: [<a href="/shinyintro/shinyintro.pdf">PDF</a> | <a href="/shinyintro/shinyintro.epub">EPUB</a> | <a href="/shinyintro/shinyintro.mobi">MOBI</a>]" was written by Lisa DeBruine. It was last built on 2022-03-31.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

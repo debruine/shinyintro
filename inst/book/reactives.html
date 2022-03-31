@@ -17,9 +17,9 @@
 <meta name="twitter:title" content="5 Reactive functions | Building Web Apps with R Shiny">
 <meta name="twitter:description" content="There are a lot of great tutorials that explain the principles behind reactive functions, but that never made any sense to me when I first started out, so I'm just going to give you examples that...">
 <meta name="twitter:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.12/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1.9000/transition.js"></script><script src="libs/bs3compat-0.3.1.9000/tabs.js"></script><script src="libs/bs3compat-0.3.1.9000/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
@@ -94,27 +94,27 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
 </p>
 </div>
 <p>Here is the relevant code for the UI. There are four inputs: cut, color, clarity, and update. There are two outputs: title and plot.</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="reactives.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(</span>
-<span id="cb65-2"><a href="reactives.html#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">"Diamonds"</span>,</span>
-<span id="cb65-3"><a href="reactives.html#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">solidHeader =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb65-4"><a href="reactives.html#cb65-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">"cut"</span>, <span class="st">"Cut"</span>, <span class="fu">levels</span>(diamonds<span class="sc">$</span>cut)),</span>
-<span id="cb65-5"><a href="reactives.html#cb65-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">"color"</span>, <span class="st">"Color"</span>, <span class="fu">levels</span>(diamonds<span class="sc">$</span>color)),</span>
-<span id="cb65-6"><a href="reactives.html#cb65-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">"clarity"</span>, <span class="st">"Clarity"</span>, <span class="fu">levels</span>(diamonds<span class="sc">$</span>clarity)),</span>
-<span id="cb65-7"><a href="reactives.html#cb65-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">actionButton</span>(<span class="st">"update"</span>, <span class="st">"Update Plot"</span>)</span>
-<span id="cb65-8"><a href="reactives.html#cb65-8" aria-hidden="true" tabindex="-1"></a>),</span>
-<span id="cb65-9"><a href="reactives.html#cb65-9" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(</span>
-<span id="cb65-10"><a href="reactives.html#cb65-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">"Plot"</span>,</span>
-<span id="cb65-11"><a href="reactives.html#cb65-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">solidHeader =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb65-12"><a href="reactives.html#cb65-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textOutput</span>(<span class="st">"title"</span>),</span>
-<span id="cb65-13"><a href="reactives.html#cb65-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">"plot"</span>)</span>
-<span id="cb65-14"><a href="reactives.html#cb65-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="reactives.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(</span>
+<span id="cb67-2"><a href="reactives.html#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">"Diamonds"</span>,</span>
+<span id="cb67-3"><a href="reactives.html#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">solidHeader =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb67-4"><a href="reactives.html#cb67-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">"cut"</span>, <span class="st">"Cut"</span>, <span class="fu">levels</span>(diamonds<span class="sc">$</span>cut)),</span>
+<span id="cb67-5"><a href="reactives.html#cb67-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">"color"</span>, <span class="st">"Color"</span>, <span class="fu">levels</span>(diamonds<span class="sc">$</span>color)),</span>
+<span id="cb67-6"><a href="reactives.html#cb67-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">selectInput</span>(<span class="st">"clarity"</span>, <span class="st">"Clarity"</span>, <span class="fu">levels</span>(diamonds<span class="sc">$</span>clarity)),</span>
+<span id="cb67-7"><a href="reactives.html#cb67-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">actionButton</span>(<span class="st">"update"</span>, <span class="st">"Update Plot"</span>)</span>
+<span id="cb67-8"><a href="reactives.html#cb67-8" aria-hidden="true" tabindex="-1"></a>),</span>
+<span id="cb67-9"><a href="reactives.html#cb67-9" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(</span>
+<span id="cb67-10"><a href="reactives.html#cb67-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">"Plot"</span>,</span>
+<span id="cb67-11"><a href="reactives.html#cb67-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">solidHeader =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb67-12"><a href="reactives.html#cb67-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textOutput</span>(<span class="st">"title"</span>),</span>
+<span id="cb67-13"><a href="reactives.html#cb67-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">"plot"</span>)</span>
+<span id="cb67-14"><a href="reactives.html#cb67-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>Whenever an input changes, it will trigger some types of functions to run.</p>
 <div id="render-functions" class="section level2" number="5.1">
 <h2>
 <span class="header-section-number">5.1</span> Render functions<a class="anchor" aria-label="anchor" href="#render-functions"><i class="fas fa-link"></i></a>
 </h2>
 <p>Functions that render an output, like <code><span class="fu">renderText</span>()</code> or <code><span class="fu">renderPlot</span>()</code> will run whenever an input in their code changes. You can trigger a render function just by putting a reactive alone on a line, even if you aren't using it in the rest of the code.</p>
-<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">output</span><span class="op">$</span><span class="va">plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span><span class="op">(</span><span class="op">{</span>
     <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">diamonds</span>,
@@ -122,9 +122,9 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
                    <span class="va">color</span> <span class="op">==</span> <span class="va">input</span><span class="op">$</span><span class="va">color</span>,
                    <span class="va">clarity</span> <span class="op">==</span> <span class="va">input</span><span class="op">$</span><span class="va">clarity</span><span class="op">)</span>
     
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">carat</span>, <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#605CA8"</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
-      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span>, color <span class="op">=</span> <span class="st">"#605CA8"</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">data</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span><span class="va">carat</span>, <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#605CA8"</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span>, color <span class="op">=</span> <span class="st">"#605CA8"</span><span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
   
   <span class="va">output</span><span class="op">$</span><span class="va">title</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderText</a></span><span class="op">(</span><span class="op">{</span>
@@ -157,7 +157,7 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
 </h2>
 <p>If you move the <code>data</code> filtering outside of <code><span class="fu">renderPlot</span>()</code>, you'll get an error message like "Can't access reactive value 'cut' outside of reactive consumer." This means that the <code>input</code> values can only be read inside certain functions, like <code><span class="fu">reactive</span>()</code>, <code><span class="fu">observeEvent</span>()</code>, or a render function.</p>
 <p>However, we can put the data filtering inside <code><span class="fu">reactive</span>()</code>. This means that whenever an input inside that function changes, the code will run and update the value of <code><span class="fu">data</span>()</code>. This can be useful if you need to recalculate the data table each time the inputs change, and then use it in more than one function.</p>
-<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span><span class="op">(</span><span class="op">{</span>
     <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">diamonds</span>,
@@ -174,9 +174,9 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
   <span class="op">}</span><span class="op">)</span>
   
   <span class="va">output</span><span class="op">$</span><span class="va">plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span><span class="op">(</span><span class="op">{</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">carat</span>, <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#605CA8"</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
-      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span>, color <span class="op">=</span> <span class="st">"#605CA8"</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span><span class="va">carat</span>, <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#605CA8"</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span>, color <span class="op">=</span> <span class="st">"#605CA8"</span><span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
   
   <span class="va">output</span><span class="op">$</span><span class="va">text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderText</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/graphics/title.html">title</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
@@ -205,7 +205,7 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
 </h2>
 <p>What if you only want to update things when the update button is clicked, and not whenever the user changes an option?</p>
 <p>We learned about <code><span class="fu">observeEvent</span>()</code> in Section <a href="first-app.html#first-reactive">1.4</a>. This function runs the code whenever the value of the first argument changes. If there are reactive values inside the function, they won't trigger the code to run when they change.</p>
-<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update</span>, <span class="op">{</span>
     <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">diamonds</span>,
@@ -219,9 +219,9 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
                      <span class="va">input</span><span class="op">$</span><span class="va">clarity</span><span class="op">)</span>
     
     <span class="va">output</span><span class="op">$</span><span class="va">plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span><span class="op">(</span><span class="op">{</span>
-      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">carat</span>, <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-        <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#605CA8"</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
-        <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span>, color <span class="op">=</span> <span class="st">"#605CA8"</span><span class="op">)</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">data</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span><span class="va">carat</span>, <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+        <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#605CA8"</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
+        <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span>, color <span class="op">=</span> <span class="st">"#605CA8"</span><span class="op">)</span>
     <span class="op">}</span><span class="op">)</span>
     
     <span class="va">output</span><span class="op">$</span><span class="va">title</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderText</a></span><span class="op">(</span><span class="va">title</span><span class="op">)</span>
@@ -254,7 +254,7 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
 <p>You can avoid the problem above of defining a render function inside a reactive function by creating a reactive value using <code><span class="fu">reactiveVal</span>()</code>. This allows you to update the value of <code><span class="fu">data</span>()</code> not just using the code inside the <code><span class="fu">observeEvent</span>()</code> function that created it, but in any function. This is useful when you have multiple functions that need to update that value.</p>
 <p>Here, we use <code><span class="fu">observeEvent</span>()</code> to trigger the data filtering code only when the update button is pressed. This new data set is assigned to <code><span class="fu">data</span>()</code> using the code <code>data(newdata)</code>.</p>
 <p>Because <code><span class="fu">data</span>()</code> returns a reactive value, it will trigger <code><span class="fu">renderPlot</span>()</code> whenever it changes.</p>
-<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
     <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveVal.html">reactiveVal</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">)</span>
     <span class="va">title</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveVal.html">reactiveVal</a></span><span class="op">(</span><span class="op">)</span>
@@ -275,9 +275,9 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
     <span class="op">}</span><span class="op">)</span>
     
     <span class="va">output</span><span class="op">$</span><span class="va">plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span><span class="op">(</span><span class="op">{</span>
-        <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">carat</span>, <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#605CA8"</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
-            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span>, color <span class="op">=</span> <span class="st">"#605CA8"</span><span class="op">)</span>
+        <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span><span class="va">carat</span>, <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+            <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#605CA8"</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
+            <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span>, color <span class="op">=</span> <span class="st">"#605CA8"</span><span class="op">)</span>
     <span class="op">}</span><span class="op">)</span>
     
     <span class="va">output</span><span class="op">$</span><span class="va">title</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderText</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/graphics/title.html">title</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
@@ -306,7 +306,7 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
 </h2>
 <p>You need to set up a new <code><span class="fu">reactiveVal</span>()</code> for each value in an app that you want to make reactive. I prefer to use <code><span class="fu">reactiveValues</span>()</code> because it can be used for any new reactive value you need and works just like <code>input</code>, except you can assign new values to it.</p>
 <p>You can just set your new object to <code><span class="fu">reactiveValues</span>()</code> or you can initialise it with starting values like below. The object <code>v</code> is a named list, just like <code>input</code>, and when its values change, it triggers reactive functions exactly like <code>input</code> does.</p>
-<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
     <span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveValues.html">reactiveValues</a></span><span class="op">(</span>
         data <span class="op">=</span> <span class="va">diamonds</span>,
@@ -326,9 +326,9 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
     <span class="op">}</span><span class="op">)</span>
     
     <span class="va">output</span><span class="op">$</span><span class="va">plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span><span class="op">(</span><span class="op">{</span>
-        <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">v</span><span class="op">$</span><span class="va">data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">carat</span>, <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#605CA8"</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
-            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span>, color <span class="op">=</span> <span class="st">"#605CA8"</span><span class="op">)</span>
+        <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">v</span><span class="op">$</span><span class="va">data</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span><span class="va">carat</span>, <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+            <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#605CA8"</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
+            <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span>, color <span class="op">=</span> <span class="st">"#605CA8"</span><span class="op">)</span>
     <span class="op">}</span><span class="op">)</span>
     
     <span class="va">output</span><span class="op">$</span><span class="va">title</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderText</a></span><span class="op">(</span><span class="va">v</span><span class="op">$</span><span class="va">title</span><span class="op">)</span>
@@ -356,7 +356,7 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
 <span class="header-section-number">5.6</span> eventReactive()<a class="anchor" aria-label="anchor" href="#eventreactive"><i class="fas fa-link"></i></a>
 </h2>
 <p>While <code><span class="fu">reactive</span>()</code> is triggered whenever any input values inside it change, <code><span class="fu">eventReactive</span>()</code> is only triggered when the value of the first argument changes, like <code><span class="fu">observeEvent</span>()</code>, but returns a reactive function like <code><span class="fu">reactive</span>()</code>.</p>
-<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">eventReactive</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update</span>, <span class="op">{</span>
     <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">diamonds</span>,
@@ -373,9 +373,9 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
   <span class="op">}</span><span class="op">)</span>
   
   <span class="va">output</span><span class="op">$</span><span class="va">plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span><span class="op">(</span><span class="op">{</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">carat</span>, <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#605CA8"</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
-      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span>, color <span class="op">=</span> <span class="st">"#605CA8"</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span><span class="va">carat</span>, <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#605CA8"</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span>, color <span class="op">=</span> <span class="st">"#605CA8"</span><span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
   
   <span class="va">output</span><span class="op">$</span><span class="va">text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderText</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/graphics/title.html">title</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
@@ -402,7 +402,7 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
 <span class="header-section-number">5.7</span> isolate()<a class="anchor" aria-label="anchor" href="#isolate"><i class="fas fa-link"></i></a>
 </h2>
 <p>If you want to use an input or reactive value inside a reactive function, but don't want to trigger that function, you can <code><span class="fu">isolate</span>()</code> it. You can also use <code><span class="fu">isolate</span>()</code> to get a reactive value outside a reactive function.</p>
-<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span><span class="op">(</span><span class="op">{</span>
     <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span>
@@ -426,9 +426,9 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
   <span class="fu">debug_msg</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/isolate.html">isolate</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/graphics/title.html">title</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
   
   <span class="va">output</span><span class="op">$</span><span class="va">plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span><span class="op">(</span><span class="op">{</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">carat</span>, <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#605CA8"</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
-      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span>, color <span class="op">=</span> <span class="st">"#605CA8"</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span><span class="va">carat</span>, <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#605CA8"</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span>, color <span class="op">=</span> <span class="st">"#605CA8"</span><span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
   
   <span class="va">output</span><span class="op">$</span><span class="va">title</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderText</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/graphics/title.html">title</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
@@ -464,22 +464,22 @@ Figure 5.1: Reactive Demo App. You can also access this app with <code>shinyintr
 <span class="header-section-number">5.9</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-reactive"><i class="fas fa-link"></i></a>
 </h2>
 <p>For the following exercises, clone "reactive_demo" and replace the boxes in the ui with the code below. Delete all the code in <code><span class="fu">server</span>()</code>. Make sure this runs before you go ahead.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="reactives.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(<span class="at">width =</span> <span class="dv">4</span>,</span>
-<span id="cb73-2"><a href="reactives.html#cb73-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">selectInput</span>(<span class="st">"stat"</span>, <span class="st">"Statistic"</span>, <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>)),</span>
-<span id="cb73-3"><a href="reactives.html#cb73-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">selectInput</span>(<span class="st">"group"</span>, <span class="st">"Group By"</span>, <span class="fu">c</span>(<span class="st">"vore"</span>, <span class="st">"order"</span>, <span class="st">"conservation"</span>)),</span>
-<span id="cb73-4"><a href="reactives.html#cb73-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">actionButton</span>(<span class="st">"update"</span>, <span class="st">"Update Table"</span>)),</span>
-<span id="cb73-5"><a href="reactives.html#cb73-5" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(<span class="at">width =</span> <span class="dv">8</span>,</span>
-<span id="cb73-6"><a href="reactives.html#cb73-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">solidHeader =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb73-7"><a href="reactives.html#cb73-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">textOutput</span>(<span class="st">"caption"</span>),</span>
-<span id="cb73-8"><a href="reactives.html#cb73-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tableOutput</span>(<span class="st">"table"</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="reactives.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(<span class="at">width =</span> <span class="dv">4</span>,</span>
+<span id="cb75-2"><a href="reactives.html#cb75-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">selectInput</span>(<span class="st">"stat"</span>, <span class="st">"Statistic"</span>, <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>)),</span>
+<span id="cb75-3"><a href="reactives.html#cb75-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">selectInput</span>(<span class="st">"group"</span>, <span class="st">"Group By"</span>, <span class="fu">c</span>(<span class="st">"vore"</span>, <span class="st">"order"</span>, <span class="st">"conservation"</span>)),</span>
+<span id="cb75-4"><a href="reactives.html#cb75-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">actionButton</span>(<span class="st">"update"</span>, <span class="st">"Update Table"</span>)),</span>
+<span id="cb75-5"><a href="reactives.html#cb75-5" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(<span class="at">width =</span> <span class="dv">8</span>,</span>
+<span id="cb75-6"><a href="reactives.html#cb75-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">solidHeader =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb75-7"><a href="reactives.html#cb75-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">textOutput</span>(<span class="st">"caption"</span>),</span>
+<span id="cb75-8"><a href="reactives.html#cb75-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tableOutput</span>(<span class="st">"table"</span>))</span></code></pre></div>
 <p>You will grouping and summarising the <code>msleep</code> data table from <code class="package">ggplot2</code> by calculating the mean or standard deviation for all (or some) of the numeric columns grouped by the categorical columns <code>vore</code>, <code>order</code>, or <code>conservation</code>. If you're not sure how to create such a summary table with <code class="package">dplyr</code>, look at the following code for a concrete example.</p>
 <div class="webex-solution">
 <button>
 Hint
 </button>
-<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">msleep</span> <span class="op"><a href="https://googlesheets4.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu">group_by</span><span class="op">(</span><span class="va">vore</span><span class="op">)</span> <span class="op"><a href="https://googlesheets4.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">msleep</span> <span class="op">%&gt;%</span>
+  <span class="fu">group_by</span><span class="op">(</span><span class="va">vore</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">summarise_if</span><span class="op">(</span><span class="va">is.numeric</span>, <span class="st">"mean"</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <div class="kable-table">
 <div class="inline-table"><table class="table table-sm">
@@ -634,11 +634,11 @@ NA
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">output</span><span class="op">$</span><span class="va">table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html">renderTable</a></span><span class="op">(</span><span class="op">{</span>
-    <span class="va">msleep</span> <span class="op"><a href="https://googlesheets4.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-      <span class="fu">group_by</span><span class="op">(</span><span class="va">.data</span><span class="op">[[</span><span class="va">input</span><span class="op">$</span><span class="va">group</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op"><a href="https://googlesheets4.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+    <span class="va">msleep</span> <span class="op">%&gt;%</span>
+      <span class="fu">group_by</span><span class="op">(</span><span class="va">.data</span><span class="op">[[</span><span class="va">input</span><span class="op">$</span><span class="va">group</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">%&gt;%</span>
       <span class="fu">summarise_if</span><span class="op">(</span><span class="va">is.numeric</span>, <span class="va">input</span><span class="op">$</span><span class="va">stat</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
   
@@ -656,11 +656,11 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span><span class="op">(</span><span class="op">{</span>
-    <span class="va">msleep</span> <span class="op"><a href="https://googlesheets4.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-      <span class="fu">group_by</span><span class="op">(</span><span class="va">.data</span><span class="op">[[</span><span class="va">input</span><span class="op">$</span><span class="va">group</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op"><a href="https://googlesheets4.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+    <span class="va">msleep</span> <span class="op">%&gt;%</span>
+      <span class="fu">group_by</span><span class="op">(</span><span class="va">.data</span><span class="op">[[</span><span class="va">input</span><span class="op">$</span><span class="va">group</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">%&gt;%</span>
       <span class="fu">summarise_if</span><span class="op">(</span><span class="va">is.numeric</span>, <span class="va">input</span><span class="op">$</span><span class="va">stat</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
   <span class="va">output</span><span class="op">$</span><span class="va">table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html">renderTable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
@@ -680,11 +680,11 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update</span>, <span class="op">{</span>
-    <span class="va">data</span> <span class="op">&lt;-</span> <span class="va">msleep</span> <span class="op"><a href="https://googlesheets4.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-      <span class="fu">group_by</span><span class="op">(</span><span class="va">.data</span><span class="op">[[</span><span class="va">input</span><span class="op">$</span><span class="va">group</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op"><a href="https://googlesheets4.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+    <span class="va">data</span> <span class="op">&lt;-</span> <span class="va">msleep</span> <span class="op">%&gt;%</span>
+      <span class="fu">group_by</span><span class="op">(</span><span class="va">.data</span><span class="op">[[</span><span class="va">input</span><span class="op">$</span><span class="va">group</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">%&gt;%</span>
       <span class="fu">summarise_if</span><span class="op">(</span><span class="va">is.numeric</span>, <span class="va">input</span><span class="op">$</span><span class="va">stat</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
     <span class="va">output</span><span class="op">$</span><span class="va">table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html">renderTable</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>
     
@@ -703,20 +703,20 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveVal.html">reactiveVal</a></span><span class="op">(</span><span class="op">)</span>
   <span class="va">caption</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveVal.html">reactiveVal</a></span><span class="op">(</span><span class="op">)</span>
   
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update</span>, <span class="op">{</span>
-    <span class="va">newdata</span> <span class="op">&lt;-</span> <span class="va">msleep</span> <span class="op"><a href="https://googlesheets4.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-      <span class="fu">group_by</span><span class="op">(</span><span class="va">.data</span><span class="op">[[</span><span class="va">input</span><span class="op">$</span><span class="va">group</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op"><a href="https://googlesheets4.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+    <span class="va">newdata</span> <span class="op">&lt;-</span> <span class="va">msleep</span> <span class="op">%&gt;%</span>
+      <span class="fu">group_by</span><span class="op">(</span><span class="va">.data</span><span class="op">[[</span><span class="va">input</span><span class="op">$</span><span class="va">group</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">%&gt;%</span>
       <span class="fu">summarise_if</span><span class="op">(</span><span class="va">is.numeric</span>, <span class="va">input</span><span class="op">$</span><span class="va">stat</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
     <span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">newdata</span><span class="op">)</span>
     
     <span class="co"># this is an alternative way to set reactiveVal</span>
     <span class="co"># by piping the value into the function</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"%ss by %s"</span>, <span class="fu"><a href="https://rdrr.io/r/base/chartr.html">toupper</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">stat</span><span class="op">)</span>, <span class="va">input</span><span class="op">$</span><span class="va">group</span><span class="op">)</span> <span class="op"><a href="https://googlesheets4.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+    <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"%ss by %s"</span>, <span class="fu"><a href="https://rdrr.io/r/base/chartr.html">toupper</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">stat</span><span class="op">)</span>, <span class="va">input</span><span class="op">$</span><span class="va">group</span><span class="op">)</span> <span class="op">%&gt;%</span>
       <span class="fu">caption</span><span class="op">(</span><span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
   
@@ -733,13 +733,13 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactiveValues.html">reactiveValues</a></span><span class="op">(</span><span class="op">)</span>
   
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update</span>, <span class="op">{</span>
-    <span class="va">v</span><span class="op">$</span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">msleep</span> <span class="op"><a href="https://googlesheets4.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-      <span class="fu">group_by</span><span class="op">(</span><span class="va">.data</span><span class="op">[[</span><span class="va">input</span><span class="op">$</span><span class="va">group</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op"><a href="https://googlesheets4.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+    <span class="va">v</span><span class="op">$</span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">msleep</span> <span class="op">%&gt;%</span>
+      <span class="fu">group_by</span><span class="op">(</span><span class="va">.data</span><span class="op">[[</span><span class="va">input</span><span class="op">$</span><span class="va">group</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">%&gt;%</span>
       <span class="fu">summarise_if</span><span class="op">(</span><span class="va">is.numeric</span>, <span class="va">input</span><span class="op">$</span><span class="va">stat</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
     
     <span class="va">v</span><span class="op">$</span><span class="va">caption</span> <span class="op">&lt;-</span>
@@ -759,11 +759,11 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">eventReactive</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">update</span>, <span class="op">{</span>
-    <span class="va">msleep</span> <span class="op"><a href="https://googlesheets4.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-      <span class="fu">group_by</span><span class="op">(</span><span class="va">.data</span><span class="op">[[</span><span class="va">input</span><span class="op">$</span><span class="va">group</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op"><a href="https://googlesheets4.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+    <span class="va">msleep</span> <span class="op">%&gt;%</span>
+      <span class="fu">group_by</span><span class="op">(</span><span class="va">.data</span><span class="op">[[</span><span class="va">input</span><span class="op">$</span><span class="va">group</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">%&gt;%</span>
       <span class="fu">summarise_if</span><span class="op">(</span><span class="va">is.numeric</span>, <span class="va">input</span><span class="op">$</span><span class="va">stat</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
   <span class="va">output</span><span class="op">$</span><span class="va">table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderTable.html">renderTable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
@@ -1028,7 +1028,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Building Web Apps with R Shiny</strong>: [<a href="/shinyintro/shinyintro.pdf">PDF</a> | <a href="/shinyintro/shinyintro.epub">EPUB</a> | <a href="/shinyintro/shinyintro.mobi">MOBI</a>]" was written by Lisa DeBruine. It was last built on 2022-03-30.</p>
+    <p>"<strong>Building Web Apps with R Shiny</strong>: [<a href="/shinyintro/shinyintro.pdf">PDF</a> | <a href="/shinyintro/shinyintro.epub">EPUB</a> | <a href="/shinyintro/shinyintro.mobi">MOBI</a>]" was written by Lisa DeBruine. It was last built on 2022-03-31.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

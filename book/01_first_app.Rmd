@@ -94,7 +94,8 @@ knitr::include_graphics('images/demo_app/05-app-interface.png')
 
 
 ::: {.info data-latex=""}
-You can also open up the app in a web browser by clicking on `Open in Browser`.
+![](images/rstudio-run-app.png){float:right; width: 225px;}
+You can change whether the app opens in a separate window in RStudio, the RStudio viewer pane, or externally in your web browser. Use whichever works best for you and your computer setup.
 :::
 
 ### Modify the Demo App
@@ -483,7 +484,7 @@ server <- function(input, output) {
 }
 ```
 
-As always in coding, there are many ways to accomplish the same thing. These methods have different pros and cons that we'll learn more about in Section\ \@ref(reactives). Here is another (better) pattern that does that same as above.
+As always in coding, there are many ways to accomplish the same thing. These methods have different pros and cons that we'll learn more about in Section\ \@ref(reactives). Here is another pattern that does that same as above.
 
 ```{r}
 server <- function(input, output) {
@@ -508,6 +509,22 @@ Whenever the returned value of `r func("count_text")` changes, this triggers an 
 ::: {.try data-latex=""}
 Compare the app behaviour with the first pattern versus the second. How are they different? What happens if you remove `r func("isolate")` from around `input$fav_things`?
 :::
+
+Here is a third way, using the function `eventReactive()` to avoid having to isolate `input$fav_things`, as it only runs when  `input$count_fav_things` changes.
+
+```{r}
+server <- function(input, output) {
+  # update count_text on fav_things
+  count_text <- eventReactive(input$count_fav_things, {
+    fav_things <-input$fav_things
+    n <- length(fav_things)
+    sprintf("You have %d favourite things", n)
+  })
+  
+  # display count_text when it updates
+  output$n_fav_things <- renderText(count_text())
+}
+```
 
 ## Further Resources {#resources-first-app}
 
@@ -546,7 +563,7 @@ ui <- fluidPage(titlePanel("Addition Demo"),
 
 ### observeEvent {-}
 
-Use `r func("observeEvent")` to write a server function that displays "n1 + n2 = sum" when you click the action button.
+Use `observeEvent()` to write a server function that displays "n1 + n2 = sum" when you click the action button (replacing the variables with their values).
 
 `r hide()`
 
@@ -565,11 +582,9 @@ server <- function(input, output) {
 
 ### reactive {-}
 
-Use `r func("reactive")` to accomplish the same behaviour.
+Use `reactive()` or `eventReactive()` to accomplish the same behaviour.
 
-`r hide()`
-
-```{r}
+```{r, webex.hide = "reactive"}
 server <- function(input, output) {
   add_text <- reactive({
     input$add # triggers reactive
@@ -582,4 +597,15 @@ server <- function(input, output) {
 }
 ```
 
-`r unhide()`
+```{r, webex.hide = "eventReactive"}
+server <- function(input, output) {
+  add_text <- eventReactive(input$add, {
+    sprintf("%d + %d = %d", 
+            input$n1, 
+            input$n2, 
+            input$n1 + input$n2)
+  })
+  
+  output$n1_plus_n2 <- renderText(add_text())
+}
+```

@@ -17,9 +17,9 @@
 <meta name="twitter:title" content="9 Debugging and error handling | Building Web Apps with R Shiny">
 <meta name="twitter:description" content="Bugs are a part of coding. A great coder isn't someone who writes bug-free code on their first try (this is an unachievable goal), but rather someone who knows how to efficiently catch bugs. This...">
 <meta name="twitter:image" content="https://debruine.github.io/shinyintro/images/logos/shinyintro.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.12/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1.9000/transition.js"></script><script src="libs/bs3compat-0.3.1.9000/tabs.js"></script><script src="libs/bs3compat-0.3.1.9000/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
@@ -89,7 +89,7 @@
 </h2>
 <p>Sending messages to the <a class="glossary" target="_blank" title="The pane in RStudio where you can type in commands and view output messages." href="https://psyteachr.github.io/glossary/c#console">console</a> is a simple way to debug your code.</p>
 <p>I like to keep track of what functions are being called by starting every function inside the server function with a message. The template includes a custom message logging function that helps you use this with both development and deployed apps: <code><span class="fu">debug_msg</span>()</code>.</p>
-<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># display debugging messages in R (if local) </span>
 <span class="co"># and in the console log (if running in shiny)</span>
 <span class="va">debug_msg</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="op">{</span>
@@ -100,7 +100,7 @@
   <span class="kw">if</span> <span class="op">(</span><span class="va">in_shiny</span><span class="op">)</span> <span class="fu">shinyjs</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shinyjs/man/runjs.html">runjs</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html">sprintf</a></span><span class="op">(</span><span class="st">"console.debug(\"%s\")"</span>, <span class="va">txt</span><span class="op">)</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
 <p>For example, the code below prints "questionnaire submitted" every time the action button <code>q_submit</code> is pressed. It prints to the javascript console and also to the RStudio console when you're developing.</p>
-<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">q_submit</span>, <span class="op">{</span>
   <span class="fu">debug_msg</span><span class="op">(</span><span class="st">"questionnaire submitted"</span><span class="op">)</span>
   <span class="co"># rest of code ...</span>
@@ -143,13 +143,13 @@ Figure 9.2: Showcase mode.
 <p>You've probably experienced the greyed out screen of a crashed app more than enough now. In development, the next step is to look at the console to see if you have a warning or error message. If you're lucky, you can figure out where in the code this is happening (this is easier if you start all your functions with a debug message) and fix it.</p>
 <p>However, sometimes there are errors that are difficult to prevent. For example, you can try to restrict inputs so the users only enter numeric values using <code><span class="fu">numericInput</span>()</code>, but many browsers will let you enter text values anyways (they cause a value of <code>NA</code>). To avoid crashing the whole app, you can wrap potentially error-triggering code in <code><span class="fu">tryCatch</span>()</code>.</p>
 <p>For example, the code below will cause an error because you can't add a number and a letter.</p>
-<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">input</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>n1 <span class="op">=</span> <span class="fl">10</span>, n2 <span class="op">=</span> <span class="st">"A"</span><span class="op">)</span>
 
 <span class="va">sum</span> <span class="op">&lt;-</span> <span class="va">input</span><span class="op">$</span><span class="va">n1</span> <span class="op">+</span> <span class="va">input</span><span class="op">$</span><span class="va">n2</span></code></pre></div>
 <pre><code>## Error in input$n1 + input$n2: non-numeric argument to binary operator</code></pre>
 <p>The following code tries to run the code inside the curly brackets (<code><a href="https://rdrr.io/r/base/Paren.html">{}</a></code>), but if it creates an error, the error function will run. The object <code>e</code> is the error object, and you can print the message from it using <code><span class="fu">debug_msg</span>()</code> (this won't crash the app).</p>
-<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sum</span> <span class="op">&lt;-</span> <span class="kw"><a href="https://rdrr.io/r/base/conditions.html">tryCatch</a></span><span class="op">(</span><span class="op">{</span>
   <span class="va">input</span><span class="op">$</span><span class="va">n1</span> <span class="op">+</span> <span class="va">input</span><span class="op">$</span><span class="va">n2</span>
 <span class="op">}</span>, error <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">e</span><span class="op">)</span> <span class="op">{</span>
@@ -157,7 +157,7 @@ Figure 9.2: Showcase mode.
   <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span></code></pre></div>
 <p>The return value from the error message is the value assigned to <code>sum</code> if there is an error. Sometimes it won't make sense to have a default value, or the code you're checking doesn't have a return value. In that case, you can just put all the code inside the brackets and not return anything from the error function.</p>
-<div class="sourceCode" id="cb135"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb137"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/conditions.html">tryCatch</a></span><span class="op">(</span><span class="op">{</span>
   <span class="va">sum</span> <span class="op">&lt;-</span> <span class="va">input</span><span class="op">$</span><span class="va">n1</span> <span class="op">+</span> <span class="va">input</span><span class="op">$</span><span class="va">n2</span>
   <span class="va">output</span><span class="op">$</span><span class="va">sum</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderText</a></span><span class="op">(</span><span class="va">sum</span><span class="op">)</span>
@@ -175,10 +175,10 @@ Figure 9.2: Showcase mode.
 <span class="header-section-number">9.5.1</span> Modal Dialogs<a class="anchor" aria-label="anchor" href="#modal-dialogs"><i class="fas fa-link"></i></a>
 </h3>
 <p>One method is to check your input values, generate an appropriate error message if anything is wrong, and show the message in a <code><span class="fu">modalDialog</span>()</code>.</p>
-<div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">submit</span>, <span class="op">{</span>
   <span class="co"># check inputs</span>
-  <span class="va">input_error</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span>
+  <span class="va">input_error</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/case_when.html">case_when</a></span><span class="op">(</span>
     <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">n1</span><span class="op">)</span> <span class="op">~</span> <span class="st">"N1 needs to be a number"</span>,
     <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">n2</span><span class="op">)</span> <span class="op">~</span> <span class="st">"N2 needs to be a number"</span>,
     <span class="cn">TRUE</span> <span class="op">~</span> <span class="st">""</span>
@@ -203,7 +203,7 @@ Figure 9.2: Showcase mode.
 <span class="header-section-number">9.5.2</span> Validate<a class="anchor" aria-label="anchor" href="#validate"><i class="fas fa-link"></i></a>
 </h3>
 <p>You can also use <code><span class="fu">validate</span>()</code> and <code><span class="fu">need</span>()</code> to test for required inputs to an output. However, this only works from inside a render function or a reactive function called inside a render function. I prefer to make my own pop-up messages like above, because they will work from any type of function.</p>
-<div class="sourceCode" id="cb137"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">add_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span><span class="op">(</span><span class="op">{</span>
     <span class="va">input</span><span class="op">$</span><span class="va">add</span> <span class="co"># triggers reactive</span>
@@ -239,17 +239,17 @@ Figure 9.2: Showcase mode.
 <h3>Required selections<a class="anchor" aria-label="anchor" href="#required-selections"><i class="fas fa-link"></i></a>
 </h3>
 <p>Write an app that creates the plot below for any checked values of a <code><span class="fu">checkboxGroupInput</span>()</code> that lists all the orders in <code>msleep</code>.</p>
-<div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb140"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># this input is just an example for testing the code below</span>
 <span class="va">input</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>orders <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Carnivora"</span>, <span class="st">"Chiroptera"</span>, <span class="st">"Primates"</span><span class="op">)</span><span class="op">)</span>
 <span class="co"># input &lt;- list(orders = c()) # check this to see what happens with no selections</span>
 
-<span class="va">filtered_data</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">msleep</span>, <span class="va">order</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">input</span><span class="op">$</span><span class="va">orders</span><span class="op">)</span>
+<span class="va">filtered_data</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/filter.html">filter</a></span><span class="op">(</span><span class="va">msleep</span>, <span class="va">order</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">input</span><span class="op">$</span><span class="va">orders</span><span class="op">)</span>
 
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">filtered_data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">sleep_total</span>, fill <span class="op">=</span> <span class="va">order</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">order</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-126-1.png" width="100%" style="display: block; margin: auto;"></div>
+<span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">filtered_data</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">sleep_total</span>, fill <span class="op">=</span> <span class="va">order</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">order</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-128-1.png" width="100%" style="display: block; margin: auto;"></div>
 <p>Add error checking to the app to deal with what happens when <code>input$order</code> has no selections.</p>
 </div>
 </div>
@@ -502,7 +502,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Building Web Apps with R Shiny</strong>: [<a href="/shinyintro/shinyintro.pdf">PDF</a> | <a href="/shinyintro/shinyintro.epub">EPUB</a> | <a href="/shinyintro/shinyintro.mobi">MOBI</a>]" was written by Lisa DeBruine. It was last built on 2022-03-30.</p>
+    <p>"<strong>Building Web Apps with R Shiny</strong>: [<a href="/shinyintro/shinyintro.pdf">PDF</a> | <a href="/shinyintro/shinyintro.epub">EPUB</a> | <a href="/shinyintro/shinyintro.mobi">MOBI</a>]" was written by Lisa DeBruine. It was last built on 2022-03-31.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
