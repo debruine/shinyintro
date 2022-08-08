@@ -243,7 +243,8 @@ Which inputs will trigger `r func("renderText")` to run and produce a new title?
 `r mcq(c("cut", "color", "clarity", answer = "update", "cut, color & clarity", "all of the above"))`
 
 ::: {.warning data-latex=""}
-Note that you refer to reactive values set up this way as `v$data` and `v$title`, not `r func("data")` and `r func("title")`, as set them `v$data <- newdata`, not `v$data(newdata)`.
+Note that you refer to reactive values set up this way as `v$data` and `v$title`, not `r func("data")` and `r func("title")`,
+and set them as `v$data <- newdata`, not `v$data(newdata)`.
 :::
 
 ## eventReactive() 
