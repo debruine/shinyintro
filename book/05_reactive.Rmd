@@ -201,7 +201,7 @@ We used `data <- reactiveVal(diamonds)` in order for `r func("data")` to have a 
 :::
 
 
-## reactiveValue()
+## reactiveValues()
 
 You need to set up a new `r func("reactiveVal")` for each value in an app that you want to make reactive. I prefer to use `r func("reactiveValues")` because it can be used for any new reactive value you need and works just like `input`, except you can assign new values to it.
 
