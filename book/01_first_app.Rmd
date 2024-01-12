@@ -94,7 +94,7 @@ knitr::include_graphics('images/demo_app/05-app-interface.png')
 
 
 ::: {.info data-latex=""}
-![](images/rstudio-run-app.png){float:right; width: 225px;}
+![](images/rstudio_run_app.png){float:right; width: 225px;}
 You can change whether the app opens in a separate window in RStudio, the RStudio viewer pane, or externally in your web browser. Use whichever works best for you and your computer setup.
 :::
 
